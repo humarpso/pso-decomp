@@ -238,7 +238,7 @@ void render__13TObjEneBm3FlyFv(VObj_800AFBF0 *o) {
         toggle_particle_effect__10TObjPlayerFv();
         set_scene_override(0x8F);
         if (kind == 1) {
-            ((TObjEneRe7Berura *)o)->draw();
+            ((TObjMotion *)o)->draw();
         } else {
             ((TObjEnemy *)o)->render_world_model();
         }

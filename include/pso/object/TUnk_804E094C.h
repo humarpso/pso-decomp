@@ -6,6 +6,7 @@
 class TUnk_804E094C : public TObjPathObj {
 public:
     virtual ~TUnk_804E094C();
+    s32 sub_802C2548();
     s32 update_path_follow_rotation(void *, f32);
     virtual void vfunc_13(s32);
     virtual void vfunc_14();

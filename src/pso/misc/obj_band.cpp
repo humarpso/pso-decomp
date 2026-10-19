@@ -352,7 +352,7 @@ void TObjEnemy::render_world_model() {
     TObjPlayer::clear_global_state();
 }
 
-void TObjEneRe7Berura::draw() {
+void TObjMotion::draw() {
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (this->animationFlags & 4) {

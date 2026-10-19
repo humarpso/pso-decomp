@@ -6,6 +6,7 @@
 
 struct TOSwitchTimer : public TUnk_804B9870 {
     virtual ~TOSwitchTimer();
+    void sub_801782A0();
     void send_switch_states();
     u32 m_90;
     u32 m_94;

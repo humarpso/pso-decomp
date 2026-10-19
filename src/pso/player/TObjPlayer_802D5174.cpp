@@ -277,7 +277,7 @@ void push_matrix(void);
 s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *child);
-void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
+void fire_shot_at_target__11TItemWeaponFPvPvl(void *, void *, s32, s32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 rotate_matrix_about_axis(int, void *, int);
@@ -320,7 +320,7 @@ void TUnk_804E21F8::emit_marker_effects() {
     v = ((Pl_802D564C *)this)->f250 - ((Pl_802D564C *)this)->f0F0->f60;
     step = 0x10000 / cnt;
     while (n != 0) {
-        fire_shot_at_target__11TItemWeaponFv(((Pl_802D564C *)this), p++, ((Pl_802D564C *)this)->f0F4, v);
+        fire_shot_at_target__11TItemWeaponFPvPvl(((Pl_802D564C *)this), p++, ((Pl_802D564C *)this)->f0F4, v);
         v += step;
         n--;
     }
@@ -693,7 +693,7 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 };
 
 extern "C" {
-s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
+s32 fire_shot_at_target__11TItemWeaponFPvPvl(void *, void *, int, int);
 s16 get_validated_attack_stage(u8 *arg0);
 void fire_spread_shot__10TObjPlayerFPv(u8 *arg0);
 s32 draw_weapon_model__11TItemWeaponFv(TItemWeapon *);
@@ -750,11 +750,11 @@ void fire_spread_shot__10TObjPlayerFPv(u8 *arg0) {
     s32 sp8;
     ((VObj_18 *)(((TUnk_804E23F0 *)arg0)->player))->m63(0x30, &sp8);
     if (get_validated_attack_stage((*(u8 * *)&((TUnk_804E23F0 *)arg0)->player + 0x7CC)) == 2) {
-        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
-        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
-        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
+        fire_shot_at_target__11TItemWeaponFPvPvl(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFPvPvl(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
+        fire_shot_at_target__11TItemWeaponFPvPvl(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFPvPvl(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
     }
     ((VObj_18 *)(arg0))->m60(&sp8);
 }

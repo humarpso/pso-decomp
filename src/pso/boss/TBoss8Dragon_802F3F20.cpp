@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss8Dragon_802F3F20.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/MaterialAlphaCompare.h"
@@ -156,7 +157,7 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         } else {
             this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
         }
-        ((TObjEneRe7Berura *)((u8 *)this))->draw();
+        ((TObjMotion *)((u8 *)this))->draw();
         TObjPlayer::setup_tev_swap();
         TParticleCtrl::end_effect_render();
         TObjLight__sub_801337F8((void *)current_scene_light);

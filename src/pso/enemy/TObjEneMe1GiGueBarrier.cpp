@@ -84,7 +84,7 @@ block_6:
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             TParticleCtrl::end_effect_render();
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
             pop_matrix();
         }
     }

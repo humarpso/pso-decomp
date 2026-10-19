@@ -11,7 +11,7 @@ typedef char RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList_size[sizeof(Rec
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
 s32 draw_window_scrollbar(void *, int, void *);
@@ -40,7 +40,7 @@ void TWindowSubItemList::render() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)temp_r3);

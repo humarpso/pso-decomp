@@ -21,7 +21,7 @@
 
 extern const f32 lbl_805DD160;
 extern "C" {
-s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
+s32 get_selected_entry__11TWindowMenuFv(u8 *arg0);
 struct Stack_80265500 {
     f32 sp8;
     f32 spC;
@@ -109,7 +109,7 @@ s32 __nw__7TObjectFUl(int);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 void * get_field_20__17TWindowSubComCardFv(void *e);
-s32 draw_window_frame(void *, s32);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowChat__sub_80247D2C(void *p);
 s32 is_player_input_active(s32 param_1);
@@ -269,16 +269,16 @@ void TWindowSubComCard::set_entry_value_clear_flag(s32 idx, s32 val) {
     r[(s16)idx].flags &= ~0x10;
 }
 
-s32 get_selected_entry__17TWindowSubComCardFPv(u8 *window_menu) {
+s32 TWindowMenu::get_selected_entry() {
     s16 temp_r4;
-    temp_r4 = *(s16 *)&((TWindowMenu *)window_menu)->m_78;
+    temp_r4 = *(s16 *)&((TWindowMenu *)((u8 *)this))->m_78;
     if (temp_r4 < 0) {
         return 0;
     }
-    if (temp_r4 >= (s16) *(s16 *)&((TWindowMenu *)window_menu)->m_76) {
+    if (temp_r4 >= (s16) *(s16 *)&((TWindowMenu *)((u8 *)this))->m_76) {
         return 0;
     }
-    return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(window_menu, (s32)((s32) temp_r4));
+    return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), (s32)((s32) temp_r4));
 }
 
 void TWindowMenu::set_active_flag() {
@@ -424,7 +424,7 @@ void TWindowMenu::update_scroll_value() {
   new_var = (u32 *)(arg0 + 0x50);
   if ((*((u16 *)(arg0 + 0x70))) & 0x20)
   {
-    v = *((f32 *) (get_selected_entry__17TWindowSubComCardFPv(arg0) + 0xC));
+    v = *((f32 *) (get_selected_entry__11TWindowMenuFv(arg0) + 0xC));
   }
   else
   {
@@ -592,7 +592,7 @@ void TWindowOptionCtrl::open() {
     temp_r4 = *(u16 *)((s8 *)this + 0x70);
     if (!(temp_r4 & 0x20)) {
         *(u16 *)((s8 *)this + 0x70) = (u16) (temp_r4 | 0x20);
-        temp_r3 = ((void * (*)(void *))get_selected_entry__17TWindowSubComCardFPv)(this);
+        temp_r3 = ((void * (*)(void *))get_selected_entry__11TWindowMenuFv)(this);
         temp_f1 = lbl_805DD154;
         *(f32 *)&this->m_3c = (f32) (temp_f1 + *(f32 *)((s8 *)temp_r3 + 0x14));
         if (*(s32 *)&this->m_2c & 0x40) {
@@ -755,7 +755,7 @@ void render__11TWindowMenuFv(TWindowMenu *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r3);
     if (!(arg0->m_70 & 0x80)) {
         arg0->render_selected_entry(temp_r3);

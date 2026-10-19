@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_800A7764.h"
@@ -359,7 +360,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
                     d = 0;
                 }
                 if (d != 0) {
-                    ((TObjEneRe7Berura *)self)->draw();
+                    ((TObjMotion *)self)->draw();
                 }
                 self->sub.end();
                 chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -376,7 +377,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
             }
             if (doDraw != 0) {
                 if (vis == 1) {
-                    ((TObjEneRe7Berura *)self)->draw();
+                    ((TObjMotion *)self)->draw();
                 } else {
                     ((TObjEnemy *)self)->render_world_model();
                 }

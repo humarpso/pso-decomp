@@ -6,6 +6,7 @@
 
 struct TObjEneDD : public TObjEnemy {
     virtual ~TObjEneDD();
+    void set_part_local_pos(void *, s32);
     void transition_enemy_state(s16);
     void sub_800BBA0C();
     void invoke_initialization_hook();

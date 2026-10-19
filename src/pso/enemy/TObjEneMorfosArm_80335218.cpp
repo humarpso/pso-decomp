@@ -47,7 +47,7 @@ void TObjEneMorfosArm::render() {
     rotate_matrix_y(0, this->rotation_y);
     TObjFish::set_global_param(this->texture_id);
     TObjPlayer::toggle_particle_effect();
-    ((TObjEneRe7Berura *)arg0)->draw();
+    ((TObjMotion *)arg0)->draw();
     TParticleCtrl::end_effect_render();
     pop_matrix();
 }

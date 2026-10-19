@@ -77,7 +77,7 @@ void TObjEneDelDepth::draw_model_part() {
     if (temp_r0 != -1) {
         if (temp_r0 < 6) {
             TObjFish::set_global_param(TObjFish__sub_8001EDB0(TObjEneDelDepth::get_data(), 0));
-            ((TObjEneRe7Berura *)(*(s32 *)&this->m_name))->draw();
+            ((TObjMotion *)(*(s32 *)&this->m_name))->draw();
             return;
         }
         if (temp_r0 < 0xA) {

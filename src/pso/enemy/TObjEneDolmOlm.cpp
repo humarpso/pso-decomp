@@ -1220,7 +1220,7 @@ void TObjEneDolmOlm::render() {
                 arg0->sub.m6();
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
                     model_render_flags |= 1;
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                     model_render_flags &= ~1;
                 }
                 arg0->sub.m7();
@@ -1229,7 +1229,7 @@ void TObjEneDolmOlm::render() {
                 model_render_flags = lbl_805D5660;
             }
         } else if (vis == 1) {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         } else {
             ((TObjEnemy *)arg0)->render_world_model();
         }
@@ -1272,7 +1272,7 @@ s32 TObjEneDolmOlm::render_model_if_visible() {
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, this->rotation_y);
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor(1);
         }

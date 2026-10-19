@@ -164,7 +164,7 @@ s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 u8 calc_display_grade__5TItemFv(void *);
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -508,7 +508,7 @@ void render__13TWindowLockOnFv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x68));
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     if ((((TWindowLockOn *)arg0)->m_30 == ((TWindowLockOn *)arg0)->m_40) && (*(f32 *)((s8 *)arg0 + 0x34) == *(f32 *)((s8 *)arg0 + 0x44)) && (((TWindowLockOn *)arg0)->m_38 == ((TWindowLockOn *)arg0)->m_48) && (*(f32 *)((s8 *)arg0 + 0x3C) == *(f32 *)((s8 *)arg0 + 0x4C))) {
         draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     }

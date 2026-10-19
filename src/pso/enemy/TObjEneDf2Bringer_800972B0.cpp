@@ -1003,7 +1003,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
             TObjEneRe7Berura::set_global_state((s32)&bringer_render_node_callback);
             TObjPlayer::set_global_flag();
             if (var_r31 == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             } else {
                 ((TObjEnemy *)arg0)->render_world_model();
             }

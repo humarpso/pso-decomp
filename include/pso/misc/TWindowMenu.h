@@ -6,6 +6,7 @@
 
 struct TWindowMenu : public TUnk_804CDFE8 {
     virtual ~TWindowMenu();
+    s32 get_selected_entry();
     int sub_80266BB8();
     u8 test_menu_flag();
     void render_selected_entry(s32);

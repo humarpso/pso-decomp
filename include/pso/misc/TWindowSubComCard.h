@@ -7,6 +7,7 @@
 struct TWindowSubComCard : public TObject {
     TWindowSubComCard(TObject *arg1, void *arg2);
     virtual ~TWindowSubComCard();
+    void sub_80271F04(void *, s32, s32);
     s32 reinit(int);
     s32 init_guild_card_tag(int);
     s32 sub_802730E0();

@@ -11,6 +11,9 @@ struct WeaponPlayerPrefix { u8 object[0x60]; s32 heading; };
 struct WeaponMotionRecord { u32 unknown; u32 frame_count; };
 
 struct TItemWeapon : WeaponObjectPrefix {
+    void fire_shot_at_target(void *, void *, s32);
+    void sub_8011E56C(u8 *);
+    void remap_extra_attack_type();
     s32 draw_weapon_model();
     s32 item_model_is_shown();
     void create_weapon_trail_effects();

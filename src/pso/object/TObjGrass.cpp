@@ -1590,7 +1590,7 @@ void TObjGrass::render() {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 (&self->sub)->m6(chunk_polygon_flags_and_mask, model_render_flags);
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) == 0) {
-                    ((TObjEneRe7Berura *)self)->draw();
+                    ((TObjMotion *)self)->draw();
                 }
                 (&self->sub)->m7();
                 chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -1600,7 +1600,7 @@ void TObjGrass::render() {
         } else {
             model_render_flags |= 0x01000000;
             if (*(s32 *)((s8 *)arg0 + 0x3A8) == 1) {
-                ((TObjEneRe7Berura *)self)->draw();
+                ((TObjMotion *)self)->draw();
             } else {
                 ((TObjEnemy *)self)->render_world_model();
             }

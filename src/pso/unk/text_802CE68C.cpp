@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/text_802CE68C.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
@@ -282,7 +283,7 @@ void TObjEneBm9Mericarol::render() {
         if (self->f46C.m8() != 0) {
             self->f46C.m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) == 0) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             }
             self->f46C.m7();
         }
@@ -290,14 +291,14 @@ void TObjEneBm9Mericarol::render() {
         fade->m6();
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) == 0) {
             if (mode == 1) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             } else {
                 ((TObjEnemy *)((u8 *)this))->render_world_model();
             }
         }
         fade->m7();
     } else if (mode == 1) {
-        ((TObjEneRe7Berura *)((u8 *)this))->draw();
+        ((TObjMotion *)((u8 *)this))->draw();
     } else {
         ((TObjEnemy *)((u8 *)this))->render_world_model();
     }

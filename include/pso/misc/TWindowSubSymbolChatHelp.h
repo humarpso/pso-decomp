@@ -6,6 +6,8 @@
 
 struct TWindowSubSymbolChatHelp : public TUnk_804CE018 {
     virtual ~TWindowSubSymbolChatHelp();
+    void draw_help_entry(void *, s32, s32);
+    void draw_color_palette(void *);
     u8 _pad1C[0x44];
     u8 m_60;
     u8 _pad61[0x3];

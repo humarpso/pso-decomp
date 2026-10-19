@@ -1454,7 +1454,7 @@ void TObjEneGyaranzo::render() {
                 if (((Obj_800D35D8 *)((u8 *)this))->light.m8() != 0) {
                     ((Obj_800D35D8 *)((u8 *)this))->light.m6();
                     if (temp_r3 == 1) {
-                        ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                        ((TObjMotion *)((u8 *)this))->draw();
                     } else {
                         this->render_world_model();
                     }
@@ -1463,7 +1463,7 @@ void TObjEneGyaranzo::render() {
                     var_r29 = 0;
                 }
             } else if (temp_r3 == 1) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             } else {
                 this->render_world_model();
             }

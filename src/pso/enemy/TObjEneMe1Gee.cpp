@@ -2132,7 +2132,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
                 TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneMe1Gee::advance_camera_ctrl_step));
                 if (var_r30 == 1) {
                     TObjPlayer::set_global_flag();
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                     TObjPlayer::clear_global_state();
                 } else {
                     TObjPlayer::set_global_flag();

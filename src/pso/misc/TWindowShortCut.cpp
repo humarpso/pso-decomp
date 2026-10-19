@@ -18,7 +18,7 @@ struct RecoveredGlobal_8026E728___vt__15TWindowShortCut {
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
 s32 construct_type1_heading__20TWindowSubStatusDispFll(s32, s32, s32);
@@ -33,7 +33,7 @@ int initialize_subwindow__9TWindowDDFv(void*);
 void render__15TWindowShortCutFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     forward_render__20TWindowSubStatusDispFv((int) (((TWindowShortCut *)arg0)->m_60), temp_r3);
 }

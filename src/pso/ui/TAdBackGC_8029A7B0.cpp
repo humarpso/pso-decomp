@@ -10,7 +10,7 @@
 extern "C" {
 s32 draw_title_background_layer(void *, int, int, f32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
-s32 fn_8029A6EC(void *);
+s32 sub_8029A6EC__9TAdBackGCFv(void *);
 extern s32 chr_select_ad_pic_2_texture_descriptor[];
 void __ct__7TObjectFP7TObject(void *);
 
@@ -23,7 +23,7 @@ void TAdBackGC::render() {
         }
     } else if (TMainTask::get_state_flag() != 1) {
 block_4:
-        fn_8029A6EC(arg0);
+        sub_8029A6EC__9TAdBackGCFv(arg0);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
         draw_title_background_layer(chr_select_ad_pic_2_texture_descriptor, 0, -1, (f32) (*(f32 *)((s8 *)arg0 + 0x1C)));

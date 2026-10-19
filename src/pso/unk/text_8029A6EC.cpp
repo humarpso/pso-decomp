@@ -9,7 +9,7 @@ extern const f32 lbl_805DDC58;
 extern const f32 lbl_805DDC5C;
 extern const f32 lbl_805DDC60;
 extern const f32 lbl_805DDC64;
-void fn_8029A6EC(TAdBackGC *back) {
+void TAdBackGC::sub_8029A6EC() {
     f32 pos[8];
     Fan_8029A6EC fan;
     u32 col[4];
@@ -30,6 +30,6 @@ void fn_8029A6EC(TAdBackGC *back) {
     fan.pos[6] = lbl_805DDC60;
     fan.pos[7] = lbl_805DDC58;
     fan.col[3] = 0xFF;
-    ((TObjCMHairMenu *)&fan)->draw_tri_fan_2d(4, 3, *(f32 *)((u8 *)back + 0x1C) - lbl_805DDC64);
+    ((TObjCMHairMenu *)&fan)->draw_tri_fan_2d(4, 3, *(f32 *)((u8 *)this + 0x1C) - lbl_805DDC64);
 }
 }

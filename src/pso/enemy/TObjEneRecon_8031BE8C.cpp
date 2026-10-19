@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecon_8031BE8C.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/unk/text_803D96A8.h"
@@ -207,7 +208,7 @@ void render__12TObjEneReconFv(u8 *arg0) {
                     TObjPlayer::toggle_particle_effect();
                     model_render_flags |= 0x01000000;
                     if (var_r31 == 1) {
-                        ((TObjEneRe7Berura *)arg0)->draw();
+                        ((TObjMotion *)arg0)->draw();
                     } else {
                         ((TObjEnemy *)arg0)->render_world_model();
                     }

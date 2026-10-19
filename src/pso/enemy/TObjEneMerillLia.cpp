@@ -1479,7 +1479,7 @@ void TObjEneMerillLia::render() {
         if (temp_r3 == 1)
         {
           TObjPlayer::set_global_flag();
-          ((TObjEneRe7Berura *)((u8 *)this))->draw();
+          ((TObjMotion *)((u8 *)this))->draw();
           TObjPlayer::clear_global_state();
         }
         else

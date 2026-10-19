@@ -26,20 +26,20 @@ extern s32 current_language;
 extern const f32 lbl_805DD068;
 extern const f32 lbl_805DD06C;
 extern const f32 lbl_805DD070;
-void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx);
+void draw_status_text__19TWindowKeyBoardHardFPv(Win_80260020 *self, Ctx_80260020 *ctx);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 
 void TWindowKeyBoardHard::release_keyboard() { void* m = *(void* *)&this->m_70; if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
 
-void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx) {
+void TWindowKeyBoardHard::draw_status_text(void *ctx) {
     s32 flags;
-    if (self->state != NULL && current_language == 0) {
-        f32 inv = lbl_805DD068 / ctx->scale;
+    if (((Win_80260020 *)this)->state != NULL && current_language == 0) {
+        f32 inv = lbl_805DD068 / ((Ctx_80260020 *)ctx)->scale;
         Pt_80260020 pt;
-        pt.x = ctx->pos.x;
-        pt.y = ctx->pos.y;
-        set_text_draw_params((s32)ctx, 0, 0, (f32)inv, (f32)lbl_805DD06C);
-        flags = self->state->flags;
+        pt.x = ((Ctx_80260020 *)ctx)->pos.x;
+        pt.y = ((Ctx_80260020 *)ctx)->pos.y;
+        set_text_draw_params((s32)((Ctx_80260020 *)ctx), 0, 0, (f32)inv, (f32)lbl_805DD06C);
+        flags = ((Win_80260020 *)this)->state->flags;
         if (!(flags & 1)) {
             draw_window_text((f32 *)&pt, (const char *)lbl_8044F0CC, -1, 0, (f32)lbl_805DD070);
         } else if (flags & 2) {
@@ -62,7 +62,7 @@ void TWindowKeyBoardHard::render() {
     s32 temp;
     if (((s32) this->m_68 > 0) && (is_key_active__19TWindowKeyBoardHardFv() == 0)) {
         temp = TWindowDD::draw_default_entry((s32)this);
-        draw_status_text__19TWindowKeyBoardHardFPvPv((Win_80260020 *)(this), (Ctx_80260020 *)(temp));
+        draw_status_text__19TWindowKeyBoardHardFPv((Win_80260020 *)(this), (Ctx_80260020 *)(temp));
     }
 }
 

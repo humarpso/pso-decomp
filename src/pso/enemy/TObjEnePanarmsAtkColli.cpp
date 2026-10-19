@@ -95,7 +95,7 @@ extern "C" {
 extern Vec_800E31C4 panarms_atk_zero_vec;
 Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs);
 extern Pair_800E32C0 lbl_8043CDF8[];
-void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
+void sub_800E32C0__22TObjEnePanarmsAtkColliFPv(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
 extern Pair_800E3374 lbl_8043CDF0[];
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 int get_player_data__10TObjPlayerFi(int a0);
@@ -132,22 +132,22 @@ void fn_800E322C(void *p, void *t) {
     VecCopy((Vec *)&target->pos, (const Vec *)t);
     if ((r = find_nearest_hittable_enemy__10TObjPlayerFiPvf(target, 0, target->f378)) != 0xFFFF) {
         if ((ent = (u32)get_enemy_entity(r)) != 0 && ent != target->f10) {
-            fn_800E32C0((Obj_800E32C0 *)target, (V_800E32C0 *)ent);
+            sub_800E32C0__22TObjEnePanarmsAtkColliFPv((Obj_800E32C0 *)target, (V_800E32C0 *)ent);
         }
     }
     VecCopy((Vec *)&target->pos, (const Vec *)&sp);
 }
 
-void fn_800E32C0(Obj_800E32C0 *target, V_800E32C0 *arg1) {
+void TObjEnePanarmsAtkColli::sub_800E32C0(void *arg1) {
     Pair_800E32C0 sp10 = lbl_8043CDF8[0];
     Pair_800E32C0 sp8;
-    sp10.b = target->f38C;
-    if (target->f388 != arg1) {
+    sp10.b = ((Obj_800E32C0 *)this)->f38C;
+    if (((Obj_800E32C0 *)this)->f388 != ((V_800E32C0 *)arg1)) {
         sp8.a = sp10.a; *(s32 *)&sp8.b = *(s32 *)&sp10.b;
-        if (0.0f != arg1->m21(target->f10, &sp8, 0, -1, -1)) {
-            arg1->m23(target);
+        if (0.0f != ((V_800E32C0 *)arg1)->m21(((Obj_800E32C0 *)this)->f10, &sp8, 0, -1, -1)) {
+            ((V_800E32C0 *)arg1)->m23(((Obj_800E32C0 *)this));
         }
-        target->f388 = arg1;
+        ((Obj_800E32C0 *)this)->f388 = ((V_800E32C0 *)arg1);
     }
 }
 void fn_800E3374(Obj_800E3374 *target, V_800E3374 *arg1) {

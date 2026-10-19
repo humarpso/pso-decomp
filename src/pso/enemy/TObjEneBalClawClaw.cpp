@@ -393,7 +393,7 @@ void TObjEneBalClawClaw::render() {
                         }
                         if (var_r29 != 0) {
                             if (temp_r3 == 1) {
-                                ((TObjEneRe7Berura *)arg0)->draw();
+                                ((TObjMotion *)arg0)->draw();
                             } else {
                                 ((TObjEnemy *)arg0)->render_world_model();
                             }
@@ -403,7 +403,7 @@ void TObjEneBalClawClaw::render() {
                         var_r30 = 0;
                     }
                 } else if (temp_r3 == 1) {
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                 } else {
                     ((TObjEnemy *)arg0)->render_world_model();
                 }
@@ -1610,7 +1610,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         }
         if (doDraw != 0) {
             if (drawMode == 1) {
-                ((TObjEneRe7Berura *)o)->draw();
+                ((TObjMotion *)o)->draw();
             } else {
                 ((TObjEnemy *)o)->render_world_model();
             }

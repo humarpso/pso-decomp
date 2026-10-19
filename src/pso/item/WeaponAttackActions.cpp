@@ -1,4 +1,5 @@
 #include "pso/items/TItemWeapon.h"
+#include "pso/player/TUnk_804F1320.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804A69DC.h"
@@ -71,8 +72,8 @@ struct Params_8011EAB8 {
 
 extern "C" {
 f32 * get_weapon_range_record(void *, s16);
-void remap_extra_attack_type(TItemWeapon *arg0);
-void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
+void remap_extra_attack_type__11TItemWeaponFv(TItemWeapon *arg0);
+void sub_8011E56C__11TItemWeaponFPUc(u8 *arg0, u8 *arg1);
 s32 is_active_in_game__11TItemWeaponFv(void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 s16 get_captured_target_collider_index(void *);
@@ -89,7 +90,7 @@ s32 pop_matrix();
 extern s32 identity_matrix[];
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
-void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle);
+void fire_shot_at_target__11TItemWeaponFPvPvl(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle);
 u32 __nw__7TObjectFUl(u32);
 void construct_actor_light_task(u32, void *, void *, s32, s32, s32, f32);
 extern A12_8011E3E8 lbl_8043E838[];
@@ -99,7 +100,7 @@ extern const f32 lbl_805DAC88;
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 void create__10TItemEffPGFPvPvPv(s32, Params_8011EAB8 *, s32);
 void create__10TItemEffPGFPvPv(s32, Params_8011EAB8 *);
-void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0);
+void spawn_pg_effect__13TUnk_804F1320FPvlf(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0);
 struct VBase_8011E2AC { char pad[0x18]; };
 
 struct VObj_8011E2AC : VBase_8011E2AC {
@@ -412,20 +413,20 @@ void TItemWeapon::restore_action_type() {
     }
 }
 
-void remap_extra_attack_type(TItemWeapon *item_weapon) {
-    if ((item_weapon->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)item_weapon + 0xF0) + 0x7CC)) == 2)) {
-        if (item_weapon->test_flags_1b8(0x100000) != 0U) {
-            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)item_weapon + 0xF0) + 0x7CC), 0);
+void TItemWeapon::remap_extra_attack_type() {
+    if ((this->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)this + 0xF0) + 0x7CC)) == 2)) {
+        if (this->test_flags_1b8(0x100000) != 0U) {
+            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)this + 0xF0) + 0x7CC), 0);
         } else {
-            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)item_weapon + 0xF0) + 0x7CC), 1);
+            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)this + 0xF0) + 0x7CC), 1);
         }
-        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFUl)(item_weapon, 0x04000000);
+        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFUl)(this, 0x04000000);
     }
 }
 
-void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1) {
+void TItemWeapon::sub_8011E56C(u8 *arg1) {
     Stack_8011E56C stack;
-    VecCopy((Vec *)(&stack.sp8), (const Vec *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x2FC));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(*(s32 *)((s8 *)((u8 *)this) + 0xF0) + 0x2FC));
     stack.spC = *(f32 *)((s8 *)arg1 + 4);
     ((s32 (*)(void *, void *, int))csnVector)(&stack.sp8, arg1, 0x8100);
 }
@@ -559,30 +560,30 @@ u32 pack_weapon_trail_color(void *weapon) {
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
 
-void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *item_weapon, Vec_8011EAB8 *arg1, s32 item, f32 farg0) {
+void TUnk_804F1320::spawn_pg_effect(void *arg1, s32 item, f32 farg0) {
     Params_8011EAB8 prm;
     if (item < 0 || item >= 200) {
         return;
     }
-    if (is_active_in_game__11TItemWeaponFv(item_weapon) == 0) {
+    if (is_active_in_game__11TItemWeaponFv(((u8 *)this)) == 0) {
         return;
     }
-    remap_extra_attack_type((TItemWeapon *)item_weapon);
+    remap_extra_attack_type__11TItemWeaponFv((TItemWeapon *)((u8 *)this));
     ((TItemEffPG *)(&prm))->init_params();
-    ((TObjPlayer *)item_weapon)->fill_status_info(&prm);
-    VecCopy((Vec *)&prm.pos, (const Vec *)arg1);
+    ((TObjPlayer *)((u8 *)this))->fill_status_info(&prm);
+    VecCopy((Vec *)&prm.pos, (const Vec *)((Vec_8011EAB8 *)arg1));
     prm.f28 = farg0;
-    prm.f34 = *(s32 *)(item_weapon + 0x188);
-    prm.f38 = *(s32 *)(item_weapon + 0x24);
-    if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(item_weapon + 0xF0)) != 0) {
+    prm.f34 = *(s32 *)(((u8 *)this) + 0x188);
+    prm.f38 = *(s32 *)(((u8 *)this) + 0x24);
+    if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(((u8 *)this) + 0xF0)) != 0) {
         create__10TItemEffPGFPvPv(tl_05, &prm);
     } else {
         create__10TItemEffPGFPvPvPv(tl_05, &prm, item);
     }
-    ((TItemWeapon *)item_weapon)->restore_action_type();
+    ((TItemWeapon *)((u8 *)this))->restore_action_type();
 }
 
-void fire_shot_at_target__11TItemWeaponFv(u8 *item_weapon, Vec_8011EB84 *origin, void *owner, s32 angle) {
+void TItemWeapon::fire_shot_at_target(void *origin, void *owner, s32 angle) {
     Vec_8011EB84 v;
     Atk_8011EB84 atk;
     f32 *scale;
@@ -592,26 +593,26 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *item_weapon, Vec_8011EB84 *origin,
     u8 *hit;
     s32 off;
     if (((s32 (*)())is_active_in_game__11TItemWeaponFv)() != 0) {
-        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(item_weapon, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(((TItemWeapon *)item_weapon)->player));
+        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(((u8 *)this), ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(((TItemWeapon *)((u8 *)this))->player));
         TObjPlayer__sub_802E449C(&atk);
-        ((TObjPlayer *)item_weapon)->fill_status_info(&atk);
-        VecCopy((Vec *)&atk, (const Vec *)origin);
-        atk.angle = *(s32 *)((s8 *)(((TItemWeapon *)item_weapon)->player) + 0x60) + angle;
+        ((TObjPlayer *)((u8 *)this))->fill_status_info(&atk);
+        VecCopy((Vec *)&atk, (const Vec *)((Vec_8011EB84 *)origin));
+        atk.angle = *(s32 *)((s8 *)(((TItemWeapon *)((u8 *)this))->player) + 0x60) + angle;
         atk.f3C = *scale;
-        atk.f38 = *(f32 *)((s8 *)item_weapon + 0x1E4);
+        atk.f38 = *(f32 *)((s8 *)((u8 *)this) + 0x1E4);
         atk.owner = owner;
-        atk.id = *(s32 *)((s8 *)item_weapon + 0x24);
-        ((Wpn_8011EB84 *)item_weapon)->m57(&atk);
-        remap_extra_attack_type((TItemWeapon *)item_weapon);
-        hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(item_weapon, origin);
+        atk.id = *(s32 *)((s8 *)((u8 *)this) + 0x24);
+        ((Wpn_8011EB84 *)((u8 *)this))->m57(&atk);
+        remap_extra_attack_type__11TItemWeaponFv((TItemWeapon *)((u8 *)this));
+        hit = ((u8 *(*)(void *, void *))sub_8011E56C__11TItemWeaponFPUc)(((u8 *)this), ((Vec_8011EB84 *)origin));
         if (hit != NULL) {
             VecCopy((Vec *)&atk, (const Vec *)(*(void **)((s8 *)hit + 4)));
             atk.flags |= 0x800;
-        } else if ((state = (s32)((TObjPlayer *)(((TItemWeapon *)item_weapon)->player))->get_extended_state()) != 0 && get_captured_target_count((s32 *)state) > 0) {
+        } else if ((state = (s32)((TObjPlayer *)(((TItemWeapon *)((u8 *)this))->player))->get_extended_state()) != 0 && get_captured_target_count((s32 *)state) > 0) {
             if ((item = (s32)get_captured_target_entry((void *)state, 0)) != 0) {
                 if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFv)(item))) != NULL && *(u8 **)((s8 *)ph + 0xA4) != NULL) {
                     VecCopy((Vec *)&v, (const Vec *)(&(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]));
-                    subtract_vector(&v, origin);
+                    subtract_vector(&v, ((Vec_8011EB84 *)origin));
                     push_matrix_from(((s32 *)&identity_matrix));
                     ((void (*)(s32, s32))rotate_matrix_y)(0, angle);
                     transform_point_by_current_matrix(&v, &atk.dir);
@@ -620,16 +621,16 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *item_weapon, Vec_8011EB84 *origin,
                 }
             }
         }
-        if (atk.type == 2 && ((Wpn_8011EB84 *)item_weapon)->m33() == 0) {
+        if (atk.type == 2 && ((Wpn_8011EB84 *)((u8 *)this))->m33() == 0) {
             atk.scale *= lbl_805DAC94;
         }
         TItemAttackCol::create((void *)tl_05, &atk);
-        ((TItemWeapon *)item_weapon)->restore_action_type();
+        ((TItemWeapon *)((u8 *)this))->restore_action_type();
     }
 }
 
 void TObjPlayer::fill_status_info(void *arg1) {
-    ((s32 (*)(void))remap_extra_attack_type)();
+    ((s32 (*)(void))remap_extra_attack_type__11TItemWeaponFv)();
     *(s16 *)((s8 *)arg1 + 0x14) = ((s16 (*)(s32))obj_getField1c)(*(s32 *)&this->unk_F0);
     *(s16 *)((s8 *)arg1 + 0x16) = ((TUnk_804B9870 *)(*(s32 *)&this->unk_F0))->get_stat_by_key_state();
     *(s32 *)((s8 *)arg1 + 0x18) = ((TItem *)this)->get_field_d8();
@@ -774,7 +775,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                     temp_r22_2 = (u8 *)&(*(Rec_8011F108 **)((s8 *)var_r29 + 0xA4))[get_captured_target_collider_index(temp_r22_3)];
                     var_f31 = xyz_distance(arg1, (void *) &((Rec_8011F108 *)temp_r22_2)->pos) / *(f32 *)((s8 *)((u8 *)this) + 0x1E4);
                     if (arg4 != 0) {
-                        ((void (*)(void *))remap_extra_attack_type)(this);
+                        ((void (*)(void *))remap_extra_attack_type__11TItemWeaponFv)(this);
                         hit.reserved = 0;
                         hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *)this->player);
                         hit.source = obj_getField1c((void *)this->player);
@@ -814,7 +815,7 @@ void TUnk_804A69DC::for_each_target_in_range(f32 range) {
     s32 id;
     s32 ready;
     if (is_active_in_game__11TItemWeaponFv(this) != 0) {
-        ((void (*)(void *))remap_extra_attack_type)(this);
+        ((void (*)(void *))remap_extra_attack_type__11TItemWeaponFv)(this);
         state = ((TObjPlayer *)(((PlSelf_8011F474 *)this)->owner))->get_extended_state();
         if (state != NULL) {
             for (i = 0; i != get_captured_target_count((s32 *)state); i++) {

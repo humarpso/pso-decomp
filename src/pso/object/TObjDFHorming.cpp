@@ -192,7 +192,7 @@ V(60)V(61)V(62)V(63)V(64)V(65)V(66)V(67)V(68)V(69)V(70)V(71)V(72)V(73)V(74)V(75)
 extern "C" {
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
-s32 send_6x0A_enemy_state(void *, void *);
+s32 send_6x0A_enemy_state__9TObjEnemyFPv(void *, void *);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
@@ -507,7 +507,7 @@ void TBoss4DarkFalz::handle_defeat() {
         }
     }
     flags[0] = 0x800;
-    send_6x0A_enemy_state(arg0, flags);
+    send_6x0A_enemy_state__9TObjEnemyFPv(arg0, flags);
     ((TObjEnemy *)arg0)->exchange_object_state((s32)flags, (s16)0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
     ((TObjEnemy *)arg0)->send_entity_set_flags();

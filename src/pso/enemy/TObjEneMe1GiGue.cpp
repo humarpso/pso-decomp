@@ -1867,7 +1867,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
             self->s3fc.m6();
             if (vis == 1) {
                 set_global_flag__10TObjPlayerFv();
-                ((TObjEneRe7Berura *)self)->draw();
+                ((TObjMotion *)self)->draw();
                 clear_global_state__10TObjPlayerFv();
             } else {
                 set_global_flag__10TObjPlayerFv();
@@ -1881,7 +1881,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
     } else {
         if (vis == 1) {
             set_global_flag__10TObjPlayerFv();
-            ((TObjEneRe7Berura *)self)->draw();
+            ((TObjMotion *)self)->draw();
             clear_global_state__10TObjPlayerFv();
         } else {
             set_global_flag__10TObjPlayerFv();

@@ -1976,13 +1976,13 @@ void TObjEneBm5GibonU::render() {
             if (fade != 0) {
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) == 0) {
                     if (vis == 1) {
-                        ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                        ((TObjMotion *)((u8 *)this))->draw();
                     } else {
                         this->render_world_model();
                     }
                 }
             } else if (vis == 1) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             } else {
                 this->render_world_model();
             }

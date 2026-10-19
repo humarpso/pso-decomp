@@ -16,7 +16,7 @@ struct RecoveredGlobal_8026E168_lbl_804D0948 {
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
 s32 draw_window_scrollbar(void *, int, void *);
@@ -37,7 +37,7 @@ void TUnk_804D0948::render() {
     s32 n;
     void *p;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     if (!(this->m_70 & 0x80)) {
         ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);

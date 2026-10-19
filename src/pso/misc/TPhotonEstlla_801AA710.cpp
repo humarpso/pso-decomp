@@ -139,7 +139,7 @@ void TPhotonEstlla::render() {
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
         ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
-        ((TObjEneRe7Berura *)self)->draw();
+        ((TObjMotion *)self)->draw();
         TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;

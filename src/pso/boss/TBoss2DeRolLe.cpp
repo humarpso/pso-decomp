@@ -660,7 +660,7 @@ void TBoss2DeRolLe::render() {
         TObjLight__sub_8013379C(current_scene_light, &TObjLight__scene_light_state);
         TObjLight__sub_801336DC(lbl_805D5564);
     }
-    ((TObjEneRe7Berura *)((u8 *)this))->draw();
+    ((TObjMotion *)((u8 *)this))->draw();
     ((TRaderMapCore *)col)->copy_vec4(&saved);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);

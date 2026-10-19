@@ -6,6 +6,7 @@
 
 struct TObjEneSlimeTailAttack : public TObjEnemy {
     virtual ~TObjEneSlimeTailAttack();
+    void draw_stretched_segment(void *, void *, f32);
     void sub_800E841C();
     virtual void run_task();
     virtual void render();

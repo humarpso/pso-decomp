@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecon_8029E89C.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -20,7 +21,7 @@ s32 TObjEneRecobox::render_trap_model_if_visible() {
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, this->rotation_y);
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor(1);
         }

@@ -535,7 +535,7 @@ void TObjEneMe3Stelth::render() {
                 rotate_matrix_y(0, F(s32, 0x60));
                 TObjEneMe3Stelth__render_node_index = 0;
                 if (mode == 1) {
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                 } else {
                     ((TObjEnemy *)arg0)->render_world_model();
                 }

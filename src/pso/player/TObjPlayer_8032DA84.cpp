@@ -45,7 +45,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1);
-s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
+s32 fire_shot_at_target__11TItemWeaponFPvPvl(void *, s32 *, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv(void *);
 void TItemWeapon__ct(void *);
 s16 get_validated_attack_stage(u8 *arg0);
@@ -58,11 +58,11 @@ void TObjPlayer::launch_guardianna_colliders() {
 
     draw_icon(4, (s32)&sp8);
     if (get_validated_attack_stage((u8 *)(*(s32 *)&this->unk_F0 + 0x7CC)) == 2) {
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0x1555);
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, -0x1555);
+        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, 0);
+        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, 0x1555);
+        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
+        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, 0);
     }
     if (get_attack_stage__11TItemWeaponFv(this) == 0) {
         ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)this, 4);

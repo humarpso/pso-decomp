@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemyCustom_800C76F4.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -50,7 +51,7 @@ void TObjEnemyCustom::render() {
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object(this->model);
         } else {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         }
         if (!(this->actorFlags & 0x800)) {
             model_render_flags |= 0x400;

@@ -6,6 +6,8 @@
 class TUnk_804E0898 : public TObjPathObj {
 public:
     virtual ~TUnk_804E0898();
+    s32 initialize_lobby_pigeon_path();
+    s32 advance_lobby_pigeon_path();
     void update_lobby_pigeon_visibility();
     void select_lobby_pigeon_model();
     virtual void vfunc_14();

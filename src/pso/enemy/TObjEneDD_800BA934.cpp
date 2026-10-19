@@ -36,7 +36,7 @@ f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int matrix_mult_vec(void *, void *, void *);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
-void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
+void set_part_local_pos__9TObjEneDDFPvl(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
@@ -80,13 +80,13 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     pop_matrix();
 }
 
-void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
+void TObjEneDD::set_part_local_pos(void *v, s32 i) {
     Vec_800BAAE4 *p;
-    VecCopy((Vec *)&self->parts[i].b, (const Vec *)v);
-    p = &self->parts[i].a;
-    VecCopy((Vec *)p, (const Vec *)v);
-    subtract_vector(p, &self->pos);
-    rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
+    VecCopy((Vec *)&((Obj_800BAAE4 *)this)->parts[i].b, (const Vec *)((Vec_800BAAE4 *)v));
+    p = &((Obj_800BAAE4 *)this)->parts[i].a;
+    VecCopy((Vec *)p, (const Vec *)((Vec_800BAAE4 *)v));
+    subtract_vector(p, &((Obj_800BAAE4 *)this)->pos);
+    rotate_xz_pair_by_angle(&p->x, &p->z, -((Obj_800BAAE4 *)this)->angle);
 }
 
 void TObjEneDD::init_model() { init_collision_body_parts(this); transform_part_positions(); }

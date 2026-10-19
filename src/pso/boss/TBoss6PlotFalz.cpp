@@ -606,7 +606,7 @@ struct V3_802AB490 { s32 x, y, z; };
 struct Msg_802AB490 { s32 a, b, c; };
 extern "C" {
 s32 is_split_screen();
-void send_6x0A_enemy_state(void *, void *);
+void send_6x0A_enemy_state__9TObjEnemyFPv(void *, void *);
 extern s32 local_client_id;
 
 void TBoss6PlotFalz::award_exp_and_destroy() {
@@ -625,7 +625,7 @@ void TBoss6PlotFalz::award_exp_and_destroy() {
     }
     Msg_802AB490 m;
     m.a = 0x800;
-    send_6x0A_enemy_state(arg0, &m);
+    send_6x0A_enemy_state__9TObjEnemyFPv(arg0, &m);
     ((TObjEnemy *)arg0)->exchange_object_state((s32)&m, (s16)0);
     ((VObj_802AB490 *)arg0)->m77(&m);
     ((TObjEnemy *)arg0)->send_entity_set_flags();

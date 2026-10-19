@@ -1196,7 +1196,7 @@ void TUnk_80483A10::render() {
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object(this->model);
         } else {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         }
         pop_matrix();
     }

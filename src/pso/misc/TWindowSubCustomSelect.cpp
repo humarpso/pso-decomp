@@ -41,7 +41,7 @@ struct Ent_802776D0 { u16 id; u16 sub; };
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_window_scrollbar(int, int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, s32, f32);
@@ -225,7 +225,7 @@ void TWindowSubCustomSelect::draw_palette_cells(int ctx) {
 void render__22TWindowSubCustomSelectFv(TWindowSubCustomSelect *arg0) {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     arg0->draw_palette_cells(temp_r3);
     arg0->draw_cursor((u8 *)temp_r3);
     forward_render__20TWindowSubStatusDispFv(arg0->m_7c, temp_r3);

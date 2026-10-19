@@ -1314,7 +1314,7 @@ void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 u8 *get_enemy_entity(u16 arg0);
 s32 TObjLight__sub_801337F8(void *);
 s32 angle_diff_s16(s32, s32);
-s32 draw__16TObjEneRe7BeruraFv(void *);
+s32 draw__10TObjMotionFv(void *);
 u8 * find_entity_by_id();
 void free_collision_body_parts(void *);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
@@ -2266,7 +2266,7 @@ void TBoss5Gryphon::render_with_fade(s32 arg1) {
     rotate_matrix_z(0, this->rotation_z);
     scale_matrix(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
     TObjPlayer::toggle_particle_effect();
-    draw__16TObjEneRe7BeruraFv((void *) (this));
+    draw__10TObjMotionFv((void *) (this));
     TParticleCtrl::end_effect_render();
     TObjLight__sub_801337F8((void *)current_scene_light);
     pop_matrix();
@@ -2288,7 +2288,7 @@ void TBoss5Gryphon::render_model() {
     temp_r31 = *(s32 *)&this->model;
     temp_r4 = (unsigned char *) (*(void **)((s8 *)boss5_gryphon_body_bml_resource + 0x42C));
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r4 + 0x18);
-    ((s32 (*)(void *, int))draw__16TObjEneRe7BeruraFv)((void *) (this), (int)temp_r4);
+    ((s32 (*)(void *, int))draw__10TObjMotionFv)((void *) (this), (int)temp_r4);
     *(s32 *)&this->model = temp_r31;
     pop_matrix();
 }

@@ -2281,7 +2281,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
                 model_render_flags |= 1;
                 self->sub.m6();
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                 }
                 self->sub.m7();
                 chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -2297,7 +2297,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
                 self->fades[cam].m6();
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
                     if (vis == 1) {
-                        ((TObjEneRe7Berura *)arg0)->draw();
+                        ((TObjMotion *)arg0)->draw();
                     } else {
                         ((TObjEnemy *)arg0)->render_world_model();
                     }
@@ -2307,7 +2307,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
                 chunk_polygon_flags_or_mask = lbl_805D5668;
                 model_render_flags = lbl_805D5660;
             } else if (vis == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             } else {
                 ((TObjEnemy *)arg0)->render_world_model();
             }

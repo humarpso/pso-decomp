@@ -23,7 +23,7 @@ struct RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog {
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_window_scrollbar(int, int, void *);
 extern const f32 lbl_805DD254;
@@ -39,7 +39,7 @@ extern const f32 lbl_805DD258;
 void TWindowMessageLog::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(this, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(this, temp_r3);
     draw_visible_window_entries(this, (void *) (((u8 *)this) + 0x24), temp_r3);
     draw_window_scrollbar((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), temp_r3, (void *) (((u8 *)this) + 0x68));
 }

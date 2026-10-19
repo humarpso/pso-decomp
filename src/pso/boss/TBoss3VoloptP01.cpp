@@ -1167,7 +1167,7 @@ void render__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0) {
                     *(u8 *)((s8 *)volopt_p01_breakup_color_ptr + 4) = 0xCC;
                     *(u8 *)((s8 *)volopt_p01_breakup_color_ptr + 5) = 0xFF;
                 }
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             }
         }
         pop_matrix();

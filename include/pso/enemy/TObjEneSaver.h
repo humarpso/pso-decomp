@@ -6,6 +6,7 @@
 
 struct TObjEneSaver : public TObjEnemy {
     virtual ~TObjEneSaver();
+    void turn_toward_target();
     void sub_800A5FA8();
     void sub_800A4D9C();
     void update_collapse_and_destroy();

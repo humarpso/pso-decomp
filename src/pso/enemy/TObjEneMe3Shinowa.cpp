@@ -2015,7 +2015,7 @@ void TObjEneMe3ShinowaMirage::draw_model() {
             TObjEneMe3ShinowaMirage__render_node_index = 0;
             TObjEneRe7Berura::set_global_state((s32)((void *) (TObjEneMe3ShinowaMirage::advance_camera_ctrl_step)));
             if (var_r31 == 1) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             } else {
                 this->render_world_model();
             }

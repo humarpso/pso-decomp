@@ -305,7 +305,7 @@ void TObjPlayer__sub_800E80C0(u8 *arg0);
 S_800E80E8 * TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src);
 void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
-void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, f32 t);
+void draw_stretched_segment__22TObjEneSlimeTailAttackFPvPvf(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, f32 t);
 void render__22TObjEneSlimeTailAttackFv(u8 *arg0);
 s32 TObjPlayer__sub_800E85BC();
 void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
@@ -932,18 +932,18 @@ void TObjPlayer::draw_blob_shadows() {
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma fp_contract on
-void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, f32 t) {
+void TObjEneSlimeTailAttack::draw_stretched_segment(void *arg1, void *arg2, f32 t) {
     f32 len;
     f32 k;
     f32 saved;
     Vec_800E82B8 d;
-    VecCopy((Vec *)&d, (const Vec *)arg2);
-    ((s32 (*)(void *, void *))subtract_vector)(&d, arg1);
+    VecCopy((Vec *)&d, (const Vec *)((Vec_800E82B8 *)arg2));
+    ((s32 (*)(void *, void *))subtract_vector)(&d, ((Vec_800E82B8 *)arg1));
     len = vector_length(&d);
     push_matrix();
     k = lbl_805DA678 * (lbl_805DA67C + t);
     {
-        Vec_800E82B8 p = *arg1;
+        Vec_800E82B8 p = *((Vec_800E82B8 *)arg1);
         p.x += k * d.x;
         p.y += k * d.y + lbl_805DA680;
         p.z += k * d.z;
@@ -954,12 +954,12 @@ void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, 
         f32 r = lbl_805DA67C - t;
         scale_matrix(0, lbl_805DA67C, lbl_805DA678, r * len / lbl_805DA66C);
     }
-    TObjFish::set_global_param(((TObjEneSlimeTailAttack *)arg0)->texture_id);
+    TObjFish::set_global_param(((TObjEneSlimeTailAttack *)((u8 *)this))->texture_id);
     TObjPlayer__sub_800EBE48(lbl_805DA688 * t + lbl_805DA684);
-    saved = ((TObjEneSlimeTailAttack *)arg0)->m_c0;
-    ((TObjEneSlimeTailAttack *)arg0)->m_c0 = lbl_805DA68C;
-    ((TObjEneRe7Berura *)arg0)->draw();
-    ((TObjEneSlimeTailAttack *)arg0)->m_c0 = saved;
+    saved = ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0;
+    ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0 = lbl_805DA68C;
+    ((TObjMotion *)((u8 *)this))->draw();
+    ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0 = saved;
     TObjPlayer::init_render_globals();
     pop_matrix();
 }
@@ -978,7 +978,7 @@ void TObjEneSlimeTailAttack::sub_800E841C() {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x378) != 0) {
         TObjPlayer__sub_800E81A8();
         TObjEneRe7Berura::set_global_state((s32)TObjPlayer__sub_800E8128);
-        ((TObjEneRe7Berura *)arg0)->draw();
+        ((TObjMotion *)arg0)->draw();
         TObjEneRe7Berura::set_global_state(NULL);
         TObjPlayer__sub_800E80C0(arg0 + 0x390);
         VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x390));
@@ -987,7 +987,7 @@ void TObjEneSlimeTailAttack::sub_800E841C() {
         scale_matrix_vec3(0, (arg0 + 0x380));
         TObjPlayer__sub_800E81A8();
         TObjEneRe7Berura::set_global_state((s32)TObjPlayer__sub_800E8128);
-        ((TObjEneRe7Berura *)arg0)->draw();
+        ((TObjMotion *)arg0)->draw();
         TObjEneRe7Berura::set_global_state(NULL);
         TObjPlayer__sub_800E80C0(arg0 + 0x390);
         VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x390));
@@ -1011,12 +1011,12 @@ void TObjEneSlimeTailAttack::render() {
     temp_f1 = lbl_805DA68C;
     if (temp_f3 < temp_f1)
     {
-      draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)this, (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x374))) + 0x38)), (Vec_800E82B8 *)(((u8 *)this) + 0x38), (f32) (temp_f3 / temp_f1));
+      draw_stretched_segment__22TObjEneSlimeTailAttackFPvPvf((u8 *)this, (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x374))) + 0x38)), (Vec_800E82B8 *)(((u8 *)this) + 0x38), (f32) (temp_f3 / temp_f1));
     }
     else
       if ((temp_f3 >= lbl_805DA690) && (temp_f3 < lbl_805DA694))
     {
-      draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)this, (Vec_800E82B8 *)(((u8 *)this) + 0x38), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x374))) + 0x38)), (f32) ((temp_f3 - lbl_805DA690) / temp_f1));
+      draw_stretched_segment__22TObjEneSlimeTailAttackFPvPvf((u8 *)this, (Vec_800E82B8 *)(((u8 *)this) + 0x38), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x374))) + 0x38)), (f32) ((temp_f3 - lbl_805DA690) / temp_f1));
     }
   }
   temp_f1 = this->m_c0;

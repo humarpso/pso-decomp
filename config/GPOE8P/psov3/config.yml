@@ -729,6 +729,7 @@ force_active:
   - advance_bone_rotation__19TObjEZBoneRotPlayerFv
   - advance_camera_ctrl_step__19TObjEneEpsilonGuardFv
   - advance_flee_step__12TObjEneLappyFv
+  - advance_lobby_pigeon_path__13TUnk_804E0898Fv
   - advance_manual__14CreationCameraFv
   - advance_motion_frame__13TObjLobbyMainFv
   - advance_past_disabled_menu_rows__11TWindowMenuFv
@@ -1656,7 +1657,7 @@ force_active:
   - draw_blend_motion_tree__10TObjPlayerFiii
   - draw_bottom_bar__20TWindowSubStatusDispFv
   - draw_callback_transform_to_view__8TObjFishFv
-  - draw_color_palette__24TWindowSubSymbolChatHelpFPvPv
+  - draw_color_palette__24TWindowSubSymbolChatHelpFPv
   - draw_color_quad_2d__FPvPvi
   - draw_current_pic__10TEndingPicFv
   - draw_cursor__19TWindowSubMagPhotonFi
@@ -1678,7 +1679,7 @@ force_active:
   - draw_fullscreen_texture_quad__6TLobbyFv
   - draw_ginja_motion_node_tree__FPUc
   - draw_help_entries__24TWindowSubSymbolChatHelpFPv
-  - draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii
+  - draw_help_entry__24TWindowSubSymbolChatHelpFPvll
   - draw_help_icon__24TWindowSubSymbolChatHelpFiPvii
   - draw_hp_label__FPvUlls
   - draw_inactive_badge__11TObjDoorKeyFv
@@ -1721,7 +1722,7 @@ force_active:
   - draw_slot__14TWindowSubItemFlll
   - draw_slot_icons__15TAdChrSelSlotGCFv
   - draw_split_screen_dividers__20TWindowSubStatusDispFv
-  - draw_status_text__19TWindowKeyBoardHardFPvPv
+  - draw_status_text__19TWindowKeyBoardHardFPv
   - draw_status_window__14TAdPlyStatusGCFPvPv
   - draw_status_window__15TAdMcSelectMcGCFv
   - draw_switch_lights__15TODoorAncient08Fv
@@ -1844,7 +1845,7 @@ force_active:
   - find_free_file_names__22TQuestVmDownLoadServerFv
   - find_free_slot__6TLobbyFv
   - find_gsl_entry__FPv
-  - find_nearest_enemy__10TObjPlayerFPvPvf
+  - find_nearest_enemy__15TObjEnemyCustomFPvf
   - find_open_direction__15TObjEneMe1GiGueFPvPv
   - find_placement_obstruction
   - find_player_texture_name_ordinal__FPUc
@@ -2278,6 +2279,7 @@ force_active:
   - initialize_battle__19TPlayerBattleCtrl4PFv
   - initialize_boss6_type2_appear_particle_origin__Fv
   - initialize_from_placement__13TObjRaderIconFv
+  - initialize_lobby_pigeon_path__13TUnk_804E0898Fv
   - initialize_player_data__10TObjPlayerFv
   - initialize_selection_state__22TAdMultiPlyChrSelectGCFl
   - initialize_windows__10TChallengeFv
@@ -7377,7 +7379,7 @@ force_active:
   - record_local_battle_placement
   - record_local_damage_if_enabled__FPvPvl
   - refill_gstream_buffer__Fl
-  - reflect_velocity_off_collision
+  - reflect_velocity_off_collision__13TUnk_804B8E18FPvPv
   - refresh__14TWindowSubItemFv
   - refresh_item_list__20TShopArmorListWindowFPv
   - refresh_label__11TChCrEffTagFv
@@ -8251,7 +8253,7 @@ force_active:
   - spawn_hit_particle_trio__10TObjPlayerFv
   - spawn_item_follow_effect__FlUlll
   - spawn_laser__12TPhotonPillaFv
-  - spawn_lightning_at_angle__16TBGLightningCtrlFPvi
+  - spawn_lightning_at_angle__16TBGLightningCtrlFl
   - spawn_line__13TPhotonEstllaFv
   - spawn_mirages__21TObjEneMe3ShinowaRealFv
   - spawn_paralysis_feedback_effect__Fll
@@ -8317,9 +8319,12 @@ force_active:
   - sub_80043758__15TBoss3VoloptP01Fv
   - sub_800495F8__13TUnk_80484A94Fv
   - sub_8004F2A8__11TObjDFDemo4Fv
+  - sub_8005D698__10TBoss4ZakoFv
+  - sub_8005D6B0__10TBoss4ZakoFv
   - sub_80072B70__18TObjChallengeRetryFv
   - sub_80072BB0__18TObjChallengeRetryFv
   - sub_8007313C__18TObjChallengeRetryFv
+  - sub_8007FF28__17TDuelEffectNumberFl
   - sub_8007FFF4__17TDuelEffectNumberFl
   - sub_80090798__18TObjEneBalClawClawFv
   - sub_80090D3C__18TObjEneBalClawClawFv
@@ -8341,6 +8346,7 @@ force_active:
   - sub_800DA1F4__16TObjEneNanoDragoFv
   - sub_800DA2A0__16TObjEneNanoDragoFv
   - sub_800DB970__16TObjEneNanoDragoFv
+  - sub_800E32C0__22TObjEnePanarmsAtkColliFPv
   - sub_800ED408__13TObjEneRe4BitFv
   - sub_800F42B8__16TObjEneMe3StelthFl
   - sub_800F4758__16TObjEneMe3StelthFv
@@ -8349,6 +8355,7 @@ force_active:
   - sub_800F8250__13TUnk_80499988Ff
   - sub_800FEC40__17TObjEZBoneRotBaseFPUc
   - sub_8010A948__14TItemEquipBaseFv
+  - sub_8011E56C__11TItemWeaponFPUc
   - sub_80140F44__11TMapCsnCtrlFv
   - sub_8015860C__6TOBindFv
   - sub_80160968__15TODoorAncient09Fv
@@ -8389,6 +8396,12 @@ force_active:
   - sub_8028B944__12TChCrLoadAfsFv
   - sub_802A2DF4__18TChCrTagOccupationFv
   - sub_802A6438__23TObjSeabedSuisoBrakableFv
+  - sub_802C1660__13TUnk_804E08D4Fv
+  - sub_802C1BFC__13TUnk_804E0910Fv
+  - sub_802C1E34__13TUnk_804E0910Fv
+  - sub_802C2548__13TUnk_804E094CFv
+  - sub_802C2A10__13TUnk_804E0988Fv
+  - sub_802C2C48__13TUnk_804E0988Fv
   - sub_802CACD8__15TObjEneMe1GiGueFv
   - sub_802CB6D4__15TObjEneMe1GiGueFv
   - sub_802CCF2C__15TObjEneMe1GiGueFv

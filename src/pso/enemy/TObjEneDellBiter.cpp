@@ -1231,7 +1231,7 @@ s32 TObjEneDellBiter::render_model_if_visible() {
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
             scale_matrix(0, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8);
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor(1);
         }
@@ -1342,7 +1342,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
             scale_matrix(0, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8);
             TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneDellBiter::step_demo_script));
             if (vis == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             } else {
                 ((TObjEnemy *)arg0)->render_world_model();
             }

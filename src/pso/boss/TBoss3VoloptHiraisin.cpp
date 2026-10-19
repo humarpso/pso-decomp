@@ -339,7 +339,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object((void *)(((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
         } else {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         }
         pop_matrix();
         restore_scene_lighting();

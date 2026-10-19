@@ -1005,7 +1005,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
                     }
                     if (var_r29 != 0) {
                         if (temp_r3 == 1) {
-                            ((TObjEneRe7Berura *)arg0)->draw();
+                            ((TObjMotion *)arg0)->draw();
                         } else {
                             ((TObjEnemy *)arg0)->render_world_model();
                         }
@@ -1015,7 +1015,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
                     var_r30 = 0;
                 }
             } else if (temp_r3 == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             } else {
                 ((TObjEnemy *)arg0)->render_world_model();
             }

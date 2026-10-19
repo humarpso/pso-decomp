@@ -1922,7 +1922,7 @@ void TBoss1Dragon::render() {
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x10;
             ((TUnk_80494AE0 *)(&color))->set_chunk_material_color();
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             model_render_flags = lbl_805D5660;
             *(s32 *)((s8 *)((u8 *)this) + 0x34) = saved;
             pop_matrix();
@@ -2009,7 +2009,7 @@ void TBoss1Dragon::render() {
             scale_matrix(0, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
             TObjEneRe7Berura::set_global_state((s32)((s32 *) dragon_capture_node_points));
             TObjPlayer::toggle_particle_effect();
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             TParticleCtrl::end_effect_render();
             TObjEneRe7Berura::set_global_state((s32)NULL);
             TObjLight__sub_801337F8(current_scene_light);
@@ -2046,7 +2046,7 @@ void TBoss1Dragon::draw() {
     rotate_matrix_x(0, *(s32 *)&this->m_5c);
     rotate_matrix_z(0, this->rotation_z);
     scale_matrix(0, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
-    ((TObjEneRe7Berura *)((u8 *)this))->draw();
+    ((TObjMotion *)((u8 *)this))->draw();
     pop_matrix();
     TObjEneRe7Berura::set_global_state((s32)NULL);
     *(s32 *)&this->model = temp_r31;
@@ -2521,7 +2521,7 @@ void TBoss1Dragon::render_shadows() {
             temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0x34);
             temp_r4 = (u8 *)(*(u8 **)((s8 *)TBoss1Dragon__data_805D4B08 + 0x42C));
             *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)temp_r4 + 0x18);
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             *(s32 *)((s8 *)((u8 *)this) + 0x34) = temp_r31;
             pop_matrix();
         }

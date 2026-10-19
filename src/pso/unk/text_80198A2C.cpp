@@ -46,7 +46,7 @@ int TWindowTimer__sub_8019A770(void*);
 f32 xyz_distance(Vec_80199674*,void*);
 f32 vector_length(Vec_8019978C*);
 void normalize_vector(Vec_8019978C*);
-s32 reflect_velocity_off_collision(Obj_8019978C*,Vec_8019978C*,Vec_8019978C*);
+s32 reflect_velocity_off_collision__13TUnk_804B8E18FPvPv(Obj_8019978C*,Vec_8019978C*,Vec_8019978C*);
 }
 void draw_shadow_on_ground(u8*);
 extern void* lbl_804B8D94[];
@@ -672,10 +672,10 @@ Hit_8019978C *csnVector(Vec_8019978C *, Vec_8019978C *, s32);
 f32 vec3_dot(Vec_8019978C *, Vec_8019978C *);
 f32 vector_length(Vec_8019978C *);
 void normalize_vector(Vec_8019978C *);
-s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v);
+s32 reflect_velocity_off_collision__13TUnk_804B8E18FPvPv(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v);
 #pragma push
 #pragma fp_contract on
-s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v) {
+s32 TUnk_804B8E18::reflect_velocity_off_collision(void *p, void *v) {
     Vec_8019978C end;
     Vec_8019978C dir;
     Vec_8019978C a;
@@ -687,14 +687,14 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
     f32 len;
     f32 d;
     f32 px, py, pz, nx, ny, nz;
-    end.x = p->x + v->x;
-    end.y = p->y + v->y;
-    end.z = p->z + v->z;
-    VecCopy((Vec *)&dir, (const Vec *)v);
+    end.x = ((Vec_8019978C *)p)->x + ((Vec_8019978C *)v)->x;
+    end.y = ((Vec_8019978C *)p)->y + ((Vec_8019978C *)v)->y;
+    end.z = ((Vec_8019978C *)p)->z + ((Vec_8019978C *)v)->z;
+    VecCopy((Vec *)&dir, (const Vec *)((Vec_8019978C *)v));
     len = vector_length(&dir);
     if ((0.0f) != len) {
         normalize_vector(&dir);
-        VecCopy((Vec *)&a, (const Vec *)p);
+        VecCopy((Vec *)&a, (const Vec *)((Vec_8019978C *)p));
         a.x -= (3.0f) * (dir.x * len);
         a.y -= (3.0f) * (dir.y * len);
         a.z -= (3.0f) * (dir.z * len);
@@ -710,33 +710,33 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
     nx = tri->n.x;
     ny = tri->n.y;
     nz = tri->n.z;
-    r.x = v->x;
-    r.y = v->y;
-    r.z = v->z;
+    r.x = ((Vec_8019978C *)v)->x;
+    r.y = ((Vec_8019978C *)v)->y;
+    r.z = ((Vec_8019978C *)v)->z;
     d = (2.0f) * vec3_dot(&r, &tri->n);
     r.x -= d * nx;
     r.y -= d * ny;
     r.z -= d * nz;
-    q.x = px - p->x;
-    q.z = pz - p->z;
+    q.x = px - ((Vec_8019978C *)p)->x;
+    q.z = pz - ((Vec_8019978C *)p)->z;
     q.y = (0.0f);
     vector_length(&q);
-    v->x = r.x * o->f340;
-    v->z = r.z * o->f340;
+    ((Vec_8019978C *)v)->x = r.x * ((Obj_8019978C *)this)->f340;
+    ((Vec_8019978C *)v)->z = r.z * ((Obj_8019978C *)this)->f340;
     normalize_vector(&r);
-    o->f394 *= o->f340;
-    v->y = r.y * o->f394;
-    s.x = v->x;
-    s.z = v->z;
-    s.y = o->f394;
-    if (vector_length(&s) < (1.0f) - o->f340) {
-        v->x = (0.0f);
-        v->y = (0.0f);
-        v->z = (0.0f);
+    ((Obj_8019978C *)this)->f394 *= ((Obj_8019978C *)this)->f340;
+    ((Vec_8019978C *)v)->y = r.y * ((Obj_8019978C *)this)->f394;
+    s.x = ((Vec_8019978C *)v)->x;
+    s.z = ((Vec_8019978C *)v)->z;
+    s.y = ((Obj_8019978C *)this)->f394;
+    if (vector_length(&s) < (1.0f) - ((Obj_8019978C *)this)->f340) {
+        ((Vec_8019978C *)v)->x = (0.0f);
+        ((Vec_8019978C *)v)->y = (0.0f);
+        ((Vec_8019978C *)v)->z = (0.0f);
     }
-    p->x += v->x;
-    p->z += v->z;
-    p->y = (0.001f) * r.y + py;
+    ((Vec_8019978C *)p)->x += ((Vec_8019978C *)v)->x;
+    ((Vec_8019978C *)p)->z += ((Vec_8019978C *)v)->z;
+    ((Vec_8019978C *)p)->y = (0.001f) * r.y + py;
     return 1;
     }
     return 0;
@@ -888,7 +888,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #define gogo_ball_team_scores (*(int (*)[1])&gogo_ball_team_scores)
 #define xyz_distance ((f32 (*)(void*,void*))xyz_distance)
 #define vector_length ((f32 (*)(void*,f32))vector_length)
-#define reflect_velocity_off_collision ((s32 (*)(void*,void*,void*))reflect_velocity_off_collision)
+#define reflect_velocity_off_collision__13TUnk_804B8E18FPvPv ((s32 (*)(void*,void*,void*))reflect_velocity_off_collision__13TUnk_804B8E18FPvPv)
 
 struct RecoveredGlobal_8019A574_lbl_804B8E18 {
     s32 value;
@@ -1008,7 +1008,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     self->vel.y += self->f33c;
     vec3_add_to(&self->pos, &self->vel);
     for (;;) {
-        if (i++ >= 3 || reflect_velocity_off_collision(self, &q, &self->vel) == 0) {
+        if (i++ >= 3 || reflect_velocity_off_collision__13TUnk_804B8E18FPvPv(self, &q, &self->vel) == 0) {
             break;
         }
         VecCopy((Vec *)&self->pos, (const Vec *)&q);
@@ -1213,5 +1213,5 @@ int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCt
 #undef gogo_ball_team_scores
 #undef xyz_distance
 #undef vector_length
-#undef reflect_velocity_off_collision
+#undef reflect_velocity_off_collision__13TUnk_804B8E18FPvPv
 #undef lbl_804B8DA0

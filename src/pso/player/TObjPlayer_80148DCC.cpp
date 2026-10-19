@@ -159,7 +159,7 @@ void TObjPlayer::draw_model() {
         if ((s32) this->m_394 != 0) {
             draw_chunk_object(this->model);
         } else {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         }
         TObjPlayer::clear_global_state();
         pop_matrix();

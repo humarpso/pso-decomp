@@ -1253,7 +1253,7 @@ void render__18TObjEneRe4SorcererFv(u8 *ene_re7_berura) {
             TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe4Sorcerer::step_effect_sequence));
             model_render_flags |= 0x01000000;
             if (var_r28 == 1) {
-                ((TObjEneRe7Berura *)ene_re7_berura)->draw();
+                ((TObjMotion *)ene_re7_berura)->draw();
             } else {
                 ((TObjEnemy *)ene_re7_berura)->render_world_model();
             }

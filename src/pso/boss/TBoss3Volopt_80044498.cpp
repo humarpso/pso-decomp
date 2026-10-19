@@ -1737,7 +1737,7 @@ void TUnk_80484610::render() {
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         } else {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         }
         pop_matrix();
         restore_scene_lighting();

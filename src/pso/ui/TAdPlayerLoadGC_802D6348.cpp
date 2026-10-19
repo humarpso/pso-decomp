@@ -28,7 +28,7 @@ void get_weapon_color__11TItemWeaponFPv(void *, void *);
 extern u8 forward_item_effect_callback__10TObjPlayerFll[];
 extern const f32 lbl_805DE7AC;
 void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1);
-s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
+s32 fire_shot_at_target__11TItemWeaponFPvPvl(s32, s32 *, s32, s32);
 
 extern f32 lbl_805DE7A8;
 
@@ -56,7 +56,7 @@ void TUnk_804E24F0::emit_marker_effects() {
     ((TObjPlayer *)arg0)->draw_status_icon((s32)&sp8);
     spawn_particle_effect(&sp8, 9);
     ((TItemWeapon *)arg0)->spawn_light_task();
-    fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
+    fire_shot_at_target__11TItemWeaponFPvPvl(arg0, &sp8, 0, 0);
 }
 
 }

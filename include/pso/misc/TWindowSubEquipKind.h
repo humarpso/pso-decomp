@@ -6,6 +6,7 @@
 
 struct TWindowSubEquipKind : public TUnk_804D0618 {
     virtual ~TWindowSubEquipKind();
+    void draw_tab_label(void *);
     virtual void render();
     s16 m_88;
     s16 m_8a;

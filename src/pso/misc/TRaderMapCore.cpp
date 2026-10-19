@@ -294,7 +294,7 @@ extern "C" {
 s32 TCameraCtrl__sub_80068EF0();
 void draw_compass__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
 void draw_backdrop__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
-void update_follow_projection__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
+void update_follow_projection__13TRaderMapCoreFl(TRaderMapCore *self, s32 mode);
 extern const f32 lbl_805DC588;
 extern RadarSpriteFrame_801FA6CC lbl_804C87E4[];
 extern f32 lbl_804C87B4[][4];
@@ -954,51 +954,51 @@ struct RadarView_801FA46C {
     u8 pad1C[0xC];
 };
 
-void update_follow_projection__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode) {
+void TRaderMapCore::update_follow_projection(s32 mode) {
     RadarView_801FA46C *view = (RadarView_801FA46C *)&TRaderMapCore__map_view_state;
     RadarView_801FA46C *free_view = view + 1;
     RadarView_801FA46C *out = view + 2;
-    if (self->m_134 >= 0) {
-        view->x = ((Entry_801F9E9C *)self->player_marker_records)[self->m_134].x;
-        view->z = ((Entry_801F9E9C *)self->player_marker_records)[self->m_134].z;
+    if (this->m_134 >= 0) {
+        view->x = ((Entry_801F9E9C *)this->player_marker_records)[this->m_134].x;
+        view->z = ((Entry_801F9E9C *)this->player_marker_records)[this->m_134].z;
     }
-    if (self->m_168 & 1) {
+    if (this->m_168 & 1) {
         view->rot = 0x8000 - ((TCameraCtrl *)camera_ctrl_instance)->m_194;
         if (TOKeyMachine01::get_global_state() == 12) {
             free_view->rot = 0;
-            self->m_174 = 0x8000 - ((TCameraCtrl *)camera_ctrl_instance)->m_194;
+            this->m_174 = 0x8000 - ((TCameraCtrl *)camera_ctrl_instance)->m_194;
         } else {
             free_view->rot = 0x8000;
-            self->m_174 = -((TCameraCtrl *)camera_ctrl_instance)->m_194;
+            this->m_174 = -((TCameraCtrl *)camera_ctrl_instance)->m_194;
         }
     } else if (TOKeyMachine01::get_global_state() == 12) {
         view->rot = 0;
         free_view->rot = 0;
-        self->m_174 = 0;
+        this->m_174 = 0;
     } else {
         view->rot = 0x8000;
         free_view->rot = 0x8000;
-        self->m_174 = 0;
+        this->m_174 = 0;
     }
-    if (self->m_168 & 2) {
-        switch (self->m_16c) {
+    if (this->m_168 & 2) {
+        switch (this->m_16c) {
         case 0:
-            self->m_170 *= lbl_805DC588;
-            view->distance += self->m_170;
+            this->m_170 *= lbl_805DC588;
+            view->distance += this->m_170;
             if (view->distance > lbl_805D35F0) {
                 view->distance = lbl_805D35F0;
             }
             break;
         case 1:
-            self->m_170 *= lbl_805DC588;
-            view->distance += self->m_170;
+            this->m_170 *= lbl_805DC588;
+            view->distance += this->m_170;
             if (view->distance > lbl_805D35F8) {
                 view->distance = lbl_805D35F8;
             }
             break;
         case 2:
-            self->m_170 *= lbl_805DC588;
-            view->distance -= self->m_170;
+            this->m_170 *= lbl_805DC588;
+            view->distance -= this->m_170;
             if (view->distance < lbl_805D35F4) {
                 view->distance = lbl_805D35F4;
             }

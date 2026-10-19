@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecon_8029E89C.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/unk/text_803D96A8.h"
@@ -19,7 +20,7 @@ s32 TObjEneRecon::render_model_if_visible() {
             push_matrix();
             translate_matrix(0, (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x38)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x448)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x40)));
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor(1);
         }

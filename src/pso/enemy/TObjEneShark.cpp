@@ -459,7 +459,7 @@ void TObjEneShark::render() {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0)
         {
           model_render_flags |= 1;
-          ((TObjEneRe7Berura *)arg0)->draw();
+          ((TObjMotion *)arg0)->draw();
           model_render_flags &= ~1;
         }
         ((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m7();
@@ -480,7 +480,7 @@ void TObjEneShark::render() {
         {
           if (res == 1)
           {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
           }
           else
           {
@@ -491,7 +491,7 @@ void TObjEneShark::render() {
       else
         if (res == 1)
       {
-        ((TObjEneRe7Berura *)arg0)->draw();
+        ((TObjMotion *)arg0)->draw();
       }
       else
       {

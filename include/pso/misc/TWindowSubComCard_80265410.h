@@ -16,7 +16,7 @@ s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 void fn_80266378(s32 arg0);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
+s32 get_selected_entry__11TWindowMenuFv(u8 *arg0);
 u8 *init_shop_judgment_window(void *p);
 void render__11TWindowMenuFv(TWindowMenu *arg0);
 }

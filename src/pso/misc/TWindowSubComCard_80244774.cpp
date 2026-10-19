@@ -113,9 +113,9 @@ void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
 void begin_screen_draw(s32);
 s32 draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
-void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
+void draw_window_frame_strips__13TUnk_804CE018FPvPv(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
 extern const f32 lbl_805DCB10;
-void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
+void draw_window_frame__13TUnk_804CE018FPv(Card_80245F98 *a, Rect_80245F98 *r);
 extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAFC;
 struct VOff_8024491C_arg0_card_1 { char pad_0[0x38]; char f_38[1]; };
@@ -142,7 +142,7 @@ void fn_80244958(void *arg0);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
-void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
+void draw_message_frame_row__13TUnk_804CE018FPvPv(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 sub_80246948__13TUnk_804CE018Fv();
 int TWindowFukidasi__sub_8024695C(void *p);
 s32 TWindowCtrlMain__sub_8024CE24();
@@ -510,47 +510,47 @@ bool TWindowSubComCard__sub_80245558(s32 arg0, f32 *arg1, f32 *arg2) {
 
 #pragma push
 #pragma fp_contract on
-void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r) {
+void TUnk_804CE018::draw_message_frame_row(void *q, void *r) {
     f32 rem;
     f32 t;
     f32 z;
     f32 w;
-    if (*(f32 *)((s8 *)a + 0x48) < lbl_805DCB10) {
-        w = lbl_805DCB0C * *(f32 *)((s8 *)a + 0x48);
+    if (*(f32 *)((s8 *)((u8 *)this) + 0x48) < lbl_805DCB10) {
+        w = lbl_805DCB0C * *(f32 *)((s8 *)((u8 *)this) + 0x48);
     } else {
         w = lbl_805DCAFC;
     }
-    z = lbl_805DCAE4 / r->depth;
-    q->x0 = r->x;
-    q->x1 = r->x + w;
-    q->u0 = lbl_805DCB14;
-    q->u1 = lbl_805DCB18;
-    q->x0 = r->sx * (q->x0 - r->px) + r->px;
-    q->x1 = r->sx * (q->x1 - r->px) + r->px;
-    draw_textured_quad_at_depth(q, z);
-    q->x0 = (r->x + *(f32 *)((s8 *)a + 0x48)) - w;
-    q->x1 = r->x + *(f32 *)((s8 *)a + 0x48);
-    q->u0 = lbl_805DCB1C;
-    q->u1 = lbl_805DCB20;
-    q->x0 = r->sx * (q->x0 - r->px) + r->px;
-    q->x1 = r->sx * (q->x1 - r->px) + r->px;
-    draw_textured_quad_at_depth(q, z);
-    q->x0 = lbl_805DCAFC + r->x;
-    q->u0 = lbl_805DCB18;
-    q->u1 = lbl_805DCB1C;
-    rem = r->sx * (*(f32 *)((s8 *)a + 0x48) - lbl_805DCB10);
-    q->x0 = r->sx * (q->x0 - r->px) + r->px;
+    z = lbl_805DCAE4 / ((Rect_802455CC *)r)->depth;
+    ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->x;
+    ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->x + w;
+    ((Quad_802455CC *)q)->u0 = lbl_805DCB14;
+    ((Quad_802455CC *)q)->u1 = lbl_805DCB18;
+    ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x0 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
+    ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x1 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
+    draw_textured_quad_at_depth(((Quad_802455CC *)q), z);
+    ((Quad_802455CC *)q)->x0 = (((Rect_802455CC *)r)->x + *(f32 *)((s8 *)((u8 *)this) + 0x48)) - w;
+    ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->x + *(f32 *)((s8 *)((u8 *)this) + 0x48);
+    ((Quad_802455CC *)q)->u0 = lbl_805DCB1C;
+    ((Quad_802455CC *)q)->u1 = lbl_805DCB20;
+    ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x0 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
+    ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x1 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
+    draw_textured_quad_at_depth(((Quad_802455CC *)q), z);
+    ((Quad_802455CC *)q)->x0 = lbl_805DCAFC + ((Rect_802455CC *)r)->x;
+    ((Quad_802455CC *)q)->u0 = lbl_805DCB18;
+    ((Quad_802455CC *)q)->u1 = lbl_805DCB1C;
+    rem = ((Rect_802455CC *)r)->sx * (*(f32 *)((s8 *)((u8 *)this) + 0x48) - lbl_805DCB10);
+    ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x0 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
     while (rem >= lbl_805DCAD4) {
         if (rem < lbl_805DCAFC) {
-            q->x1 = q->x0 + rem;
+            ((Quad_802455CC *)q)->x1 = ((Quad_802455CC *)q)->x0 + rem;
             t = lbl_805DCB24 + rem;
-            q->u1 = t * lbl_805DCAF4;
+            ((Quad_802455CC *)q)->u1 = t * lbl_805DCAF4;
         } else {
-            q->x1 = lbl_805DCAFC + q->x0;
+            ((Quad_802455CC *)q)->x1 = lbl_805DCAFC + ((Quad_802455CC *)q)->x0;
         }
-        draw_textured_quad_at_depth(q, z);
+        draw_textured_quad_at_depth(((Quad_802455CC *)q), z);
         rem -= lbl_805DCAFC;
-        q->x0 = q->x0 + lbl_805DCAFC;
+        ((Quad_802455CC *)q)->x0 = ((Quad_802455CC *)q)->x0 + lbl_805DCAFC;
     }
 }
 #pragma pop
@@ -582,14 +582,14 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
   q.vBottom = 0.125f;
   q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
   q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
-  draw_message_frame_row((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+  draw_message_frame_row__13TUnk_804CE018FPvPv((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
   q.bottom = c->y + ((struct QFrameWindow_80245808 *)this)->height;
   q.y = q.bottom - half;
   q.v = 0.25f;
   q.vBottom = 0.375f;
   q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
   q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
-  draw_message_frame_row((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+  draw_message_frame_row__13TUnk_804CE018FPvPv((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
   q.y = lbl_805DCAFC + c->y;
   q.v = lbl_805DCB28;
   q.vBottom = lbl_805DCB2C;
@@ -605,7 +605,7 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
       q.vBottom = (lbl_805DCAFC + rem) / 256.0f;
     }
     q.bottom = q.y + step;
-    draw_message_frame_row((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+    draw_message_frame_row__13TUnk_804CE018FPvPv((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
     rem -= lbl_805DCAFC;
     q.y += step;
   }
@@ -652,51 +652,51 @@ typedef struct Rect_80245D64 Rect_80245D64;
 #pragma push
 #pragma fp_contract on
 
-void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r) {
+void TUnk_804CE018::draw_window_frame_strips(void *q, void *r) {
   f32 rem;
   f32 t;
   f32 z;
   f32 w;
-  z = (-1.0f) / r->depth;
-  w = 0.5f * (*((f32 *) (((s8 *) a) + 0x48)));
+  z = (-1.0f) / ((Rect_80245D64 *)r)->depth;
+  w = 0.5f * (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48)));
   if (w > 32.0f)
   {
     w = 32.0f;
   }
-  q->x0 = r->x;
-  q->x1 = r->x + w;
-  q->u0 = 0.0f;
-  q->u1 = w / 256.0f;
-  q->x0 = (r->sx * (q->x0 - r->px)) + r->px;
-  q->x1 = (r->sx * (q->x1 - r->px)) + r->px;
-  ((void (*)(void *, f32))draw_textured_quad_at_depth)(q, z);
-  q->x0 = (r->x + (*((f32 *) (((s8 *) a) + 0x48)))) - w;
-  q->x1 = r->x + (*((f32 *) (((s8 *) a) + 0x48)));
-  q->u0 = (lbl_805DCB48 - w) / 256.0f;
-  q->u1 = 0.375f;
-  q->x0 = (r->sx * (q->x0 - r->px)) + r->px;
-  q->x1 = (r->sx * (q->x1 - r->px)) + r->px;
-  ((void (*)(void *, f32))draw_textured_quad_at_depth)(q, z);
-  q->x0 = 32.0f + r->x;
-  q->u0 = 0.125f;
-  q->u1 = 0.25f;
-  rem = r->sx * ((*((f32 *) (((s8 *) a) + 0x48))) - 64.0f);
-  q->x0 = (r->sx * (q->x0 - r->px)) + r->px;
+  ((Quad_80245D64 *)q)->x0 = ((Rect_80245D64 *)r)->x;
+  ((Quad_80245D64 *)q)->x1 = ((Rect_80245D64 *)r)->x + w;
+  ((Quad_80245D64 *)q)->u0 = 0.0f;
+  ((Quad_80245D64 *)q)->u1 = w / 256.0f;
+  ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x0 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
+  ((Quad_80245D64 *)q)->x1 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x1 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
+  ((void (*)(void *, f32))draw_textured_quad_at_depth)(((Quad_80245D64 *)q), z);
+  ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->x + (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48)))) - w;
+  ((Quad_80245D64 *)q)->x1 = ((Rect_80245D64 *)r)->x + (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48)));
+  ((Quad_80245D64 *)q)->u0 = (lbl_805DCB48 - w) / 256.0f;
+  ((Quad_80245D64 *)q)->u1 = 0.375f;
+  ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x0 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
+  ((Quad_80245D64 *)q)->x1 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x1 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
+  ((void (*)(void *, f32))draw_textured_quad_at_depth)(((Quad_80245D64 *)q), z);
+  ((Quad_80245D64 *)q)->x0 = 32.0f + ((Rect_80245D64 *)r)->x;
+  ((Quad_80245D64 *)q)->u0 = 0.125f;
+  ((Quad_80245D64 *)q)->u1 = 0.25f;
+  rem = ((Rect_80245D64 *)r)->sx * ((*((f32 *) (((s8 *) ((u8 *)this)) + 0x48))) - 64.0f);
+  ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x0 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
   while (rem >= lbl_805DCAD4)
   {
     if (rem < 32.0f)
     {
-      q->x1 = q->x0 + rem;
+      ((Quad_80245D64 *)q)->x1 = ((Quad_80245D64 *)q)->x0 + rem;
       t = 32.0f + rem;
-      q->u1 = t * lbl_805DCAF4;
+      ((Quad_80245D64 *)q)->u1 = t * lbl_805DCAF4;
     }
     else
     {
-      q->x1 = 32.0f + q->x0;
+      ((Quad_80245D64 *)q)->x1 = 32.0f + ((Quad_80245D64 *)q)->x0;
     }
-    ((void (*)(void *, f32))draw_textured_quad_at_depth)(q, z);
+    ((void (*)(void *, f32))draw_textured_quad_at_depth)(((Quad_80245D64 *)q), z);
     rem -= 32.0f;
-    q->x0 += 32.0f;
+    ((Quad_80245D64 *)q)->x0 += 32.0f;
   }
 
 }
@@ -706,7 +706,7 @@ typedef struct Card_80245F98 Card_80245F98;
 typedef struct Quad_80245F98 Quad_80245F98;
 typedef struct Rect_80245F98 Rect_80245F98;
 #pragma fp_contract on
-void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
+void TUnk_804CE018::draw_window_frame(void *r) {
   Quad_80245F98 q;
   s32 n;
   f32 h;
@@ -714,8 +714,8 @@ void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
   f32 rem;
   begin_screen_draw(1);
   TObjFish::set_global_param((s32)((*(void * *)&lbl_805D63F0)));
-  set_draw_texture_and_color(1, r->f34);
-  n = (s32) a->f4C;
+  set_draw_texture_and_color(1, ((Rect_80245F98 *)r)->f34);
+  n = (s32) ((Card_80245F98 *)this)->f4C;
   n += (4 - (n & 3)) & 3;
   if (((f32) n) < 64.0f)
   {
@@ -725,40 +725,40 @@ void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
   {
     h = 32.0f;
   }
-  q.y0 = r->y;
-  q.y1 = r->y + h;
+  q.y0 = ((Rect_80245F98 *)r)->y;
+  q.y1 = ((Rect_80245F98 *)r)->y + h;
   q.v0 = 0.0f;
   q.v1 = h / 256.0f;
-  q.y0 = (r->sy * (q.y0 - r->py)) + r->py;
-  q.y1 = (r->sy * (q.y1 - r->py)) + r->py;
-  draw_window_frame_strips((u8 *)a, (Quad_80245D64 *)(&q), (Rect_80245D64 *)(r));
-  q.y0 = (r->y + n) - h;
-  q.y1 = r->y + n;
+  q.y0 = (((Rect_80245F98 *)r)->sy * (q.y0 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
+  q.y1 = (((Rect_80245F98 *)r)->sy * (q.y1 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
+  draw_window_frame_strips__13TUnk_804CE018FPvPv((u8 *)((Card_80245F98 *)this), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
+  q.y0 = (((Rect_80245F98 *)r)->y + n) - h;
+  q.y1 = ((Rect_80245F98 *)r)->y + n;
   q.v0 = (96.0f - h) / 256.0f;
   q.v1 = 0.375f;
-  q.y0 = (r->sy * (q.y0 - r->py)) + r->py;
-  q.y1 = (r->sy * (q.y1 - r->py)) + r->py;
-  draw_window_frame_strips((u8 *)a, (Quad_80245D64 *)(&q), (Rect_80245D64 *)(r));
-  q.y0 = 32.0f + r->y;
+  q.y0 = (((Rect_80245F98 *)r)->sy * (q.y0 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
+  q.y1 = (((Rect_80245F98 *)r)->sy * (q.y1 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
+  draw_window_frame_strips__13TUnk_804CE018FPvPv((u8 *)((Card_80245F98 *)this), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
+  q.y0 = 32.0f + ((Rect_80245F98 *)r)->y;
   q.v0 = 0.125f;
   q.v1 = 0.25f;
   rem = n - lbl_805DCB10;
-  q.y0 = (r->sy * (q.y0 - r->py)) + r->py;
-  dy = 32.0f * r->sy;
+  q.y0 = (((Rect_80245F98 *)r)->sy * (q.y0 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
+  dy = 32.0f * ((Rect_80245F98 *)r)->sy;
   while (rem >= 0.0f)
   {
     if (rem < 32.0f)
     {
-      dy = rem * r->sy;
+      dy = rem * ((Rect_80245F98 *)r)->sy;
       q.v1 = (32.0f + rem) / 256.0f;
     }
     q.y1 = q.y0 + dy;
-    draw_window_frame_strips((u8 *)a, (Quad_80245D64 *)(&q), (Rect_80245D64 *)(r));
+    draw_window_frame_strips__13TUnk_804CE018FPvPv((u8 *)((Card_80245F98 *)this), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
     rem -= 32.0f;
     q.y0 += dy;
   }
   TWindowSubStatusDisp::get_player();
-  draw_window_scanlines((u8 *)a, (u8 *)r);
+  draw_window_scanlines((u8 *)((Card_80245F98 *)this), (u8 *)((Rect_80245F98 *)r));
 }
 
 void TUnk_804CE018::update_fade() {

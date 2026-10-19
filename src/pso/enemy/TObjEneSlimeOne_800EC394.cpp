@@ -131,16 +131,16 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         if (arg1 != 0) {
             model_render_flags |= 0x400000;
             func_803e11e8__FUl(1);
-            ((TObjEneRe7Berura *)(*(void * *)&this->m_name))->draw();
+            ((TObjMotion *)(*(void * *)&this->m_name))->draw();
             func_803e11f0__Fv();
             model_render_flags &= ~0x400000;
             return;
         }
         TObjFish::set_cull_back();
         func_803e11e8__FUl(2);
-        ((TObjEneRe7Berura *)(*(void * *)&this->m_name))->draw();
+        ((TObjMotion *)(*(void * *)&this->m_name))->draw();
         TObjFish::set_cull_mode_front();
-        ((TObjEneRe7Berura *)(*(void * *)&this->m_name))->draw();
+        ((TObjMotion *)(*(void * *)&this->m_name))->draw();
         TObjFish::set_cull_none();
         func_803e11f0__Fv();
         return;

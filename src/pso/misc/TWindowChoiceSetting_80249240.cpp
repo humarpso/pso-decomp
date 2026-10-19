@@ -15,14 +15,14 @@ struct RecoveredGlobal_802492C8_lbl_8050E208 {
 };
 
 extern "C" {
-s32 draw_window_frame(void *, s32);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_window_scrollbar(s32, s32, void *);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 fn_80249078(void *);
+s32 sub_80249078__20TWindowChoiceSettingFv(void *);
 extern RecoveredGlobal_802492C8_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBC0;
 void __dl__7TObjectFPv(void *);
@@ -33,7 +33,7 @@ extern s32 __vt__20TWindowChoiceSetting[];
 void render__20TWindowChoiceSettingFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TUnk_804D0658 *)arg0)->draw_setting(temp_r3);
     if ((u32) ((TWindowChoiceSetting *)arg0)->m_78 != 0U) {
@@ -89,7 +89,7 @@ void TWindowChoiceSetting::run_task() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    fn_80249078(arg0);
+    sub_80249078__20TWindowChoiceSettingFv(arg0);
     ((TUnk_804CDFE8 *)arg0)->step_window_tween();
     ((TUnk_804D0658 *)arg0)->update_scroll_offset();
     ((TUnk_804D0658 *)arg0)->clamp_scroll();

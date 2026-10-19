@@ -24,7 +24,7 @@ s32 __cvt_fp2unsigned(f32);
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2);
 extern const char TDuelEffectNumber__class_name_string[] = "TDuelEffectNumber";
 extern const RecoveredGlobal_800800EC_lbl_80438D7C duel_number_uv_table = {0, {0x43, 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
-void fn_8007FF28(Obj_8007FF28 *self, s32 arg1);
+void sub_8007FF28__17TDuelEffectNumberFl(Obj_8007FF28 *self, s32 arg1);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
 extern s32 lbl_805D63F0;
@@ -42,16 +42,16 @@ void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1,
 
 #pragma push
 #pragma fp_contract on
-void fn_8007FF28(Obj_8007FF28 *self, s32 arg1) {
+void TDuelEffectNumber::sub_8007FF28(s32 arg1) {
     f32 scale;
     f32 b;
     f32 c;
 
-    if (self->timer >= 5 && self->timer < 20) {
+    if (((Obj_8007FF28 *)this)->timer >= 5 && ((Obj_8007FF28 *)this)->timer < 20) {
         scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(TCameraCtrl::get_camera_no());
         c = (0.5f);
-        b = c * ((self->timer - 5) / (15.0f)) + (1.0f);
-        fn_8007FE78((Obj_8007FF28 *)(self), arg1, self->x1C, scale, b, self->timer < 10 ? c : c - c * ((self->timer - 10) / (1e+01f)));
+        b = c * ((((Obj_8007FF28 *)this)->timer - 5) / (15.0f)) + (1.0f);
+        fn_8007FE78((Obj_8007FF28 *)(((Obj_8007FF28 *)this)), arg1, ((Obj_8007FF28 *)this)->x1C, scale, b, ((Obj_8007FF28 *)this)->timer < 10 ? c : c - c * ((((Obj_8007FF28 *)this)->timer - 10) / (1e+01f)));
     }
 }
 #pragma pop
@@ -106,7 +106,7 @@ void TDuelEffectNumber::render() {
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(6, -1);
     sub_8007FFF4((s32)((s32 *)&sp8));
-    ((s32 (*)(void *, s32 *))fn_8007FF28)(this, (s32 *)&sp8);
+    ((s32 (*)(void *, s32 *))sub_8007FF28__17TDuelEffectNumberFl)(this, (s32 *)&sp8);
     TWindowSubStatusDisp::get_player();
     TObjPlayer::reset_transform_state();
 }

@@ -54,13 +54,13 @@ extern "C" {
 f32 subtract_vector(Vec_802C0CAC *, Vec_802C0CAC *);
 extern Entry_802C0CAC lobby_pigeon_path_profiles[];
 extern const f64 lbl_80471960[];
-s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self);
+s32 initialize_lobby_pigeon_path__13TUnk_804E0898Fv(Obj_802C0CAC *self);
 
 s32 approach_angle_limited(s32, s32, s32);
 s32 angle_diff_s16(s32, s32);
-s32 advance_lobby_pigeon_path(Obj_802C0A74 *self);
+s32 advance_lobby_pigeon_path__13TUnk_804E0898Fv(Obj_802C0A74 *self);
 
-s32 advance_lobby_pigeon_path(Obj_802C0A74 *self) {
+s32 TUnk_804E0898::advance_lobby_pigeon_path() {
     Vec_802C0CAC a;
     Vec_802C0CAC b;
     Vec_802C0CAC d;
@@ -69,60 +69,61 @@ s32 advance_lobby_pigeon_path(Obj_802C0A74 *self) {
     s32 r;
     s32 old;
     s32 diff;
-    ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a, self->fA4);
-    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_profiles[self->fC8].d);
+    ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(((Obj_802C0A74 *)this), ((Obj_802C0A74 *)this)->f98, ((Obj_802C0A74 *)this)->fA0, &a, ((Obj_802C0A74 *)this)->fA4);
+    VecCopy((Vec *)&((Obj_802C0A74 *)this)->vAC, (const Vec *)&a);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(((Obj_802C0A74 *)this), ((Obj_802C0A74 *)this)->f98, ((Obj_802C0A74 *)this)->fA0, &b, ((Obj_802C0A74 *)this)->fA4 + lobby_pigeon_path_profiles[((Obj_802C0A74 *)this)->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
-    self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_profiles[self->fC8].e);
-    old = self->fB8;
+    ((Obj_802C0A74 *)this)->fBC = approach_angle_limited(((Obj_802C0A74 *)this)->fBC, tmp, lobby_pigeon_path_profiles[((Obj_802C0A74 *)this)->fC8].e);
+    old = ((Obj_802C0A74 *)this)->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
-    self->fB8 = approach_angle_limited(old, tmp, lobby_pigeon_path_profiles[self->fC8].e);
+    ((Obj_802C0A74 *)this)->fB8 = approach_angle_limited(old, tmp, lobby_pigeon_path_profiles[((Obj_802C0A74 *)this)->fC8].e);
     diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
-        if (self->fC4 > 0) {
-            self->fC4 = 0;
+        if (((Obj_802C0A74 *)this)->fC4 > 0) {
+            ((Obj_802C0A74 *)this)->fC4 = 0;
         }
-        self->fC4 -= 0x40;
-        if (self->fC4 < -0x200) {
-            self->fC4 = -0x200;
+        ((Obj_802C0A74 *)this)->fC4 -= 0x40;
+        if (((Obj_802C0A74 *)this)->fC4 < -0x200) {
+            ((Obj_802C0A74 *)this)->fC4 = -0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 < -0x2000) {
-            self->fC0 = -0x2000;
+        ((Obj_802C0A74 *)this)->fC0 += ((Obj_802C0A74 *)this)->fC4;
+        if (((Obj_802C0A74 *)this)->fC0 < -0x2000) {
+            ((Obj_802C0A74 *)this)->fC0 = -0x2000;
         }
     } else if (diff < -0x30) {
-        if (self->fC4 < 0) {
-            self->fC4 = 0;
+        if (((Obj_802C0A74 *)this)->fC4 < 0) {
+            ((Obj_802C0A74 *)this)->fC4 = 0;
         }
-        self->fC4 += 0x40;
-        if (self->fC4 > 0x200) {
-            self->fC4 = 0x200;
+        ((Obj_802C0A74 *)this)->fC4 += 0x40;
+        if (((Obj_802C0A74 *)this)->fC4 > 0x200) {
+            ((Obj_802C0A74 *)this)->fC4 = 0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 > 0x2000) {
-            self->fC0 = 0x2000;
+        ((Obj_802C0A74 *)this)->fC0 += ((Obj_802C0A74 *)this)->fC4;
+        if (((Obj_802C0A74 *)this)->fC0 > 0x2000) {
+            ((Obj_802C0A74 *)this)->fC0 = 0x2000;
         }
     } else {
-        self->fC4 = 0;
-        if (self->fC0 > 0x100) {
-            self->fC0 -= 0x100;
-        } else if (self->fC0 < -0x100) {
-            self->fC0 += 0x100;
+        ((Obj_802C0A74 *)this)->fC4 = 0;
+        if (((Obj_802C0A74 *)this)->fC0 > 0x100) {
+            ((Obj_802C0A74 *)this)->fC0 -= 0x100;
+        } else if (((Obj_802C0A74 *)this)->fC0 < -0x100) {
+            ((Obj_802C0A74 *)this)->fC0 += 0x100;
         } else {
-            self->fC0 = 0;
+            ((Obj_802C0A74 *)this)->fC0 = 0;
         }
     }
     return r;
 }
 
-s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
+s32 TUnk_804E0898::initialize_lobby_pigeon_path() {
     Vec_802C0CAC a;
     Vec_802C0CAC b;
     Vec_802C0CAC d;
     s32 tmp;
     s32 r;
+    Obj_802C0CAC *self = (Obj_802C0CAC *)this;
     self->fB8 = 0;
     self->fBC = 0;
     self->fC0 = 0;
@@ -501,19 +502,19 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
 void *__dt__13TUnk_804E0898Fv(void *arg0, s16 arg1);
-s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
+s32 sub_802C1660__13TUnk_804E08D4Fv(Obj_802C1660 *self);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
-s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
+s32 sub_802C1BFC__13TUnk_804E0910Fv(Obj_802C1BFC *self);
+s32 sub_802C1E34__13TUnk_804E0910Fv(Obj_802C1E34 *self);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
-s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
+s32 sub_802C2548__13TUnk_804E094CFv(Obj_802C2548 *self);
 void * __dt__13TUnk_804E094CFv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
 void TObjPlayer__sub_802C2900(void);
-s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
-s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
+s32 sub_802C2A10__13TUnk_804E0988Fv(Obj_802C2A10 *self);
+s32 sub_802C2C48__13TUnk_804E0988Fv(Obj_802C2C48 *self);
 void * __dt__13TUnk_804E0988Fv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
@@ -585,7 +586,7 @@ void TUnk_804E0898::vfunc_13(s32) {
     Obj_802C0F3C *self = (Obj_802C0F3C *)this;
   ((TUnk_804E0898 *)self)->update_lobby_pigeon_visibility();
   self->b4 += lobby_pigeon_path_profiles[self->d8].pa;
-  if (((s32 (*)(void *))advance_lobby_pigeon_path)(self) == 0) {
+  if (((s32 (*)(void *))advance_lobby_pigeon_path__13TUnk_804E0898Fv)(self) == 0) {
     self->b4 = (0.0f);
   }
   self->b8 += lobby_pigeon_path_profiles[self->d8].pb;
@@ -670,7 +671,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     self->path = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), (s32)(((PigeonMovement *)&lobby_pigeon_path_profiles)[self->movement].motion)));
     self->pathFrame = (0.0f);
     self->animationFrame = (0.0f);
-    ((void (*)(LobbyPigeon *))initialize_lobby_pigeon_path)(self);
+    ((void (*)(LobbyPigeon *))initialize_lobby_pigeon_path__13TUnk_804E0898Fv)(self);
     self->viewDistance = (1e+03f);
     self->randomDelay =
         (s32)((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32)rand())) +
@@ -771,12 +772,13 @@ s32 TUnk_804E08D4::update_path_steering() {
     return r;
 }
 
-s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
+s32 TUnk_804E08D4::sub_802C1660() {
     Vec_802C1660 a;
     Vec_802C1660 b;
     Vec_802C1660 d;
     s32 tmp;
     s32 r;
+    Obj_802C1660 *self = (Obj_802C1660 *)this;
     self->fB8 = 0;
     self->fBC = 0;
     self->fC0 = 0;
@@ -868,7 +870,7 @@ void *TObjPlayer__sub_802C19E8(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0xA0) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), *(s32 *)((s8 *)((s32 *)&jungle_seagull_path_profiles) + (((TUnk_804E08D4 *)arg0)->m_c8 * 0x14)));
     ((TUnk_804E08D4 *)arg0)->m_a4 = (f32) (0.0f);
     ((TUnk_804E08D4 *)arg0)->m_a8 = (f32) (0.0f);
-    ((s32 (*)(void *))TObjPlayer__sub_802C1660)(arg0);
+    ((s32 (*)(void *))sub_802C1660__13TUnk_804E08D4Fv)(arg0);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) (1e+03f);
     *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));
     return arg0;
@@ -907,7 +909,7 @@ void TObjPlayer::load_jungle_bird_resources() {
     (*(u8 * *)&lobby_pigeon_texture_gvm) = load_gvm_texture_file((s32) &lbl_80471990.value);
 }
 
-s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
+s32 TUnk_804E0910::sub_802C1BFC() {
     Vec_802C1E34 a;
     Vec_802C1E34 b;
     Vec_802C1E34 d;
@@ -917,63 +919,64 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
     s32 old;
     s32 diff;
     ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
-              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
-                                                 self->fA4);
-    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
+              f32))sample_clamped_path_position)(((Obj_802C1BFC *)this), ((Obj_802C1BFC *)this)->f98, ((Obj_802C1BFC *)this)->fA0, &a,
+                                                 ((Obj_802C1BFC *)this)->fA4);
+    VecCopy((Vec *)&((Obj_802C1BFC *)this)->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
                   f32))sample_clamped_path_position)(
-        self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_parameters[self->fC8].d);
+        ((Obj_802C1BFC *)this), ((Obj_802C1BFC *)this)->f98, ((Obj_802C1BFC *)this)->fA0, &b, ((Obj_802C1BFC *)this)->fA4 + lobby_pigeon_path_parameters[((Obj_802C1BFC *)this)->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
-    self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_parameters[self->fC8].e);
-    old = self->fB8;
+    ((Obj_802C1BFC *)this)->fBC = approach_angle_limited(((Obj_802C1BFC *)this)->fBC, tmp, lobby_pigeon_path_parameters[((Obj_802C1BFC *)this)->fC8].e);
+    old = ((Obj_802C1BFC *)this)->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
-    self->fB8 = approach_angle_limited(old, tmp, lobby_pigeon_path_parameters[self->fC8].e);
+    ((Obj_802C1BFC *)this)->fB8 = approach_angle_limited(old, tmp, lobby_pigeon_path_parameters[((Obj_802C1BFC *)this)->fC8].e);
     diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
-        if (self->fC4 > 0) {
-            self->fC4 = 0;
+        if (((Obj_802C1BFC *)this)->fC4 > 0) {
+            ((Obj_802C1BFC *)this)->fC4 = 0;
         }
-        self->fC4 -= 0x40;
-        if (self->fC4 < -0x200) {
-            self->fC4 = -0x200;
+        ((Obj_802C1BFC *)this)->fC4 -= 0x40;
+        if (((Obj_802C1BFC *)this)->fC4 < -0x200) {
+            ((Obj_802C1BFC *)this)->fC4 = -0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 < -0x2000) {
-            self->fC0 = -0x2000;
+        ((Obj_802C1BFC *)this)->fC0 += ((Obj_802C1BFC *)this)->fC4;
+        if (((Obj_802C1BFC *)this)->fC0 < -0x2000) {
+            ((Obj_802C1BFC *)this)->fC0 = -0x2000;
         }
     } else if (diff < -0x30) {
-        if (self->fC4 < 0) {
-            self->fC4 = 0;
+        if (((Obj_802C1BFC *)this)->fC4 < 0) {
+            ((Obj_802C1BFC *)this)->fC4 = 0;
         }
-        self->fC4 += 0x40;
-        if (self->fC4 > 0x200) {
-            self->fC4 = 0x200;
+        ((Obj_802C1BFC *)this)->fC4 += 0x40;
+        if (((Obj_802C1BFC *)this)->fC4 > 0x200) {
+            ((Obj_802C1BFC *)this)->fC4 = 0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 > 0x2000) {
-            self->fC0 = 0x2000;
+        ((Obj_802C1BFC *)this)->fC0 += ((Obj_802C1BFC *)this)->fC4;
+        if (((Obj_802C1BFC *)this)->fC0 > 0x2000) {
+            ((Obj_802C1BFC *)this)->fC0 = 0x2000;
         }
     } else {
-        self->fC4 = 0;
-        if (self->fC0 > 0x100) {
-            self->fC0 -= 0x100;
-        } else if (self->fC0 < -0x100) {
-            self->fC0 += 0x100;
+        ((Obj_802C1BFC *)this)->fC4 = 0;
+        if (((Obj_802C1BFC *)this)->fC0 > 0x100) {
+            ((Obj_802C1BFC *)this)->fC0 -= 0x100;
+        } else if (((Obj_802C1BFC *)this)->fC0 < -0x100) {
+            ((Obj_802C1BFC *)this)->fC0 += 0x100;
         } else {
-            self->fC0 = 0;
+            ((Obj_802C1BFC *)this)->fC0 = 0;
         }
     }
     return r;
 }
 
-s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
+s32 TUnk_804E0910::sub_802C1E34() {
     Vec_802C1E34 a;
     Vec_802C1E34 b;
     Vec_802C1E34 d;
     s32 tmp;
     s32 r;
+    Obj_802C1E34 *self = (Obj_802C1E34 *)this;
     self->fB8 = 0;
     self->fBC = 0;
     self->fC0 = 0;
@@ -1015,7 +1018,7 @@ void TUnk_804E0910::vfunc_13(s32) {
     Ent_802C1FD0 *e = (Ent_802C1FD0 *)t;
     f32 ox = arg0->x;
     arg0->x = ox + e->b;
-    if (((s32 (*)(Pl_802C1FD0 *, Ent_802C1FD0 *, f32))TObjPlayer__sub_802C1BFC)(arg0, e, ox) == 0) {
+    if (((s32 (*)(Pl_802C1FD0 *, Ent_802C1FD0 *, f32))sub_802C1BFC__13TUnk_804E0910Fv)(arg0, e, ox) == 0) {
         arg0->x = (0.0f);
     }
     arg0->y = arg0->y + lobby_pigeon_path_parameters[arg0->idx].c;
@@ -1059,7 +1062,7 @@ u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
   *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&jungle_bird_bml_resource), *((s32 *) (((s8 *) (&(*(RecoveredGlobal_802C20E8_lbl_80471890 *)&lobby_pigeon_path_parameters).value)) + ((((TUnk_804E0910 *)arg0)->m_c8) * 0x14))));
   ((TUnk_804E0910 *)arg0)->m_a4 = (f32) (0.0f);
   ((TUnk_804E0910 *)arg0)->m_a8 = (f32) (0.0f);
-  ((s32 (*)(void *))TObjPlayer__sub_802C1E34)(arg0);
+  ((s32 (*)(void *))sub_802C1E34__13TUnk_804E0910Fv)(arg0);
   return arg0;
 }
 
@@ -1181,12 +1184,13 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     return r;
 }
 
-s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
+s32 TUnk_804E094C::sub_802C2548() {
     Vec_802C2548 a;
     Vec_802C2548 b;
     Vec_802C2548 d;
     s32 tmp;
     s32 r;
+    Obj_802C2548 *self = (Obj_802C2548 *)this;
     self->fB8 = 0;
     self->fBC = 0;
     self->fC0 = 0;
@@ -1271,7 +1275,7 @@ u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2) {
   *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&jungle_ebi_model_resource), *((s32 *) (((s8 *) (&(*(RecoveredGlobal_802C27FC_lbl_80471848 *)&jungle_ebi_path_profiles).value)) + ((((TUnk_804E094C *)arg0)->m_c8) * 0x18))));
   ((TUnk_804E094C *)arg0)->m_a4 = (f32) (0.0f);
   ((TUnk_804E094C *)arg0)->m_a8 = (f32) (0.0f);
-  ((s32 (*)(void *))TObjPlayer__sub_802C2548)(arg0);
+  ((s32 (*)(void *))sub_802C2548__13TUnk_804E094CFv)(arg0);
   return arg0;
 }
 
@@ -1307,7 +1311,7 @@ void TObjPlayer::load_seabed_dolphin() {
     TLobby::spawn_npc_enemy((s16)0x40, (s32)(((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&seabed_dolphin_bml_archive), 0, ((Q_802C2958 *)seabed_dolphin_anim_binding)->c, ((Q_802C2958 *)seabed_dolphin_anim_binding)->b, ((Q_802C2958 *)seabed_dolphin_anim_binding)->a, seabed_dolphin_anim_binding)), (s32)seabed_dolphin_texture_handle, (s32)(&q), (f32)((16.0f)), (f32)((1e+01f)));
 }
 
-s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
+s32 TUnk_804E0988::sub_802C2A10() {
     Vec_802C2C48 a;
     Vec_802C2C48 b;
     Vec_802C2C48 d;
@@ -1317,63 +1321,64 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
     s32 old;
     s32 diff;
     ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
-              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
-                                                 self->fA4);
-    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
+              f32))sample_clamped_path_position)(((Obj_802C2A10 *)this), ((Obj_802C2A10 *)this)->f98, ((Obj_802C2A10 *)this)->fA0, &a,
+                                                 ((Obj_802C2A10 *)this)->fA4);
+    VecCopy((Vec *)&((Obj_802C2A10 *)this)->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
                   f32))sample_clamped_path_position)(
-        self, self->f98, self->fA0, &b, self->fA4 + seabed_dolphin_path_profiles[self->fC8].d);
+        ((Obj_802C2A10 *)this), ((Obj_802C2A10 *)this)->f98, ((Obj_802C2A10 *)this)->fA0, &b, ((Obj_802C2A10 *)this)->fA4 + seabed_dolphin_path_profiles[((Obj_802C2A10 *)this)->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
     direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
-    self->fBC = approach_angle_limited(self->fBC, tmp, seabed_dolphin_path_profiles[self->fC8].e);
-    old = self->fB8;
+    ((Obj_802C2A10 *)this)->fBC = approach_angle_limited(((Obj_802C2A10 *)this)->fBC, tmp, seabed_dolphin_path_profiles[((Obj_802C2A10 *)this)->fC8].e);
+    old = ((Obj_802C2A10 *)this)->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
-    self->fB8 = approach_angle_limited(old, tmp, seabed_dolphin_path_profiles[self->fC8].e);
+    ((Obj_802C2A10 *)this)->fB8 = approach_angle_limited(old, tmp, seabed_dolphin_path_profiles[((Obj_802C2A10 *)this)->fC8].e);
     diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
-        if (self->fC4 > 0) {
-            self->fC4 = 0;
+        if (((Obj_802C2A10 *)this)->fC4 > 0) {
+            ((Obj_802C2A10 *)this)->fC4 = 0;
         }
-        self->fC4 -= 0x40;
-        if (self->fC4 < -0x200) {
-            self->fC4 = -0x200;
+        ((Obj_802C2A10 *)this)->fC4 -= 0x40;
+        if (((Obj_802C2A10 *)this)->fC4 < -0x200) {
+            ((Obj_802C2A10 *)this)->fC4 = -0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 < -0x2000) {
-            self->fC0 = -0x2000;
+        ((Obj_802C2A10 *)this)->fC0 += ((Obj_802C2A10 *)this)->fC4;
+        if (((Obj_802C2A10 *)this)->fC0 < -0x2000) {
+            ((Obj_802C2A10 *)this)->fC0 = -0x2000;
         }
     } else if (diff < -0x30) {
-        if (self->fC4 < 0) {
-            self->fC4 = 0;
+        if (((Obj_802C2A10 *)this)->fC4 < 0) {
+            ((Obj_802C2A10 *)this)->fC4 = 0;
         }
-        self->fC4 += 0x40;
-        if (self->fC4 > 0x200) {
-            self->fC4 = 0x200;
+        ((Obj_802C2A10 *)this)->fC4 += 0x40;
+        if (((Obj_802C2A10 *)this)->fC4 > 0x200) {
+            ((Obj_802C2A10 *)this)->fC4 = 0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 > 0x2000) {
-            self->fC0 = 0x2000;
+        ((Obj_802C2A10 *)this)->fC0 += ((Obj_802C2A10 *)this)->fC4;
+        if (((Obj_802C2A10 *)this)->fC0 > 0x2000) {
+            ((Obj_802C2A10 *)this)->fC0 = 0x2000;
         }
     } else {
-        self->fC4 = 0;
-        if (self->fC0 > 0x100) {
-            self->fC0 -= 0x100;
-        } else if (self->fC0 < -0x100) {
-            self->fC0 += 0x100;
+        ((Obj_802C2A10 *)this)->fC4 = 0;
+        if (((Obj_802C2A10 *)this)->fC0 > 0x100) {
+            ((Obj_802C2A10 *)this)->fC0 -= 0x100;
+        } else if (((Obj_802C2A10 *)this)->fC0 < -0x100) {
+            ((Obj_802C2A10 *)this)->fC0 += 0x100;
         } else {
-            self->fC0 = 0;
+            ((Obj_802C2A10 *)this)->fC0 = 0;
         }
     }
     return r;
 }
 
-s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
+s32 TUnk_804E0988::sub_802C2C48() {
     Vec_802C2C48 a;
     Vec_802C2C48 b;
     Vec_802C2C48 d;
     s32 tmp;
     s32 r;
+    Obj_802C2C48 *self = (Obj_802C2C48 *)this;
     self->fB8 = 0;
     self->fBC = 0;
     self->fC0 = 0;
@@ -1417,7 +1422,7 @@ void TUnk_804E0988::vfunc_13(s32) {
     e += arg0->idx;
     ox = arg0->x;
     arg0->x = ox + e->b;
-    if (TObjPlayer__sub_802C2A10((Obj_802C2A10 *)arg0) == 0) {
+    if (sub_802C2A10__13TUnk_804E0988Fv((Obj_802C2A10 *)arg0) == 0) {
         arg0->x = (0.0f);
     }
     arg0->y = arg0->y + seabed_dolphin_path_profiles[arg0->idx].c;
@@ -1461,7 +1466,7 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
   *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&seabed_dolphin_bml_archive), *((s32 *) (((s8 *) (&(*(RecoveredGlobal_802C2F04_lbl_804717D4 *)&seabed_dolphin_path_profiles).value)) + ((((TUnk_804E0988 *)arg0)->m_c8) * 0x14))));
   ((TUnk_804E0988 *)arg0)->m_a4 = (f32) (0.0f);
   ((TUnk_804E0988 *)arg0)->m_a8 = (f32) (0.0f);
-  ((s32 (*)(void *))TObjPlayer__sub_802C2C48)(arg0);
+  ((s32 (*)(void *))sub_802C2C48__13TUnk_804E0988Fv)(arg0);
   return arg0;
 }
 

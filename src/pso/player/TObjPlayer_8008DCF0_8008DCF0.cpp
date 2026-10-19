@@ -541,7 +541,7 @@ void TObjEneBalClawBody::render() {
                         }
                         if (var_r29 != 0) {
                             if (temp_r3 == 1) {
-                                ((TObjEneRe7Berura *)arg0)->draw();
+                                ((TObjMotion *)arg0)->draw();
                             } else {
                                 ((TObjEnemy *)arg0)->render_world_model();
                             }
@@ -551,7 +551,7 @@ void TObjEneBalClawBody::render() {
                         var_r30 = 0;
                     }
                 } else if (temp_r3 == 1) {
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                 } else {
                     ((TObjEnemy *)arg0)->render_world_model();
                 }

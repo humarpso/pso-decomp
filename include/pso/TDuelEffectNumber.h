@@ -7,6 +7,7 @@ class TDuelEffectNumber : public TObject {
 public:
     TDuelEffectNumber(TObject *arg1, void *arg2, void *arg3);
     virtual ~TDuelEffectNumber();
+    void sub_8007FF28(s32);
     void sub_8007FFF4(s32);
     virtual void run_task();
     virtual void render();

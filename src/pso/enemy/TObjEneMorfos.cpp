@@ -922,7 +922,7 @@ s32 TObjEneMorfos::render_model_if_visible() {
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, this->rotation_y);
-            ((TObjEneRe7Berura *)((u8 *)this))->draw();
+            ((TObjMotion *)((u8 *)this))->draw();
             pop_matrix();
             if (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) & 0x10) {
                 this->draw_body();
@@ -992,19 +992,19 @@ void TObjEneMorfos::render_part(s32 idx, s32 mode) {
         if (self->body.m8() != 0) {
             self->body.m6();
             if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
-                ((TObjEneRe7Berura *)self)->draw();
+                ((TObjMotion *)self)->draw();
             }
             self->body.m7();
         }
     } else if (vis != 0) {
         part->m6();
         if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
-            ((TObjEneRe7Berura *)self)->draw();
+            ((TObjMotion *)self)->draw();
         }
         part->m7();
     } else if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
         if (mode == 1) {
-            ((TObjEneRe7Berura *)self)->draw();
+            ((TObjMotion *)self)->draw();
         } else {
             ((TObjEnemy *)self)->render_world_model();
         }

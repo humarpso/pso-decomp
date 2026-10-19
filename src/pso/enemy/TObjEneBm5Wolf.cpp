@@ -1303,7 +1303,7 @@ void TObjEneBm5Wolf::render() {
             TObjEneDD::clear_global_flag_400();
             TObjPlayer::toggle_particle_effect();
             if (var_r31 == 1) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             } else {
                 this->render_world_model();
             }

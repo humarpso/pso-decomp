@@ -314,7 +314,7 @@ s32 angle_difference_abs(s32, s32);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
-int draw__16TObjEneRe7BeruraFv(void*);
+int draw__10TObjMotionFv(void*);
 void advance_animation_playback(void *);
 void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
@@ -1426,7 +1426,7 @@ void TObjEnePanarms::update_linked_effect() {
     }
 }
 
-void TObjEnePanarms::draw() { ((int (*)(void*))push_matrix)(this); ((int (*)(void*))post_translate_matrix)((char*)this + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void* *)&this->rotation_y); TObjFish::set_global_param((s32)(*(void* *)&this->texture_id)); ((TObjFish *)(this->m_3dc))->set_draw_callback_list(); draw__16TObjEneRe7BeruraFv(this); ((int (*)(void*))clear_render_callback__8TObjFishFv)(this->m_3dc); ((int (*)(void))pop_matrix)(); }
+void TObjEnePanarms::draw() { ((int (*)(void*))push_matrix)(this); ((int (*)(void*))post_translate_matrix)((char*)this + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void* *)&this->rotation_y); TObjFish::set_global_param((s32)(*(void* *)&this->texture_id)); ((TObjFish *)(this->m_3dc))->set_draw_callback_list(); draw__10TObjMotionFv(this); ((int (*)(void*))clear_render_callback__8TObjFishFv)(this->m_3dc); ((int (*)(void))pop_matrix)(); }
 
 void TObjEnePanarms::draw_with_fade() {
     s32 temp_r4;

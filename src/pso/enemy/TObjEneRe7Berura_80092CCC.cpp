@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -369,14 +370,14 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 }
                 if (f1 != 0) {
                     TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::demo_frame_callback));
-                    ((TObjEneRe7Berura *)o)->draw();
+                    ((TObjMotion *)o)->draw();
                     TObjEneRe7Berura::set_global_state(0);
                 }
                 ((Fade_80092CCC *)fade)->v.m7();
             } else {
                 TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::demo_frame_callback));
                 if (mode == 1) {
-                    ((TObjEneRe7Berura *)o)->draw();
+                    ((TObjMotion *)o)->draw();
                 } else {
                     ((TObjEnemy *)o)->render_world_model();
                 }
@@ -394,7 +395,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                     }
                     if (f2 != 0) {
                         TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::advance_state));
-                        ((TObjEneRe7Berura *)o)->draw();
+                        ((TObjMotion *)o)->draw();
                         TObjEneRe7Berura::set_global_state(0);
                     }
                     o->f3D8.v.m7();
@@ -402,11 +403,11 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
             } else if (cam != 0) {
                 ((Fade_80092CCC *)fade)->v.m6();
                 TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::advance_state));
-                ((TObjEneRe7Berura *)o)->draw();
+                ((TObjMotion *)o)->draw();
                 TObjEneRe7Berura::set_global_state(0);
                 ((Fade_80092CCC *)fade)->v.m7();
             } else if (mode == 1) {
-                ((TObjEneRe7Berura *)o)->draw();
+                ((TObjMotion *)o)->draw();
             } else {
                 ((TObjEnemy *)o)->render_world_model();
             }

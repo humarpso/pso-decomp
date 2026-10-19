@@ -61,7 +61,7 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
 u16 obj_getField1c(void *);
-u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
+u16 find_nearest_enemy__15TObjEnemyCustomFPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 find_nearest_visible_player(void *, void *, f32);
 Obj_800C6FFC *find_entity_by_id(int);
@@ -157,7 +157,7 @@ void TObjEneDubchik::target_nearest_player(f32 radius) {
     arg0->targetIdx = best;
     arg0->target = find_active_entity_by_id(arg0->targetIdx);
 }
-u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) {
+u16 TObjEnemyCustom::find_nearest_enemy(void *out, f32 radius) {
     Vec_800C6EF8 v;
     u16 best;
     s32 i;
@@ -173,7 +173,7 @@ u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out
             break;
         }
         id = obj_getField1c(p);
-        if (id == arg0->id) {
+        if (id == ((Obj_800C6EF8 *)this)->id) {
             continue;
         }
         if (id < 0x1000 || id >= 0x4000) {
@@ -182,12 +182,12 @@ u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out
         if (p->flags & 0x2000800) {
             continue;
         }
-        d = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, p, &v);
+        d = calc_xz_distance_sq__10TObjPlayerFiUiPv(((Obj_800C6EF8 *)this), p, &v);
         if (d < bestDist) {
             best = obj_getField1c(p);
             bestDist = d;
-            if (out != NULL) {
-                VecCopy((Vec *)out, (const Vec *)&v);
+            if (((Vec_800C6EF8 *)out) != NULL) {
+                VecCopy((Vec *)((Vec_800C6EF8 *)out), (const Vec *)&v);
             }
         }
     }
@@ -201,7 +201,7 @@ BOOL TObjEnemyCustom::select_nearest_target(f32 radius) {
     f32 da;
     Obj_800C6FFC *arg0 = (Obj_800C6FFC *)this;
     a = find_nearest_visible_player(arg0, NULL, radius);
-    b = ((s32 (*)(void *, void *, f32))find_nearest_enemy__10TObjPlayerFPvPvf)(arg0, NULL, radius);
+    b = ((s32 (*)(void *, void *, f32))find_nearest_enemy__15TObjEnemyCustomFPvf)(arg0, NULL, radius);
     if ((u16)a == 0xFFFF) {
         this->targetId = 0xFFFF;
     } else if ((u16)b == 0xFFFF) {

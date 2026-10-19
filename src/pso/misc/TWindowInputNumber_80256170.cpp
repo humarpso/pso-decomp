@@ -57,7 +57,7 @@ extern const f32 lbl_805DCE20;
 extern const f32 lbl_805DCE24;
 extern const s32 number_input_decimal_place_values[];
 s32 draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
-s32 draw_window_frame(void *, int);
+s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
@@ -139,7 +139,7 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x74));
-    draw_window_frame(arg0, temp_r3);
+    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) ((TWindowInputNumber *)arg0)->selectedDigit)), ((TWindowInputNumber *)arg0)->is_confirmed());
     {

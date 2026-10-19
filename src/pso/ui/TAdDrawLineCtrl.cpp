@@ -14,7 +14,7 @@ void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
 void __ct__7TObjectFP7TObject(void *);
-void fn_80019B08(void *, int);
+void sub_80019B08__15TAdDrawLineCtrlFl(void *, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TAdDrawLineCtrl::render() {
@@ -65,7 +65,7 @@ TAdDrawLineCtrl::TAdDrawLineCtrl(TObject *object, void *arg2, f32 farg0) : TObje
     *(void * *)&this->child_root = o;
     this->render_mode = 1;
     this->set_draw_line_param_all_nodes(farg0);
-    fn_80019B08(this, -1);
+    sub_80019B08__15TAdDrawLineCtrlFl(this, -1);
 }
 
 u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {

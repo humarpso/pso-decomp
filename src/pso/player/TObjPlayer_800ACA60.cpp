@@ -1542,7 +1542,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
         } else {
             TObjPlayer::toggle_particle_effect();
             if (vis == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             } else {
                 ((TObjEnemy *)arg0)->render_world_model();
             }

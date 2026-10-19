@@ -903,7 +903,7 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     } else {
         epsilon_guard_camera_sample_phase = 0;
         if (arg1 == 1) {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         } else {
             ((TObjEnemy *)arg0)->render_world_model();
         }

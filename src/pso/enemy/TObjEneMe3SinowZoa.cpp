@@ -1286,7 +1286,7 @@ void TObjEneMe3SinowZoa::render() {
             rotate_matrix_y(0, *(s32 *)(((u8 *)this) + 0x60));
             lbl_805D6ADC = 0;
             if (mode == 1) {
-                ((TObjEneRe7Berura *)((u8 *)this))->draw();
+                ((TObjMotion *)((u8 *)this))->draw();
             } else {
                 this->render_world_model();
             }

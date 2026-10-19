@@ -6,6 +6,7 @@
 
 struct TObjEnemyCustom : public TObjEnemy {
     virtual ~TObjEnemyCustom();
+    u16 find_nearest_enemy(void *, f32);
     BOOL select_nearest_target(f32);
     u8 find_target_in_range(f32);
     void sub_800C7860();

@@ -39,7 +39,7 @@ void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 extern s32 model_render_flags;
 extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;
-s32 draw__16TObjEneRe7BeruraFv(void *);
+s32 draw__10TObjMotionFv(void *);
 s32 is_split_screen();
 extern RecoveredGlobal_800F09E8_lbl_804976B0 blob_shadow_rect_desc;
 extern s32 blob_shadow_texture_list;
@@ -70,7 +70,7 @@ void TObjEneDD_ST::draw_with_alt_model(s32 arg1) {
     TObjPlayer::set_alt_model_flag();
     TObjPlayer__sub_800F083C();
     *(s32 *)&this->model = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
-    draw__16TObjEneRe7BeruraFv(this);
+    draw__10TObjMotionFv(this);
     TObjPlayer::update_lights();
     TObjPlayer::clear_alt_model_flag();
     *(s32 *)&this->model = temp_r31;

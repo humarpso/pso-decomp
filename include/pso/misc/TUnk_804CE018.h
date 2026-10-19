@@ -6,6 +6,9 @@
 class TUnk_804CE018 : public TObject {
 public:
     virtual ~TUnk_804CE018();
+    void draw_window_frame(void *);
+    void draw_window_frame_strips(void *, void *);
+    void draw_message_frame_row(void *, void *);
     void resort_window_order();
     void calc_inner_rect(u8 *);
     void sub_8026CC28();

@@ -308,7 +308,7 @@ s32 is_item_light_interaction_blocked();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 render_world_model__9TObjEnemyFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
+s32 draw__10TObjMotionFv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -512,7 +512,7 @@ void TObjEneLappy::render() {
             } else {
                 model_render_flags |= 0x01000000;
                 if (temp_r3 == 1) {
-                    draw__16TObjEneRe7BeruraFv(this);
+                    draw__10TObjMotionFv(this);
                 } else {
                     render_world_model__9TObjEnemyFv(this);
                 }
@@ -1155,7 +1155,7 @@ void *TObjEneLappy::create(void *arg0) {
 #define render__12TObjEneLappyFv (*(void (*)())&render__12TObjEneLappyFv)
 #define apply_variant_speeds__12TObjEneLappyFv (*(s32 (*)(void *))&apply_variant_speeds__12TObjEneLappyFv)
 #define render_world_model__9TObjEnemyFv (*(void (*)(void *))&render_world_model__9TObjEnemyFv)
-#define draw__16TObjEneRe7BeruraFv (*(void (*)(void *))&draw__16TObjEneRe7BeruraFv)
+#define draw__10TObjMotionFv (*(void (*)(void *))&draw__10TObjMotionFv)
 #define scale_matrix (*(void (*)(int, f32, f32, f32))&scale_matrix)
 #define draw_chunk_object (*(s32 (*)(int))&draw_chunk_object)
 #define set_global_param__8TObjFishFl (*(s32 (*)(void *))&set_global_param__8TObjFishFl)
@@ -2100,12 +2100,12 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
                 if (o->sub.m8() != 0) {
                     o->sub.m6();
                     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) == 0) {
-                        draw__16TObjEneRe7BeruraFv(o);
+                        draw__10TObjMotionFv(o);
                     }
                     o->sub.m7();
                 }
             } else if (visible == 1) {
-                draw__16TObjEneRe7BeruraFv(o);
+                draw__10TObjMotionFv(o);
             } else {
                 render_world_model__9TObjEnemyFv(o);
             }
@@ -2140,7 +2140,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
 #undef set_global_param__8TObjFishFl
 #undef draw_chunk_object
 #undef scale_matrix
-#undef draw__16TObjEneRe7BeruraFv
+#undef draw__10TObjMotionFv
 #undef render_world_model__9TObjEnemyFv
 #undef apply_variant_speeds__12TObjEneLappyFv
 #undef render__12TObjEneLappyFv

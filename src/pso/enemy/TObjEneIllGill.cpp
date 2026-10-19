@@ -1679,14 +1679,14 @@ void TObjEneIllGill::render() {
                 lbl_805D5664 = chunk_polygon_flags_and_mask;
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 ((VObj_14_80368208 *)(arg0 + 0x374))->m6();
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
                 ((VObj_14_80368208 *)(arg0 + 0x374))->m7();
                 chunk_polygon_flags_and_mask = lbl_805D5664;
                 chunk_polygon_flags_or_mask = lbl_805D5668;
                 model_render_flags = lbl_805D5660;
             }
         } else if (*(s32 *)&this->m_3a8 == 1) {
-            ((TObjEneRe7Berura *)arg0)->draw();
+            ((TObjMotion *)arg0)->draw();
         } else {
             ((TObjEnemy *)arg0)->render_world_model();
         }

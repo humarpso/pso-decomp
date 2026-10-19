@@ -229,8 +229,8 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
 void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
 void draw_name_plate__15TWindowFukidasiFv(void *, View_80252764 *, u32);
-void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx_802523CC *ctx, f32 offsetX, f32 rowTop, f32 fullWidth, f32 rowHeight);
-void draw_body__15TWindowFukidasiFPvPvUiPvf(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
+void draw_body_row__13TUnk_804CF0B8FPvPvffff(Fuki_802523CC *b, Slice_802523CC *s, Ctx_802523CC *ctx, f32 offsetX, f32 rowTop, f32 fullWidth, f32 rowHeight);
+void draw_body__13TUnk_804CF0B8FPvUlPff(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 void TWindowFukidasi__sub_80252C38(void *p);
 void clear_flag_20__13TUnk_804CF0B8Fv();
 s32 fn_80252CBC(void);
@@ -1037,7 +1037,7 @@ void TUnk_804CF0B8::draw_tail(void *view, u32 color, f32 *off, f32 depth) {
 
 #pragma push
 #pragma fp_contract on
-void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx_802523CC *ctx, f32 offsetX, f32 rowTop, f32 fullWidth, f32 rowHeight) {
+void TUnk_804CF0B8::draw_body_row(void *s, void *ctx, f32 offsetX, f32 rowTop, f32 fullWidth, f32 rowHeight) {
     f32 left;
     f32 cap;
     f32 w;
@@ -1047,75 +1047,75 @@ void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx
     } else {
         cap = 32.0f;
     }
-    left = offsetX + (b->x - 0.342f * rowTop);
+    left = offsetX + (((Fuki_802523CC *)this)->x - 0.342f * rowTop);
 
-    s->x = left;
-    s->width = cap;
-    s->lean = 0.342f * -rowHeight;
-    s->u = 0.3828125f;
-    s->uw = cap / 256.0f;
-    s->x = ctx->pivot + ctx->scale * (s->x - ctx->pivot);
-    s->width *= ctx->scale;
-    s->lean *= ctx->scale;
-    DVDConvertEntrynumToPath((f32 *)s);
-    s->x = left + fullWidth - cap;
-    s->x = ctx->pivot + ctx->scale * (s->x - ctx->pivot);
-    s->u = (194.0f - cap) / 256.0f;
-    DVDConvertEntrynumToPath((f32 *)s);
-    w = (fullWidth - 64.0f) * ctx->scale;
+    ((Slice_802523CC *)s)->x = left;
+    ((Slice_802523CC *)s)->width = cap;
+    ((Slice_802523CC *)s)->lean = 0.342f * -rowHeight;
+    ((Slice_802523CC *)s)->u = 0.3828125f;
+    ((Slice_802523CC *)s)->uw = cap / 256.0f;
+    ((Slice_802523CC *)s)->x = ((Ctx_802523CC *)ctx)->pivot + ((Ctx_802523CC *)ctx)->scale * (((Slice_802523CC *)s)->x - ((Ctx_802523CC *)ctx)->pivot);
+    ((Slice_802523CC *)s)->width *= ((Ctx_802523CC *)ctx)->scale;
+    ((Slice_802523CC *)s)->lean *= ((Ctx_802523CC *)ctx)->scale;
+    DVDConvertEntrynumToPath((f32 *)((Slice_802523CC *)s));
+    ((Slice_802523CC *)s)->x = left + fullWidth - cap;
+    ((Slice_802523CC *)s)->x = ((Ctx_802523CC *)ctx)->pivot + ((Ctx_802523CC *)ctx)->scale * (((Slice_802523CC *)s)->x - ((Ctx_802523CC *)ctx)->pivot);
+    ((Slice_802523CC *)s)->u = (194.0f - cap) / 256.0f;
+    DVDConvertEntrynumToPath((f32 *)((Slice_802523CC *)s));
+    w = (fullWidth - 64.0f) * ((Ctx_802523CC *)ctx)->scale;
     if (w >= 0.0f) {
-        s->x = 32.0f + left;
-        s->x = ctx->pivot + ctx->scale * (s->x - ctx->pivot);
-        s->width = w;
-        s->u = 0.5078125f;
-        DVDConvertEntrynumToPath((f32 *)s);
+        ((Slice_802523CC *)s)->x = 32.0f + left;
+        ((Slice_802523CC *)s)->x = ((Ctx_802523CC *)ctx)->pivot + ((Ctx_802523CC *)ctx)->scale * (((Slice_802523CC *)s)->x - ((Ctx_802523CC *)ctx)->pivot);
+        ((Slice_802523CC *)s)->width = w;
+        ((Slice_802523CC *)s)->u = 0.5078125f;
+        DVDConvertEntrynumToPath((f32 *)((Slice_802523CC *)s));
     }
 }
 #pragma pop
 
 #pragma push
 #pragma fp_contract on
-void draw_body__15TWindowFukidasiFPvPvUiPvf(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth) {
+void TUnk_804CF0B8::draw_body(void *ctx, u32 argb, f32 *offset, f32 depth) {
     struct Slice_80252558 s;
     f32 width;
     f32 capY;
     f32 mid;
     f32 d;
     f32 t;
-    width = b->size[0] + lbl_805DCD9C * b->size[1];
+    width = ((struct Fukidasi_80252558 *)this)->size[0] + lbl_805DCD9C * ((struct Fukidasi_80252558 *)this)->size[1];
     s.f10 = 0.0f;
     s.f2c = 0.0f;
     s.f30 = 0.0f;
     begin_screen_draw(1);
     TObjFish::set_global_param((s32)lbl_805D63F0);
     set_draw_texture_and_color(1, argb);
-    if (b->size[1] < lbl_805DCD98) {
-        capY = TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (((struct Fukidasi_80252558 *)this)->size[1] < lbl_805DCD98) {
+        capY = TWindowFukidasi__data_805DCD0C * ((struct Fukidasi_80252558 *)this)->size[1];
     } else {
         capY = lbl_805DCD94;
     }
     s.z = TWindowFukidasi__data_805DCD4C / depth;
-    s.y = b->position[1] + offset[1];
+    s.y = ((struct Fukidasi_80252558 *)this)->position[1] + offset[1];
     s.rowHeight = capY;
     s.v = 0.0f;
     s.vh = capY * lbl_805DCDA4;
-    s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
-    s.rowHeight *= ctx->scale[1];
-    ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__15TWindowFukidasiFv)(b, &s, ctx, offset[0], 0.0f, width, capY);
-    s.y = (b->size[1] + (b->position[1] + offset[1])) - capY;
-    s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
+    s.y = ((struct DrawCtx_80252558 *)ctx)->pivot[1] + ((struct DrawCtx_80252558 *)ctx)->scale[1] * (s.y - ((struct DrawCtx_80252558 *)ctx)->pivot[1]);
+    s.rowHeight *= ((struct DrawCtx_80252558 *)ctx)->scale[1];
+    ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__13TUnk_804CF0B8FPvPvffff)(((struct Fukidasi_80252558 *)this), &s, ((struct DrawCtx_80252558 *)ctx), offset[0], 0.0f, width, capY);
+    s.y = (((struct Fukidasi_80252558 *)this)->size[1] + (((struct Fukidasi_80252558 *)this)->position[1] + offset[1])) - capY;
+    s.y = ((struct DrawCtx_80252558 *)ctx)->pivot[1] + ((struct DrawCtx_80252558 *)ctx)->scale[1] * (s.y - ((struct DrawCtx_80252558 *)ctx)->pivot[1]);
     t = lbl_805DCDB0 - capY;
     s.v = t * lbl_805DCDA4;
-    ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__15TWindowFukidasiFv)(b, &s, ctx, offset[0], b->size[1] - capY, width, capY);
-    d = b->size[1] - lbl_805DCD98;
-    mid = d * ctx->scale[1];
+    ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__13TUnk_804CF0B8FPvPvffff)(((struct Fukidasi_80252558 *)this), &s, ((struct DrawCtx_80252558 *)ctx), offset[0], ((struct Fukidasi_80252558 *)this)->size[1] - capY, width, capY);
+    d = ((struct Fukidasi_80252558 *)this)->size[1] - lbl_805DCD98;
+    mid = d * ((struct DrawCtx_80252558 *)ctx)->scale[1];
     if (mid >= TWindowFukidasi__data_805DCD30) {
-        f32 y = lbl_805DCD94 + b->position[1];
+        f32 y = lbl_805DCD94 + ((struct Fukidasi_80252558 *)this)->position[1];
         s.y = y + offset[1];
-        s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
+        s.y = ((struct DrawCtx_80252558 *)ctx)->pivot[1] + ((struct DrawCtx_80252558 *)ctx)->scale[1] * (s.y - ((struct DrawCtx_80252558 *)ctx)->pivot[1]);
         s.v = lbl_805DCDB4;
         s.rowHeight = mid;
-        ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__15TWindowFukidasiFv)(b, &s, ctx, offset[0], lbl_805DCD94, width, d);
+        ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__13TUnk_804CF0B8FPvPvffff)(((struct Fukidasi_80252558 *)this), &s, ((struct DrawCtx_80252558 *)ctx), offset[0], lbl_805DCD94, width, d);
     }
     TWindowSubStatusDisp::get_player();
 }
@@ -1155,11 +1155,11 @@ void TUnk_804CF0B8::render() {
     v->sy /= TCameraCtrl::get_fov();
     off[0] = TWindowFukidasi__data_805DCD28 * ((Fuki_80252764 *)this)->tail;
     off[1] = lbl_805DCDB8 * ((Fuki_80252764 *)this)->tail;
-    draw_body__15TWindowFukidasiFPvPvUiPvf((struct Fukidasi_80252558 *)(((Fuki_80252764 *)this)), (struct DrawCtx_80252558 *)(v), (u32)(0xFF000000), off, lbl_805DCDBC + ((Fuki_80252764 *)this)->f54);
+    draw_body__13TUnk_804CF0B8FPvUlPff((struct Fukidasi_80252558 *)(((Fuki_80252764 *)this)), (struct DrawCtx_80252558 *)(v), (u32)(0xFF000000), off, lbl_805DCDBC + ((Fuki_80252764 *)this)->f54);
     ((TUnk_804CF0B8 *)((Fuki_80252764 *)this))->draw_tail(v, (u32)(0xFF000000), off, lbl_805DCDC0 + ((Fuki_80252764 *)this)->f54);
     off[0] = TWindowFukidasi__data_805DCD30;
     off[1] = TWindowFukidasi__data_805DCD30;
-    draw_body__15TWindowFukidasiFPvPvUiPvf((struct Fukidasi_80252558 *)(((Fuki_80252764 *)this)), (struct DrawCtx_80252558 *)(v), ((Fuki_80252764 *)this)->color, off, lbl_805DCDC0 + ((Fuki_80252764 *)this)->f54);
+    draw_body__13TUnk_804CF0B8FPvUlPff((struct Fukidasi_80252558 *)(((Fuki_80252764 *)this)), (struct DrawCtx_80252558 *)(v), ((Fuki_80252764 *)this)->color, off, lbl_805DCDC0 + ((Fuki_80252764 *)this)->f54);
     ((TUnk_804CF0B8 *)((Fuki_80252764 *)this))->draw_tail(v, ((Fuki_80252764 *)this)->color, off, lbl_805DCD90 + ((Fuki_80252764 *)this)->f54);
     if (((TUnk_804CF0B8 *)((Fuki_80252764 *)this))->is_active() != 0) {
         draw_visible_window_entries(((Fuki_80252764 *)this), ((Fuki_80252764 *)this)->f24, v);

@@ -622,7 +622,7 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *ene_re7_berura, s32 arg1) {
     TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneEpsilonGuard::advance_camera_ctrl_step));
     TObjPlayer::toggle_particle_effect();
     if (arg1 == 1) {
-        ((TObjEneRe7Berura *)ene_re7_berura)->draw();
+        ((TObjMotion *)ene_re7_berura)->draw();
     } else {
         ((TObjEnemy *)ene_re7_berura)->render_world_model();
     }
@@ -972,7 +972,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
 #pragma pop
 
 void vfunc_88__19TObjEneEpsilonGuardFv(void *);
-int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
+int set_part_local_pos__9TObjEneDDFPvl(void*, void*, void*);
 void vfunc_89__19TObjEneEpsilonGuardFv(void *);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 vfunc_89__9TObjEneDDFv();
@@ -1025,7 +1025,7 @@ void TObjEneEpsilonGuard::update_center_position() {
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
     ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x2FC, arg0, TObjEneEpsilonGuard__data_805E01DC);
 }
-void TObjEneEpsilonGuard::vfunc_88() { set_part_local_pos__9TObjEneDDFPvPvi(this, (char*)this + 0x2fc, (void*)0); }
+void TObjEneEpsilonGuard::vfunc_88() { set_part_local_pos__9TObjEneDDFPvl(this, (char*)this + 0x2fc, (void*)0); }
 
 }
 

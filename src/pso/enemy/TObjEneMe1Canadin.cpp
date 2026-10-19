@@ -2760,7 +2760,7 @@ void TObjEneMe1Canadin::render() {
                 VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_8043A274));
                 TObjEneRe7Berura::set_global_state((s32)&fn_8009BD00);
                 if (var_r30 == 1) {
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                 } else {
                     ((TObjEnemy *)arg0)->render_world_model();
                 }

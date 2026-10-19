@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -33,7 +34,7 @@ void TObjPlayer::draw_if_visible() {
         push_matrix_from(0);
         translate_matrix_vec3((u8 *)(0), (u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        ((TObjEneRe7Berura *)arg0)->draw();
+        ((TObjMotion *)arg0)->draw();
         pop_matrix();
         model_render_flags &= 0xFFFFFFFE;
         ((TObjEnemy *)arg0)->render_with_position_override(0, 0);

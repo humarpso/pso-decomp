@@ -106,7 +106,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 TObjEneSaver__class_name;
 u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2);
 void step_angle_clamped__10TObjPlayerFPvi(void*, s32);
-void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14*);
+void turn_toward_target__12TObjEneSaverFv(Obj_800A6B14*);
 void sub_800A62D4__12TObjEneSaverFv(u8*);
 }
 int initialize_enemy_photon_effect(void *p);
@@ -699,7 +699,7 @@ extern const f32 lbl_805D9A74;
 s32 enemy_move_toward(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
 s32 select_enemy_destination(void *, Vec_800A5DC4 *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
-#define turn_toward_target__10TObjPlayerFPv ((s32 (*)(void*))(turn_toward_target__10TObjPlayerFPv))
+#define turn_toward_target__12TObjEneSaverFv ((s32 (*)(void*))(turn_toward_target__12TObjEneSaverFv))
 f32 horizontal_distance_squared(int, void *);
 
 extern const f32 lbl_805D9A78;
@@ -1301,7 +1301,7 @@ void TObjEneSaver::update_move_toward_target() {
             break;
         }
         ((s32 (*)(void *)) advance_animation_playback)(this);
-        turn_toward_target__10TObjPlayerFPv(this);
+        turn_toward_target__12TObjEneSaverFv(this);
         ((TObjPlayer *)((u8 *)this))->check_object_collisions();
         check_enemy_body_collisions((this));
         minimap_render_dot((void *) (((u8 *)this) + 0x38), -0x5DB4, 1, 0);
@@ -1364,7 +1364,7 @@ void TObjEneSaver::advance_motion_state() {
 
 #undef advance_animation_playback
 #undef atan2_float
-#undef turn_toward_target__10TObjPlayerFPv
+#undef turn_toward_target__12TObjEneSaverFv
 #undef step_angle_clamped__10TObjPlayerFPvi
 #undef copy_target_state__14TObjEnePanarmsFPv
 #undef get_player_by_client_id
@@ -1447,7 +1447,7 @@ extern RecoveredGlobal_800A6BE0_lbl_804FF5E8 lbl_804FF5E8;
 #define subtract_vector ((f32 (*)(void*, void*))(subtract_vector))
 s32 angle_diff_s16(s32, s32);
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
-void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self);
+void turn_toward_target__12TObjEneSaverFv(Obj_800A6B14 *self);
 #define TObjPlayer__sub_800A42C0 ((s32 (*)(void*))(TObjPlayer__sub_800A42C0))
 #define sub_800A435C__12TObjEneSaverFv ((s32 (*)(void*))(sub_800A435C__12TObjEneSaverFv))
 #define update_entry_motion__12TObjEneSaverFv ((s32 (*)(void*))(update_entry_motion__12TObjEneSaverFv))
@@ -1821,12 +1821,12 @@ void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self) {
     }
 }
 
-void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self) {
+void TObjEneSaver::turn_toward_target() {
     Vec_800A6B14 d;
-    VecCopy((Vec *)&d, (const Vec *)&self->target->pos);
-    subtract_vector(&d, &self->pos);
-    step_angle_clamped__10TObjPlayerFPvi(self,
-        angle_diff_s16(self->angle, (s32)((*(const f64 *)&lbl_8043A8D0) * atan2_float(d.x, d.z))));
+    VecCopy((Vec *)&d, (const Vec *)&((Obj_800A6B14 *)this)->target->pos);
+    subtract_vector(&d, &((Obj_800A6B14 *)this)->pos);
+    step_angle_clamped__10TObjPlayerFPvi(((Obj_800A6B14 *)this),
+        angle_diff_s16(((Obj_800A6B14 *)this)->angle, (s32)((*(const f64 *)&lbl_8043A8D0) * atan2_float(d.x, d.z))));
 }
 
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {
@@ -1890,7 +1890,7 @@ void TObjEneSaver::render() {
                     v = 0;
                 }
                 if (v != 0) {
-                    ((TObjEneRe7Berura *)arg0)->draw();
+                    ((TObjMotion *)arg0)->draw();
                 }
                 model_render_flags &= ~1;
                 ((VObj_800A6C54_a *)(arg0 + 0x3A4))->m7();
@@ -1903,7 +1903,7 @@ void TObjEneSaver::render() {
             break;
         default:
             if (v == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjMotion *)arg0)->draw();
             } else {
                 ((TObjEnemy *)arg0)->render_world_model();
             }

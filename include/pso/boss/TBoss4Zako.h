@@ -4,6 +4,8 @@
 struct TBoss4ZakoVec3 { f32 x, y, z; };
 struct TBoss4ZakoCollisionState { u8 _pad0[0x18]; s32 flags; };
 struct TBoss4Zako {
+    s32 sub_8005D6B0();
+    s32 sub_8005D698();
  u8 _pad0[0x1c]; u16 m_1c; u8 _pad1e[6];
  u32 m_24; u8 _pad28[0xc]; u32 m_34;
  TBoss4ZakoVec3 m_38, m_44, m_50;

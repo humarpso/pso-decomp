@@ -87,6 +87,7 @@ public:
 class TObjMotion : public TUnk_804AF8A0 {
 public:
     virtual ~TObjMotion();
+    void draw();
     virtual void reset_motion_fields();
     void set_animation(s16);
     void set_field_d8(s32);

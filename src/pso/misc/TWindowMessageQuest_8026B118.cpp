@@ -28,7 +28,7 @@ extern "C" {
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
 Ctx_8026B148 *get_draw_context__11TWindowBaseFPv(void *);
-void draw_window_frame(void *, void *);
+void draw_window_frame__13TUnk_804CE018FPv(void *, void *);
 void draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD260;
 typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8026B118_lbl_8044F464) == 0xC ? 1 : -1];
@@ -47,7 +47,7 @@ void TWindowMessageQuest::render() {
         this->draw_quest_message_frame(c);
         break;
     case 1:
-        draw_window_frame(this, c);
+        draw_window_frame__13TUnk_804CE018FPv(this, c);
         break;
     case 2:
         break;

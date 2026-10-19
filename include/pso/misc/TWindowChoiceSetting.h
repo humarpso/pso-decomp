@@ -6,6 +6,7 @@
 
 struct TWindowChoiceSetting : public TUnk_804D0658 {
     virtual ~TWindowChoiceSetting();
+    void sub_80249078();
     s16 get_field_74();
     virtual void render();
     u16 m_80;
