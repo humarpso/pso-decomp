@@ -72,7 +72,6 @@ void GXSetProjection(f32 mtx[4][4], GXProjectionType type) {
 
 
 
-#define qr0 0
 
 void GXGetProjectionv(f32 *ptr) {
     ASSERTMSGLINE(0x12E, ptr, "GXGet*: invalid null pointer");
@@ -87,18 +86,47 @@ void GXGetProjectionv(f32 *ptr) {
 }
 
 static asm void WriteMTXPS4x3(register f32 mtx[3][4], register volatile f32 *dest) {
-#include "orig_asm/gx/GXTransform/WriteMTXPS4x3.inc"
+#include "orig_asm/gx/GXTransform/GXTransform_WriteMTXPS4x3.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
 static asm void WriteMTXPS3x3from3x4(register f32 mtx[3][4], register volatile f32 *dest) {
-#include "orig_asm/gx/GXTransform/WriteMTXPS3x3from3x4.inc"
+#include "orig_asm/gx/GXTransform/GXTransform_WriteMTXPS3x3from3x4.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 static asm void WriteMTXPS4x2(register f32 mtx[2][4], register volatile f32 *dest) {
-#include "orig_asm/gx/GXTransform/WriteMTXPS4x2.inc"
+#include "orig_asm/gx/GXTransform/GXTransform_WriteMTXPS4x2.inc"
 }
+
+
+
+
+
+
+
 
 #define GX_WRITE_MTX_ELEM(addr, value) \
 do { \

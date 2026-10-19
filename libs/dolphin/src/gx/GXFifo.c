@@ -180,6 +180,8 @@ do { \
 asm void GXSetCPUFifo(GXFifoObj *fifo) {
 #include "orig_asm/gx/GXFifo/GXSetCPUFifo.inc"
 }
+
+
 #pragma peephole on
 #else
 void GXSetCPUFifo(GXFifoObj *fifo)
@@ -562,9 +564,11 @@ static char str_GXRedirectWriteGatherPipe_gxbegin[] = "'GXRedirectWriteGatherPip
 static char str_failed_assertion_offset[] = "Failed assertion OFFSET(ptr, 32) == 0";
 static char str_failed_assertion_pipenotredirected[] = "Failed assertion !IsWGPipeRedirected";
 static char str_failed_assertion_piperedirected[] = "Failed assertion IsWGPipeRedirected";
-asm volatile void *GXRedirectWriteGatherPipe(void *ptr) {
-#include "orig_asm/gx/GXFifo/GXRedirectWriteGatherPipe.inc"
-}
+
+
+
+
+
 #pragma peephole on
 #else
 volatile void *GXRedirectWriteGatherPipe(void *ptr)
@@ -604,9 +608,11 @@ volatile void *GXRedirectWriteGatherPipe(void *ptr)
 #endif
 
 #if DEBUG
-asm void GXRestoreWriteGatherPipe(void) {
-#include "orig_asm/gx/GXFifo/GXRestoreWriteGatherPipe.inc"
-}
+
+
+
+
+
 #else
 void GXRestoreWriteGatherPipe(void)
 {

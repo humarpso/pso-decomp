@@ -10,105 +10,290 @@
 void DMAErrorHandler(OSError error, OSContext* context, ...);
 
 #ifdef __GEKKO__
-asm void DCFlashInvalidate(void) {
-#include "orig_asm/os/OSCache/DCFlashInvalidate.inc"
-}
+
+
+
+
+
+
+
 
 asm void DCEnable(void) {
 #include "orig_asm/os/OSCache/DCEnable.inc"
 }
 
-asm void DCDisable(void) {
-#include "orig_asm/os/OSCache/DCDisable.inc"
-}
 
-asm void DCFreeze(void) {
-#include "orig_asm/os/OSCache/DCFreeze.inc"
-}
 
-asm void DCUnfreeze(void) {
-#include "orig_asm/os/OSCache/DCUnfreeze.inc"
-}
 
-asm void DCTouchLoad(__REGISTER void* addr) {
-#include "orig_asm/os/OSCache/DCTouchLoad.inc"
-}
 
-asm void DCBlockZero(__REGISTER void* addr) {
-#include "orig_asm/os/OSCache/DCBlockZero.inc"
-}
 
-asm void DCBlockStore(__REGISTER void* addr) {
-#include "orig_asm/os/OSCache/DCBlockStore.inc"
-}
 
-asm void DCBlockFlush(__REGISTER void* addr) {
-#include "orig_asm/os/OSCache/DCBlockFlush.inc"
-}
 
-asm void DCBlockInvalidate(__REGISTER void* addr) {
-#include "orig_asm/os/OSCache/DCBlockInvalidate.inc"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 asm void DCInvalidateRange(__REGISTER void* addr, __REGISTER u32 nBytes) {
 #include "orig_asm/os/OSCache/DCInvalidateRange.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 asm void DCFlushRange(__REGISTER void* addr, __REGISTER u32 nBytes) {
 #include "orig_asm/os/OSCache/DCFlushRange.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 asm void DCStoreRange(__REGISTER void* addr, __REGISTER u32 nBytes) {
 #include "orig_asm/os/OSCache/DCStoreRange.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 asm void DCFlushRangeNoSync(__REGISTER void* addr, __REGISTER u32 nBytes) {
 #include "orig_asm/os/OSCache/DCFlushRangeNoSync.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 asm void DCStoreRangeNoSync(__REGISTER void* addr, __REGISTER u32 nBytes) {
 #include "orig_asm/os/OSCache/DCStoreRangeNoSync.inc"
 }
 
-asm void DCZeroRange(__REGISTER void* addr, __REGISTER u32 nBytes) {
-#include "orig_asm/os/OSCache/DCZeroRange.inc"
-}
 
-asm void DCTouchRange(__REGISTER void* addr, __REGISTER u32 nBytes) {
-#include "orig_asm/os/OSCache/DCTouchRange.inc"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 asm void ICInvalidateRange(__REGISTER void* addr, __REGISTER u32 nBytes) {
 #include "orig_asm/os/OSCache/ICInvalidateRange.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 asm void ICFlashInvalidate(void) {
 #include "orig_asm/os/OSCache/ICFlashInvalidate.inc"
 }
+
+
+
+
 
 asm void ICEnable(void) {
 #include "orig_asm/os/OSCache/ICEnable.inc"
 }
 
-asm void ICDisable(void) {
-#include "orig_asm/os/OSCache/ICDisable.inc"
-}
 
-asm void ICFreeze(void) {
-#include "orig_asm/os/OSCache/ICFreeze.inc"
-}
 
-asm void ICUnfreeze(void) {
-#include "orig_asm/os/OSCache/ICUnfreeze.inc"
-}
 
-asm void ICBlockInvalidate(__REGISTER void* addr) {
-#include "orig_asm/os/OSCache/ICBlockInvalidate.inc"
-}
 
-asm void ICSync(void) {
-#include "orig_asm/os/OSCache/ICSync.inc"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #define LC_LINES    512
 #define CACHE_LINES 1024
@@ -116,6 +301,64 @@ asm void ICSync(void) {
 static asm void __LCEnable(void) {
 #include "orig_asm/os/OSCache/__LCEnable.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void LCEnable(void) {
     BOOL enabled;
@@ -129,21 +372,75 @@ asm void LCDisable(void) {
 #include "orig_asm/os/OSCache/LCDisable.inc"
 }
 
-asm void LCAllocOneTag(__REGISTER BOOL invalidate, __REGISTER void* tag) {
-#include "orig_asm/os/OSCache/LCAllocOneTag.inc"
-}
 
-asm void LCAllocTags(__REGISTER BOOL invalidate, __REGISTER void* startTag, __REGISTER u32 numBlocks) {
-#include "orig_asm/os/OSCache/LCAllocTags.inc"
-}
 
-asm void LCLoadBlocks(__REGISTER void* destTag, __REGISTER void* srcAddr, __REGISTER u32 numBlocks) {
-#include "orig_asm/os/OSCache/LCLoadBlocks.inc"
-}
 
-asm void LCStoreBlocks(__REGISTER void* destAddr, __REGISTER void* srcTag, __REGISTER u32 numBlocks) {
-#include "orig_asm/os/OSCache/LCStoreBlocks.inc"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif
 
 void LCAlloc(void* addr, u32 nBytes) {
@@ -217,13 +514,22 @@ u32 LCStoreData(void* destAddr, void* srcAddr, u32 nBytes) {
 }
 
 #ifdef __GEKKO__
-asm u32 LCQueueLength(void) {
-#include "orig_asm/os/OSCache/LCQueueLength.inc"
-}
 
-asm void LCQueueWait(__REGISTER u32 len) {
-#include "orig_asm/os/OSCache/LCQueueWait.inc"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif
 
 void LCFlushQueue() {

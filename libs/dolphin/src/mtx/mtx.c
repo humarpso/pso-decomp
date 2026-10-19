@@ -6,8 +6,6 @@
 #include <dolphin/mtx.h>
 #include <macros.h>
 
-#define qr0 0
-
 
 extern f32 sinf(f32);
 extern f32 cosf(f32);
@@ -16,67 +14,212 @@ extern f32 tanf(f32);
 
 static float Unit01[2] = { 0.0f, 1.0f };
 
+const f32 lbl_805E0450[1] = { 1.0f };
+const f32 lbl_805E0454[1] = { 0.0f };
 
-void C_MTXIdentity(GC_Mtx mtx)
-{
-	mtx[0][0] = 1.0f;
-	mtx[0][1] = 0.0f;
-	mtx[0][2] = 0.0f;
-	mtx[1][0] = 0.0f;
-	mtx[1][1] = 1.0f;
-	mtx[1][2] = 0.0f;
-	mtx[2][0] = 0.0f;
-	mtx[2][1] = 0.0f;
-	mtx[2][2] = 1.0f;
+
+asm void PSMTXIdentity(register GC_Mtx m) {
+#include "orig_asm/mtx/mtx/PSMTXIdentity.inc"
 }
 
-void PSMTXIdentity(register GC_Mtx m)
-{
-	register f32 c_zero = 0.0f;
-	register f32 c_one  = 1.0f;
-	register f32 c_01;
-	register f32 c_10;
 
 
-	asm {
-}
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 asm void PSMTXCopy(const register GC_Mtx src, register GC_Mtx dst) {
 #include "orig_asm/mtx/mtx/PSMTXCopy.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 asm void PSMTXConcat(const register GC_Mtx mA, const register GC_Mtx mB, register GC_Mtx mAB) {
 #include "orig_asm/mtx/mtx/PSMTXConcat.inc"
 }
 
-void PSMTXTranspose(const register GC_Mtx src, register GC_Mtx xPose) {
-    register f32 c_zero = 0;
-    register f32 row0a;
-    register f32 row1a;
-    register f32 row0b;
-    register f32 row1b;
-    register f32 trns0;
-    register f32 trns1;
-    register f32 trns2;
 
 
-    asm {
-}
-    xPose[2][3] = c_zero;
-    asm {
-}
-    row0b = src[2][2];
-    asm {
-}
-    xPose[2][2] = row0b;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+asm void PSMTXTranspose(const register GC_Mtx src, register GC_Mtx xPose) {
+#include "orig_asm/mtx/mtx/PSMTXTranspose.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 asm u32 PSMTXInverse(const register GC_Mtx src, register GC_Mtx inv) {
 #include "orig_asm/mtx/mtx/PSMTXInverse.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void PSMTXRotRad(GC_Mtx m, char axis, f32 rad)
 {
@@ -86,100 +229,266 @@ void PSMTXRotRad(GC_Mtx m, char axis, f32 rad)
 	PSMTXRotTrig(m, axis, s, c);
 }
 
-void PSMTXRotTrig(register GC_Mtx m, register char axis, register f32 sinA,
-                  register f32 cosA)
-{
-	register f32 fc0;
-	register f32 fc1;
-	register f32 nsinA;
-	register f32 fw0, fw1, fw2, fw3;
-
-	fc0 = 0.0f;
-	fc1 = 1.0f;
-
-
-  asm {
+asm void PSMTXRotTrig(register GC_Mtx m, register char axis, register f32 sinA,
+                  register f32 cosA) {
+#include "orig_asm/mtx/mtx/PSMTXRotTrig.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+asm void PSMTXRotAxisRad(register GC_Mtx m, const Vec* axis, register f32 rad) {
+#include "orig_asm/mtx/mtx/PSMTXRotAxisRad.inc"
 }
 
-static inline void __PSMTXRotAxisRadInternal(register GC_Mtx m,
-                                             const register Vec* axis,
-                                             register f32 sT, register f32 cT)
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+asm void PSMTXTrans(register GC_Mtx m, register f32 xT, register f32 yT,
+                register f32 zT) {
+#include "orig_asm/mtx/mtx/PSMTXTrans.inc"
 }
 
-void PSMTXRotAxisRad(register GC_Mtx m, const Vec* axis, register f32 rad)
-{
-	register f32 tmp0, tmp1, tmp2, tmp3, tmp4;
-	register f32 tmp5, tmp6, tmp7, tmp8, tmp9;
-
-	register f32 sT;
-	register f32 cT;
-	register f32 oneMinusCosT;
-	register f32 zero;
-	Vec axisNormalized;
-	register Vec* axisNormalizedPtr;
-
-	zero              = 0.0f;
-	axisNormalizedPtr = &axisNormalized;
-	sT                = sinf(rad);
-	cT                = cosf(rad);
-	oneMinusCosT      = 1.0f - cT;
-
-	PSVECNormalize(axis, axisNormalizedPtr);
 
 
 
 
-  asm {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+asm void PSMTXScale(register GC_Mtx m, register f32 xS, register f32 yS,
+                register f32 zS) {
+#include "orig_asm/mtx/mtx/PSMTXScale.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+asm void PSMTXQuat(register GC_Mtx m, const register PSQuaternion* q) {
+#include "orig_asm/mtx/mtx/PSMTXQuat.inc"
 }
 
-void PSMTXTrans(register GC_Mtx m, register f32 xT, register f32 yT,
-                register f32 zT)
-{
-	register f32 c0 = 0.0F;
-	register f32 c1 = 1.0F;
 
-	asm {
-}
 
-}
 
-asm void PSMTXTransApply(const register GC_Mtx src, register GC_Mtx dst, register f32 xT,
-                         register f32 yT, register f32 zT) {
-#include "orig_asm/mtx/mtx/PSMTXTransApply.inc"
-}
 
-void PSMTXScale(register GC_Mtx m, register f32 xS, register f32 yS,
-                register f32 zS)
-{
-	register f32 c0 = 0.0F;
 
-	asm {
-}
 
-}
 
-asm void PSMTXScaleApply(const register GC_Mtx src, register GC_Mtx dst, register f32 xS,
-                         register f32 yS, register f32 zS) {
-#include "orig_asm/mtx/mtx/PSMTXScaleApply.inc"
-}
 
-void PSMTXQuat(register GC_Mtx m, const register PSQuaternion* q)
-{
-	register f32 c_zero, c_one, c_two, scale;
-	register f32 tmp0, tmp1, tmp2, tmp3, tmp4;
-	register f32 tmp5, tmp6, tmp7, tmp8, tmp9;
 
-	c_one = 1.0F;
 
-	asm {
-}
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void C_MTXLookAt(GC_Mtx m, const Vec* camPos, const Vec* camUp, const Vec* target) {
     Vec vLook;
@@ -217,20 +526,20 @@ void C_MTXLightFrustum(GC_Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 scaleS,
 {
 	f32 _tmp;
 
-	_tmp    = 1 / (r - l);
+	_tmp    = lbl_805E0450[0] / (r - l);
 	m[0][0] = (scaleS * (2 * n * _tmp));
-	m[0][1] = 0;
+	m[0][1] = lbl_805E0454[0];
 	m[0][2] = (scaleS * (_tmp * (r + l))) - transS;
-	m[0][3] = 0;
-	_tmp    = 1 / (t - b);
-	m[1][0] = 0;
+	m[0][3] = lbl_805E0454[0];
+	_tmp    = lbl_805E0450[0] / (t - b);
+	m[1][0] = lbl_805E0454[0];
 	m[1][1] = (scaleT * (2 * n * _tmp));
 	m[1][2] = (scaleT * (_tmp * (t + b))) - transT;
-	m[1][3] = 0;
-	m[2][0] = 0;
-	m[2][1] = 0;
+	m[1][3] = lbl_805E0454[0];
+	m[2][0] = lbl_805E0454[0];
+	m[2][1] = lbl_805E0454[0];
 	m[2][2] = -1;
-	m[2][3] = 0;
+	m[2][3] = lbl_805E0454[0];
 }
 
 void C_MTXLightPerspective(GC_Mtx m, f32 fovY, f32 aspect, f32 scaleS, f32 scaleT,
@@ -241,38 +550,18 @@ void C_MTXLightPerspective(GC_Mtx m, f32 fovY, f32 aspect, f32 scaleS, f32 scale
 
 	angle   = (0.5f * fovY);
 	angle   = angle * 0.017453293f;
-	cot     = 1 / tanf(angle);
+	cot     = lbl_805E0450[0] / tanf(angle);
 	m[0][0] = (scaleS * (cot / aspect));
-	m[0][1] = 0;
+	m[0][1] = lbl_805E0454[0];
 	m[0][2] = -transS;
-	m[0][3] = 0;
-	m[1][0] = 0;
+	m[0][3] = lbl_805E0454[0];
+	m[1][0] = lbl_805E0454[0];
 	m[1][1] = (cot * scaleT);
 	m[1][2] = -transT;
-	m[1][3] = 0;
-	m[2][0] = 0;
-	m[2][1] = 0;
+	m[1][3] = lbl_805E0454[0];
+	m[2][0] = lbl_805E0454[0];
+	m[2][1] = lbl_805E0454[0];
 	m[2][2] = -1;
-	m[2][3] = 0;
+	m[2][3] = lbl_805E0454[0];
 }
 
-void C_MTXLightOrtho(GC_Mtx m, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT,
-                     f32 transS, f32 transT)
-{
-	f32 _tmp;
-
-	_tmp    = 1 / (r - l);
-	m[0][0] = (2 * _tmp * scaleS);
-	m[0][1] = 0;
-	m[0][2] = 0;
-	m[0][3] = (transS + (scaleS * (_tmp * -(r + l))));
-	_tmp    = 1 / (t - b);
-	m[1][0] = 0;
-	m[1][1] = (2 * _tmp * scaleT);
-	m[1][2] = 0;
-	m[1][3] = (transT + (scaleT * (_tmp * -(t + b))));
-	m[2][0] = 0;
-	m[2][1] = 0;
-	m[2][2] = 0;
-	m[2][3] = 1;
-}

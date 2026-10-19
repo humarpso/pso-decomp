@@ -154,7 +154,7 @@ DSError TRKValidMemory32(const void* addr, size_t length,
 static asm void TRK_ppc_memcpy(register void* dest, register const void* src,
                                register int n, register u32 param_4,
                                register u32 param_5) {
-#include "orig_asm/TRK_MINNOW_DOLPHIN/targimpl/TRK_ppc_memcpy.inc"
+#include "orig_asm/TRK_MINNOW_DOLPHIN/targimpl/targimpl_TRK_ppc_memcpy.inc"
 }
 
 #pragma dont_inline on
@@ -455,7 +455,7 @@ asm void TRKInterruptHandler() {
 }
 
 static asm void TRKExceptionHandler(u16) {
-#include "orig_asm/TRK_MINNOW_DOLPHIN/targimpl/TRKExceptionHandler.inc"
+#include "orig_asm/TRK_MINNOW_DOLPHIN/targimpl/targimpl_TRKExceptionHandler.inc"
 }
 
 void TRKPostInterruptEvent(void)

@@ -108,18 +108,88 @@ void OSProtectRange(u32 chan, void* addr, u32 nBytes, u32 control) {
 static asm void Config24MB(void) {
 #include "orig_asm/os/OSMemory/Config24MB.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif
 
 #ifdef __GEKKO__
 static asm void Config48MB(void) {
 #include "orig_asm/os/OSMemory/Config48MB.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif
 
 #ifdef __GEKKO__
 static asm void RealMode(__REGISTER u32 addr) {
 #include "orig_asm/os/OSMemory/RealMode.inc"
 }
+
+
+
+
+
+
 #endif
 
 void __OSInitMemoryProtection(void) {

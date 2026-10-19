@@ -3,7 +3,6 @@
 #include <dolphin/mtx.h>
 #undef PSMTXMultVecArraySR
 
-#define qr0 0
 
 asm void PSMTXMultVec(const register Mtx44 m, const register Vec* src, register Vec* dst) {
 #include "orig_asm/mtx/mtxvec/PSMTXMultVec.inc"

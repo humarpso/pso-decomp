@@ -40,7 +40,7 @@ extern void __fini_cpp_exceptions(void) {
 }
 
 asm char* GetR2(void) {
-#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions/GetR2.inc"
+#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions/GetR2__Fv.inc"
 }
 
 __declspec(section ".ctors") extern void* const __init_cpp_exceptions_reference = __init_cpp_exceptions;

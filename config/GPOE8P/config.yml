@@ -1,16 +1,11 @@
 name: pso
-object_base: orig/GPOE8P/P-GPOE
+object_base: orig/GPOE8P
 object: sys/main.dol
 hash: 5f74659ed8968974ad3d334c4f22843800357dfe
 splits: config/GPOE8P/splits.txt
 symbols: config/GPOE8P/symbols.txt
-quick_analysis: true
-symbols_known: false
+symbols_known: true
 # fill_gaps MUST be true: with false, dtk drops bytes not covered by symbols
 # during extraction, sections shrink, and the relinked DOL no longer matches.
 fill_gaps: true
 mw_comment_version: 10
-
-force_active: [
-  InitMetroTRK,
-]

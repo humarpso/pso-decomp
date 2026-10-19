@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+*.py   text
+*.sh   text eol=lf
+*.sha1 text eol=lf
+*.bat  text eol=crlf
+
+# decomp-toolkit writes files with LF
+config/**/*.txt text eol=lf

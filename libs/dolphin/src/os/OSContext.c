@@ -21,14 +21,6 @@ static asm void __OSSaveFPUContext(__REGISTER u32 dummy1, __REGISTER u32 dummy2,
 #include "orig_asm/os/OSContext/__OSSaveFPUContext.inc"
 }
 
-asm void OSLoadFPUContext(__REGISTER OSContext* fpucontext) {
-#include "orig_asm/os/OSContext/OSLoadFPUContext.inc"
-}
-
-asm void OSSaveFPUContext(__REGISTER OSContext* fpucontext) {
-#include "orig_asm/os/OSContext/OSSaveFPUContext.inc"
-}
-
 asm void OSSetCurrentContext(__REGISTER OSContext* context) {
 #include "orig_asm/os/OSContext/OSSetCurrentContext.inc"
 }
@@ -51,13 +43,6 @@ asm u32 OSGetStackPointer() {
 #include "orig_asm/os/OSContext/OSGetStackPointer.inc"
 }
 
-asm u32 OSSwitchStack(__REGISTER u32 newsp) {
-#include "orig_asm/os/OSContext/OSSwitchStack.inc"
-}
-
-asm int OSSwitchFiber(__REGISTER u32 pc, __REGISTER u32 newsp) {
-#include "orig_asm/os/OSContext/OSSwitchFiber.inc"
-}
 #endif
 
 void OSClearContext(__REGISTER OSContext* context) {

@@ -65,9 +65,7 @@ static void OSExceptionInit(void);
 static void OSDefaultExceptionHandler(u8 exception,
                                       OSContext* context);
 
-static asm void __OSInitFPRs(void) {
-#include "orig_asm/os/OS/__OSInitFPRs.inc"
-}
+#pragma peephole off
 
 unsigned long OSGetConsoleType()
 {
@@ -344,13 +342,8 @@ asm void OSDefaultExceptionHandler(register __OSException exception,
 #include "orig_asm/os/OS/OSDefaultExceptionHandler.inc"
 }
 
-void __OSPSInit(void)
-{
-	PPCMthid2(PPCMfhid2() | 0x80000000 | 0x20000000);
-	ICFlashInvalidate();
-	__sync();
-	asm {
-}
+asm void __OSPSInit(void) {
+#include "orig_asm/os/OS/__OSPSInit.inc"
 }
 
 #define DI_CONFIG_IDX         0x9

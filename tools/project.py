@@ -1139,8 +1139,10 @@ def generate_build_ninja(
 
             link_built_obj = obj.completed
             built_obj_path: Optional[Path] = None
-            if obj.src_path is not None and obj.src_path.exists():
-                check_path_case(obj.src_path)
+            # Sources under the build directory are generated before anything is compiled.
+            if obj.src_path is not None and (obj.src_path.exists() or config.build_dir in obj.src_path.parents):
+                if obj.src_path.exists():
+                    check_path_case(obj.src_path)
                 if file_is_c_cpp(obj.src_path):
                     # Add C/C++ build rule
                     built_obj_path = c_build(obj, obj.src_path)
@@ -1704,7 +1706,7 @@ def generate_objdiff_config(
             objdiff_config["units"].append(unit_config)
             return
 
-        src_exists = obj.src_path is not None and obj.src_path.exists()
+        src_exists = obj.src_path is not None and (obj.src_path.exists() or config.build_dir in obj.src_path.parents)
         if src_exists:
             unit_config["base_path"] = obj.src_obj_path
             unit_config["metadata"]["source_path"] = obj.src_path

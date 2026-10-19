@@ -31,7 +31,6 @@ typedef void (*__OSExceptionHandler)(__OSException exception, OSContext* context
 __OSExceptionHandler __OSSetExceptionHandler(__OSException exception, __OSExceptionHandler handler);
 __OSExceptionHandler __OSGetExceptionHandler(__OSException exception);
 
-
 #ifdef __cplusplus
 }
 #endif

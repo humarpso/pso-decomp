@@ -23,9 +23,14 @@ u32 *__piReg;
 GXBool __GXinBegin;
 #endif
 
-asm BOOL IsWriteGatherBufferEmpty(void) {
-#include "orig_asm/gx/GXInit/IsWriteGatherBufferEmpty.inc"
-}
+
+
+
+
+
+
+
+#pragma peephole off
 
 static void EnableWriteGatherPipe(void)
 {

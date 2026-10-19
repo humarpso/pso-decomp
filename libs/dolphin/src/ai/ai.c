@@ -279,8 +279,33 @@ static void __AIDHandler(__OSInterrupt interrupt, OSContext* context)
 }
 
 static asm void __AICallbackStackSwitch(register void* cb) {
-#include "orig_asm/ai/ai/__AICallbackStackSwitch.inc"
+#include "orig_asm/ai/ai/ai___AICallbackStackSwitch.inc"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void __AI_SRC_INIT(void)
 {

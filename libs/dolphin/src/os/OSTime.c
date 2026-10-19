@@ -27,13 +27,32 @@ asm OSTime OSGetTime(void) {
 #include "orig_asm/os/OSTime/OSGetTime.inc"
 }
 
+
+
+
+
+
+
+
+
+
+
+
 asm OSTick OSGetTick(void) {
 #include "orig_asm/os/OSTime/OSGetTick.inc"
 }
 
-asm static void __SetTime(OSTime time) {
-#include "orig_asm/os/OSTime/__SetTime.inc"
-}
+
+
+
+
+
+
+
+
+
+
+
 #endif
 
 void __OSSetTime(OSTime time) {
@@ -74,9 +93,11 @@ OSTime __OSTimeToSystemTime(OSTime time) {
 }
 
 #ifdef __GEKKO__
-asm void __OSSetTick(__REGISTER OSTick newTicks) {
-#include "orig_asm/os/OSTime/__OSSetTick.inc"
-}
+
+
+
+
+
 #endif
 
 static int IsLeapYear(int year) {

@@ -17,6 +17,7 @@
 ###
 
 import argparse
+import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
@@ -39,10 +40,9 @@ def Matching(name: str, **kwargs: Any) -> Object:
     """An object that byte-matches the original binary."""
     return Object(True, name, **kwargs)
 
-# Units whose compiled object is LINKED into the DOL. Earned from report.json
-# (every function + section 100%); never
-# hand-edit. A listed unit is treated as Matching even though it is registered
-# below with NonMatching(...) — the list, not the call site, is the authority.
+# Units whose compiled object is LINKED into the DOL: every function and data
+# section in them matches. A listed unit is treated as Matching even though it
+# is registered below with NonMatching(...); the list is the authority.
 _LINKED_UNITS_FILE = Path(__file__).resolve().parent / "config" / "GPOE8P" / "psov3" / "linked_units.txt"
 _LINKED_UNITS = set()
 if _LINKED_UNITS_FILE.exists():
@@ -192,14 +192,7 @@ config.version = str(args.version)
 config.build_dir = args.build_dir
 config.non_matching = args.non_matching
 config.generate_map = args.map
-# Use local patched dtk binary if available, otherwise use --dtk arg or download
-_local_dtk = Path("tools/dtk")
-if args.dtk is not None:
-    config.dtk_path = args.dtk
-elif _local_dtk.is_file():
-    config.dtk_path = _local_dtk
-else:
-    config.dtk_path = None
+config.dtk_path = args.dtk
 config.objdiff_path = args.objdiff
 config.compilers_path = args.compilers
 config.binutils_path = args.binutils
@@ -222,7 +215,7 @@ config.build_rels = False
 # ---------------------------------------------------------------------------
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20251118"
-config.dtk_tag = "v1.8.3"
+config.dtk_tag = "v1.8.4"
 config.objdiff_tag = "v3.6.1"
 config.sjiswrap_tag = "v1.2.2"
 config.wibo_tag = "1.0.3"
@@ -417,6 +410,7 @@ cflags_native_recovered = [
     '-i libs/PowerPC_EABI_Support/include/libc',
     '-i libs/dolphin/include',
     '-i libs/dolphin/include/dolphin',
+    f'-i build/{config.version}/include',
 ]
 cflags_native_recovered_auto = [
     "-inline auto" if f == "-inline deferred,auto" else f
@@ -596,8 +590,8 @@ if args.target == "psov3":
                             mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
                 NonMatching("TRK_MINNOW_DOLPHIN/targimpl.c",
                             mw_version="GC/2.6", cflags=[*cflags_native_recovered, "-sdata 0", "-sdata2 0"]),
-                NonMatching("TRK_MINNOW_DOLPHIN/targsupp.s"),
-                NonMatching("TRK_MINNOW_DOLPHIN/exception.s"),
+                NonMatching("TRK_MINNOW_DOLPHIN/targsupp.s", src_dir=f"build/{config.version}/orig_asm"),
+                NonMatching("TRK_MINNOW_DOLPHIN/exception.s", src_dir=f"build/{config.version}/orig_asm"),
                 NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk.c",
                             mw_version="GC/2.6", cflags=[*cflags_native_recovered, "-sdata 0", "-sdata2 0"]),
             ],
@@ -843,34 +837,8 @@ if args.target == "psov3":
         ),
     ]
 else:
-    config.libs = [
-        # ------------------------------------------------------------------
-        # main.dol — Initialization code (.init section)
-        # ------------------------------------------------------------------
-        {
-            "lib": "init",
-            "mw_version": "GC/2.6",
-            "cflags": cflags_pso,
-            "progress_category": "runtime",
-            "src_dir": "src",
-            "objects": [
-                NonMatching("init.c"),
-            ],
-        },
-        # ------------------------------------------------------------------
-        # main.dol — Boot DOL code (monolithic)
-        # ------------------------------------------------------------------
-        {
-            "lib": "pso_main",
-            "mw_version": "GC/2.6",
-            "cflags": cflags_pso,
-            "progress_category": "game",
-            "src_dir": "src",
-            "objects": [
-                NonMatching("main.c"),
-            ],
-        },
-    ]
+    # main.dol has no recovered source; it is rebuilt from its original objects.
+    config.libs = []
 
 # ===================================================================
 # Progress Categories
@@ -887,11 +855,54 @@ config.progress_report_args = [
 ]
 
 # ===================================================================
+# Functions written in assembly
+# ===================================================================
+# The SDK, runtime and MetroTRK functions that Nintendo and Metrowerks wrote in
+# assembly are not in this repository. Their bodies are
+#     #include "orig_asm/<unit>/<function>.inc"
+# and tools/orig_asm.py writes those files from decomp-toolkit's disassembly of
+# the original, before anything is compiled. Units that are assembly from start
+# to finish are written whole.
+_ORIG_ASM = re.compile(r'^#include "(orig_asm/[\w/]+\.inc)"$', re.M)
+_ORIG_ASM_UNITS = ["TRK_MINNOW_DOLPHIN/targsupp.s", "TRK_MINNOW_DOLPHIN/exception.s"]
+
+
+def add_orig_asm_steps(config: ProjectConfig) -> None:
+    outputs: List[Path] = []
+    for root in (Path("libs"), Path("src")):
+        for path in sorted(root.rglob("*")):
+            if path.suffix in (".c", ".cp", ".cpp") and path.is_file():
+                text = path.read_text(encoding="utf-8", errors="replace")
+                if "orig_asm/" in text:
+                    outputs += [config.out_path() / "include" / inc for inc in _ORIG_ASM.findall(text)]
+    outputs += [config.out_path() / "orig_asm" / unit for unit in _ORIG_ASM_UNITS]
+    symbols = Path("config") / config.version / "psov3" / "symbols.txt"
+    config.custom_build_rules = [*(config.custom_build_rules or []), {
+        "name": "orig_asm",
+        "command": "$python tools/orig_asm.py $asm_dir $symbols $out",
+        "description": "ORIG_ASM $asm_dir",
+    }]
+    steps = config.custom_build_steps = dict(config.custom_build_steps or {})
+    steps["pre-compile"] = [*steps.get("pre-compile", []), {
+        "outputs": outputs,
+        "rule": "orig_asm",
+        "inputs": [config.out_path() / "config.json"],
+        "implicit": [Path("tools/orig_asm.py"), symbols],
+        "variables": {"asm_dir": str(config.out_path() / "asm"), "symbols": str(symbols)},
+    }]
+    config.reconfig_deps = [*(config.reconfig_deps or []), Path("tools/orig_asm.py")]
+
+
+# ===================================================================
 # Main Dispatch
 # ===================================================================
 if args.target == "psov3":
-    add_data_build_steps(config, Path("orig/GPOE8P/P-GPOE"),
-                         replacements=args.data_replacements)
+    add_orig_asm_steps(config)
+    # A disc image in orig/GPOE8P/, or the disc extracted there by wit.
+    _disc_root = Path("orig/GPOE8P/P-GPOE")
+    if not _disc_root.is_dir():
+        _disc_root = Path("orig/GPOE8P")
+    add_data_build_steps(config, _disc_root, replacements=args.data_replacements)
 
 if args.mode == "configure":
     generate_build(config)
