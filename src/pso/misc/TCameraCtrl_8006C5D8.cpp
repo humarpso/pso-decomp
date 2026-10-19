@@ -39,7 +39,7 @@ void *__nw__7TObjectFUl(int);
     extern const float lbl_805D9028;
 }
 TUnk_80488B68::TUnk_80488B68() : TUnk_80488A28() {
-    *(int *)&this->m_38 = 0;
+    this->m_38 = 0;
     scripted_camera_projection_angle = 0;
     TCameraCtrl__saved_projection_angle = 0;
     *(unsigned char *)&this->unk_99 = 0;

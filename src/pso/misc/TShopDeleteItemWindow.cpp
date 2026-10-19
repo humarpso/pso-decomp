@@ -132,9 +132,9 @@ void TShopDeleteItemWindow::handle_confirm_dialog() {
         slot = sub_8022397C__15TShopWindowBaseFv(this);
         selected_menu_value = get_selected_menu_value((int) (this->m_34));
         if (selected_menu_value == 0) {
-            idx = select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)&this->m_30));
+            idx = select_cursor_entry__22TWindowSubShortCutListFv((int) (this->m_30));
             if (copy_item_record__18TCheckRoomSequenceFiPvi(idx, &stack.sp8, slot) != 0) {
-                remove_bank_item_amount__18TCheckRoomSequenceFiii(idx, (int) (*(s32 *)&this->m_5c), slot);
+                remove_bank_item_amount__18TCheckRoomSequenceFiii(idx, (int) (this->m_5c), slot);
                 compact_items__18TCheckRoomSequenceFi(slot);
                 copy_bank_to_card_window(slot);
                 this->set_field_20(0);

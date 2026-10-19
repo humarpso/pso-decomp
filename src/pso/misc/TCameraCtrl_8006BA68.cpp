@@ -225,7 +225,7 @@ s32 approach_angle_limited(s32, s32, s32);
 }
 TUnk_80488B38::TUnk_80488B38() : TUnk_80488A28() {
     *(float *)&this->unk_6C = 10.0f;
-    *(int *)&this->m_38 = 0;
+    this->m_38 = 0;
 }
 extern "C" {
 }
