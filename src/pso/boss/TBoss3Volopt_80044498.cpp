@@ -904,6 +904,48 @@ void TBoss3Volopt::push_players_out_of_radius() {
 
 void TUnk_80484610::vfunc_79() {  }
 
+struct Msg_80045238 {
+    u8 hdr[2];
+    u16 id;
+    s16 vals[4];
+};
+
+extern "C" void handle_6x18_vol_opt2_boss_actions(Msg_80045238 *msg);
+
+void handle_6x18_vol_opt2_boss_actions(Msg_80045238 *msg) {
+    Volopt_80044498 *boss;
+    s32 i;
+    u32 bit;
+    s32 j;
+    ((TBoss3Volopt *)msg)->swap_6x18_fields();
+    boss = (Volopt_80044498 *)find_entity_by_id(msg->id);
+    if (boss != NULL) {
+        for (i = 0; i < 4; i++) {
+            boss->parts[i] = msg->vals[i];
+        }
+        bit = 0x10000;
+        for (j = 0; j < 4; j++) {
+            if (!(boss->flags388 & bit) && boss->parts[j] <= 0) {
+                switch (j) {
+                case 0:
+                    ((TBoss3Volopt *)boss)->spawn_breakup_models();
+                    break;
+                case 1:
+                    TBoss3Volopt__sub_800457A0((u8 *)boss);
+                    break;
+                case 2:
+                    TBoss3Volopt__sub_800456E4((u8 *)boss);
+                    break;
+                case 3:
+                    ((TBoss3Volopt *)boss)->trigger_breakup();
+                    break;
+                }
+            }
+            bit <<= 1;
+        }
+    }
+}
+
 extern s32 lbl_805D2714;
 
 typedef char RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];

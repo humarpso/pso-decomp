@@ -8502,6 +8502,82 @@ void qst_op_npc_crp(u8 first) {
     TLobby::clear_quest_vm_flag();
 }
 
+extern "C" {
+u8 *load_npc_player_template(s32 appearance);
+u8 *construct_player_instance__10TObjPlayerFlslPUc(void *self, s32 parent, s32 slot, s32 role, u8 *data);
+void set_arrival_override_coords(u16 slot, s32 heading, f32 x, f32 y, f32 z);
+void queue_player_injured_pose(TObjPlayer *player);
+void set_player_quest_control_flag(TObjPlayer *player);
+void quest_construct_selected_scripted_player(u8 first);
+void qst_op_npc_crptalk(u8 first);
+}
+
+void quest_construct_selected_scripted_player(u8 first) {
+    f32 pos[3];
+    TObjPlayer *player;
+    int heading;
+    int slot;
+    int appearance;
+    int i = first;
+    u32 injured;
+
+    pos[0] = (f32)TLobby__script_reg_array[i++];
+    pos[1] = (f32)TLobby__script_reg_array[i++];
+    pos[2] = (f32)TLobby__script_reg_array[i++];
+    heading = (int)(lbl_805DC4CC * (f32)TLobby__script_reg_array[i++]);
+    injured = TLobby__script_reg_array[i++];
+    appearance = TLobby__script_reg_array[i++];
+    slot = TLobby__script_reg_array[i++];
+    TLobby::free_luker_object();
+    player = (TObjPlayer *)TObject::operator new(0xDB8);
+    if (player != NULL) {
+        player = (TObjPlayer *)construct_player_instance__10TObjPlayerFlslPUc(player, (s32)tl_03, slot, 6, load_npc_player_template(appearance));
+    }
+    if (player != NULL) {
+        *(s16 *)((u8 *)player + 0x324) = 6;
+        send_6x24_teleport_player(slot, pos, heading);
+        set_arrival_override_coords(slot, heading, pos[0], pos[1], pos[2]);
+        player->reset_motion_fields();
+        if (injured == 1) {
+            queue_player_injured_pose(player);
+            set_player_quest_control_flag(player);
+        }
+    }
+    TLobby::clear_quest_vm_flag();
+}
+
+void qst_op_npc_crptalk(u8 first) {
+    f32 pos[3];
+    TObjPlayer *player;
+    int heading;
+    int appearance;
+    int i = first;
+    u32 injured;
+
+    pos[0] = (f32)TLobby__script_reg_array[i++];
+    pos[1] = (f32)TLobby__script_reg_array[i++];
+    pos[2] = (f32)TLobby__script_reg_array[i++];
+    heading = (int)(lbl_805DC4CC * (f32)TLobby__script_reg_array[i++]);
+    injured = TLobby__script_reg_array[i++];
+    appearance = TLobby__script_reg_array[i++];
+    TLobby::free_luker_object();
+    player = (TObjPlayer *)TObject::operator new(0xDB8);
+    if (player != NULL) {
+        player = (TObjPlayer *)player->construct_player_instance((s32)tl_03, 3, 6, load_npc_player_template(appearance));
+    }
+    if (player != NULL) {
+        *(s16 *)((u8 *)player + 0x324) = 6;
+        send_6x24_teleport_player(3, pos, heading);
+        set_arrival_override_coords(3, heading, pos[0], pos[1], pos[2]);
+        player->reset_motion_fields();
+        if (injured == 1) {
+            queue_player_injured_pose(player);
+            set_player_quest_control_flag(player);
+        }
+    }
+    TLobby::clear_quest_vm_flag();
+}
+
 void qst_op_npc_crppk(u8 arg0) {
     Vec_801F12F0 v;
     s32 angle;

@@ -78,6 +78,7 @@ void set_draw_texture_and_color(s32 idx, s32 arg1);
 }
 void set_constant_material_color(u32 x);
 extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCED4;
 extern const f32 lbl_805DCED8;
 extern const f32 lbl_805DCEDC;
 extern const f32 lbl_805DCEE0;
@@ -130,12 +131,70 @@ s32 play_sound_effect(u32, s32, s32, s32);
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
 void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
-u32 update_text_color_transition(void);
+u32 update_text_color_transition(Fade_802575C0 *fade);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
 extern const float lbl_805DCE58;
+
+#define CLAMP_8025737C(v, lo, hi) ((v) < (lo) ? (lo) : ((v) < (hi) ? (v) : (hi)))
+
+u32 update_text_color_transition(Fade_802575C0 *fade) {
+    s32 done = 1;
+    if (fade->cr < fade->tr) {
+        f32 v = fade->cr + fade->dr;
+        fade->cr = CLAMP_8025737C(v, 0.0f, fade->tr);
+        if (fade->cr < fade->tr) {
+            done = 0;
+        }
+    } else {
+        f32 v = fade->cr + fade->dr;
+        fade->cr = CLAMP_8025737C(v, fade->tr, lbl_805DCED4);
+        if (fade->cr > fade->tr) {
+            done = 0;
+        }
+    }
+    if (fade->cg < fade->tg) {
+        f32 v = fade->cg + fade->dg;
+        fade->cg = CLAMP_8025737C(v, 0.0f, fade->tg);
+        if (fade->cg < fade->tg) {
+            done = 0;
+        }
+    } else {
+        f32 v = fade->cg + fade->dg;
+        fade->cg = CLAMP_8025737C(v, fade->tg, lbl_805DCED4);
+        if (fade->cg > fade->tg) {
+            done = 0;
+        }
+    }
+    if (fade->cb < fade->tb) {
+        f32 v = fade->cb + fade->db;
+        fade->cb = CLAMP_8025737C(v, 0.0f, fade->tb);
+        if (fade->cb < fade->tb) {
+            done = 0;
+        }
+    } else {
+        f32 v = fade->cb + fade->db;
+        fade->cb = CLAMP_8025737C(v, fade->tb, lbl_805DCED4);
+        if (fade->cb > fade->tb) {
+            done = 0;
+        }
+    }
+    if (done) {
+        fade->flags &= ~0x40;
+        return fade->rgb;
+    }
+    {
+        u32 argb = 0xFF00;
+        argb |= (u8)fade->cr;
+        argb <<= 8;
+        argb |= (u8)fade->cg;
+        argb <<= 8;
+        argb |= (u8)fade->cb;
+        return argb;
+    }
+}
 
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time) {
     Col_802575C0 c;
@@ -230,7 +289,7 @@ void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_802577
 
 void update_status_gauge_hold(Bar_8025799C *bar) {
     if (bar->flags & 0x40) {
-        bar->color18 = update_text_color_transition();
+        bar->color18 = update_text_color_transition((Fade_802575C0 *)bar);
     }
     if ((f32)bar->shown != bar->target) {
         f32 max = bar->max;

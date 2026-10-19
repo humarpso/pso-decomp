@@ -23,6 +23,8 @@ struct RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 {
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjLight.h"
+#include "pso/TObjCMHairMenu.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_801FA9D8 {
     s32 sp8;
     s32 spC;
@@ -258,10 +260,46 @@ struct Radar_801FAF24 {
     f32 f190;
 };
 
+struct RadarSpriteFrame_801FA6CC {
+    s16 width;
+    s16 height;
+    s16 x;
+    s16 y;
+    s16 u0;
+    s16 v0;
+    s16 u1;
+    s16 v1;
+    s16 unk10;
+    s16 unk12;
+};
+
+struct RadarViewRect_801FA9D8 {
+    f32 center_x;
+    f32 center_y;
+    f32 screen_width;
+    f32 screen_height;
+    f32 depth;
+};
+
+struct RadarFanDesc_801FA880 {
+    f32 *pos;
+    u32 *col;
+    s32 a;
+    s32 n;
+};
+
+struct RadarVec2_801FA880 { f32 x, y; };
+
 extern "C" {
 s32 TCameraCtrl__sub_80068EF0();
-s32 draw_compass__13TRaderMapCoreFv(void *, void *);
-s32 draw_backdrop__13TRaderMapCoreFv(void *, void *);
+void draw_compass__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
+void draw_backdrop__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
+void update_follow_projection__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
+extern const f32 lbl_805DC588;
+extern RadarSpriteFrame_801FA6CC lbl_804C87E4[];
+extern f32 lbl_804C87B4[][4];
+extern const f32 lbl_805DC574;
+extern f32 lbl_805D35F0;
 extern u32 TRaderMapCore__floor_map_resource;
 extern s32 lbl_805D5F2C;
 extern s32 TRaderMapCore__data_805D5F30;
@@ -271,17 +309,17 @@ extern void *TRaderMapCore__instance;
 void allow_rendering__7TObjectFv(TObject *);
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
 s32 GXSetScissorBoxOffset(int, int);
-extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
+extern Rect_801F9228 radar_map_view_scissor_table[3];
 extern s32 camera_ctrl_instance;
 extern const f32 radar_screen_center_x_f32;
 extern const f32 radar_screen_center_y_f32;
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__map_view_state;
-extern const f32 lbl_805D35F4;
-extern const f32 lbl_805D35F8;
+extern f32 lbl_805D35F4;
+extern f32 lbl_805D35F8;
 s32 memset(void *, int, int);
 extern RecoveredGlobal_801FA9D8_lbl_8044A770 lbl_8044A770;
 extern RecoveredGlobal_801FA9D8_lbl_8044A77C lbl_8044A77C;
-extern RecoveredGlobal_801FA9D8_lbl_804C8748 radar_map_view_rect_table;
+extern RadarViewRect_801FA9D8 radar_map_view_rect_table[3];
 extern const f32 TRaderMapCore__data_805DC534;
 void begin_map_view__13TRaderMapCoreFii(s32 arg0, s32 arg1);
 extern s16 *TRaderMapCore__floor_discovery_table[];
@@ -300,9 +338,10 @@ void *get_player_by_client_id(s32 i);
 extern u8 TCameraCtrl__view_state[];
 extern s32 TRaderMapCore__render_mode;
 f32 xz_distance_squared(void *, void *);
-extern RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08 TRaderMapCore__marker_buffer;
+extern Gate_801FA1E0 TRaderMapCore__marker_buffer[128];
 extern const f32 lbl_805DC564;
 s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3);
+s32 minimap_render_gate(Vec_801F9B8C *pos, u32 color, u16 rot, s16 kind, s32 flags);
 s32 add_radar_scaled_marker(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f32 scale);
 void update_radar_auto_discovery(s32 arg0, s32 arg1, void *arg2);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
@@ -631,6 +670,30 @@ s32 add_radar_scaled_marker(Vec_801F9B8C *pos, s32 arg1, s16 arg2, s32 arg3, f32
     return 1;
 }
 
+s32 minimap_render_gate(Vec_801F9B8C *pos, u32 color, u16 rot, s16 kind, s32 flags) {
+    Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__map_view_state;
+    Vec_801F9B8C v;
+    u8 pad[0x10];
+    if (TRaderMapCore__data_805D5F30 > 0x7F) {
+        return 0;
+    }
+    if (!(flags & 1)) {
+        v.x = cam->x;
+        v.z = cam->z;
+        if (xz_distance_squared(pos, &v) > lbl_805DC564) {
+            return 0;
+        }
+    }
+    TRaderMapCore__marker_buffer[TRaderMapCore__data_805D5F30].x = pos->x;
+    TRaderMapCore__marker_buffer[TRaderMapCore__data_805D5F30].z = pos->z;
+    TRaderMapCore__marker_buffer[TRaderMapCore__data_805D5F30].scale = TRaderMapCore__data_805DC534;
+    TRaderMapCore__marker_buffer[TRaderMapCore__data_805D5F30].color = color;
+    TRaderMapCore__marker_buffer[TRaderMapCore__data_805D5F30].kind = kind;
+    TRaderMapCore__marker_buffer[TRaderMapCore__data_805D5F30].rot = rot;
+    TRaderMapCore__data_805D5F30++;
+    return 1;
+}
+
 s32 minimap_render_dot(Vec_801F9B8C *pos, s32 arg1, s16 arg2, s32 arg3) {
     Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__map_view_state;
     Vec_801F9B8C v;
@@ -882,7 +945,133 @@ void TRaderMapCore::draw_player_markers() {
     model_render_flags = lbl_805D5660;
 }
 
+struct RadarView_801FA46C {
+    f32 x;
+    f32 distance;
+    f32 z;
+    u8 padC[0xC];
+    s32 rot;
+    u8 pad1C[0xC];
+};
+
+void update_follow_projection__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode) {
+    RadarView_801FA46C *view = (RadarView_801FA46C *)&TRaderMapCore__map_view_state;
+    RadarView_801FA46C *free_view = view + 1;
+    RadarView_801FA46C *out = view + 2;
+    if (self->m_134 >= 0) {
+        view->x = ((Entry_801F9E9C *)self->player_marker_records)[self->m_134].x;
+        view->z = ((Entry_801F9E9C *)self->player_marker_records)[self->m_134].z;
+    }
+    if (self->m_168 & 1) {
+        view->rot = 0x8000 - ((TCameraCtrl *)camera_ctrl_instance)->m_194;
+        if (TOKeyMachine01::get_global_state() == 12) {
+            free_view->rot = 0;
+            self->m_174 = 0x8000 - ((TCameraCtrl *)camera_ctrl_instance)->m_194;
+        } else {
+            free_view->rot = 0x8000;
+            self->m_174 = -((TCameraCtrl *)camera_ctrl_instance)->m_194;
+        }
+    } else if (TOKeyMachine01::get_global_state() == 12) {
+        view->rot = 0;
+        free_view->rot = 0;
+        self->m_174 = 0;
+    } else {
+        view->rot = 0x8000;
+        free_view->rot = 0x8000;
+        self->m_174 = 0;
+    }
+    if (self->m_168 & 2) {
+        switch (self->m_16c) {
+        case 0:
+            self->m_170 *= lbl_805DC588;
+            view->distance += self->m_170;
+            if (view->distance > lbl_805D35F0) {
+                view->distance = lbl_805D35F0;
+            }
+            break;
+        case 1:
+            self->m_170 *= lbl_805DC588;
+            view->distance += self->m_170;
+            if (view->distance > lbl_805D35F8) {
+                view->distance = lbl_805D35F8;
+            }
+            break;
+        case 2:
+            self->m_170 *= lbl_805DC588;
+            view->distance -= self->m_170;
+            if (view->distance < lbl_805D35F4) {
+                view->distance = lbl_805D35F4;
+            }
+            break;
+        }
+    } else {
+        view->distance = lbl_805D35F0;
+    }
+    if (mode == 2) {
+        ((TRaderMapCore *)out)->copy_transform(free_view);
+    } else {
+        ((TRaderMapCore *)out)->copy_transform(view);
+    }
+}
+
 void TRaderMapCore::copy_transform(void* q) { *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32 *)&this->m_1c = *(u32*)((char*)q + 0x1c); *(f32 *)&this->m_20 = *(f32*)((char*)q + 0x20); *(f32 *)&this->texture_id = *(f32*)((char*)q + 0x24); }
+
+Color_801FAAEC radar_map_backdrop_color = { 1.0f, 0.3f, 0.3f, 0.3f };
+RadarViewRect_801FA9D8 radar_map_view_rect_table[3] = {
+    { 544.0f, 128.0f, 640.0f, 480.0f, 500.0f },
+    { 256.0f, 352.0f, 640.0f, 480.0f, 500.0f },
+    { 320.0f, 240.0f, 640.0f, 480.0f, 500.0f },
+};
+Rect_801F9228 radar_map_view_scissor_table[3] = {
+    { 15.0f, 2.0f, 19.0f, 6.0f },
+    { 1.0f, 9.0f, 15.0f, 13.0f },
+    { 1.0f, 9.0f, 15.0f, 13.0f },
+};
+f32 lbl_804C87B4[3][4] = {
+    { 575.0f, 149.0f, 575.0f, 159.0f },
+    { 450.0f, 373.0f, 450.0f, 383.0f },
+    { 450.0f, 373.0f, 450.0f, 383.0f },
+};
+RadarSpriteFrame_801FA6CC lbl_804C87E4[2] = {
+    { 32, 32, 16, 27, 0, 0, 256, 256, 0, 0 },
+    { 32, 32, 16, 16, 0, 0, 256, 256, 1, 0 },
+};
+static RadarVec2_801FA880 radar_backdrop_origin[3] = { { 480.0f, 64.0f }, { 32.0f, 288.0f }, { 96.0f, 176.0f } };
+static RadarVec2_801FA880 radar_backdrop_size[3] = { { 128.0f, 128.0f }, { 448.0f, 128.0f }, { 448.0f, 128.0f } };
+static f32 radar_backdrop_alpha[3] = { 64.0f, 64.0f, 128.0f };
+
+void draw_backdrop__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode) {
+    f32 pos[8];
+    RadarFanDesc_801FA880 desc;
+    u32 colors[4];
+    u32 color;
+    RadarVec2_801FA880 *origin;
+    RadarVec2_801FA880 *size;
+    desc.pos = pos;
+    desc.col = colors;
+    desc.a = 0;
+    desc.n = 4;
+    color = 0;
+    ((u8 *)&color)[3] = (u8)radar_backdrop_alpha[mode];
+    origin = &radar_backdrop_origin[mode];
+    size = &radar_backdrop_size[mode];
+    pos[0] = origin->x;
+    pos[1] = origin->y;
+    pos[2] = origin->x + size->x;
+    pos[3] = origin->y;
+    pos[4] = origin->x + size->x;
+    pos[5] = origin->y + size->y;
+    pos[6] = origin->x;
+    pos[7] = origin->y + size->y;
+    colors[0] = color;
+    colors[1] = color;
+    colors[2] = color;
+    colors[3] = color;
+    TObjPlayer::reset_transform_state();
+    TParticleCtrl::begin_effect_render();
+    ((TObjCMHairMenu *)&desc)->draw_tri_fan_2d(4, 0x16, lbl_805DC574);
+    TParticleCtrl::end_effect_render();
+}
 
 extern s32 lbl_805DC56C;
 
@@ -892,7 +1081,7 @@ void TRaderMapCore::setup_view(s32 arg1) {
     GXSetScissorBoxOffset(0, 0);
     TCameraCtrl__sub_801E32D8(radar_screen_center_x_f32, radar_screen_center_y_f32);
     ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
-    TRaderMapCore::set_view_scissor((void *)arg0, 0, (void *)((void *) ((u8 *)&radar_map_view_scissor_table.value + (arg1 * 0x10))));
+    TRaderMapCore::set_view_scissor((void *)arg0, 0, (void *)((void *) ((u8 *)&radar_map_view_scissor_table + (arg1 * 0x10))));
     TObjLight::apply_distant_light();
     TParticleCtrl::end_effect_render();
 }
@@ -917,7 +1106,7 @@ void begin_map_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     u8 *temp_r5;
     TCameraCtrl::restore_full_screen_view();
     memset((void *)&stack.viewport, 0, 0x30);
-    temp_r5 = (u8 *)&radar_map_view_rect_table.value + (arg1 * 0x14);
+    temp_r5 = (u8 *)&radar_map_view_rect_table + (arg1 * 0x14);
     stack.viewport.center_x = *(f32 *)((s8 *)temp_r5 + 0);
     stack.viewport.center_y = *(f32 *)((s8 *)temp_r5 + 4);
     stack.viewport.screen_width = *(f32 *)((s8 *)temp_r5 + 8);
@@ -989,17 +1178,17 @@ void TRaderMapCore::render() {
         }
         switch ((s32) TRaderMapCore__view_mode) {
         case 0:
-            draw_backdrop__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
+            draw_backdrop__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             begin_map_view__13TRaderMapCoreFii((s32)arg0, (s32)TRaderMapCore__view_mode);
             render_region_records((void *)TRaderMapCore__view_mode);
             ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
             draw_player_markers();
             setup_view(TRaderMapCore__view_mode);
-            draw_compass__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
+            draw_compass__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             break;
         case 1:
             TCameraCtrl::restore_full_screen_view();
-            draw_backdrop__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
+            draw_backdrop__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             TCameraCtrl__sub_80068EF0();
             begin_map_view__13TRaderMapCoreFii((s32)arg0, (s32)TRaderMapCore__view_mode);
             render_region_records((void *)TRaderMapCore__view_mode);
@@ -1008,11 +1197,11 @@ void TRaderMapCore::render() {
             setup_view(TRaderMapCore__view_mode);
             TCameraCtrl::restore_full_screen_view();
             this->m_174 = 0;
-            draw_compass__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
+            draw_compass__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             TCameraCtrl__sub_80068EF0();
             break;
         case 2:
-            draw_backdrop__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
+            draw_backdrop__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             begin_map_view__13TRaderMapCoreFii((s32)arg0, (s32)TRaderMapCore__view_mode);
             render_region_records((void *)TRaderMapCore__view_mode);
             ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
