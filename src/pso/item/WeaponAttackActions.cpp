@@ -90,7 +90,6 @@ s32 pop_matrix();
 extern s32 identity_matrix[];
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
-void fire_shot_at_target__11TItemWeaponFPvPvl(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle);
 u32 __nw__7TObjectFUl(u32);
 void construct_actor_light_task(u32, void *, void *, s32, s32, s32, f32);
 extern A12_8011E3E8 lbl_8043E838[];
@@ -100,7 +99,6 @@ extern const f32 lbl_805DAC88;
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 void create__10TItemEffPGFPvPvPv(s32, Params_8011EAB8 *, s32);
 void create__10TItemEffPGFPvPv(s32, Params_8011EAB8 *);
-void spawn_pg_effect__13TUnk_804F1320FPvlf(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0);
 struct VBase_8011E2AC { char pad[0x18]; };
 
 struct VObj_8011E2AC : VBase_8011E2AC {

@@ -261,7 +261,6 @@ void TCheckRoomSequence__sub_8020F1DC(void);
 void TCheckRoomSequence__sub_802100F8(void);
 void TCheckRoomSequence__sub_802100FC(void);
 void TCheckRoomSequence__vt10(void* p);
-void vfunc_6__15TShopWindowBaseFv(void);
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
 }
 u8 bank_has_free_row(s32 i);

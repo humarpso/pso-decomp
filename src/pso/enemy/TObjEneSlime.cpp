@@ -118,7 +118,6 @@ extern s32 slime_debug_label_table[];
 extern s32 lbl_80496368[];
 extern s32 slime_bml_resource;
 extern u32 model_render_flags;
-s32 send_6x0A_enemy_state__9TObjEnemyFPv(void *, s32 *);
 s32 has_no_active_slot(void *);
 void queue_destruction__7TObjectFv(void *arg0);
 
@@ -190,7 +189,7 @@ void TObjEneSlime::run_task() {
 
     if ((TObjPlayer::check_demo_mode() == 0) && (has_no_active_slot(this) != 0)) {
         sp8 = 0x800;
-        send_6x0A_enemy_state__9TObjEnemyFPv(this, &sp8);
+        send_6x0A_enemy_state(&sp8);
         exchange_object_state((s32)&sp8, (s16)0);
         ((VObj_800EBB18_800EB9F0 *)this)->m77(&sp8);
         send_entity_set_flags();

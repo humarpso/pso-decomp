@@ -315,8 +315,6 @@ extern const f32 lbl_805D8CD0, lbl_805D8CD8, lbl_805D8CE0, lbl_805D8D28, lbl_805
 
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_by_client_id(s32);
-s32 sub_8005D698__10TBoss4ZakoFv(void *arg0);
-s32 sub_8005D6B0__10TBoss4ZakoFv(void *self);
 void TBoss4Uro__sub_8005D6D4(void *arg0);
 void fn_8005D6E4(void *arg0);
 void *__dt__10TBoss4ZakoFv(void *, s16);
@@ -445,10 +443,10 @@ void TBoss4Zako::run_task() {
     TBoss4Zako *self = this;
     void (TBoss4Zako::*fn)();
 
-    if (sub_8005D698__10TBoss4ZakoFv(self) != 0 && get_phase__9TBoss4UroFv(self->m_378) != 4) {
+    if (((TBoss4Zako *)self)->sub_8005D698() != 0 && get_phase__9TBoss4UroFv(self->m_378) != 4) {
         ((TBoss4Zako *)self)->set_state3();
     }
-    if (sub_8005D6B0__10TBoss4ZakoFv(self) != 0) {
+    if (((TBoss4Zako *)self)->sub_8005D6B0() != 0) {
         self->m_3ac--;
         if (self->m_3ac < 0) {
             self->m_3a8 = 0;
@@ -488,13 +486,13 @@ void TBoss4Zako::run_task() {
         } else if (self->m_3ac < 480) {
             self->m_3b0 = (f32)(480 - self->m_3ac) / lbl_805D8D28;
         }
-        if (sub_8005D6B0__10TBoss4ZakoFv(self) != 0 && self->m_3b0 > lbl_805D8CBC) {
+        if (((TBoss4Zako *)self)->sub_8005D6B0() != 0 && self->m_3b0 > lbl_805D8CBC) {
             self->m_60 = lbl_805D8D2C * self->m_3b0 + self->m_60;
         }
         ((TBoss4Zako *)self)->apply_contact_damage();
         ((TObjEnemy *)self)->update_prev_position();
         TBoss4Zako::queue_entry(&self->m_38, self->m_5c, self->m_60);
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             if (self->m_3a8 != 0) {
                 self->m_384->flags |= 1;
                 ((TObjPlayer *)self)->update_collisions();
@@ -671,7 +669,7 @@ void TBoss4Zako::apply_contact_damage() {
     }
     for (n = 1; n < lim; n *= 2) {
     }
-    if (((n - 1) & arg0->m_3b8) != 0 || sub_8005D6B0__10TBoss4ZakoFv(arg0) == 0) {
+    if (((n - 1) & arg0->m_3b8) != 0 || ((TBoss4Zako *)arg0)->sub_8005D6B0() == 0) {
         return;
     }
     id = find_nearest_visible_player(arg0, 0, lbl_805D8D0C);
@@ -792,19 +790,19 @@ void run_task__9TBoss4UroFv(TBoss4Uro *self) {
             self->f3BC += self->f3C0;
         }
         Vec_8005C49C v = self->pos;
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             v.y += TBoss4Zako__data_805D8CD4;
         } else {
             v.y += lbl_805D8CD8;
         }
         ((TNowLoading *)(self->f3B4))->copy_pos(&v);
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             self->f60 += 0x1111;
         }
         TBoss4Zako::queue_entry(&self->pos, self->f5C, self->f60);
         ((TBoss4Zako *)self)->apply_contact_damage();
         ((TObjEnemy *)self)->update_prev_position();
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             ((TObjPlayer *)self)->update_collisions();
             submit_cursor_candidate(self, -1);
             minimap_render_dot(self->f2FC, -0x5DB4, 1, 0);
@@ -1005,19 +1003,19 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
             self->f3BC += self->f3C0;
         }
         Vec_8005BC4C v = self->pos;
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             v.y += TBoss4Zako__data_805D8CD4;
         } else {
             v.y += lbl_805D8CD8;
         }
         ((TNowLoading *)(self->f3B4))->copy_pos(&v);
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             self->f60 += 0x1111;
         }
         TBoss4Zako::queue_entry(&self->pos, self->f5C, self->f60);
         ((TBoss4Zako *)self)->apply_contact_damage();
         ((TObjEnemy *)self)->update_prev_position();
-        if (sub_8005D698__10TBoss4ZakoFv(self) != 0) {
+        if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             ((TObjPlayer *)self)->update_collisions();
             submit_cursor_candidate(self, -1);
             minimap_render_dot(self->f2FC, -0x5DB4, 1, 0);

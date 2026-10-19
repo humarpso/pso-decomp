@@ -39,7 +39,6 @@ extern void *shared_snapshot_capture;
 extern "C" {
 s32 TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
 u8 *draw_default_entry__9TWindowDDFl();
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, void *);
 s32 draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DE018;
 extern const f32 lbl_805DE01C;
@@ -98,7 +97,7 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
     Stack_802A7F00 stack;
     u8 *temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame(temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     if (!(((TWindowSnapShot *)arg0)->m_60 & 2)) {
         if ((s32) *(s32 *)((s8 *)temp_r3 + 0x30) > 0) {

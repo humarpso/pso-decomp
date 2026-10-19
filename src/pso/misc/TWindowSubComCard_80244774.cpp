@@ -116,9 +116,7 @@ void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
 void begin_screen_draw(s32);
 s32 draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
-void draw_window_frame_strips__13TUnk_804CE018FPvPv(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
 extern const f32 lbl_805DCB10;
-void draw_window_frame__13TUnk_804CE018FPv(Card_80245F98 *a, Rect_80245F98 *r);
 extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAFC;
 struct VOff_8024491C_arg0_card_1 { char pad_0[0x38]; char f_38[1]; };
@@ -145,7 +143,6 @@ void fn_80244958(void *arg0);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
-void draw_message_frame_row__13TUnk_804CE018FPvPv(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 sub_80246948__13TUnk_804CE018Fv();
 int TWindowFukidasi__sub_8024695C(void *p);
 s32 TWindowCtrlMain__sub_8024CE24();
@@ -611,14 +608,14 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
   q.vBottom = 0.125f;
   q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
   q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
-  draw_message_frame_row__13TUnk_804CE018FPvPv((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+  draw_message_frame_row((Quad_802455CC *)(&q), (Rect_802455CC *)(c));
   q.bottom = c->y + ((struct QFrameWindow_80245808 *)this)->height;
   q.y = q.bottom - half;
   q.v = 0.25f;
   q.vBottom = 0.375f;
   q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
   q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
-  draw_message_frame_row__13TUnk_804CE018FPvPv((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+  draw_message_frame_row((Quad_802455CC *)(&q), (Rect_802455CC *)(c));
   q.y = lbl_805DCAFC + c->y;
   q.v = lbl_805DCB28;
   q.vBottom = lbl_805DCB2C;
@@ -634,7 +631,7 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
       q.vBottom = (lbl_805DCAFC + rem) / 256.0f;
     }
     q.bottom = q.y + step;
-    draw_message_frame_row__13TUnk_804CE018FPvPv((u8 *)(((struct QFrameWindow_80245808 *)this)), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+    draw_message_frame_row((Quad_802455CC *)(&q), (Rect_802455CC *)(c));
     rem -= lbl_805DCAFC;
     q.y += step;
   }
@@ -760,14 +757,14 @@ void TUnk_804CE018::draw_window_frame(void *r) {
   q.v1 = h / 256.0f;
   q.y0 = (((Rect_80245F98 *)r)->sy * (q.y0 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
   q.y1 = (((Rect_80245F98 *)r)->sy * (q.y1 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
-  draw_window_frame_strips__13TUnk_804CE018FPvPv((u8 *)((Card_80245F98 *)this), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
+  draw_window_frame_strips((Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
   q.y0 = (((Rect_80245F98 *)r)->y + n) - h;
   q.y1 = ((Rect_80245F98 *)r)->y + n;
   q.v0 = (96.0f - h) / 256.0f;
   q.v1 = 0.375f;
   q.y0 = (((Rect_80245F98 *)r)->sy * (q.y0 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
   q.y1 = (((Rect_80245F98 *)r)->sy * (q.y1 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
-  draw_window_frame_strips__13TUnk_804CE018FPvPv((u8 *)((Card_80245F98 *)this), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
+  draw_window_frame_strips((Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
   q.y0 = 32.0f + ((Rect_80245F98 *)r)->y;
   q.v0 = 0.125f;
   q.v1 = 0.25f;
@@ -782,7 +779,7 @@ void TUnk_804CE018::draw_window_frame(void *r) {
       q.v1 = (32.0f + rem) / 256.0f;
     }
     q.y1 = q.y0 + dy;
-    draw_window_frame_strips__13TUnk_804CE018FPvPv((u8 *)((Card_80245F98 *)this), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
+    draw_window_frame_strips((Quad_80245D64 *)(&q), (Rect_80245D64 *)(((Rect_80245F98 *)r)));
     rem -= 32.0f;
     q.y0 += dy;
   }

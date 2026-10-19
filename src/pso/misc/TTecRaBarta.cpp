@@ -149,7 +149,6 @@ struct RaBarta_802377FC {
 
 extern "C" {
 u16 obj_getField1c(void *);
-void vfunc_6__11TTecRaBartaFPv(Obj_80237900 *self, VObj_80237900 *target);
 
 void *__nw__7TObjectFUl(u32);
 void *get_bml_motion(void *, int);

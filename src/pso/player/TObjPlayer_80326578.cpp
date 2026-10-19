@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TObjPlayer.h"
@@ -432,7 +433,6 @@ void *__dt__13TUnk_804ED390Fv(void *arg0, s16 arg1) {
 void config_dark_flow_attack_collider(int a0, void* a1);
 extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 fire_shot_at_target__11TItemWeaponFPvPvl(void *, s32, s32, s32);
 
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s16 obj_getS16_32C(u8 *p);
@@ -465,11 +465,11 @@ void TUnk_804ED488::emit_marker_effects() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if ((s32) ((s16) obj_getS16_32C((u8 *)this->player) * 8) < ((s16) ((TItemProShield *)(this->player))->get_field_2b8())) {
-            fire_shot_at_target__11TItemWeaponFPvPvl(this, *(s32 *)&this->player + 0x38, 0, -0x238E);
-            fire_shot_at_target__11TItemWeaponFPvPvl(this, *(s32 *)&this->player + 0x38, 0, -0x11C7);
-            fire_shot_at_target__11TItemWeaponFPvPvl(this, *(s32 *)&this->player + 0x38, 0, 0);
-            fire_shot_at_target__11TItemWeaponFPvPvl(this, *(s32 *)&this->player + 0x38, 0, 0x11C7);
-            fire_shot_at_target__11TItemWeaponFPvPvl(this, *(s32 *)&this->player + 0x38, 0, 0x238E);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)(-0x238E));
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)(-0x11C7));
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)0);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)0x11C7);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)0x238E);
             play_sound_effect(0x4001A642, *(s32 *)&this->player + 0x38, 0, 0);
             return;
         }

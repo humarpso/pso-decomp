@@ -95,7 +95,6 @@ extern "C" {
 extern Vec_800E31C4 panarms_atk_zero_vec;
 Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs);
 extern Pair_800E32C0 lbl_8043CDF8[];
-void sub_800E32C0__22TObjEnePanarmsAtkColliFPv(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
 extern Pair_800E3374 lbl_8043CDF0[];
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 int get_player_data__10TObjPlayerFi(int a0);
@@ -132,7 +131,7 @@ void fn_800E322C(void *p, void *t) {
     VecCopy((Vec *)&target->pos, (const Vec *)t);
     if ((r = find_nearest_hittable_enemy__10TObjPlayerFiPvf(target, 0, target->f378)) != 0xFFFF) {
         if ((ent = (u32)get_enemy_entity(r)) != 0 && ent != target->f10) {
-            sub_800E32C0__22TObjEnePanarmsAtkColliFPv((Obj_800E32C0 *)target, (V_800E32C0 *)ent);
+            ((TObjEnePanarmsAtkColli *)target)->sub_800E32C0((V_800E32C0 *)ent);
         }
     }
     VecCopy((Vec *)&target->pos, (const Vec *)&sp);

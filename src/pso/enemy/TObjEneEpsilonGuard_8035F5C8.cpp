@@ -474,7 +474,6 @@ extern const f32 lbl_805E0210;
 f32 receive_weapon_special_attack__10TObjPlayerFv(void *, void *, void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
-f32 receive_weapon_special_attack__18TObjEneEpsilonBodyFPvPv(Self_8035F5C8 *o, void *src, Hit_8035F5C8 *hit);
 void play_sound_effect(s32, void *, s32, s32);
 void handle_guard_action_state__19TObjEneEpsilonGuardFPvi(W_80361508 *self, s32 arg1);
 void queue_destruction__7TObjectFv(void *);

@@ -41,7 +41,6 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 get_player_by_client_id(int);
 s32 update_radar_auto_discovery(void *, int, void *);
-s32 update_follow_projection__13TRaderMapCoreFl(void *, void *);
 s32 update_pan_zoom_input__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__view_mode;
@@ -100,7 +99,7 @@ void run_task__13TRaderMapCoreFv(TRaderMapCore *rader_map_core) {
         if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)rader_map_core + 0x184) != 0U)) {
             rader_map_core->m_134 = (s32) obj_getField1c(rader_map_core->m_184);
         }
-        update_follow_projection__13TRaderMapCoreFl((void *)rader_map_core, (void *)TRaderMapCore__view_mode);
+        ((TRaderMapCore *)rader_map_core)->update_follow_projection((s32)((void *)TRaderMapCore__view_mode));
         if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
             do {

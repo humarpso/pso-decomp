@@ -1509,7 +1509,6 @@ int select_and_apply_target__23TObjEneMe3ShinowaMirageFPv(void* p);
 void vfunc_89__17TObjEneMe3ShinowaFv(void *arg0);
 void vfunc_111__17TObjEneMe3ShinowaFv(void);
 void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0);
-u8 can_hit_same_target__17TObjEneMe3ShinowaFv(E_800E728C *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 u8 check_body_collision_at__17TObjEneMe3ShinowaFlf(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 void fn_800E762C(void);

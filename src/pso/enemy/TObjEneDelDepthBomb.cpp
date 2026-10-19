@@ -334,7 +334,6 @@ s32 TObjFish__sub_8001EDB0(u8 *, int);
 s32 get_bml_model(int, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
 void draw_blob_shadow(s32 arg0);
-s32 send_6x0A_enemy_state__9TObjEnemyFPv(void *, void *);
 s32 refresh_lobby_state__10TObjPlayerFv();
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
@@ -646,7 +645,7 @@ void TObjEneDelDepth__sub_80313954(u8 *enemy) {
     case 2:
     default:
         sp8 = 0x800;
-        send_6x0A_enemy_state__9TObjEnemyFPv(enemy, &sp8);
+        ((TObjEnemy *)enemy)->send_6x0A_enemy_state(&sp8);
         ((TObjEnemy *)enemy)->exchange_object_state((s32)&sp8, (s16)(0));
         ((VObj_18_65b835 *)(enemy))->m77(&sp8);
         ((TObjEnemy *)enemy)->send_entity_set_flags();

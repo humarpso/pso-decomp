@@ -117,7 +117,6 @@ void mem_free(void *p);
 void __dl__7TObjectFPv(TTecBarta*);
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting);
 u16 obj_getField1c(void *);
-void vfunc_8__9TTecBartaFPv(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
 void __ct__13TUnk_804CCC68FlPUcPUcl();
 extern s32 tec_barta_class_name_ptr;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);

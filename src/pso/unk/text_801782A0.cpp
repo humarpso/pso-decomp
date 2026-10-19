@@ -4,7 +4,6 @@
 extern "C" {
 u8 is_current_floor_switch_set(u16 id);
 s32 get_current_floor(void);
-void sub_801782A0__13TOSwitchTimerFv(TOSwitchTimer *timer);
 }
 
 void TOSwitchTimer::sub_801782A0() {

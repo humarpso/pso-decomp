@@ -49,7 +49,6 @@ s32 open_hard_keyboard__6TLobbyFPv(void *);
 void *get_field_20__17TWindowSubComCardFv(void *);
 void *get_selected_entry__11TWindowMenuFv(void *);
 void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1);
-void sub_80271F04__17TWindowSubComCardFPvll(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32 arg3);
 void apply_selection__17TWindowSubComCardFi(s32 arg0);
 void cleanup__17TWindowSubComCardFPv(void* p);
 void init_layout__17TWindowSubComCardFv(void);
@@ -1411,7 +1410,7 @@ void run_task__17TWindowSubComCardFv(TWindowSubComCard *window_sub_com_card) {
             return;
         }
         if (((TWindowMenu *)(window_sub_com_card->m_64))->is_visible() != 0) {
-            ((s32 (*)(void*, void*, int, int))sub_80271F04__17TWindowSubComCardFPvll)((void *)window_sub_com_card, (void *) ((u8 *)window_sub_com_card + 0x30), (int) (update_selected_entry__17TWindowSubComCardFv(window_sub_com_card->m_7c)), (int) (((s32 (*)(int))get_selected_menu_value)(window_sub_com_card->m_64)));
+            ((TWindowSubComCard *)window_sub_com_card)->sub_80271F04((void *) ((u8 *)window_sub_com_card + 0x30), (int) (update_selected_entry__17TWindowSubComCardFv(window_sub_com_card->m_7c)), (int) (((s32 (*)(int))get_selected_menu_value)(window_sub_com_card->m_64)));
             window_sub_com_card->m_1c = 0x29U;
             return;
         }
@@ -1514,7 +1513,7 @@ void run_task__17TWindowSubComCardFv(TWindowSubComCard *window_sub_com_card) {
         }
         if (((TWindowMenu *)(window_sub_com_card->m_64))->is_visible() != 0) {
             temp_r29_8 = get_character_save_record(0xFFFF);
-            ((s32 (*)(void*, void*, int, int))sub_80271F04__17TWindowSubComCardFPvll)((void *)window_sub_com_card, (void *)(temp_r29_8 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFv((int)window_sub_com_card->m_7c)), (int) (((s32 (*)(int))get_selected_menu_value)((int)window_sub_com_card->m_64)));
+            ((TWindowSubComCard *)window_sub_com_card)->sub_80271F04((void *)(temp_r29_8 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFv((int)window_sub_com_card->m_7c)), (int) (((s32 (*)(int))get_selected_menu_value)((int)window_sub_com_card->m_64)));
             window_sub_com_card->m_1c = 0x35U;
             return;
         }

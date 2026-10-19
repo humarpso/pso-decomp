@@ -2226,7 +2226,6 @@ void draw_projected_shadow__10TObjPlayerFPvPvi(VObj_801BAB78 *self, f32 *pos, s3
 void TObjPlayer__sub_801BAC48(void);
 void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 void run_task__10TObjPlayerFv(TObjPlayer *arg0);
-void reset_motion_fields__10TObjPlayerFv(s32 arg0);
 void TObjPlayer__sub_801BB8A8(void);
 void TObjPlayer__sub_801BB8AC(void);
 void TObjPlayer__sub_801BBB70(void);

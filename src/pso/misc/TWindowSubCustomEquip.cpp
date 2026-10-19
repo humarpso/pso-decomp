@@ -27,7 +27,6 @@ struct Vec2_802766C8
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
 f32 sin_table_lookup(s32);
@@ -278,7 +277,7 @@ void TWindowSubCustomEquip::handle_cursor_input() {
 void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TWindowSubCustomEquip *)arg0)->draw_cursor((u8 *)temp_r3);
     forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubCustomEquip *)arg0)->m_6c), temp_r3);

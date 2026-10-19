@@ -8,7 +8,6 @@
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void *mem_alloc(u32 size);
 void *construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
@@ -25,7 +24,7 @@ void TWindowMessage::render() {
     s32 temp_r3;
     s32 arg0 = (s32)this;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame__13TUnk_804CE018FPv((void *)arg0, (int)temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 

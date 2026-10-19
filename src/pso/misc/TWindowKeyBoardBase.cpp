@@ -30,7 +30,6 @@ extern s32 lbl_8044F098[];
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);
 s32 sub_8025CB10__19TWindowKeyBoardBaseFv(void *);
 s32 sub_8025EB68__19TWindowKeyBoardBaseFv();
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 void __dl__7TObjectFPv(void *);
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 void mem_free(void *);
@@ -42,7 +41,7 @@ void TWindowKeyBoardBase::render() {
     if ((sub_8025EB68__19TWindowKeyBoardBaseFv() == 0) && ((sub_8025CB10__19TWindowKeyBoardBaseFv(this) != 0) || (this->m_62 & 2))) {
         temp_r31 = TWindowDD::draw_default_entry((s32)this);
         if (this->m_62 & 2) {
-            draw_window_frame__13TUnk_804CE018FPv(this, temp_r31);
+            draw_window_frame((void *)temp_r31);
         }
         sub_8025E6DC((u8 *)temp_r31);
     }

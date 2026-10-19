@@ -27,7 +27,6 @@ void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
 void call_if_split_screen(void *self, s32 idx);
 
 s32 handle_list_page_flip_input(s32);
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
@@ -56,7 +55,7 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     u8 temp_r3_2;
 
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0xA8));
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     temp_r3_2 = ((TWindowHelpItem *)arg0)->m_60;
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2)) {

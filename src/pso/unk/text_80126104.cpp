@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
 #include "pso/unk/text_80126104.h"
 #include "pso/item/TUnk_804A2960.h"
@@ -150,7 +151,6 @@ extern "C" {
 s32 obj_is_hit_receivable(void *);
 extern const f32 lbl_805DAD70;
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
-void fire_shot_at_target__11TItemWeaponFPvPvl(void *, void *, s32, s32);
 }
 #pragma push
 #pragma fp_contract on
@@ -180,10 +180,10 @@ void TUnk_804A2960::emit_marker_effects() {
     ((Pl_801261BC *)this)->f1fc = 0;
     p = buf;
     if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
-        fire_shot_at_target__11TItemWeaponFPvPvl(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
+        fire_shot_at_target((void *)p, (void *)(((Pl_801261BC *)this)->f188), (s32)0);
     } else if (((TItem *)this)->get_slot_count() == 1) {
         ((Pl_801261BC *)this)->f1fc = 1;
-        fire_shot_at_target__11TItemWeaponFPvPvl(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
+        fire_shot_at_target((void *)p, (void *)(((Pl_801261BC *)this)->f188), (s32)0);
     } else {
         ((Pl_801261BC *)this)->m49(p, 0, 0, 1);
     }

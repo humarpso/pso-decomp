@@ -19,7 +19,6 @@ extern const f32 lbl_805DD0D8;
 extern const f32 lbl_805DD0F0;
 extern const f32 lbl_805DD0FC;
 
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -54,7 +53,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
     }
     temp_r31 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x64));
     if (((TWindowLoadItemTexture *)arg0)->m_61 & 1) {
-        draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r31);
+        ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r31);
     }
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
 }

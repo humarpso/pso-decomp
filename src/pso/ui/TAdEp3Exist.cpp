@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/ui/TAdEp3Exist.h"
 #include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
@@ -63,7 +64,6 @@ u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
 u32 calc_text_width(char *s);
 s32 render_status_line__15TAdSubPlyItemGCFi(int, int, f32, f32, f32);
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, void *);
 extern const f32 lbl_805E0440;
 extern const f32 lbl_805E0444;
 extern const f32 lbl_805E0448;
@@ -102,7 +102,7 @@ int request_transition__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdEp3Exist::draw_message_window(s32 arg1) {
     s32 arg0 = (s32)this;
-    draw_window_frame__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg1));
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *) (arg1));
     render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry(0x2C, 0xA)), -1, (f32) (lbl_805E0440 - (f32) (calc_text_width((char *)(get_localized_text_entry(0x2C, 0xA))) >> 1U)), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 

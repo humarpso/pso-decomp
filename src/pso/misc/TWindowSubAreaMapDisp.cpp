@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/misc/TWindowCtrl_80271DFC.h"
 #include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
@@ -82,7 +83,6 @@ extern const f32 lbl_805DD4E4;
 extern const f32 lbl_805DD4E8;
 extern const f32 lbl_805DD4EC;
 s32 draw_default_entry__9TWindowDDFl();
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 struct Rect_80271848 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
@@ -187,7 +187,7 @@ void TWindowSubAreaMapDisp::render() {
     s32 temp_r3;
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame__13TUnk_804CE018FPv(this, temp_r3);
+    draw_window_frame((void *)temp_r3);
     forward_render__20TWindowSubStatusDispFv(this->m_70, temp_r3);
     if ((s32) this->m_6c != 0) {
         ((s32 (*)(void *, s32))TWindowSubStatusDisp__sub_80271A6C)(this, temp_r3);

@@ -589,7 +589,6 @@ u8 *get_enemy_entity(u16 arg0);
 void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DA04C;
 extern const f32 lbl_805DA050;
-void beast_update_attack__13TUnk_80493450Fv(Self_800C53DC *arg0);
 f32 enemy_backstep_from_point(void *, void *, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 angle_difference_abs(s32, s32);

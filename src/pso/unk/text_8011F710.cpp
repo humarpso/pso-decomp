@@ -119,7 +119,6 @@ s32 is_active_in_game__11TItemWeaponFv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__11TItemWeaponFUl(void*,u32);
-void fire_shot_at_target__11TItemWeaponFPvPvl(void*,WeaponVector*,s32,s32);
 
 s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1);
 
@@ -224,7 +223,7 @@ void TItemWeapon::vfunc_30() {
         if(!test_flags_1b8__11TItemWeaponFUl(self,2)) {
             if(test_flags_1b8__11TItemWeaponFUl(self,0x8000)) {
                 ((TObjPlayer *)self)->draw_status_icon((s32)&gun_point);
-                fire_shot_at_target__11TItemWeaponFPvPvl(self,&gun_point,self->projectile,0);
+                ((TItemWeapon *)self)->fire_shot_at_target((void *)(&gun_point), (void *)(self->projectile), (s32)0);
                 return;
             }
             if(test_flags_1b8__11TItemWeaponFUl(self,0x20000)) {

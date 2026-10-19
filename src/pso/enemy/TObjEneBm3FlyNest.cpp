@@ -778,7 +778,6 @@ void update_player_state__9TObjEneDDFv(void *, Vec_800B23A0 *, s32);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
-int set_part_local_pos__9TObjEneDDFPvl(void*, void*, void*);
 s32 clear_attack_receipts__9TObjEneDDFv();
 s32 noop__12TBoss8DragonFv(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, s32);
@@ -1737,7 +1736,7 @@ void TObjEneBm3FlyNest::update_replenish() {
     }
 }
 
-void TObjEneBm3FlyNest::vfunc_88() { set_part_local_pos__9TObjEneDDFPvl(this, (char*)this + 0x2fc, (void*)0); }
+void TObjEneBm3FlyNest::vfunc_88() { set_part_local_pos((void *)((char*)this + 0x2fc), (s32)((void*)0)); }
 
 void TObjEneBm3FlyNest::copy_pos() { VecCopy((Vec *)((char*)this + 0x74), (const Vec *)((char*)this + 0x2fc)); }
 

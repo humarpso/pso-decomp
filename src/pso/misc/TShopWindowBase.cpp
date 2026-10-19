@@ -22,8 +22,6 @@ extern "C" {
 s32 obj_getField1c(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-void vfunc_11__15TShopWindowBaseFv(void);
-void run_task__15TShopWindowBaseFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 void TShopWindowBase::vfunc_11() {  }
@@ -102,12 +100,5 @@ void *__ct__15TShopWindowBaseFv(void *shop_window_base) {
     return shop_window_base;
 }
 
-void render__7TObjectFv();
-void render_shadows__7TObjectFv();
-void vfunc_6__15TShopWindowBaseFv();
-void vfunc_7__15TShopWindowBaseFv();
-void vfunc_8__15TShopWindowBaseFv();
-void vfunc_9__15TShopWindowBaseFv();
-void vfunc_10__15TShopWindowBaseFv();
 extern s32 __vt__15TShopWindowBase[];
 }

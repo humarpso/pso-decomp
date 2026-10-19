@@ -87,7 +87,6 @@ extern const f32 lbl_805DBBB0;
 extern const f32 lbl_805DBBB4;
 extern const f32 lbl_805DBBB8;
 extern const f32 lbl_805DBBBC;
-void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self);
 f64 atan2_float(f32, f32);
 s32 angle_diff_s16(s32, s32);
 s32 vec3_add_to(void *, void *);

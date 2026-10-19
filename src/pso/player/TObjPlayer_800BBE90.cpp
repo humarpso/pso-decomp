@@ -107,12 +107,9 @@ extern "C" {
 extern const f32 lbl_805D9EB4;
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
-void area_attack_receive_direct__13TUnk_804928CCFPvPfPv(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
-s32 area_attack_deliver_physical__13TUnk_804928CCFPvPvf(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
-s32 area_attack_deliver_direct__13TUnk_804928CCFPvlPvf(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
 struct Base_800bbe90 { char pad[0x18]; };
 struct VObj_800bbe90 : Base_800bbe90 {
     virtual void m0();

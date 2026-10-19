@@ -309,7 +309,6 @@ void TBoss4Type2__sub_8005307C(void* p);
 void update_flag800_state__11TBoss4Type2FPv(void *arg0);
 void check_state_if_idle__11TBoss4Type2FPv(void* p);
 void TBoss4Type2__sub_800531BC(void* p);
-void sub_80053440__11TBoss4Type1Fv(Obj_80053440 *arg0);
 void TBoss4Type2__sub_80053504(TBoss4Type2 *arg0);
 void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
@@ -1581,7 +1580,7 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     ((TObjPlayer *)self)->update_collisions();
     submit_cursor_candidate(self, -1);
     ((TBoss4Type1 *)self)->sub_80053670();
-    ((s32 (*)(void *))sub_80053440__11TBoss4Type1Fv)(self);
+    ((TBoss4Type1 *)self)->sub_80053440();
     {
         f32 x = self->x3dc;
         self->x3dc = x + lbl_805D8B80;

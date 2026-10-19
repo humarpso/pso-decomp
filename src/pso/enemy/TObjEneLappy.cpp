@@ -1394,7 +1394,6 @@ void restore_default_scene(void);
 void set_scene_override(u8 scene);
 extern Vec_800C20D0 lbl_8043BBC0[];
 extern "C" {
-void vfunc_106__16TObjEneRe2FlowerFv(Obj_800C20D0 *o);
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);

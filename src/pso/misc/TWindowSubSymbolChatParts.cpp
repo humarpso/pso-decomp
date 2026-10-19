@@ -119,7 +119,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 get_draw_context__11TWindowBaseFPv();
 void construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s32, void *);
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 void clamp_list_scroll_offset(s32, Vec2_80284D68 *, Vec2_80284D68 *);
 s32 draw_window_scrollbar(s32, s32, void *);
 void * reset_selection__20TWindowSubStatusDispFv(void *, Vec2_80285D38 *);
@@ -353,7 +352,7 @@ void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     switch ((s8) (((TWindowSubSymbolChatParts *)arg0)->m_71)) {
     case 0:
         fn_802857C4((Win_802857C4 *)(arg0), (Rect_802857C4 *)(temp_r3));

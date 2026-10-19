@@ -19,7 +19,6 @@ s32 select_melee_contact_body__13TUnk_804806E8FPvf(f32);
 extern char lbl_80440984[];
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3AC;
-f32 receive_weapon_special_attack__13TOCtrlDubchikFPvPv(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
 
 s32 read_be16_field2__10TObjPlayerFv();
 

@@ -293,7 +293,6 @@ struct RadarVec2_801FA880 { f32 x, y; };
 extern "C" {
 s32 TCameraCtrl__sub_80068EF0();
 void draw_compass__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
-void update_follow_projection__13TRaderMapCoreFl(TRaderMapCore *self, s32 mode);
 extern const f32 lbl_805DC588;
 extern RadarSpriteFrame_801FA6CC lbl_804C87E4[];
 extern f32 lbl_804C87B4[][4];

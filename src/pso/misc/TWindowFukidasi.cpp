@@ -229,8 +229,6 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
 void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
 void draw_name_plate__15TWindowFukidasiFv(void *, View_80252764 *, u32);
-void draw_body_row__13TUnk_804CF0B8FPvPvffff(Fuki_802523CC *b, Slice_802523CC *s, Ctx_802523CC *ctx, f32 offsetX, f32 rowTop, f32 fullWidth, f32 rowHeight);
-void draw_body__13TUnk_804CF0B8FPvUlPff(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 void TWindowFukidasi__sub_80252C38(void *p);
 void clear_flag_20__13TUnk_804CF0B8Fv();
 s32 fn_80252CBC(void);
@@ -1124,12 +1122,12 @@ void TUnk_804CF0B8::draw_body(void *ctx, u32 argb, f32 *offset, f32 depth) {
     s.vh = capY * lbl_805DCDA4;
     s.y = ((struct DrawCtx_80252558 *)ctx)->pivot[1] + ((struct DrawCtx_80252558 *)ctx)->scale[1] * (s.y - ((struct DrawCtx_80252558 *)ctx)->pivot[1]);
     s.rowHeight *= ((struct DrawCtx_80252558 *)ctx)->scale[1];
-    ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__13TUnk_804CF0B8FPvPvffff)(((struct Fukidasi_80252558 *)this), &s, ((struct DrawCtx_80252558 *)ctx), offset[0], 0.0f, width, capY);
+    draw_body_row(&s, ((struct DrawCtx_80252558 *)ctx), offset[0], 0.0f, width, capY);
     s.y = (((struct Fukidasi_80252558 *)this)->size[1] + (((struct Fukidasi_80252558 *)this)->position[1] + offset[1])) - capY;
     s.y = ((struct DrawCtx_80252558 *)ctx)->pivot[1] + ((struct DrawCtx_80252558 *)ctx)->scale[1] * (s.y - ((struct DrawCtx_80252558 *)ctx)->pivot[1]);
     t = lbl_805DCDB0 - capY;
     s.v = t * lbl_805DCDA4;
-    ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__13TUnk_804CF0B8FPvPvffff)(((struct Fukidasi_80252558 *)this), &s, ((struct DrawCtx_80252558 *)ctx), offset[0], ((struct Fukidasi_80252558 *)this)->size[1] - capY, width, capY);
+    draw_body_row(&s, ((struct DrawCtx_80252558 *)ctx), offset[0], ((struct Fukidasi_80252558 *)this)->size[1] - capY, width, capY);
     d = ((struct Fukidasi_80252558 *)this)->size[1] - lbl_805DCD98;
     mid = d * ((struct DrawCtx_80252558 *)ctx)->scale[1];
     if (mid >= TWindowFukidasi__data_805DCD30) {
@@ -1138,7 +1136,7 @@ void TUnk_804CF0B8::draw_body(void *ctx, u32 argb, f32 *offset, f32 depth) {
         s.y = ((struct DrawCtx_80252558 *)ctx)->pivot[1] + ((struct DrawCtx_80252558 *)ctx)->scale[1] * (s.y - ((struct DrawCtx_80252558 *)ctx)->pivot[1]);
         s.v = lbl_805DCDB4;
         s.rowHeight = mid;
-        ((void (*)(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32))draw_body_row__13TUnk_804CF0B8FPvPvffff)(((struct Fukidasi_80252558 *)this), &s, ((struct DrawCtx_80252558 *)ctx), offset[0], lbl_805DCD94, width, d);
+        draw_body_row(&s, ((struct DrawCtx_80252558 *)ctx), offset[0], lbl_805DCD94, width, d);
     }
     TWindowSubStatusDisp::get_player();
 }
@@ -1178,11 +1176,11 @@ void TUnk_804CF0B8::render() {
     v->sy /= TCameraCtrl::get_fov();
     off[0] = TWindowFukidasi__data_805DCD28 * ((Fuki_80252764 *)this)->tail;
     off[1] = lbl_805DCDB8 * ((Fuki_80252764 *)this)->tail;
-    draw_body__13TUnk_804CF0B8FPvUlPff((struct Fukidasi_80252558 *)(((Fuki_80252764 *)this)), (struct DrawCtx_80252558 *)(v), (u32)(0xFF000000), off, lbl_805DCDBC + ((Fuki_80252764 *)this)->f54);
+    draw_body((struct DrawCtx_80252558 *)(v), (u32)(0xFF000000), off, lbl_805DCDBC + ((Fuki_80252764 *)this)->f54);
     ((TUnk_804CF0B8 *)((Fuki_80252764 *)this))->draw_tail(v, (u32)(0xFF000000), off, lbl_805DCDC0 + ((Fuki_80252764 *)this)->f54);
     off[0] = TWindowFukidasi__data_805DCD30;
     off[1] = TWindowFukidasi__data_805DCD30;
-    draw_body__13TUnk_804CF0B8FPvUlPff((struct Fukidasi_80252558 *)(((Fuki_80252764 *)this)), (struct DrawCtx_80252558 *)(v), ((Fuki_80252764 *)this)->color, off, lbl_805DCDC0 + ((Fuki_80252764 *)this)->f54);
+    draw_body((struct DrawCtx_80252558 *)(v), ((Fuki_80252764 *)this)->color, off, lbl_805DCDC0 + ((Fuki_80252764 *)this)->f54);
     ((TUnk_804CF0B8 *)((Fuki_80252764 *)this))->draw_tail(v, ((Fuki_80252764 *)this)->color, off, lbl_805DCD90 + ((Fuki_80252764 *)this)->f54);
     if (((TUnk_804CF0B8 *)((Fuki_80252764 *)this))->is_active() != 0) {
         draw_visible_window_entries(((Fuki_80252764 *)this), ((Fuki_80252764 *)this)->f24, v);

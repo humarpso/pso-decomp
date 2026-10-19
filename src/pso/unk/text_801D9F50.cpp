@@ -6,7 +6,7 @@ void TProtocol::handle_cmd_AB(packet &pkt) {
     void *arg1 = &pkt;
     s32 (*temp_r12)(u16);
 
-    bswap_cmd_AB__9TProtocolFv(arg1);
+    ((TProtocol *)arg1)->bswap_cmd_AB();
     temp_r12 = *(s32 (**)(u16))((s8 *)this + 0xBC94);
     if (temp_r12 != NULL) {
         temp_r12(((TProtocol *)arg1)->m_flags);

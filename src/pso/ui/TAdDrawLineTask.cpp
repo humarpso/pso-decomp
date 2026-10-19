@@ -1,4 +1,5 @@
 #include "pso/TAdDrawLineTask.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/ui/TAdDrawLineTask.h"
 #include "pso/TObject.h"
 
@@ -11,7 +12,6 @@ extern "C" {
 
 int draw_projected_line_strip__10TObjPlayerFPvii(void*, void*, void*);
 s32 allow_rendering__7TObjectFv();
-s32 sub_80019B08__15TAdDrawLineCtrlFl(u32, s32);
 int reset_transform_state__10TObjPlayerFv(void*);
 
 void render__15TAdDrawLineTaskFv(void* p) { reset_transform_state__10TObjPlayerFv(p); draw_projected_line_strip__10TObjPlayerFPvii((char*)p + 0x64, (void*)4, (void*)1); }
@@ -47,7 +47,7 @@ void run_task__15TAdDrawLineTaskFv(void *object) {
     {
         u32 temp = *(u32 *)((s8 *)object + 0x1C);
         if (temp != 0U) {
-            sub_80019B08__15TAdDrawLineCtrlFl(temp, *(s32 *)((s8 *)object + 0x20));
+            ((TAdDrawLineCtrl *)temp)->sub_80019B08(*(s32 *)((s8 *)object + 0x20));
         }
     }
     ((TObject *)object)->set_flag_4();

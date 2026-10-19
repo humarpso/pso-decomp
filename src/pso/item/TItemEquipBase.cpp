@@ -246,7 +246,6 @@ struct VObj_8010B224 : VBase_8010B224 {
 };
 
 extern "C" {
-s8 vfunc_33__14TItemEquipBaseFv(TItemEquipBase *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_slot_effect__14TItemEquipBaseFUsUl(s32, int);
 s32 start_event_by_index__15TItemTimerEventFUs();

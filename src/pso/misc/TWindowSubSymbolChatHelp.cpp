@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TWindowSubSymbolChatHelp.h"
@@ -43,7 +44,6 @@ struct Quad_802845EC { f32 x, y, x2, y2, u0, v0, u1, v1; };
 struct Win_802845EC { u8 pad[0x10]; f32 x; f32 y; u8 pad2[0x38 - 0x18]; f32 scale; };
 
 extern "C" {
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_default_entry__9TWindowDDFl();
 u8 * get_window_layout_position(s32);
 extern RecoveredGlobal_80284B84_lbl_804D2D10 symbol_chat_help_window_layout;
@@ -53,9 +53,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 extern s8 controller_input_state[];
 int TWindowSubSymbolChatHelp__sub_80247EE8(int);
 void apply_context_transform_to_rect(void *, void *);
-void draw_color_palette__24TWindowSubSymbolChatHelpFPv(Self_8028429C *arg0, Win_8028429C *arg1);
 extern UV_802844C8 symbol_chat_help_entry_uv_table[];
-void draw_help_entry__24TWindowSubSymbolChatHelpFPvll(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
 extern UV_802845EC symbol_chat_help_icon_uv_table[];
 void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *arg1, s32 arg2, s32 arg3);
 void __dl__7TObjectFPv(void *);
@@ -181,29 +179,29 @@ void TWindowSubSymbolChatHelp::draw_help_entries(void *arg1) {
             draw_help_icon__24TWindowSubSymbolChatHelpFiPvii((s32)this, (Win_802845EC *)(arg1), 4, (s32)(0xFF808080));
             draw_help_icon__24TWindowSubSymbolChatHelpFiPvii((s32)this, (Win_802845EC *)(arg1), 5, (s32)(0xFF808080));
         }
-        draw_color_palette__24TWindowSubSymbolChatHelpFPv((Self_8028429C *)(this), (Win_8028429C *)(arg1));
+        draw_color_palette((Win_8028429C *)(arg1));
         TWindowSubStatusDisp::get_player();
         begin_screen_draw(1);
         begin_render__20TWindowSubStatusDispFl();
         set_draw_texture_and_color(1, -1);
-        draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 0, -1);
-        draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 1, -1);
+        draw_help_entry((Win_802844C8 *)(arg1), 0, -1);
+        draw_help_entry((Win_802844C8 *)(arg1), 1, -1);
         if (this->m_60 & 1) {
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 2, -1);
+            draw_help_entry((Win_802844C8 *)(arg1), 2, -1);
         } else {
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 2, (s32)(0xFF808080));
+            draw_help_entry((Win_802844C8 *)(arg1), 2, (s32)(0xFF808080));
         }
         if (this->m_60 & 2) {
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 3, -1);
+            draw_help_entry((Win_802844C8 *)(arg1), 3, -1);
         } else {
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 3, (s32)(0xFF808080));
+            draw_help_entry((Win_802844C8 *)(arg1), 3, (s32)(0xFF808080));
         }
         if (this->m_60 & 4) {
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 4, -1);
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 5, -1);
+            draw_help_entry((Win_802844C8 *)(arg1), 4, -1);
+            draw_help_entry((Win_802844C8 *)(arg1), 5, -1);
         } else {
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 4, (s32)(0xFF808080));
-            draw_help_entry__24TWindowSubSymbolChatHelpFPvll((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), 5, (s32)(0xFF808080));
+            draw_help_entry((Win_802844C8 *)(arg1), 4, (s32)(0xFF808080));
+            draw_help_entry((Win_802844C8 *)(arg1), 5, (s32)(0xFF808080));
         }
         TWindowSubStatusDisp::get_player();
     }
@@ -258,7 +256,7 @@ void TWindowSubSymbolChatHelp::render() {
     s32 arg0 = (s32)this;
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame__13TUnk_804CE018FPv((void *)arg0, (int)temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     draw_help_entries((void *)temp_r3);
 }
 

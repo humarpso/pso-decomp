@@ -41,7 +41,6 @@ extern s32 __vt__19TWindowSoundBalance[];
 extern s32 TWindowSoundBalance__name;
 extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
-s32 draw_window_frame__13TUnk_804CE018FPv(s32, void *);
 s32 draw_visible_window_entries(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 s32 apply_balance__19TWindowSoundBalanceFPv(s32, void *, f32, f32);
@@ -82,7 +81,7 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
     void *temp_r3;
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame(temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     temp_f2 = *(f32 *)((s8 *)temp_r3 + 0x10);
     *(f32 *)((s8 *)temp_r3 + 0x10) = (f32) (temp_f2 + lbl_805DD40C);

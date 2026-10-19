@@ -147,7 +147,6 @@ s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_802308A0_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
 u16 obj_getField1c(void *);
-void vfunc_8__11TTecGiBartaFPv(Obj_802309AC *self, VObj_802309AC *target);
 void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TTecGiBarta[];

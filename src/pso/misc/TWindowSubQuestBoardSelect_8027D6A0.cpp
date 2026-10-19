@@ -19,7 +19,6 @@ struct Win_8027D6A0 { u8 pad0[0x61]; s8 f61; };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 TWindowSubQuestBoardSelect__sub_8027D444(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
@@ -67,7 +66,7 @@ s32 TWindowSubQuestBoardSelect::handle_page_input() {
 void render__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubQuestBoardSelect *)arg0)->m_64), temp_r3);
     TWindowSubQuestBoardSelect__sub_8027D444(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);

@@ -435,7 +435,6 @@ Ene_800F62E0 * find_active_entity_by_id(u16);
 void * TObjControl__ct(void *arg0);
 void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
-void send_6x0A_enemy_state__9TObjEnemyFPv(TObjEnemy *enemy, Pkt_800F65D0 *state_in);
 void distribute_experience__9TObjEnemyFv(TObjPlayer_800F6B68 *self);
 void award_enemy_experience__9TObjEnemyFl(u8 *arg0, s32 arg1);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
@@ -692,7 +691,7 @@ s32 TObjEnemy::vfunc_74(s32 kind) {
         }
         ret = exchange_object_state__9TObjEnemyFls(this, &pkt, 0);
         if (ret != 0) {
-            send_6x0A_enemy_state__9TObjEnemyFPv(this, &pkt);
+            send_6x0A_enemy_state(&pkt);
         }
     }
     return ret;

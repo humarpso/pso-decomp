@@ -109,7 +109,6 @@ s32 __nw__7TObjectFUl(int);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 void * get_field_20__17TWindowSubComCardFv(void *e);
-s32 draw_window_frame__13TUnk_804CE018FPv(void *, s32);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowChat__sub_80247D2C(void *p);
 s32 is_player_input_active(s32 param_1);
@@ -755,7 +754,7 @@ void render__11TWindowMenuFv(TWindowMenu *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame__13TUnk_804CE018FPv(arg0, temp_r3);
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
     draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r3);
     if (!(arg0->m_70 & 0x80)) {
         arg0->render_selected_entry(temp_r3);
