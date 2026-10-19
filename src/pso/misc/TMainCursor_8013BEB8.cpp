@@ -5,6 +5,8 @@
 #include "pso/TObject.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLockOnCursor.h"
 
 typedef struct Vec_8013BF0C { f32 x, y, z; } Vec_8013BF0C;
 
@@ -42,7 +44,7 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
 struct Ent_8013C678 { u32 id; f32 key; };
 void *fn_8004438C(void *p);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
-s32 is_channel_active__11TMainCursorFv();
+s32 is_channel_active__11TMainCursorFv(void *self);
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
 u8 TMainCursor__sub_8013E900(s32);
 void TMainCursor__sub_8013F170(void *p, s32 v);
@@ -50,7 +52,7 @@ void fn_80044330(void *p);
 u8 get_active__11TMainCursorFv(s32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
-    if (is_channel_active__11TMainCursorFv() != 0) {
+    if (is_channel_active__11TMainCursorFv((void *)arg0) != 0) {
         return matches_type_and_enabled__11TMainCursorFiUcUc((void*)arg0, (void*)arg1, (void*)arg2);
     }
     return 0;
@@ -329,4 +331,81 @@ loop_1:
     goto loop_1;
 }
 
+}
+
+extern "C" {
+TObjPlayer *get_player_by_client_id(u32 id);
+s32 check_flag_100__10TObjPlayerFPv(void *player);
+s32 reset_key_machine_state__10TObjPlayerFv();
+s32 is_key_machine_ready__10TObjPlayerFv();
+s16 TObjPlayer__sub_801B5AF8(TObjPlayer *player, s32 index);
+void setup_action_channel__11TMainCursorFiPviii(TMainCursor *self, TObjPlayer *player, s32 slot, s32 kind, s32 id);
+s32 TMainCursor__sub_8013E2A0(void *list);
+s16 TMainCursor__sub_8013E298(void *entry);
+s16 TMainCursor__sub_8013E920(void *entry);
+void TMainCursor__sub_8013E928(void *entry, s16 v);
+void TMainCursor__sub_8013E930(void *entry, s8 v);
+}
+
+struct ActionCursor_8013C924 {
+    u8 pad0[0x24];
+    TMainCursor actions;
+    u8 pad8C[0x520 - 0x24 - sizeof(TMainCursor)];
+    TMainCursor channel;
+};
+
+s32 TMainCursor::bind_action_channels() {
+    ActionCursor_8013C924 *self = (ActionCursor_8013C924 *)this;
+    s32 i;
+    s32 player;
+    u8 type;
+    s32 slot;
+    s32 count;
+    u8 enabled;
+    u8 *entry;
+
+    if (is_cursor_clear() == 0) {
+        return;
+    }
+    if (TCameraCtrl::get_mode() != 0) {
+        return;
+    }
+    player = (s32)get_player_by_client_id(((TLockOnCursor *)this)->get_target_id());
+    if (player == 0) {
+        return;
+    }
+    if (check_flag_100__10TObjPlayerFPv((void *)player) != 0 && is_channel_active__11TMainCursorFv(&self->channel) != 0) {
+        type = self->channel.get_type();
+        enabled = self->channel.get_enabled();
+        if (reset_key_machine_state__10TObjPlayerFv() == 0) {
+            if (is_key_machine_ready__10TObjPlayerFv() == 0) {
+                return;
+            }
+            if (type != 4) {
+                return;
+            }
+            if (enabled != 10) {
+                return;
+            }
+        }
+        setup_action_channel__11TMainCursorFiPviii(this, (TObjPlayer *)player, 0, type, enabled);
+        return;
+    }
+    count = TMainCursor__sub_8013E2A0(&self->actions);
+    entry = (u8 *)self->actions.get_index();
+    for (i = 0; i < count; i++) {
+        TMainCursor__sub_8013E930(entry, get_action_cursor_priority(this, player, i));
+        TMainCursor__sub_8013E928(entry, i);
+        entry += 4;
+    }
+    self->actions.sort_actions_by_priority();
+    entry = (u8 *)self->actions.get_index();
+    slot = 0;
+    for (i = 0; i < count; i++) {
+        if (TMainCursor__sub_8013E298(entry) != 0) {
+            setup_action_channel__11TMainCursorFiPviii(this, (TObjPlayer *)player, slot, TObjPlayer__sub_801B5AF8((TObjPlayer *)player, TMainCursor__sub_8013E920(entry)), (s16)((TObjPlayer *)player)->get_action_palette_entry(TMainCursor__sub_8013E920(entry)));
+            slot++;
+        }
+        entry += 4;
+    }
 }

@@ -621,6 +621,49 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     }
 }
 
+extern "C" {
+void push_reordered_matrix_ps(void);
+void transform_chunk_vertices_pos_normal(Hdr_803E34B0 *job, s32 matrix);
+void GXSetVtxAttrFmtv(Hdr_803E34B0 *job, s32 matrix, u32 format);
+void cache_chunk_vertex_colors(Hdr_803E34B0 *job, s32 matrix);
+void transform_vertex_list__10TObjPlayerFv(Hdr_803E34B0 *job, s32 matrix);
+}
+
+s32 dispatch_chunk_vertex_list(u32 *list, s32 buffer) {
+    u32 info;
+    u32 length;
+    s32 total;
+    u16 type;
+    Hdr_803E34B0 job;
+    total = 0;
+    push_reordered_matrix_ps();
+    while ((*list & 0xFF) != 0xFF) {
+        type = *list;
+        length = (*list & 0xFFFF0000) >> 16;
+        info = list[1];
+        list += 2;
+        job.count = (info & 0xFFFF0000) >> 16;
+        job.src = (u8 *)list;
+        job.dst = (u8 *)(buffer + (info & 0xFFFF) * 32);
+        total += job.count;
+        if ((type & 0xFF) == 0x29) {
+            transform_chunk_vertices_pos_normal(&job, current_matrix);
+        } else if ((type & 0xFF) == 0x2C) {
+            GXSetVtxAttrFmtv(&job, current_matrix, ((type & ~0x8000) >> 8) & 0xFF);
+        } else if ((type & 0xFF) == 0x2A) {
+            transform_vertex_list__10TObjPlayerFv(&job, current_matrix);
+        } else if ((type & 0xFF) == 0x23) {
+            pop_matrix();
+            chunk_has_vertex_colors = 1;
+            cache_chunk_vertex_colors(&job, current_matrix);
+            push_matrix();
+        }
+        list += length - 1;
+    }
+    pop_matrix();
+    return total;
+}
+
 void TObjPlayer::setup_model_draw_state(void *) {
     Mtx_803E4354 scale;
     Mtx_803E4354 trans;

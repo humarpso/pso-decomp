@@ -1,15 +1,54 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/system/vector.h"
+#include "pso/unk/text_801AAB74.h"
+#include "pso/unk/text_801AB370.h"
+#include "pso/unk/text_801ABE14.h"
+#include "pso/unk/text_801AE1F8.h"
 
 struct Slot_801A8868 { u8 pad[0x18]; };
 struct Counts_801A8868 { s32 v[4]; };
 struct Rec_801A8868 { u8 pad[0x20]; s32 f20; };
 
 struct Hit_801A86E0 { s32 kind; f32 value; };
+
+struct PhotonBlastSequence_801A9870 : public TObject {
+    TObject *summon;
+    s32 summon_index;
+    s32 state;
+    s32 summon_count;
+    Vec position;
+    TObjPlayer *owner;
+    u16 owner_client_id;
+    s32 power_level;
+    s32 elapsed;
+    s32 delay;
+    s32 animated;
+    s32 kinds[4];
+    u32 participants[4];
+    s32 levels[4];
+    u32 recipients[4];
+    u16 holds[4];
+};
+typedef char PhotonBlastSequence_801A9870_size[sizeof(PhotonBlastSequence_801A9870) == 0x98 ? 1 : -1];
+
+struct PhotonSummonParams_801A9870 {
+    Vec position;
+    u16 owner_id;
+    s32 is_first;
+    s32 has_more;
+    u8 pad18[4];
+    u8 count;
+    f32 level;
+};
+typedef char PhotonSummonParams_801A9870_size[sizeof(PhotonSummonParams_801A9870) == 0x24 ? 1 : -1];
 struct VBase_18_b27ba1 { char pad[0x18]; };
 struct VObj_18_b27ba1 : VBase_18_b27ba1 {
     virtual void m0();
@@ -48,7 +87,7 @@ extern const f32 lbl_805DC124;
 extern const f32 lbl_805DC128;
 extern const f32 lbl_805DC12C;
 
-s32 find_entity_by_id(s32, f32);
+TUnk_804806E8 *find_entity_by_id(u16 identity);
 
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv(void *);
@@ -64,6 +103,12 @@ void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
 s16 TObjPlayer__sub_80313114(u8 *arg0);
 int get_player_data__10TObjPlayerFi(int);
+void play_sound_effect(u32 id, void *position, s32, s32);
+u8 *TPhotonLeilla__ct(u8 *self, u8 *params);
+u8 *TPhotonMylla__ct(u8 *self, u8 *params);
+extern u32 lbl_805D5D18;
+void deliver_photon_blast_results_animated(PhotonBlastSequence_801A9870 *seq);
+void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq);
 }
 extern s32 photon_blast_donation_flags[];
 void clear_photon_blast_donations(void);
@@ -297,3 +342,115 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
 }
 #undef GET_STAT
 #undef SET_TYPE
+extern "C" {
+
+void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq) {
+    PhotonSummonParams_801A9870 params;
+    u8 *summon;
+    s32 first_summon;
+    s32 j;
+
+    VecCopy(&params.position, &seq->position);
+    if (seq->owner != NULL) {
+        params.owner_id = obj_getField1c(seq->owner);
+    } else {
+        params.owner_id = 0xFFFF;
+    }
+    switch (seq->state) {
+    case 0:
+        if (seq->summon_index != 0 && seq->summon->all_parents_unqueued_for_destruction() != 0) {
+            break;
+        }
+        if (seq->summon_index == seq->summon_count) {
+            seq->state = 2;
+            break;
+        }
+        if (seq->summon_index != 0) {
+            switch (seq->kinds[seq->summon_index]) {
+            case 2:
+            case 3: {
+                TUnk_804806E8 *anchor = find_entity_by_id(lbl_805D5D18);
+                if (anchor != NULL) {
+                    VecCopy(&seq->position, (Vec *)anchor->position);
+                }
+                break;
+            }
+            }
+        }
+        first_summon = seq->summon_index == 0 ? 1 : 0;
+        params.has_more = seq->summon_index != seq->summon_count - 1 ? 1 : 0;
+        params.is_first = first_summon;
+        params.count = seq->summon_count;
+        params.level = seq->levels[seq->summon_index];
+        switch (seq->kinds[seq->summon_index]) {
+        case 2:
+            summon = (u8 *)TObject::operator new(0x1CC);
+            if (summon != NULL) {
+                summon = TPhotonGolla__ct(summon, (u8 *)&params);
+            }
+            seq->summon = (TObject *)summon;
+            break;
+        case 3:
+            summon = (u8 *)TObject::operator new(0x1AC);
+            if (summon != NULL) {
+                summon = TPhotonPilla__ct(summon, (u8 *)&params);
+            }
+            seq->summon = (TObject *)summon;
+            break;
+        case 4:
+            summon = (u8 *)TObject::operator new(0x1B0);
+            if (summon != NULL) {
+                summon = TPhotonLeilla__ct(summon, (u8 *)&params);
+            }
+            seq->summon = (TObject *)summon;
+            for (j = 0; j < 4; j++) {
+                if (seq->participants[j] < 4) {
+                    ((void (*)(u32, s32, s32))queue_photon_blast_support)(seq->participants[j], 4, 1);
+                }
+            }
+            break;
+        case 0:
+            summon = (u8 *)TObject::operator new(0x1A8);
+            if (summon != NULL) {
+                summon = TPhotonFarlla__ct(summon, (u8 *)&params);
+            }
+            seq->summon = (TObject *)summon;
+            break;
+        case 1:
+            summon = (u8 *)TObject::operator new(0x1A4);
+            if (summon != NULL) {
+                summon = TPhotonEstlla__ct(summon, (u8 *)&params);
+            }
+            seq->summon = (TObject *)summon;
+            break;
+        case 5:
+            summon = (u8 *)TObject::operator new(0x1A8);
+            if (summon != NULL) {
+                summon = TPhotonMylla__ct(summon, (u8 *)&params);
+            }
+            seq->summon = (TObject *)summon;
+            for (j = 0; j < 4; j++) {
+                if (seq->participants[j] < 4) {
+                    ((void (*)(u32, s32, s32))queue_photon_blast_support)(seq->participants[j], 5, 1);
+                }
+            }
+            break;
+        }
+        seq->summon->set_flag_4();
+        seq->summon->disallow_rendering();
+        seq->summon_index++;
+        seq->state = 1;
+        break;
+    case 1:
+        ((TQuestVmDownLoadServer *)seq->summon)->clear_flag4_bit4();
+        seq->summon->allow_rendering();
+        seq->state = 0;
+        break;
+    case 2:
+        play_sound_effect(0x40021927, &seq->position, 0, 0);
+        deliver_photon_blast_results_animated(seq);
+        seq->queue_destruction();
+        break;
+    }
+}
+}

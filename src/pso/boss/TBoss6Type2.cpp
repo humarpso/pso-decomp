@@ -2595,6 +2595,26 @@ s32 TBoss6Type2::find_index_in_table(u32 v) {
 int TBoss6Type2::get_table_entry(int a0) {  return TBoss6Type2__initial_actor_flag_masks[a0]; }
 #pragma pop
 
+extern "C" u8 *get_enemy_entity(u16 arg0);
+
+extern "C" void handle_6xA5_olga_flow_boss_actions(void *arg) {
+    u8 *pkt = (u8 *)arg;
+    TBoss6Type2 *boss;
+    s32 state;
+    ((TBoss6Type2 *)pkt)->handle_olga_action();
+    boss = (TBoss6Type2 *)get_enemy_entity(*(u16 *)(pkt + 2));
+    if (boss == NULL) {
+        return;
+    }
+    ((TBoss6Type2 *)(pkt + 4))->call_9A24_plus_1((s32 *)&boss->m_480);
+    boss->parse_action_packet(pkt);
+    state = ((s8 *)pkt)[4];
+    if (state < 0 || state >= 36) {
+        return;
+    }
+    boss->set_action_state((void *)state);
+}
+
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off

@@ -2261,6 +2261,7 @@ force_active:
   - init_state_1536__13TUnk_804ED0A8FlPv
   - init_state_34_alt__13TUnk_804F14A8FlPv
   - init_sub_object_vectors__10TObjPlayerFl
+  - init_target_vector__11TMainCursorFiii
   - init_tech_params__9TTecJelinFv
   - init_telepipe_packet_header__FPv
   - init_text_window_layout
@@ -7343,6 +7344,7 @@ force_active:
   - queue_destruction__18TChallenge4PResultFv
   - queue_destruction__20TObjEneMe1Gee_NEEDLEFv
   - queue_thread_main__6TLobbyFv
+  - quick_sort_partition__11TMainCursorFiPvii
   - rabarta_band_emitter_table
   - rafoie_burst_table
   - rappy_variant_na_name
@@ -8431,6 +8433,8 @@ force_active:
   - synthMasterFader
   - synthMasterFaderActiveFlags
   - synthMasterFaderPauseActiveFlags
+  - target_in_vertical_cone
+  - target_in_xz_cone
   - telepipe_record_differs
   - test_body_collision__16TObjEneMe3StelthFlf
   - test_flag_256__12TObjEneLappyFv

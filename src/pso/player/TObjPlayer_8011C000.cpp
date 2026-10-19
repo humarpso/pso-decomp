@@ -48,9 +48,13 @@ struct Cue_8011C7C8 { s32 key; s32 pitch; };
 
 struct WeaponSounds_8011C7C8 { Cue_8011C7C8 owner[2]; Cue_8011C7C8 target[2]; };
 
-struct Pmt_8011C7C8 { u8 pad[0x34]; WeaponSounds_8011C7C8 *weapons; };
+struct SoundRemap_8011C620 { s32 key; s32 *by_target_type; s32 *by_class; };
 
-struct Ctx_8011C7C8 { u8 group; u8 variant; u8 pad[2]; u8 *owner; };
+struct SoundRemapTable_8011C620 { s32 count; SoundRemap_8011C620 *entries; };
+
+struct Pmt_8011C7C8 { u8 pad[0x34]; WeaponSounds_8011C7C8 *weapons; u8 pad38[0x48 - 0x38]; SoundRemapTable_8011C620 *remaps; };
+
+struct Ctx_8011C7C8 { u8 group; u8 variant; u8 pad[2]; u8 *owner; u8 pad8[4]; u8 *target; s32 part; };
 
 typedef struct Pmt_8011CA10 { u8 pad[0x20]; f32 *t20; f32 *t24; } Pmt_8011CA10;
 
@@ -88,6 +92,8 @@ void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void play_weapon_owner_sounds(Ctx_8011C7C8 *c);
+void play_weapon_hit_sound(Ctx_8011C7C8 *c);
+u16 obj_getField1c(void *);
 extern const f32 lbl_805DAC74;
 extern s32 weapon_special_roll_channel_table[];
 u8 roll_weapon_special_for_stars(u8 arg0);
@@ -301,6 +307,67 @@ void play_shield_sound_cue(Obj_8011C59C *arg0) {
             s32 r = play_sound_effect(a, pos, 0, 0);
             if (*(s32 *)(tbl + off) != 0) {
                 update_technique_slot__10TTecRaFoieFl(r, *(s32 *)(tbl + off), 0);
+            }
+        }
+    }
+}
+
+void play_weapon_hit_sound(Ctx_8011C7C8 *c) {
+    s32 key[2];
+    s32 pitch[2];
+    u8 group = c->group;
+    u8 *target;
+    u32 mode;
+    u8 *pos;
+    u16 type;
+    s32 cls;
+    s32 i;
+    if (c->group == 2 && c->variant == 6) {
+        group = 0x32;
+    }
+    if (c->group == 0x89 && c->variant == 3) {
+        group = 0x10;
+    }
+    if (group < 0xAA) {
+        target = c->target;
+        key[0] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].target[0].key;
+        pitch[0] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].target[0].pitch;
+        key[1] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].target[1].key;
+        pitch[1] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].target[1].pitch;
+        pos = (u8 *)((TUnk_804AF8A0 *)target)->m_a4 + c->part * 0x2C + 0x1C;
+        type = obj_getField1c(target);
+        if (type < 0x1000) {
+            cls = *(s8 *)&((TObjPlayer *)target)->m_88d;
+            mode = 1;
+        } else if (type < 0x4000) {
+            cls = *(s32 *)(target + 0x370);
+            mode = 3;
+        } else {
+            mode = 3;
+            cls = 0x30;
+        }
+        for (i = 0; i != 2; i++) {
+            s32 k = key[i];
+            s32 p = pitch[i];
+            if (mode & 1) {
+                SoundRemapTable_8011C620 *remaps = ((Pmt_8011C7C8 *)item_pmt_tbl)->remaps;
+                s32 n = remaps->count;
+                SoundRemap_8011C620 *e = remaps->entries;
+                for (; n != 0; n--, e++) {
+                    if (k == e->key) {
+                        if (mode & 2) {
+                            k = e->by_target_type[cls];
+                        } else {
+                            k = e->by_class[cls];
+                        }
+                    }
+                }
+            }
+            if (k != 0) {
+                s32 handle = play_sound_effect(k, pos, 0, 0);
+                if (p != 0) {
+                    update_technique_slot__10TTecRaFoieFl(handle, p, 0);
+                }
             }
         }
     }

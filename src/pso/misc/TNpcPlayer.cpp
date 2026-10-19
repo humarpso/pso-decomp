@@ -3527,6 +3527,66 @@ Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a,
     return self;
 }
 
+extern "C" {
+extern void *lbl_805D2E70;
+void read_disc_file(void *name, void *buf);
+
+u8 *load_npc_player_template(s32 index) {
+    s32 mode;
+    s32 diff;
+    s32 lvl;
+    u16 base;
+
+    if (lbl_805D5860 != 0U) {
+        return NULL;
+    }
+    lbl_805D5860 = (u32)mem_alloc(0x1400);
+    if (TNpcPlayer__data_805D5864 != 0) {
+        TNpcPlayer__data_805D5864 = 0;
+        copy_player_visual_record(lbl_8050CF68, lbl_8050D3E0);
+    } else {
+        read_disc_file(lbl_805D2E70, (void *)lbl_805D5860);
+        copy_player_visual_record(lbl_8050CF68, (u8 *)lbl_805D5860 + index * 0x50);
+    }
+    bswap__15disp_data_part2Fv((s32)lbl_8050CF68);
+    mem_free((void *)lbl_805D5860);
+    mode = game_difficulty_selection;
+    lbl_805D5860 = 0;
+    if (mode >= 0 && mode <= 2) {
+        diff = mode;
+    } else {
+        diff = 2;
+    }
+    base = TNpcPlayer__template_table[index].f2;
+    lvl = base + diff * 25;
+    if (mode == 3) {
+        lvl = base + 150;
+    }
+    if (lvl >= 198) {
+        lvl = 198;
+    }
+    switch (mode) {
+    case 0:
+        TNpcPlayer::send_command((s32)(((u8 *)lbl_8050CF68)[0x31]), (s8)5, (s32)((int)lbl_804AF330[index]), (s32)lvl, (s8 *)lbl_8050CFC4);
+        break;
+    case 1:
+        TNpcPlayer::send_command((s32)(((u8 *)lbl_8050CF68)[0x31]), (s8)5, (s32)((int)lbl_804AF430[index]), (s32)lvl, (s8 *)lbl_8050CFC4);
+        break;
+    case 2:
+        TNpcPlayer::send_command((s32)(((u8 *)lbl_8050CF68)[0x31]), (s8)5, (s32)((int)lbl_804AF530[index]), (s32)lvl, (s8 *)lbl_8050CFC4);
+        break;
+    case 3:
+        TNpcPlayer::send_command((s32)(((u8 *)lbl_8050CF68)[0x31]), (s8)5, (s32)((int)lbl_804AF630[index]), (s32)lvl, (s8 *)lbl_8050CFC4);
+        break;
+    default:
+        TNpcPlayer::send_command((s32)(((u8 *)lbl_8050CF68)[0x31]), (s8)5, (s32)((int)lbl_804AF330[index]), (s32)lvl, (s8 *)lbl_8050CFC4);
+        break;
+    }
+    copy_player_visual_record((u8 *)lbl_8050CFC4 + 0x370, lbl_8050CF68);
+    return (u8 *)lbl_8050CFC4;
+}
+}
+
 u8 *TNpcPlayer::build_npc_player_record(s32 arg0) {
     s32 mode;
     s32 diff;

@@ -138,6 +138,7 @@ struct Obj_80343C64
 };
 
 #include <stddef.h>
+#include <string.h>
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -236,6 +237,7 @@ s32 TWindowDD__sub_80347758(DD_803461CC *, DD_803461CC *);
 s32 TWindowDD__sub_803474CC(DD_803461CC *, s32, char *, char *, s32 *);
 s32 append_string__9TWindowDDFllPl(char *, char *, s32 *);
 s32 show_message_by_count__9TWindowDDFll(char *, s32 *);
+s32 can_append_chars__9TWindowDDFlPl(s32, s32 *);
 s32 get_player_battle_flag_state__9TWindowDDFUs(u16);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16);
 s32 clamp_range_5FA_682__9TWindowDDFs(s16);
@@ -245,7 +247,7 @@ extern Pair_80344980 *TWindowDD__data_805D6E40;
 extern Pair_80344980 *TWindowDD__data_805D6E44;
 extern u8 *TWindowDD__data_805D6E48;
 s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
-s32 TWindowDD__sub_8034694C(DD_803461CC *, s32, char *, char *, char *, s32 *);
+void TWindowDD__sub_8034694C(DD_803461CC *, s32, char *, char *, char *, s32 *);
 s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 apply_both_choices__9TWindowDDFll(void *, int);
@@ -2091,5 +2093,33 @@ void build_item_list__9TWindowDDFPv(u8 *arg0) {
         a[n] = extra->items[j];
     }
     BUF_803467CC->n4 = n;
+}
+
+void TWindowDD__sub_8034694C(DD_803461CC *src, s32 id, char *verb, char *phrase, char *window_dd, s32 *pos) {
+    s32 n;
+    s32 len;
+    s32 i;
+
+    len = strlen(phrase);
+    strlen(verb);
+    n = len;
+    for (i = 1; i < len; i++) {
+        if (phrase[i] == ' ') {
+            n = i;
+            break;
+        }
+    }
+    if (can_append_chars__9TWindowDDFlPl(n, pos) != 0) {
+        strncpy(window_dd + *pos, phrase, n);
+        window_dd[*pos] = fn_80228C54(window_dd[*pos]);
+        *pos += n;
+        show_message_by_count__9TWindowDDFll(window_dd, pos);
+        TWindowDD__sub_803474CC(src, id, verb, window_dd, pos);
+        len -= n;
+        if (len > 0 && can_append_chars__9TWindowDDFlPl(len, pos) != 0) {
+            strncpy(window_dd + *pos, phrase + n, len);
+            *pos += len;
+        }
+    }
 }
 }

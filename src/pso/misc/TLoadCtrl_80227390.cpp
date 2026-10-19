@@ -61,6 +61,34 @@ extern s16 lbl_805D371C;
 void play_area_music(char *name);
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void TLobby__sub_803CA194(s32);
+struct SndHooks {
+    void *(*malloc)(u32 size);
+    void (*free)(void *ptr);
+};
+void TLobby__sub_803CBE20(void *work, s32 size, s32 count);
+void TLobby__sub_803CB74C(s32 *arg0);
+void TLobby__sub_803CB858(s32 *arg0);
+void TLobby__sub_803C94B8(void (*callback)(void), s32 arg1);
+s32 adx_create_stream_player(s32 n, void *buffer, s32 size);
+u32 ARInit(u32 *stack_index_addr, u32 num_entries);
+void ARQInit(void);
+void AIInit(u8 *stack);
+s32 VISetPostRetraceCallback(int (*callback)(void *));
+u32 Dolphin_ARAlloc(u32 length);
+void sndSetHooks(SndHooks *hooks);
+s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aram_size);
+int TLobby__sub_80227A70(void *p);
+void TLobby__sub_80227A90(void);
+void TLobby__sub_8022780C(void);
+void debug_print__6TLobbyFle(const char *fmt, ...);
+extern const SndHooks lbl_8044C858;
+extern const char lbl_8044C898[];
+extern const char lbl_8044C8B4[];
+extern u32 lbl_804CB838[];
+extern void *lbl_80514C60[];
+extern void *lbl_805D62D8;
+extern s32 lbl_805D62F8;
+extern s32 lbl_805D62FC;
 }
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
 void stop_audio_stream(u8 *arg0);
@@ -184,6 +212,53 @@ void TLobby::shutdown_buffers() {
     if (lbl_805D62EC != 0U) {
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D62EC);
     }
+}
+
+void TLobby__sub_8022780C(void) {
+    s32 i;
+
+    lbl_80514C60[0] = xmalloc(0x2D1E4);
+    lbl_80514C60[1] = xmalloc(0x2D1E4);
+    lbl_805D62D8 = xmalloc(0xA924);
+    lbl_805D62DC = (u32)xmalloc(0xA000);
+    TLobby__sub_803CBE20((void *)lbl_805D62DC, 0xA000, 5);
+    TLobby::init_and_add_ref();
+    TLobby__sub_803CB74C(NULL);
+    TLobby__sub_803CB858(NULL);
+    SndHooks hooks = lbl_8044C858;
+    ARInit(lbl_804CB838, 6);
+    ARQInit();
+    AIInit(NULL);
+    VISetPostRetraceCallback(TLobby__sub_80227A70);
+    VISetPreRetraceCallback(&TLobby__sub_80227A6C.value);
+    TLobby__sub_803C94B8(TLobby__sub_80227A90, 0);
+    Dolphin_ARAlloc(0xC00000);
+    sndSetHooks(&hooks);
+    sndInit(48, 48, 48, 4, 1, 0xC00000);
+    TLobby__sub_803C94B8(TLobby__sub_80227A90, 0);
+    for (i = 0; i < 2; i++) {
+        lbl_804CB850[i] = adx_create_stream_player(2, lbl_80514C60[i], 0x2D1E4);
+        if ((u32)lbl_804CB850[i] == 0U) {
+            debug_print__6TLobbyFle(lbl_8044C898, i);
+        } else {
+            ((TLobby *)lbl_804CB850[i])->set_field_6d(2);
+        }
+    }
+    for (i = 0; i < 1; i++) {
+        lbl_804CB850[2 + i] = adx_create_stream_player(1, (&lbl_805D62D8)[i], 0xA924);
+        if ((u32)lbl_804CB850[2 + i] == 0U) {
+            debug_print__6TLobbyFle(lbl_8044C8B4, i);
+        }
+    }
+    lbl_805D62F8 = 0x5A3C8;
+    lbl_805D62FC = 0xA924;
+    lbl_805D62E0 = 0;
+    lbl_805D62E4 = 0;
+    lbl_805D62EC = 0;
+    music_fade_frames_remaining = 0;
+    lbl_80514D00[1][0] = 0;
+    lbl_80514D00[0][0] = 0;
+    lbl_805D6330 = 0;
 }
 
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];

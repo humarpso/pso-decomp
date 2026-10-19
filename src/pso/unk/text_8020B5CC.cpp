@@ -9,7 +9,9 @@ struct Src_8020B970 { s16 f0; u8 pad2[6]; u16 f8; s16 fA; s16 fC; u8 padE[0x44 -
 
 struct Dst_8020B970 { u16 f0; u8 pad2[2]; s16 f4; s16 f6; };
 
-struct Tbl_8020B970 { s32 count; s32 count2; u8 pad8[8]; Dst_8020B970 *list; void *list2; };
+struct Src_8020B7C4 { s16 f0; u8 pad2[8]; u16 fA; s16 fC; s16 fE; u8 pad10[0x48 - 0x10]; };
+
+struct Tbl_8020B970 { s32 count; s32 count2; u8 pad8[8]; Dst_8020B970 *list; Dst_8020B970 *list2; };
 
 struct Slot_8020B970 { void *entry; void *entry2; };
 
@@ -31,6 +33,59 @@ extern Tbl_8020B970 TLobby__floor_enemy_group_table[];
 extern u32 TLobby__data_805D6104;
 extern u32 TLobby__data_805D6108;
 s32 load_floor_enemy_group_entries__6TLobbyFiPvUi(s32 idx, Src_8020B970 *src, u32 size);
+s32 init_quest_floor_enemies(s32 idx, Src_8020B7C4 *src, u32 size);
+
+#pragma push
+#pragma opt_propagation off
+s32 init_quest_floor_enemies(s32 idx, Src_8020B7C4 *src, u32 size) {
+    if (TLobby__data_805D6108 != 0 && TLobby__data_805D6104 != 0) {
+    u32 sz = size;
+    s32 n = (0, sz / 72);
+    Tbl_8020B970 *t = &TLobby__floor_enemy_group_table[idx];
+    Src_8020B7C4 *s;
+    Dst_8020B970 *d;
+    s32 i;
+    void *buf;
+    t->count2 = 0;
+    s = src;
+    for (i = 0; i < n; i++) {
+        if (s->f0 != -1) {
+            t->count2++;
+        }
+        s++;
+    }
+    t->list2 = (Dst_8020B970 *)((THeap *)TLobby__data_805D6108)->heap_alloc(t->count2 * 8);
+    memset(t->list2, 0, t->count2 * 8);
+    s = src;
+    d = t->list2;
+    for (i = 0; i < n; i++) {
+        if (s->f0 != -1) {
+            d->f0 = s->fA;
+            d->f4 = s->fC;
+            d->f6 = s->fE;
+            d++;
+        }
+        s++;
+    }
+    if (TLobby__data_80513A40[idx].entry2 != NULL) {
+        archive_pool_free(TLobby__data_805D6104, TLobby__data_80513A40[idx].entry2);
+    }
+    TLobby__data_80513A40[idx].entry2 = archive_pool_alloc(TLobby__data_805D6104, sz);
+    if ((u32)src & 0x1F) {
+        buf = alloc__22TQuestVmDownLoadServerFv(sz);
+        memcpy(buf, src, sz);
+        if (TLobby__data_80513A40[idx].entry2 != NULL) {
+            TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)buf, TLobby__data_80513A40[idx].entry2, (void *)sz, (u32)0);
+        }
+        TAdSinglePlyChrSelectGC::safe_free((u32)buf);
+    } else if (TLobby__data_80513A40[idx].entry2 != NULL) {
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)src, TLobby__data_80513A40[idx].entry2, (void *)sz, (u32)0);
+    }
+    return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 #pragma push
 #pragma opt_propagation off

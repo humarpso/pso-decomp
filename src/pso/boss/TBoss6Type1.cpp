@@ -324,6 +324,8 @@ struct Boss_802B5AD4 {
 };
 extern "C" {
 
+void handle_6xA4_olga_flow_boss_actions(void *arg);
+u8 *get_enemy_entity(u16 arg0);
 f32 vector_length(void *, f32);
 f32 subtract_vector(void *, void *);
 Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
@@ -1936,6 +1938,35 @@ void TBoss6Type1::vfunc_62() {
     this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
     this->m_4d4 = (f32) TBoss6Type1__data_805DE2E4;
     play_sound_effect(0x39E01, ((u8 *)this) + 0x584, 0, 1, this);
+}
+
+/* 6xA4: the Olga Flow boss action sent by send_6xA4_action. */
+struct OlgaFlowActionMsg {
+    u8 command;
+    u8 size;
+    u16 entity_id;
+    s8 action;
+    u8 action_args[3];
+    u8 sync_params[3];
+};
+
+void handle_6xA4_olga_flow_boss_actions(void *arg) {
+    OlgaFlowActionMsg *msg = (OlgaFlowActionMsg *)arg;
+    TBoss6Type1 *boss;
+    s32 action;
+
+    ((TBoss6Type1 *)msg)->read_be16_field2();
+    boss = (TBoss6Type1 *)get_enemy_entity(msg->entity_id);
+    if (boss == NULL) {
+        return;
+    }
+    ((TBoss6Type1 *)&msg->action)->handle_6xa4_action((u8 *)boss + 0x420);
+    boss->load_params(msg);
+    action = msg->action;
+    if (action < 0 || action >= 41) {
+        return;
+    }
+    boss->set_action_state(action);
 }
 
 struct T1_802B529C;

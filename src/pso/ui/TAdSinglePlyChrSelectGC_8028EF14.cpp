@@ -26,6 +26,12 @@ extern const f32 lbl_805DD950;
 extern const f32 lbl_805DD954;
 s32 find_shape_triangle_region(u8 *arg0);
 extern "C" {
+void calc_shape_region_coefficients(void *point);
+void blend_shape_chunk_vertices(void);
+}
+struct CreationShapeModel { u8 pad[8]; f32 center[3]; };
+struct CreationShapeNode { u32 eval_flags; CreationShapeModel *model; f32 pos[3]; s32 ang[3]; f32 scl[3]; };
+extern "C" {
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
 }
 void reset_creation_shape_set(s32 arg0);
@@ -1516,6 +1522,90 @@ s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const 
         *dst++ = creation_shape_blend.weights[2] * *c++ + (creation_shape_blend.weights[0] * *a++ + creation_shape_blend.weights[1] * *b++);
     }
     return 1;
+}
+
+void blend_creation_proportion_shapes(void *point) {
+    s32 samples[3];
+    u32 flags;
+    s32 n;
+    s32 m;
+    TCharaMaking__sub_8028E3A0();
+    calc_shape_region_coefficients(point);
+    map_shape_region_samples(creation_shape_blend.region, samples);
+    creation_shape_blend.destination = creation_head_shape_destination.nodes;
+    creation_shape_blend.sources[0] = creation_head_shape_samples[samples[0]].nodes;
+    creation_shape_blend.sources[1] = creation_head_shape_samples[samples[1]].nodes;
+    creation_shape_blend.sources[2] = creation_head_shape_samples[samples[2]].nodes;
+    for (n = 5; n > 0; n--) {
+        if (creation_shape_blend.destination->node != NULL) {
+            CreationShapeModel *dst = ((CreationShapeNode *)creation_shape_blend.destination->node)->model;
+            if (dst != NULL) {
+                f32 *a;
+                f32 *b;
+                f32 *c;
+                s32 k;
+                for (k = 0; k < 3; k++) {
+                }
+                a = ((CreationShapeNode *)creation_shape_blend.sources[0]->node)->model->center;
+                b = ((CreationShapeNode *)creation_shape_blend.sources[1]->node)->model->center;
+                c = ((CreationShapeNode *)creation_shape_blend.sources[2]->node)->model->center;
+                dst->center[0] = creation_shape_blend.weights[2] * c[0] + (creation_shape_blend.weights[0] * a[0] + creation_shape_blend.weights[1] * b[0]);
+                dst->center[1] = creation_shape_blend.weights[2] * c[1] + (creation_shape_blend.weights[0] * a[1] + creation_shape_blend.weights[1] * b[1]);
+                dst->center[2] = creation_shape_blend.weights[2] * c[2] + (creation_shape_blend.weights[0] * a[2] + creation_shape_blend.weights[1] * b[2]);
+            }
+            if ((creation_shape_blend.sources[0]->flags | creation_shape_blend.sources[1]->flags | creation_shape_blend.sources[2]->flags) & 1) {
+                ((CreationShapeNode *)creation_shape_blend.destination->node)->eval_flags &= ~1;
+                clear_creation_shape_eval_masks(((CreationShapeNode *)creation_shape_blend.destination->node)->pos,
+                    ((CreationShapeNode *)creation_shape_blend.sources[0]->node)->pos,
+                    ((CreationShapeNode *)creation_shape_blend.sources[1]->node)->pos,
+                    ((CreationShapeNode *)creation_shape_blend.sources[2]->node)->pos);
+            }
+            if (creation_shape_blend.sources[0]->flags & 0x10) {
+                blend_shape_chunk_vertices();
+            }
+        }
+        creation_shape_blend.destination++;
+        creation_shape_blend.sources[0]++;
+        creation_shape_blend.sources[1]++;
+        creation_shape_blend.sources[2]++;
+    }
+    creation_shape_blend.destination = creation_body_shape_destination.nodes;
+    creation_shape_blend.sources[0] = creation_body_shape_samples[samples[0]].nodes;
+    creation_shape_blend.sources[1] = creation_body_shape_samples[samples[1]].nodes;
+    creation_shape_blend.sources[2] = creation_body_shape_samples[samples[2]].nodes;
+    for (m = 64; m > 0; m--) {
+        CreationShapeModel *dst = ((CreationShapeNode *)creation_shape_blend.destination->node)->model;
+        if (dst != NULL) {
+            f32 *a = ((CreationShapeNode *)creation_shape_blend.sources[0]->node)->model->center;
+            f32 *b = ((CreationShapeNode *)creation_shape_blend.sources[1]->node)->model->center;
+            f32 *c = ((CreationShapeNode *)creation_shape_blend.sources[2]->node)->model->center;
+            dst->center[0] = creation_shape_blend.weights[2] * c[0] + (creation_shape_blend.weights[0] * a[0] + creation_shape_blend.weights[1] * b[0]);
+            dst->center[1] = creation_shape_blend.weights[2] * c[1] + (creation_shape_blend.weights[0] * a[1] + creation_shape_blend.weights[1] * b[1]);
+            dst->center[2] = creation_shape_blend.weights[2] * c[2] + (creation_shape_blend.weights[0] * a[2] + creation_shape_blend.weights[1] * b[2]);
+        }
+        flags = creation_shape_blend.sources[0]->flags | creation_shape_blend.sources[1]->flags | creation_shape_blend.sources[2]->flags;
+        if (flags & 1) {
+            ((CreationShapeNode *)creation_shape_blend.destination->node)->eval_flags &= ~1;
+            clear_creation_shape_eval_masks(((CreationShapeNode *)creation_shape_blend.destination->node)->pos,
+                ((CreationShapeNode *)creation_shape_blend.sources[0]->node)->pos,
+                ((CreationShapeNode *)creation_shape_blend.sources[1]->node)->pos,
+                ((CreationShapeNode *)creation_shape_blend.sources[2]->node)->pos);
+        }
+        if (flags & 4) {
+            ((CreationShapeNode *)creation_shape_blend.destination->node)->eval_flags &= ~4;
+            clear_creation_shape_eval_masks(((CreationShapeNode *)creation_shape_blend.destination->node)->scl,
+                ((CreationShapeNode *)creation_shape_blend.sources[0]->node)->scl,
+                ((CreationShapeNode *)creation_shape_blend.sources[1]->node)->scl,
+                ((CreationShapeNode *)creation_shape_blend.sources[2]->node)->scl);
+        }
+        if (flags & 0x10) {
+            blend_shape_chunk_vertices();
+        }
+        creation_shape_blend.destination++;
+        creation_shape_blend.sources[0]++;
+        creation_shape_blend.sources[1]++;
+        creation_shape_blend.sources[2]++;
+    }
 }
 #pragma pop
 

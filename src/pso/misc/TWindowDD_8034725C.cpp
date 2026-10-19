@@ -20,6 +20,28 @@ struct S_80347CC8 { u8 pad[0x38]; f32 f38; };
 
 struct W_80347CC8 { u8 pad[0x70]; S_80347CC8 *f70; };
 
+/* View of the word-select window for the child-window helpers below (child windows at +0x24). */
+struct W_80347AD4 {
+    u8 pad0[0x20];
+    s32 depth;
+    u8 *child[8];
+};
+
+struct W_80347C50 {
+    u8 pad0[0x20];
+    s32 depth;
+    TWindowDD *child[8];
+    u8 pad44[0x88 - 0x44];
+    s32 f88;
+    s32 f8C;
+    u8 pad90[0xB0 - 0x90];
+    s32 fB0;
+};
+
+/* TWindowDD::dispatch_state forwards its four arguments to the formatter and returns its result;
+   the header declares it static void(). */
+typedef s32 (*DispatchStateFn_80347C50)(void *, s32, s32, s32);
+
 struct W_80347B70 {
     u8 pad0[0x20];
     s32 idx;
@@ -37,6 +59,8 @@ void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
 s32 TWindowDD__sub_803474CC(int, int, int, int, int);
 s32 TWindowDD__sub_80348B70(s32);
 void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern const f32 lbl_805DFB54;
+s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
 s32 TWindowDD__sub_80342158(void *);
 void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
 s32 TWindowDD__sub_80348DD8(void *, int);
@@ -281,6 +305,23 @@ void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
 }
 
+u8 *TWindowDD__sub_80347AD4(W_80347AD4 *self, s32 offset, s32 id) {
+    s32 i;
+    u8 *win;
+
+    i = self->depth + offset;
+    if (i >= 8) {
+        return NULL;
+    }
+    win = self->child[i];
+    if (win == NULL) {
+        win = (u8 *)TWindowDD__sub_80342384(id, (s32)lbl_805DFB54);
+        TWindowDD::set_default_coords((int)self, win);
+        self->child[self->depth + offset] = win;
+    }
+    return win;
+}
+
 #pragma fp_contract on
 
 struct W_80347CC8;
@@ -309,6 +350,17 @@ void TWindowDD::update_selection_state() {
         }
         TWindowDD__sub_80347CC8((W_80347CC8 *)arg0, arg0->sub);
         arg0->cur = (s16)v;
+    }
+}
+
+void TWindowDD__sub_80347C50(W_80347C50 *self) {
+    s32 next;
+
+    next = ((DispatchStateFn_80347C50)TWindowDD::dispatch_state)(self, self->fB0, self->f88,
+                                                                   self->child[self->depth]->get_field_68());
+    if (next != self->f8C) {
+        self->f8C = next;
+        self->child[self->depth + 1]->init_child((void *)self->f8C);
     }
 }
 

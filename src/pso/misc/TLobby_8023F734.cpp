@@ -3,7 +3,7 @@
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
-struct SoundRequestVoice;
+#include "pso/audio/SoundRequestVoice.h"
 struct Voice_80241FD8;
 #pragma push
 
@@ -11,8 +11,11 @@ struct Voice_80241FD8;
 
 struct RecoveredGlobal_8023F880_lbl_805162EC
 {
-  s32 value;
-  u8 remaining[0x1B54];
+  union {
+    s32 value;
+    SoundRequestVoice voices[0x28];
+  };
+  u8 remaining[0x1B58 - 0x28 * sizeof(SoundRequestVoice)];
 };
 
 typedef struct Range_8023FBBC {
@@ -141,6 +144,69 @@ void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration) {
     }
     set_voice_pitch_slide((u8 *)&lbl_805162EC.value + slot * 0xA0, (s32)((u32)pitch << 13) / 3072, duration);
 }
+#pragma push
+#pragma opt_common_subs on
+#pragma opt_propagation on
+#pragma opt_dead_assignments on
+s32 alloc_looping_sound_slot(u32 id, s32 actor, const void *position, s32 base, s32 flags) {
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if ((lbl_805162EC.voices[i].state == -1 || lbl_805162EC.voices[i].state == 1) &&
+            lbl_805162EC.voices[i].kind == 0 && (s32)(id >> 16) == lbl_805162EC.voices[i].bank &&
+            (s32)(id & 0xFFFF) == lbl_805162EC.voices[i].index && actor == (s32)lbl_805162EC.voices[i].actor &&
+            (lbl_805162EC.voices[i].flags & 1)) {
+            TLobby__sub_802409E4(&lbl_805162EC.voices[i]);
+            lbl_805162EC.voices[i].position = position;
+            lbl_805162EC.voices[i].base = base;
+            return i;
+        }
+    }
+    for (i = 0; i < 32; i++) {
+        if (lbl_805162EC.voices[i].state == 0) {
+            goto found;
+        }
+    }
+    return -6;
+found:
+    init_sound_voice__6TLobbyFPviiii(&lbl_805162EC.voices[i], 0, id >> 16, id & 0xFFFF, flags | 1);
+    lbl_805162EC.voices[i].base = base;
+    lbl_805162EC.voices[i].extra = 0;
+    lbl_805162EC.voices[i].spatial = 0;
+    lbl_805162EC.voices[i].position = position;
+    lbl_805162EC.voices[i].actor = (void *)actor;
+    lbl_805162EC.voices[i].refresh = 5;
+    return i;
+}
+
+s32 alloc_one_shot_sound_slot(u32 id, const void *position, s32 base, s32 flags) {
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if ((lbl_805162EC.voices[i].state == -1 || lbl_805162EC.voices[i].state == 1) &&
+            lbl_805162EC.voices[i].kind == 0 && (s32)(id >> 16) == lbl_805162EC.voices[i].bank &&
+            (s32)(id & 0xFFFF) == lbl_805162EC.voices[i].index && lbl_805162EC.voices[i].age <= 2) {
+            if (lbl_805162EC.voices[i].base < base) {
+                lbl_805162EC.voices[i].base = base;
+            }
+            return i;
+        }
+    }
+    for (i = 0; i < 32; i++) {
+        if (lbl_805162EC.voices[i].state == 0) {
+            goto found;
+        }
+    }
+    return -6;
+found:
+    init_sound_voice__6TLobbyFPviiii(&lbl_805162EC.voices[i], 0, id >> 16, id & 0xFFFF, flags);
+    lbl_805162EC.voices[i].base = base;
+    lbl_805162EC.voices[i].extra = 0;
+    lbl_805162EC.voices[i].spatial = 0;
+    lbl_805162EC.voices[i].position = position;
+    lbl_805162EC.voices[i].actor = 0;
+    return i;
+}
+#pragma pop
+
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
