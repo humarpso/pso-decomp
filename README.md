@@ -48,14 +48,22 @@ and the language files the game loads. Code that is not decompiled yet still com
 build does not mean the decompilation is complete. The same goes for the functions Nintendo and Metrowerks wrote
 in assembly: `tools/orig_asm.py` rebuilds their bodies from your disc before anything is compiled.
 
+## Objdiff and the progress page
+
+`ninja` also writes `objdiff.json` in the repository folder and the objdiff progress report,
+`build/GPOE8P/report.json`.
+
+- **objdiff.** Download [objdiff](https://github.com/encounter/objdiff/releases) and open the repository folder
+  in it. It reads `objdiff.json`, rebuilds a unit when you save its source and shows each function next to the
+  original.
+- **Progress page.** Turn the report into a page you can browse by unit and function:
+
+      python tools/progress_map.py build/GPOE8P/report.json -o build/progress
+
+  Then open `build/progress/index.html` in a browser. Add `--readme README.md` to refresh the table above.
+
 ## Working on it
 
-- **Compare functions.** After the first build, open the repository folder in
-  [objdiff](https://github.com/encounter/objdiff). It reads the generated `objdiff.json`, rebuilds a unit when you
-  save its source and shows each function next to the original.
-- **Browse progress.** `python tools/progress_map.py build/GPOE8P/report.json -o build/progress` writes
-  `build/progress/index.html`, the match report by unit and function. Add `--readme README.md` to refresh the
-  table above.
 - **Check for regressions.** Run `ninja baseline` before a change and `ninja changes` after it, then
   `python tools/report_delta.py build/GPOE8P/baseline.json build/GPOE8P/report.json --check`. It compares by
   original address, so renaming, folding or splitting units never hides a lost match.
