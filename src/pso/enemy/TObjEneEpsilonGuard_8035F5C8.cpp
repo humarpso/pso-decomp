@@ -966,7 +966,7 @@ void TObjEneEpsilonBody::render() {
         this->vfunc_106();
         return;
     }
-    if (!(*(s32 *)&this->actorFlags & 0x02000000)) {
+    if (!(this->actorFlags & 0x02000000)) {
         if (is_split_screen() != 0) {
             get_camera_mode__11TCameraCtrlFv();
         }
@@ -1700,7 +1700,7 @@ void TObjEneEpsilonBody::vfunc_62() {
         }
     }
 }
-void TObjEneEpsilonBody::vfunc_63() { if (*(short *)&this->mode != 9) { transition_enemy_state__9TObjEneDDFs(this, (void*)9); } }
+void TObjEneEpsilonBody::vfunc_63() { if (this->mode != 9) { transition_enemy_state__9TObjEneDDFs(this, (void*)9); } }
 void TObjEneEpsilonBody::vfunc_28() {  }
 void TObjEneEpsilonGuard::dispatch_state(u32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;

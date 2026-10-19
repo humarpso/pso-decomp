@@ -1367,7 +1367,7 @@ void TObjPlayer::set_hidden_flag() {
 void TObjPlayer__sub_800A27CC(TObjPlayer *player) {
     switch (player->m_37c) {
     case 0:
-        if (*(s32 *)&((TObjEneDarkGunner *)player)->m_388 & 0x10000) {
+        if (((TObjEneDarkGunner *)player)->m_388 & 0x10000) {
             player->actorFlags |= 0x04040000;
             player->rotation_z = 0x8000;
             player->m_37c = 1;
@@ -1375,7 +1375,7 @@ void TObjPlayer__sub_800A27CC(TObjPlayer *player) {
             player->m_b8 = 0;
             player->m_37c = 2;
         }
-        *(s32 *)&((TObjEneDarkGunner *)player)->m_388 |= 0x400000;
+        ((TObjEneDarkGunner *)player)->m_388 |= 0x400000;
         advance_animation_playback(player);
         break;
     case 1:

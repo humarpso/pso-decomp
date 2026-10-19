@@ -279,7 +279,7 @@ void TTecBarta::vfunc_8(void *target) {
         tmp.type = 19;
         tmp.power = this->power;
         HitInfo_8022B8F4 info = tmp;
-        ((VObj_8022B8F4 *)target)->m21(self->source, &info, *(void * *)&this->contact, 3, -1);
+        ((VObj_8022B8F4 *)target)->m21(self->source, &info, this->contact, 3, -1);
     }
 }
 

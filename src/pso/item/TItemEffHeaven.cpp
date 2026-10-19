@@ -68,10 +68,10 @@ void TItemEffHeaven::run_task() {
     s32 i;
     s32 j;
 
-    if (*(VObj_8010900C * *)&this->m_20 == NULL) {
-        *(VObj_8010900C * *)&this->m_20 = (VObj_8010900C *)resolve_hittable_target(self->f1C, self->f24);
-        if (*(VObj_8010900C * *)&this->m_20 != NULL) {
-            VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)*(VObj_8010900C * *)&this->m_20)->recs[self->f24].pos));
+    if (this->m_20 == NULL) {
+        this->m_20 = (VObj_8010900C *)resolve_hittable_target(self->f1C, self->f24);
+        if (this->m_20 != NULL) {
+            VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)this->m_20)->recs[self->f24].pos));
         }
     }
     if (this->m_28 == 0) {
@@ -117,7 +117,7 @@ void TItemEffHeaven::run_task() {
             ((TNowLoading *)(self->arr[j]))->copy_pos(&self->pos);
         }
     }
-    *(VObj_8010900C * *)&this->m_20 = NULL;
+    this->m_20 = NULL;
     this->m_28++;
 }
 

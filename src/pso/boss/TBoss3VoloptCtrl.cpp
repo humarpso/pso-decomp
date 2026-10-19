@@ -136,5 +136,5 @@ TBoss3VoloptCtrl::~TBoss3VoloptCtrl() {}
 TBoss3VoloptCtrl::TBoss3VoloptCtrl() : TObject((TObject *)tl_02) {
     *(void * *)&this->m_name = lbl_805D2730;
     this->phase = 0;
-    *(u32 *)&this->countdown = 3;
+    this->countdown = 3;
 }

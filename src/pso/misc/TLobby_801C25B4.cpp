@@ -1812,7 +1812,7 @@ s32 fn_801C4CE0(TPlayerBattleCtrl *player_battle_ctrl) {
 }
 
 void update_player_battle_ctrl_state(void *arg0) {
-    switch (*(u32 *)&((TPlayerBattleCtrl *)arg0)->state_1c) {
+    switch (((TPlayerBattleCtrl *)arg0)->state_1c) {
     case 0:
         fn_801C4CE0((TPlayerBattleCtrl *)arg0);
         return;

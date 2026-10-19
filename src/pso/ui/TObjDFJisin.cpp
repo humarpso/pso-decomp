@@ -937,9 +937,9 @@ u8 *TObjDFTenchuFuru__ct(u8 *object, u8 *arg1, u8 *arg2) {
     VecCopy((Vec *)(object + 0x1C), (const Vec *)arg2);
     ((TObjDFTenchuFuru *)object)->m_20 = (f32) (((TObjDFTenchuFuru *)object)->m_20 + lbl_805D8AA0);
     particle_emitter = (u8 *)(create_particle_emitter((object + 0x1C), 0x134));
-    *(u8 * *)&((TObjDFTenchuFuru *)object)->m_2c = particle_emitter;
+    ((TObjDFTenchuFuru *)object)->m_2c = particle_emitter;
     if (particle_emitter != NULL) {
-        ((TBoss4Type2 *)(*(u8 * *)&((TObjDFTenchuFuru *)object)->m_2c))->set_flags(0x40);
+        ((TBoss4Type2 *)(((TObjDFTenchuFuru *)object)->m_2c))->set_flags(0x40);
     }
     return object;
 }
