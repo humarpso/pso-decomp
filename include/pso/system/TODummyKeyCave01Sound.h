@@ -7,4 +7,10 @@ extern "C" {
 void *TODummyKeyCave01Sound__ct(void *dummy_key_cave01_sound, s32 arg1, s32 arg2, s32 arg3);
 }
 
+// --- C functions defined in TODummyKeyCave01Sound.cpp ---
+extern "C" {
+void *TODummyKeyCave01Sound__ct(void *dummy_key_cave01_sound, s32 arg1, s32 arg2, s32 arg3);
+}
+// --- end of C functions
+
 #endif

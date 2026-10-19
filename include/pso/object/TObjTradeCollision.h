@@ -21,4 +21,13 @@ void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void run_task__18TObjTradeCollisionFv(s32 arg0);
 }
 
+// --- C functions defined in TObjTradeCollision.cpp ---
+extern "C" {
+void *TObjTradeCollision__create(void *arg0);
+u8 *TObjTradeCollision__ct(u8 *trade_collision, s32 arg1, s32 arg2);
+void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
+void run_task__18TObjTradeCollisionFv(s32 arg0);
+}
+// --- end of C functions
+
 #endif

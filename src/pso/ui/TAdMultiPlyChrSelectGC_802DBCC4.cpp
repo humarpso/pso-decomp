@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DBCC4.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TMainTask.h"
@@ -21,17 +22,13 @@ void set_status_flag_80__12TQuestThreadFPv(void *p);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern const f32 lbl_805DE890;
-s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1);
-s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1);
 s32 free_member__17TWindowSubComCardFv(int, int);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(int, int, void *, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern s32 lbl_804728A8[];
 extern const f32 lbl_805DE888;
-s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0);
 extern s32 lbl_804728A0[];
 extern const f32 lbl_805DE88C;
-s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
 s32 align_menu_entry_positions(int);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 extern s32 lbl_80472890[];
@@ -48,7 +45,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 TAdMultiPlyChrSelectGC__sub_802C658C(u32);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(int, int, void *);
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
-void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 void queue_destruction__7TObjectFv(void *arg0);

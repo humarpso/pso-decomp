@@ -26,4 +26,11 @@ void TBoss7LaserLight__sub_802EF120(void *p);
 void TBoss7LaserLight__sub_802EF12C(void *p);
 }
 
+// --- C functions defined in TBoss7LaserLight.cpp ---
+extern "C" {
+void TBoss7LaserLight__sub_802EF120(void *p);
+void TBoss7LaserLight__sub_802EF12C(void *p);
+}
+// --- end of C functions
+
 #endif

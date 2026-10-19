@@ -38,4 +38,12 @@ struct TShopEquipmentListWindow : public TShopWindowBase {
 };
 
 typedef char TShopEquipmentListWindow_size[sizeof(TShopEquipmentListWindow) == 0x194 ? 1 : -1];
+// --- C functions defined in TShopEquipmentListWindow.cpp ---
+extern "C" {
+u8 *TShopEquipmentListWindow__ct(u8 *shop_equipment_list_window, s32 arg1, s32 arg2, s32 arg3);
+int TShopEquipmentListWindow__sub_8021C85C(int a0);
+void *__dt__24TShopEquipmentListWindowFv(TShopEquipmentListWindow *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

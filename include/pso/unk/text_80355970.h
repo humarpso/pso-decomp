@@ -7,4 +7,10 @@ extern "C" {
 s32 spawn_gryphon_tornado(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
+// --- C functions defined in text_80355970.cpp ---
+extern "C" {
+s32 spawn_gryphon_tornado(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+}
+// --- end of C functions
+
 #endif

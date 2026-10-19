@@ -35,4 +35,10 @@ extern "C" {
 void *__dt__26TWindowSubInformationBoardFv(TWindowSubInformationBoard *arg0, s16 arg1);
 }
 
+// --- C functions defined in TWindowSubInformationBoard.cpp ---
+extern "C" {
+void *__dt__26TWindowSubInformationBoardFv(TWindowSubInformationBoard *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

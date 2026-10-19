@@ -7,4 +7,10 @@ extern "C" {
 s32 fn_80077A70(s32 arg0);
 }
 
+// --- C functions defined in text_80077A70.cpp ---
+extern "C" {
+s32 fn_80077A70(s32 arg0);
+}
+// --- end of C functions
+
 #endif

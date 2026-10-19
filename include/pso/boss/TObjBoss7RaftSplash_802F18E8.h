@@ -7,4 +7,10 @@ extern "C" {
 void TObjFish__sub_802F18E8(void);
 }
 
+// --- C functions defined in TObjBoss7RaftSplash_802F18E8.cpp ---
+extern "C" {
+void TObjFish__sub_802F18E8(void);
+}
+// --- end of C functions
+
 #endif

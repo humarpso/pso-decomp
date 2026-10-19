@@ -7,4 +7,10 @@ extern "C" {
 void fn_8024AADC(s32 arg0, s32 arg1);
 }
 
+// --- C functions defined in text_8024AADC.cpp ---
+extern "C" {
+void fn_8024AADC(s32 arg0, s32 arg1);
+}
+// --- end of C functions
+
 #endif

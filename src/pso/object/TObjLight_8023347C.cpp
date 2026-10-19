@@ -33,6 +33,3 @@ TUnk_804CC948::TUnk_804CC948(s32 arg1, s32 arg2) : TObject((TObject *)((void *)a
     this->m_2c = 0;
     *(s32 *)((s8 *)this + 0x30) = play_sound_effect(0x4002B21D, ((u8 *)this) + 0x20, 0, 0);
 }
-extern "C" {
-
-}

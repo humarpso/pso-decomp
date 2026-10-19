@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/object/TObjCamera_8017F80C.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 class TObjChip : public TObject {
@@ -534,7 +535,6 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
 
 void __dt__8TObjChipFv();
 void render_shadows__7TObjectFv();
-void TObjChip__vt10(u8 *arg0);
 void *__vt__8TObjChip[] = {
     0, 0,
     (void *)__dt__8TObjChipFv,

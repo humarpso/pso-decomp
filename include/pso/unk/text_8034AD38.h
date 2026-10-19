@@ -7,4 +7,10 @@ extern "C" {
 void push_recent_id(s16 arg0);
 }
 
+// --- C functions defined in text_8034AD38.cpp ---
+extern "C" {
+void push_recent_id(s16 arg0);
+}
+// --- end of C functions
+
 #endif

@@ -1,4 +1,5 @@
 #include "pso/render/DebugFont.h"
+#include "pso/player/TObjPlayer_803E21B8.h"
 #include "pso/enemy/TObjEneRe4Sorcerer_801E3F14.h"
 #include "pso/unk/text_801E3F24.h"
 #include "pso/unk/text_803E20B0.h"
@@ -182,12 +183,10 @@ struct Tris_801E3784 {
 extern "C" {
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
-void TObjPlayer__sub_803E21DC(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
 extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
-void TObjPlayer__sub_803E2248(void);
 }
 void setup_opaque_color_draw(void);
 void setup_blended_textured_draw(void);

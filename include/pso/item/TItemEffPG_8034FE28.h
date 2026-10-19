@@ -7,4 +7,10 @@ extern "C" {
 void create__10TItemEffPGFPvPvPv(void *arg0, void *parent, void *item);
 }
 
+// --- C functions defined in TItemEffPG_8034FE28.cpp ---
+extern "C" {
+void create__10TItemEffPGFPvPvPv(void *arg0, void *parent, void *item);
+}
+// --- end of C functions
+
 #endif

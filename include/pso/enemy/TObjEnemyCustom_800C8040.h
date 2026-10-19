@@ -7,4 +7,10 @@ extern "C" {
 void TLobby__sub_800C80D0(void);
 }
 
+// --- C functions defined in TObjEnemyCustom_800C8040.cpp ---
+extern "C" {
+void TLobby__sub_800C80D0(void);
+}
+// --- end of C functions
+
 #endif

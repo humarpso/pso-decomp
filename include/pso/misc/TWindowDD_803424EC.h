@@ -7,4 +7,10 @@ extern "C" {
 void handle_input__9TWindowDDFi(s32 arg0);
 }
 
+// --- C functions defined in TWindowDD_803424EC.cpp ---
+extern "C" {
+void handle_input__9TWindowDDFi(s32 arg0);
+}
+// --- end of C functions
+
 #endif

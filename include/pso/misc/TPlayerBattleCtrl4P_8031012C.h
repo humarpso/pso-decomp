@@ -19,4 +19,14 @@ extern "C" {
 void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2);
 }
 
+// --- C functions defined in TPlayerBattleCtrl4P_8031012C.cpp ---
+extern "C" {
+s32 are_split_screen_battle_players_tied(void);
+s32 calc_battle_score__19TPlayerBattleCtrl4PFPvPv(void *self, u8 *arg1);
+s32 calculate_split_screen_battle_rankings(void *);
+s32 *get_split_screen_battle_rankings(void);
+void record_split_screen_battle_results(void);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 }
 
+// --- C functions defined in text_8023F660.cpp ---
+extern "C" {
+void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+}
+// --- end of C functions
+
 #endif

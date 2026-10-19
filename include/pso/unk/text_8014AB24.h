@@ -7,4 +7,10 @@ extern "C" {
 void *TObjNpcGovernorBase__create(void *arg0);
 }
 
+// --- C functions defined in text_8014AB24.cpp ---
+extern "C" {
+void *TObjNpcGovernorBase__create(void *arg0);
+}
+// --- end of C functions
+
 #endif

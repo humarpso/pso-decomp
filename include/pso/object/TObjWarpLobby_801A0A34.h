@@ -8,4 +8,10 @@ extern "C" {
 void *TObjWarpLobby__ct(TObjWarpLobby *arg0);
 }
 
+// --- C functions defined in TObjWarpLobby_801A0A34.cpp ---
+extern "C" {
+void *TObjWarpLobby__ct(TObjWarpLobby *warp_lobby);
+}
+// --- end of C functions
+
 #endif

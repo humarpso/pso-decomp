@@ -24,4 +24,10 @@ extern "C" {
 void *create_TDPBShower(void *arg0, void *arg1);
 }
 
+// --- C functions defined in TDPBShower.cpp ---
+extern "C" {
+void *create_TDPBShower(void *arg0, void *arg1);
+}
+// --- end of C functions
+
 #endif

@@ -45,4 +45,10 @@ extern "C" {
 void load_item_kt_afs(void);
 }
 
+// --- C functions defined in TItemTexLoad.cpp ---
+extern "C" {
+void load_item_kt_afs(void);
+}
+// --- end of C functions
+
 #endif

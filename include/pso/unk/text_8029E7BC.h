@@ -7,4 +7,10 @@ extern "C" {
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 }
 
+// --- C functions defined in text_8029E7BC.cpp ---
+extern "C" {
+s32 fn_8029E7BC(s32 arg0, u8 *arg1);
+}
+// --- end of C functions
+
 #endif

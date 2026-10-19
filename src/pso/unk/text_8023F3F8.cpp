@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8023F3F8.h"
 #include "pso/TObject.h"
 #include "pso/TMainTask.h"
 #include "pso/TAdMultiChgGameModeGC.h"

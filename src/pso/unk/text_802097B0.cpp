@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802097B0.h"
 #include "pso/item/TItemDrop_80105D0C.h"
 #include "pso/misc/TLobby_8020A350.h"
 #include "pso/misc/TLobby_8020A568.h"
@@ -44,7 +45,6 @@ void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
 extern s32 item_drop_rng;
 Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
 extern u8 *lbl_805D60AC;
-void TLobby__sub_802097B0(s16 id);
 
 void TLobby__sub_802097B0(s16 id) {
     Ent_802097B0 e;

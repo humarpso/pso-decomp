@@ -1,9 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_8033BAB4.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-s32 fn_8033BAB4(void);
-}
 
 s32 fn_8033BAB4(void) {
     s32 flags = 0;

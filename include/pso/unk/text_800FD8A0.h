@@ -8,4 +8,11 @@ bool fn_800FD8A0(s32 arg0);
 bool is_current_room(s32 arg0);
 }
 
+// --- C functions defined in text_800FD8A0.cpp ---
+extern "C" {
+bool fn_800FD8A0(s32 arg0);
+bool is_current_room(s32 arg0);
+}
+// --- end of C functions
+
 #endif

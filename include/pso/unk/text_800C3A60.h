@@ -7,4 +7,10 @@ extern "C" {
 s32 fn_800C3A60(s32 arg0, s32 arg1);
 }
 
+// --- C functions defined in text_800C3A60.cpp ---
+extern "C" {
+s32 fn_800C3A60(s32 arg0, s32 arg1);
+}
+// --- end of C functions
+
 #endif

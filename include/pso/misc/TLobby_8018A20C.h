@@ -7,4 +7,10 @@ extern "C" {
 void get_container_param(void *a0);
 }
 
+// --- C functions defined in TLobby_8018A20C.cpp ---
+extern "C" {
+void get_container_param(void *a0);
+}
+// --- end of C functions
+
 #endif

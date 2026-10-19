@@ -25,4 +25,10 @@ extern "C" {
 void fn_8032AC94(void);
 }
 
+// --- C functions defined in TAdEnterBaseGC.cpp ---
+extern "C" {
+void fn_8032AC94(void);
+}
+// --- end of C functions
+
 #endif

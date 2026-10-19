@@ -7,4 +7,10 @@ extern "C" {
 void *TGameProtocol__ct(void *game_protocol);
 }
 
+// --- C functions defined in TGameProtocol.cpp ---
+extern "C" {
+void *TGameProtocol__ct(void *game_protocol);
+}
+// --- end of C functions
+
 #endif

@@ -16,4 +16,11 @@ void *TWindowCtrlClipOut__ct(void *window_ctrl_clip_out);
 u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1);
 }
 
+// --- C functions defined in TWindowCtrlClipOut.cpp ---
+extern "C" {
+void *TWindowCtrlClipOut__ct(void *window_ctrl_clip_out);
+u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

@@ -23,4 +23,12 @@ void TBoss5GryphonSnarl__sub_80066E88(void *self);
 void TLobby__sub_80066EC0(void);
 }
 
+// --- C functions defined in TBoss5GryphonSnarl.cpp ---
+extern "C" {
+void TBoss5GryphonSnarl__sub_80066E84(void);
+void TBoss5GryphonSnarl__sub_80066E88(void *self);
+void TLobby__sub_80066EC0(void);
+}
+// --- end of C functions
+
 #endif

@@ -9,4 +9,12 @@ void TObjPlayer__sub_801BF914(void);
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
 }
 
+// --- C functions defined in TObjPlayer_801BF8EC.cpp ---
+extern "C" {
+void TObjPlayer__sub_801BF8F8(s32 *p);
+void TObjPlayer__sub_801BF914(void);
+void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
+}
+// --- end of C functions
+
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8011C000.h"
 #include "pso/item/TItemDrop_80105D0C.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -84,11 +85,8 @@ s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
 s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 s32 __cvt_fp2unsigned(f32);
-u8 get_weapon_class_motion_type(u8 arg0);
-u8 get_technique_learn_limit(s8 arg0, u8 arg1);
 s32 get_item_star_count(s32 id);
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
-void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void play_weapon_owner_sounds(Ctx_8011C7C8 *c);
@@ -96,8 +94,6 @@ void play_weapon_hit_sound(Ctx_8011C7C8 *c);
 u16 obj_getField1c(void *);
 extern const f32 lbl_805DAC74;
 extern s32 weapon_special_roll_channel_table[];
-u8 roll_weapon_special_for_stars(u8 arg0);
-f32 get_item_price_coefficient(u8 arg0, u8 arg1);
 Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item);
 void play_shield_sound_cue(Obj_8011C59C *arg0);
 void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
@@ -111,7 +107,6 @@ void roll_item_channel_below(u32 arg0, s32 arg1);
 s32 is_unsealable_item(u8 *id);
 s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2);
 extern "C" {
-void find_tool_pmt_base_id(s32 arg0, u8 *arg1);
 s32 rand();
 extern const f32 lbl_805DAC70;
 typedef struct Thing__8011c1e8_8011C000 { u8 a; u8 b; } Thing;

@@ -7,4 +7,10 @@ extern "C" {
 void TBoss8Dragon__sub_802FDF10(void);
 }
 
+// --- C functions defined in TBoss8Dragon_802FDDD4.cpp ---
+extern "C" {
+void TBoss8Dragon__sub_802FDF10(void);
+}
+// --- end of C functions
+
 #endif

@@ -38,4 +38,10 @@ extern "C" {
 void *__dt__18TWindowSubShortCutFv(TWindowSubShortCut *arg0, s16 arg1);
 }
 
+// --- C functions defined in TWindowSubShortCut.cpp ---
+extern "C" {
+void *__dt__18TWindowSubShortCutFv(TWindowSubShortCut *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

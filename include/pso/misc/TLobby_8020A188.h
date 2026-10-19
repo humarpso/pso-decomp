@@ -7,4 +7,10 @@ extern "C" {
 void init_buffers__6TLobbyFii(s32 id, s32 arg1);
 }
 
+// --- C functions defined in TLobby_8020A188.cpp ---
+extern "C" {
+void init_buffers__6TLobbyFii(s32 id, s32 arg1);
+}
+// --- end of C functions
+
 #endif

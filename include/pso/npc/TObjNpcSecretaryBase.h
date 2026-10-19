@@ -18,4 +18,12 @@ void *TObjNpcSoldierBase__create(void *arg0);
 void *__dt__20TObjNpcSecretaryBaseFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjNpcSecretaryBase.cpp ---
+extern "C" {
+u8 *TObjNpcSecretaryBase__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *TObjNpcSoldierBase__create(void *arg0);
+void *__dt__20TObjNpcSecretaryBaseFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

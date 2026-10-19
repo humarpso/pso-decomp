@@ -7,4 +7,10 @@ extern "C" {
 void create_quest_message_window(void);
 }
 
+// --- C functions defined in TWindowMessageQuest_8026B118.cpp ---
+extern "C" {
+void create_quest_message_window(void);
+}
+// --- end of C functions
+
 #endif

@@ -21,4 +21,10 @@ extern "C" {
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjEnvSound.cpp ---
+extern "C" {
+void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

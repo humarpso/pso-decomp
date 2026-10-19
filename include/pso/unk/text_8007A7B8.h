@@ -7,4 +7,10 @@ extern "C" {
 s32 TObjPlayer__sub_8007A7B8(s32 arg0);
 }
 
+// --- C functions defined in text_8007A7B8.cpp ---
+extern "C" {
+s32 TObjPlayer__sub_8007A7B8(s32 arg0);
+}
+// --- end of C functions
+
 #endif

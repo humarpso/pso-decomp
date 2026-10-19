@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_800F9EF8.h"
 #include "pso/misc/TLobby_800F9DA0.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/main_loop.h"
@@ -10,7 +11,6 @@
 extern "C" {
 
 int read_whole_file__8TGStreamFlPUc(void);
-s32 TLoadCtrl__sub_800F9F00(void);
 void TLobby__sub_800F8AD0(void);
 void TLobby__sub_800F8F34(void);
 void TLobby__sub_803382E4(void);

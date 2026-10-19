@@ -7,4 +7,10 @@ extern "C" {
 s8 TLobby__sub_803CE1D8(u8 *arg0);
 }
 
+// --- C functions defined in text_803CE1D8.cpp ---
+extern "C" {
+s8 TLobby__sub_803CE1D8(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

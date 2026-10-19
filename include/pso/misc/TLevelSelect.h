@@ -7,4 +7,10 @@ extern "C" {
 int count_unlocked_difficulties__12TLevelSelectFv(void);
 }
 
+// --- C functions defined in TLevelSelect.cpp ---
+extern "C" {
+int count_unlocked_difficulties__12TLevelSelectFv(void);
+}
+// --- end of C functions
+
 #endif

@@ -35,4 +35,10 @@ extern "C" {
 int TEndingC__sub_8008C6F4(void);
 }
 
+// --- C functions defined in TEndingC.cpp ---
+extern "C" {
+int TEndingC__sub_8008C6F4(void);
+}
+// --- end of C functions
+
 #endif

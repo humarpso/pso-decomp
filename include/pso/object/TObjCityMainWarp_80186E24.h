@@ -7,4 +7,10 @@ extern "C" {
 void update_challenge_warp_window(void *arg0);
 }
 
+// --- C functions defined in TObjCityMainWarp_80186E24.cpp ---
+extern "C" {
+void update_challenge_warp_window(void *arg0);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 void *fn_80086FE0(void *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
+// --- C functions defined in text_80086FE0.cpp ---
+extern "C" {
+void *fn_80086FE0(void *arg0, void *arg1, s32 arg2, s32 arg3);
+}
+// --- end of C functions
+
 #endif

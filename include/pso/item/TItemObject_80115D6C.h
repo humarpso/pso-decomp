@@ -17,4 +17,14 @@ extern "C" {
 void send_star_atomizer_targets(void *arg0);
 }
 
+// --- C functions defined in TItemObject_80115D6C.cpp ---
+extern "C" {
+void *TItemObject__ct(void *arg0, void *arg1, void *item);
+s32 TItemObject__sub_80115DE8(void *item);
+void TItemObject__vt16(u8 *item_object, u8 *item);
+void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
+void send_star_atomizer_targets(void *player);
+}
+// --- end of C functions
+
 #endif

@@ -27,4 +27,11 @@ int TChCrTagInformation__vt4(void);
 void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TChCrTagInformation.cpp ---
+extern "C" {
+int TChCrTagInformation__vt4(void);
+void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 s32 fn_8035BFF8(void);
 }
 
+// --- C functions defined in text_8035BFF8.cpp ---
+extern "C" {
+s32 fn_8035BFF8(void);
+}
+// --- end of C functions
+
 #endif

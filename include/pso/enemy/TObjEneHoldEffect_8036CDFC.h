@@ -7,4 +7,10 @@ extern "C" {
 u8 validate_attack_target_count(s32 *count);
 }
 
+// --- C functions defined in TObjEneHoldEffect_8036CDFC.cpp ---
+extern "C" {
+u8 validate_attack_target_count(s32 *count);
+}
+// --- end of C functions
+
 #endif

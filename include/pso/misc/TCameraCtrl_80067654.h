@@ -14,4 +14,12 @@ void *TCameraCtrl__vt11(void);
 void *__dt__13TUnk_804887C8Fv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TCameraCtrl_80067654.cpp ---
+extern "C" {
+u8 *TCameraCtrl__sub_800677D4(u8 *arg0);
+void *TCameraCtrl__vt11(void);
+void *__dt__13TUnk_804887C8Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

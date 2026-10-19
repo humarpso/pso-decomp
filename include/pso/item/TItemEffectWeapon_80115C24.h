@@ -7,4 +7,10 @@ extern "C" {
 void TItemMoney__vt16(u8 *arg0, u8 *arg1);
 }
 
+// --- C functions defined in TItemEffectWeapon_80115C24.cpp ---
+extern "C" {
+void TItemMoney__vt16(u8 *arg0, u8 *arg1);
+}
+// --- end of C functions
+
 #endif

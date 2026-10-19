@@ -7,4 +7,10 @@ extern "C" {
 void TObjPlayer__sub_802EE574(void);
 }
 
+// --- C functions defined in TBoss7DeRolLeC_802EE4E0.cpp ---
+extern "C" {
+void TObjPlayer__sub_802EE574(void);
+}
+// --- end of C functions
+
 #endif

@@ -15,4 +15,13 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0);
 }
 void set_character_select_b_slot_state(int a0);
 
+// --- C functions defined in TAdPlayerLoadGC.cpp ---
+extern "C" {
+void *__dt__13TUnk_804E24F0Fv(void *arg0, s16 arg1);
+u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1);
+void render__15TAdPlayerLoadGCFv(void);
+void run_task__15TAdPlayerLoadGCFv(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

@@ -8,4 +8,10 @@ extern "C" {
 void *TWindowOptionCtrl__ct(TWindowOptionCtrl *arg0);
 }
 
+// --- C functions defined in TWindowOptionCtrl_8026C52C.cpp ---
+extern "C" {
+void *TWindowOptionCtrl__ct(TWindowOptionCtrl *window_option_ctrl);
+}
+// --- end of C functions
+
 #endif

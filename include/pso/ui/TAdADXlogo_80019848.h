@@ -7,4 +7,10 @@ extern "C" {
 void TAdADXlogo__sub_80019848(void);
 }
 
+// --- C functions defined in TAdADXlogo_80019848.cpp ---
+extern "C" {
+void TAdADXlogo__sub_80019848(void);
+}
+// --- end of C functions
+
 #endif

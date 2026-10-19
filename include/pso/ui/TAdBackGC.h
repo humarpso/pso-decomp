@@ -8,4 +8,11 @@ int draw_title_background_layer(void *p, int a1, int a2);
 int render_logo_with_default(void *p, int a1, int a2);
 }
 
+// --- C functions defined in TAdBackGC.cpp ---
+extern "C" {
+int draw_title_background_layer(void *p, int a1, int a2);
+int render_logo_with_default(void *p, int a1, int a2);
+}
+// --- end of C functions
+
 #endif

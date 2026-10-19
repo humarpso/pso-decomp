@@ -15,4 +15,12 @@ void run_task__13TUnk_804C4468Fv(u8 *arg0);
 void run_task__13TUnk_804C4480Fv(u8 *arg0);
 }
 
+// --- C functions defined in TItemList_801D3780.cpp ---
+extern "C" {
+u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
+void *TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
+void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

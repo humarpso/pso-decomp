@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801A1EB0.h"
 #include "pso/unk/text_801A210C.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -19,7 +20,6 @@ extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
 extern u16 lbl_805D5CD2;
 extern u16 lbl_805D5CD8;
-u16 TLobby__sub_801A20C8(s32);
 
 s16 TUnk_804B9870::get_stat_by_key_state() {
     s32 global_state;

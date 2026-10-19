@@ -7,4 +7,10 @@ extern "C" {
 s32 TObjEneDelDepth__create(s32 arg0);
 }
 
+// --- C functions defined in TObjEneDelDepth_80315AD8.cpp ---
+extern "C" {
+s32 TObjEneDelDepth__create(s32 arg0);
+}
+// --- end of C functions
+
 #endif

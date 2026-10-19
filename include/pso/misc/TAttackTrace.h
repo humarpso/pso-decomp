@@ -7,4 +7,10 @@ extern "C" {
 void *TAttackTrace__ct(void *attack_trace);
 }
 
+// --- C functions defined in TAttackTrace.cpp ---
+extern "C" {
+void *TAttackTrace__ct(void *attack_trace);
+}
+// --- end of C functions
+
 #endif

@@ -1,9 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_8014618C.h"
 #include "pso/unk/text_8042EE4C.h"
 
-extern "C" {
-s32 TLobby__sub_8014618C(void);
-}
 
 s32 TLobby__sub_8014618C(void) {
     s32 status;

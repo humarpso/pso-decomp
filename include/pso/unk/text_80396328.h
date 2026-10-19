@@ -7,4 +7,10 @@ extern "C" {
 s32 __close_console(s32 arg0);
 }
 
+// --- C functions defined in text_80396328.cpp ---
+extern "C" {
+s32 __close_console(s32 arg0);
+}
+// --- end of C functions
+
 #endif

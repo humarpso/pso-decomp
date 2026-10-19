@@ -28,4 +28,12 @@ void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
 void render__15TWindowShortCutFv(u8 *arg0);
 }
 
+// --- C functions defined in TWindowShortCut.cpp ---
+extern "C" {
+u8 *TWindowShortCut__ct(TWindowShortCut *window_short_cut, s32 arg1, s32 arg2, s32 arg3);
+void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
+void render__15TWindowShortCutFv(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

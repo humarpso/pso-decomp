@@ -93,9 +93,6 @@ TWindowSubLog::~TWindowSubLog() {
     if (*(void **)((s8 *)this + 0x20) != NULL) { ((TWindowSubLog *)(*(void **)((s8 *)this + 0x20)))->clear_flag4c_bit8(); ((TWindowSubLog *)(*(void **)((s8 *)this + 0x20)))->cleanup(); }
     TWindowCtrl__sub_8024ADF0((s32)(*(void **)((s8 *)this + 0x1C)));
 }
-extern "C" {
-
-}
 TWindowSubLog::TWindowSubLog(TObject *arg1, void *arg2) : TObject(arg1) {
     void *w;
     ((Lg_8027B194 *)this)->f0 = TWindowSubLog__class_name;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802E52AC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {

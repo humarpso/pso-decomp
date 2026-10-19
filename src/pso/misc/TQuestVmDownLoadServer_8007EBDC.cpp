@@ -28,9 +28,6 @@ void TQuestVmDownLoadServer::register_global_instance_dtor() {
 TUnk_8048DF58::~TUnk_8048DF58() {
 
 }
-extern "C" {
-
-}
 TUnk_8048DF58::TUnk_8048DF58() : TObject(0) {
 
 }

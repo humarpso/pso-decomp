@@ -23,4 +23,13 @@ void TAdSnAkPassConfirmGC__vt8(void);
 void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TAdSnAkPassConfirmGC.cpp ---
+extern "C" {
+int TAdSnAkPassConfirmGC__vt4(void *p);
+int TAdSnAkPassConfirmGC__vt5(void *p);
+void TAdSnAkPassConfirmGC__vt8(void);
+void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

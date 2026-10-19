@@ -14,4 +14,11 @@ void prepare_offline_quest_filenames(const char *identity);
 }
 void send_and_handle_6x75(TLobby *arg0);
 
+// --- C functions defined in text_801F3774.cpp ---
+extern "C" {
+void TLobby__sub_801F3774(void);
+void prepare_offline_quest_filenames(const char *identity);
+}
+// --- end of C functions
+
 #endif

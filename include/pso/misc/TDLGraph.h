@@ -34,4 +34,10 @@ extern "C" {
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
 }
 
+// --- C functions defined in TDLGraph.cpp ---
+extern "C" {
+u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

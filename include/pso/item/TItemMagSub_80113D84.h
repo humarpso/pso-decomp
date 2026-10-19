@@ -11,4 +11,14 @@ int get_mag_item_stat_percent(void *p);
 int get_mag_level(void *p);
 }
 
+// --- C functions defined in TItemMagSub_80113D84.cpp ---
+extern "C" {
+s16 TObjPlayer__sub_80113D90(void *p);
+int get_mag_item_data(void *p);
+int get_mag_item_percent(void *p);
+int get_mag_item_stat_percent(void *p);
+int get_mag_level(void *p);
+}
+// --- end of C functions
+
 #endif

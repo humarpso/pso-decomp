@@ -51,4 +51,10 @@ int TObjNewFloorWin__sub_8007410C(void);
 }
 ChallengeResultRecord *copy_challenge_result_record(ChallengeResultRecord *destination, const ChallengeResultRecord *source);
 
+// --- C functions defined in TObjResultWin.cpp ---
+extern "C" {
+int TObjNewFloorWin__sub_8007410C(void);
+}
+// --- end of C functions
+
 #endif

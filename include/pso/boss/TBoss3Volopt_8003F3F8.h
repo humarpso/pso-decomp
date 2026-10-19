@@ -9,4 +9,12 @@ u8 fn_8003F3F8(void *arg0);
 void *fn_8003F468(void *arg0, void *arg1, void *arg2);
 }
 
+// --- C functions defined in TBoss3Volopt_8003F3F8.cpp ---
+extern "C" {
+u8 TBoss3Volopt__sub_8003F458(void *arg0);
+u8 fn_8003F3F8(void *arg0);
+void *fn_8003F468(void *arg0, void *arg1, void *arg2);
+}
+// --- end of C functions
+
 #endif

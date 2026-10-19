@@ -27,4 +27,10 @@ void TLobby__sub_8033EE38(void *p);
 u8 *__dt__12TAdMcCheckGCFv(TAdMcCheckGC *arg0, s16 arg1);
 }
 
+// --- C functions defined in TAdMcCheckGC.cpp ---
+extern "C" {
+void TLobby__sub_8033EE38(void *p);
+}
+// --- end of C functions
+
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8008271C.h"
 #include "pso/effect/TEffClitical.h"
 #include "pso/unk/text_802A8210.h"
 #include "pso/render/depth_buffer.h"
@@ -304,7 +305,6 @@ struct Self_80239070 {
 };
 
 extern "C" {
-s32 approach_alpha_clamped(f32 *cur, const f32 *target, f32 step);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;

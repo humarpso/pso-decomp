@@ -106,8 +106,6 @@ void TAdFloorLoadCamGC::run_task() {
 TAdFloorLoadCamGC::~TAdFloorLoadCamGC() {
     TCameraCtrl__sub_800687C8();
 }
-extern "C" {
-}
 TAdFloorLoadCamGC::TAdFloorLoadCamGC(TObject *object, void *arg2) : TObject(object) {
     void *new_var;
     new_var = lbl_805D4340;

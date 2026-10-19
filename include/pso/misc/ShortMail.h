@@ -24,4 +24,20 @@ void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
 void try_close__6TLobbyFPv(void *p);
 }
 
+// --- C functions defined in ShortMail.cpp ---
+extern "C" {
+void TLobby__sub_802258C8(void);
+void *TLobby__sub_8022598C(int a0);
+void TLobby__sub_80225A08(void *p);
+void TLobby__sub_80225C44(void *p);
+void TLobby__sub_80225C64(void *p);
+void TLobby__sub_80225C8C(void *p);
+void TLobby__sub_80225CB8(void);
+s32 find_free_slot__6TLobbyFv(void);
+void *find_short_mail_by_id__6TLobbyFUi(u32 id);
+void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
+void try_close__6TLobbyFPv(void *p);
+}
+// --- end of C functions
+
 #endif

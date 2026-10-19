@@ -16,4 +16,10 @@ extern "C" {
 s32 create_cost_window(s32 arg0);
 }
 
+// --- C functions defined in TAdLoadQuestGC.cpp ---
+extern "C" {
+s32 create_cost_window(s32 arg0);
+}
+// --- end of C functions
+
 #endif

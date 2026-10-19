@@ -8,4 +8,11 @@ void TRecvGenerateID__sub_801DFBC4(void *p);
 void bswap__15TRecvGenerateIDFv(s32 arg0);
 }
 
+// --- C functions defined in TRecvGenerateID.cpp ---
+extern "C" {
+void TRecvGenerateID__sub_801DFBC4(void *p);
+void bswap__15TRecvGenerateIDFv(s32 arg0);
+}
+// --- end of C functions
+
 #endif

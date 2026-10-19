@@ -44,4 +44,10 @@ extern "C" {
 s32 close__6TMovieFis(s32 arg0, s16 arg1);
 }
 
+// --- C functions defined in TMovie.cpp ---
+extern "C" {
+s32 close__6TMovieFis(s32 arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

@@ -10,4 +10,12 @@ void bswap__9TRegisterFv(s32 arg0);
 int fn_801E0018(void *p);
 }
 
+// --- C functions defined in TRegister.cpp ---
+extern "C" {
+s32 __ct__9TRegisterFv(s32 arg0);
+void bswap__9TRegisterFv(s32 arg0);
+int fn_801E0018(void *p);
+}
+// --- end of C functions
+
 #endif

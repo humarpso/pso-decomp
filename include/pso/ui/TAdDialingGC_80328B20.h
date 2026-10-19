@@ -7,4 +7,10 @@ extern "C" {
 void TAdDialingGC__sub_80328B20(void);
 }
 
+// --- C functions defined in TAdDialingGC_80328B20.cpp ---
+extern "C" {
+void TAdDialingGC__sub_80328B20(void);
+}
+// --- end of C functions
+
 #endif

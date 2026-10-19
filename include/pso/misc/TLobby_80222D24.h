@@ -7,4 +7,10 @@ extern "C" {
 s32 TShopGenerator__sub_80222DAC(s32 arg0);
 }
 
+// --- C functions defined in TLobby_80222D24.cpp ---
+extern "C" {
+s32 TShopGenerator__sub_80222DAC(s32 arg0);
+}
+// --- end of C functions
+
 #endif

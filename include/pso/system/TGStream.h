@@ -54,4 +54,17 @@ void reset_gstream_buffer(void);
 }
 void reset_gstream_globals(void);
 
+// --- C functions defined in TGStream.cpp ---
+extern "C" {
+void TGStream__sub_800FDD64(void);
+void TItemDrop__sub_800FE2D8(void);
+void close_gsl_archive(void);
+TGStreamPrefix *destroy_gstream(TGStreamPrefix *g_stream_prefix, s16 arg1);
+int get_gstream_file_size(void);
+void load_area_gsl(void);
+void open_gsl_archive(char *name);
+void reset_gstream_buffer(void);
+}
+// --- end of C functions
+
 #endif

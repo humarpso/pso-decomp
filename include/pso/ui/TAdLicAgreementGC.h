@@ -22,4 +22,10 @@ void *TAdLicAgreementGC__ct(void *arg0);
 void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TAdLicAgreementGC.cpp ---
+extern "C" {
+void *TAdLicAgreementGC__ct(void *ad_lic_agreement_gc);
+}
+// --- end of C functions
+
 #endif

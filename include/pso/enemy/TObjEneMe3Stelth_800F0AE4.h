@@ -7,4 +7,10 @@ extern "C" {
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
 }
 
+// --- C functions defined in TObjEneMe3Stelth_800F0AE4.cpp ---
+extern "C" {
+void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 s32 fn_8025373C(u8 *self);
 }
 
+// --- C functions defined in text_8025373C.cpp ---
+extern "C" {
+s32 fn_8025373C(u8 *self);
+}
+// --- end of C functions
+
 #endif

@@ -21,4 +21,10 @@ void TPlyFollowParticleCtrl__sub_8030A694(void);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 arg0, s16 arg1);
 }
 
+// --- C functions defined in TPlyFollowParticleCtrl.cpp ---
+extern "C" {
+void TPlyFollowParticleCtrl__sub_8030A694(void);
+}
+// --- end of C functions
+
 #endif

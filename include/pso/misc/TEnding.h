@@ -34,4 +34,10 @@ extern "C" {
 void TEnding__sub_8008C9F8(void);
 }
 
+// --- C functions defined in TEnding.cpp ---
+extern "C" {
+void TEnding__sub_8008C9F8(void);
+}
+// --- end of C functions
+
 #endif

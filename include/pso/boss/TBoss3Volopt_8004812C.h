@@ -10,4 +10,13 @@ void TBoss3Volopt__sub_800481B4(void *p);
 void TBoss3Volopt__sub_8004824C(void *p);
 }
 
+// --- C functions defined in TBoss3Volopt_8004812C.cpp ---
+extern "C" {
+f32 TBoss3Volopt__sub_8004812C(s32 arg0);
+s32 TBoss3Volopt__sub_8004816C(s32 i);
+void TBoss3Volopt__sub_800481B4(void *p);
+void TBoss3Volopt__sub_8004824C(void *p);
+}
+// --- end of C functions
+
 #endif

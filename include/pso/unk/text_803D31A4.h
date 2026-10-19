@@ -9,4 +9,12 @@ void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
 void TLobby__sub_803D346C(s32 arg0);
 }
 
+// --- C functions defined in text_803D31A4.cpp ---
+extern "C" {
+void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
+void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
+void TLobby__sub_803D346C(s32 arg0);
+}
+// --- end of C functions
+
 #endif

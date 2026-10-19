@@ -31,4 +31,11 @@ void *TWindowCtrl__sub_8024FB80(s8 i);
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TWindowEffectParty.cpp ---
+extern "C" {
+void *TWindowCtrl__sub_8024FB80(s8 i);
+void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

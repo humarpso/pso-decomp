@@ -28,4 +28,23 @@ void fn_801DF874(void *p);
 s32 fn_801DF8A8(s32 arg0);
 }
 
+// --- C functions defined in text_801DF280.cpp ---
+extern "C" {
+s32 *copy_entry_table(s32 *arg0, s32 *arg1);
+void fn_801DF280(packet_header *arg0);
+s32 fn_801DF2BC(s32 arg0);
+void *fn_801DF3F0(void *p, void *a1);
+void fn_801DF42C(void *p);
+void fn_801DF47C(void *arg0);
+void fn_801DF4B8(s32 arg0);
+s32 *fn_801DF4FC(s32 *arg0, s32 *arg1);
+int fn_801DF558(int arg0, int arg1);
+void fn_801DF6BC(void *p);
+void fn_801DF740(void *p);
+void fn_801DF7F8(void *p);
+void fn_801DF874(void *p);
+s32 fn_801DF8A8(s32 arg0);
+}
+// --- end of C functions
+
 #endif

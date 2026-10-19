@@ -7,4 +7,10 @@ extern "C" {
 void fn_802FE8CC(void);
 }
 
+// --- C functions defined in text_802FE8CC.cpp ---
+extern "C" {
+void fn_802FE8CC(void);
+}
+// --- end of C functions
+
 #endif

@@ -30,4 +30,10 @@ void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 void fn_80329BAC(void *p);
 }
 
+// --- C functions defined in TAdAgreementBaseGC.cpp ---
+extern "C" {
+void fn_80329BAC(void *p);
+}
+// --- end of C functions
+
 #endif

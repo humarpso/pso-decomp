@@ -23,4 +23,12 @@ int TAdTrialModemChkGC__sub_803354E8(void *p);
 void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TAdTrialModemChkGC.cpp ---
+extern "C" {
+void *TAdTrialModemChkGC__ct(void *ad_trial_modem_chk_gc);
+void TAdTrialModemChkGC__sub_803354A4(void);
+int TAdTrialModemChkGC__sub_803354E8(void *p);
+}
+// --- end of C functions
+
 #endif

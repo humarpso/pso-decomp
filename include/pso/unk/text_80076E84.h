@@ -8,4 +8,11 @@ void *copy_symbol_chat_entry__6TLobbyFPvPv(void *dst, void *src);
 s32 get_technique_name(s32 arg0);
 }
 
+// --- C functions defined in text_80076E84.cpp ---
+extern "C" {
+void *copy_symbol_chat_entry__6TLobbyFPvPv(void *dst, void *src);
+s32 get_technique_name(s32 arg0);
+}
+// --- end of C functions
+
 #endif

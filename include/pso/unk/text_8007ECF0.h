@@ -8,4 +8,11 @@ s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 
 void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
 }
 
+// --- C functions defined in text_8007ECF0.cpp ---
+extern "C" {
+s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
+void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
+}
+// --- end of C functions
+
 #endif

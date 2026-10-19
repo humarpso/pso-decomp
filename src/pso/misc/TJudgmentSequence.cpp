@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TJudgmentSequence.h"
 struct TShopJudgmentItemWindow;
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"

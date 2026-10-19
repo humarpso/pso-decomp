@@ -8,4 +8,11 @@ void TLanguage__ct(s32 arg0);
 int TLobby__sub_80132EC8(void);
 }
 
+// --- C functions defined in TWindowKeyBoardSoft_80132A5C.cpp ---
+extern "C" {
+void TLanguage__ct(s32 arg0);
+int TLobby__sub_80132EC8(void);
+}
+// --- end of C functions
+
 #endif

@@ -13,4 +13,11 @@ u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1);
 s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1);
 }
 
+// --- C functions defined in TPlyJoinLobby.cpp ---
+extern "C" {
+u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1);
+s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

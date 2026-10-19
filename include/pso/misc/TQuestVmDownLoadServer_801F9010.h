@@ -7,4 +7,10 @@ extern "C" {
 void fn_801F9030(void);
 }
 
+// --- C functions defined in TQuestVmDownLoadServer_801F9010.cpp ---
+extern "C" {
+void fn_801F9030(void);
+}
+// --- end of C functions
+
 #endif

@@ -1,4 +1,5 @@
 #include "pso/TEffClitical.h"
+#include "pso/unk/text_8008271C.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/effect/TEffClitical.h"
 #include "pso/object/TObject_80019A50.h"
@@ -48,7 +49,6 @@ extern "C" {
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
 s32 approach_vector_in_place(void *, void *, f32);
-s32 approach_alpha_clamped(f32 *cur, const f32 *target, f32 step);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 clitical_vec_a;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;

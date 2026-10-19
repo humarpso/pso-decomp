@@ -20,4 +20,11 @@ void fn_8034AD28(void);
 void fn_8034AD2C(void);
 }
 
+// --- C functions defined in TAdFloorLoadPrtGC.cpp ---
+extern "C" {
+void fn_8034AD28(void);
+void fn_8034AD2C(void);
+}
+// --- end of C functions
+
 #endif

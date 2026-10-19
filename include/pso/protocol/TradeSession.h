@@ -19,4 +19,10 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 }
 void send_trade_busy_reply(s32 arg0);
 
+// --- C functions defined in TradeSession.cpp ---
+extern "C" {
+void reset__6TLobbyFi(s32 arg0);
+}
+// --- end of C functions
+
 #endif

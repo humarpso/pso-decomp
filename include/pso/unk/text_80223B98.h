@@ -17,4 +17,12 @@ void generate_shop_rare_tool_pool(s32 arg0);
 void generate_shop_technique_pool(s32 arg0);
 void mark_shop_tool_sold_out(s32 a, s32 b);
 
+// --- C functions defined in text_80223B98.cpp ---
+extern "C" {
+s32 TLobby__sub_80223D48(s32 arg0);
+s32 fn_80223B98(s32 arg0);
+s32 fn_80223C28(s32 arg0);
+}
+// --- end of C functions
+
 #endif

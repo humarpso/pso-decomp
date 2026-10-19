@@ -78,7 +78,6 @@ s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
 extern int lobby_short_mail_entry_count;
 void send_simple_mail__9TProtocolFR12TChatMessage(void *, void *);
 extern u8 *TLobby__protocol_instance;
-void TLobby__sub_80225A08(void*);
 
 unsigned char lbl_80513F70[0x680];
 s32 lbl_805D6270;

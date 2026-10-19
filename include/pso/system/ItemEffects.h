@@ -10,4 +10,10 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 void *destroy_item_follow_effect(void *arg0, s16 arg1);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 
+// --- C functions defined in ItemEffects.cpp ---
+extern "C" {
+void TObjPlayer__sub_80125C70(void *p);
+}
+// --- end of C functions
+
 #endif

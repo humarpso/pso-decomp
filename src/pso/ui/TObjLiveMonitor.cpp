@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_802F3638.h"
 #include "pso/object/TObjControl.h"
 #include "pso/ui/TObjLiveMonitor.h"
 #include "pso/unk/text_803D96A8.h"
@@ -203,7 +204,6 @@ extern const f32 lbl_805DF1A0;
 extern const f32 lbl_805DF1A4;
 extern const f32 lbl_805DF1AC;
 extern const f32 lbl_805DF1B0;
-s32 TBoss8Dragon__sub_802F3638();
 void TObjPlayer__sub_80082CBC(void *effect);
 void TObjPlayer__sub_80082CCC(void *effect);
 

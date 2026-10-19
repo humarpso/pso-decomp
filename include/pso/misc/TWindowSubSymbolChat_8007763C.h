@@ -7,4 +7,10 @@ extern "C" {
 void TWindowSubSymbolChat__sub_80077704(void *p);
 }
 
+// --- C functions defined in TWindowSubSymbolChat_8007763C.cpp ---
+extern "C" {
+void TWindowSubSymbolChat__sub_80077704(void *p);
+}
+// --- end of C functions
+
 #endif

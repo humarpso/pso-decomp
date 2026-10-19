@@ -8,4 +8,10 @@ void init__6gc_tagFv(void *arg0);
 s32 init_gc_tag(s32 arg0);
 }
 
+// --- C functions defined in text_80072004.cpp ---
+extern "C" {
+s32 init_gc_tag(s32 arg0);
+}
+// --- end of C functions
+
 #endif

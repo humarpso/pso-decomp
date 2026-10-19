@@ -17,4 +17,13 @@ extern "C" {
 void remap_extra_attack_type__11TItemWeaponFv(TItemWeapon *arg0);
 }
 
+// --- C functions defined in WeaponAttackActions.cpp ---
+extern "C" {
+void TItemWeapon__sub_8011E5C0(void);
+void TItemWeapon__sub_8011E5C4(void);
+void TItemWeapon__sub_8011E5C8(void);
+void TItemWeapon__sub_8011E5CC(void);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 u32 fn_803DF204(u32 x);
 }
 
+// --- C functions defined in text_803DF204.cpp ---
+extern "C" {
+u32 fn_803DF204(u32 x);
+}
+// --- end of C functions
+
 #endif

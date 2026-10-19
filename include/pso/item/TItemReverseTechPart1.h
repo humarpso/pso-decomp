@@ -7,4 +7,10 @@ extern "C" {
 void *TItemReverseTechPart1__ct(void *arg0);
 }
 
+// --- C functions defined in TItemReverseTechPart1.cpp ---
+extern "C" {
+void *TItemReverseTechPart1__ct(void *item_reverse_tech_part1);
+}
+// --- end of C functions
+
 #endif

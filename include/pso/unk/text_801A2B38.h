@@ -14,4 +14,17 @@ void *TObjRaderCol__create(void *arg0);
 void *TObjRaderHideCol__create(void *arg0);
 }
 
+// --- C functions defined in text_801A2B38.cpp ---
+extern "C" {
+void *TOContainerAncientEnemyRare__create(void *arg0);
+void *TOContainerAncientItemRare__create(void *arg0);
+void *TObjBgmCol__create(void *set);
+void *TObjCityMainWarpChallenge__create(void *arg0);
+void *TObjContainerAbeEnemy__create(void *arg0);
+void *TObjItemLight__create(void *arg0);
+void *TObjRaderCol__create(void *arg0);
+void *TObjRaderHideCol__create(void *arg0);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 void set_service_counter_camera(s32 arg0, s32 arg1);
 }
 
+// --- C functions defined in text_8022350C.cpp ---
+extern "C" {
+void set_service_counter_camera(s32 arg0, s32 arg1);
+}
+// --- end of C functions
+
 #endif

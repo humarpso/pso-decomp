@@ -27,4 +27,10 @@ extern "C" {
 u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
 }
 
+// --- C functions defined in TWindowSubTrade.cpp ---
+extern "C" {
+u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

@@ -23,6 +23,3 @@ extern s32 __vt__16TOWreckAncient03[];
 TOWreckAncient03::~TOWreckAncient03() {
 
 }
-extern "C" {
-
-}

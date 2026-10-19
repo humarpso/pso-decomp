@@ -7,4 +7,10 @@ extern "C" {
 s32 *TAdEnterPasswordGC__sub_8013ADE4(void);
 }
 
+// --- C functions defined in text_8013ADE4.cpp ---
+extern "C" {
+s32 *TAdEnterPasswordGC__sub_8013ADE4(void);
+}
+// --- end of C functions
+
 #endif

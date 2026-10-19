@@ -8,4 +8,11 @@ s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void draw_trail_with_colors(u8 *boss4_type3, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
+// --- C functions defined in TBoss4Type3_800D9960.cpp ---
+extern "C" {
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
+void draw_trail_with_colors(u8 *boss4_type3, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+}
+// --- end of C functions
+
 #endif

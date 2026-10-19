@@ -35,7 +35,6 @@ extern "C" {
 void bind_gvm_texture_list(const char *name, void *data);
 void copy_slot_to_anim_frame(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
-void fn_80082A6C(void);
 void TLobby__sub_803DA16C(void *);
 }
 

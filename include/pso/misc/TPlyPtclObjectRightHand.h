@@ -15,4 +15,11 @@ void *TPlyPtclObjectRightHand__ct(void *ply_ptcl_object_right_hand);
 void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TPlyPtclObjectRightHand.cpp ---
+extern "C" {
+void *TPlyPtclObjectRightHand__ct(void *ply_ptcl_object_right_hand);
+void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

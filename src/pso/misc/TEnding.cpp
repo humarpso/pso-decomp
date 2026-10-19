@@ -1,4 +1,5 @@
 #include "pso/misc/TEnding.h"
+#include "pso/unk/text_80203418.h"
 #include "pso/item/TItemMag_8001A468.h"
 #include "pso/misc/ParticleRadial.h"
 #include "pso/misc/TEndingAB_8008CE08.h"
@@ -13,7 +14,6 @@ extern "C" {
 void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 get_end_text_font_loaded_flag();
 u32 __cvt_fp2unsigned(f32);
-void set_current_floor_area(s32);
 int TKeyBoardControl__sub_8000F828(void);
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
 u8 *TAdRicoRingCtrl__ct(TAdRicoRingCtrl *arg0, s32 arg1);

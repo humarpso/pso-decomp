@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem_801013BC.h"
 #include "pso/item/TItemAttacker.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
@@ -25,8 +26,6 @@ u16 obj_getField1c(void *);
 s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
-void TItem__sub_801013E8(TItem *arg0);
-void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 s32 pop_free_id__6TLobbyFv();

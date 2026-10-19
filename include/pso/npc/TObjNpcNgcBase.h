@@ -21,4 +21,10 @@ extern "C" {
 void *__dt__14TObjNpcNgcBaseFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjNpcNgcBase.cpp ---
+extern "C" {
+void *__dt__14TObjNpcNgcBaseFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

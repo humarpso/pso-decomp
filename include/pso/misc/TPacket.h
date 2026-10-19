@@ -13,4 +13,11 @@ void *TPacket__ct(void *packet);
 void *__dt__7TPacketFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TPacket.cpp ---
+extern "C" {
+void *TPacket__ct(void *packet);
+void *__dt__7TPacketFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

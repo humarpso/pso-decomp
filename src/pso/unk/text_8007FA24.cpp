@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014618C.h"
 #include "pso/unk/text_8007F8D0.h"
 #include "pso/unk/text_8007FA24.h"
 #include "pso/ui/TAdTrialModemChkGC.h"
@@ -10,7 +11,6 @@ struct RecoveredGlobal_8007FA24_lbl_8048DF88
 };
 
 extern "C" {
-s32 TLobby__sub_8014618C();
 extern RecoveredGlobal_8007FA24_lbl_8048DF88 lbl_8048DF88;
 typedef struct RecoveredGlobal_8007FA24_lbl_8048DF88 RecoveredGlobal_8007FA24_lbl_8048DF88;
 typedef char RecoveredGlobal_8007FA24_lbl_8048DF88_size[((sizeof(RecoveredGlobal_8007FA24_lbl_8048DF88)) == 0xC) ? (1) : (-1)];

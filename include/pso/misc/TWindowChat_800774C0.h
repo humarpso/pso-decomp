@@ -7,4 +7,10 @@ extern "C" {
 void TLobby__sub_80077608(void);
 }
 
+// --- C functions defined in TWindowChat_800774C0.cpp ---
+extern "C" {
+void TLobby__sub_80077608(void);
+}
+// --- end of C functions
+
 #endif

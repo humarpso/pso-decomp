@@ -18,4 +18,12 @@ void *TObjNpcHFW01__create(void *arg0);
 void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjNpcHFW00.cpp ---
+extern "C" {
+u8 *TObjNpcHFW00__ct(u8 *player, s32 arg1, s32 arg2);
+void *TObjNpcHFW01__create(void *arg0);
+void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

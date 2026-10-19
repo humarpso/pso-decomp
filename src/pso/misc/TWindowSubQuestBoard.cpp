@@ -168,6 +168,3 @@ TWindowSubQuestBoard::~TWindowSubQuestBoard() {
     TWindowCtrl__sub_8027D1F8();
     if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x28))); this->m_28 = 0; }
 }
-extern "C" {
-
-}

@@ -7,4 +7,10 @@ extern "C" {
 void *yasminkov_9000m_ct(void *a0);
 }
 
+// --- C functions defined in TObjPlayer_80130B1C.cpp ---
+extern "C" {
+void *yasminkov_9000m_ct(void *a0);
+}
+// --- end of C functions
+
 #endif

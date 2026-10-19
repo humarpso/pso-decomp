@@ -41,4 +41,11 @@ void *TShopKeepItemWindow__ct(TShopKeepItemWindow *arg0, void *arg1, void *arg2,
 void *__dt__19TShopKeepItemWindowFv(TShopKeepItemWindow *arg0, s16 arg1);
 }
 
+// --- C functions defined in TShopKeepItemWindow.cpp ---
+extern "C" {
+void *TShopKeepItemWindow__ct(TShopKeepItemWindow *shop_keep_item_window, void *arg1, void *arg2, void *arg3);
+void *__dt__19TShopKeepItemWindowFv(TShopKeepItemWindow *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

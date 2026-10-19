@@ -66,4 +66,10 @@ u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 }
 int test_keyboard_card_flag4(void *p);
 
+// --- C functions defined in TWindowMainMenu.cpp ---
+extern "C" {
+u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

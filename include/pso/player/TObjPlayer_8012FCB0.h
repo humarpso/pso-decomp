@@ -7,4 +7,10 @@ extern "C" {
 void *twin_psychogun_ct(void *player);
 }
 
+// --- C functions defined in TObjPlayer_8012FCB0.cpp ---
+extern "C" {
+void *twin_psychogun_ct(void *player);
+}
+// --- end of C functions
+
 #endif

@@ -14,4 +14,12 @@ void load_floor_scene(void);
 void load_scene_collision_file(s32 name);
 void load_scene_map_file(s32 arg0);
 
+// --- C functions defined in TScene_80206494.cpp ---
+extern "C" {
+u8 *TScene__ct(TScene *scene, s32 arg1);
+void TScene__sub_802065E8(void);
+void TScene__sub_802065EC(void);
+}
+// --- end of C functions
+
 #endif

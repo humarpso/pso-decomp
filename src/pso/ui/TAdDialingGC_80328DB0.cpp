@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014618C.h"
 #include "pso/ui/TAdDialingGC_80328DB0.h"
 #include "pso/ui/TAdDialingGC.h"
 #include "pso/misc/TLobby.h"
@@ -6,7 +7,6 @@
 extern "C" {
 
 s32 __ct__7TObjectFP7TObject();
-s32 TLobby__sub_8014618C();
 
 extern s32 __vt__12TAdDialingGC[];
 extern s32 lbl_805D41B0;

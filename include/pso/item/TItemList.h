@@ -18,4 +18,14 @@ extern "C" {
 void *reset_position__9TItemListFPv(void *a0);
 }
 
+// --- C functions defined in TItemList.cpp ---
+extern "C" {
+void TItemList__sub_801D59DC(void *p);
+void TItemList__sub_801D5A0C(s32 *arg0);
+void TItemList__sub_801D5A64(void *p);
+void *TItemList__sub_801D5B10(void *item_list, s16 arg1);
+u8 *TItemList__sub_801D5CF8(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

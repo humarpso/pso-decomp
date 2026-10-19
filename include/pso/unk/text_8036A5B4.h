@@ -7,4 +7,10 @@ extern "C" {
 u8 check_flag_index_set(s32 arg0);
 }
 
+// --- C functions defined in text_8036A5B4.cpp ---
+extern "C" {
+u8 check_flag_index_set(s32 arg0);
+}
+// --- end of C functions
+
 #endif

@@ -30,4 +30,11 @@ int fn_8027B288(void *p);
 void fn_8027B2A8(void *p);
 }
 
+// --- C functions defined in TWindowSubLog.cpp ---
+extern "C" {
+int fn_8027B288(void *p);
+void fn_8027B2A8(void *p);
+}
+// --- end of C functions
+
 #endif

@@ -8,4 +8,11 @@ void TObjPlayer__sub_801AD47C(void);
 void TObjPlayer__sub_801AD480(void);
 }
 
+// --- C functions defined in TObjPlayer_801AD47C.cpp ---
+extern "C" {
+void TObjPlayer__sub_801AD47C(void);
+void TObjPlayer__sub_801AD480(void);
+}
+// --- end of C functions
+
 #endif

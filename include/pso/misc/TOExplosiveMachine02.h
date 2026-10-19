@@ -16,4 +16,12 @@ void *TOExplosiveMachine02__ct(TOExplosiveMachine02 *explosive_machine02, s32 ar
 void *__dt__20TOExplosiveMachine02Fv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TOExplosiveMachine02.cpp ---
+extern "C" {
+void *TOExplosiveMachine02__create(void *arg0);
+void *TOExplosiveMachine02__ct(TOExplosiveMachine02 *explosive_machine02, s32 arg1);
+void *__dt__20TOExplosiveMachine02Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

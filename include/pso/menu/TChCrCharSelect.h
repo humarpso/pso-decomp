@@ -7,4 +7,10 @@ extern "C" {
 void *__ct__15TChCrCharSelectFv(void *object);
 }
 
+// --- C functions defined in TChCrCharSelect.cpp ---
+extern "C" {
+void *__ct__15TChCrCharSelectFv(void *object);
+}
+// --- end of C functions
+
 #endif

@@ -32,4 +32,10 @@ u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *ar
 void *__dt__20TBoss5GryphonTornadoFv(TBoss5GryphonTornado *arg0, s16 arg1);
 }
 
+// --- C functions defined in TBoss5GryphonTornado.cpp ---
+extern "C" {
+u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
+}
+// --- end of C functions
+
 #endif

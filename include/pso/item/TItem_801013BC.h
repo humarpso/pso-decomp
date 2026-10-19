@@ -10,4 +10,11 @@ void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
 }
 void draw_model_node_tree(u8 *arg0);
 
+// --- C functions defined in TItem_801013BC.cpp ---
+extern "C" {
+void TItem__sub_801013E8(TItem *item);
+void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
+}
+// --- end of C functions
+
 #endif

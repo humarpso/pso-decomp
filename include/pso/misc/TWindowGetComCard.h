@@ -25,4 +25,12 @@ void *__dt__17TWindowGetComCardFv(TWindowGetComCard *arg0, s16 arg1);
 int fn_80252CBC(void *p);
 }
 
+// --- C functions defined in TWindowGetComCard.cpp ---
+extern "C" {
+void TWindowFukidasi__sub_80252C38(void *p);
+u8 *TWindowGetComCard__ct(TWindowGetComCard *window_get_com_card);
+int fn_80252CBC(void *p);
+}
+// --- end of C functions
+
 #endif

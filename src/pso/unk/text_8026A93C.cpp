@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageLog_8026AA38.h"
+#include "pso/unk/text_8026A93C.h"
 #include "pso/misc/TWindowMessageLog.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-u8 *TWindowMessageLog__ct(TWindowMessageLog *arg0, s32 arg1, s32 arg2);
 u8 *__nw__7TObjectFUl(s32);
 s32 TLobby__sub_80269DA4(void *, int);
-u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2);
 s32 *get_shared_text_buffer(void);
 void text_builder_append(u8 *str);
 s32 *get_active_photon_object__17TWindowMessageLogFv(u16);
@@ -18,7 +18,6 @@ extern "C" {
 s32 chat_log_add_line();
 extern s32 local_client_id;
 extern s32 lbl_805DD250;
-void post_chat_log_message(u16 arg0, s32 *arg1);
 
 void post_chat_log_message(u16 arg0, s32 *shared_text_buffer) {
     s32 temp_r30;

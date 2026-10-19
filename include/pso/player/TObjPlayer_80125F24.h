@@ -7,4 +7,10 @@ extern "C" {
 void *TObjPlayer__sub_80125F24(void *arg0);
 }
 
+// --- C functions defined in TObjPlayer_80125F24.cpp ---
+extern "C" {
+void *TObjPlayer__sub_80125F24(void *arg0);
+}
+// --- end of C functions
+
 #endif

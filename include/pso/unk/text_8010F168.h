@@ -8,4 +8,11 @@ void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
 u8 *TItemDrop__sub_8010F1B8(u8 *arg0, s32 arg1, s32 arg2);
 }
 
+// --- C functions defined in text_8010F168.cpp ---
+extern "C" {
+void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
+u8 *TItemDrop__sub_8010F1B8(u8 *arg0, s32 arg1, s32 arg2);
+}
+// --- end of C functions
+
 #endif

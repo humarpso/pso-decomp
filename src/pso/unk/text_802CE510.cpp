@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800D8830.h"
 #include "pso/boss/TBoss8Dragon_80065C90.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/map/CsnQuery.h"
@@ -23,7 +24,6 @@ struct RecoveredFields_802CE510_temp_r3
 
 extern "C" {
 void *spawn_particle_effect(void *pos, s32 id);
-void fn_800D8830(void *owner, void *pos);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 extern const f32 lbl_805DE6E8;
 extern const f32 lbl_805DE6EC;

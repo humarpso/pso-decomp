@@ -8,4 +8,11 @@ void TAdDialingGC__sub_801A4C90(void);
 s32 TAdDialingGC__sub_801A4C9C(void);
 }
 
+// --- C functions defined in TAdDialingGC_801A4C90.cpp ---
+extern "C" {
+void TAdDialingGC__sub_801A4C90(void);
+s32 TAdDialingGC__sub_801A4C9C(void);
+}
+// --- end of C functions
+
 #endif

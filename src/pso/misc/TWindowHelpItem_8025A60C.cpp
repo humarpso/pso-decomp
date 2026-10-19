@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem_8025A60C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -23,15 +24,12 @@ struct Ctx_8025A650 { u8 p0[0x10]; f32 x; f32 y; u8 p18[0x18]; s32 f30; u8 p34[4
 f32 get_item_star_row_width(u8 *arg0);
 extern "C" {
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
-u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx);
-void TWindowHelpItem__sub_8025A900(void);
-void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
 }
 
 extern const UV_8025A650 item_rarity_star_uv_table[4] = {

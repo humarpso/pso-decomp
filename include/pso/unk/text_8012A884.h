@@ -7,4 +7,10 @@ extern "C" {
 u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
 }
 
+// --- C functions defined in text_8012A884.cpp ---
+extern "C" {
+u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
+}
+// --- end of C functions
+
 #endif

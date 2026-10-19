@@ -30,4 +30,13 @@ void fn_802FE48C(void);
 void run_task__19TBoss8DragonEffTailFv(u8 *arg0p);
 }
 
+// --- C functions defined in TBoss8DragonEffTail.cpp ---
+extern "C" {
+void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1);
+void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1);
+void fn_802FE48C(void);
+void run_task__19TBoss8DragonEffTailFv(u8 *arg0p);
+}
+// --- end of C functions
+
 #endif

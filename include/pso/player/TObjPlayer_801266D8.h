@@ -7,4 +7,10 @@ extern "C" {
 void *baranz_launcher_ct(void *a0);
 }
 
+// --- C functions defined in TObjPlayer_801266D8.cpp ---
+extern "C" {
+void *baranz_launcher_ct(void *a0);
+}
+// --- end of C functions
+
 #endif

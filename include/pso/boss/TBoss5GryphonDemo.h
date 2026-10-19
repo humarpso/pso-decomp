@@ -7,4 +7,10 @@ extern "C" {
 void TBoss5GryphonDemo__sub_8006626C(void *p);
 }
 
+// --- C functions defined in TBoss5GryphonDemo.cpp ---
+extern "C" {
+void TBoss5GryphonDemo__sub_8006626C(void *p);
+}
+// --- end of C functions
+
 #endif

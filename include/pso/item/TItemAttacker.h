@@ -13,4 +13,12 @@ extern "C" {
 int get_item_chunk_buffer(int a0);
 }
 
+// --- C functions defined in TItemAttacker.cpp ---
+extern "C" {
+void TItemAttacker__sub_8010349C(u32 arg0);
+void TItemBuff__ct(void);
+int get_item_chunk_buffer(int a0);
+}
+// --- end of C functions
+
 #endif

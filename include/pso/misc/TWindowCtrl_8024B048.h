@@ -7,4 +7,10 @@ extern "C" {
 int TWindowCtrl__sub_8024B048(void *p);
 }
 
+// --- C functions defined in TWindowCtrl_8024B048.cpp ---
+extern "C" {
+int TWindowCtrl__sub_8024B048(void *p);
+}
+// --- end of C functions
+
 #endif

@@ -17,4 +17,20 @@ void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void *p);
 void swap_endian__10TObjPlayerFi(s32 arg0);
 }
 
+// --- C functions defined in TObjPlayer_801C0808.cpp ---
+extern "C" {
+void *TObjPlayer__sub_801C092C(void *arg0, void *arg1);
+void TObjPlayer__sub_801C0C04(u8 *arg0);
+void TObjPlayer__sub_801C0D7C(u8 *arg0);
+u8 *TObjPlayer__sub_801C0F10(u8 *arg0, u8 *arg1);
+u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1);
+u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1);
+u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1);
+void apply_status_effect__10TObjPlayerFPv(void *p);
+void bswap_fields__10TObjPlayerFi(s32 arg0);
+void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void *p);
+void swap_endian__10TObjPlayerFi(s32 arg0);
+}
+// --- end of C functions
+
 #endif

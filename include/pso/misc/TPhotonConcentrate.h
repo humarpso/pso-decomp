@@ -38,4 +38,12 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 }
 
+// --- C functions defined in TPhotonConcentrate.cpp ---
+extern "C" {
+u8 *TPhotonConcentrate__ct(u8 *photon_concentrate, u8 *arg1, s32 arg2, s32 arg3);
+void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
+void render__18TPhotonConcentrateFv(void);
+}
+// --- end of C functions
+
 #endif

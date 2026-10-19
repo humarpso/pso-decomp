@@ -7,4 +7,10 @@ extern "C" {
 void TKeyBoardControl__sub_80290D10(void);
 }
 
+// --- C functions defined in TKeyBoardControl_80290CB0.cpp ---
+extern "C" {
+void TKeyBoardControl__sub_80290D10(void);
+}
+// --- end of C functions
+
 #endif

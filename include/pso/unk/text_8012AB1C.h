@@ -7,4 +7,10 @@ extern "C" {
 u8 *TObjPlayer__sub_8012AB1C(u8 *arg0);
 }
 
+// --- C functions defined in text_8012AB1C.cpp ---
+extern "C" {
+u8 *TObjPlayer__sub_8012AB1C(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

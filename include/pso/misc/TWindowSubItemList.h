@@ -21,4 +21,12 @@ void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1);
 u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2);
 }
 
+// --- C functions defined in TWindowSubItemList.cpp ---
+extern "C" {
+u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2);
+void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1);
+u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2);
+}
+// --- end of C functions
+
 #endif

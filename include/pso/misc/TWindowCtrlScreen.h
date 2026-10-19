@@ -15,4 +15,10 @@ extern "C" {
 void *TWindowCtrlScreen__ct(void *window_ctrl_screen);
 }
 
+// --- C functions defined in TWindowCtrlScreen.cpp ---
+extern "C" {
+void *TWindowCtrlScreen__ct(void *window_ctrl_screen);
+}
+// --- end of C functions
+
 #endif

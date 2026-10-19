@@ -22,4 +22,11 @@ u8 *TObjRaderCol__ct(TObjRaderCol *arg0, s32 arg1, s32 arg2);
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjRaderCol.cpp ---
+extern "C" {
+u8 *TObjRaderCol__ct(TObjRaderCol *rader_col, s32 arg1, s32 arg2);
+void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

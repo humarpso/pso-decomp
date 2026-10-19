@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8039739C.h"
 #include <dolphin/os.h>
 
 extern "C" {

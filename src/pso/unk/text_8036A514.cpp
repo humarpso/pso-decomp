@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8036A514.h"
 #include "pso/unk/text_8036A3CC.h"
 
 struct FlagLink_8036A514 {
@@ -10,7 +11,6 @@ extern const FlagLink_8036A514 lbl_8047AB8C[];
 
 extern "C" {
 s32 check_flag_index_set(s32);
-void fn_8036A514(s32 flag);
 }
 
 void fn_8036A514(s32 flag) {

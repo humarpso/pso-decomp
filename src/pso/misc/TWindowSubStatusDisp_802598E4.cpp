@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_802598E4.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -25,14 +26,12 @@ f32 fabs_float(f32, f32);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 extern s32 lbl_804CF9C8[];
-u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2);
 u8 get_font_char_advance();
 s32 map_char_to_font_code(s32);
 extern const f32 lbl_805DCF30;
 extern const f32 lbl_805DCF34;
 extern const f32 lbl_805DCF38;
 extern const f32 lbl_805DCF3C;
-void draw_right_aligned_number(void *arg0);
 u8 get_small_font_glyph_width();
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
 s32 build_small_font_glyph_quad(s32, Pos_80259A84 *);
@@ -44,9 +43,6 @@ s32 try_open__19TWindowKeyBoardSoftFii(void *, Pos_80259A84 *);
 void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(Pos_80259A84 *, f32);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
-void TWindowSubStatusDisp__sub_80259CE0(void);
-void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1);
-void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 
     extern unsigned char lbl_804CF9B0[];

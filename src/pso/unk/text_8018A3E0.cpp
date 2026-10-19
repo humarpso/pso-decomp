@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8018A3E0.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TLobby.h"
@@ -69,7 +70,6 @@ extern ForestBoxBreakParam_8018A3E0 *lbl_805D5B84;
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *get_bml_model(void *bundle, s32 index);
 s32 get_container_param(s32 kind);
-void load_forest_box_resources(void);
 }
 
 const char *fe_obj_hako01_hahen02_model_names[4] = {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/ui/TAdEnterPPPPassGC.h"
+#include "pso/unk/text_8014618C.h"
 #include "pso/TLevelSelect.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TLobby.h"
@@ -40,17 +42,12 @@ void TWindow__close(u8 *arg0);
 extern u8 *password_entry_keyboard_control;
 extern s32 password_entry_dispatch_state;
 extern const f32 lbl_805DF9E8;
-void close_windows_and_advance__17TAdEnterPPPPassGCFPv(u8 *arg0);
-s32 TLobby__sub_8014618C(void);
 void strncpy(s32, s32, s32);
 s32 memset(void *, int, int);
 void fn_8032B318(void *, void *);
 extern u8 password_screen_status_line_position[];
-void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_803392F4_lbl_80477C20 TAdEnterPPPPassGC__selection_positions;
-void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0);
-void render__17TAdEnterPPPPassGCFv(void *self);
 void TKeyBoardControl__sub_8000F9CC(int);
 s32 TLobby__sub_80145A94(void);
 s32 TLobby__sub_80145DB4(int);
@@ -72,10 +69,6 @@ s32 strlen(const char *);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern s32 lbl_805DF9EC;
-void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0);
-void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1);
-int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p);
-int request_transition__17TAdEnterPPPPassGCFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);

@@ -21,4 +21,12 @@ void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1);
 void render__19TWindowSubEquipKindFv(u8 *arg0);
 }
 
+// --- C functions defined in TWindowSubEquipKind.cpp ---
+extern "C" {
+u8 *TWindowSubEquipKind__ct(u8 *window_sub_equip_kind, s32 arg1, s16 arg2);
+void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1);
+void render__19TWindowSubEquipKindFv(u8 *arg0);
+}
+// --- end of C functions
+
 #endif

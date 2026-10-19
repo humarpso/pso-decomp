@@ -7,4 +7,10 @@ extern "C" {
 void *TObjEnvSound__create(void *rader_map_core);
 }
 
+// --- C functions defined in text_80190940.cpp ---
+extern "C" {
+void *TObjEnvSound__create(void *rader_map_core);
+}
+// --- end of C functions
+
 #endif

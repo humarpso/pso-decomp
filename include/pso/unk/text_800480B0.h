@@ -7,4 +7,10 @@ extern "C" {
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 }
 
+// --- C functions defined in text_800480B0.cpp ---
+extern "C" {
+u8 *fn_800480B0(u8 *enemy_custom, s32 arg1, s32 arg2);
+}
+// --- end of C functions
+
 #endif

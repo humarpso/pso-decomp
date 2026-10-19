@@ -7,4 +7,10 @@ extern "C" {
 int fn_80275D90(void *p);
 }
 
+// --- C functions defined in TWindowSubCustomSelect_80275D84.cpp ---
+extern "C" {
+int fn_80275D90(void *p);
+}
+// --- end of C functions
+
 #endif

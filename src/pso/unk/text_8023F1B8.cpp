@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801A5AEC.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/unk/text_8023F1B8.h"
 #include "pso/system/main_loop.h"
@@ -37,7 +38,6 @@ s32 is_area_transfer_pending(void);
 void apply_phase_keyboard_mode(void);
 void run_load_callback_table(void *, s32);
 void init_menu_scene_lights(void *, s32);
-void reset_controller_input_state(void);
 void set_copy_clear_color_argb(s32, s32, s32);
 void load_floor_sound_bank(s32);
 void *__nw__7TObjectFUl(u32);

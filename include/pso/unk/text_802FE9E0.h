@@ -8,4 +8,11 @@ void fn_802FE9E0(void);
 void fn_802FEA0C(void);
 }
 
+// --- C functions defined in text_802FE9E0.cpp ---
+extern "C" {
+void fn_802FE9E0(void);
+void fn_802FEA0C(void);
+}
+// --- end of C functions
+
 #endif

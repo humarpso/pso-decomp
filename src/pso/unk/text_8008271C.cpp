@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8008271C.h"
 struct Vec_8008271C { f32 x; f32 y; f32 z; };
 
 extern "C" {

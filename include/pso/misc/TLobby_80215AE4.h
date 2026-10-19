@@ -7,4 +7,10 @@ extern "C" {
 void update_all__6TLobbyFi(s32 arg0);
 }
 
+// --- C functions defined in TLobby_80215AE4.cpp ---
+extern "C" {
+void update_all__6TLobbyFi(s32 arg0);
+}
+// --- end of C functions
+
 #endif

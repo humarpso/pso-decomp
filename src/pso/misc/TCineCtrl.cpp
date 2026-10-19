@@ -185,6 +185,3 @@ TCineCtrl::TCineCtrl() : TObject((TObject *)tl_fade) {
     *(u32 *)((s8 *)this + 0x28) = 0;
     TCineCtrl__instance = this;
 }
-extern "C" {
-
-}

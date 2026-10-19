@@ -7,4 +7,10 @@ extern "C" {
 char *fn_80228E98(s32 v, char *out);
 }
 
+// --- C functions defined in text_80228E98.cpp ---
+extern "C" {
+char *fn_80228E98(s32 v, char *out);
+}
+// --- end of C functions
+
 #endif

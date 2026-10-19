@@ -7,4 +7,10 @@ extern "C" {
 s32 create_named_entry__6TLobbyFiiUiiPv(s32 name, s32 arg1, u32 arg2, s32 src, void * *arg4);
 }
 
+// --- C functions defined in TLobby_800FA2A0.cpp ---
+extern "C" {
+s32 create_named_entry__6TLobbyFiiUiiPv(s32 name, s32 arg1, u32 arg2, s32 src, void * *arg4);
+}
+// --- end of C functions
+
 #endif

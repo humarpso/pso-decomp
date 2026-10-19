@@ -98,4 +98,23 @@ f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
 void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
 }
 
+// --- C functions defined in TObjEneBm3Fly.cpp ---
+extern "C" {
+u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
+void TObjEneBm3Fly__play_orbit_flight_sound(s32 arg0);
+void TObjEneBm3Fly__sub_800B02C8(TObjEneBm3Fly *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800B0F70(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__vt102(void *arg0, f32 farg0);
+void TObjEneBm3Fly__vt103(void);
+void TObjEneBm3Fly__vt104(TObjEneBm3Fly *arg0);
+void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 msg);
+void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
+void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
+f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
+void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
+}
+// --- end of C functions
+
 #endif

@@ -26,4 +26,12 @@ void gcrna_error_shutdown(void);
 void gcrna_report_error(const char *message);
 }
 
+// --- C functions defined in GcrnaError.cpp ---
+extern "C" {
+void gcrna_error_initialize(void);
+void gcrna_error_shutdown(void);
+void gcrna_report_error(const char *message);
+}
+// --- end of C functions
+
 #endif

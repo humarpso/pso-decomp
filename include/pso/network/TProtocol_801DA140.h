@@ -7,4 +7,10 @@ extern "C" {
 void fn_801DA140(TProtocol *self, s8 flags, const char *filename);
 }
 
+// --- C functions defined in TProtocol_801DA140.cpp ---
+extern "C" {
+void fn_801DA140(TProtocol *self, s8 flags, const char *filename);
+}
+// --- end of C functions
+
 #endif

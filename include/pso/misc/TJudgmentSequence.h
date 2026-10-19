@@ -32,4 +32,16 @@ void TJudgmentSequence__sub_80216058(void);
 u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1);
 }
 
+// --- C functions defined in TJudgmentSequence.cpp ---
+extern "C" {
+u8 *TJudgmentSequence__ct(u8 *judgment_sequence, s32 arg1, s32 arg2);
+void TJudgmentSequence__sub_80215BA0(void *shop_window_base);
+void TJudgmentSequence__sub_80215BCC(void *shop_window_base);
+void TJudgmentSequence__sub_80215BF8(void *shop_window_base);
+void TJudgmentSequence__sub_80216030(void);
+void TJudgmentSequence__sub_80216058(void);
+u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

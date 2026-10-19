@@ -26,4 +26,10 @@ extern "C" {
 void *__dt__19TAdChrSelPlyPlateGCFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TAdChrSelPlyPlateGC.cpp ---
+extern "C" {
+void *__dt__19TAdChrSelPlyPlateGCFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

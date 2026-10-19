@@ -15,4 +15,11 @@ void *TOWreckAncient06__create(void *arg0);
 void *__dt__16TOWreckAncient06Fv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TOWreckAncient06.cpp ---
+extern "C" {
+void *TOWreckAncient06__create(void *arg0);
+void *__dt__16TOWreckAncient06Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

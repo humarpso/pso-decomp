@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/ui/TAdEnterBaseGC_8032B38C.h"
+#include "pso/ui/TAdEnterPasswordGC.h"
 #include "pso/TLevelSelect.h"
 #include "pso/TMainTask.h"
 #include "pso/TObject.h"
@@ -71,27 +73,20 @@ extern s32 password_entry_dispatch_state;
 #pragma explicit_zero_data on
 RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer = { 0 };
 #pragma explicit_zero_data off
-void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TWindow__close(u8 *arg0);
 extern u8 *password_entry_keyboard_control;
 extern const f32 lbl_805DF780;
-void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
-void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0);
 void strncpy(s32, s32, s32);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer;
-void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__10TAdTitleGCFP7TObjectl(int, void *, int);
-void *TAdEnterBaseGC__ct(void *arg0);
 extern s32 __vt__18TAdEnterPasswordGC[];
 extern s32 TAdEnterPasswordGC__class_name;
-u8 *TAdEnterPasswordGC__ct(u8 *arg0);
-void render__18TAdEnterPasswordGCFv(void *self);
 void clear_password__18TAdEnterPasswordGCFPv(T_8032BBF0 *self);
 void update_children__18TAdEnterPasswordGCFPv(O_8032BC1C *arg0);
 void mem_free(void *p);
@@ -100,16 +95,11 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 s32 play_sound_effect(int, int, int, int);
-void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, s32);
 s32 strlen(s32);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self);
-void *__dt__18TAdEnterPasswordGCFv(void *arg0, s16 arg1);
-s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(s32 arg0);
-int request_transition__18TAdEnterPasswordGCFPv(void* p);
-int set_multi_chg_game_mode_0x14__18TAdEnterPasswordGCFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);

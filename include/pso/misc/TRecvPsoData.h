@@ -7,4 +7,10 @@ extern "C" {
 void bswap__12TRecvPsoDataFv(void);
 }
 
+// --- C functions defined in TRecvPsoData.cpp ---
+extern "C" {
+void bswap__12TRecvPsoDataFv(void);
+}
+// --- end of C functions
+
 #endif

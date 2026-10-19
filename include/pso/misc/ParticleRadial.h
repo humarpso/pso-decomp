@@ -15,4 +15,11 @@ extern "C" {
 void destroy_keyboard_objects(void *_w0);
 }
 
+// --- C functions defined in ParticleRadial.cpp ---
+extern "C" {
+u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
+void destroy_keyboard_objects(void *_w0);
+}
+// --- end of C functions
+
 #endif

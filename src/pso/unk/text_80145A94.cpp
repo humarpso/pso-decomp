@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014618C.h"
 #include "pso/unk/text_803F4D84.h"
 #include "pso/network/NetworkInfoLoader.h"
 #include "pso/network/NetworkInfoRequests.h"
@@ -15,7 +16,6 @@ struct Ids_80145A94 { s32 v[2]; };
 struct Buf_80145A94 { s32 hdr; s8 name[0xA0]; s8 x[0x270 - 0xA4]; };
 
 extern "C" {
-s32 TLobby__sub_8014618C();
 s32 TAdPlayerLoadGC__sub_803F2F1C();
 s32 TAdPlayerLoadGC__sub_803F31D8();
 s32 TLobby__sub_803F3BF8(int, s32, u32);

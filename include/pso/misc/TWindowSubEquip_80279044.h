@@ -7,4 +7,10 @@ extern "C" {
 void TWindowSubEquip__sub_80279044(void *p);
 }
 
+// --- C functions defined in TWindowSubEquip_80279044.cpp ---
+extern "C" {
+void TWindowSubEquip__sub_80279044(void *p);
+}
+// --- end of C functions
+
 #endif

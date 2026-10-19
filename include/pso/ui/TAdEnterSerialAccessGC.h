@@ -63,4 +63,22 @@ void create_draw_callback__22TAdEnterSerialAccessGCFv(void);
 void init__22TAdEnterSerialAccessGCFv(void);
 }
 
+// --- C functions defined in TAdEnterSerialAccessGC.cpp ---
+extern "C" {
+u8 *TAdEnterSerialAccessGC__ct(TAdEnterSerialAccessGC *ad_enter_serial_access_gc);
+u8 *TAdEnterSerialAccessGC__sub_80321738(void);
+s32 *TAdEnterSerialAccessGC__sub_803217B8(void);
+s32 *TAdEnterSerialAccessGC__sub_80321874(void);
+void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
+void TAdEnterSerialAccessGC__sub_8032195C(s32 arg0);
+void TAdEnterSerialAccessGC__sub_80321B28(u8 *ad_enter_serial_access_gc, int arg1);
+void TAdEnterSerialAccessGC__sub_80321F18(void *p);
+void TAdEnterSerialAccessGC__sub_80321F3C(void *p);
+void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
+void *__dt__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC *arg0, s16 arg1);
+void create_draw_callback__22TAdEnterSerialAccessGCFv(void);
+void init__22TAdEnterSerialAccessGCFv(void);
+}
+// --- end of C functions
+
 #endif

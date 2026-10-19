@@ -7,4 +7,10 @@ extern "C" {
 void *TObjNpcKenkyu2__create(void *arg0);
 }
 
+// --- C functions defined in text_802FEA38.cpp ---
+extern "C" {
+void *TObjNpcKenkyu2__create(void *arg0);
+}
+// --- end of C functions
+
 #endif

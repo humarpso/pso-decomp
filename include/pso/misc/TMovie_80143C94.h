@@ -7,4 +7,10 @@ extern "C" {
 void TMovie__sub_80143C94(int a0, int a1, int a2);
 }
 
+// --- C functions defined in TMovie_80143C94.cpp ---
+extern "C" {
+void TMovie__sub_80143C94(int a0, int a1, int a2);
+}
+// --- end of C functions
+
 #endif

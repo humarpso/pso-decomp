@@ -8,4 +8,10 @@ void fn_803E1FC8(u32 c);
 }
 void set_scene_fog_distances(f32 farg0, f32 farg1);
 
+// --- C functions defined in text_803E1FC8.cpp ---
+extern "C" {
+void fn_803E1FC8(u32 c);
+}
+// --- end of C functions
+
 #endif

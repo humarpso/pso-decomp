@@ -32,4 +32,10 @@ u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
 void *__dt__11TLoadingCurFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TLoadingCur.cpp ---
+extern "C" {
+u8 *TLoadingCur__ct(u8 *object, s32 arg1);
+}
+// --- end of C functions
+
 #endif

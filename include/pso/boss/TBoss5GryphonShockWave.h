@@ -33,4 +33,10 @@ void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TBoss5GryphonShockWave.cpp ---
+extern "C" {
+void TBoss8Dragon__sub_80066A4C(void);
+}
+// --- end of C functions
+
 #endif

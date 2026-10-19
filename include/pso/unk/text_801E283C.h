@@ -5,4 +5,10 @@
 
 u8 calc_day_in_cycle(s32 *date);
 
+// --- C functions defined in text_801E283C.cpp ---
+extern "C" {
+u8 fn_801E2AC8(u16 year, u8 month, u8 day);
+}
+// --- end of C functions
+
 #endif

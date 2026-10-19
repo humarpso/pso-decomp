@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowShortCut.h"
+#include "pso/misc/TWindowSubShortCut.h"
 class TChCrTagPlBack;
 struct TWindowShortCut;
 #include "pso/misc/TWindowChat.h"
@@ -46,9 +48,7 @@ void *__nw__7TObjectFUl(u32);
 void TWindow__close(u8 *arg0);
 u8 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
-u8 *TWindowShortCut__ct(TWindowShortCut *arg0, s32 arg1, s32 arg2, s32 arg3);
 void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
-void *__dt__18TWindowSubShortCutFv(TWindowSubShortCut *arg0, s16 arg1);
 u32 *get_chat_shortcut();
 s32 align_menu_entry_positions(s32);
 s32 get_window_layout_position(s32 a0 = 0);

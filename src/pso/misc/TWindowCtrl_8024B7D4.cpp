@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024B7D4.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowSimpleStatus.h"

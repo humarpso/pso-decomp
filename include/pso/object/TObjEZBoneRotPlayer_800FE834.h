@@ -7,4 +7,10 @@ extern "C" {
 u8 *__ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *_w3);
 }
 
+// --- C functions defined in TObjEZBoneRotPlayer_800FE834.cpp ---
+extern "C" {
+u8 *__ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *_w3);
+}
+// --- end of C functions
+
 #endif

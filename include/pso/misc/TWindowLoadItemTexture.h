@@ -32,4 +32,13 @@ void fn_80262C2C(void *p);
 void render__22TWindowLoadItemTextureFv(TWindowLoadItemTexture *arg0);
 }
 
+// --- C functions defined in TWindowLoadItemTexture.cpp ---
+extern "C" {
+void *TWindowLoadItemTexture__ct(TWindowLoadItemTexture *window_load_item_texture, void *arg1, void *arg2, void *arg3);
+void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);
+void fn_80262C2C(void *p);
+void render__22TWindowLoadItemTextureFv(TWindowLoadItemTexture *arg0);
+}
+// --- end of C functions
+
 #endif

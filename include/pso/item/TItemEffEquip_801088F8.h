@@ -7,4 +7,10 @@ extern "C" {
 void TItemEffEquip__sub_801088F8(u32 arg0);
 }
 
+// --- C functions defined in TItemEffEquip_801088F8.cpp ---
+extern "C" {
+void TItemEffEquip__sub_801088F8(u32 arg0);
+}
+// --- end of C functions
+
 #endif

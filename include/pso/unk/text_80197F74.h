@@ -7,4 +7,10 @@ extern "C" {
 void TLobby__sub_80197F74(void);
 }
 
+// --- C functions defined in text_80197F74.cpp ---
+extern "C" {
+void TLobby__sub_80197F74(void);
+}
+// --- end of C functions
+
 #endif

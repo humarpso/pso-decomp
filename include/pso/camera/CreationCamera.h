@@ -53,4 +53,12 @@ s32 *TLobby__sub_80291D4C(void);
 void *construct_creation_camera(void *a0);
 u32 get_character_creation_selected_entry_id(void);
 
+// --- C functions defined in CreationCamera.cpp ---
+extern "C" {
+void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
+void *TCameraCtrl__vt8(void);
+s32 *TLobby__sub_80291D4C(void);
+}
+// --- end of C functions
+
 #endif

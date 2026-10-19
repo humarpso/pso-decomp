@@ -51,8 +51,6 @@ extern const s32 lbl_805E0D30;
 s32 strlen(const char *);
 extern char number_format_digit_buffer[];
 extern const char lbl_805E0D28[2];
-s32 decode_adx_stereo_downmix(s8 *src, s32 nblk, s16 *outl, s16 *dlyl, s16 *outr, s16 *dlyr, s16 k0, s16 k1);
-s32 decode_adx_stereo(s8 *src, s32 nblk, s16 *outl, s16 *dlyl, s16 *outr, s16 *dlyr, s16 k0, s16 k1);
 extern const s32 adx_signed_nibbles[16];
 s32 set_callback_params__6TLobbyFll();
 

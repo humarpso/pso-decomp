@@ -7,4 +7,10 @@ extern "C" {
 u8 fn_800FD7C0(void *arg0);
 }
 
+// --- C functions defined in TLobby_800FD78C.cpp ---
+extern "C" {
+u8 fn_800FD7C0(void *arg0);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 void TBGMulti__ct(void);
 }
 
+// --- C functions defined in TLobby_8036DBC4.cpp ---
+extern "C" {
+void TBGMulti__ct(void);
+}
+// --- end of C functions
+
 #endif

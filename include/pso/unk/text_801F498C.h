@@ -7,4 +7,10 @@ extern "C" {
 void clear_all_story_flags(void);
 }
 
+// --- C functions defined in text_801F498C.cpp ---
+extern "C" {
+void clear_all_story_flags(void);
+}
+// --- end of C functions
+
 #endif

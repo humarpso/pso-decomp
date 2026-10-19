@@ -25,4 +25,12 @@ void TObjBoss8PillerCtrl__sub_8035C034(void *_w0, void *_w1);
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjBoss8PillerCtrl.cpp ---
+extern "C" {
+u8 *TObjBoss8PillerCtrl__ct(u8 *boss8_piller_ctrl, s32 arg1, s32 arg2, s16 arg3);
+void TObjBoss8PillerCtrl__sub_8035C034(void *_w0, void *_w1);
+void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

@@ -61,4 +61,21 @@ void sj_memory_buffer_shutdown(void);
 void sj_memory_buffer_unget_chunk(SjMemoryBuffer *arg0, s32 arg1, SjChunk *arg2);
 }
 
+// --- C functions defined in SjMemoryBuffer.cpp ---
+extern "C" {
+SjMemoryBuffer *sj_memory_buffer_create(void *arg0, s32 arg1);
+void sj_memory_buffer_destroy(SjMemoryBuffer *sj_memory_buffer);
+void sj_memory_buffer_error_halt(void *, s32);
+s32 sj_memory_buffer_get_available(SjMemoryBuffer *sj_memory_buffer, s32 arg1);
+void sj_memory_buffer_get_chunk(SjMemoryBuffer *sj_memory_buffer, s32 arg1, s32 arg2, SjChunk *sj_chunk);
+const u8 *sj_memory_buffer_get_uuid(SjMemoryBuffer *sj_memory_buffer);
+void sj_memory_buffer_init(void);
+s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer *sj_memory_buffer, s32 arg1, s32 arg2, s32 *arg3);
+void sj_memory_buffer_put_chunk(SjMemoryBuffer *sj_memory_buffer, u32 arg1, SjChunk *sj_chunk);
+void sj_memory_buffer_reset(SjMemoryBuffer *sj_memory_buffer);
+void sj_memory_buffer_shutdown(void);
+void sj_memory_buffer_unget_chunk(SjMemoryBuffer *sj_memory_buffer, s32 arg1, SjChunk *sj_chunk);
+}
+// --- end of C functions
+
 #endif

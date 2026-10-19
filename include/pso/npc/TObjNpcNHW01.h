@@ -18,4 +18,12 @@ void *TObjNpcNurseBase__create(void *arg0);
 void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjNpcNHW01.cpp ---
+extern "C" {
+u8 *TObjNpcNHW01__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *TObjNpcNurseBase__create(void *arg0);
+void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

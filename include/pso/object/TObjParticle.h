@@ -19,4 +19,11 @@ u8 *TObjParticle__create(u8 *arg0);
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TObjParticle.cpp ---
+extern "C" {
+u8 *TObjParticle__create(u8 *arg0);
+void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

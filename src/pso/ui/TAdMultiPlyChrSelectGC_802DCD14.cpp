@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DCD14.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -17,11 +18,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 extern s8 controller_physical_port_bank[];
-void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
 s32 create_effects__14TAdGameStartGCFPv(s32);
 s32 is_multiplayer_character_slot_selected(s32);

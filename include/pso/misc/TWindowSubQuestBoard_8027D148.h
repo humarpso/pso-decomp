@@ -7,4 +7,10 @@ extern "C" {
 int TWindowSubQuestBoard__sub_8027D1DC(void *p);
 }
 
+// --- C functions defined in TWindowSubQuestBoard_8027D148.cpp ---
+extern "C" {
+int TWindowSubQuestBoard__sub_8027D1DC(void *p);
+}
+// --- end of C functions
+
 #endif

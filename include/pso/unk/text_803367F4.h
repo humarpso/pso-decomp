@@ -7,4 +7,10 @@ extern "C" {
 void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0);
 }
 
+// --- C functions defined in text_803367F4.cpp ---
+extern "C" {
+void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0);
+}
+// --- end of C functions
+
 #endif

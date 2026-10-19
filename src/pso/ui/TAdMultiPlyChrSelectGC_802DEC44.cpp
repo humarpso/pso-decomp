@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DEC44.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct RecoveredGlobal_802DEDA8_TAdMultiPlyChrSelectGC__data_804727B0 {
@@ -29,7 +30,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802E006C(int, int, int);
 extern RecoveredGlobal_802DEDA8_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__character_slot_positions;
 extern RecoveredGlobal_802DEDA8_lbl_804727D0 multi_play_chr_select_slot_positions;
 extern s8 controller_physical_port_bank[];
-void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
 

@@ -7,4 +7,10 @@ extern "C" {
 s32 weapon_has_extra_attack(TItemWeapon *weapon);
 }
 
+// --- C functions defined in WeaponSpecialSelection.cpp ---
+extern "C" {
+s32 weapon_has_extra_attack(TItemWeapon *weapon);
+}
+// --- end of C functions
+
 #endif

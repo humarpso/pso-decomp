@@ -8,4 +8,10 @@ extern "C" {
 void fn_803DE804(u8 *start, s32 size);
 }
 
+// --- C functions defined in text_803DE7E0.cpp ---
+extern "C" {
+void fn_803DE804(u8 *start, s32 size);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 s32 fn_802A1020(void);
 }
 
+// --- C functions defined in text_802A1020.cpp ---
+extern "C" {
+s32 fn_802A1020(void);
+}
+// --- end of C functions
+
 #endif

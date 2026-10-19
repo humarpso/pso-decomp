@@ -8,4 +8,11 @@ void fn_8010B7D8(u8 *arg0, s32 arg1);
 void fn_8010B7E8(u8 *arg0, s32 arg1);
 }
 
+// --- C functions defined in TItemEquipBase_8010B76C.cpp ---
+extern "C" {
+void fn_8010B7D8(u8 *arg0, s32 arg1);
+void fn_8010B7E8(u8 *arg0, s32 arg1);
+}
+// --- end of C functions
+
 #endif

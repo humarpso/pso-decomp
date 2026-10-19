@@ -7,4 +7,10 @@ extern "C" {
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void *a0, int a1);
 }
 
+// --- C functions defined in TObjPlayer_801D4CB8.cpp ---
+extern "C" {
+void set_mode_and_refresh_object__10TObjPlayerFPvi(void *a0, int a1);
+}
+// --- end of C functions
+
 #endif

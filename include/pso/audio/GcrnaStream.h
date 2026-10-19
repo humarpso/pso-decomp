@@ -30,4 +30,10 @@ extern "C" {
 void GCRNA_SetTransSw(GcrnaStream *stream, s32 enabled);
 }
 
+// --- C functions defined in GcrnaStream.cpp ---
+extern "C" {
+void GCRNA_SetTransSw(GcrnaStream *stream, s32 enabled);
+}
+// --- end of C functions
+
 #endif

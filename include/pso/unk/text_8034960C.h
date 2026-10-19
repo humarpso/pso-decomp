@@ -9,4 +9,10 @@ extern "C" {
 void fn_80349844(void);
 }
 
+// --- C functions defined in text_8034960C.cpp ---
+extern "C" {
+void fn_80349844(void);
+}
+// --- end of C functions
+
 #endif

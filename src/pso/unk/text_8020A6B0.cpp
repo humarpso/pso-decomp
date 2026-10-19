@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020A6B0.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TLobby_80207644.h"
 #include "pso/unk/text_8020A768.h"

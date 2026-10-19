@@ -15,4 +15,11 @@ void *TORockCaveSL02__create(void *arg0);
 void *__dt__14TORockCaveSL02Fv(void *arg0, s16 arg1);
 }
 
+// --- C functions defined in TORockCaveSL02.cpp ---
+extern "C" {
+void *TORockCaveSL02__create(void *arg0);
+void *__dt__14TORockCaveSL02Fv(void *arg0, s16 arg1);
+}
+// --- end of C functions
+
 #endif

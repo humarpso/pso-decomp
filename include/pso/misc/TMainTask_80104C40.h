@@ -7,4 +7,10 @@ extern "C" {
 void cleanup_game_objects__9TMainTaskFv(void);
 }
 
+// --- C functions defined in TMainTask_80104C40.cpp ---
+extern "C" {
+void cleanup_game_objects__9TMainTaskFv(void);
+}
+// --- end of C functions
+
 #endif

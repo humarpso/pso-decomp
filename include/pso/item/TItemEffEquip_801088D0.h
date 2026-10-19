@@ -7,4 +7,10 @@ extern "C" {
 void retire_equipment_effect(TObject *effect);
 }
 
+// --- C functions defined in TItemEffEquip_801088D0.cpp ---
+extern "C" {
+void retire_equipment_effect(TObject *effect);
+}
+// --- end of C functions
+
 #endif

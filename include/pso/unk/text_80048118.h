@@ -7,4 +7,10 @@ extern "C" {
 s32 TObjVoloptPillar__sub_80048118(s32 i);
 }
 
+// --- C functions defined in text_80048118.cpp ---
+extern "C" {
+s32 TObjVoloptPillar__sub_80048118(s32 i);
+}
+// --- end of C functions
+
 #endif

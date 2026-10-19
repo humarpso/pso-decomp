@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DBCC4.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DE094.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC_802E0064.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
@@ -41,11 +43,8 @@ extern s32 lbl_80472850[];
 extern s32 lbl_80472858[];
 extern s32 controller_physical_port_bank[];
 extern s32 tl_fade;
-void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0);
-void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 destroy_windows__14TAdGameStartGCFPv(s32);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
-s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0);
 s32 get_selected_menu_value(s32);
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 void clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32 i);

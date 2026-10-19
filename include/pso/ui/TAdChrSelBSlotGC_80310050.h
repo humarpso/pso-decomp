@@ -8,4 +8,10 @@ extern "C" {
 void *TAdChrSelBSlotGC__ct(TAdChrSelBSlotGC *arg0);
 }
 
+// --- C functions defined in TAdChrSelBSlotGC_80310050.cpp ---
+extern "C" {
+void *TAdChrSelBSlotGC__ct(TAdChrSelBSlotGC *ad_chr_sel_b_slot_gc);
+}
+// --- end of C functions
+
 #endif

@@ -7,4 +7,10 @@ extern "C" {
 s32 pick_random_slot__6TLobbyFPv(s16 *arg0);
 }
 
+// --- C functions defined in TLobby_80209BD8.cpp ---
+extern "C" {
+s32 pick_random_slot__6TLobbyFPv(s16 *arg0);
+}
+// --- end of C functions
+
 #endif

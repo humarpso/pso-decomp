@@ -19,4 +19,12 @@ extern "C" {
 void update_and_reset__6TLobbyFi(int a0);
 }
 
+// --- C functions defined in TLobby_801F3A24.cpp ---
+extern "C" {
+void rebuild_all__6TLobbyFi(int a0);
+void refresh_quest_list__6TLobbyFi(s32 arg0);
+void update_and_reset__6TLobbyFi(int a0);
+}
+// --- end of C functions
+
 #endif

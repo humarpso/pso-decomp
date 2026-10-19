@@ -7,4 +7,10 @@ extern "C" {
 void *TObjBgmColCtrl__ct(void *bgm_col_ctrl);
 }
 
+// --- C functions defined in TObjBgmColCtrl_8017E498.cpp ---
+extern "C" {
+void *TObjBgmColCtrl__ct(void *bgm_col_ctrl);
+}
+// --- end of C functions
+
 #endif
