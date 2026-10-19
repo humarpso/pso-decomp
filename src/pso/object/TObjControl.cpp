@@ -1150,14 +1150,14 @@ s32 TObjEnemy::bind_enemy_combat_stats(u8 *arg1, u8 *arg2, u8 *arg3) {
 
     if (arg1 != NULL) {
         this->m_2b0 = arg1;
-        temp_r6 = (u8 *)(this->m_2b0);
+        temp_r6 = this->m_2b0;
         this->hpmax = (s16) (*(s16 *)((s8 *)temp_r6 + 6) + *(s32 *)((s8 *)temp_r6 + 0x18));
         this->hp = (s16) this->hpmax;
         if (obj_testFlag_2E4__13TUnk_804806E8FUl(this, 4U) != 0) {
             this->m_2ba = 0;
             this->m_32e = 0;
         } else {
-            temp_r4 = (u8 *)(this->m_2b0);
+            temp_r4 = this->m_2b0;
             this->m_2ba = (s16) (*(s16 *)((s8 *)temp_r4 + 2) + *(s32 *)((s8 *)temp_r4 + 0x18));
             this->m_32e = (s16) this->m_2ba;
         }
@@ -1183,21 +1183,21 @@ block_10:
         return 0;
     }
 block_14:
-    temp_r0 = *(s16 *)((s8 *)(this->m_2b0) + 0);
+    temp_r0 = *(s16 *)(this->m_2b0 + 0);
     this->m_2c8 = temp_r0;
     this->m_2c0 = temp_r0;
     attack_params_atp_max = get_attack_params_atp_max(*(u8 **)((s8 *)((u8 *)this) + 0x318));
     temp_r0_2 = attack_params_atp_max - get_attack_params_atp_min(*(u8 **)((s8 *)((u8 *)this) + 0x318));
     *(s16 *)((s8 *)((u8 *)this) + 0x2CA) = temp_r0_2;
     *(s16 *)((s8 *)((u8 *)this) + 0x2C2) = temp_r0_2;
-    temp_r0_3 = *(s16 *)((s8 *)(this->m_2b0) + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0);
+    temp_r0_3 = *(s16 *)(this->m_2b0 + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0);
     this->m_2cc = temp_r0_3;
     this->m_2c4 = temp_r0_3;
-    temp_r0_4 = *(s16 *)((s8 *)(this->m_2b0) + 8) + *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0x1C);
+    temp_r0_4 = *(s16 *)(this->m_2b0 + 8) + *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0x1C);
     *(s16 *)((s8 *)((u8 *)this) + 0x2CE) = temp_r0_4;
     *(s16 *)((s8 *)((u8 *)this) + 0x2C6) = temp_r0_4;
-    this->m_2d0 = (s16) (*(s16 *)((s8 *)(this->m_2b0) + 0xA) + TObjPlayer__sub_800194E8(*(u8 **)((s8 *)((u8 *)this) + 0x318)));
-    *(s16 *)((s8 *)((u8 *)this) + 0x2D2) = (s16) *(s16 *)((s8 *)(this->m_2b0) + 0xC);
+    this->m_2d0 = (s16) (*(s16 *)(this->m_2b0 + 0xA) + TObjPlayer__sub_800194E8(*(u8 **)((s8 *)((u8 *)this) + 0x318)));
+    *(s16 *)((s8 *)((u8 *)this) + 0x2D2) = (s16) *(s16 *)(this->m_2b0 + 0xC);
     this->m_2f2 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 2);
     this->m_2f4 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 6);
     *(s16 *)((s8 *)((u8 *)this) + 0x2F6) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 4);

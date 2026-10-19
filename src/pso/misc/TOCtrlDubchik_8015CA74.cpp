@@ -376,7 +376,7 @@ u8 *TOCtrlDubchik__ct(TOCtrlDubchik *ctrl_dubchik, s32 arg1, s32 arg2) {
     ctrl_dubchik->hp = 0x12C;
     ctrl_dubchik->hpmax = 0x12C;
     *(f32 *)((s8 *)ctrl_dubchik + 0x374) = (f32) lbl_805DB3C8;
-    ctrl_dubchik->m_378 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(ctrl_dubchik->model) + 4)) + 0x14);
+    ctrl_dubchik->m_378 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)ctrl_dubchik->model + 4)) + 0x14);
     ctrl_dubchik->m_37c = (f32) lbl_805DB3BC;
     ctrl_dubchik->m_380 = 0;
     *(f32 *)((s8 *)ctrl_dubchik + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;

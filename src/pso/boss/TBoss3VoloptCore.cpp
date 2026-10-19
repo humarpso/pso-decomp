@@ -1320,7 +1320,7 @@ void TUnk_80483A10::sub_80040894() {
     *(s32 *)((s8 *)this + 0) = lbl_805D2728;
     *(s32 *)((s8 *)this + 0xDC) = *(s32 *)((s8 *)(*(void * *)&volopt_resource_table_ptr) + 0x430);
     this->action_table = boss3_volopt_core_hit_table;
-    this->set_field_d8((s32)(this->action_table));
+    this->set_field_d8((s32)this->action_table);
     init_collision_body_parts(this, lbl_804839E4, 1);
     this->variant = 0;
     this->movementParameters = lbl_804839C8;
@@ -1337,7 +1337,7 @@ void TUnk_80483A10::sub_80040894() {
     this->load_entry_params_volopt(0x18);
     this->m_388 |= 0x10000;
     this->m_390 = 0;
-    *(s32 *)((s8 *)(this->m_a4) + 0x18) |= 0xC00;
+    *(s32 *)((s8 *)this->m_a4 + 0x18) |= 0xC00;
     this->vfunc_58();
     this->add_flags_2e4(4);
     this->m_3c8 = 0;

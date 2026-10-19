@@ -223,11 +223,11 @@ void TWindowSubSymbolChat::sub_80281CC4() {
   s32 new_var;
   temp_r31 = get_cursor_x__20TWindowSubSymbolChatFv(this->m_50);
   temp_r3 = get_cursor_pos__20TWindowSubSymbolChatFv(this->m_50);
-  add__20TWindowSubSymbolChatFlllll(this->m_28, (int) (this->m_1e), (int) ((s32) temp_r31), (int) ((s32) temp_r3), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D6498), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
+  add__20TWindowSubSymbolChatFlllll(this->m_28, this->m_1e, (int) ((s32) temp_r31), (int) ((s32) temp_r3), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D6498), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
   new_var = (s32) temp_r3;
   if (((s32) TWindowSubSymbolChat__help_window) != 0)
   {
-    add__20TWindowSubSymbolChatFlllll(this->m_28, (int) (this->m_1e), (int) (0x40 - temp_r31), (int) new_var, (int) ((s32) ((u8) ((*(s32 *)&TWindowSubSymbolChat__data_805D6498) == 0))), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
+    add__20TWindowSubSymbolChatFlllll(this->m_28, this->m_1e, (int) (0x40 - temp_r31), (int) new_var, (int) ((s32) ((u8) ((*(s32 *)&TWindowSubSymbolChat__data_805D6498) == 0))), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
   }
 }
 

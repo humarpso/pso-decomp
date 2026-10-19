@@ -2970,7 +2970,7 @@ void TBoss8Dragon__sub_802F5BA0(TBoss8Dragon *arg0, u32 arg1) {
         ((s32)copy_pos_to_field688__12TBoss8DragonFPv(arg0));
         break;
     case 0:
-        arg0->m_84c = (s32) (arg0->m_84c + 1);
+        arg0->m_84c = (arg0->m_84c + 1);
         if ((s32) arg0->m_84c > 0xA) {
             arg0->spawn_effect();
             arg0->m_84c = 0;

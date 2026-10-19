@@ -1219,9 +1219,9 @@ void TObjEneMorfos__sub_80332FD4(TObjEneMorfos *arg0, s32 arg1) {
             break;
         case 1:
             if ((objInBand((GameObj *)arg0, (f32)lbl_805DF880) != 0) && (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)) {
-                if (((VObj_18_76ddf3 *)((u8 *)(arg0->m_390)))->m18(arg0, TObjEneMorfos__data_805DF884) != 0) {
-                    ((VObj_18_76ddf3 *)((u8 *)(arg0->m_390)))->m20(arg0, TObjEneMorfos__data_805DF884);
-                    ((VObj_18_76ddf3 *)((u8 *)(arg0->m_390)))->m23(arg0, lbl_805DF888);
+                if (((VObj_18_76ddf3 *)(arg0->m_390))->m18(arg0, TObjEneMorfos__data_805DF884) != 0) {
+                    ((VObj_18_76ddf3 *)(arg0->m_390))->m20(arg0, TObjEneMorfos__data_805DF884);
+                    ((VObj_18_76ddf3 *)(arg0->m_390))->m23(arg0, lbl_805DF888);
                 }
             }
             if (((s32 (*)(void *))get_flag_b4__9TObjEneDDFv)(arg0) != 0) {
@@ -1231,7 +1231,7 @@ void TObjEneMorfos__sub_80332FD4(TObjEneMorfos *arg0, s32 arg1) {
             }
             break;
         case 2:
-            arg0->m_4b4 = (s32) (arg0->m_4b4 + 1);
+            arg0->m_4b4 = (arg0->m_4b4 + 1);
             if ((s32) arg0->m_4b4 >= 0x32) {
                 *(s32 *)((s8 *)arg0 + 0x4B0) = 3;
                 arg0->m_b8 = 0;
@@ -1418,7 +1418,7 @@ void TObjEneMorfos__sub_80333690(TObjEneMorfos *arg0, s32 arg1) {
         case 3:
             if (((s32 (*)(void *))get_flag_b4__9TObjEneDDFv)(arg0) != 0) {
                 arg0->m_b8 = 0;
-                arg0->m_4b4 = (s32) (arg0->m_4b4 + 1);
+                arg0->m_4b4 = (arg0->m_4b4 + 1);
                 if (((TObjEneDD_ST *)arg0)->enemy_has_live_target() != 0) {
                     if ((s32) arg0->m_4b4 >= 2) {
                         arg0->m_4bc = (s32) (TObjEneMorfos__data_80477610 * atan2_float(arg0->m_3a0, *(f32 *)((s8 *)arg0 + 0x3A8)));

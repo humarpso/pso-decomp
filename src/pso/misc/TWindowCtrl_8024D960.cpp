@@ -248,7 +248,7 @@ void TWindowCtrl::update_child_window_visibility() {
             ((TWindowLockOn *)(this->m_34))->request_close();
             return;
         }
-        window_request_show((void *)(this->m_34));
+        window_request_show((void *)this->m_34);
     }
 }
 
@@ -259,7 +259,7 @@ void TWindowCtrl::update_trade_window_visibility() {
             ((TWindowLockOn *)(this->m_30))->request_close();
             return;
         }
-        window_request_show((void *)(this->m_30));
+        window_request_show((void *)this->m_30);
     }
 }
 
