@@ -39,6 +39,7 @@ extern u8 gstream_sector_buffer[];
 extern GslArchiveEntry gsl_archive_entries[256];
 extern char gsl_archive_filename[32];
 
+#pragma readonly_strings on
 const char lbl_8043DAF8[] = "TGStream";
 const char lbl_8043DB04[] = "gsl_city.gsl";
 const char lbl_8043DB14[] = "gsl_forest01.gsl";
@@ -86,9 +87,7 @@ const char lbl_8043DE30[] = "gsl_jungle04_multi.gsl";
 const char lbl_8043DE48[] = "gsl_jungle05_multi.gsl";
 const char lbl_8043DE60[] = "gsl_seabed01_multi.gsl";
 const char lbl_8043DE78[] = "gsl_seabed02_multi.gsl";
-const char lbl_8043DE90[] = "TGStream::gsSctLoadFile Malloc Failed.";
 const char lbl_805DAA38[4] = "";
-const char lbl_805DAA3C[4] = "txt";
 char *gsl_archive_path_buffer_ptr = (char *)gsl_archive_entries;
 s32 gstream_tmp_buffer;
 u32 TItemDrop__gsl_adxf_handle;
@@ -203,7 +202,7 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
     if (st.info != NULL && st.info->size != 0) {
         buf = ((TQuestVmDownLoadServer *)(((st.info->size + 0x7FF) / 2048) << 11))->alloc();
         if (buf == 0) {
-            debug_print__6TLobbyFle(lbl_8043DE90);
+            debug_print__6TLobbyFle("TGStream::gsSctLoadFile Malloc Failed.");
         }
         ((TGStream *)((s32 *)&st))->read_sectors_sync(sectors, buf);
         prs_decompress_buffer(buf, dst);
@@ -266,7 +265,7 @@ void close_gsl_archive(void) {
     } else {
         n = strlen(gsl_archive_path_buffer_ptr);
         if (n > 0) {
-            change_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)gsl_archive_filename, (char *)lbl_805DAA3C);
+            change_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)gsl_archive_filename, (char *)"txt");
             fn_800F93B4((s32)buf, (s32)gsl_archive_entries, (void *)n);
         }
         TItemDrop__data_805D53D0 = 0;
