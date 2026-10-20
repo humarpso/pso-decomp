@@ -257,6 +257,18 @@ def _dol_symbol_names() -> set[str]:
 
 
 SPLIT_OBJ_DIR = ROOT / "build" / "GPOE8P" / "obj"
+SPLIT_CONFIG = ROOT / "build" / "GPOE8P" / "config.json"
+
+
+def _split_objects() -> list[Path]:
+    """The split objects of the current split, as dtk lists them in
+    build/GPOE8P/config.json. SPLIT_OBJ_DIR also keeps the objects of retired
+    splits, and their references would make the result depend on the history
+    of the build directory instead of on the checked-in configuration."""
+    if not SPLIT_CONFIG.exists():
+        sys.exit(f"missing {SPLIT_CONFIG.relative_to(ROOT)} — run ninja first")
+    return [ROOT / u["object"] for u in json.loads(SPLIT_CONFIG.read_text())["units"]]
+
 
 
 def missing_compiled_symbols(u: dict) -> list[str]:
@@ -809,7 +821,7 @@ def _force_active_names(linked: set[str], symbols: list[tuple[str, int, str]]) -
     ranges = _unit_ranges(linked)
     starts = [r[0] for r in ranges]
     referenced: set[str] = set()
-    for obj in SPLIT_OBJ_DIR.rglob("*.o"):
+    for obj in _split_objects():
         referenced |= elf_undefined_symbols(obj)
     want = []
     for name, addr, attrs in symbols:
