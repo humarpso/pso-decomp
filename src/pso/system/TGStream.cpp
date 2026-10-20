@@ -103,15 +103,15 @@ const char *area_gsl_filename_table[23] = {
     city_gsl_path, forest01_gsl_path, forest02_gsl_path, cave01_gsl_path, cave02_gsl_path, cave03_gsl_path, machine01_gsl_path, machine02_gsl_path, ancient01_gsl_path, ancient02_gsl_path, ancient03_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, versus01_gsl_path, versus02_gsl_path, labo_gsl_path, ruins01_gsl_path, ruins01_gsl_path, space01_gsl_path, space01_gsl_path
 };
 
-const char *lbl_8049CAE4[23] = {
+const char *ultimate_area_gsl_filename_table[23] = {
     city_gsl_path, aforest01_gsl_path, aforest02_gsl_path, acave01_gsl_path, acave02_gsl_path, acave03_gsl_path, amachine01_gsl_path, amachine02_gsl_path, aancient01_gsl_path, aancient02_gsl_path, aancient03_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, aversus01_gsl_path, aversus02_gsl_path, labo_gsl_path, aruins01_gsl_path, aruins01_gsl_path, aspace01_gsl_path, aspace01_gsl_path
 };
 
-const char *lbl_8049CB40[13] = {
+const char *ep2_area_gsl_filename_table[13] = {
     jungle01_gsl_path, jungle02_gsl_path, jungle03_gsl_path, jungle04_gsl_path, jungle05_gsl_path, seabed01_gsl_path, seabed02_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, jungle06_gsl_path, jungle07_gsl_path
 };
 
-const char *lbl_8049CB74[13] = {
+const char *ep2_multi_area_gsl_filename_table[13] = {
     jungle01_multi_gsl_path, jungle02_multi_gsl_path, jungle03_multi_gsl_path, jungle04_multi_gsl_path, jungle05_multi_gsl_path, seabed01_multi_gsl_path, seabed02_multi_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, jungle06_gsl_path, jungle07_gsl_path
 };
 
@@ -127,15 +127,15 @@ void load_area_gsl(void) {
     s32 current_floor_area_type = TOKeyMachine01::get_global_state();
     if (current_floor_area_type < 23) {
         if (TObjEneDD::check_v2_mode() != 0) {
-            open_gsl_archive((char *)lbl_8049CAE4[current_floor_area_type]);
+            open_gsl_archive((char *)ultimate_area_gsl_filename_table[current_floor_area_type]);
         } else {
             open_gsl_archive((char *)area_gsl_filename_table[current_floor_area_type]);
         }
     } else {
         if (is_split_screen() != 0) {
-            open_gsl_archive((char *)lbl_8049CB74[current_floor_area_type - 23]);
+            open_gsl_archive((char *)ep2_multi_area_gsl_filename_table[current_floor_area_type - 23]);
         } else {
-            open_gsl_archive((char *)lbl_8049CB40[current_floor_area_type - 23]);
+            open_gsl_archive((char *)ep2_area_gsl_filename_table[current_floor_area_type - 23]);
         }
     }
 }
