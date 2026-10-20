@@ -35,84 +35,84 @@ s32 strlen(char *);
 s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
 s32 TLobby__sub_803CC578(s32, s32, s32);
-extern char lbl_8043DB04[];
-extern char lbl_8043DB14[];
-extern char lbl_8043DB28[];
-extern char lbl_8043DB3C[];
-extern char lbl_8043DB4C[];
-extern char lbl_8043DB5C[];
-extern char lbl_8043DB6C[];
-extern char lbl_8043DB80[];
-extern char lbl_8043DB94[];
-extern char lbl_8043DBA8[];
-extern char lbl_8043DBBC[];
-extern char lbl_8043DBD0[];
-extern char lbl_8043DBE4[];
-extern char lbl_8043DBF8[];
-extern char lbl_8043DC08[];
-extern char lbl_8043DC18[];
-extern char lbl_8043DC28[];
-extern char lbl_8043DC3C[];
-extern char lbl_8043DC50[];
-extern char lbl_8043DC60[];
-extern char lbl_8043DC70[];
-extern char lbl_8043DC80[];
-extern char lbl_8043DC94[];
-extern char lbl_8043DCA8[];
-extern char lbl_8043DCBC[];
-extern char lbl_8043DCD0[];
-extern char lbl_8043DCE4[];
-extern char lbl_8043DCF8[];
-extern char lbl_8043DD0C[];
-extern char lbl_8043DD20[];
-extern char lbl_8043DD34[];
-extern char lbl_8043DD48[];
-extern char lbl_8043DD5C[];
-extern char lbl_8043DD70[];
-extern char lbl_8043DD84[];
-extern char lbl_8043DD98[];
-extern char lbl_8043DDAC[];
-extern char lbl_8043DDC0[];
-extern char lbl_8043DDD4[];
-extern char lbl_8043DDE8[];
-extern char lbl_8043DE00[];
-extern char lbl_8043DE18[];
-extern char lbl_8043DE30[];
-extern char lbl_8043DE48[];
-extern char lbl_8043DE60[];
-extern char lbl_8043DE78[];
-extern char lbl_805DAA38[];
-extern char lbl_8043DE90[];
 extern u8 gstream_sector_buffer[];
-extern s32 gstream_read_offset;
-extern s32 gstream_buffer_read_offset;
-extern s32 gstream_buffer_valid_size;
-extern int gstream_file_size;
 extern GslArchiveEntry gsl_archive_entries[256];
-extern u32 TItemDrop__gsl_adxf_handle;
-extern s32 TItemDrop__gsl_entry_count;
 extern char gsl_archive_filename[32];
-extern char *gsl_archive_path_buffer_ptr;
-extern s32 TItemDrop__data_805D53CC;
-extern s32 TItemDrop__data_805D53D0;
-extern const char lbl_805DAA3C[4];
-extern s32 gstream_tmp_buffer;
-extern s32 lbl_8043DAF8[];
 
-char *area_gsl_filename_table[23] = {
-    lbl_8043DB04, lbl_8043DB14, lbl_8043DB28, lbl_8043DB3C, lbl_8043DB4C, lbl_8043DB5C, lbl_8043DB6C, lbl_8043DB80, lbl_8043DB94, lbl_8043DBA8, lbl_8043DBBC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DBD0, lbl_8043DBE4, lbl_8043DBF8, lbl_8043DC08, lbl_8043DC08, lbl_8043DC18, lbl_8043DC18
+#pragma readonly_strings on
+const char TGStream__class_name_string[] = "TGStream";
+const char city_gsl_path[] = "gsl_city.gsl";
+const char forest01_gsl_path[] = "gsl_forest01.gsl";
+const char forest02_gsl_path[] = "gsl_forest02.gsl";
+const char cave01_gsl_path[] = "gsl_cave01.gsl";
+const char cave02_gsl_path[] = "gsl_cave02.gsl";
+const char cave03_gsl_path[] = "gsl_cave03.gsl";
+const char machine01_gsl_path[] = "gsl_machine01.gsl";
+const char machine02_gsl_path[] = "gsl_machine02.gsl";
+const char ancient01_gsl_path[] = "gsl_ancient01.gsl";
+const char ancient02_gsl_path[] = "gsl_ancient02.gsl";
+const char ancient03_gsl_path[] = "gsl_ancient03.gsl";
+const char versus01_gsl_path[] = "gsl_versus01.gsl";
+const char versus02_gsl_path[] = "gsl_versus02.gsl";
+const char labo_gsl_path[] = "gsl_labo.gsl";
+const char ruins01_gsl_path[] = "gsl_ruins01.gsl";
+const char space01_gsl_path[] = "gsl_space01.gsl";
+const char aforest01_gsl_path[] = "gsl_aforest01.gsl";
+const char aforest02_gsl_path[] = "gsl_aforest02.gsl";
+const char acave01_gsl_path[] = "gsl_acave01.gsl";
+const char acave02_gsl_path[] = "gsl_acave02.gsl";
+const char acave03_gsl_path[] = "gsl_acave03.gsl";
+const char amachine01_gsl_path[] = "gsl_amachine01.gsl";
+const char amachine02_gsl_path[] = "gsl_amachine02.gsl";
+const char aancient01_gsl_path[] = "gsl_aancient01.gsl";
+const char aancient02_gsl_path[] = "gsl_aancient02.gsl";
+const char aancient03_gsl_path[] = "gsl_aancient03.gsl";
+const char aversus01_gsl_path[] = "gsl_aversus01.gsl";
+const char aversus02_gsl_path[] = "gsl_aversus02.gsl";
+const char aruins01_gsl_path[] = "gsl_aruins01.gsl";
+const char aspace01_gsl_path[] = "gsl_aspace01.gsl";
+const char jungle01_gsl_path[] = "gsl_jungle01.gsl";
+const char jungle02_gsl_path[] = "gsl_jungle02.gsl";
+const char jungle03_gsl_path[] = "gsl_jungle03.gsl";
+const char jungle04_gsl_path[] = "gsl_jungle04.gsl";
+const char jungle05_gsl_path[] = "gsl_jungle05.gsl";
+const char seabed01_gsl_path[] = "gsl_seabed01.gsl";
+const char seabed02_gsl_path[] = "gsl_seabed02.gsl";
+const char jungle06_gsl_path[] = "gsl_jungle06.gsl";
+const char jungle07_gsl_path[] = "gsl_jungle07.gsl";
+const char jungle01_multi_gsl_path[] = "gsl_jungle01_multi.gsl";
+const char jungle02_multi_gsl_path[] = "gsl_jungle02_multi.gsl";
+const char jungle03_multi_gsl_path[] = "gsl_jungle03_multi.gsl";
+const char jungle04_multi_gsl_path[] = "gsl_jungle04_multi.gsl";
+const char jungle05_multi_gsl_path[] = "gsl_jungle05_multi.gsl";
+const char seabed01_multi_gsl_path[] = "gsl_seabed01_multi.gsl";
+const char seabed02_multi_gsl_path[] = "gsl_seabed02_multi.gsl";
+const char empty_gsl_path[4] = "";
+char *gsl_archive_path_buffer_ptr = (char *)gsl_archive_entries;
+s32 gstream_tmp_buffer;
+u32 TItemDrop__gsl_adxf_handle;
+s32 TItemDrop__gsl_entry_count;
+s32 TItemDrop__data_805D53CC;
+s32 TItemDrop__data_805D53D0;
+s32 gstream_read_offset;
+s32 gstream_buffer_read_offset;
+s32 gstream_buffer_valid_size;
+int gstream_file_size;
+
+const char *area_gsl_filename_table[23] = {
+    city_gsl_path, forest01_gsl_path, forest02_gsl_path, cave01_gsl_path, cave02_gsl_path, cave03_gsl_path, machine01_gsl_path, machine02_gsl_path, ancient01_gsl_path, ancient02_gsl_path, ancient03_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, versus01_gsl_path, versus02_gsl_path, labo_gsl_path, ruins01_gsl_path, ruins01_gsl_path, space01_gsl_path, space01_gsl_path
 };
 
-char *lbl_8049CAE4[23] = {
-    lbl_8043DB04, lbl_8043DC28, lbl_8043DC3C, lbl_8043DC50, lbl_8043DC60, lbl_8043DC70, lbl_8043DC80, lbl_8043DC94, lbl_8043DCA8, lbl_8043DCBC, lbl_8043DCD0, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DCE4, lbl_8043DCF8, lbl_8043DBF8, lbl_8043DD0C, lbl_8043DD0C, lbl_8043DD20, lbl_8043DD20
+const char *ultimate_area_gsl_filename_table[23] = {
+    city_gsl_path, aforest01_gsl_path, aforest02_gsl_path, acave01_gsl_path, acave02_gsl_path, acave03_gsl_path, amachine01_gsl_path, amachine02_gsl_path, aancient01_gsl_path, aancient02_gsl_path, aancient03_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, aversus01_gsl_path, aversus02_gsl_path, labo_gsl_path, aruins01_gsl_path, aruins01_gsl_path, aspace01_gsl_path, aspace01_gsl_path
 };
 
-char *lbl_8049CB40[13] = {
-    lbl_8043DD34, lbl_8043DD48, lbl_8043DD5C, lbl_8043DD70, lbl_8043DD84, lbl_8043DD98, lbl_8043DDAC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DDC0, lbl_8043DDD4
+const char *ep2_area_gsl_filename_table[13] = {
+    jungle01_gsl_path, jungle02_gsl_path, jungle03_gsl_path, jungle04_gsl_path, jungle05_gsl_path, seabed01_gsl_path, seabed02_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, jungle06_gsl_path, jungle07_gsl_path
 };
 
-char *lbl_8049CB74[13] = {
-    lbl_8043DDE8, lbl_8043DE00, lbl_8043DE18, lbl_8043DE30, lbl_8043DE48, lbl_8043DE60, lbl_8043DE78, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DDC0, lbl_8043DDD4
+const char *ep2_multi_area_gsl_filename_table[13] = {
+    jungle01_multi_gsl_path, jungle02_multi_gsl_path, jungle03_multi_gsl_path, jungle04_multi_gsl_path, jungle05_multi_gsl_path, seabed01_multi_gsl_path, seabed02_multi_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, jungle06_gsl_path, jungle07_gsl_path
 };
 
 s32 TLobby::get_resource_file_size() {
@@ -124,18 +124,18 @@ s32 TLobby::get_resource_file_size() {
 }
 
 void load_area_gsl(void) {
-    s32 n = TOKeyMachine01::get_global_state();
-    if (n < 23) {
+    s32 current_floor_area_type = TOKeyMachine01::get_global_state();
+    if (current_floor_area_type < 23) {
         if (TObjEneDD::check_v2_mode() != 0) {
-            open_gsl_archive(lbl_8049CAE4[n]);
+            open_gsl_archive((char *)ultimate_area_gsl_filename_table[current_floor_area_type]);
         } else {
-            open_gsl_archive(area_gsl_filename_table[n]);
+            open_gsl_archive((char *)area_gsl_filename_table[current_floor_area_type]);
         }
     } else {
         if (is_split_screen() != 0) {
-            open_gsl_archive(lbl_8049CB74[n - 23]);
+            open_gsl_archive((char *)ep2_multi_area_gsl_filename_table[current_floor_area_type - 23]);
         } else {
-            open_gsl_archive(lbl_8049CB40[n - 23]);
+            open_gsl_archive((char *)ep2_area_gsl_filename_table[current_floor_area_type - 23]);
         }
     }
 }
@@ -202,7 +202,7 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
     if (st.info != NULL && st.info->size != 0) {
         buf = ((TQuestVmDownLoadServer *)(((st.info->size + 0x7FF) / 2048) << 11))->alloc();
         if (buf == 0) {
-            debug_print__6TLobbyFle(lbl_8043DE90);
+            debug_print__6TLobbyFle("TGStream::gsSctLoadFile Malloc Failed.");
         }
         ((TGStream *)((s32 *)&st))->read_sectors_sync(sectors, buf);
         prs_decompress_buffer(buf, dst);
@@ -265,7 +265,7 @@ void close_gsl_archive(void) {
     } else {
         n = strlen(gsl_archive_path_buffer_ptr);
         if (n > 0) {
-            change_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)gsl_archive_filename, (char *)lbl_805DAA3C);
+            change_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)gsl_archive_filename, (char *)"txt");
             fn_800F93B4((s32)buf, (s32)gsl_archive_entries, (void *)n);
         }
         TItemDrop__data_805D53D0 = 0;
@@ -382,7 +382,7 @@ TGStreamPrefix *destroy_gstream(TGStreamPrefix *g_stream_prefix, s16 arg1) {
             ((TLobby *)(g_stream_prefix->adxf_handle))->close_adxf_handle();
         }
         if ((s32) g_stream_prefix->direct_read_mode == 0) {
-            ((TLobby *)lbl_8043DAF8)->tmp_buf_release();
+            ((TLobby *)TGStream__class_name_string)->tmp_buf_release();
         }
         if (arg1 > 0) {
             ::operator delete(g_stream_prefix);
@@ -419,7 +419,7 @@ TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *g_stream_prefix, void *fil
         while (TLobby__sub_8001EEF4() == 0) {
             TLobby::pump_frames();
         }
-        gstream_tmp_buffer = TLobby::tmp_buf_use_req((const char *)lbl_8043DAF8);
+        gstream_tmp_buffer = TLobby::tmp_buf_use_req((const char *)TGStream__class_name_string);
     }
     return g_stream_prefix;
 }
