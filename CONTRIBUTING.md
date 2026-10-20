@@ -31,10 +31,6 @@ it: `orig/` and `build/` are ignored.
 3. Open the repository in objdiff, select the unit and compare. objdiff rebuilds the unit when you save.
 4. Keep the bodies in a unit in address order.
 
-[zkit](https://github.com/zeroz41/gc-switch-tool-zkit) is optional tooling built around this project. It looks up
-functions and units, compiles a candidate with its unit's exact command and compares it, and measures progress
-by original address.
-
 ## Checking a change
 
 Build the commit your change starts from and save its report:
