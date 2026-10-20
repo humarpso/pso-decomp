@@ -2594,7 +2594,10 @@ pso/unk/text_80108F04.cpp:
 
 pso/item/TItemEffHeaven.cpp:
 	.text       start:0x80108FEC end:0x80109344
+	.rodata     start:0x8043E1F8 end:0x8043E208
 	.data       start:0x8049F088 end:0x8049F0A0
+	.sdata      start:0x805D2BB0 end:0x805D2BB8
+	.sdata2     start:0x805DAB28 end:0x805DAB38
 
 pso/player/TObjPlayer_80109344.cpp:
 	.text       start:0x80109344 end:0x801094D8
