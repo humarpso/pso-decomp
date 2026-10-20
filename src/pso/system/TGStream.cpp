@@ -40,7 +40,7 @@ extern GslArchiveEntry gsl_archive_entries[256];
 extern char gsl_archive_filename[32];
 
 #pragma readonly_strings on
-const char lbl_8043DAF8[] = "TGStream";
+const char TGStream__class_name_string[] = "TGStream";
 const char city_gsl_path[] = "gsl_city.gsl";
 const char forest01_gsl_path[] = "gsl_forest01.gsl";
 const char forest02_gsl_path[] = "gsl_forest02.gsl";
@@ -382,7 +382,7 @@ TGStreamPrefix *destroy_gstream(TGStreamPrefix *g_stream_prefix, s16 arg1) {
             ((TLobby *)(g_stream_prefix->adxf_handle))->close_adxf_handle();
         }
         if ((s32) g_stream_prefix->direct_read_mode == 0) {
-            ((TLobby *)lbl_8043DAF8)->tmp_buf_release();
+            ((TLobby *)TGStream__class_name_string)->tmp_buf_release();
         }
         if (arg1 > 0) {
             ::operator delete(g_stream_prefix);
@@ -419,7 +419,7 @@ TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *g_stream_prefix, void *fil
         while (TLobby__sub_8001EEF4() == 0) {
             TLobby::pump_frames();
         }
-        gstream_tmp_buffer = TLobby::tmp_buf_use_req((const char *)lbl_8043DAF8);
+        gstream_tmp_buffer = TLobby::tmp_buf_use_req((const char *)TGStream__class_name_string);
     }
     return g_stream_prefix;
 }
