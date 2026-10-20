@@ -9888,7 +9888,10 @@ pso/menu/TChCrEffWall.cpp:
 
 pso/misc/TChCrEffTagStr.cpp:
 	.text       start:0x8029AED0 end:0x8029B098
+	.rodata     start:0x80465330 end:0x80465340
 	.data       start:0x804DBFD0 end:0x804DBFE8
+	.sdata      start:0x805D3D18 end:0x805D3D20
+	.sdata2     start:0x805DDCB8 end:0x805DDCD0
 
 pso/misc/TChCrEffTag_8029B098.cpp:
 	.text       start:0x8029B098 end:0x8029B0F0
