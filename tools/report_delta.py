@@ -3,15 +3,26 @@
 
 Save report.json before editing, then run:
   python tools/report_delta.py build/before-report.json --check
+
+A data range that leaves coverage only fails the check when it could hold
+data. Alignment padding passes: in the original DOL its bytes are zero, no
+symbol starts inside it, and it is shorter than the alignment of the address
+it ends on (at least 8). Splitting a unit off at an aligned address leaves
+such a gap outside every unit.
 """
 from __future__ import annotations
 
 import argparse
+import bisect
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CODE_SECTIONS = {".init", ".text", ".fini"}
+DOL_MODULE = "psov3"
+DOL_PATH = ROOT / "orig/GPOE8P/files/PsoV3.dol"
+SYMBOLS_PATH = ROOT / "config/GPOE8P/psov3/symbols.txt"
 
 
 def module_name(unit: dict) -> str:
@@ -106,7 +117,63 @@ def lost_data_ranges(before: dict, after: dict, *, exact_only: bool = True,
              'size': end - start} for module, section, start, end in lost]
 
 
-def compare(before: dict, after: dict) -> dict:
+def dol_reader(path: Path = DOL_PATH):
+    """Return read(address, size) over the original DOL's sections.
+
+    Bytes inside .bss read as zero. Returns None for an address the DOL does
+    not map, and the reader itself is None when the DOL is unavailable.
+    """
+    try:
+        dol = path.read_bytes()
+    except OSError:
+        return None
+    word = lambda offset: int.from_bytes(dol[offset:offset + 4], "big")
+    segments = [(word(0x48 + 4 * i), word(0x90 + 4 * i), word(4 * i)) for i in range(18)]
+    bss = (word(0xD8), word(0xDC))
+
+    def read(address: int, size: int) -> bytes | None:
+        for start, length, offset in segments:
+            if length and start <= address and address + size <= start + length:
+                return dol[offset + address - start:offset + address - start + size]
+        if bss[0] <= address and address + size <= bss[0] + bss[1]:
+            return bytes(size)
+        return None
+    return read
+
+
+def symbol_starts(path: Path = SYMBOLS_PATH) -> dict:
+    """{section: sorted symbol addresses} from symbols.txt."""
+    starts = {}
+    try:
+        lines = path.read_text().splitlines()
+    except OSError:
+        return starts
+    for line in lines:
+        match = re.match(r"\S+ = (\.\w+):0x([0-9A-Fa-f]+);", line)
+        if match:
+            starts.setdefault(match[1], []).append(int(match[2], 16))
+    for addresses in starts.values():
+        addresses.sort()
+    return starts
+
+
+def is_alignment_padding(row: dict, read, starts: dict) -> bool:
+    if read is None or row["module"] != DOL_MODULE:
+        return False
+    start, size = int(row["address"], 16), row["size"]
+    end = start + size
+    alignment = min(end & -end, 32)
+    if alignment < 8 or size >= alignment:
+        return False
+    addresses = starts.get(row["section"], [])
+    first = bisect.bisect_left(addresses, start)
+    if first < len(addresses) and addresses[first] < end:
+        return False
+    data = read(start, size)
+    return data is not None and not any(data)
+
+
+def compare(before: dict, after: dict, read=None, starts=None) -> dict:
     old = functions_by_address(before)
     new = functions_by_address(after)
 
@@ -130,6 +197,11 @@ def compare(before: dict, after: dict) -> dict:
     failures = []
     data_regressions = lost_data_ranges(before, after)
     data_coverage_lost = lost_data_ranges(before, after, exact_only=False)
+    if data_coverage_lost:
+        read = read if read is not None else dol_reader()
+        starts = starts if starts is not None else symbol_starts()
+    padding_lost = [row for row in data_coverage_lost if is_alignment_padding(row, read, starts)]
+    data_coverage_lost = [row for row in data_coverage_lost if row not in padding_lost]
     data_coverage_gained = lost_data_ranges(after, before, exact_only=False)
     linked_data_lost = lost_data_ranges(before, after, exact_only=False, complete_only=True)
     linked_data_gained = lost_data_ranges(after, before, exact_only=False, complete_only=True)
@@ -145,10 +217,12 @@ def compare(before: dict, after: dict) -> dict:
         failures.append("Previously linked functions are no longer selected from source")
     if linked_data_lost:
         failures.append("Previously linked data ranges are no longer selected from source")
+    padding_bytes = sum(row["size"] for row in padding_lost)
     for key, values in metrics.items():
-        if key.startswith('total_') and values['delta'] != 0:
+        delta = values['delta'] + (padding_bytes if key == 'total_data' else 0)
+        if key.startswith('total_') and delta != 0:
             failures.append(f"{key} changed by {values['delta']:+d}; reconcile coverage explicitly")
-        elif values["delta"] < 0:
+        elif delta < 0:
             failures.append(f"{key} decreased by {-values['delta']}")
     structure = {}
     for label, field in (("source_bearing_units", "source_path"), ("linked_units", "complete")):
@@ -161,6 +235,7 @@ def compare(before: dict, after: dict) -> dict:
         "regressions": rows(old_exact - new_exact, old),
         "data_regressions": data_regressions,
         "data_coverage_lost": data_coverage_lost,
+        "padding_coverage_lost": padding_lost,
         "data_coverage_gained": data_coverage_gained,
         "linked_functions_lost": rows(old_linked.keys() - new_linked.keys(), old_linked),
         "linked_functions_gained": rows(new_linked.keys() - old_linked.keys(), new_linked),
@@ -208,6 +283,7 @@ def main() -> int:
         for row in delta['data_regressions']:
             print(f"  data: {row['module']} {row['section']} {row['address']} +{row['size']} bytes")
         for key, label in (('data_coverage_lost', 'lost coverage'),
+                           ('padding_coverage_lost', 'padding left coverage'),
                            ('data_coverage_gained', 'new coverage'),
                            ('linked_data_lost', 'lost linked data')):
             for row in delta[key]:
