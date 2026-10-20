@@ -35,83 +35,84 @@ s32 strlen(char *);
 s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
 s32 TLobby__sub_803CC578(s32, s32, s32);
-extern char lbl_8043DB04[];
-extern char lbl_8043DB14[];
-extern char lbl_8043DB28[];
-extern char lbl_8043DB3C[];
-extern char lbl_8043DB4C[];
-extern char lbl_8043DB5C[];
-extern char lbl_8043DB6C[];
-extern char lbl_8043DB80[];
-extern char lbl_8043DB94[];
-extern char lbl_8043DBA8[];
-extern char lbl_8043DBBC[];
-extern char lbl_8043DBD0[];
-extern char lbl_8043DBE4[];
-extern char lbl_8043DBF8[];
-extern char lbl_8043DC08[];
-extern char lbl_8043DC18[];
-extern char lbl_8043DC28[];
-extern char lbl_8043DC3C[];
-extern char lbl_8043DC50[];
-extern char lbl_8043DC60[];
-extern char lbl_8043DC70[];
-extern char lbl_8043DC80[];
-extern char lbl_8043DC94[];
-extern char lbl_8043DCA8[];
-extern char lbl_8043DCBC[];
-extern char lbl_8043DCD0[];
-extern char lbl_8043DCE4[];
-extern char lbl_8043DCF8[];
-extern char lbl_8043DD0C[];
-extern char lbl_8043DD20[];
-extern char lbl_8043DD34[];
-extern char lbl_8043DD48[];
-extern char lbl_8043DD5C[];
-extern char lbl_8043DD70[];
-extern char lbl_8043DD84[];
-extern char lbl_8043DD98[];
-extern char lbl_8043DDAC[];
-extern char lbl_8043DDC0[];
-extern char lbl_8043DDD4[];
-extern char lbl_8043DDE8[];
-extern char lbl_8043DE00[];
-extern char lbl_8043DE18[];
-extern char lbl_8043DE30[];
-extern char lbl_8043DE48[];
-extern char lbl_8043DE60[];
-extern char lbl_8043DE78[];
-extern char lbl_805DAA38[];
-extern char lbl_8043DE90[];
 extern u8 gstream_sector_buffer[];
-extern s32 gstream_read_offset;
-extern s32 gstream_buffer_read_offset;
-extern s32 gstream_buffer_valid_size;
-extern int gstream_file_size;
 extern GslArchiveEntry gsl_archive_entries[256];
-extern u32 TItemDrop__gsl_adxf_handle;
-extern s32 TItemDrop__gsl_entry_count;
 extern char gsl_archive_filename[32];
-extern char *gsl_archive_path_buffer_ptr;
-extern s32 TItemDrop__data_805D53CC;
-extern s32 TItemDrop__data_805D53D0;
-extern const char lbl_805DAA3C[4];
-extern s32 gstream_tmp_buffer;
-extern s32 lbl_8043DAF8[];
 
-char *area_gsl_filename_table[23] = {
+const char lbl_8043DAF8[] = "TGStream";
+const char lbl_8043DB04[] = "gsl_city.gsl";
+const char lbl_8043DB14[] = "gsl_forest01.gsl";
+const char lbl_8043DB28[] = "gsl_forest02.gsl";
+const char lbl_8043DB3C[] = "gsl_cave01.gsl";
+const char lbl_8043DB4C[] = "gsl_cave02.gsl";
+const char lbl_8043DB5C[] = "gsl_cave03.gsl";
+const char lbl_8043DB6C[] = "gsl_machine01.gsl";
+const char lbl_8043DB80[] = "gsl_machine02.gsl";
+const char lbl_8043DB94[] = "gsl_ancient01.gsl";
+const char lbl_8043DBA8[] = "gsl_ancient02.gsl";
+const char lbl_8043DBBC[] = "gsl_ancient03.gsl";
+const char lbl_8043DBD0[] = "gsl_versus01.gsl";
+const char lbl_8043DBE4[] = "gsl_versus02.gsl";
+const char lbl_8043DBF8[] = "gsl_labo.gsl";
+const char lbl_8043DC08[] = "gsl_ruins01.gsl";
+const char lbl_8043DC18[] = "gsl_space01.gsl";
+const char lbl_8043DC28[] = "gsl_aforest01.gsl";
+const char lbl_8043DC3C[] = "gsl_aforest02.gsl";
+const char lbl_8043DC50[] = "gsl_acave01.gsl";
+const char lbl_8043DC60[] = "gsl_acave02.gsl";
+const char lbl_8043DC70[] = "gsl_acave03.gsl";
+const char lbl_8043DC80[] = "gsl_amachine01.gsl";
+const char lbl_8043DC94[] = "gsl_amachine02.gsl";
+const char lbl_8043DCA8[] = "gsl_aancient01.gsl";
+const char lbl_8043DCBC[] = "gsl_aancient02.gsl";
+const char lbl_8043DCD0[] = "gsl_aancient03.gsl";
+const char lbl_8043DCE4[] = "gsl_aversus01.gsl";
+const char lbl_8043DCF8[] = "gsl_aversus02.gsl";
+const char lbl_8043DD0C[] = "gsl_aruins01.gsl";
+const char lbl_8043DD20[] = "gsl_aspace01.gsl";
+const char lbl_8043DD34[] = "gsl_jungle01.gsl";
+const char lbl_8043DD48[] = "gsl_jungle02.gsl";
+const char lbl_8043DD5C[] = "gsl_jungle03.gsl";
+const char lbl_8043DD70[] = "gsl_jungle04.gsl";
+const char lbl_8043DD84[] = "gsl_jungle05.gsl";
+const char lbl_8043DD98[] = "gsl_seabed01.gsl";
+const char lbl_8043DDAC[] = "gsl_seabed02.gsl";
+const char lbl_8043DDC0[] = "gsl_jungle06.gsl";
+const char lbl_8043DDD4[] = "gsl_jungle07.gsl";
+const char lbl_8043DDE8[] = "gsl_jungle01_multi.gsl";
+const char lbl_8043DE00[] = "gsl_jungle02_multi.gsl";
+const char lbl_8043DE18[] = "gsl_jungle03_multi.gsl";
+const char lbl_8043DE30[] = "gsl_jungle04_multi.gsl";
+const char lbl_8043DE48[] = "gsl_jungle05_multi.gsl";
+const char lbl_8043DE60[] = "gsl_seabed01_multi.gsl";
+const char lbl_8043DE78[] = "gsl_seabed02_multi.gsl";
+const char lbl_8043DE90[] = "TGStream::gsSctLoadFile Malloc Failed.";
+const char lbl_805DAA38[4] = "";
+const char lbl_805DAA3C[4] = "txt";
+char *gsl_archive_path_buffer_ptr = (char *)gsl_archive_entries;
+s32 gstream_tmp_buffer;
+u32 TItemDrop__gsl_adxf_handle;
+s32 TItemDrop__gsl_entry_count;
+s32 TItemDrop__data_805D53CC;
+s32 TItemDrop__data_805D53D0;
+s32 gstream_read_offset;
+s32 gstream_buffer_read_offset;
+s32 gstream_buffer_valid_size;
+int gstream_file_size;
+
+const char *area_gsl_filename_table[23] = {
     lbl_8043DB04, lbl_8043DB14, lbl_8043DB28, lbl_8043DB3C, lbl_8043DB4C, lbl_8043DB5C, lbl_8043DB6C, lbl_8043DB80, lbl_8043DB94, lbl_8043DBA8, lbl_8043DBBC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DBD0, lbl_8043DBE4, lbl_8043DBF8, lbl_8043DC08, lbl_8043DC08, lbl_8043DC18, lbl_8043DC18
 };
 
-char *lbl_8049CAE4[23] = {
+const char *lbl_8049CAE4[23] = {
     lbl_8043DB04, lbl_8043DC28, lbl_8043DC3C, lbl_8043DC50, lbl_8043DC60, lbl_8043DC70, lbl_8043DC80, lbl_8043DC94, lbl_8043DCA8, lbl_8043DCBC, lbl_8043DCD0, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DCE4, lbl_8043DCF8, lbl_8043DBF8, lbl_8043DD0C, lbl_8043DD0C, lbl_8043DD20, lbl_8043DD20
 };
 
-char *lbl_8049CB40[13] = {
+const char *lbl_8049CB40[13] = {
     lbl_8043DD34, lbl_8043DD48, lbl_8043DD5C, lbl_8043DD70, lbl_8043DD84, lbl_8043DD98, lbl_8043DDAC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DDC0, lbl_8043DDD4
 };
 
-char *lbl_8049CB74[13] = {
+const char *lbl_8049CB74[13] = {
     lbl_8043DDE8, lbl_8043DE00, lbl_8043DE18, lbl_8043DE30, lbl_8043DE48, lbl_8043DE60, lbl_8043DE78, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DDC0, lbl_8043DDD4
 };
 
@@ -127,15 +128,15 @@ void load_area_gsl(void) {
     s32 n = TOKeyMachine01::get_global_state();
     if (n < 23) {
         if (TObjEneDD::check_v2_mode() != 0) {
-            open_gsl_archive(lbl_8049CAE4[n]);
+            open_gsl_archive((char *)lbl_8049CAE4[n]);
         } else {
-            open_gsl_archive(area_gsl_filename_table[n]);
+            open_gsl_archive((char *)area_gsl_filename_table[n]);
         }
     } else {
         if (is_split_screen() != 0) {
-            open_gsl_archive(lbl_8049CB74[n - 23]);
+            open_gsl_archive((char *)lbl_8049CB74[n - 23]);
         } else {
-            open_gsl_archive(lbl_8049CB40[n - 23]);
+            open_gsl_archive((char *)lbl_8049CB40[n - 23]);
         }
     }
 }

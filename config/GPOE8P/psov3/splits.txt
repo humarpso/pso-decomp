@@ -2298,8 +2298,12 @@ pso/unk/text_800FD930.cpp:
 
 pso/system/TGStream.cpp:
 	.text       start:0x800FD944 end:0x800FE300
+	.rodata     start:0x8043DAF8 end:0x8043DEB8
 	.data       start:0x8049CA88 end:0x8049CBA8
 	.bss        start:0x805011E0 end:0x80506200
+	.sdata      start:0x805D2B38 end:0x805D2B40
+	.sbss       start:0x805D53C0 end:0x805D53E8
+	.sdata2     start:0x805DAA38 end:0x805DAA40
 
 pso/object/TObjWaitEntryHairMoveSim.cpp:
 	.text       start:0x800FE300 end:0x800FE834
