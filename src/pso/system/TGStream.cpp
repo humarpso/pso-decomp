@@ -41,52 +41,52 @@ extern char gsl_archive_filename[32];
 
 #pragma readonly_strings on
 const char lbl_8043DAF8[] = "TGStream";
-const char lbl_8043DB04[] = "gsl_city.gsl";
-const char lbl_8043DB14[] = "gsl_forest01.gsl";
-const char lbl_8043DB28[] = "gsl_forest02.gsl";
-const char lbl_8043DB3C[] = "gsl_cave01.gsl";
-const char lbl_8043DB4C[] = "gsl_cave02.gsl";
-const char lbl_8043DB5C[] = "gsl_cave03.gsl";
-const char lbl_8043DB6C[] = "gsl_machine01.gsl";
-const char lbl_8043DB80[] = "gsl_machine02.gsl";
-const char lbl_8043DB94[] = "gsl_ancient01.gsl";
-const char lbl_8043DBA8[] = "gsl_ancient02.gsl";
-const char lbl_8043DBBC[] = "gsl_ancient03.gsl";
-const char lbl_8043DBD0[] = "gsl_versus01.gsl";
-const char lbl_8043DBE4[] = "gsl_versus02.gsl";
-const char lbl_8043DBF8[] = "gsl_labo.gsl";
-const char lbl_8043DC08[] = "gsl_ruins01.gsl";
-const char lbl_8043DC18[] = "gsl_space01.gsl";
-const char lbl_8043DC28[] = "gsl_aforest01.gsl";
-const char lbl_8043DC3C[] = "gsl_aforest02.gsl";
-const char lbl_8043DC50[] = "gsl_acave01.gsl";
-const char lbl_8043DC60[] = "gsl_acave02.gsl";
-const char lbl_8043DC70[] = "gsl_acave03.gsl";
-const char lbl_8043DC80[] = "gsl_amachine01.gsl";
-const char lbl_8043DC94[] = "gsl_amachine02.gsl";
-const char lbl_8043DCA8[] = "gsl_aancient01.gsl";
-const char lbl_8043DCBC[] = "gsl_aancient02.gsl";
-const char lbl_8043DCD0[] = "gsl_aancient03.gsl";
-const char lbl_8043DCE4[] = "gsl_aversus01.gsl";
-const char lbl_8043DCF8[] = "gsl_aversus02.gsl";
-const char lbl_8043DD0C[] = "gsl_aruins01.gsl";
-const char lbl_8043DD20[] = "gsl_aspace01.gsl";
-const char lbl_8043DD34[] = "gsl_jungle01.gsl";
-const char lbl_8043DD48[] = "gsl_jungle02.gsl";
-const char lbl_8043DD5C[] = "gsl_jungle03.gsl";
-const char lbl_8043DD70[] = "gsl_jungle04.gsl";
-const char lbl_8043DD84[] = "gsl_jungle05.gsl";
-const char lbl_8043DD98[] = "gsl_seabed01.gsl";
-const char lbl_8043DDAC[] = "gsl_seabed02.gsl";
-const char lbl_8043DDC0[] = "gsl_jungle06.gsl";
-const char lbl_8043DDD4[] = "gsl_jungle07.gsl";
-const char lbl_8043DDE8[] = "gsl_jungle01_multi.gsl";
-const char lbl_8043DE00[] = "gsl_jungle02_multi.gsl";
-const char lbl_8043DE18[] = "gsl_jungle03_multi.gsl";
-const char lbl_8043DE30[] = "gsl_jungle04_multi.gsl";
-const char lbl_8043DE48[] = "gsl_jungle05_multi.gsl";
-const char lbl_8043DE60[] = "gsl_seabed01_multi.gsl";
-const char lbl_8043DE78[] = "gsl_seabed02_multi.gsl";
+const char city_gsl_path[] = "gsl_city.gsl";
+const char forest01_gsl_path[] = "gsl_forest01.gsl";
+const char forest02_gsl_path[] = "gsl_forest02.gsl";
+const char cave01_gsl_path[] = "gsl_cave01.gsl";
+const char cave02_gsl_path[] = "gsl_cave02.gsl";
+const char cave03_gsl_path[] = "gsl_cave03.gsl";
+const char machine01_gsl_path[] = "gsl_machine01.gsl";
+const char machine02_gsl_path[] = "gsl_machine02.gsl";
+const char ancient01_gsl_path[] = "gsl_ancient01.gsl";
+const char ancient02_gsl_path[] = "gsl_ancient02.gsl";
+const char ancient03_gsl_path[] = "gsl_ancient03.gsl";
+const char versus01_gsl_path[] = "gsl_versus01.gsl";
+const char versus02_gsl_path[] = "gsl_versus02.gsl";
+const char labo_gsl_path[] = "gsl_labo.gsl";
+const char ruins01_gsl_path[] = "gsl_ruins01.gsl";
+const char space01_gsl_path[] = "gsl_space01.gsl";
+const char aforest01_gsl_path[] = "gsl_aforest01.gsl";
+const char aforest02_gsl_path[] = "gsl_aforest02.gsl";
+const char acave01_gsl_path[] = "gsl_acave01.gsl";
+const char acave02_gsl_path[] = "gsl_acave02.gsl";
+const char acave03_gsl_path[] = "gsl_acave03.gsl";
+const char amachine01_gsl_path[] = "gsl_amachine01.gsl";
+const char amachine02_gsl_path[] = "gsl_amachine02.gsl";
+const char aancient01_gsl_path[] = "gsl_aancient01.gsl";
+const char aancient02_gsl_path[] = "gsl_aancient02.gsl";
+const char aancient03_gsl_path[] = "gsl_aancient03.gsl";
+const char aversus01_gsl_path[] = "gsl_aversus01.gsl";
+const char aversus02_gsl_path[] = "gsl_aversus02.gsl";
+const char aruins01_gsl_path[] = "gsl_aruins01.gsl";
+const char aspace01_gsl_path[] = "gsl_aspace01.gsl";
+const char jungle01_gsl_path[] = "gsl_jungle01.gsl";
+const char jungle02_gsl_path[] = "gsl_jungle02.gsl";
+const char jungle03_gsl_path[] = "gsl_jungle03.gsl";
+const char jungle04_gsl_path[] = "gsl_jungle04.gsl";
+const char jungle05_gsl_path[] = "gsl_jungle05.gsl";
+const char seabed01_gsl_path[] = "gsl_seabed01.gsl";
+const char seabed02_gsl_path[] = "gsl_seabed02.gsl";
+const char jungle06_gsl_path[] = "gsl_jungle06.gsl";
+const char jungle07_gsl_path[] = "gsl_jungle07.gsl";
+const char jungle01_multi_gsl_path[] = "gsl_jungle01_multi.gsl";
+const char jungle02_multi_gsl_path[] = "gsl_jungle02_multi.gsl";
+const char jungle03_multi_gsl_path[] = "gsl_jungle03_multi.gsl";
+const char jungle04_multi_gsl_path[] = "gsl_jungle04_multi.gsl";
+const char jungle05_multi_gsl_path[] = "gsl_jungle05_multi.gsl";
+const char seabed01_multi_gsl_path[] = "gsl_seabed01_multi.gsl";
+const char seabed02_multi_gsl_path[] = "gsl_seabed02_multi.gsl";
 const char lbl_805DAA38[4] = "";
 char *gsl_archive_path_buffer_ptr = (char *)gsl_archive_entries;
 s32 gstream_tmp_buffer;
@@ -100,19 +100,19 @@ s32 gstream_buffer_valid_size;
 int gstream_file_size;
 
 const char *area_gsl_filename_table[23] = {
-    lbl_8043DB04, lbl_8043DB14, lbl_8043DB28, lbl_8043DB3C, lbl_8043DB4C, lbl_8043DB5C, lbl_8043DB6C, lbl_8043DB80, lbl_8043DB94, lbl_8043DBA8, lbl_8043DBBC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DBD0, lbl_8043DBE4, lbl_8043DBF8, lbl_8043DC08, lbl_8043DC08, lbl_8043DC18, lbl_8043DC18
+    city_gsl_path, forest01_gsl_path, forest02_gsl_path, cave01_gsl_path, cave02_gsl_path, cave03_gsl_path, machine01_gsl_path, machine02_gsl_path, ancient01_gsl_path, ancient02_gsl_path, ancient03_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, versus01_gsl_path, versus02_gsl_path, labo_gsl_path, ruins01_gsl_path, ruins01_gsl_path, space01_gsl_path, space01_gsl_path
 };
 
 const char *lbl_8049CAE4[23] = {
-    lbl_8043DB04, lbl_8043DC28, lbl_8043DC3C, lbl_8043DC50, lbl_8043DC60, lbl_8043DC70, lbl_8043DC80, lbl_8043DC94, lbl_8043DCA8, lbl_8043DCBC, lbl_8043DCD0, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DCE4, lbl_8043DCF8, lbl_8043DBF8, lbl_8043DD0C, lbl_8043DD0C, lbl_8043DD20, lbl_8043DD20
+    city_gsl_path, aforest01_gsl_path, aforest02_gsl_path, acave01_gsl_path, acave02_gsl_path, acave03_gsl_path, amachine01_gsl_path, amachine02_gsl_path, aancient01_gsl_path, aancient02_gsl_path, aancient03_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, aversus01_gsl_path, aversus02_gsl_path, labo_gsl_path, aruins01_gsl_path, aruins01_gsl_path, aspace01_gsl_path, aspace01_gsl_path
 };
 
 const char *lbl_8049CB40[13] = {
-    lbl_8043DD34, lbl_8043DD48, lbl_8043DD5C, lbl_8043DD70, lbl_8043DD84, lbl_8043DD98, lbl_8043DDAC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DDC0, lbl_8043DDD4
+    jungle01_gsl_path, jungle02_gsl_path, jungle03_gsl_path, jungle04_gsl_path, jungle05_gsl_path, seabed01_gsl_path, seabed02_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, jungle06_gsl_path, jungle07_gsl_path
 };
 
 const char *lbl_8049CB74[13] = {
-    lbl_8043DDE8, lbl_8043DE00, lbl_8043DE18, lbl_8043DE30, lbl_8043DE48, lbl_8043DE60, lbl_8043DE78, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DDC0, lbl_8043DDD4
+    jungle01_multi_gsl_path, jungle02_multi_gsl_path, jungle03_multi_gsl_path, jungle04_multi_gsl_path, jungle05_multi_gsl_path, seabed01_multi_gsl_path, seabed02_multi_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, jungle06_gsl_path, jungle07_gsl_path
 };
 
 s32 TLobby::get_resource_file_size() {
