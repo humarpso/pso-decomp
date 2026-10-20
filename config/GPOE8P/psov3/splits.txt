@@ -1315,11 +1315,16 @@ pso/player/TObjPlayer_800847A8.cpp:
 
 pso/effect/TEffGuard.cpp:
 	.text       start:0x80084864 end:0x800849F8
+	.rodata     start:0x80439370 end:0x80439380
 	.data       start:0x8048E610 end:0x8048E628
+	.sdata      start:0x805D2918 end:0x805D2920
 
 pso/effect/TEffHit.cpp:
 	.text       start:0x800849F8 end:0x80084B84
+	.rodata     start:0x80439380 end:0x80439388
 	.data       start:0x8048E628 end:0x8048E640
+	.sdata      start:0x805D2920 end:0x805D2928
+	.sdata2     start:0x805D9448 end:0x805D9450
 
 pso/player/TObjPlayer_80084B84.cpp:
 	.text       start:0x80084B84 end:0x80084BC4

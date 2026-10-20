@@ -2,8 +2,8 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
-extern const f32 lbl_805D9448;
-extern const char* TEffHit__class_name;
+#pragma readonly_strings on
+const char* TEffHit__class_name = "TEffHit";
 
 void TEffHit::run_task() {
     Vec shifted_position;
@@ -15,7 +15,7 @@ void TEffHit::run_task() {
         do {
             if (particle == 2) {
                 shifted_position.x = position.x;
-                shifted_position.y = position.y - lbl_805D9448;
+                shifted_position.y = position.y - 15.0f;
                 shifted_position.z = position.z;
                 spawn_particle_effect(&shifted_position, particle + 4);
             } else if (particle == 3) {

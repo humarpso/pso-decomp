@@ -2,8 +2,9 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
+#pragma readonly_strings on
+const char* TEffGuard__class_name = "TEffGuard";
 extern "C" {
-extern const char* TEffGuard__class_name;
 s32 play_sound_effect(u32, const Vec*, s32, s32);
 }
 
