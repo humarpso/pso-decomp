@@ -49,16 +49,13 @@ struct Self_8010900C {
     Vec_8010900C pos;
 };
 
+#pragma readonly_strings on
+const char *TItemEffHeaven__class_name = "TItemEffHeaven";
+
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
 void *resolve_hittable_target(u16 actorId, s16 collider);
 void play_sound_effect(s32, void *, s32, s32);
-extern const f32 lbl_805DAB28;
-extern const f32 lbl_805DAB2C;
-extern const f32 lbl_805DAB30;
-
-extern s32 TItemEffHeaven__class_name;
-extern const f32 lbl_805DAB34;
 }
 
 int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
@@ -80,10 +77,10 @@ void TItemEffHeaven::run_task() {
     if (self->f28 == 0xF) {
         play_sound_effect(0x4002A408, &self->pos, 0, 0);
         self->arr[1] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x134, 0x40);
-        self->f38 = lbl_805DAB28;
+        self->f38 = 200.0f;
     }
     if (self->f28 >= 0xF && self->f28 < 0x19) {
-        self->f38 -= lbl_805DAB2C;
+        self->f38 -= 20.0f;
         self->pos.y += self->f38;
     }
     if (self->f28 == 0x19) {
@@ -97,7 +94,7 @@ void TItemEffHeaven::run_task() {
             if (o != NULL) {
                 Parm_8010900C b;
                 b.t = 4;
-                b.v = lbl_805DAB30;
+                b.v = 2000.0f;
                 Parm_8010900C a = b;
                 o->v21(id, &a, 0, -1, -1);
             }
@@ -129,14 +126,14 @@ TItemEffHeaven::~TItemEffHeaven() {
 
 TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(parent) {
     s32 i;
-    *(s32 *)this = TItemEffHeaven__class_name;
+    m_name = TItemEffHeaven__class_name;
     ((Obj_801092A8 *)this)->f_1C = b;
     ((Obj_801092A8 *)this)->f_20 = 0;
     ((Obj_801092A8 *)this)->f_3C = a;
     ((Obj_801092A8 *)this)->f_24 = c;
-    ((Obj_801092A8 *)this)->v[2] = lbl_805DAB34;
-    ((Obj_801092A8 *)this)->v[1] = lbl_805DAB34;
-    ((Obj_801092A8 *)this)->v[0] = lbl_805DAB34;
+    ((Obj_801092A8 *)this)->v[2] = 0.0f;
+    ((Obj_801092A8 *)this)->v[1] = 0.0f;
+    ((Obj_801092A8 *)this)->v[0] = 0.0f;
     ((Obj_801092A8 *)this)->f_28 = 0;
     for (i = 0; i < 3; i++) {
         ((Obj_801092A8 *)this)->arr[i] = 0;
