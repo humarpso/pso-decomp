@@ -54,7 +54,7 @@ It must end in `PASS`. It runs these checks, which you can also run one at a tim
   can score a unit 100% while its object won't link. One example is a constant or string turned into a literal
   that `symbols.txt` still exports as a global.
 
-When `link_units.py` reports a problem, run `python tools/link_units.py scan`. It writes the reason for each unit
+When `link_units.py` reports a problem, run `python tools/link_units.py scan`. It writes every reason for each unit
 to `config/GPOE8P/psov3/linked_units_blocked.json`:
 
 - `missing <symbol>`: the original exports a symbol your source no longer defines. Run
@@ -64,6 +64,10 @@ to `config/GPOE8P/psov3/linked_units_blocked.json`:
 - `section <name>`: the compiled object has data the unit's split doesn't own yet. Claim that range in
   `splits.txt`.
 - `size`, `alignment`, `order` or `data-layout`: the object's layout still differs from the original's.
+- `data <section>:<percent>`: that section's data doesn't match yet.
+
+`localize_split_globals.py` only marks symbols in units whose reasons are all `missing`, since any other reason
+would keep the unit from linking anyway.
 
 When your change makes a whole unit match, run `python tools/link_units.py scan --write` to link it, then
 `python configure.py` and `ninja` again, and commit the updated `linked_units.txt` and `config.yml`.
