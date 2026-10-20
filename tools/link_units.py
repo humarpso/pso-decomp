@@ -19,7 +19,8 @@ Usage:
   link_units.py force-active --write   # list unreferenced symbols of linked units in config.yml
 
 ``scan`` also writes ``linked_units_blocked.json`` next to the list: units
-whose functions all match but whose object fails a link check, with the reason.
+whose functions all match but whose object fails a link check, with every
+reason, including data that does not match yet.
 
 Linking a compiled object exposes four things objdiff never checks, and the
 scan refuses a unit on any of them: extra allocated sections (a vtable in
@@ -268,7 +269,6 @@ def _split_objects() -> list[Path]:
     if not SPLIT_CONFIG.exists():
         sys.exit(f"missing {SPLIT_CONFIG.relative_to(ROOT)} — run ninja first")
     return [ROOT / u["object"] for u in json.loads(SPLIT_CONFIG.read_text())["units"]]
-
 
 
 def missing_compiled_symbols(u: dict) -> list[str]:
@@ -651,33 +651,24 @@ def scan(write: bool) -> int:
         if n in exact and not exact[n]:
             fns = u.get("functions") or []
             if fns and all(f.get("fuzzy_match_percent", 0) == 100 for f in fns):
-                ex = extra_compiled_sections(u)
-                if ex:
-                    blocked[n] = ["section " + x for x in ex]
-                    continue
-                ex = extra_compiled_symbols(u)
-                if ex:
-                    blocked[n] = ["symbol " + x for x in ex]
-                    continue
-                ex = missing_compiled_symbols(u)
-                if ex:
-                    blocked[n] = ["missing " + x for x in ex]
-                    continue
-                ex = global_data_layout_mismatch(u)
-                if ex:
-                    blocked[n] = ["data-layout " + x for x in ex]
-                    continue
-                ex = section_size_mismatch(u)
-                if ex:
-                    blocked[n] = ["size " + x for x in ex]
-                    continue
-                ex = function_order_mismatch(u)
-                if ex:
-                    blocked[n] = ["order " + x for x in ex]
-                    continue
-                ex = section_alignment_mismatch(u)
-                if ex:
-                    blocked[n] = ["alignment " + x for x in ex]
+                # Every reason, not only the first: localize_split_globals.py
+                # plans only units whose sole reasons are `missing`, and a unit
+                # that is also blocked otherwise would not link after it.
+                reasons = []
+                for kind, check in (("section", extra_compiled_sections),
+                                    ("symbol", extra_compiled_symbols),
+                                    ("missing", missing_compiled_symbols),
+                                    ("data-layout", global_data_layout_mismatch),
+                                    ("size", section_size_mismatch),
+                                    ("order", function_order_mismatch),
+                                    ("alignment", section_alignment_mismatch)):
+                    reasons += [f"{kind} {x}" for x in check(u)]
+                if reasons:
+                    # Data that does not match yet blocks the unit as well.
+                    reasons += [f"data {s['name']}:{s.get('fuzzy_match_percent', 0)}%"
+                                for s in u.get("sections") or []
+                                if int(s.get("size", 0) or 0) and s.get("fuzzy_match_percent", 0) != 100]
+                    blocked[n] = reasons
     regress = sorted(n for n in linked if not exact.get(n, False))
     keep = sorted(n for n in linked if exact.get(n, False))
     want_active = _force_active_names(set(keep + add), symbols) if write else []
