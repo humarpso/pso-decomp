@@ -10324,8 +10324,10 @@ pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp:
 
 pso/menu/TAdGuideTxtGC.cpp:
 	.text       start:0x802B1878 end:0x802B1AB4
-	.rodata     start:0x80470A90 end:0x80470A98
+	.rodata     start:0x80470A80 end:0x80470A98
 	.data       start:0x804DE8B0 end:0x804DE8C8
+	.sdata      start:0x805D3EA0 end:0x805D3EA8
+	.sdata2     start:0x805DE280 end:0x805DE298
 
 pso/unk/text_802B1AB4.cpp:
 	.text       start:0x802B1AB4 end:0x802B1C1C
