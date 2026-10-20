@@ -87,7 +87,7 @@ const char jungle04_multi_gsl_path[] = "gsl_jungle04_multi.gsl";
 const char jungle05_multi_gsl_path[] = "gsl_jungle05_multi.gsl";
 const char seabed01_multi_gsl_path[] = "gsl_seabed01_multi.gsl";
 const char seabed02_multi_gsl_path[] = "gsl_seabed02_multi.gsl";
-const char lbl_805DAA38[4] = "";
+const char empty_gsl_path[4] = "";
 char *gsl_archive_path_buffer_ptr = (char *)gsl_archive_entries;
 s32 gstream_tmp_buffer;
 u32 TItemDrop__gsl_adxf_handle;
@@ -100,19 +100,19 @@ s32 gstream_buffer_valid_size;
 int gstream_file_size;
 
 const char *area_gsl_filename_table[23] = {
-    city_gsl_path, forest01_gsl_path, forest02_gsl_path, cave01_gsl_path, cave02_gsl_path, cave03_gsl_path, machine01_gsl_path, machine02_gsl_path, ancient01_gsl_path, ancient02_gsl_path, ancient03_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, versus01_gsl_path, versus02_gsl_path, labo_gsl_path, ruins01_gsl_path, ruins01_gsl_path, space01_gsl_path, space01_gsl_path
+    city_gsl_path, forest01_gsl_path, forest02_gsl_path, cave01_gsl_path, cave02_gsl_path, cave03_gsl_path, machine01_gsl_path, machine02_gsl_path, ancient01_gsl_path, ancient02_gsl_path, ancient03_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, versus01_gsl_path, versus02_gsl_path, labo_gsl_path, ruins01_gsl_path, ruins01_gsl_path, space01_gsl_path, space01_gsl_path
 };
 
 const char *lbl_8049CAE4[23] = {
-    city_gsl_path, aforest01_gsl_path, aforest02_gsl_path, acave01_gsl_path, acave02_gsl_path, acave03_gsl_path, amachine01_gsl_path, amachine02_gsl_path, aancient01_gsl_path, aancient02_gsl_path, aancient03_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, aversus01_gsl_path, aversus02_gsl_path, labo_gsl_path, aruins01_gsl_path, aruins01_gsl_path, aspace01_gsl_path, aspace01_gsl_path
+    city_gsl_path, aforest01_gsl_path, aforest02_gsl_path, acave01_gsl_path, acave02_gsl_path, acave03_gsl_path, amachine01_gsl_path, amachine02_gsl_path, aancient01_gsl_path, aancient02_gsl_path, aancient03_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, aversus01_gsl_path, aversus02_gsl_path, labo_gsl_path, aruins01_gsl_path, aruins01_gsl_path, aspace01_gsl_path, aspace01_gsl_path
 };
 
 const char *lbl_8049CB40[13] = {
-    jungle01_gsl_path, jungle02_gsl_path, jungle03_gsl_path, jungle04_gsl_path, jungle05_gsl_path, seabed01_gsl_path, seabed02_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, jungle06_gsl_path, jungle07_gsl_path
+    jungle01_gsl_path, jungle02_gsl_path, jungle03_gsl_path, jungle04_gsl_path, jungle05_gsl_path, seabed01_gsl_path, seabed02_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, jungle06_gsl_path, jungle07_gsl_path
 };
 
 const char *lbl_8049CB74[13] = {
-    jungle01_multi_gsl_path, jungle02_multi_gsl_path, jungle03_multi_gsl_path, jungle04_multi_gsl_path, jungle05_multi_gsl_path, seabed01_multi_gsl_path, seabed02_multi_gsl_path, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, jungle06_gsl_path, jungle07_gsl_path
+    jungle01_multi_gsl_path, jungle02_multi_gsl_path, jungle03_multi_gsl_path, jungle04_multi_gsl_path, jungle05_multi_gsl_path, seabed01_multi_gsl_path, seabed02_multi_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, empty_gsl_path, jungle06_gsl_path, jungle07_gsl_path
 };
 
 s32 TLobby::get_resource_file_size() {
