@@ -124,18 +124,18 @@ s32 TLobby::get_resource_file_size() {
 }
 
 void load_area_gsl(void) {
-    s32 n = TOKeyMachine01::get_global_state();
-    if (n < 23) {
+    s32 current_floor_area_type = TOKeyMachine01::get_global_state();
+    if (current_floor_area_type < 23) {
         if (TObjEneDD::check_v2_mode() != 0) {
-            open_gsl_archive((char *)lbl_8049CAE4[n]);
+            open_gsl_archive((char *)lbl_8049CAE4[current_floor_area_type]);
         } else {
-            open_gsl_archive((char *)area_gsl_filename_table[n]);
+            open_gsl_archive((char *)area_gsl_filename_table[current_floor_area_type]);
         }
     } else {
         if (is_split_screen() != 0) {
-            open_gsl_archive((char *)lbl_8049CB74[n - 23]);
+            open_gsl_archive((char *)lbl_8049CB74[current_floor_area_type - 23]);
         } else {
-            open_gsl_archive((char *)lbl_8049CB40[n - 23]);
+            open_gsl_archive((char *)lbl_8049CB40[current_floor_area_type - 23]);
         }
     }
 }
