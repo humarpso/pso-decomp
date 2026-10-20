@@ -14,8 +14,8 @@ it: `orig/` and `build/` are ignored.
 
 - **Match functions.** C or C++ for functions that were not matched before, which objdiff reports as exact.
 - **Define data.** A unit's tables, strings and other data objects in source, so its data sections match.
-- **Link a unit.** Once every function and data section in a unit matches, add it to
-  `config/GPOE8P/psov3/linked_units.txt` so the build takes it from source.
+- **Link a unit.** Once every function and data section in a unit matches, `tools/link_units.py scan --write` adds
+  it to `config/GPOE8P/psov3/linked_units.txt` so the build takes it from source.
 - **Fold or split units.** Move functions and data into the unit that owns them, merging ranges that belong to one
   original object file or splitting ones that don't, and update `config/GPOE8P/psov3/splits.txt` to match.
 - **Name things.** Real names for functions, classes, members and data, in the same change as the evidence for them.
@@ -35,13 +35,46 @@ it: `orig/` and `build/` are ignored.
 functions and units, compiles a candidate with its unit's exact command and compares it, and measures progress
 by original address.
 
+## Checking a change
+
+Build the commit your change starts from and save its report:
+
+    python configure.py
+    ninja
+    ninja baseline
+
+Then make your change and run:
+
+    python tools/check_pr.py
+
+It must end in `PASS`. It runs these checks, which you can also run one at a time:
+
+- `ninja` rebuilds `PsoV3.dol` and checks it against the original's SHA-1.
+- `python tools/report_delta.py build/GPOE8P/baseline.json build/GPOE8P/report.json --check` compares the reports by
+  original address, so renames and folds can't hide a loss: no exact function, linked unit or data range may go
+  missing. Alignment padding that drops out of every unit when you split one off is shown but allowed, since its
+  bytes are zero and nothing lives there. `ninja changes` lists the per-function differences.
+- `python tools/link_units.py check` checks that every unit in `linked_units.txt` still links from source. objdiff
+  can score a unit 100% while its object won't link. One example is a constant or string turned into a literal
+  that `symbols.txt` still exports as a global.
+
+When `link_units.py` reports a problem, run `python tools/link_units.py scan`. It writes the reason for each unit
+to `config/GPOE8P/psov3/linked_units_blocked.json`:
+
+- `missing <symbol>`: the original exports a symbol your source no longer defines. Run
+  `python tools/localize_split_globals.py --write <unit>`, then rebuild. It marks the symbol `scope:local` in
+  `symbols.txt` after checking that no other object refers to it. If something else does refer to it, define it
+  in source under that name instead.
+- `section <name>`: the compiled object has data the unit's split doesn't own yet. Claim that range in
+  `splits.txt`.
+- `size`, `alignment`, `order` or `data-layout`: the object's layout still differs from the original's.
+
+When your change makes a whole unit match, run `python tools/link_units.py scan --write` to link it, then
+`python configure.py` and `ninja` again, and commit the updated `linked_units.txt` and `config.yml`.
+
 ## Rules
 
-- Nothing that matches or links today may stop matching or linking. Run `ninja baseline` on the base commit and
-  `ninja changes` after your change, then
-  `python tools/report_delta.py build/GPOE8P/baseline.json build/GPOE8P/report.json --check`. It compares by
-  original address, so renames and folds don't hide a loss.
-- `ninja` must succeed. It checks the rebuilt `PsoV3.dol` against the original's SHA-1.
+- Nothing that matches or links today may stop matching or linking: `tools/check_pr.py` must pass.
 - One source file per unit, functions in address order, class declarations in `include/`.
 - No assembly, anywhere. A function Nintendo or Metrowerks wrote in assembly keeps its C signature with the body
   `#include "orig_asm/<unit>/<function>.inc"`, and `tools/orig_asm.py` generates that body from the disc during the
@@ -60,6 +93,7 @@ by original address.
 
 - One coherent piece of work per pull request, such as one class or one unit.
 - Title it with the result: `Match TObjEneDimedian`, `Link TLobby.cpp`, `Split TBoss8Dragon into its units`.
-- Say what changed: matched functions and code and data bytes before and after, and the evidence for any unit
-  boundary or name.
+- Say what changed: matched functions and code and data bytes before and after (the first lines of
+  `report_delta.py`), and the evidence for any unit boundary or name.
+- Base it on the current `master` and run `tools/check_pr.py` again after rebasing.
 - Commits are one short line in plain words, under your own name. Pull requests are squash-merged.

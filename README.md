@@ -64,9 +64,9 @@ in assembly: `tools/orig_asm.py` rebuilds their bodies from your disc before any
 
 ## Working on it
 
-- **Check for regressions.** Run `ninja baseline` before a change and `ninja changes` after it, then
-  `python tools/report_delta.py build/GPOE8P/baseline.json build/GPOE8P/report.json --check`. It compares by
-  original address, so renaming, folding or splitting units never hides a lost match.
+- **Check for regressions.** Run `ninja baseline` before a change and `python tools/check_pr.py` after it. It
+  rebuilds, compares the reports by original address, so renaming, folding or splitting units never hides a lost
+  match, and checks that every linked unit still links from source.
 
 [CONTRIBUTING.md](CONTRIBUTING.md) covers what a change can do and the rules for it.
 [docs/architecture.md](docs/architecture.md) describes how the executable and the source tree are laid out.
