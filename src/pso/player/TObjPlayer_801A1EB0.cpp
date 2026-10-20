@@ -15,6 +15,8 @@ struct Src_801A1F48 { u8 pad[4]; u16 id; u8 pad6[2]; s16 kind; u8 padA[2]; Vec_8
 struct Dst_801A1F48 { u8 pad[0x1C]; u16 id; u8 pad1e[0xA]; s16 kind; u8 pad2a[0xE]; Vec_801A1F48 pos; Vec_801A1F48 v44; Vec_801A1F48 pos2; Vec_801A1F48 rot; Vec_801A1F48 v68; u8 pad74[0x10]; s32 vals[3]; };
 
 extern "C" {
+extern u16 lbl_805D5CD2;
+extern u16 lbl_805D5CD8;
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
 u16 TLobby__sub_801A20C8(s32);
@@ -77,6 +79,19 @@ u16 TLobby::alloc_actor_ids(s32 arg) {
         lbl_805D5CD4 = id + (n + 1);
     } else {
         lbl_805D5CD4 = id + (n + 1);
+    }
+    return id;
+}
+
+u16 TLobby__sub_801A20C8(s32 arg) {
+    u16 n = arg;
+    s32 id = lbl_805D5CD2;
+    if (id + n + 1 >= 0x4000) {
+        lbl_805D5CD2 = lbl_805D5CD8;
+        id = lbl_805D5CD2;
+        lbl_805D5CD2 = id + (n + 1);
+    } else {
+        lbl_805D5CD2 = id + (n + 1);
     }
     return id;
 }
