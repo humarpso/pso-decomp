@@ -11600,6 +11600,10 @@ pso/ui/TAdDialingGC_80328E90.cpp:
 pso/misc/TLobby_80328F7C.cpp:
 	.text       start:0x80328F7C end:0x80329478
 	.ctors      start:0x80433FE8 end:0x80433FEC
+	.rodata     start:0x804767D0 end:0x80477090
+	.data       start:0x804ED690 end:0x804ED7D0
+	.bss        start:0x805430E8 end:0x80543468
+	.sbss       start:0x805D6C80 end:0x805D6C84
 
 pso/misc/pso_const_ids.cpp:
 	.text       start:0x80329478 end:0x80329600
