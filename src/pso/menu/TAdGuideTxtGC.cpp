@@ -37,17 +37,13 @@ typedef struct TAdGuideTxtGC_802B1878 {
     u32 alpha[2];
 } TAdGuideTxtGC_802B1878;
 
+#pragma readonly_strings on
+const char *TAdGuideTxtGC__class_name = "TAdGuideTxtGC";
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 extern void *__vt__13TAdGuideTxtGC[6];
-extern s32 lbl_805D3EA0;
-extern s32 lbl_805DE290;
-extern const f32 lbl_805DE294;
 TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o);
-extern const f32 lbl_805DE280;
-extern const f32 lbl_805DE284;
-extern const f32 lbl_805DE288;
-extern const f32 lbl_805DE28C;
 void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o);
 
 #pragma push
@@ -60,9 +56,9 @@ void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o) {
         if (o->alpha[i] > 255) {
             o->alpha[i] = 255;
         }
-        t = lbl_805DE280 - (f32)calc_text_width((char *)o->txt[i]);
-        o->pos[i].x = t * lbl_805DE284;
-        o->pos[i].y = lbl_805DE28C * (f32)i + lbl_805DE288;
+        t = 640.0f - (f32)calc_text_width((char *)o->txt[i]);
+        o->pos[i].x = t / 2.0f;
+        o->pos[i].y = 20.0f * (f32)i + 370.0f;
     }
 }
 #pragma pop
@@ -78,13 +74,13 @@ TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o) {
     u32 i;
     __ct__7TObjectFP7TObject(o);
     o->vt18 = __vt__13TAdGuideTxtGC;
-    o->f0 = lbl_805D3EA0;
+    o->f0 = (s32)TAdGuideTxtGC__class_name;
     for (i = 0; i < 2; i++) {
-        o->a[i] = &lbl_805DE290;
-        o->b[i] = &lbl_805DE290;
+        o->a[i] = (void *)"";
+        o->b[i] = (void *)"";
         o->c[i] = 0;
     }
-    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)o, 9, (f32)lbl_805DE294);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)o, 9, 0.0f);
     return o;
 }
 #pragma pop
