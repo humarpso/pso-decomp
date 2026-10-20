@@ -117,29 +117,194 @@ struct RecoveredGlobal_80329088_lbl_805432A8 {
     u8 remaining[0x1BC];
 };
 
-struct RecoveredGlobal_802A7444_lbl_804DDBD8 {
-    s32 value;
-    u8 remaining[0x14];
+struct PlayerMotionEntry {
+    u32 unk0;
+    s32 unk4;
+    f32 unk8;
+    u32 unkC;
 };
 
-struct RecoveredGlobal_802A74B8_lbl_804DD9F8 {
-    s32 value;
-    u8 remaining[0x14];
+const PlayerMotionEntry lbl_804767D0[56] = {
+    {0x0001FFFF, 0, 0.9f, 0x00000001},
+    {0x0001FFFF, 1, 1.4f, 0x20000002},
+    {0x0001FFFF, 2, 0.8f, 0x20000002},
+    {0x0001FFFF, 3, 1.0f, 0x20000001},
+    {0x0001FFFF, 4, 1.0f, 0x20000002},
+    {0x0001FFFF, 5, 0.8f, 0x20000002},
+    {0x0003FFFF, 6, 1.4f, 0x20000040},
+    {0x0003FFFF, 7, 3.7f, 0x20000040},
+    {0x0003FFFF, 8, 1.3f, 0x20000400},
+    {0x0003FFFF, 9, 3.0f, 0x20000010},
+    {0x0003FFFF, 10, 1.2f, 0x20000004},
+    {0x0003FFFF, 11, 1.1f, 0x20000004},
+    {0x0003FFFF, 12, 1.3f, 0x20000004},
+    {0x0003FFFF, 13, 1.4f, 0x20000004},
+    {0x0003FFFF, 14, 1.5f, 0x20000004},
+    {0x0003FFFF, 15, 1.5f, 0x20000004},
+    {0x0003FFFF, 16, 1.4f, 0x20000008},
+    {0x0003FFFF, 17, 1.4f, 0x20000008},
+    {0x0003FFFF, 18, 1.0f, 0x00000080},
+    {0x0003FFFF, 19, 0.8f, 0x00000001},
+    {0x0003FFFF, 20, 1.0f, 0x20000008},
+    {0x0003FFFF, 21, 1.0f, 0x20000008},
+    {0x0003FFFF, 22, 1.0f, 0x20000008},
+    {0x0003FFFF, 23, 1.0f, 0x20000008},
+    {0x0003FFFF, 24, 1.0f, 0x20000008},
+    {0x0003FFFF, 25, 1.0f, 0x20000001},
+    {0x0003FFFF, 26, 1.0f, 0x20000001},
+    {0x0003FFFF, 27, 1.0f, 0x20000001},
+    {0x0003FFFF, 28, 1.0f, 0x20000001},
+    {0x0003FFFF, 29, 1.0f, 0x20000001},
+    {0x0003FFFF, 30, 1.0f, 0x20000001},
+    {0x0003FFFF, 31, 1.0f, 0x20000001},
+    {0x0003FFFF, 32, 1.0f, 0x20000001},
+    {0x0003FFFF, 33, 1.0f, 0x20000001},
+    {0x0003FFFF, 34, 1.0f, 0x20000001},
+    {0x0003FFFF, 35, 1.0f, 0x20000001},
+    {0x0003FFFF, 36, 1.0f, 0x20000001},
+    {0x0003FFFF, 37, 1.0f, 0x20000001},
+    {0x0003FFFF, 38, 1.0f, 0x20000001},
+    {0x0003FFFF, 39, 1.0f, 0x20000001},
+    {0x0003FFFF, 40, 1.0f, 0x20000001},
+    {0x0003FFFF, 41, 1.0f, 0x20000001},
+    {0x0003FFFF, 42, 1.0f, 0x20000001},
+    {0x0003FFFF, 43, 1.0f, 0x20000001},
+    {0x0003FFFF, 44, 1.0f, 0x20000001},
+    {0x0003FFFF, 45, 1.0f, 0x20000001},
+    {0x0003FFFF, 46, 1.0f, 0x20000001},
+    {0x0003FFFF, 47, 1.0f, 0x20000001},
+    {0x00020036, 48, 1.0f, 0x30000001},
+    {0x00020037, 49, 1.0f, 0x30000001},
+    {0x0003FFFF, 50, 1.0f, 0x20000001},
+    {0x0003FFFF, 51, 1.0f, 0x20000001},
+    {0x0003FFFF, 52, 1.0f, 0x20000001},
+    {0x0003FFFF, 53, 1.0f, 0x20000001},
+    {0x0001FFFF, 54, 0.7f, 0x30000001},
+    {0x0001FFFF, 55, 0.7f, 0x30000001},
+};
+const PlayerMotionEntry lbl_80476B50[56] = {
+    {0x0001FFFF, 0, 1.0f, 0x00000001},
+    {0x0001FFFF, 1, 1.0f, 0x20000002},
+    {0x0001FFFF, 2, 0.8f, 0x20000002},
+    {0x0001FFFF, 3, 1.0f, 0x20000001},
+    {0x0001FFFF, 4, 1.0f, 0x20000002},
+    {0x0001FFFF, 5, 0.8f, 0x20000002},
+    {0x0003FFFF, 6, 1.5f, 0x20000040},
+    {0x0003FFFF, 7, 3.7f, 0x20000040},
+    {0x0003FFFF, 8, 1.3f, 0x20000400},
+    {0x0003FFFF, 9, 3.0f, 0x20000010},
+    {0x0003FFFF, 10, 1.4f, 0x20000004},
+    {0x0003FFFF, 11, 1.1f, 0x20000004},
+    {0x0003FFFF, 12, 1.3f, 0x20000004},
+    {0x0003FFFF, 13, 1.4f, 0x20000004},
+    {0x0003FFFF, 14, 1.5f, 0x20000004},
+    {0x0003FFFF, 15, 1.7f, 0x20000004},
+    {0x0003FFFF, 16, 1.4f, 0x20000008},
+    {0x0003FFFF, 17, 1.4f, 0x20000008},
+    {0x0003FFFF, 18, 1.0f, 0x00000080},
+    {0x0003FFFF, 19, 0.8f, 0x00000001},
+    {0x0003FFFF, 20, 1.0f, 0x20000008},
+    {0x0003FFFF, 21, 1.0f, 0x20000008},
+    {0x0003FFFF, 22, 1.0f, 0x20000008},
+    {0x0003FFFF, 23, 1.0f, 0x20000008},
+    {0x0003FFFF, 24, 1.0f, 0x20000008},
+    {0x0003FFFF, 25, 1.0f, 0x20000001},
+    {0x0003FFFF, 26, 1.0f, 0x20000001},
+    {0x0003FFFF, 27, 1.0f, 0x20000001},
+    {0x0003FFFF, 28, 1.0f, 0x20000001},
+    {0x0003FFFF, 29, 1.0f, 0x20000001},
+    {0x0003FFFF, 30, 1.0f, 0x20000001},
+    {0x0003FFFF, 31, 1.0f, 0x20000001},
+    {0x0003FFFF, 32, 1.0f, 0x20000001},
+    {0x0003FFFF, 33, 1.0f, 0x20000001},
+    {0x0003FFFF, 34, 1.0f, 0x20000001},
+    {0x0003FFFF, 35, 1.0f, 0x20000001},
+    {0x0003FFFF, 36, 1.0f, 0x20000001},
+    {0x0003FFFF, 37, 1.0f, 0x20000001},
+    {0x0003FFFF, 38, 1.0f, 0x20000001},
+    {0x0003FFFF, 39, 1.0f, 0x20000001},
+    {0x0003FFFF, 40, 1.0f, 0x20000001},
+    {0x0003FFFF, 41, 1.0f, 0x20000001},
+    {0x0003FFFF, 42, 1.0f, 0x20000001},
+    {0x0003FFFF, 43, 1.0f, 0x20000001},
+    {0x0003FFFF, 44, 1.0f, 0x20000001},
+    {0x0003FFFF, 45, 1.0f, 0x20000001},
+    {0x0003FFFF, 46, 1.0f, 0x20000001},
+    {0x0003FFFF, 47, 1.0f, 0x20000001},
+    {0x00020036, 48, 1.0f, 0x30000001},
+    {0x00020037, 49, 1.0f, 0x30000001},
+    {0x0003FFFF, 50, 1.0f, 0x20000001},
+    {0x0003FFFF, 51, 1.0f, 0x20000001},
+    {0x0003FFFF, 52, 1.0f, 0x20000001},
+    {0x0003FFFF, 53, 1.0f, 0x20000001},
+    {0x0001FFFF, 54, 0.7f, 0x30000001},
+    {0x0001FFFF, 55, 0.7f, 0x30000001},
+};
+const s32 lbl_80476ED0[56] = {
+    201, 200, 207, 201, 200, 207, 202, 204,
+    109, 199, 196, 153, 91, 155, 178, 173,
+    194, 126, 205, 174, 187, 137, 206, 164,
+    87, 208, 209, 210, 211, 212, 213, 214,
+    215, 216, 217, 218, 219, 220, 221, 222,
+    223, 224, 225, 226, 227, 228, 229, 230,
+    231, 232, 233, 234, 235, 236, 237, 238,
+};
+const s32 lbl_80476FB0[56] = {
+    335, 412, 416, 487, 506, 508, 359, 413,
+    340, 411, 408, 369, 321, 371, 389, 384,
+    406, 357, 414, 385, 399, 363, 415, 341,
+    317, 417, 418, 419, 420, 421, 422, 423,
+    424, 425, 426, 427, 428, 429, 430, 431,
+    432, 433, 434, 435, 436, 437, 438, 439,
+    440, 441, 233, 234, 235, 236, 442, 443,
+};
+const PlayerMotionEntry * lbl_804ED690[19] = {
+    lbl_804767D0, lbl_804767D0, lbl_804767D0, lbl_804767D0,
+    lbl_804767D0, lbl_804767D0, lbl_804767D0, lbl_804767D0,
+    lbl_804767D0, lbl_804767D0, lbl_804767D0, lbl_804767D0,
+    lbl_804767D0, lbl_804767D0, lbl_804767D0, lbl_804767D0,
+    lbl_804767D0, lbl_804767D0, lbl_804767D0,
+};
+const PlayerMotionEntry * lbl_804ED6DC[19] = {
+    lbl_80476B50, lbl_80476B50, lbl_80476B50, lbl_80476B50,
+    lbl_80476B50, lbl_80476B50, lbl_80476B50, lbl_80476B50,
+    lbl_80476B50, lbl_80476B50, lbl_80476B50, lbl_80476B50,
+    lbl_80476B50, lbl_80476B50, lbl_80476B50, lbl_80476B50,
+    lbl_80476B50, lbl_80476B50, lbl_80476B50,
+};
+__declspec(section ".data") const PlayerMotionEntry ** lbl_804ED728[2] = {
+    lbl_804ED690, lbl_804ED6DC,
+};
+const s32 * lbl_804ED730[19] = {
+    lbl_80476ED0, lbl_80476ED0, lbl_80476ED0, lbl_80476ED0,
+    lbl_80476ED0, lbl_80476ED0, lbl_80476ED0, lbl_80476ED0,
+    lbl_80476ED0, lbl_80476ED0, lbl_80476ED0, lbl_80476ED0,
+    lbl_80476ED0, lbl_80476ED0, lbl_80476ED0, lbl_80476ED0,
+    lbl_80476ED0, lbl_80476ED0, lbl_80476ED0,
+};
+const s32 * lbl_804ED77C[19] = {
+    lbl_80476FB0, lbl_80476FB0, lbl_80476FB0, lbl_80476FB0,
+    lbl_80476FB0, lbl_80476FB0, lbl_80476FB0, lbl_80476FB0,
+    lbl_80476FB0, lbl_80476FB0, lbl_80476FB0, lbl_80476FB0,
+    lbl_80476FB0, lbl_80476FB0, lbl_80476FB0, lbl_80476FB0,
+    lbl_80476FB0, lbl_80476FB0, lbl_80476FB0,
+};
+__declspec(section ".data") const s32 ** town_player_motion_clip_index_tables[2] = {
+    lbl_804ED730, lbl_804ED77C,
 };
 
 extern "C" {
 s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
-extern RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
-extern RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
+RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
+RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
-extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_tables;
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 void check_valid_state__6TLobbyFi(s32 arg0);
 s32 is_handle_valid__10TObjPlayerFv();
 
-extern s32 lbl_805D6C80;
+s32 lbl_805D6C80;
 
 s32 TLobby::get_cell_address(s32 arg1, s32 arg2) {
     struct VObj_80328F7C *o = (struct VObj_80328F7C *)this;
@@ -188,10 +353,9 @@ s32 *TLobby::get_state_table(s32 _w1) {
         return NULL;
     }
 }
-typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
 
 int TUnk_804ED7D0::vfunc_9(s32 a, s32 b, s32 c) {
-    return ((s32 ** *)&town_player_motion_clip_index_tables)[a][b][c];
+    return town_player_motion_clip_index_tables[a][b][c];
 }
 
 int TUnk_804ED7D0::vfunc_8(s32 arg1, s32 arg2) {
@@ -199,19 +363,17 @@ int TUnk_804ED7D0::vfunc_8(s32 arg1, s32 arg2) {
         return 0;
     }
     if (((s32)is_valid_player_motion_variant((void*)arg2)) != 0) {
-        return *(s32 *)((s8 *)(*(s32 *)((s8 *)&town_player_motion_clip_index_tables.value + (arg1 * 4))) + (arg2 * 4));
+        return (int)town_player_motion_clip_index_tables[arg1][arg2];
     }
     return 0;
 }
-extern s32 *lbl_804ED728[];
 int TUnk_804ED7D0::vfunc_7(s32, s32) {
     s32 i = ((s32 (*)(void))is_valid_state__6TLobbyFPvi)();
     if (((s32 (*)(void))TLobby__sub_802A7278)() != 0) {
-        return *lbl_804ED728[i];
+        return (int)*lbl_804ED728[i];
     }
     return 0;
 }
-typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_802A74B8_lbl_804DD9F8) == 0x18 ? 1 : -1];
 
 s32 apply_player_flag_2__6TLobbyFv();
 void mem_free(void*);
