@@ -240,6 +240,7 @@ pso/boss/TBoss6Type1_80323DCC.cpp
 pso/boss/TBoss6Type2_802B97E0.cpp
 pso/boss/TBoss6Type2_802B9858.cpp
 pso/boss/TBoss6Type2_802BF558.cpp
+pso/boss/TBoss6Type2_8032E708.cpp
 pso/boss/TBoss6Type2_803309D8.cpp
 pso/boss/TBoss6Type2_80336E6C.cpp
 pso/boss/TBoss6Type2_80356E50.cpp
@@ -432,6 +433,7 @@ pso/enemy/TObjEneMe3Stelth_800F0EC4.cpp
 pso/enemy/TObjEneMe3Stelth_802D70AC.cpp
 pso/enemy/TObjEneMe3Stelth_803DC82C.cpp
 pso/enemy/TObjEneMoja.cpp
+pso/enemy/TObjEneMorfos.cpp
 pso/enemy/TObjEneMorfosArm.cpp
 pso/enemy/TObjEneMorfosArm_80335218.cpp
 pso/enemy/TObjEneMorfos_80337500.cpp
@@ -535,6 +537,7 @@ pso/item/TItemDropSub_80107BF0.cpp
 pso/item/TItemDropSub_80107C40.cpp
 pso/item/TItemDrop_800F93F0.cpp
 pso/item/TItemDrop_800F9C00.cpp
+pso/item/TItemDrop_80105D0C.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
 pso/item/TItemEffArmor_80107DA4.cpp
@@ -809,6 +812,7 @@ pso/misc/TCameraCtrl_8006BA68.cpp
 pso/misc/TCameraCtrl_8006C580.cpp
 pso/misc/TCameraCtrl_8006C5D8.cpp
 pso/misc/TCameraCtrl_8006C8E4.cpp
+pso/misc/TCameraCtrl_8006CC30.cpp
 pso/misc/TCameraCtrl_800766C4.cpp
 pso/misc/TCameraCtrl_80082FCC.cpp
 pso/misc/TCameraCtrl_8013F25C.cpp
@@ -919,6 +923,7 @@ pso/misc/TLanguage_803DAF68.cpp
 pso/misc/TLazerFenceSw.cpp
 pso/misc/TLevelSelect.cpp
 pso/misc/TLoadCtrl.cpp
+pso/misc/TLoadCtrl_80227390.cpp
 pso/misc/TLoadingCur.cpp
 pso/misc/TLoadingCur_801A6DE0.cpp
 pso/misc/TLobby.cpp
@@ -1829,6 +1834,7 @@ pso/misc/TWindowSubComCard_80265410.cpp
 pso/misc/TWindowSubComCard_80266BC4.cpp
 pso/misc/TWindowSubComCard_80268494.cpp
 pso/misc/TWindowSubComCard_80269064.cpp
+pso/misc/TWindowSubComCard_80271E7C.cpp
 pso/misc/TWindowSubComCard_80275484.cpp
 pso/misc/TWindowSubComCard_802A55E0.cpp
 pso/misc/TWindowSubComCard_802A5748.cpp
@@ -1836,6 +1842,7 @@ pso/misc/TWindowSubComCard_8033BC34.cpp
 pso/misc/TWindowSubComCard_8033BDB0.cpp
 pso/misc/TWindowSubComCard_8033C2E8.cpp
 pso/misc/TWindowSubComCard_8034CD98.cpp
+pso/misc/TWindowSubCustomEquip.cpp
 pso/misc/TWindowSubCustomEquip_80275D9C.cpp
 pso/misc/TWindowSubCustomEquip_802760AC.cpp
 pso/misc/TWindowSubCustomEquip_80276114.cpp
@@ -1899,6 +1906,7 @@ pso/misc/TWindowSubStatusDisp_80249060.cpp
 pso/misc/TWindowSubStatusDisp_8024F688.cpp
 pso/misc/TWindowSubStatusDisp_8024FBA8.cpp
 pso/misc/TWindowSubStatusDisp_80255DF4.cpp
+pso/misc/TWindowSubStatusDisp_8025737C.cpp
 pso/misc/TWindowSubStatusDisp_80257BC0.cpp
 pso/misc/TWindowSubStatusDisp_8025A9B4.cpp
 pso/misc/TWindowSubStatusDisp_8025B050.cpp
@@ -2082,6 +2090,7 @@ pso/object/TObjCityMainWarp_80186C44.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
 pso/object/TObjCollision.cpp
 pso/object/TObjComputer.cpp
+pso/object/TObjControl.cpp
 pso/object/TObjCurtainLobby_8035B87C.cpp
 pso/object/TObjDFDemo2.cpp
 pso/object/TObjDFDemo3.cpp
@@ -2296,6 +2305,7 @@ pso/player/TObjPlayer_8010ECD0.cpp
 pso/player/TObjPlayer_80116578.cpp
 pso/player/TObjPlayer_8011B86C.cpp
 pso/player/TObjPlayer_8011BADC.cpp
+pso/player/TObjPlayer_8011C000.cpp
 pso/player/TObjPlayer_8011CEC0.cpp
 pso/player/TObjPlayer_8011E214.cpp
 pso/player/TObjPlayer_8011F578.cpp
