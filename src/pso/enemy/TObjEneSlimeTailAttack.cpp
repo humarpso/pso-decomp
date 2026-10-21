@@ -1378,7 +1378,6 @@ void TObjEneSlimeOne::copy_position() {
 }
 
 f32 fabs_float(f32);
-void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DA700;
 extern const f32 lbl_805DA704;
 
