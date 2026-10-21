@@ -45,7 +45,7 @@ jobs:
       ORIG: /opt/pso-ci/orig
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # full history: the base-commit baseline step fetches by SHA below, and
           # shallow clones refuse `git fetch <sha>` ("shallow update not allowed")
