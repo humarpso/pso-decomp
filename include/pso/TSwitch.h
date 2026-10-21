@@ -5,12 +5,14 @@
 
 class TSwitch : public TObject {
 public:
+    TSwitch(TObject *parent);
     virtual ~TSwitch();
     virtual void run_task();
     virtual void render();
-public:
-    static void render();
-    static void run_task();
+
+    u8 m_1c;
+    u32 m_20;
+    u32 m_24;
 };
 
 #endif

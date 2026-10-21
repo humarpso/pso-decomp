@@ -1,29 +1,18 @@
 #include "pso/TSwitch.h"
+#include "pso/misc/TSwitch.h"
 
 #include "types.h"
 
-void clear_current_floor_switch(s32 arg0);
 extern "C" {
 s32 get_current_floor(void);
-void is_current_floor_switch_set(s32 arg0);
 s32 memcpy(void *, void *, void *);
 s32 memset(void *, int, int);
-void *__ct__7TSwitchFv(void *arg0);
-void __ct__7TObjectFP7TObject(void *);
+}
 
 void TSwitch::render() {  }
 void TSwitch::run_task() {  }
-}
-void set_current_floor_switch(s32 arg0);
-u8 is_floor_switch_set(u32 id, s16 floor);
-extern u8 TSwitch__floor_switch_table[18][32];
-void restore_switch_table(s32 arg0, s32 arg1);
-void clear_switch_table(void);
-void init_switch_table(void);
-u32 copy_switch_table(void* destination);
-s32 get_floor_switch_flag(u32 id, s16 floor);
-void clear_floor_switch_flag(u32 id, s16 floor);
-void set_floor_switch_flag(u32 id, s16 floor);
+
+u8 TSwitch__floor_switch_table[18][32];
 
 void restore_switch_table(s32 arg0, s32 arg1) {
     memcpy((void *) TSwitch__floor_switch_table, (void *)arg0, (void *)arg1);
@@ -58,8 +47,8 @@ u8 is_floor_switch_set(u32 id, s16 floor) {
     return (u8) (get_floor_switch_flag(id, floor) != 0);
 }
 
-extern s32 __vt__7TSwitch[];
-extern void *TSwitch__name;
+#pragma readonly_strings on
+const char *TSwitch__name = "TSwitch";
 
 extern "C" {
 
@@ -118,15 +107,13 @@ void set_current_floor_switch(s32 id) {
 }
 }
 
-void *__ct__7TSwitchFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TSwitch;
-    *(void * *)&((TSwitch *)arg0)->m_name = TSwitch__name;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    return arg0;
+TSwitch::TSwitch(TObject *parent) : TObject(parent) {
+    m_name = TSwitch__name;
+    m_1c = 0;
+    m_20 = 0;
+    m_24 = 0;
 }
+typedef char TSwitch_size[sizeof(TSwitch) == 0x28 ? 1 : -1];
 void clear_switch_table(void) {
     memset((void *) TSwitch__floor_switch_table, 0, 0x240);
 }

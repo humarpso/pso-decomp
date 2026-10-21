@@ -9,6 +9,7 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TScene.h"
 #include "pso/misc/TSceneSora.h"
+#include "pso/TSwitch.h"
 #include "pso/player/TUnk_8048E5F4.h"
 
 #include "types.h"
@@ -52,7 +53,6 @@ s32 cleanup_game_objects__9TMainTaskFv();
 s32 restore_floor_telepipes();
 s32 __ct__15TWindowCtrlMainFv();
 s32 TWindowCtrl__ct(u32, s32);
-s32 __ct__7TSwitchFv(u32, s32);
 s32 __ct__8TTecCtrlFv(u32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 ct_register__6TLobbyFv(u32, s32);
@@ -118,10 +118,7 @@ void TLobby::create_tasks() {
     if (tmp != 0U) {
         ((TNpcPlayer *)tmp)->construct_party_area((void *)tl_06);
     }
-    tmp = __nw__7TObjectFUl(0x28);
-    if (tmp != 0U) {
-        __ct__7TSwitchFv(tmp, tl_00);
-    }
+    new TSwitch((TObject *)tl_00);
     TQuestColCtrl::init();
     if (TOKeyMachine01::get_global_state() == 0xF) {
         TLobby__sub_80351F3C();
