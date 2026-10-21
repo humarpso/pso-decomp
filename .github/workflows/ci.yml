@@ -22,6 +22,7 @@ on:
   pull_request:
     branches: [master]
     types: [opened, synchronize, reopened]
+    paths-ignore: ['**.md']
   workflow_dispatch:
 
 permissions:
