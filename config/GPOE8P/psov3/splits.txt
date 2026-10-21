@@ -2094,6 +2094,8 @@ pso/enemy/TObjEneRe4Sorcerer_800EDB98.cpp:
 
 pso/player/TObjPlayer_800F0810.cpp:
 	.text       start:0x800F0810 end:0x800F0AE4
+	.bss        start:0x80501080 end:0x805010E0
+	.sdata2     start:0x805DA7F0 end:0x805DA7F4
 
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp:
 	.text       start:0x800F0AE4 end:0x800F0CE8

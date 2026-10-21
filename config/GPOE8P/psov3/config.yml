@@ -878,6 +878,8 @@ force_active:
   - TObjPlayer__sub_800DB0F8
   - TObjPlayer__sub_800DB390
   - TObjPlayer__sub_800DBAB8
+  - TObjPlayer__sub_800F083C
+  - TObjPlayer__sub_800F08AC
   - TObjPlayer__sub_800FF1FC
   - TObjPlayer__sub_800FF220
   - TObjPlayer__sub_800FF244
@@ -1964,6 +1966,9 @@ force_active:
   - alloc_work_buffer__6TLobbyFv
   - allocate_network_info_cipher_key__Fl
   - allow_rendering_shadows__7TObjectFv
+  - alt_model
+  - alt_model_object
+  - alt_model_strips
   - anchor_state__14TObjEneBm5WolfFl
   - ancient_boss_warp_resource_block
   - appearing_state__14TObjEneBm5WolfFPvi
@@ -2619,6 +2624,7 @@ force_active:
   - clear_30_slots__10TObjPlayerFv
   - clear_active_flag__8TFogCtrlFv
   - clear_all_entries__6TLobbyFPv
+  - clear_alt_model_flag__10TObjPlayerFv
   - clear_battle_player_ready_flags
   - clear_bit__15TBoss6SwordWaveFPvUc
   - clear_card_status_flags__6TLobbyFv
@@ -3887,6 +3893,7 @@ force_active:
   - is_sega_logo_done__Fi
   - is_signboard_texture_buffer_missing__Fv
   - is_slot_active__14TShopGeneratorFi
+  - is_split_screen__10TObjPlayerFv
   - is_stat_over_limit__6TLobbyFl
   - is_target_in_attack_range__13TUnk_80483A10Fv
   - is_target_in_front_range__9TBoss6MagFv
@@ -10232,6 +10239,7 @@ force_active:
   - set_active_flag__11TWindowMenuFv
   - set_all_entry_flags__17TBoss5GryphonDemoFv
   - set_all_flags__17TBoss8DragonColliFPv
+  - set_alt_model_flag__10TObjPlayerFv
   - set_anim_state__14TObjEneBm5WolfFv
   - set_anim_state__19TAdPlyPltAnimCtrlGCFl
   - set_attack_flag__14TObjEneBm5WolfFv
@@ -11096,6 +11104,7 @@ force_active:
   - update_letterbox_show__9TCineCtrlFv
   - update_level_requirement__15TWindowHelpItemFPv
   - update_light_direction__12TCharaMakingFv
+  - update_lights__10TObjPlayerFv
   - update_line_params__23TObjOnlineEndingHexLineFv
   - update_linked_state__13TUnk_804F322CFv
   - update_list__24TShopEquipmentListWindowFPv
