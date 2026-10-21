@@ -1445,7 +1445,10 @@ pso/misc/TEndingC_8008D00C.cpp:
 
 pso/enemy/TObjEneBalClaw.cpp:
 	.text       start:0x8008D68C end:0x8008DC18
-	.sdata2     start:0x805D960C end:0x805D9620
+	.rodata     start:0x80439910 end:0x80439B40
+	.data       start:0x8048EB78 end:0x8048EC9C
+	.sdata      start:0x805D2968 end:0x805D296C
+	.sdata2     start:0x805D9600 end:0x805D9614
 
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp:
 	.text       start:0x8008DC18 end:0x8008DCF0
