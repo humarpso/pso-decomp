@@ -20,7 +20,7 @@ struct TObjEneBalClaw : public TObjEnemyCustom {
     u32 m_39c;
     u8 unk_3A0[0xC];
     f32 m_3ac;
-    u8 unk_3B0[0x4];
+    f32 m_3b0;
     f32 m_3b4;
     u32 m_3b8;
     void render_scaled(s32 arg1);
@@ -28,8 +28,7 @@ struct TObjEneBalClaw : public TObjEnemyCustom {
     void update_claw_angle();
     static void release_global_805D4F20();
     void clear_flag_in_state7();
-    u16 m_3bc;
-    u8 unk_3BE[0x2];
+    f32 m_3bc;
 };
 
 typedef char TObjEneBalClaw_size[sizeof(TObjEneBalClaw) == 0x3C0 ? 1 : -1];

@@ -135,11 +135,11 @@ void TObjEneBalClaw::update_claw_angle() {
         temp_r4 = this->m_a4;
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFF9);
         if (this->m_388 & 0x10000) {
-            if (this->m_3b4 < *(f32 *)&this->unk_3B0) {
+            if (this->m_3b4 < this->m_3b0) {
                 this->m_3b4 += 1.0f;
                 return;
             }
-            this->m_3b4 = *(f32 *)&this->unk_3B0;
+            this->m_3b4 = this->m_3b0;
             temp_r3 = this->m_a4;
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 4);
             return;
@@ -250,7 +250,7 @@ u8 *TObjEneBalClaw__ct(TObjEneBalClaw *ene_bal_claw) {
     ((TUnk_804806E8 *)ene_bal_claw)->add_flags_2e4(8);
     ene_bal_claw->actorFlags = (s32) (ene_bal_claw->actorFlags | 0x40000);
     ene_bal_claw->m_3b8 = 0;
-    *(f32 *)((s8 *)ene_bal_claw + 0x3BC) = 0.0f;
+    ene_bal_claw->m_3bc = 0.0f;
     ene_bal_claw->clear_attack_flag();
     ene_bal_claw->m_388 = (s32) (ene_bal_claw->m_388 | 0x20000);
     return (u8 *)ene_bal_claw;
