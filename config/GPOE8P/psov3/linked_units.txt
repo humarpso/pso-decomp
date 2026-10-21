@@ -560,6 +560,7 @@ pso/item/TItemEffPG.cpp
 pso/item/TItemEffPG_8034FF4C.cpp
 pso/item/TItemEffShield.cpp
 pso/item/TItemEffShield_8010A390.cpp
+pso/item/TItemEffectWeapon.cpp
 pso/item/TItemEffectWeapon_80115C24.cpp
 pso/item/TItemEffectWeapon_803631A0.cpp
 pso/item/TItemEffectWeapon_803632B4.cpp

@@ -5,6 +5,9 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 
+#pragma readonly_strings on
+const char *TItemEffectWeapon__class_name = "TItemEffectWeapon";
+
 extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *p);
 void restore_saved_depth_alpha_state();
@@ -21,6 +24,8 @@ void TItemEffectWeapon__sub_80363410(void);
 void decrement_timer__17TItemEffectWeaponFv(void *, s32);
 void mem_free(void *p);
 void* memcpy(void* destination, const void* source, size_t size);
+f32 xyz_distance(const f32 *a, const f32 *b);
+f32 normalize_vector(f32 *v);
 
 extern s32 lbl_804F28E0[];
 
@@ -59,6 +64,54 @@ void TItemEffectWeapon::run_task() {
         offset += 0x20;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TItemEffectWeapon::push_trail_interpolated(const f32 *first, const f32 *second) {
+    if (vertices != NULL && first != NULL && second != NULL) {
+        if (vertex_count != 0) {
+            TrailVertex *prev = vertices;
+            f32 base[3];
+            f32 tip[3];
+            f32 dir[3];
+            f32 base_x = prev[1].x;
+            f32 base_y = prev[1].y;
+            f32 base_z = prev[1].z;
+            f32 tip_x = prev[0].x;
+            f32 tip_y = prev[0].y;
+            f32 tip_z = prev[0].z;
+            f32 tip_dx = (second[0] - tip_x) / 2.0f;
+            f32 tip_dy = (second[1] - tip_y) / 2.0f;
+            f32 tip_dz = (second[2] - tip_z) / 2.0f;
+            f32 base_dx = (first[0] - base_x) / 2.0f;
+            f32 base_dy = (first[1] - base_y) / 2.0f;
+            f32 base_dz = (first[2] - base_z) / 2.0f;
+            f32 length = xyz_distance(first, second);
+            s32 i;
+            for (i = 1; i < 2; i++) {
+                base[0] = base_dx * i + base_x;
+                base[1] = base_dy * i + base_y;
+                base[2] = base_dz * i + base_z;
+                tip[0] = tip_dx * i + tip_x;
+                tip[1] = tip_dy * i + tip_y;
+                tip[2] = tip_dz * i + tip_z;
+                dir[0] = tip[0] - base[0];
+                dir[1] = tip[1] - base[1];
+                dir[2] = tip[2] - base[2];
+                normalize_vector(dir);
+                base[0] = 0.01f * dir[0] + base[0];
+                base[1] = 0.01f * dir[1] + base[1];
+                base[2] = 0.01f * dir[2] + base[2];
+                tip[0] = dir[0] * length + base[0];
+                tip[1] = dir[1] * length + base[1];
+                tip[2] = dir[2] * length + base[2];
+                push_trail_entry(base, tip);
+            }
+        }
+        push_trail_entry(first, second);
+    }
+}
+#pragma pop
 
 void TItemEffectWeapon::push_trail_entry(const f32* first, const f32* second) {
     if (vertices != NULL && first != NULL && second != NULL) {
@@ -110,10 +163,8 @@ TItemEffectWeapon::~TItemEffectWeapon() {
     TItemEffectWeapon::release_trail_buffer((void*)*(s32 *)((s8 *)this + 0x1C));
 }
 
-extern s32 TItemEffectWeapon__class_name;
-
 TItemEffectWeapon::TItemEffectWeapon(s32 arg1, s32 param) : TItemHeapObject((TObject*)arg1) {
-    *(s32 *)((s8 *)this + 0) = TItemEffectWeapon__class_name;
+    m_name = TItemEffectWeapon__class_name;
     *(s32 *)((s8 *)this + 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
     this->color = param;
     this->vertex_count = 0;

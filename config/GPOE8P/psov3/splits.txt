@@ -12709,6 +12709,10 @@ pso/item/TItemEffectWeapon_8036330C.cpp:
 
 pso/item/TItemEffectWeapon.cpp:
 	.text       start:0x803633B4 end:0x80363AF4
+	.rodata     start:0x80479FD8 end:0x80479FF8
+	.data       start:0x804F29E0 end:0x804F29F8
+	.sdata      start:0x805D4470 end:0x805D4478
+	.sdata2     start:0x805E0280 end:0x805E0288
 
 pso/item/TItem_80363AF4.cpp:
 	.text       start:0x80363AF4 end:0x80363BE0
