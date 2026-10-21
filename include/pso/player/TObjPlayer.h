@@ -288,6 +288,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void call_callback_1ec(s32 arg1, s32 arg2);
     void copy_wall_polygon(u8 *arg1);
     static void copy_matrix(u32 arg0, u32 arg1);
+    static f32 calc_boss4_scale(int arg0);
     static s32 run_next_key_callback(s32 arg0);
     static s32 sample_next_quaternion_key(s32 arg0);
     void interpolate_motion_key(s32 arg1, s32 *arg2, f32 farg0);
@@ -423,7 +424,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void clear_velocity_vectors();
     static void set_com_card_window(s32 arg0);
     static s32 check_demo_mode();
-    static f32 calc_boss4_scale(int arg0);
+    static TObjPlayer *get_player_data(int index);
     int queue_destruction();
     void set_position_xy(f32 a, f32 b);
     u8 test_action_mask(s32 arg1);

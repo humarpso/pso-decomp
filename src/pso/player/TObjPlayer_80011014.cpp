@@ -4820,7 +4820,7 @@ void obj_setField96_1(ObjFlags* p) {
     p->field_96 = 1;
 }
 
-u32 TUnk_804AF8A0::obj_testFlags30(u32 mask) {
+s32 TUnk_804AF8A0::obj_testFlags30(u32 mask) {
     ObjFlags*p = (ObjFlags*)this;
     return p->flags_30 & mask;
 }
