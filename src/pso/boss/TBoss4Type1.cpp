@@ -1793,7 +1793,6 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
 #pragma pop
 
 extern const f32 lbl_805D8B88;
-struct DirectAttackPayload { s32 kind; f32 power; };
 
 void TBoss4Type2__sub_80054DA8(TBoss4Type2 *boss) {
     Vec_80053914 *spot;
@@ -1818,7 +1817,7 @@ void TBoss4Type2__sub_80054DA8(TBoss4Type2 *boss) {
     }
     count = TLobby::get_game_mode();
     for (n = 0; n < count; n++) {
-        player = (TObjPlayer *)get_player_data__10TObjPlayerFi(n);
+        player = TObjPlayer::get_player_data(n);
         hit = 0;
         if (player == NULL) {
             continue;

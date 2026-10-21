@@ -432,8 +432,6 @@ extern const f32 lbl_805DFF8C;
 extern const f32 lbl_805DFF90;
 }
 
-struct DirectAttackPayload { s32 kind; f32 power; };
-
 void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed) {
     s32 count;
     E_803546B0 *entries;

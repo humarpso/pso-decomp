@@ -3,6 +3,11 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 
+struct DirectAttackPayload {
+    s32 kind;
+    f32 power;
+};
+
 class TUnk_804806E8 : public TObjMotion {
 public:
     virtual ~TUnk_804806E8();
