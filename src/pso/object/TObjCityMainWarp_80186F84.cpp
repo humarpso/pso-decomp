@@ -49,11 +49,9 @@ extern const f32 lbl_805DBCA8;
 s32 is_local_client_floor_leader(s32);
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
 s32 close_windows__25TObjCityMainWarpChallengeFv();
-void TObjCityMainWarp__sub_801875F8(void *);
+void TObjCityMainWarp__sub_801875F8(TObjCityMainWarpChallenge *self);
 s32 check_player_flag1__6TLobbyFv(void);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 fn_80248994(void *, u32, int);
-void *refresh_with_default_list__20TWindowSubStatusDispFll(s32, void *);
 void request_active_window_close(void);
 void begin_player_keyboard_hold(s32 arg0);
 s32 get_window_layout_position(s32);
@@ -116,7 +114,7 @@ void TObjCityMainWarp::update_warp_sequence() {
         break;
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFf)(*(f32 *)((s8 *)arg0 + 0xAC)) != 0) {
-            TObjCityMainWarp__sub_801875F8(arg0);
+            TObjCityMainWarp__sub_801875F8((TObjCityMainWarpChallenge *)arg0);
             if (*(s32 *)((s8 *)arg0 + 0x170) == 0) {
                 ((TObjCityMainWarpChallenge *)arg0)->trigger_warp_effect(local_client_id);
                 *(s32 *)((s8 *)arg0 + 0x170) = 1;
@@ -161,7 +159,7 @@ void TObjCityMainWarpChallenge::update_challenge_state() {
         break;
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFf)(*(f32 *)((s8 *)arg0 + 0xAC)) != 0) {
-            TObjCityMainWarp__sub_801875F8(arg0);
+            TObjCityMainWarp__sub_801875F8(this);
             ((TObjCityMainWarpChallenge *)arg0)->trigger_warp_effect(local_client_id);
             *(s16 *)((s8 *)arg0 + 0xE0) = 2;
             break;
@@ -176,7 +174,7 @@ void TObjCityMainWarpChallenge::update_challenge_state() {
         }
         break;
     case 2:
-        TObjCityMainWarp__sub_801875F8(arg0);
+        TObjCityMainWarp__sub_801875F8(this);
         if (*(u32 *)((s8 *)arg0 + 0x168) != 0) {
             if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->get_card_data() != 0) {
                 *(s16 *)((s8 *)arg0 + 0xE0) = 3;
@@ -276,40 +274,20 @@ void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
 }
 
 
-struct CityWarpDialogs {
-    u8 pad0[0xDE];
-    s16 mode;
-    u8 padE0[0xE4 - 0xE0];
-    char names[4][0x18];
-    s32 inside[4];
-    s32 count;
-    s32 n_inside;
-    s32 f15c;
-    u8 pad160[4];
-    void *list;
-    void *dialog;
-};
-
-struct CityWarpListPos {
-    f32 x;
-    f32 y;
-};
-
-void TObjCityMainWarp__sub_801875F8(void *arg0) {
-    CityWarpDialogs *self = (CityWarpDialogs *)arg0;
+void TObjCityMainWarp__sub_801875F8(TObjCityMainWarpChallenge *self) {
     s32 i;
     s32 j;
     u32 color;
-    CityWarpListPos pos;
+    f32 pos[2];
 
-    switch (self->mode) {
+    switch (self->m_de) {
     case 0:
-        if (self->dialog == 0) {
-            self->dialog = TWindowMessageYesNo::create((void *)self, (void *)local_client_id, (void *)0, (void *)0);
-            if (self->dialog != 0) {
-                forward_slot_selection__16TAdChrSelASlotGCFPvPv(self->dialog, get_message_10__20TWindowSubStatusDispFl(0x41), get_window_layout_position(0x36), lbl_805DBCAC);
-                free_member__17TWindowSubComCardFv(self->dialog, 1);
-                ((TWindowSubShortMail *)self->dialog)->notify_warp_flag70();
+        if (self->m_168 == 0) {
+            self->m_168 = TWindowMessageYesNo::create(self, (void *)local_client_id, (void *)0, (void *)0);
+            if (self->m_168 != 0) {
+                forward_slot_selection__16TAdChrSelASlotGCFPvPv(self->m_168, (s32)TWindowSubStatusDisp::get_message_10(0x41), get_window_layout_position(0x36), lbl_805DBCAC);
+                free_member__17TWindowSubComCardFv(self->m_168, 1);
+                ((TWindowSubShortMail *)self->m_168)->notify_warp_flag70();
                 begin_player_keyboard_hold(local_client_id);
                 request_active_window_close();
                 ((TWindowCtrl *)local_client_id)->suppress_slot();
@@ -317,35 +295,35 @@ void TObjCityMainWarp__sub_801875F8(void *arg0) {
         }
         break;
     case 1:
-        if (self->dialog == 0) {
-            self->dialog = TWindowMessageYesNo::create((void *)self, (void *)local_client_id, (void *)0, (void *)0);
-            if (self->dialog != 0) {
-                initialize_option_dialog(self->dialog, get_message_10__20TWindowSubStatusDispFl(0x42), get_window_layout_position(0x36), lbl_805DBCAC);
+        if (self->m_168 == 0) {
+            self->m_168 = TWindowMessageYesNo::create(self, (void *)local_client_id, (void *)0, (void *)0);
+            if (self->m_168 != 0) {
+                initialize_option_dialog(self->m_168, (s32)TWindowSubStatusDisp::get_message_10(0x42), get_window_layout_position(0x36), lbl_805DBCAC);
             }
         }
         break;
     }
-    if (self->list == 0) {
-        pos.x = lbl_805DBCB0;
-        pos.y = lbl_805DBCB4;
-        self->list = refresh_with_default_list__20TWindowSubStatusDispFll(get_window_layout_position(0x34), &pos);
-        if (self->list != 0) {
-            ((TWindowSubTradeMain *)self->list)->set_visible();
-            ((TWindowSubTradeMain *)self->list)->set_close_flag();
-            for (i = 0; i < self->count; i++) {
-                TWindowSubStatusDisp::dispatch_without_flags((s32)self->list, (s32)self->names[i], i);
+    if (self->m_164 == 0) {
+        pos[0] = lbl_805DBCB0;
+        pos[1] = lbl_805DBCB4;
+        self->m_164 = TWindowSubStatusDisp::refresh_with_default_list(get_window_layout_position(0x34), (s32)pos);
+        if (self->m_164 != 0) {
+            ((TWindowSubTradeMain *)self->m_164)->set_visible();
+            ((TWindowSubTradeMain *)self->m_164)->set_close_flag();
+            for (i = 0; i < self->player_count; i++) {
+                TWindowSubStatusDisp::dispatch_without_flags((s32)self->m_164, (s32)self->player_names[i], i);
             }
         }
         request_active_window_close();
     }
-    if (self->list != 0) {
-        for (j = 0; j < self->count; j++) {
-            ((THunterGuildSeqOffline *)self->list)->advance_matching_entries(self->inside[j] != 0, j);
+    if (self->m_164 != 0) {
+        for (j = 0; j < self->player_count; j++) {
+            ((THunterGuildSeqOffline *)self->m_164)->advance_matching_entries(self->player_in_range[j] != 0, j);
             color = 0xF0F0F0FF;
-            if (self->mode == 1 && get_player_by_client_id(j) != NULL && check_player_flag1__6TLobbyFv() != 0) {
+            if (self->m_de == 1 && get_player_by_client_id(j) != NULL && check_player_flag1__6TLobbyFv() != 0) {
                 color = 0xFFFF00FF;
             }
-            fn_80248994(self->list, color, j);
+            fn_80248994(self->m_164, color, j);
         }
     }
 }

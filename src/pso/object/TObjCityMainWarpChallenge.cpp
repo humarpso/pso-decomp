@@ -90,7 +90,7 @@ void TObjCityMainWarpChallenge::debug_print_area_num() {
 
 void TObjCityMainWarpChallenge::render() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)&this->_padD8 == 0xE) {
+    if ((s32) *(s32 *)&this->m_bc == 0xE) {
         if (xz_distance_squared(camera_ctrl_instance + 0x178, (u8 *)&this->position) > lbl_805DBCB8) {
             return;
         }
@@ -183,9 +183,9 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *city_main_warp_challenge) {
     *(s16 *)((s8 *)city_main_warp_challenge + 0xE2) = 0;
     *(s32 *)((s8 *)city_main_warp_challenge + 0xD0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x42C)) + 8);
     *(s32 *)((s8 *)city_main_warp_challenge + 0xD4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x430)) + 0x2C);
-    if ((u32) ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_d0 != 0U) {
+    if ((u32) ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_b4 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)city_main_warp_challenge + 0xB4));
-        ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_d0 = 0U;
+        ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_b4 = 0U;
     }
     for (var_ctr = 0; var_ctr < 4; var_ctr++) {
         ((Warp_80187B50 *)city_main_warp_challenge)->arr[var_ctr] = 0;
