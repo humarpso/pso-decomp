@@ -740,7 +740,7 @@ s16 NetApplyConnectionConfig(u8 *arg0) {
 }
 extern "C" {
 
-s32 TLobby::get_remaining(s32 arg0) {
+s16 TLobby::get_remaining(s32 arg0) {
     return lbl_805D7A78 - arg0;
 }
 

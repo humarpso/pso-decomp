@@ -488,13 +488,15 @@ s32 wait_for_connection__6TLobbyFPv(Conn_804004DC *c);
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 extern Names_80403168 lbl_805C04D8;
 s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2);
-s16 TLobby__sub_803FC1CC(u8 *, s32);
+s16 TLobby__sub_803FC1CC(Conn_804004DC *c, s32 timeout);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
 extern u8 lbl_805C0038[];
 extern s16 lbl_805D7A7C;
 s32 TLobby__sub_80403B04(u8 *arg0, u8 *arg1, s32 arg2);
 s16 TLobby__sub_80402BB4(u8 *, s32);
 extern s32 lbl_805D7A90;
+extern s16 lbl_805D7A80;
+extern s16 lbl_805D7A82;
 s32 TLobby__sub_80403BA8(u8 *arg0, u8 *arg1, s32 arg2);
 s16 TLobby__sub_80401BCC(void *src, void *dst, u16 n);
 extern u8 lcp_read_value_buffer[4];
@@ -587,6 +589,47 @@ s32 TLobby::init_net_state_b() {
     return 0;
 }
 
+struct Auth_803FC1CC { u8 pad[0xC]; s16 active; };
+B_803FADA0 *TLobby__sub_803FCF44(Self_803FD74C *fsm);
+s16 TLobby__sub_803FC1CC(Conn_804004DC *c, s32 timeout) {
+    Auth_803FC1CC *auth;
+    u8 *sub;
+    RecoveredGlobal_804050DC_lbl_805C18A0 *g;
+
+    sub = c->sub;
+    auth = (Auth_803FC1CC *)c->opts;
+    if (lbl_805D7A90 & 2) {
+        auth->active = 1;
+        TLobby__sub_803FE820((s32)c);
+        TLobby__sub_803FE6CC(c, 1, 0, TLobby__sub_803FCF44((Self_803FD74C *)c));
+    } else {
+        auth->active = 0;
+    }
+    g = &lbl_805C18A0;
+    c->abort = 0;
+    while (c->state != 5) {
+        if (TLobby::is_timed_out() != 0 || c->abort != 0 || *sub == 4) {
+            c->abort = 0;
+            if (lbl_805D7A80 != 0) {
+                lbl_805D7A82 = 6;
+            } else {
+                lbl_805D7A82 = 5;
+            }
+            lbl_805D7A8A = 8;
+            return -1;
+        }
+        if (TLobby::get_remaining(timeout) != 0) {
+            return -0x12;
+        }
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    c->abort = 0;
+    return 0;
+}
+
 s32 TLobby::set_active_flag() {
     u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 0xA0) = 2;
@@ -614,7 +657,6 @@ void TLobby__sub_80400ACC(O_80400ACC *);
 struct Outer_80401CAC;
 void TLobby__sub_80401CAC(Outer_80401CAC *, u16);
 s32 TLobby__sub_80405304(void *);
-extern s16 lbl_805D7A80;
 
 void TLobby::dispatch_received_packet(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -2733,6 +2775,41 @@ s32 TLobby::init_net_block_620_secondary() {
     return 0;
 }
 
+s16 TLobby__sub_80402BB4(u8 *arg0, s32 timeout) {
+    Conn_804004DC *c = (Conn_804004DC *)arg0;
+    RecoveredGlobal_804050DC_lbl_805C18A0 *g;
+    u8 *sub;
+
+    sub = c->sub;
+    g = &lbl_805C18A0;
+    c->abort = 0;
+    while (c->state != 5) {
+        if (TLobby::is_timed_out() != 0 || c->abort != 0 || *sub == 4) {
+            TLobby::update_connection_state((int)c);
+            TLobby::update_connection_state((int)(c->sub + 4));
+            c->abort = 0;
+            if (lbl_805D7A80 != 0) {
+                lbl_805D7A82 = 6;
+            } else {
+                lbl_805D7A82 = 5;
+            }
+            lbl_805D7A8A = 8;
+            return -1;
+        }
+        if (TLobby::get_remaining(timeout) != 0) {
+            TLobby::update_connection_state((int)c);
+            TLobby::update_connection_state((int)(c->sub + 4));
+            return -0x12;
+        }
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    c->abort = 0;
+    return 0;
+}
+
 s32 TLobby::mark_ready() {
     u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 0x38) = 2;
@@ -2985,7 +3062,7 @@ s32 TLobby__sub_80403B04(u8 *arg0, u8 *arg1, s32 arg2) {
     s16 r;
     s16 st;
     TLobby__sub_803FC684(arg0, arg1, c);
-    r = TLobby__sub_803FC1CC(c, arg2);
+    r = TLobby__sub_803FC1CC((Conn_804004DC *)c, arg2);
     if (r < 0) {
         if (r == -0x12) {
             return -0x12;

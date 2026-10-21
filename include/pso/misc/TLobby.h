@@ -589,7 +589,7 @@ struct TLobby : public TObject {
     static s32 alloc_buffer_slot(s32 size);
     static s16 init_net_session();
     static u8 *copy_name_buffer(void *src);
-    static s32 get_remaining(s32 arg0);
+    static s16 get_remaining(s32 arg0);
     static s32 is_timed_out();
     static void set_ppp_auth_protocol(u16 v);
     static void init_net_state_a();
