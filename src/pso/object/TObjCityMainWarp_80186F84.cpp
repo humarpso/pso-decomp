@@ -50,7 +50,6 @@ s32 is_local_client_floor_leader(s32);
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
 s32 close_windows__25TObjCityMainWarpChallengeFv();
 void TObjCityMainWarp__sub_801875F8(TObjCityMainWarpChallenge *self);
-s32 check_player_flag1__6TLobbyFv(void);
 s32 fn_80248994(void *, u32, int);
 void request_active_window_close(void);
 void begin_player_keyboard_hold(s32 arg0);
@@ -278,6 +277,7 @@ void TObjCityMainWarp__sub_801875F8(TObjCityMainWarpChallenge *self) {
     s32 i;
     s32 j;
     u32 color;
+    TLobby *player;
     f32 pos[2];
 
     switch (self->m_de) {
@@ -320,7 +320,8 @@ void TObjCityMainWarp__sub_801875F8(TObjCityMainWarpChallenge *self) {
         for (j = 0; j < self->player_count; j++) {
             ((THunterGuildSeqOffline *)self->m_164)->advance_matching_entries(self->player_in_range[j] != 0, j);
             color = 0xF0F0F0FF;
-            if (self->m_de == 1 && get_player_by_client_id(j) != NULL && check_player_flag1__6TLobbyFv() != 0) {
+            if (self->m_de == 1 && (player = (TLobby *)get_player_by_client_id(j)) != NULL &&
+                player->check_player_flag1() != 0) {
                 color = 0xFFFF00FF;
             }
             fn_80248994(self->m_164, color, j);
