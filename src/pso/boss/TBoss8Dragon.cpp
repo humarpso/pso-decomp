@@ -3430,8 +3430,9 @@ struct VObj_18_599a64 : VBase_18_599a64 {
     virtual s32 m93();
 };
 
+extern const f32 lbl_805DEDE0;
+
 void TBoss8Dragon__sub_802F6618(TBoss8Dragon *dragon, u32 event) {
-    extern const f32 lbl_805DEDE0;
     s32 i;
     switch (event) {
     case 4:
