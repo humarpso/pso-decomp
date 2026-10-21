@@ -346,7 +346,7 @@ void TObjEneSaver::apply_lookup_entry_effect() {
 }
 
 void TObjEneSaver::sub_800A435C() {
-    switch (this->m_39c) {
+    switch (this->m_380) {
     case 0x0:
         if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x3A0) != 0U) {
             ((TEneParticleCtrl *)(*(void **)((s8 *)((u8 *)this) + 0x3A0)))->free_particle_ctrl();
@@ -356,15 +356,15 @@ void TObjEneSaver::sub_800A435C() {
         calc_move_state__12TObjEneSaverFv(this);
     case 0x107:
     case 0x10E:
-        if (!(*(s32 *)&this->m_390 & 4)) {
+        if (!(*(s32 *)&this->m_374 & 4)) {
             if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x3A0) != 0U) {
                 ((TEneParticleCtrl *)(*(void **)((s8 *)((u8 *)this) + 0x3A0)))->free_particle_ctrl();
             }
-        } else if ((s32) this->m_3a0 != (s32) this->m_39c) {
+        } else if ((s32) this->m_384 != (s32) this->m_380) {
             if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x3A0) != 0U) {
-                set_param__16TEneParticleCtrlFv(*(void **)((s8 *)((u8 *)this) + 0x3A0), this->m_39c);
+                set_param__16TEneParticleCtrlFv(*(void **)((s8 *)((u8 *)this) + 0x3A0), this->m_380);
             }
-            this->m_3a0 = (s32) this->m_39c;
+            this->m_384 = (s32) this->m_380;
         }
         break;
     }
@@ -380,18 +380,18 @@ void TObjEneSaver::calc_move_state() {
     temp_r0 = *(s16 *)((s8 *)this + 0x38A);
     temp_r6 = *(s16 *)((s8 *)this + 0x388);
     if (temp_r0 == temp_r6) {
-        this->m_39c = 0x101;
+        this->m_380 = 0x101;
         return;
     }
     if ((lbl_805D9A10 * (f32) temp_r0) < (f32) temp_r6) {
-        this->m_39c = 0x102;
+        this->m_380 = 0x102;
         return;
     }
     if (temp_r6 > 0) {
-        this->m_39c = 0x103;
+        this->m_380 = 0x103;
         return;
     }
-    this->m_39c = 0;
+    this->m_380 = 0;
 }
 
 void TObjEneSaver::update_collapse_and_destroy() {
@@ -402,7 +402,7 @@ void TObjEneSaver::update_collapse_and_destroy() {
     case 0:
         ((TObjEneSaver *)arg0)->phase = 1;
         ((TObjPlayer *)(arg0 + 0x38))->request_two_effects();
-        TObjPlayer__sub_800A04F0((u8 *)&this->m_3c0);
+        TObjPlayer__sub_800A04F0((u8 *)&this->m_3a4);
         apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), lbl_805D9A14);
         prev_r3 = copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B207);
         play_sound_effect(prev_r3, (u8 *)&this->position, 0, 0);
@@ -543,7 +543,7 @@ void TObjEneSaver::update_knockback_state() {
         }
         if ((u32) this->m_b4 != 0x20U) {
             if ((s32) *(s16 *)((s8 *)((u8 *)this) + 0x388) <= 0) {
-                *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 8);
+                *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 | 8);
             }
             this->actorFlags = (s32) (this->actorFlags & 0xFFFFF9FF);
             this->referenceHp = (s16) this->hp;
@@ -739,17 +739,6 @@ extern s32 lbl_805D5870;
 void TObjPlayer__sub_800A5960(void *arg0);
 void advance_motion_state__12TObjEneSaverFv(u8 *arg0);
 
-struct SaverDamageFields {
-    u8 pad0[0x2CE];
-    s16 m_2ce;
-    u8 pad2D0[0x374 - 0x2D0];
-    u32 m_374;
-    u8 pad378[0x388 - 0x378];
-    s16 m_388;
-    u8 pad38A[0x38C - 0x38A];
-    TObjPlayer *m_38c;
-};
-
 extern const f32 lbl_805D9A18;
 extern const f32 lbl_805D9A1C;
 extern const f32 lbl_805D9A20;
@@ -758,8 +747,6 @@ s16 TObjPlayer__sub_800A776C(void *p);
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_800A49B4(TObjEneSaver *self) {
-    SaverDamageFields *f = (SaverDamageFields *)self;
-
     ((s32 (*)(void *))advance_animation_playback)(self);
     step_angle_clamped__10TObjPlayerFPvi(self, 0);
     if (!(self->actorFlags & 0x800000)) {
@@ -769,15 +756,15 @@ void TObjPlayer__sub_800A49B4(TObjEneSaver *self) {
     case 0:
         self->phase = 1;
         apply_actor_gravity(self, (s32 *)0, lbl_805D9A14);
-        if (f->m_38c != NULL) {
+        if (self->m_38c != NULL) {
             s32 bonus;
             s32 atp;
-            atp = ((TUnk_804806E8 *)f->m_38c)->get_actor_attack_params_atp_min();
-            bonus = f->m_38c->get_field_2c8();
-            f->m_388 -= lbl_805D9A18 * (bonus + atp + TObjPlayer__sub_800A776C(f->m_38c) - f->m_2ce);
-            if (f->m_388 <= 0) {
-                f->m_388 = 0;
-                f->m_374 |= 8;
+            atp = self->m_38c->get_actor_attack_params_atp_min();
+            bonus = self->m_38c->get_field_2c8();
+            self->m_388 -= lbl_805D9A18 * (bonus + atp + TObjPlayer__sub_800A776C(self->m_38c) - self->m_2ce);
+            if (self->m_388 <= 0) {
+                self->m_388 = 0;
+                self->m_374 |= 8;
             }
         }
         self->actorFlags |= 0x04000000;
@@ -785,11 +772,11 @@ void TObjPlayer__sub_800A49B4(TObjEneSaver *self) {
         break;
     case 1:
         if (objInBand((GameObj *)self, lbl_805D9A1C) != 0) {
-            self->m_39c = 0x107;
+            self->m_380 = 0x107;
         }
         if (objInBand((GameObj *)self, lbl_805D9A20) != 0) {
             self->actorFlags &= 0xFBFFFEFF;
-            f->m_374 &= ~0x20;
+            self->m_374 &= ~0x20;
             if (self->test_flag_256() != 0) {
                 self->phase = 0;
                 self->m_c0 = lbl_805D9A14;
@@ -802,7 +789,7 @@ void TObjPlayer__sub_800A49B4(TObjEneSaver *self) {
     case 2:
     default:
         self->actorFlags &= 0xFBFFFEFF;
-        f->m_374 &= ~0x20;
+        self->m_374 &= ~0x20;
         break;
     }
     ((TObjPlayer *)self)->check_object_collisions();
@@ -1308,7 +1295,7 @@ s32 TObjEneSaver::is_target_in_attack_range() {
             } else {
                 var_f29 = lbl_805D9A70;
             }
-            flags = *(s32 *)&this->m_390;
+            flags = *(s32 *)&this->m_374;
             if (flags & 8) {
                 *(s16 *)((s8 *)arg0 + 0x37C) = 2;
                 if (dist <= (var_f29 + ((TObjPlayer *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]))->get_pos_x()) * (var_f29 + ((TObjPlayer *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]))->get_pos_x()) && ang <= ((TObjPlayer *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]))->get_field_0c()) {
@@ -1358,9 +1345,9 @@ void TObjEneSaver::update_move_toward_target() {
             enemy_move_toward(this, *(s32 *)((s8 *)this->movementParameters + 8), &v3, 0, lbl_805D504C, lbl_805D504C[2]);
             temp_f1 = horizontal_distance_squared((int) (((u8 *)this) + 0x29C), (void *) (((u8 *)this) + 0x38));
             if (temp_f1 < lbl_805D9A78) {
-                *(s32 *)&this->m_390 &= ~0x10;
+                *(s32 *)&this->m_374 &= ~0x10;
             } else {
-                *(s32 *)&this->m_390 |= 0x10;
+                *(s32 *)&this->m_374 |= 0x10;
             }
             temp_f0 = *(f32 *)((s8 *)this->movementParameters + 4) + *(f32 *)((s8 *)this->m_a4 + 0xC);
             if (temp_f1 < (temp_f0 * temp_f0)) {
@@ -1369,7 +1356,7 @@ void TObjEneSaver::update_move_toward_target() {
             break;
         }
         case 2:
-            *(s32 *)&this->m_390 &= ~0x10;
+            *(s32 *)&this->m_374 &= ~0x10;
             this->phase = 0;
             break;
         }
@@ -1394,7 +1381,7 @@ void TObjEneSaver::sub_800A5FA8() {
     case 0:
         ((TObjEneSaver *)arg0)->phase = 1;
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();
-        TObjPlayer__sub_800A0554((u8 *)&this->m_3c0);
+        TObjPlayer__sub_800A0554((u8 *)&this->m_3a4);
         apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), lbl_805D9A14);
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_variant_sound();
         break;
@@ -1427,8 +1414,8 @@ void TObjEneSaver::advance_motion_state() {
         }
         return;
     case 2:
-        *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
-        *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 2);
+        *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 & 0xFFFF0000);
+        *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 | 2);
         break;
     }
 }
@@ -1574,7 +1561,7 @@ void TObjEneSaver::vfunc_59() {
 
     switch (this->mode) {
     default:
-        temp_r4 = *(s32 *)&this->m_390;
+        temp_r4 = *(s32 *)&this->m_374;
         if (temp_r4 & 4) {
             this->mode = 3;
             this->phase = 0;
@@ -1589,14 +1576,14 @@ void TObjEneSaver::vfunc_59() {
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
         return;
     case 1:
-        if (*(s32 *)&this->m_390 & 2) {
+        if (*(s32 *)&this->m_374 & 2) {
             this->mode = 2;
             this->phase = 0;
             this->actorFlags = (s32) (this->actorFlags | 0x06040000);
         }
         return;
     case 2:
-        if (*(s32 *)&this->m_390 & 4) {
+        if (*(s32 *)&this->m_374 & 4) {
             this->mode = 3;
             this->phase = 0;
             this->m_b8 = 1;
@@ -1605,12 +1592,12 @@ void TObjEneSaver::vfunc_59() {
         }
         break;
     case 3:
-        if (*(s32 *)&this->m_390 & 3) {
+        if (*(s32 *)&this->m_374 & 3) {
             this->mode = 1;
             this->phase = 0;
             this->actorFlags = (s32) (this->actorFlags | 0x06040000);
-            *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
-            *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 1);
+            *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 & 0xFFFF0000);
+            *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 | 1);
             temp_r3_2 = this->m_a4;
             *(s32 *)((s8 *)temp_r3_2 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x18) | 1);
             return;
@@ -1640,7 +1627,7 @@ void TObjEneSaver::sub_800A62D4() {
 
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x06040000);
-    *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFFFFF8);
+    *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 & 0xFFFFFFF8);
     *(s32 *)((s8 *)this->m_a4 + 0x18) = (s32) (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0xFFFFFFFE);
     advance_animation_playback((int)this);
     switch (this->phase) {
@@ -1677,8 +1664,8 @@ void TObjEneSaver::sub_800A62D4() {
         *(f32 *)&this->m_70 = (f32) lbl_805D9A40;
         this->target_scale = (f32) lbl_805D9A40;
         this->scale = (f32) lbl_805D9A40;
-        *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
-        *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 1);
+        *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 & 0xFFFF0000);
+        *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 | 1);
         break;
     }
     minimap_render_dot((void *) (((u8 *)this) + 0x38), -0x5DB4, 1, 0);
@@ -1709,14 +1696,14 @@ void TObjEneSaver::vfunc_58() {
             this->m_b8 = 0;
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
             obj_setFlags30(arg0, 0x06040000);
-            *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
-            *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 0x40);
+            *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 & 0xFFFF0000);
+            *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 | 0x40);
             temp_r3 = (unsigned char *) (this->m_a4);
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFFE);
         }
         return;
     case 11:
-        if (!(*(s32 *)&this->m_390 & 0x40)) {
+        if (!(*(s32 *)&this->m_374 & 0x40)) {
             this->mode = 0;
             return;
         }
@@ -1727,8 +1714,8 @@ void TObjEneSaver::vfunc_58() {
         this->m_b8 = 0;
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
         obj_setFlags30(arg0, 0x06040000);
-        *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
-        *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 0x40);
+        *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 & 0xFFFF0000);
+        *(s32 *)&this->m_374 = (s32) (*(s32 *)&this->m_374 | 0x40);
         break;
     }
 }
@@ -1744,8 +1731,8 @@ s32 TObjEneSaver::update_movement_status() {
         case 2:
         case 0xB:
             if (((VObj14 *)(arg0 + 0x3A4))->m5() == 1) {
-                *(s32 *)&this->m_390 &= ~0x43;
-                *(s32 *)&this->m_390 |= 4;
+                *(s32 *)&this->m_374 &= ~0x43;
+                *(s32 *)&this->m_374 |= 4;
                 this->mode = 3;
                 this->phase = 0;
                 this->m_b8 = 1;
@@ -1767,8 +1754,8 @@ s32 TObjEneSaver::update_action_hold_status() {
         case 2:
         case 0xB:
             if (((VObj14 *)(arg0 + 0x3A4))->m5() == 1) {
-                *(s32 *)&this->m_390 &= ~0x43;
-                *(s32 *)&this->m_390 |= 4;
+                *(s32 *)&this->m_374 &= ~0x43;
+                *(s32 *)&this->m_374 |= 4;
                 this->mode = 3;
                 this->phase = 0;
                 this->m_b8 = 1;
@@ -2245,11 +2232,11 @@ u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x39C) = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     arg0->actorFlags |= 0x06040000;
-    arg0->m_39c = 0x101;
-    arg0->m_3a0 = 0x101;
+    arg0->m_380 = 0x101;
+    arg0->m_384 = 0x101;
     p = __nw__7TObjectFUl(0xC4);
     if (p != NULL) {
-        p = TEneParticleCtrl__ct((u8 *)p, (s32)arg0, arg0->m_39c);
+        p = TEneParticleCtrl__ct((u8 *)p, (s32)arg0, arg0->m_380);
     }
     *(void **)((s8 *)arg0 + 0x3A0) = p;
     *(s32 *)((s8 *)arg0 + 0x3C0) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
