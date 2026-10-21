@@ -239,7 +239,7 @@ void TObject::operator delete(void *ptr) {
     obj_heap->heap_free(ptr);
 }
 
-bool TObject::toggle_flag_9_if_flag_10_is_clear() {
+int TObject::toggle_flag_9_if_flag_10_is_clear() {
     if (m_flags & BIT_10) {
         return false;
     }

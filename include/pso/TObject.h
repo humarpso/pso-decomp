@@ -153,7 +153,7 @@ public:
     void log(const char *str);
     int  get_node_count();
     int  all_parents_unqueued_for_destruction();
-    bool toggle_flag_9_if_flag_10_is_clear();
+    int toggle_flag_9_if_flag_10_is_clear();
 public:
 };
 

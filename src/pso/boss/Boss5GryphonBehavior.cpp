@@ -1432,8 +1432,6 @@ void vfunc_83__13TBoss5GryphonFv();
 }
 extern "C" {
 s32 is_split_screen();
-s32 get_camera_mode__11TCameraCtrlFv();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void TBoss8Dragon__sub_8005DF60(TBoss5Gryphon *self);
 }
 extern "C" {
@@ -2312,9 +2310,9 @@ void TBoss8Dragon__sub_8005DF60(TBoss5Gryphon *self) {
         return;
     }
     if (is_split_screen() != 0) {
-        view = get_camera_mode__11TCameraCtrlFv();
+        view = TCameraCtrl::get_camera_mode();
     }
-    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
+    if (self->toggle_flag_9_if_flag_10_is_clear() != 0) {
         TBoss8Dragon__sub_8005E040(self);
         self->draw_body();
         self->copy_bone_positions();
