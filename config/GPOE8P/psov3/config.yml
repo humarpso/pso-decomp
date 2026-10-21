@@ -299,6 +299,7 @@ force_active:
   - TItemEffFlame__sub_80108C90
   - TItemEffHeaven__class_name
   - TItemEffOrgaFlowShot__ct
+  - TItemEffectWeapon__class_name
   - TItemEquipBase__sub_8010AC60
   - TItemEquipBase__sub_8022F1F4
   - TItemList__sub_801D39C8
@@ -1459,6 +1460,7 @@ force_active:
   - __dt__17TDuelEffectNumberFv
   - __dt__17TDuelEffectStringFv
   - __dt__17TItemEffNeedlePosFv
+  - __dt__17TItemEffectWeaponFv
   - __dt__17TMCFormatSequenceFv
   - __dt__17TMedicalCenterMesFv
   - __dt__17TOSwitchAttackSubFv
@@ -1815,6 +1817,7 @@ force_active:
   - __vt__17TBoss8DragonColli
   - __vt__17TChCrTagOccHeader
   - __vt__17TDuelEffectString
+  - __vt__17TItemEffectWeapon
   - __vt__17TMCFormatSequence
   - __vt__17TMedicalCenterMes
   - __vt__17TOTrapChainSawKey
@@ -2011,6 +2014,7 @@ force_active:
   - alloc_global_buffer
   - alloc_work_buffer__6TLobbyFv
   - allocate_network_info_cipher_key__Fl
+  - allocate_trail_buffer__17TItemEffectWeaponFv
   - allow_rendering_shadows__7TObjectFv
   - anchor_state__14TObjEneBm5WolfFl
   - ancient_boss_warp_resource_block
@@ -9531,6 +9535,7 @@ force_active:
   - push_list_node__14TObjEneBm5WolfFPPvPPv
   - push_model_fade_color__10TObjPlayerFv
   - push_nearby_players__10TObjPlayerFPv
+  - push_trail_entry__17TItemEffectWeaponFPCfPCf
   - query_battle_state__17TWindowReturnCityFv
   - query_status_field__20TWindowSubStatusDispFPvSc
   - quest_bgm_area_filename_table
@@ -9663,6 +9668,7 @@ force_active:
   - release_load_slot__12TChCrLoadAfsFv
   - release_network_info_cipher_key__FPUl
   - release_subobjects__10TObjPlayerFv
+  - release_trail_buffer__17TItemEffectWeaponFPv
   - reload_floor_scene__6TLobbyFv
   - reload_lobby_floor_scene__Fv
   - reload_offline_area__6TLobbyFv
@@ -10165,6 +10171,7 @@ force_active:
   - run_task__17TChCrTagOccHeaderFv
   - run_task__17TDuelEffectNumberFv
   - run_task__17TDuelEffectStringFv
+  - run_task__17TItemEffectWeaponFv
   - run_task__17TMCFormatSequenceFv
   - run_task__17TMedicalCenterMesFv
   - run_task__17TOSwitchAttackSubFv

@@ -15,6 +15,7 @@ public:
         u32 color;
     };
     void render_trail();
+    void push_trail_interpolated(const f32* first, const f32* second);
     void push_trail_entry(const f32* first, const f32* second);
     static TrailVertex* allocate_trail_buffer();
     static void release_trail_buffer(void* buffer);
