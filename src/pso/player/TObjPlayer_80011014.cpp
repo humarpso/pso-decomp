@@ -826,7 +826,7 @@ u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0);
 s32 is_actor_cadence_frame__13TUnk_804806E8Fl(O_80011704 *self, s32 x);
 void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc(u8 *arg0, u8 *arg1);
-int vfunc_67__13TUnk_804806E8Fv(void);
+int vfunc_67__13TUnk_804806E8Ff(void);
 int vfunc_66__13TUnk_804806E8Fv(void);
 void vfunc_65__13TUnk_804806E8Fll(void);
 void reset_pose__13TUnk_804806E8Fv(void* p);
@@ -1941,7 +1941,7 @@ void *lbl_804806E8[] = {
     (void *)reset_pose__13TUnk_804806E8Fv,
     (void *)vfunc_65__13TUnk_804806E8Fll,
     (void *)vfunc_66__13TUnk_804806E8Fv,
-    (void *)vfunc_67__13TUnk_804806E8Fv,
+    (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
@@ -3098,7 +3098,7 @@ f32 TUnk_804806E8::receive_physical_attack(void *att, f32 scale) {
 #undef COLL_80014108
 #pragma pop
 
-int TUnk_804806E8::vfunc_67() { return 0; }
+int TUnk_804806E8::vfunc_67(f32) { return 0; }
 
 int TUnk_804806E8::vfunc_66() { return 0; }
 
@@ -3557,7 +3557,7 @@ void TUnk_804806E8::show_miss_popup(const float *pos) {
         }
     }
 }
-void TObjPlayer::show_miss_for_collider(int collider) {
+void TObjPlayer::show_miss_for_collider(s32 collider) {
     show_miss_popup__13TUnk_804806E8FPCf(this, (const float*)((*(u32 *)&this->m_a4) + collider*0x2C + 0x1C));
 }
 

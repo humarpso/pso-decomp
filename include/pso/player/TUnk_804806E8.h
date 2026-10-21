@@ -94,7 +94,7 @@ public:
     virtual void reset_pose();
     virtual void vfunc_65(s32, s32);
     virtual int vfunc_66();
-    virtual int vfunc_67();
+    virtual int vfunc_67(f32 damage_scale);
     virtual void get_pos(s32);
     virtual void apply_switch_attack();
     virtual void enemy_spawn_jellen_effect();

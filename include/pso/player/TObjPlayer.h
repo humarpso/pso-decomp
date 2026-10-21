@@ -80,7 +80,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void vfunc_77();
     void vfunc_76();
     void vfunc_75(f32);
-    int vfunc_67();
+    int vfunc_67(f32 damage_scale);
     void render_shadows();
     void render();
     void run_task();
@@ -94,7 +94,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     ActionPalette* select_action_palette(int secondary);
     s32 add_meseta(s32 amount);
     void request_normal_attack_stage1();
-    void show_miss_for_collider(int collider);
+    void show_miss_for_collider(s32 collider);
     u32 m_334;
     u8 unk_338[0x1];
     s8 m_339;

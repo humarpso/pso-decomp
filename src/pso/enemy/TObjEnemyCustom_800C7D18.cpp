@@ -79,7 +79,7 @@ void vfunc_63__15TObjEnemyCustomFv();
 void reset_pose__13TUnk_804806E8Fv();
 void vfunc_65__15TObjEnemyCustomFll();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Ff();
 void get_pos__13TUnk_804806E8Fl();
 void apply_switch_attack__13TUnk_804806E8Fv();
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
@@ -163,7 +163,7 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)reset_pose__13TUnk_804806E8Fv,
     (void *)vfunc_65__15TObjEnemyCustomFll,
     (void *)vfunc_66__13TUnk_804806E8Fv,
-    (void *)vfunc_67__13TUnk_804806E8Fv,
+    (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,

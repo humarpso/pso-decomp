@@ -2525,7 +2525,7 @@ void vfunc_61__14TObjEneBm5WolfFv(void);
 void reset_pose__13TUnk_804806E8Fv(void);
 void vfunc_65__13TUnk_804806E8Fll(void);
 void vfunc_66__13TUnk_804806E8Fv(void);
-void vfunc_67__13TUnk_804806E8Fv(void);
+void vfunc_67__13TUnk_804806E8Ff(void);
 void get_pos__13TUnk_804806E8Fl(void);
 void apply_switch_attack__13TUnk_804806E8Fv(void);
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv(void);
@@ -2629,7 +2629,7 @@ void *lbl_804922F8[107] = {
     (void *)reset_pose__13TUnk_804806E8Fv,
     (void *)vfunc_65__13TUnk_804806E8Fll,
     (void *)vfunc_66__13TUnk_804806E8Fv,
-    (void *)vfunc_67__13TUnk_804806E8Fv,
+    (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,

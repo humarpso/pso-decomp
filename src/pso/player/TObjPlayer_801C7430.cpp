@@ -20,6 +20,9 @@
 #include "pso/misc/TTecLuker.h"
 #include "pso/misc/TTecReverser.h"
 #include "pso/misc/TWindowActionPalette.h"
+#include "pso/item/TItem.h"
+#include "pso/player/TObjPlayer_8012121C.h"
+#include "pso/unk/text_80121180.h"
 
 struct L_801C74BC { u16 f0; u16 f2; s32 f4; };
 
@@ -1218,6 +1221,10 @@ void init_6x45_attack_packet(u8 *arg0);
 void init_6x44_attack_packet(u8 *arg0);
 void init_6x43_attack_packet(u8 *arg0);
 void *resolve_hittable_target(u16 actorId, s16 collider);
+s32 get_type__10TObjPlayerFPv(void *);
+s32 test_elt_flag__13TUnk_80493450Fll(void *, s32, s32);
+s32 play_weapon_hit_sound(void *);
+void apply_camera_shake__10TObjPlayerFiii(TObjPlayer *player, TUnk_804806E8 *target, s32 damage);
 u8 * find_entity_by_id(s32);
 s32 get_trap_type__10TOMineTrapFv(int);
 void set__10TObjRoomIdFPvs(void *, s16);
@@ -5046,6 +5053,139 @@ void TObjPlayer::setup_attack_stage() {
         }
         break;
     }
+}
+
+struct TargetCollider {
+    u8 pad0[0x18];
+    u32 flags;
+    u8 pad1C[0x10];
+};
+
+struct KnockbackReceiver : VBase_801CE928 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4(); virtual void v5();
+    virtual void v6(); virtual void v7(); virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
+    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15(); virtual void v16(); virtual void v17();
+    virtual void v18(); virtual void v19(); virtual void v20(); virtual void v21(); virtual void v22();
+    virtual void apply_knockback(TObjPlayer *attacker, f32 force);
+};
+
+struct WeaponHitSound {
+    s8 kind;
+    s8 variant;
+    u8 pad2[2];
+    TObjPlayer *attacker;
+    u8 pad8[4];
+    TUnk_804806E8 *target;
+    s32 collider;
+};
+
+int TObjPlayer::vfunc_67(f32 damage_scale) {
+    s32 count;
+    s32 i;
+    int hit = 0;
+    s32 *entry;
+    count = get_captured_target_count((s32 *)((TObjPlayer *)&m_7cc)->get_state_ptr());
+    entry = (s32 *)get_captured_target_entry(((TObjPlayer *)&m_7cc)->get_state_ptr(), 0);
+    for (i = 0; i < count; i++) {
+        u16 uid = ((TObjPlayer *)entry)->get_uid();
+        s16 collider = get_captured_target_collider_index(entry);
+        TUnk_804806E8 *target = (TUnk_804806E8 *)resolve_hittable_target(uid, collider);
+        if (target == NULL) {
+            continue;
+        }
+        if (get_type__10TObjPlayerFPv(&m_828) != 0 && obj_isState2_324__13TUnk_804806E8Fv(this) != 0 &&
+            test_elt_flag__13TUnk_80493450Fll(target, collider, 0x2000) == 0) {
+            continue;
+        }
+        if ((((TargetCollider *)m_a4)->flags ^ ((TargetCollider *)target->m_a4)[collider].flags) & 6) {
+            continue;
+        }
+        f32 accuracy;
+        if (TObjPlayer__sub_801D2F4C((s16 *)&m_7cc) == 2 && get_item_field_6__10TObjPlayerFPv(this) != NULL &&
+            ((TItem *)get_item_field_6__10TObjPlayerFPv(this))->vfunc_35() == 0) {
+            if ((f32)get_ata() < 0.0f) {
+                accuracy = 0.0f;
+            } else {
+                accuracy = 0.1f;
+            }
+        } else {
+            accuracy = get_attack_accuracy_scale((s16 *)&m_7cc);
+        }
+        if (target->roll_physical_accuracy(this, collider, accuracy) != 0) {
+            s32 damage;
+            f32 dealt;
+            switch (TObjPlayer__sub_801D2F4C((s16 *)&m_7cc)) {
+            case 0:
+                damage = target->receive_physical_attack(this, damage_scale * get_attack_damage_scale((s16 *)&m_7cc));
+                vfunc_75(TObjPlayer::calc_photon_blast_charge(this, damage));
+                apply_camera_shake__10TObjPlayerFiii(this, target, damage);
+                break;
+            case 1:
+                dealt = target->receive_physical_attack(this, damage_scale * get_attack_damage_scale((s16 *)&m_7cc));
+                damage = dealt;
+                vfunc_75(TObjPlayer::calc_photon_blast_charge(this, damage));
+                apply_camera_shake__10TObjPlayerFiii(this, target, damage);
+                ((KnockbackReceiver *)target)->apply_knockback(this, 0.1f * dealt);
+                break;
+            case 2:
+                target->receive_weapon_special_attack(this, &((TargetCollider *)target->m_a4)[collider]);
+                break;
+            }
+            hit = 1;
+            WeaponHitSound sound;
+            ((TObjPlayer *)&sound)->reset_status_block();
+            TItem *item = (TItem *)get_item_field_6__10TObjPlayerFPv(this);
+            if (item != NULL) {
+                sound.kind = item->get_field_ed();
+                sound.variant = item->get_slot_count();
+            }
+            sound.attacker = this;
+            sound.target = target;
+            sound.collider = collider;
+            play_weapon_hit_sound(&sound);
+        } else {
+            switch (obj_getS16_116()) {
+            case 4:
+            case 5:
+            case 6:
+            case 9:
+            case 10:
+            case 13:
+                ((TObjPlayer *)target)->show_miss_for_collider(collider);
+                break;
+            default:
+                switch (TObjPlayer__sub_801D2F4C((s16 *)&m_7cc)) {
+                case 2:
+                    if (target->roll_physical_accuracy(this, collider,
+                                                       ((TObjPlayer *)&m_7cc)->calc_attack_stage_multiplier(2)) != 0) {
+                        s32 damage = target->receive_physical_attack(this, damage_scale * get_attack_damage_scale((s16 *)&m_7cc));
+                        vfunc_75(TObjPlayer::calc_photon_blast_charge(this, damage));
+                        apply_camera_shake__10TObjPlayerFiii(this, target, damage);
+                        hit = 1;
+                        WeaponHitSound sound;
+                        ((TObjPlayer *)&sound)->reset_status_block();
+                        TItem *item = (TItem *)get_item_field_6__10TObjPlayerFPv(this);
+                        if (item != NULL) {
+                            sound.kind = item->get_field_ed();
+                        }
+                        sound.attacker = this;
+                        sound.target = target;
+                        sound.collider = collider;
+                        play_weapon_hit_sound(&sound);
+                    } else {
+                        ((TObjPlayer *)target)->show_miss_for_collider(collider);
+                    }
+                    break;
+                default:
+                    ((TObjPlayer *)target)->show_miss_for_collider(collider);
+                    break;
+                }
+                break;
+            }
+        }
+        entry++;
+    }
+    return hit;
 }
 
 void handle_6x46_attack_finished(s32 arg0) {
