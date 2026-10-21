@@ -426,7 +426,6 @@ u8 *TBoss6Rock::get_rock_entry(s32 arg0) {
 #pragma pop
 
 extern "C" {
-s32 get_player_data__10TObjPlayerFi(s32);
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
 extern s32 lbl_805D6EFC;
 extern const f32 lbl_805DFF8C;
@@ -445,8 +444,8 @@ void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed) {
     Vec d;
 
     if (landed == 0) {
-        (*(s32 *)((u8 *)rock + 0xE0))++;
-        if (*(s32 *)((u8 *)rock + 0xE0) & 1) {
+        rock->m_e0++;
+        if (rock->m_e0 & 1) {
             return;
         }
     }
@@ -457,7 +456,7 @@ void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed) {
         radius += lbl_805DFF8C;
     }
     for (i = 0; i < count; i++) {
-        player = (TObjPlayer *)get_player_data__10TObjPlayerFi(i);
+        player = TObjPlayer::get_player_data(i);
         if (((TBoss6PlotFalz *)player)->is_active() == 0) {
             continue;
         }
