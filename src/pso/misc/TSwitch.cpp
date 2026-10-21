@@ -113,7 +113,6 @@ TSwitch::TSwitch(TObject *parent) : TObject(parent) {
     m_20 = 0;
     m_24 = 0;
 }
-typedef char TSwitch_size[sizeof(TSwitch) == 0x28 ? 1 : -1];
 void clear_switch_table(void) {
     memset((void *) TSwitch__floor_switch_table, 0, 0x240);
 }
