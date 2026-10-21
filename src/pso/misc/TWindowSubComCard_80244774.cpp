@@ -112,7 +112,10 @@ struct QFrameCtx_80245808
 extern "C" {
 void reset_line_width(void);
 void set_line_width(int a0);
+struct Vec2_80245A10 { f32 x, y; };
+struct Lines_80245A10 { Vec2_80245A10 *verts; u32 *colors; s32 f8; s32 count; };
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
+void draw_color_lines(Lines_80245A10 *l, s32 n, s32 flags, f32 scale);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32, s32);
@@ -708,6 +711,53 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
   TWindowSubStatusDisp::get_player();
 }
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubComCard__sub_80245A10(u8 *card, s32 row, void *ctx, f32 len) {
+    Rect_80245D64 *r = (Rect_80245D64 *)ctx;
+    Lines_80245A10 lines;
+    u32 colors[3];
+    Vec2_80245A10 pts[3];
+    f32 depth;
+    f32 t;
+    u8 alpha;
+    f32 y;
+
+    if (len <= 0.0f) {
+        return;
+    }
+    if (len >= *(f32 *)(card + 0x48) - 24.0f) {
+        return;
+    }
+    lines.verts = pts;
+    lines.colors = colors;
+    lines.f8 = 0;
+    lines.count = 3;
+    t = len / (r->w - 24.0f);
+    depth = r->depth;
+    lines.colors[0] = 0x282828;
+    lines.colors[1] = 0x282828;
+    lines.colors[2] = 0x282828;
+    if (t > 0.5f) {
+        alpha = 2.0f * (255.0f * (1.0f - t));
+    } else {
+        alpha = 255.0f * (2.0f * t);
+    }
+    lines.colors[1] |= alpha << 24;
+    pts[0].x = 12.0f + r->x;
+    pts[2].x = (r->x + r->w) - 12.0f;
+    pts[1].x = pts[0].x + len;
+    y = 4.0f * (f32)row + (12.0f + r->y);
+    pts[0].y = y;
+    pts[1].y = y;
+    pts[2].y = y;
+    ((TWindowKeyBoardSoft *)r)->scale_point_about_pivot(&pts[0].x);
+    ((TWindowKeyBoardSoft *)r)->scale_point_about_pivot(&pts[1].x);
+    ((TWindowKeyBoardSoft *)r)->scale_point_about_pivot(&pts[2].x);
+    draw_color_lines(&lines, 3, 0x14, depth);
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

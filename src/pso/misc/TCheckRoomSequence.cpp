@@ -944,6 +944,39 @@ s32 get_bank_deposit_capacity_for_item(Item_80210A04 *item, s32 slot) {
 
 #pragma push
 #pragma optimization_level 1
+s32 TCheckRoomSequence__sub_80210B34(u8 *item, s32 amount, s32 slot) {
+    Item_80210A04 *recs = (Item_80210A04 *)bank_item_records_by_slot[slot];
+    s32 i;
+    if (item[0] != 3) {
+        return 0;
+    }
+    if (get_item_def__18TCheckRoomSequenceFUl(item) == 0) {
+        return 0;
+    }
+    for (i = 0; i < 200; i++) {
+        if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[i]) == 0 &&
+            item[0] == recs[i].b0 && item[1] == recs[i].b1 && item[2] == recs[i].b2) {
+            recs[i].f14 += amount;
+            if (recs[i].f14 > get_item_use_result__9TItemDataFv(&recs[i])) {
+                recs[i].f14 = get_item_use_result__9TItemDataFv(&recs[i]);
+            }
+            return 1;
+        }
+    }
+    for (i = 0; i < 200; i++) {
+        if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[i]) != 0) {
+            copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv((u8 *)&recs[i], item);
+            recs[i].f14 = amount;
+            lbl_80513D98[slot]++;
+            return 1;
+        }
+    }
+    return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
 s32 bank_debit_meseta(s32 v, s32 i) {
     if (lbl_80513DA8[i] < v) {
         return 0;
