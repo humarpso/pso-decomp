@@ -2,44 +2,111 @@
 #include "pso/audio/GcrnaError.h"
 #include "pso/misc/TLobby_803D43C8.h"
 
-struct GcrnaStreamState {
-    u8 in_use;
-    s8 callback_phase;
-    u8 unknown02[2];
-    u32 samples_ready;
-    u32 flags;
-    s32 allocated_channels;
-    s32 stream_count;
-    u8 unknown14[8];
-    u32 buffer_size;
-    u8 *buffers[2];
-    SjRingBuffer *ring_buffers[2];
-    u8 unknown30[0x10];
-    u32 stream_ids[2];
-    s32 stream_started[2];
-    u8 unknown50[4];
-    u32 silence_samples;
-    s32 pan[2];
-    s32 volume;
-    s32 output_volume;
-    s32 aux_a_send;
-    s32 aux_b_send;
-    s32 surround_pan;
-    u8 unknown74[0xC];
-};
+#define OS_CORE_CLOCK (*(u32 *)0x800000FC)
+
+#pragma readonly_strings on
 
 extern "C" {
-u32 gcrna_stream_callback(void *buffer1, u32 length1, void *buffer2, u32 length2, u32 user);
+void sndStreamMixParameterEx(u32 stream_id, u8 volume, u8 pan, u8 surround_pan, u8 aux_a, u8 aux_b);
+u32 sndStreamActivate(u32 stream_id);
+void sndStreamDeactivate(u32 stream_id);
+void *memset(void *, int, unsigned long);
 }
+
+extern u8 gcrna_volume_table[1000];
+extern u32 gcrna_pan_table[31];
 extern GcrnaStream gcrna_stream_pool[16];
+
+extern "C" const char *const volatile gcrna_version_pointer = "\nGCRNA Ver.0.97 Build:Jun 13 2002 19:01:27\n";
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 gcrna_get_play_switch(GcrnaStream *stream) {
+    if (stream == 0) {
+        return -1;
+    }
+    return (stream->flags >> 1) & 1;
+}
+
+inline s32 gcrna_is_playback_settled(GcrnaStream *stream) {
+    s32 settled = 0;
+    if (gcrna_get_play_switch(stream) == 0) {
+        settled = 1;
+    } else if (stream->stream_count == 1) {
+        if (stream->stream_started[0] == 1) {
+            settled = 1;
+        }
+    } else if (stream->stream_started[0] == 1 && stream->stream_started[1] == 1) {
+        settled = 1;
+    }
+    return settled;
+}
+
+void GCRNA_SetPlaySw(GcrnaStream *stream, s32 enabled) {
+    s32 i;
+    if (stream == 0) {
+        return;
+    }
+    if (enabled == gcrna_get_play_switch(stream)) {
+        return;
+    }
+    if (enabled == 1) {
+        stream->samples_ready = 0;
+        stream->callback_phase = 0;
+        for (i = 0; i < stream->stream_count; i++) {
+            sndStreamMixParameterEx(stream->stream_ids[i], gcrna_volume_table[-stream->output_volume],
+                                    gcrna_pan_table[stream->pan[i] + 15], 127 - stream->surround_pan,
+                                    (u32)(gcrna_volume_table[-stream->volume] * gcrna_volume_table[-stream->aux_a_send]) >> 7,
+                                    (u32)(gcrna_volume_table[-stream->volume] * gcrna_volume_table[-stream->aux_b_send]) >> 7);
+        }
+        gcrna_interrupt_lock_enter();
+        for (i = 0; i < stream->stream_count; i++) {
+            if (sndStreamActivate(stream->stream_ids[i]) == 0) {
+                gcrna_report_error("E1080502:sndStreamActivate fail.(GCRNA_SetPlaySw)\n");
+                return;
+            }
+            stream->stream_started[i] = 0;
+        }
+        stream->flags |= 2;
+        gcrna_interrupt_lock_leave();
+    } else if (enabled == 0) {
+        u32 wait;
+        for (wait = 0; wait < OS_CORE_CLOCK; wait++) {
+            if (gcrna_is_playback_settled(stream) == 1) {
+                break;
+            }
+        }
+        gcrna_interrupt_lock_enter();
+        for (i = 0; i < stream->stream_count; i++) {
+            if (stream->stream_ids[i] != 0xFFFFFFFF) {
+                if (stream->stream_started[i] == 1) {
+                    sndStreamDeactivate(stream->stream_ids[i]);
+                    stream->stream_started[i] = 0;
+                } else {
+                    gcrna_report_error("E2011101:Illigal timing of STOP.(GCRNA_SetPlaySw)\n");
+                }
+            }
+        }
+        for (i = 0; i < stream->allocated_channels; i++) {
+            SjRingBuffer *ring = stream->ring_buffers[i];
+            ring->interface->reset(ring);
+            memset(stream->buffers[i], 0, stream->buffer_size);
+        }
+        stream->flags &= 1;
+        gcrna_interrupt_lock_leave();
+    } else {
+        gcrna_report_error("E1042603:Illigal prameter 'sw'.(GCRNA_SetPlaySw)\n");
+    }
+}
 
 u32 gcrna_stream_callback(void *buffer1, u32 length1, void *buffer2, u32 length2, u32 user) {
     s32 index;
-    GcrnaStreamState *stream;
+    GcrnaStream *stream;
     s32 i;
     gcrna_interrupt_lock_enter();
     index = user & 0x7FFFFFFF;
-    stream = (GcrnaStreamState *)&gcrna_stream_pool[index / 2];
+    stream = &gcrna_stream_pool[index / 2];
     if (stream->callback_phase == 0) {
         for (i = 0; i < stream->stream_count; i++) {
             SjChunk chunk;
@@ -60,19 +127,14 @@ u32 gcrna_stream_callback(void *buffer1, u32 length1, void *buffer2, u32 length2
     return stream->samples_ready;
 }
 
-extern const char lbl_8047E2E8[];
-
-#pragma push
-#pragma dont_inline off
-#pragma inline_depth(4)
-inline s32 gcrna_get_transfer_switch(GcrnaStream* stream) {
+inline s32 gcrna_get_transfer_switch(GcrnaStream *stream) {
     if (stream == 0) {
         return -1;
     }
     return stream->flags & 1;
 }
 
-void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
+void GCRNA_SetTransSw(GcrnaStream *stream, s32 enabled) {
     if (stream == 0) {
         return;
     }
@@ -81,7 +143,7 @@ void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
     }
     if (enabled == 1) {
         for (s32 channel = 0; channel < stream->allocated_channels; ++channel) {
-            SjRingBuffer* ring = stream->ring_buffers[channel];
+            SjRingBuffer *ring = stream->ring_buffers[channel];
             ring->interface->reset(ring);
         }
         stream->silence_samples = 0;
@@ -89,7 +151,7 @@ void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
     } else if (enabled == 0) {
         stream->flags &= 2;
     } else {
-        gcrna_report_error(lbl_8047E2E8);
+        gcrna_report_error("E1042601:Illigal prameter 'sw'.(GCRNA_SetTransSw)\n");
     }
 }
 #pragma pop

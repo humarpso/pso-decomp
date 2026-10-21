@@ -13952,8 +13952,10 @@ pso/misc/TLobby_803D4B68.cpp:
 
 pso/audio/GcrnaStream.cpp:
 	.text       start:0x803D4CA0 end:0x803D60A8
+	.rodata     start:0x8047E220 end:0x8047E31C
 	.data       start:0x804FA088 end:0x804FA4EC
 	.bss        start:0x8058C0E0 end:0x8058C960
+	.sdata2     start:0x805E0DC8 end:0x805E0DCC
 
 original_padding_804FA4EC:
 	.data       start:0x804FA4EC end:0x804FA4F0 align:4
