@@ -114,7 +114,7 @@ void reset_line_width(void);
 void set_line_width(int a0);
 struct Vec2_80245A10 { f32 x, y; };
 struct Lines_80245A10 { Vec2_80245A10 *verts; u32 *colors; s32 f8; s32 count; };
-void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
+void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, TWindowKeyBoardSoft *r, f32 len);
 void draw_color_lines(Lines_80245A10 *l, s32 n, s32 flags, f32 scale);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
@@ -714,8 +714,7 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubComCard__sub_80245A10(u8 *card, s32 row, void *ctx, f32 len) {
-    Rect_80245D64 *r = (Rect_80245D64 *)ctx;
+void TWindowSubComCard__sub_80245A10(u8 *card, s32 row, TWindowKeyBoardSoft *r, f32 len) {
     Lines_80245A10 lines;
     u32 colors[3];
     Vec2_80245A10 pts[3];
@@ -752,9 +751,9 @@ void TWindowSubComCard__sub_80245A10(u8 *card, s32 row, void *ctx, f32 len) {
     pts[0].y = y;
     pts[1].y = y;
     pts[2].y = y;
-    ((TWindowKeyBoardSoft *)r)->scale_point_about_pivot(&pts[0].x);
-    ((TWindowKeyBoardSoft *)r)->scale_point_about_pivot(&pts[1].x);
-    ((TWindowKeyBoardSoft *)r)->scale_point_about_pivot(&pts[2].x);
+    r->scale_point_about_pivot(&pts[0].x);
+    r->scale_point_about_pivot(&pts[1].x);
+    r->scale_point_about_pivot(&pts[2].x);
     draw_color_lines(&lines, 3, 0x14, depth);
 }
 #pragma pop
@@ -785,7 +784,7 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     TObjPlayer::init_xyz_limits();
     step = 1.0f;
     for (i = 0; i < n2; i++) {
-        TWindowSubComCard__sub_80245A10(arg0, i, arg1, y);
+        TWindowSubComCard__sub_80245A10(arg0, i, (TWindowKeyBoardSoft *)arg1, y);
         y -= step;
     }
     TObjPlayer::reset_transform_state();

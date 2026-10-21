@@ -76,14 +76,6 @@ struct Vec2_802615B8 {
     f32 y;
 };
 
-struct Rect_80261DD8 {
-    f32 x;
-    f32 y;
-    u8 pad8[0x34 - 0x8];
-    u32 color;
-    f32 depth;
-};
-
 struct Lines_80261DD8 {
     Vec2_802615B8 *verts;
     u32 *colors;
@@ -97,7 +89,7 @@ int update_keyboard_close_mode(void*);
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
 f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
-f32 TWindowKeyBoardSoft__sub_802606E0(void);
+f32 TWindowKeyBoardSoft__sub_802606E0(TWindowKeyBoardSoft *);
 void TWindowKeyBoardSoft__sub_80260760(void *self, s32 key, s32 *count, u32 *color);
 void TWindowKeyBoardSoft__sub_80260E30(void *self, s32 port);
 void TWindowKeyBoardSoft__sub_80261134(void *self);
@@ -105,9 +97,8 @@ extern u8 lbl_8044F138[];
 void TKeyBoardControl__sub_802613A4(TKeyBoardControl *arg0);
 f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
 s32 TWindowKeyBoardSoft__sub_802616BC(void *, int);
-void TWindowKeyBoardSoft__sub_80261DD8(void *, Rect_80261DD8 *);
+void TWindowKeyBoardSoft__sub_80261DD8(TWindowKeyBoardSoft *, TWindowKeyBoardSoft *);
 s32 TWindowKeyBoardSoft__sub_8026227C(void *, int);
-void render__19TWindowKeyBoardSoftFv(s32 arg0);
 s32 get_flag_bit5__19TWindowKeyBoardSoftFv();
 
 extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124 TWindowKeyBoardSoft__data_8044F124;
@@ -206,7 +197,7 @@ s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-f32 TWindowKeyBoardSoft__sub_802606E0(void) {
+f32 TWindowKeyBoardSoft__sub_802606E0(TWindowKeyBoardSoft *) {
     return -((TWindowKeyBoardSoft__data_805DD080 * (f32) (*(u8 *)((s8 *)TWindowKeyBoardSoft__language_text_resources + 0) * *(u8 *)((s8 *)TWindowKeyBoardSoft__language_text_resources + 1))) - lbl_805DD084);
 }
 #pragma pop
@@ -548,7 +539,7 @@ void TWindowKeyBoardSoft::spawn_key_effect(s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-void TWindowKeyBoardSoft__sub_80261DD8(void *self, Rect_80261DD8 *ctx) {
+void TWindowKeyBoardSoft__sub_80261DD8(TWindowKeyBoardSoft *self, TWindowKeyBoardSoft *ctx) {
     Vec2_802615B8 v[5];
     u32 col[5];
     Lines_80261DD8 d;
@@ -574,14 +565,14 @@ void TWindowKeyBoardSoft__sub_80261DD8(void *self, Rect_80261DD8 *ctx) {
     v[2].y = 3.0f + (133.0f + v[0].y);
     v[3].x = v[0].x;
     v[3].y = v[2].y;
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[0].x);
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[1].x);
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[2].x);
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[3].x);
+    ctx->scale_point_about_pivot(&v[0].x);
+    ctx->scale_point_about_pivot(&v[1].x);
+    ctx->scale_point_about_pivot(&v[2].x);
+    ctx->scale_point_about_pivot(&v[3].x);
     v[4].x = v[0].x;
     v[4].y = v[0].y;
     draw_color_lines(&d, 5, 0x14, depth);
-    v[0].x = (ctx->x + ((f32 (*)(void *))TWindowKeyBoardSoft__sub_802606E0)(self)) - 1.0f;
+    v[0].x = (ctx->x + TWindowKeyBoardSoft__sub_802606E0(self)) - 1.0f;
     v[0].y = (-1.0f + ctx->y) - 1.0f;
     v[1].x = 3.0f + (v[0].x + (f32)(res[0] * res[1]));
     v[1].y = v[0].y;
@@ -589,10 +580,10 @@ void TWindowKeyBoardSoft__sub_80261DD8(void *self, Rect_80261DD8 *ctx) {
     v[2].y = 2.0f + (20.0f + v[0].y);
     v[3].x = v[0].x;
     v[3].y = v[2].y;
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[0].x);
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[1].x);
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[2].x);
-    ((TWindowKeyBoardSoft *)ctx)->scale_point_about_pivot(&v[3].x);
+    ctx->scale_point_about_pivot(&v[0].x);
+    ctx->scale_point_about_pivot(&v[1].x);
+    ctx->scale_point_about_pivot(&v[2].x);
+    ctx->scale_point_about_pivot(&v[3].x);
     v[4].x = v[0].x;
     v[4].y = v[0].y;
     draw_color_lines(&d, 5, 0x14, depth);
@@ -657,12 +648,12 @@ void TWindowKeyBoardSoft::draw_key_frame(void *self, f32 *rect, u32 color, s32 i
     draw_textured_quad_at_depth((f32 *)&q, scale);
 }
 
-void render__19TWindowKeyBoardSoftFv(s32 arg0) {
+void TWindowKeyBoardSoft::render() {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    TWindowKeyBoardSoft__sub_8026227C((void *)arg0, (int)temp_r3);
-    TWindowKeyBoardSoft__sub_80261DD8((void *)arg0, (Rect_80261DD8 *)temp_r3);
-    TWindowKeyBoardSoft__sub_802616BC((void *)arg0, (int)temp_r3);
+    TWindowKeyBoardSoft__sub_8026227C(this, (int)temp_r3);
+    TWindowKeyBoardSoft__sub_80261DD8(this, (TWindowKeyBoardSoft *)temp_r3);
+    TWindowKeyBoardSoft__sub_802616BC(this, (int)temp_r3);
 }
 
 }

@@ -5,6 +5,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -86,7 +87,7 @@ void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar) {
     bar->width = v;
 }
 
-void TWindowSubStatusDisp__sub_80256C40(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth) {
+void TWindowSubStatusDisp__sub_80256C40(Gauge_80256E0C *self, TWindowKeyBoardSoft *ctx, Pos_80256E0C *pos, f32 depth) {
     Quad_80256E0C q;
     f32 w;
     w = self->max - -2.0f;
