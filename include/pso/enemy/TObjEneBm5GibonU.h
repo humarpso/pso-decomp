@@ -97,6 +97,8 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     void select_attack_by_range();
     void approach_target(f32 farg0);
     s32 face_target();
+    static void pick_wander_destination(void *actor);
+    static void turn_toward_angle(void *actor, int angle);
     void forward_hit_to_enemy_list();
     void init_child_from_list();
 };

@@ -3380,8 +3380,6 @@ void TObjEneBm5GibonU__sub_800CF7CC(u8 *actor, s32 arg1) {
     }
 }
 
-struct Ene_800D0E14;
-void pick_wander_destination__16TObjEneBm5GibonUFPv(Ene_800D0E14 *arg0);
 }
 s32 actor_rand_int(s32 actor, s32 range);
 extern "C" {
@@ -3434,7 +3432,7 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
             }
             self->face_target();
         } else {
-            turn_toward_angle__16TObjEneBm5GibonUFPvi(self, self->rotation_y);
+            TObjEneBm5GibonU::turn_toward_angle(self, self->rotation_y);
         }
         switch (self->m_518) {
         case 0:
@@ -3447,7 +3445,7 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
                 self->m_494 = 0.0f;
             } else if (self->has_move_failures(0x14) != 0) {
                 self->m_51c = 0;
-                pick_wander_destination__16TObjEneBm5GibonUFPv((Ene_800D0E14 *)self);
+                TObjEneBm5GibonU::pick_wander_destination(self);
                 self->m_494 = self->rand_range(TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
                 self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
             }
@@ -3470,7 +3468,7 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
             self->m_b8 = 0;
             self->m_51c -= 1;
             if (self->m_51c <= 0) {
-                pick_wander_destination__16TObjEneBm5GibonUFPv((Ene_800D0E14 *)self);
+                TObjEneBm5GibonU::pick_wander_destination(self);
                 self->m_494 = self->rand_range(TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
                 self->m_498 = 0.0f;
                 self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
