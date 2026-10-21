@@ -97,7 +97,7 @@ Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *parent) {
 }
 
 void TAdYesNoBaseGC::vfunc_12() {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

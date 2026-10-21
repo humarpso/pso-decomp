@@ -131,7 +131,7 @@ void TItemReverseTech::run_frame() {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
-    main_task.some_empty_func();
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     main_task.run_task();
@@ -162,7 +162,7 @@ void TItemReverseTech::run_cleanup_callbacks() {
   s32 (*temp_r12)();
   u8 *var_r31;
   s32 var_r30;
-  main_task.tl_delete_children();
+  main_task.delete_layer_children();
   var_r30 = 6;
   var_r31 = ((u8 *)&TItemReverseTech__cleanup_callback_table.value) + 0x30;
   do

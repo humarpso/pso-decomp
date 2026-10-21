@@ -944,7 +944,7 @@ void *__nw__7TObjectFUl(int);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 extern Vec_80303574 lbl_80475294[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -1325,12 +1325,12 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
         cam = ((RenderFadeState *)fade)->updateFromCamera((const f32*)(arg0 + 0x2FC));
         if (F(s32, 0x3C0) & 2) {
             ((VObj_14_aa9368 *)(arg0 + 0x3D4))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 draw = 0;
             }
         } else if (cam != 0) {
             ((VObj_14_aa9368 *)fade)->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 draw = 0;
             }
         }

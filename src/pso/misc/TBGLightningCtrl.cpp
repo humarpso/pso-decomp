@@ -260,7 +260,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
 void render__12TBGLightningFv(s32 arg0) {
     Stack_802AA0A4 stack;
     s32 temp_r31;
-    if (TMainTask::get_state_flag() != 0) {
+    if (TMainTask::get_render_pass() != 0) {
         temp_r31 = *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + 0x4000;
         stack.sp8 = sin_table_lookup(temp_r31);
         stack.spC = (-1.0f);

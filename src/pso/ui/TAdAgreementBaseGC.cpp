@@ -66,7 +66,7 @@ extern const f32 lbl_805DF708;
 extern const f32 lbl_805DF70C;
 
 void TAdAgreementBaseGC::check_main_task_state() {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

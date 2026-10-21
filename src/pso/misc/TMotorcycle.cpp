@@ -74,7 +74,7 @@ void *__nw__7TObjectFUl(int);
 
 void TMotorcycle::render() {
     u8 *arg0 = (u8 *)this;
-    if ((TMainTask::get_state_flag() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
+    if ((TMainTask::get_render_pass() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
         set_depth_buffer_settings_id(3);
         if ((u32) TMotorcycle__texture_list != 0U) {
             TObjFish::set_global_param((s32) TMotorcycle__texture_list);

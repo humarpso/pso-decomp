@@ -2002,7 +2002,7 @@ int reset__9TCineCtrlFl(void*);
 void * get_state__23TAdSinglePlyChrSelectGCFv();
 volatile unsigned long get_actor_section_id__15TPlyPhotonChairFv(int);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
-void clear_flag_3__7TObjectFv(void *arg0);
+void resume_update__7TObjectFv(void *arg0);
 u32 prs_decompress_buffer(s32, s32);
 void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
@@ -3119,7 +3119,7 @@ void TLobby__sub_801E8440(void) {
 void TLobby::clear_flag3() {
     void *self = tl_03;
     if (self != NULL) {
-        clear_flag_3__7TObjectFv(self);
+        resume_update__7TObjectFv(self);
     }
 }
 #pragma pop
@@ -3131,7 +3131,7 @@ void TLobby::clear_flag3() {
 void TLobby::free_static() {
     void *temp = tl_03;
     if (temp != 0) {
-        ((TObject *)temp)->toggle_flag_3();
+        ((TObject *)temp)->toggle_pause();
     }
 }
 #pragma pop
@@ -3435,7 +3435,7 @@ void TLobby::spawn_quest_col(u8 i, u8 out) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E905C(void) {
-    main_task.tl_02_clear_flag_3();
+    main_task.resume_game_layers();
 }
 #pragma pop
 
@@ -3444,7 +3444,7 @@ void TLobby__sub_801E905C(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E9084(void) {
-    main_task.tl_02_toggle_flag_3();
+    main_task.toggle_pause_game_layers();
 }
 #pragma pop
 
@@ -3455,7 +3455,7 @@ void TLobby__sub_801E9084(void) {
 void TLobby::clear_flag() {
     void *temp = tl_04;
     if (temp != 0) {
-        clear_flag_3__7TObjectFv(temp);
+        resume_update__7TObjectFv(temp);
     }
 }
 #pragma pop
@@ -3467,7 +3467,7 @@ void TLobby::clear_flag() {
 void TLobby::free_child() {
     void *temp = tl_04;
     if (temp != 0) {
-        ((TObject *)temp)->toggle_flag_3();
+        ((TObject *)temp)->toggle_pause();
     }
 }
 #pragma pop

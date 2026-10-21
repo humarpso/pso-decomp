@@ -259,7 +259,7 @@ extern s32 lbl_804910EC[];
 void TObjPlayer__sub_800A8C4C(u8 *arg0);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -1000,7 +1000,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
                 if (((Self_800AA334 *)arg0)->sub.m8() != 0) {
                     ((Self_800AA334 *)arg0)->sub.m6();
                     var_r29 = 1;
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                    if (defer_render__7TObjectFv(arg0) != 0) {
                         var_r29 = 0;
                     }
                     if (var_r29 != 0) {

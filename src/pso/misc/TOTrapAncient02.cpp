@@ -1141,7 +1141,7 @@ void TOTrapAncient02::draw_effect_chain() {
 }
 
 void TOTrapAncient02::render() {
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         this->m_340 = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
         if (((s32) this->m_340 == 1) && (((s32) this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
             set_depth_buffer_settings_id(3);

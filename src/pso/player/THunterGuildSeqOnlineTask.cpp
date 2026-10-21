@@ -135,7 +135,7 @@ void TQuestListOnline::close_windows_and_reset() {
         TQuestListOnline__dat_download_complete = 0;
         TQuestListOnline__sub_8013ACF4(0xB);
         TQuestListOnline::ensure_online_quests_loaded();
-        main_task.tl_clear_flag_3();
+        main_task.resume_layers();
         TQuestVmDownLoadServer::reset_download();
     }
 }
@@ -189,7 +189,7 @@ void TQuestListOnline::handle_quest_ready() {
         TWindow__close((int)TQuestListOnline__download_barrier_window);
         TQuestListOnline__download_barrier_window = NULL;
     }
-    main_task.tl_clear_flag_3();
+    main_task.resume_layers();
     quest_download_active = 0;
     for (i = 0; i < 4; i++) {
         p = get_player_by_client_id(i);

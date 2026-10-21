@@ -446,7 +446,7 @@ void vfunc_60__14TObjEneDolmOlmFv(u8 *arg0);
 s32 is_split_screen();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 translate_matrix(int, f32, f32, f32);
 s32 draw_chunk_object(void *);
 extern s32 lbl_805D5660;
@@ -1218,7 +1218,7 @@ void TObjEneDolmOlm::render() {
                 lbl_805D5664 = chunk_polygon_flags_and_mask;
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 arg0->sub.m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
+                if (defer_render__7TObjectFv(arg0) == 0) {
                     model_render_flags |= 1;
                     ((TObjMotion *)arg0)->draw();
                     model_render_flags &= ~1;

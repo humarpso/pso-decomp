@@ -28,7 +28,7 @@ extern const f32 lbl_805DF490;
 extern const f32 lbl_805DF494;
 Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *parent);
 
-void TAdGameStartShadowGC::render() { if (TMainTask::get_state_flag() != 1) { sub_80320B38(); } }
+void TAdGameStartShadowGC::render() { if (TMainTask::get_render_pass() != 1) { sub_80320B38(); } }
 
 void TAdGameStartShadowGC::run_task() {
     s32 temp_r0;

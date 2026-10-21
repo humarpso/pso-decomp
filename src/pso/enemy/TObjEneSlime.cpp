@@ -105,7 +105,7 @@ void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
 s32 TObjFish__sub_8001EDB0(void *, int);
 void *get_bml_model(void *, int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 push_matrix();
 s32 pop_matrix();
@@ -149,7 +149,7 @@ void TObjEneSlime::render() {
     s32 temp_r30;
     s32 temp_r30_2;
     s32 temp_r31;
-    temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+    temp_r31 = defer_render__7TObjectFv();
     if (TObjPlayer::check_demo_mode() != 0) {
         temp_r30 = (this->state36C * 4) & 4;
         debug_printf_at(0x130020, lbl_8043D298, (int) (*(s32 *)((s8 *)((u8 *)slime_debug_label_table + temp_r30) + 0)));

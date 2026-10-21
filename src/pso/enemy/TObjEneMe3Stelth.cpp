@@ -439,7 +439,7 @@ extern "C" {
 s32 is_main_phase_15__9TObjEneDDFv();
 #define sub_800F47D4__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)
 s32 draw_model__16TObjEneMe3StelthFv(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 #define rotate_matrix_y ((s32 (*)(s32, s32))rotate_matrix_y)
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -514,11 +514,11 @@ void TObjEneMe3Stelth::render() {
                     ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
                     set_chunk_material_override_pair(0xFF00, 0x800);
                 }
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                if (defer_render__7TObjectFv(arg0) != 0) {
                     draw = 0;
                 }
             } else if (VO->m107() != 0) {
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                if (defer_render__7TObjectFv(arg0) != 0) {
                     draw = 0;
                 }
             } else {

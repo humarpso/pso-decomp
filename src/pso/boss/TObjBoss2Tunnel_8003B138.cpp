@@ -220,7 +220,7 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
     s32 i;
     Tunnel_8003B2EC *o = (Tunnel_8003B2EC *)arg0;
     Vec_8003B2EC v = boss2_tunnel_render_zero_vec[0];
-    if (TObjPlayer::is_any_teammate_in_state() == 0 && TMainTask::get_state_flag() == 0) {
+    if (TObjPlayer::is_any_teammate_in_state() == 0 && TMainTask::get_render_pass() == 0) {
     push_matrix();
     {
         Fog_8003B2EC *f = *lbl_805D4BEC;

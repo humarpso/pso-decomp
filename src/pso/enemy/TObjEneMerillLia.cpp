@@ -476,7 +476,7 @@ extern const f32 TObjEneMerillLia__data_805DA2F4;
 void run_task__16TObjEneMerillLiaFv(u8 *arg0);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 f32 post_translate_matrix(void *);
@@ -1513,7 +1513,7 @@ void TObjEneMerillLia::render() {
       if (var_r29 != 0)
       {
         (((VObj_14_fddec9 *)(((u8 *) ((u8 *)this)) + 936))->m6());
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) ((u8 *)this)) != 0)
+        if (defer_render__7TObjectFv((void *) ((u8 *)this)) != 0)
         {
           var_r30 = 0;
         }

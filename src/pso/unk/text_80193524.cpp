@@ -282,7 +282,7 @@ void TLazerFenceSw::draw_laser_beam() {
 void TLazerFenceSw::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
-        if (TMainTask::get_state_flag() != 1) {
+        if (TMainTask::get_render_pass() != 1) {
             set_depth_buffer_settings_id(3);
             set_material_alpha_compare_reference(0x80);
             if (fn_80156BBC(arg0 + 0xF0, (u8 *)&this->position) != 0) {

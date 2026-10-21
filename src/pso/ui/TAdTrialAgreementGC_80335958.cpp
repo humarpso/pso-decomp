@@ -115,7 +115,7 @@ void TAdTrialAgreementGC::render_screen() {
     s32 temp_r0;
     s32 temp_r31;
     s32 var_r31;
-    if (TMainTask::get_state_flag() != 0) {
+    if (TMainTask::get_render_pass() != 0) {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         lbl_805D5660 = model_render_flags;

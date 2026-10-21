@@ -74,7 +74,7 @@ s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 
 void TAdSinglePlyChrSelectGC::render() {
-    if (TMainTask::get_state_flag() == 1) return;
+    if (TMainTask::get_render_pass() == 1) return;
 }
 
 s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {

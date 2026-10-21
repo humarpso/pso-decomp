@@ -579,7 +579,7 @@ void TItemMag::set_subs_visible(s32 on) {
             if (on) {
                 ((TQuestVmDownLoadServer *)(self->subs[i]))->clear_flag4_bit4();
             } else {
-                ((TObject *)(self->subs[i]))->set_flag_4();
+                ((TObject *)(self->subs[i]))->suspend_update();
             }
         }
     }

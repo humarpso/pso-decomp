@@ -50,7 +50,7 @@ extern const f32 lbl_805DF4A4;
 extern const f32 lbl_805DF4A8;
 int fn_80320DE8(void*);
 
-void TAdGameStartLineGC::render() { if (TMainTask::get_state_flag() != 1) { TObjPlayer::init_xyz_limits(); fn_80320DE8(this); TObjPlayer::reset_transform_state(); } }
+void TAdGameStartLineGC::render() { if (TMainTask::get_render_pass() != 1) { TObjPlayer::init_xyz_limits(); fn_80320DE8(this); TObjPlayer::reset_transform_state(); } }
 
 #pragma push
 #pragma fp_contract on

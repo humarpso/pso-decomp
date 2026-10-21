@@ -63,8 +63,8 @@ void TLobby::run_frame() {
     if ((TLoadCtrl__sub_800F9F00() != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {
         ((TObject *)tl_fade)->render_nodes();
     }
-    ((TObject *)tl_su)->empty_func();
-    ((TObject *)tl_su)->empty_func2();
+    ((TObject *)tl_su)->debug_render();
+    ((TObject *)tl_su)->debug_update();
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         system_reset();
         fn_801E2C50();

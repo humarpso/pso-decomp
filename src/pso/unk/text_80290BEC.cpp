@@ -33,7 +33,7 @@ void fn_80290BEC(void) {
     TLobby::stop_audio_streams();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     TLobby::free_all_resources();
     render_tick();
 }
@@ -45,7 +45,7 @@ void run_main_frame(void) {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
-    main_task.some_empty_func();
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     main_task.run_task();

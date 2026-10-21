@@ -307,7 +307,7 @@ void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
 void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1);
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 int scale_matrix(int, f32, f32, f32);
 int rotate_matrix_y(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -503,7 +503,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     draw = 1;
     if (self->flags & 0x200) {
         self->light.l6();
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
+        if (defer_render__7TObjectFv(self) != 0) {
             draw = 0;
         }
     }

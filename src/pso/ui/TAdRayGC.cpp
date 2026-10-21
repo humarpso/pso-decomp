@@ -50,7 +50,7 @@ void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
 
 void TAdRayGC::render() {
 
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
         switch (*(s32 *)((s8 *)this + 0x1C)) {

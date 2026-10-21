@@ -28,7 +28,7 @@ extern const f32 lbl_805DF750;
 extern const f32 lbl_805DF754;
 extern const f32 lbl_805DF758;
 void restore_saved_depth_alpha_state(void);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 
 extern s32 TAdMcSelectMcGC__texture_list_ptr;
 extern const f32 lbl_805DF748;
@@ -44,12 +44,12 @@ void TAdMcSelectMcGC::draw_status_window() {
 
 void TAdMcSelectMcGC::render() {
     if ((s32) *(s32 *)((s8 *)this + 0x1C) == 1) {
-        if (TMainTask::get_state_flag() == 1) {
+        if (TMainTask::get_render_pass() == 1) {
             return;
         }
         goto block_5;
     }
-    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
+    if (defer_render__7TObjectFv() == 0) {
         set_depth_buffer_settings_2();
 block_5:
         TObjPlayer::init_xyz_limits();

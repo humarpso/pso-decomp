@@ -482,7 +482,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, int, int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -2772,7 +2772,7 @@ void TObjEneMe1Canadin::render() {
         var_r29 = 1;
         if ((temp_r0 == 1) || (temp_r0 == 0xB)) {
             ((VObj_14_aa9368 *)(arg0 + (972)))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 var_r29 = 0;
             }
         }

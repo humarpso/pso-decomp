@@ -18,11 +18,11 @@ typedef struct Trail_800D76E8 {
 
 extern "C" {
 
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 
 void TUnk_80494968::render() {
     u8 *arg0 = (u8 *)this;
-    if ((toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 1)) {
+    if ((defer_render__7TObjectFv() == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 1)) {
         TObjPlayer::init_xyz_limits();
         ((TObjPlayer *)(arg0 + 0x20))->draw_trail_strip((void *)(*(s32 *)((s8 *)arg0 + 0x1C) * 2), 1);
     }

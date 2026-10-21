@@ -1082,7 +1082,7 @@ void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2) {
         TLobby__current_dialog_window = 0;
     }
     if (quest_download_active == 0) {
-        main_task.tl_clear_flag_3();
+        main_task.resume_layers();
     }
 }
 }
@@ -1092,7 +1092,7 @@ void handle_6x72_done_loading_into_game(void) {
         TWindow__close(TLobby__current_dialog_window);
         TLobby__current_dialog_window = 0U;
     }
-    main_task.tl_clear_flag_3();
+    main_task.resume_layers();
 }
 extern "C" {
 
@@ -1119,22 +1119,22 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     TLobby__sub_80139894((char *)lbl_8050AD38);
     ((TWindowMessage *)TLobby__current_dialog_window)->complete_reveal();
     ((TWindowSubComCard *)TLobby__current_dialog_window)->reparent_to_main_ctrl();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     main_task.render();
     main_task.render_screen_overlay();
     render_tick();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     main_task.render();
     main_task.render_screen_overlay();
     render_tick();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     main_task.render();
     main_task.render_screen_overlay();
     render_tick();
-    main_task.tl_toggle_flag_3();
+    main_task.toggle_pause_layers();
     TLobby__designated_client_id = arg1;
     p = ((Obj_801361E8 *(*)(void *))get_player_by_client_id)((void *)e.client_id);
     if (p != NULL) {

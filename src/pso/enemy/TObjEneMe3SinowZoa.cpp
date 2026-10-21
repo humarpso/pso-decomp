@@ -1204,7 +1204,7 @@ struct Zoa_8031786C {
 };
 
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
@@ -1266,14 +1266,14 @@ void TObjEneMe3SinowZoa::render() {
         }
         draw = 1;
         if (v->m107() != 0) {
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+            if (defer_render__7TObjectFv(this) != 0) {
                 draw = 0;
             } else if (o->f3C0 != 0) {
                 draw = 0;
             }
         } else if (TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
             o->sub.m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+            if (defer_render__7TObjectFv(this) != 0) {
                 draw = 0;
             }
         } else if (o->f3C0 != 0) {

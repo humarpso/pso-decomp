@@ -235,7 +235,7 @@ void draw_chunk_object(void *child);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 
 int TObjPlayer::reset_enemy_state() { return update_if_active__15TObjEneMe1GiGueFl(this, 0); }
 
@@ -536,7 +536,7 @@ void TObjEneBalClawBody::render() {
                     if (((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m8() != 0) {
                         ((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m6();
                         var_r29 = 1;
-                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                        if (defer_render__7TObjectFv(arg0) != 0) {
                             var_r29 = 0;
                         }
                         if (var_r29 != 0) {

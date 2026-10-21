@@ -137,7 +137,7 @@ void TAdMultiOkGC::draw_entry(int arg1) {
 void TAdMultiOkGC::render() {
     Ok_80306C10 *o = (Ok_80306C10 *)this;
     s32 i;
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         TObjPlayer::init_xyz_limits();
         for (i = 0; i < o->count; i++) {
             draw_entry(i);

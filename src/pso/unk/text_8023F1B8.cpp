@@ -63,7 +63,7 @@ void TLobby::release_scene_resources() {
         queue_destruction__7TObjectFv((void *)game_mode_scene_instance);
         game_mode_scene_instance = 0U;
     }
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     call_funcs_reverse__6TLobbyFPvUi(&lobby_scene_release_callback_table.value, 0x38);
     call_funcs_reverse__6TLobbyFPvUi(&lbl_804CCDA8.value, 0xB8);
     TParticleCtrl::free_heap();

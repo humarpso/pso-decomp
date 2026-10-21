@@ -755,7 +755,7 @@ void *lbl_80488AC0[6] = {
 };
 
 void TCameraCtrl::render() {
-    if ((is_split_screen() == 0) && (TMainTask::get_state_flag() != 1)) {
+    if ((is_split_screen() == 0) && (TMainTask::get_render_pass() != 1)) {
         if ((u8) *(u8 *)((s8 *)this + 0x1C) == 0) {
             setup_default_view((Vec_8006AF9C *)(0));
         }

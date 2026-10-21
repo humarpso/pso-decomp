@@ -58,7 +58,7 @@ s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -74,7 +74,7 @@ void TObjEneRe7BeruraPunch::render() {
         TObjEneDD::clear_global_flag_400();
         if ((s32) this->m_b4 == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 model_render_flags = lbl_805D5660;
                 return;
             }

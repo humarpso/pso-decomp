@@ -436,7 +436,7 @@ void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq) {
             }
             break;
         }
-        seq->summon->set_flag_4();
+        seq->summon->suspend_update();
         seq->summon->disallow_rendering();
         seq->summon_index++;
         seq->state = 1;

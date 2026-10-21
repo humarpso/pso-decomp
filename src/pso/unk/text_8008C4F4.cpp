@@ -39,7 +39,7 @@ void fn_8008C4F4(void) {
     TLobby::stop_audio_streams();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value);
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     var_r3 = &ending_scene_callbacks.value;
     var_r4 = 0x68;
     var_r3 = &ending_scene_callbacks.value;
@@ -56,7 +56,7 @@ void run_game_frame(void) {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
-    main_task.some_empty_func();
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     main_task.run_task();

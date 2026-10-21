@@ -25,7 +25,7 @@ void TAdLoadQuestLineGC::render_by_state() {
 }
 
 void TAdLoadQuestLineGC::render() {
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         ++m_frameCount;
         if (m_frameCount >= 2) {
             render_by_state();

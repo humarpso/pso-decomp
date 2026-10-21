@@ -324,7 +324,7 @@ void submit_cursor_candidate(void *, s32);
 u8 * get_player_by_client_id(s32);
 void minimap_render_dot(void *, s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(s32);
 void __destroy_arr(void *, void *, s32, s32);
@@ -1470,7 +1470,7 @@ void TObjEnePanarms::draw_with_fade() {
     if (((RenderFadeState *)temp_r31)->updateFromCamera((const f32*)(((u8 *)this) + 0x2FC)) != 0) {
         temp_r31->m6();
         var_r30 = 1;
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+        if (defer_render__7TObjectFv(this) != 0) {
             var_r30 = 0;
         }
         if (var_r30 != 0) {

@@ -284,7 +284,7 @@ Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * par
 #pragma pop
 
 void render__9TDeadSpotFv(u8 *arg0) {
-    if ((TMainTask::get_state_flag() != 1) && (*(f32 *)((s8 *)arg0 + 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
+    if ((TMainTask::get_render_pass() != 1) && (*(f32 *)((s8 *)arg0 + 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = model_render_flags;
         TObjPlayer::reset_transform_state();
         setup_alpha_test_render_state(0x8F);

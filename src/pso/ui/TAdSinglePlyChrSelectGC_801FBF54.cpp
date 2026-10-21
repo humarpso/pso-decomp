@@ -870,7 +870,7 @@ s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self) {
 
 void render_frame__23TAdSinglePlyChrSelectGCFv(void) {
     if ((void *) camera_ctrl_instance != NULL) {
-        main_task.some_empty_func();
+        main_task.begin_frame();
         if (is_split_screen() != 0) {
             TCameraCtrl::set_mode(0);
             get_fog_ctrl__16TKeyBoardControlFv();

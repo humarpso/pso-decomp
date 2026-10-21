@@ -103,7 +103,7 @@ void TAdEp3Exist::draw_message_window(s32 arg1) {
 }
 
 void TAdEp3Exist::render() {
-    if (TMainTask::get_state_flag() == 1) {
+    if (TMainTask::get_render_pass() == 1) {
         return;
     }
 }

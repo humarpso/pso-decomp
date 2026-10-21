@@ -41,7 +41,7 @@ void update_movie_phase(void) {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
-    main_task.some_empty_func();
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     main_task.run_task();

@@ -190,7 +190,7 @@ void TPlyPhotonChair::render() {
             post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->x60);
             scale_current_matrix(self->x68);
-            if (TMainTask::get_state_flag() != 0) {
+            if (TMainTask::get_render_pass() != 0) {
                 TPlyPhotonChair::play_sound_with_arg(self->parts, &q);
                 self->a.s1();
             } else {

@@ -552,7 +552,7 @@ extern u32 lobby_kamome_texture_gvm_handle;
 void TUnk_804E0898::vfunc_14() {
     LobbyPigeon *self = (LobbyPigeon *)this;
   if (TObjPlayer::check_demo_mode() == 1 &&
-      TMainTask::get_state_flag() == 0)
+      TMainTask::get_render_pass() == 0)
     draw_line_strip__10TObjPlayerFPviif((u8 *)(self), (s32)(self->model),
                                         (s32)(self->path), (1.0f));
   if (self->phase == 0 || lobby_pigeon_lobby_type == 0)
@@ -787,7 +787,7 @@ s32 TUnk_804E08D4::sub_802C1660() {
 
 void TUnk_804E08D4::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_state_flag() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_render_pass() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param((*(s32 *)&lobby_kamome_texture_gvm_handle));
@@ -985,7 +985,7 @@ s32 TUnk_804E0910::sub_802C1E34() {
 
 void TUnk_804E0910::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_state_flag() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_render_pass() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param((*(s32 *)&lobby_pigeon_texture_gvm));
@@ -1199,7 +1199,7 @@ s32 TUnk_804E094C::sub_802C2548() {
 
 void TUnk_804E094C::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_state_flag() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_render_pass() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param((*(s32 *)&jungle_ebi_texture_gvm_handle));
@@ -1387,7 +1387,7 @@ s32 TUnk_804E0988::sub_802C2C48() {
 
 void TUnk_804E0988::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_state_flag() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (TMainTask::get_render_pass() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param(seabed_dolphin_texture_handle);
@@ -1552,7 +1552,7 @@ extern s32 __vt__11TObjPathObj[];
 extern s32 lbl_805D3EC0;
 void TObjPathObj::render() {
     u8 *arg0 = (u8 *)this;
-    if ((TMainTask::get_state_flag() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)&this->unk_90, this->m_94) != 0)) {
+    if ((TMainTask::get_render_pass() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)&this->unk_90, this->m_94) != 0)) {
         this->vfunc_14();
     }
 }

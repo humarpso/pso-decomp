@@ -116,7 +116,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 TObjPlayer__sub_8023DEE0(int, int, int, int);
 s32 draw_chunk_object(void *);
 extern s32 dimedian_resource_handles[];
@@ -356,7 +356,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 self->sub.begin();
                 d = 1;
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
+                if (defer_render__7TObjectFv(self) != 0) {
                     d = 0;
                 }
                 if (d != 0) {
@@ -371,7 +371,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
             doDraw = 1;
             if (fading != 0) {
                 self->fades[mode].begin();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
+                if (defer_render__7TObjectFv(self) != 0) {
                     doDraw = 0;
                 }
             }

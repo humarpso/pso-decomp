@@ -105,7 +105,7 @@ s32 play_sound_effect(s32, s32, s32, s32);
 extern f32 lbl_805DF210;
 
 void TAdChrSelASlotGC::render() {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

@@ -416,7 +416,7 @@ void render__8TObjFishFv(u8 *arg0) {
     s32 n;
     struct { f32 x, y, z; } d;
 
-    if (TMainTask::get_state_flag() != 1 &&
+    if (TMainTask::get_render_pass() != 1 &&
         ((VObj_18_26a62c *)arg0)->m8(lbl_805DDD40, TObjFish__data_805DDD44) != 0 &&
         F(Fish_8029D5C8 *, 0xA0) != NULL && ((s32 (*)(void *))update_state__8TObjFishFv)(arg0) != 0) {
         f = F(Fish_8029D5C8 *, 0xA0);

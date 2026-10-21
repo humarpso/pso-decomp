@@ -47,7 +47,7 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
 void *TObjControl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void TAdSelectTxtSubGC::render() { if (TMainTask::get_state_flag() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void TAdSelectTxtSubGC::render() { if (TMainTask::get_render_pass() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 
     extern int ad_select_text_texture_handle;
 

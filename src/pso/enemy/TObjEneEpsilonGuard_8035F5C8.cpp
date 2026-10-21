@@ -981,7 +981,7 @@ void TObjEneEpsilonBody::render() {
         }
         if (var_r31 != 0) {
             update_player_state__9TObjEneDDFv(this, 0, 0);
-            this->toggle_flag_9_if_flag_10_is_clear();
+            this->defer_render();
             draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(this), (s32)(var_r31));
             if ((s16) this->mode == 6) {
                 if (this->m_438 & 0x200) {

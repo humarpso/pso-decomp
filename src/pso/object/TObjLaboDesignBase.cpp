@@ -225,7 +225,7 @@ void *TObjLaboDesignBase__create(void *arg0) {
 }
 
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
-    if (TMainTask::get_state_flag() == 1) {
+    if (TMainTask::get_render_pass() == 1) {
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {

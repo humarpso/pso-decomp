@@ -12,7 +12,7 @@ struct RecoveredGlobal_802A1154_main_task {
 extern "C" {
 typedef char RecoveredGlobal_802A1154_main_task_size[sizeof(RecoveredGlobal_802A1154_main_task) == 0x34 ? 1 : -1];
 void fn_802A1154(void) {
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     render_tick();
 }
 

@@ -400,7 +400,7 @@ void TAdSinglePlyChrSelectGC::set_char_slots(s32 arg1, s32 arg2) {
 }
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_phase(p); }
 void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     TLobby::stop_audio_streams();
     TLobby::set_and_notify(0);
     call_funcs_reverse__6TLobbyFPvUi((void *) (&(*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks).value), 0x30);
@@ -415,7 +415,7 @@ void TAdSinglePlyChrSelectGC::run_frame() {
     V3_8033B2AC b = lbl_80477D84[0];
     activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render();
     main_task.render_screen_overlay();

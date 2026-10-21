@@ -49,7 +49,7 @@ extern s32 __vt__22TObjEneMe1GiGueBarrier[];
 extern s32 lbl_805D4198;
 extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *arg0, s32 arg1, u8 *arg2);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
@@ -75,7 +75,7 @@ void TObjEneMe1GiGueBarrier::render() {
     }
     if (((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DF628, lbl_805DF62C, lbl_805DF624) != 0) {
 block_6:
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
+        if (defer_render__7TObjectFv(arg0) == 0) {
             push_matrix();
             post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);

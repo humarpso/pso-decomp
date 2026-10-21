@@ -215,7 +215,7 @@ void *__ct__5TLogoFv(void *object) {
 
 
 void TLogo__sub_8013F5AC() {
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     call_funcs_reverse__6TLobbyFPvUi(logo_load_callback_table, sizeof(logo_load_callback_table));
     render_tick();
 }
@@ -228,7 +228,7 @@ void run_frame__5TLogoFv(void) {
     set_active_camera_pose(&a, &b);
     controller_stuff();
     TKeyBoardControl::update_input_frame();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render();
     main_task.render_screen_overlay();

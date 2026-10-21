@@ -39,7 +39,7 @@ int TAdMcSelectGC__sub_8032A140();
 int TAdMcSelectGC__sub_8032A15C();
 
 void TAdMcSelectGC::render() {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

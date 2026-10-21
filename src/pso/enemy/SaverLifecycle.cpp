@@ -1461,7 +1461,7 @@ extern s32 actor_frame_tick;
 
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 matrix_mult_vec(int, Vec_800A6C54 *, void *);
 void scale_matrix_vec3(u8 *arg0, u8 *arg1);
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
@@ -1886,7 +1886,7 @@ void TObjEneSaver::render() {
                 ((VObj_800A6C54_a *)(arg0 + 0x3A4))->m6();
                 v = 1;
                 model_render_flags |= 1;
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                if (defer_render__7TObjectFv(arg0) != 0) {
                     v = 0;
                 }
                 if (v != 0) {

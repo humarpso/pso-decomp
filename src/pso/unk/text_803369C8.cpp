@@ -40,7 +40,7 @@ void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 fa
 
 void TUnk_804EEF80::render() {
     u8 *arg0 = (u8 *)this;
-    if (TMainTask::get_state_flag() != 0) {
+    if (TMainTask::get_render_pass() != 0) {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         render_logo_with_default(get_title_texture_list(), 0xD, -1, lbl_805DF968);

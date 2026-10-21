@@ -66,7 +66,7 @@ void TObjSinBoard::render() {
     Uv_8019806C uv;
     Desc_8019806C d;
     s16 col[8];
-    if (TMainTask::get_state_flag() != 1 && TObjSinBoard__texture_buffer != 0) {
+    if (TMainTask::get_render_pass() != 1 && TObjSinBoard__texture_buffer != 0) {
         pos = TObjSinBoard__quad_position_table;
         uv = sin_board_uv_table;
         col[0] = 0;

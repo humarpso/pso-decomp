@@ -457,7 +457,7 @@ void TOTrapSeabed01::draw() {
     }
 }
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
-    if (TMainTask::get_state_flag() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
+    if (TMainTask::get_render_pass() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
         switch (arg0->f326) {
         case 0:
         case 1:

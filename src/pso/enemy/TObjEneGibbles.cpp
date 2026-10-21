@@ -149,7 +149,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void scale_matrix_vec3(u8 *arg0, u8 *arg1);
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
@@ -2308,7 +2308,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 model_render_flags |= 1;
                 self->sub.m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
+                if (defer_render__7TObjectFv(arg0) == 0) {
                     ((TObjMotion *)arg0)->draw();
                 }
                 self->sub.m7();
@@ -2323,7 +2323,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
                 lbl_805D5664 = chunk_polygon_flags_and_mask;
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 self->fades[cam].m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
+                if (defer_render__7TObjectFv(arg0) == 0) {
                     if (vis == 1) {
                         ((TObjMotion *)arg0)->draw();
                     } else {

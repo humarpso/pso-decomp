@@ -230,7 +230,7 @@ void TLobby::reload_offline_area() {
         }
     }
     TLobby::reset_quest_state();
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     promote_area_floor(&lbl_80515BA0);
     TLobby::backup_story_select();
     TKeyBoardControl::update();
@@ -253,7 +253,7 @@ void TLobby::reload_offline_area() {
         TLobby::clear_callback_and_reset_keyboard();
     }
     TLobby::clear_callback_and_reset_keyboard();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render_screen_overlay();
     for (j = 0; j < TLobby::get_game_mode(); j++) {
@@ -288,7 +288,7 @@ void TLobby::rebuild_area_keep_players() {
             ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     promote_area_floor(&lbl_80515BA0);
     TLobby::sync_story_select();
     TAdStorySelectGC::set_state(0);
@@ -331,7 +331,7 @@ void TLobby::rebuild_area_keep_players() {
         load_area_scene_and_init(&lbl_80515BA0);
     }
     TLoadCtrl::cleanup_scene();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render_screen_overlay();
     for (j = 0; j < TLobby::get_game_mode(); j++) {
@@ -363,7 +363,7 @@ void run_offline_area_transfer(void) {
             ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
-    main_task.tl_delete_children();
+    main_task.delete_layer_children();
     promote_area_floor(&lbl_80515BA0.value);
     TKeyBoardControl::update();
     TLobby::create_map_csn_ctrl();
@@ -373,7 +373,7 @@ void run_offline_area_transfer(void) {
     load_area_scene_and_init(&lbl_80515BA0.value);
     unlock_main_warp_destination(get_current_floor());
     TLoadCtrl::cleanup_scene();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render_screen_overlay();
     for (j = 0; j < TLobby::get_game_mode(); j++) {
@@ -402,8 +402,8 @@ void TLobby::teardown_scene() {
     TLobby::stop_audio_streams();
     TLobby::update_lobby_subsystems();
     TLobby::reset_quest_state();
-    main_task.tl_delete_children();
-    main_task.tl_clear_flag_3();
+    main_task.delete_layer_children();
+    main_task.resume_layers();
     ((TObject *)tl_su)->delete_children();
     run_area_scene_cleanup(&lbl_80515BA0.value);
     call_funcs_reverse__6TLobbyFPvUi(&offline_game_scene_callbacks.value, 0x180);
@@ -481,7 +481,7 @@ void run_offline_transfer_frame(void) {
 }
 
 void run_single_view_frame(void) {
-    main_task.some_empty_func();
+    main_task.begin_frame();
     TCameraCtrl::set_mode(0);
     main_task.run_task();
     main_task.render_shadows();
@@ -492,7 +492,7 @@ void run_single_view_frame(void) {
 void run_split_screen_frame(void) {
     s32 i;
     s8 id;
-    main_task.some_empty_func();
+    main_task.begin_frame();
     id = TLobby__sub_801A3C40();
     if (id >= 0) {
         TCameraCtrl::set_mode(id);
@@ -586,7 +586,7 @@ void init_offline_game_scene(void) {
     find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     load_area_scene_and_init(&lbl_80515BA0);
     TLoadCtrl::cleanup_scene();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render_screen_overlay();
     game_mode = TLobby::get_game_mode();

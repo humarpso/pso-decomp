@@ -413,7 +413,7 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 extern s32 TObjEneRe4Sorcerer__render_node_index;
 extern s32 TObjEneRe4Sorcerer__saved_render_flags;
 extern f32 TObjEneRe4Sorcerer__effect_render_scale;
@@ -1228,12 +1228,12 @@ void render__18TObjEneRe4SorcererFv(u8 *ene_re7_berura) {
         var_r27 = 1;
         if (*(s32 *)((s8 *)ene_re7_berura + 0x3C8) & 4) {
             ((VObj_14 *)(ene_re7_berura + 0x3FC))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(ene_re7_berura) != 0) {
+            if (defer_render__7TObjectFv(ene_re7_berura) != 0) {
                 var_r27 = 0;
             }
         } else if (temp_r31 != 0) {
             ((VObj_14 *)(((u8 *)var_r30)))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(ene_re7_berura) != 0) {
+            if (defer_render__7TObjectFv(ene_re7_berura) != 0) {
                 var_r27 = 0;
             }
         }

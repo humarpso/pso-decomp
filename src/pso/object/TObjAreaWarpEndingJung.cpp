@@ -720,7 +720,7 @@ void *TObjMapForceWarp__ct(void *map_force_warp) {
     }
     if ((u32) ((TObjMapForceWarp *)map_force_warp)->m_b4 != 0U) {
         disallow_rendering__7TObjectFv((TObject *)(*(void **)((s8 *)map_force_warp + 0xB4)));
-        ((TObject *)(((TObjMapForceWarp *)map_force_warp)->m_b4))->set_flag_4();
+        ((TObject *)(((TObjMapForceWarp *)map_force_warp)->m_b4))->suspend_update();
     }
     return map_force_warp;
 }

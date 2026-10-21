@@ -65,7 +65,7 @@ void render__14TObjBoss1FloorFv(void) {
     s32 temp_r3;
     u8 *temp_r31;
 
-    if ((TObjPlayer::is_any_teammate_in_state() == 0) && ((TObjEneDD::check_v2_mode() != 0) || (TMainTask::get_state_flag() != 1))) {
+    if ((TObjPlayer::is_any_teammate_in_state() == 0) && ((TObjEneDD::check_v2_mode() != 0) || (TMainTask::get_render_pass() != 1))) {
         temp_r3 = model_render_flags;
         lbl_805D5660 = temp_r3;
         model_render_flags = temp_r3 | 0x400;

@@ -1656,7 +1656,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(void *);
 s32 draw_blob_shadow(s32);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 extern s32 TObjEneBm5GibonU__render_node_index;
@@ -1974,7 +1974,7 @@ void TObjEneBm5GibonU::render() {
             TObjEneDD::clear_global_flag_400();
             TObjPlayer::toggle_particle_effect();
             if (fade != 0) {
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) == 0) {
+                if (defer_render__7TObjectFv(this) == 0) {
                     if (vis == 1) {
                         this->draw();
                     } else {

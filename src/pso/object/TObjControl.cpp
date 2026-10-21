@@ -427,7 +427,7 @@ s32 is_split_screen();
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *arg0);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
-void set_flag_3__7TObjectFv(void *arg0);
+void pause_update__7TObjectFv(void *arg0);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 void subtractive_rng_seed(void *, s32);
@@ -439,7 +439,7 @@ void distribute_experience__9TObjEnemyFv(TObjPlayer_800F6B68 *self);
 void award_enemy_experience__9TObjEnemyFl(u8 *arg0, s32 arg1);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 void apply_by_index__9TObjEnemyFs(s16, void *);
-void clear_flag_3__7TObjectFv(void *arg0);
+void resume_update__7TObjectFv(void *arg0);
 s32 get_attack_credit_slot_count(void *);
 f32 TLobby__sub_800F7A6C();
 f32 TLobby__sub_800F7A7C();
@@ -480,7 +480,7 @@ void TObjControl::run_task() {
     }
     if (TObjPlayer::check_demo_mode() == 0) {
         if (((EnemyControlDispatch *)(enemy))->m31() != 0) {
-            clear_flag_3__7TObjectFv((enemy));
+            resume_update__7TObjectFv((enemy));
             ((EnemyControlDispatch *)(enemy))->m61();
             return;
         }
@@ -492,10 +492,10 @@ void TObjControl::run_task() {
                 submit_cursor_candidate((int)enemy, -1);
                 minimap_render_dot(enemy + 0x38, -0x5DB4, 1, 0);
                 ((EnemyControlDispatch *)(enemy))->m26();
-                set_flag_3__7TObjectFv((enemy));
+                pause_update__7TObjectFv((enemy));
                 return;
             }
-            clear_flag_3__7TObjectFv((enemy));
+            resume_update__7TObjectFv((enemy));
         }
         if (((EnemyControlDispatch *)(enemy))->m30() != 0) {
             ((EnemyControlDispatch *)(enemy))->m60();

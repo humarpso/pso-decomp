@@ -1849,7 +1849,7 @@ s32 set_target_player__12TObjEneDD_STFPv();
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 update_player_state__9TObjEneDDFv(void *, int, int);
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern s32 lbl_805D5660;
@@ -2121,7 +2121,7 @@ void render__13TObjEneMe1GeeFv(u8 *ene_me1_gee) {
         var_r29 = 1;
         if ((temp_r0 == 1) || (temp_r0 == 0xC)) {
             ((Sub_800C8EB4 *)(ene_me1_gee + 0x3CC))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(ene_me1_gee) != 0) {
+            if (defer_render__7TObjectFv(ene_me1_gee) != 0) {
                 var_r29 = 0;
             }
         }

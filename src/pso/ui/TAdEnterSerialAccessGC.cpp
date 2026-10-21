@@ -227,7 +227,7 @@ s32 __vt__22TAdEnterSerialAccessGC[6] = {
 };
 
 void TAdEnterSerialAccessGC::render(void *self) {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

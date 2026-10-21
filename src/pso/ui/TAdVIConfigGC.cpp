@@ -113,7 +113,7 @@ void TAdVIConfigGC::update_visibility() {
             allow_rendering__7TObjectFv((TObject *)(*(u8 * *)&this->m_24));
             return;
         }
-        ((TObject *)quest_vm_down_load_server)->set_flag_4();
+        ((TObject *)quest_vm_down_load_server)->suspend_update();
         disallow_rendering__7TObjectFv((TObject *)(*(u8 * *)&this->m_24));
     }
 }

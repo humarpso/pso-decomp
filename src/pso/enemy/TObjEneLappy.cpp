@@ -1396,7 +1396,7 @@ extern Vec_800C20D0 lbl_8043BBC0[];
 extern "C" {
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 extern Vec_800C220C lbl_8043BBB4[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5178;
@@ -2098,7 +2098,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
             if (o->f3C4 & 8) {
                 if (o->sub.m8() != 0) {
                     o->sub.m6();
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) == 0) {
+                    if (defer_render__7TObjectFv(o) == 0) {
                         draw__10TObjMotionFv(o);
                     }
                     o->sub.m7();
