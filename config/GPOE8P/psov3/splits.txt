@@ -8170,6 +8170,7 @@ pso/unk/text_8022BE64.cpp:
 
 pso/misc/TTecCtrl_8022C444.cpp:
 	.text       start:0x8022C444 end:0x8022C6C4
+	.rodata     start:0x8044D078 end:0x8044D080
 
 pso/player/TObjPlayer_8022C6C4.cpp:
 	.text       start:0x8022C6C4 end:0x8022DBC0
