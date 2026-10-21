@@ -337,8 +337,12 @@ typedef struct St_80400BA8 {
     s16 f34;
     u8 pad36[2];
     s16 f38;
-    u8 pad3A[0x16];
+    u8 pad3A[0x13];
+    u8 f4D;
+    u8 pad4E[2];
     s16 f50;
+    u8 pad52[6];
+    s16 f58;
 } St_80400BA8;
 
 typedef struct Cfg_804019A8 {
@@ -397,9 +401,9 @@ typedef struct B_803FADA0 { u8 *buf; u16 len; } B_803FADA0;
 
 typedef struct A_803FADA0 { u8 pad0[4]; u32 a; u32 b; } A_803FADA0;
 
-struct Sub_803FA664 { u8 pad0[0x28]; s16 h1C; };
+struct Sub_803FA664 { u8 pad0[0x28]; s16 h1C; u8 pad2A[0x4C - 0x2A]; u8 peer[0x74 - 0x4C]; s16 h74; };
 
-struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[9]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
+struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[4]; u8 b6; u8 pad7[4]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
 
 struct Msg_803FA664 { u8 pad0; u8 b1; s16 h2; };
 
@@ -452,7 +456,7 @@ s32 NetMemcmp(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_8040FDA0(u32, s16);
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 void NetMemset(void * _w0, int _w1, int _w2);
-s32 TLobby__sub_803FE6CC(void *, int, int, void *);
+s32 TLobby__sub_803FE6CC(void *, u8, u8, void *);
 s32 TLobby__sub_803FE658(u8 *arg0);
 s32 send_network_frame(u16, u8 *);
 s32 TLobby__sub_804037B0(s32 arg0, u16 arg1);
@@ -1524,6 +1528,95 @@ void TLobby__sub_803FF48C(P_803FF48C *o) {
 
 struct Opt_80400338 { s16 mask; u8 pad2[2]; u32 f4; u32 f8; s16 fC; s16 fE; u8 f10; u8 pad11[3]; u32 f14; u32 f18; };
 
+s16 TLobby__sub_803FFB84(u32 *src, Sub_803FA664 *opts, Sub_803FA664 *peer, u8 *hdr, s32 reply);
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 ipcp_is_extended_option(u8 type) {
+    s32 result = 0;
+    if (type >= 0x80 && type < 0x90) {
+        result = 1;
+    }
+    return result;
+}
+
+inline s32 ipcp_option_bit(u8 type) {
+    if (type < 8) {
+        return type;
+    }
+    if (ipcp_is_extended_option(type)) {
+        return type - 120;
+    }
+    return 0;
+}
+
+inline s32 ipcp_read_byte(u32 *src) {
+    if (TLobby__sub_80401BCC(src, &lcp_read_byte_buffer, 1) != 1) {
+        return -1;
+    }
+    return (s16)lcp_read_byte_buffer;
+}
+
+s32 TLobby__sub_803FF50C(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts = fsm->p30;
+    Sub_803FA664 *peer = opts;
+    s32 remaining = msg->h2;
+    u8 hdr[2];
+    s16 n;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        if ((opts->h1C & (1 << ipcp_option_bit(hdr[0]))) == 0) {
+            return -1;
+        }
+        n = hdr[1] - 2;
+        while (n-- > 0) {
+            if (ipcp_read_byte(&src) == -1) {
+                return -1;
+            }
+        }
+        opts->h1C &= ~(1 << ipcp_option_bit(hdr[0]));
+    }
+    return 0;
+}
+
+s32 TLobby__sub_803FF698(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts = fsm->p30;
+    Sub_803FA664 *peer = opts;
+    s32 remaining = msg->h2;
+    u8 hdr[2];
+    s16 r;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        if ((opts->h1C & (1 << ipcp_option_bit(hdr[0]))) == 0) {
+            opts->h1C |= 1 << ipcp_option_bit(hdr[0]);
+        }
+        r = TLobby__sub_803FFB84(&src, opts, peer, hdr, 0);
+        if (r == -1) {
+            return -1;
+        }
+        if (r == 4) {
+            opts->h1C &= ~(1 << ipcp_option_bit(hdr[0]));
+        }
+    }
+    return 0;
+}
+#pragma pop
+
+
 #pragma push
 #pragma opt_lifetimes off
 #pragma opt_dead_assignments off
@@ -1579,6 +1672,64 @@ s32 TLobby__sub_803FF858(Obj_803FA664 *arg0, Msg_803FA664 *arg1, u32 arg2) {
 
 struct IpcpOpts_80400174 { u8 pad[0x28]; Opt_80400338 vals; };
 void TLobby__sub_80400338(B_803FADA0 **pbuf, Opt_80400338 *opt, s32 type, s32 len, void *src);
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s16 TLobby__sub_803FF9A4(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts;
+    s32 remaining;
+    s16 status;
+    s16 r;
+    B_803FADA0 *reply;
+    u8 hdr[2];
+    status = 2;
+    opts = fsm->p30;
+    remaining = msg->h2;
+    reply = NULL;
+    opts->h74 = 0;
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        r = TLobby__sub_803FFB84(&src, opts, (Sub_803FA664 *)opts->peer, hdr, 1);
+        if (r == -1) {
+            return -1;
+        }
+        if (r < status) {
+            continue;
+        }
+        if (r > status) {
+            reply = NULL;
+            status = r;
+        }
+        if (r != 4) {
+            opts->h74 |= 1 << ipcp_option_bit(hdr[0]);
+        }
+        TLobby__sub_80400338(&reply, (Opt_80400338 *)&opts->h74, hdr[0], hdr[1], &src);
+        if (r > 3) {
+            TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+        }
+    }
+    if (status == 3) {
+        if (fsm->b6 != 0) {
+            fsm->b6--;
+        } else {
+            status = 4;
+            TLobby__sub_803FE6CC(fsm, 4, msg->b1, reply);
+        }
+    }
+    if (status > 3) {
+        return status != 2;
+    }
+    TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+    return status != 2;
+}
+#pragma pop
+
 
 #pragma push
 #pragma dont_inline off
@@ -1797,6 +1948,125 @@ void TLobby::save_timer_state() {
     s->f34 |= s->f38;
 }
 
+struct LcpVals_8040172C { s16 mask; u16 mru; u32 accm; u16 auth_proto; u8 pad0A[2]; u32 magic; u8 pad10[4]; u8 chap_alg; };
+struct LcpOpts_8040172C { u8 pad[0x1C]; LcpVals_8040172C vals; };
+extern u8 lbl_8047FE68[];
+void TLobby__sub_804017D8(B_803FADA0 **pbuf, LcpVals_8040172C *vals, u8 type, u8 len, void *src);
+
+inline void add_lcp_options(B_803FADA0 **pbuf, LcpVals_8040172C *vals, s16 mask) {
+    s16 i;
+
+    for (i = 1; i <= 8; i++) {
+        if (mask & (1 << i)) {
+            TLobby__sub_804017D8(pbuf, vals, i, lbl_8047FE68[i], NULL);
+        }
+    }
+}
+
+#pragma push
+#pragma opt_common_subs on
+s32 TLobby__sub_80400DA8(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    St_80400BA8 *opts = (St_80400BA8 *)fsm->p30;
+    St_80400BA8 *peer = opts;
+    s32 remaining = msg->h2;
+    s16 last = 0;
+    u8 hdr[2];
+    s16 r;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        if (hdr[0] <= 8) {
+            if (hdr[0] < last || (opts->saved.flags & (1 << hdr[0])) == 0) {
+                if (opts->saved.flags & (1 << hdr[0])) {
+                    return -1;
+                }
+                opts->saved.flags |= 1 << hdr[0];
+                last = 9;
+            } else {
+                last = hdr[0];
+            }
+        }
+        r = TLobby::parse_lcp_option((s32)&src, (u8 *)opts, (u8 *)peer, hdr, 0);
+        if (r == -1) {
+            return -1;
+        }
+        if (r == 4 && hdr[0] <= 8 && (hdr[0] != 3 || (opts->saved.flags & (1 << hdr[0])) == 0)) {
+            opts->saved.flags &= ~(1 << hdr[0]);
+        }
+    }
+    return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s16 TLobby__sub_804010A0(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    St_80400BA8 *opts;
+    s32 remaining;
+    s16 status;
+    s16 r;
+    B_803FADA0 *reply;
+    u8 hdr[2];
+    status = 2;
+    opts = (St_80400BA8 *)fsm->p30;
+    remaining = msg->h2;
+    reply = NULL;
+    opts->f50 = 0;
+    reply = init_net_buffer_entry__6TLobbyFUs(1);
+    if (opts->f4D != 0) {
+        opts->f58 = 0;
+        opts->f50 |= 8;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        r = TLobby::parse_lcp_option((s32)&src, (u8 *)opts, (u8 *)&opts->f34, hdr, 1);
+        if (r == -1) {
+            return -1;
+        }
+        if (r < status) {
+            continue;
+        }
+        if (r > status) {
+            reply = NULL;
+            status = r;
+        }
+        if (r != 4 && hdr[0] <= 8) {
+            opts->f50 |= 1 << hdr[0];
+        }
+        TLobby__sub_804017D8(&reply, (LcpVals_8040172C *)&opts->f50, hdr[0], hdr[1], &src);
+        if (r >= 3) {
+            TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+        }
+    }
+    s16 missing = opts->f38 & ~opts->f50;
+    if (status == 3) {
+        if (fsm->b6 != 0) {
+            add_lcp_options(&reply, (LcpVals_8040172C *)&opts->f50, missing);
+            fsm->b6--;
+        } else {
+            status = 4;
+            TLobby__sub_803FE6CC(fsm, 4, msg->b1, reply);
+        }
+    }
+    if (status >= 3) {
+        return status != 2;
+    }
+    TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+    return status != 2;
+}
+#pragma pop
+
 #define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
 #define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
 #define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
@@ -1918,24 +2188,9 @@ s16 TLobby::parse_lcp_option(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     return res;
 }
 
-struct LcpVals_8040172C { s16 mask; };
-struct LcpOpts_8040172C { u8 pad[0x1C]; LcpVals_8040172C vals; };
-extern u8 lbl_8047FE68[];
-void TLobby__sub_804017D8(B_803FADA0 **pbuf, LcpVals_8040172C *vals, u8 type, u8 len, void *src);
-
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-inline void add_lcp_options(B_803FADA0 **pbuf, LcpVals_8040172C *vals, s16 mask) {
-    s16 i;
-
-    for (i = 1; i <= 8; i++) {
-        if (mask & (1 << i)) {
-            TLobby__sub_804017D8(pbuf, vals, i, lbl_8047FE68[i], NULL);
-        }
-    }
-}
-
 B_803FADA0 *TLobby__sub_8040172C(Self_803FD74C *fsm) {
     LcpOpts_8040172C *o = (LcpOpts_8040172C *)fsm->f30;
     B_803FADA0 *buf = NULL;
@@ -1948,6 +2203,69 @@ B_803FADA0 *TLobby__sub_8040172C(Self_803FD74C *fsm) {
     return buf;
 }
 #pragma pop
+
+void TLobby__sub_804017D8(B_803FADA0 **pbuf, LcpVals_8040172C *vals, u8 type, u8 len, void *src) {
+    B_803FADA0 *buf;
+    u8 *p;
+    u8 *lenp;
+    s16 n;
+    n = len - 2;
+    if (*pbuf == NULL) {
+        *pbuf = init_net_buffer_entry__6TLobbyFUs(1);
+        if (*pbuf == NULL) {
+            return;
+        }
+    }
+    buf = *pbuf;
+    p = buf->buf;
+    p += buf->len;
+    *p++ = type;
+    lenp = p;
+    *p++ = len;
+    switch (type) {
+    case 1:
+        p = write_network_u16_be(p, vals->mru);
+        n -= 2;
+        break;
+    case 2:
+        p = write_network_u32_be(p, vals->accm);
+        n -= 4;
+        break;
+    case 3:
+        p = write_network_u16_be(p, vals->auth_proto);
+        n -= 2;
+        if (vals->auth_proto == 0xC223) {
+            *lenp = 5;
+            *p++ = vals->chap_alg;
+            if (len == 4) {
+                len++;
+            }
+            n = 0;
+        }
+        if (vals->auth_proto == 0xC023) {
+            *lenp = 4;
+            if (len == 5) {
+                len--;
+            }
+            n = 0;
+        }
+        break;
+    case 4:
+        break;
+    case 5:
+        p = write_network_u32_be(p, vals->magic);
+        n -= 4;
+        break;
+    case 6:
+    case 7:
+    case 8:
+        break;
+    }
+    while (n-- > 0) {
+        *p++ = TLobby__sub_80401BCC(src, lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0];
+    }
+    buf->len += len;
+}
 
 s32 TLobby::configure_mode_by_type(s16 type) {
     Cfg_804019A8 *c = (Cfg_804019A8 *)this;
@@ -2087,6 +2405,37 @@ Ent_80401CE8 *init_net_buffer_entry__6TLobbyFUs(u16 idx) {
 #pragma pop
 
 struct Md5Ctx_80401EB8 { u32 state[4]; u32 count[2]; u8 buffer[64]; };
+void TLobby__sub_80401EB8(Md5Ctx_80401EB8 *ctx, u8 *input, u32 len);
+
+extern u8 lbl_8047FE78[];
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void Encode_80401D2C(u8 *output, u32 *input, u32 len) {
+    u32 i, j;
+    for (i = 0, j = 0; j < len; i++, j += 4) {
+        output[j] = (u8)(input[i] & 0xFF);
+        output[j + 1] = (u8)((input[i] >> 8) & 0xFF);
+        output[j + 2] = (u8)((input[i] >> 16) & 0xFF);
+        output[j + 3] = (u8)((input[i] >> 24) & 0xFF);
+    }
+}
+
+void TLobby__sub_80401D2C(u8 *digest, Md5Ctx_80401EB8 *ctx) {
+    u8 bits[8];
+    u32 index;
+    u32 padLen;
+    Encode_80401D2C(bits, ctx->count, 8);
+    index = (ctx->count[0] >> 3) & 0x3F;
+    padLen = (index < 56) ? (56 - index) : (120 - index);
+    TLobby__sub_80401EB8(ctx, lbl_8047FE78, padLen);
+    TLobby__sub_80401EB8(ctx, bits, 8);
+    Encode_80401D2C(digest, ctx->state, 16);
+    NetMemset(ctx, 0, sizeof(*ctx));
+}
+#pragma pop
+
 void TLobby__sub_80401EB8(Md5Ctx_80401EB8 *ctx, u8 *input, u32 len) {
     int space;
     u32 bits = len << 3;

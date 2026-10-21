@@ -95,7 +95,8 @@ typedef struct Ent_80427D40 {
     s32 last;
     u8 m_10[6];
     u8 m_16[6];
-    u8 pad1C[4];
+    u16 m_1C;
+    u16 m_1E;
     u8 *m_20;
     u8 *m_24;
     u16 m_28;
@@ -180,6 +181,115 @@ s16 TLobby::build_ethernet_frame_header(void *src, void *mac, u16 type, u8 flag,
     r = 0x3C;
   }
   return r;
+}
+
+inline s16 put_service_name(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 n;
+    s16 ret;
+    type = 0x101;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    n = TLobby::str_length((s32)e->names.service);
+    len = n;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    NetMemcpy(*p, e->names.service, n);
+    ret = n + 4;
+    *p += n;
+    return ret;
+}
+
+inline s16 put_host_uniq(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 ret;
+    type = 0x103;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    len = 8;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    NetMemcpy(*p, e->m_32, 8);
+    *p += 8;
+    ret = 12;
+    return ret;
+}
+
+inline s16 put_ac_cookie(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 n = 0;
+    if (e->m_24 != NULL) {
+        type = 0x104;
+        NetMemcpy(*p, &type, 2);
+        *p += 2;
+        len = e->m_28;
+        NetMemcpy(*p, &len, 2);
+        *p += 2;
+        NetMemcpy(*p, e->m_24, e->m_28);
+        n = e->m_28 + 4;
+        *p += e->m_28;
+    }
+    return n;
+}
+
+inline s16 put_relay_session_id(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 n = 0;
+    if (e->m_2C != NULL) {
+        type = 0x110;
+        NetMemcpy(*p, &type, 2);
+        *p += 2;
+        len = e->m_30;
+        NetMemcpy(*p, &len, 2);
+        *p += 2;
+        NetMemcpy(*p, e->m_2C, e->m_30);
+        n = e->m_30 + 4;
+        *p += e->m_30;
+    }
+    return n;
+}
+
+inline s16 put_end_of_list(u8 **p) {
+    u16 type;
+    u16 len;
+    s16 ret;
+    type = 0;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    len = 0;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    ret = 4;
+    return ret;
+}
+
+s16 TLobby__sub_80426EB8(Ent_80427D40 *e) {
+    u8 *p;
+    s16 n;
+    s16 total;
+    p = e->frame + 0x14;
+    n = put_service_name(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total = n;
+    total += put_host_uniq(&p, e);
+    n = put_ac_cookie(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total += n;
+    n = put_relay_session_id(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total += n;
+    total += put_end_of_list(&p);
+    return total;
 }
 
 s32 TLobby__sub_80427240(u8 **arg0) {
@@ -272,6 +382,69 @@ s32 TLobby::parse_tlv_records(s32 arg0, u8 *arg1, u16 arg2) {
         len -= t;
     }
     return 0;
+}
+
+s16 TLobby__sub_80427988(Ent_80427D40 *e, u8 *p, u16 len) {
+    s16 result = 0;
+    u8 *cur;
+    u16 type;
+    u16 tag_len;
+    u8 *data;
+    e->m_1C = 1;
+    if (e->names.service[0] != 0) {
+        e->m_1C = 0;
+    }
+    e->m_1E = 1;
+    if (e->names.name[0] != 0) {
+        e->m_1E = 0;
+    }
+    cur = p;
+    while (len != 0) {
+        NetMemcpy(&type, cur, 2);
+        if (type == 0) {
+            break;
+        }
+        NetMemcpy(&tag_len, cur + 2, 2);
+        data = cur + 4;
+        switch (type) {
+        case 0x101:
+            if (e->names.service[0] != 0 && NetMemcmp(e->names.service, data, tag_len) == 0) {
+                e->m_1C = 1;
+            }
+            break;
+        case 0x102:
+            if (e->names.name[0] != 0 && NetMemcmp(e->names.name, data, tag_len) == 0) {
+                e->m_1E = 1;
+            }
+            break;
+        case 0x103:
+            break;
+        case 0x104:
+            e->m_24 = data;
+            e->m_28 = tag_len;
+            break;
+        case 0x110:
+            e->m_2C = data;
+            e->m_30 = tag_len;
+            break;
+        case 0x201:
+            result = -1;
+            goto done;
+        case 0x202:
+            result = -1;
+            goto done;
+        case 0x203:
+            result = -1;
+            goto done;
+        }
+        cur += tag_len + 4;
+        len -= tag_len + 4;
+    }
+done:
+    if (result == 0 && e->m_1C != 0 && e->m_1E != 0) {
+        result = 1;
+    }
+    return result;
 }
 
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {

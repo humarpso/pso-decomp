@@ -468,7 +468,7 @@ char *strcat(char *dst, const char *src);
 s32 strncmp(const char *a, const char *b, u32 n);
 void strcmp(u8);
 void strcpy(void *, void *);
-s32 TLobby__sub_803FE6CC(void *, int, int, void *);
+s32 TLobby__sub_803FE6CC(void *, u8, u8, void *);
 s16 TLobby__sub_8040FCEC(u32);
 void TLobby__sub_803F892C(void *);
 void TLobby__sub_803F8958(void *);
@@ -1006,8 +1006,8 @@ void TLobby__sub_803FA2A8(P_803FA2A8 *o) {
     q->h34 = q->h34 | q->h38;
 }
 
-struct Sub_803FA664 { u8 pad0[0x1C]; s16 h1C; };
-struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[9]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
+struct Sub_803FA664 { u8 pad0[0x1C]; s16 h1C; u8 pad1E[0x34 - 0x1E]; u8 peer[0x50 - 0x34]; s16 h50; };
+struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[4]; u8 b6; u8 pad7[4]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
 struct Msg_803FA664 { u8 pad0; u8 b1; s16 h2; };
 
 s16 NetIPv6CPParseConfigureOption(u32 *src, Sub_803FA664 *a, Sub_803FA664 *b, u8 *hdr, s32 flag);
@@ -1150,6 +1150,63 @@ s32 verify_message_sequence__6TLobbyFPvPvUi(Obj_803FA664 *arg0, Msg_803FA664 *ar
     }
     arg0->bB++;
     return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s16 TLobby__sub_803FA7B0(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts;
+    s32 remaining;
+    s16 status;
+    s16 r;
+    B_803FADA0 *reply;
+    u8 hdr[2];
+    status = 2;
+    opts = fsm->p30;
+    remaining = msg->h2;
+    reply = NULL;
+    opts->h50 = 0;
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        r = NetIPv6CPParseConfigureOption(&src, opts, (Sub_803FA664 *)opts->peer, hdr, 1);
+        if (r == -1) {
+            return -1;
+        }
+        if (r < status) {
+            continue;
+        }
+        if (r > status) {
+            reply = NULL;
+            status = r;
+        }
+        if (r != 4) {
+            opts->h50 |= 1 << ipv6cp_option_bit(hdr[0]);
+        }
+        TLobby__sub_803FADA0(&reply, (A_803FADA0 *)&opts->h50, hdr[0], hdr[1], &src);
+        if (r > 3) {
+            TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+        }
+    }
+    if (status == 3) {
+        if (fsm->b6 != 0) {
+            fsm->b6--;
+        } else {
+            status = 4;
+            TLobby__sub_803FE6CC(fsm, 4, msg->b1, reply);
+        }
+    }
+    if (status > 3) {
+        return status != 2;
+    }
+    TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+    return status != 2;
 }
 #pragma pop
 
