@@ -26,7 +26,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
   group: ci-${{ github.event.pull_request.number || github.ref }}
@@ -46,11 +45,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # full history: the base-commit baseline step fetches by SHA below, and
+          # shallow clones refuse `git fetch <sha>` ("shallow update not allowed")
+          fetch-depth: 0
 
       - name: Disc image (verified, read-only, never uploaded)
         run: |
           ln -sfn "$ORIG" orig
-          test -f orig/GPOE8P/game.iso || { echo "::error::original disc copy missing at $ORIG/GPOE8P/game.iso"; exit 1; }
+          # the ISO arrives via a bind-mounted ZFS subpath; give propagation a few
+          # tries before declaring it missing (first job after a long idle can race it)
+          ok=0
+          for i in 1 2 3; do
+            if test -f orig/GPOE8P/game.iso; then ok=1; break; fi
+            sleep 5
+          done
+          [ "$ok" = 1 ] || { echo "::error::original disc copy missing at $ORIG/GPOE8P/game.iso"; exit 1; }
           echo "$DISC_SHA1  orig/GPOE8P/game.iso" | sha1sum -c -
 
       - name: Snapshot baseline from the base commit
@@ -89,6 +99,7 @@ jobs:
         run: |
           verdict=PASS
           [ "${{ job.status }}" = success ] || verdict=FAIL
+          touch ci-gate.log
           {
             echo "**CI ${verdict}** (${GITHUB_REPOSITORY}@${GITHUB_SHA:0:10})"
             echo
@@ -102,17 +113,11 @@ jobs:
             echo "</details>"
           } > ci-summary.md
           cat ci-summary.md
-
-      - name: Comment results on the PR
-        if: always() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const body = fs.readFileSync('ci-summary.md', 'utf8');
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body,
-            });
+          # GITHUB_TOKEN is read-only for fork PRs, so results live here in the run
+          # log + these annotations (shown in the PR checks UI). A maintainer-side
+          # `workflow_run` job on master can mirror them onto PRs verbatim if desired.
+          if [ "$verdict" = PASS ]; then
+            echo "::notice::CI PASS — DOL byte-exact, zero regressions, links intact"
+          else
+            echo "::error::CI ${verdict} — see job log (ci-summary)"
+          fi
