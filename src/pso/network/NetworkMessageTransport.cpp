@@ -140,7 +140,7 @@ s32 TLobby__sub_804089A8(s32, s32, void *, void *);
 s32 TLobby__sub_80425640(s32 len);
 s32 TLobby__sub_80426AAC(u16 key, s32 len);
 void forward_to_channel__6TLobbyFPv(void *frame, void *b);
-s32 TLobby__sub_80426440(void);
+s16 TLobby__sub_80426440(void);
 
 #pragma push
 #pragma opt_propagation off
@@ -419,7 +419,7 @@ s16 TLobby__sub_804262CC(void *argp) {
 }
 #undef arg0
 
-s32 TLobby__sub_80426440(void) {
+s16 TLobby__sub_80426440(void) {
     return 0;
 }
 

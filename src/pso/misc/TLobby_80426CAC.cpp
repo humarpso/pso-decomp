@@ -89,7 +89,7 @@ typedef struct PppoeNames {
 typedef struct Ent_80427D40 {
     s16 state;
     u16 id;
-    u16 m_4;
+    s16 m_4;
     s16 m_6;
     s32 timeout;
     s32 last;
@@ -135,7 +135,7 @@ s32 TLobby__sub_80427F48(s16 slot, u8 *frame, u16 len);
 s16 TLobby__sub_80426D80(Ent_80427D40 *e);
 s32 TLobby__sub_80426574(s32);
 Ent_80427D40 *TLobby__sub_80427B6C(u8 *p, u16 len);
-s32 TLobby__sub_80427378(Ent_80427D40 *);
+void TLobby__sub_80427378(Ent_80427D40 *e);
 s16 TLobby__sub_804275B0(s32, u16);
 
 #pragma push
@@ -292,16 +292,18 @@ s16 TLobby__sub_80426EB8(Ent_80427D40 *e) {
     return total;
 }
 
-s32 TLobby__sub_80427240(u8 **arg0) {
-    s16 a = 0;
-    s16 b;
-    u8 pad[6];
-    NetMemcpy(*arg0, &a, 2);
-    *arg0 += 2;
-    b = 0;
-    NetMemcpy(*arg0, &b, 2);
-    *arg0 += 2;
-    return 4;
+s16 TLobby__sub_80427240(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 ret;
+    type = 0;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    len = 0;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    ret = 4;
+    return ret;
 }
 
 s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
@@ -323,6 +325,86 @@ s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
     *arg0 += temp_r3;
     return temp_r3 + 4;
 }
+
+inline s16 build_padt(Ent_80427D40 *e) {
+    u8 *payload;
+    u8 *p;
+    s16 n;
+    payload = e->frame + 0x14;
+    p = payload;
+    n = TLobby__sub_80427240(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    return n;
+}
+
+inline void restart_timer(Ent_80427D40 *e, s16 retries, s32 timeout) {
+    TLobby::get_time_ms(&e->last);
+    e->timeout = timeout;
+    e->m_6 = retries;
+}
+
+void TLobby__sub_80427378(Ent_80427D40 *e) {
+    u16 len;
+    u16 proto;
+    u8 *p;
+    s16 n;
+    switch (e->state) {
+    case 0:
+        if (e->m_6 > 0) {
+            if (TLobby__sub_80426440() >= 0) {
+                if (e->m_4 != 0) {
+                    p = e->frame + 0x14;
+                    proto = 0xC021;
+                    NetMemcpy(p, &proto, 2);
+                    p[2] = 5;
+                    p[3] = 1;
+                    len = 4;
+                    NetMemcpy(p + 4, &len, 2);
+                    e->frame_len = ((TLobby *)e->frame)->build_ethernet_frame_header(e->m_20, e->m_10, 0x8864, 0, e->id, 6);
+                    ((TLobby *)e->frame)->post_send_message(e->frame_len);
+                    n = build_padt(e);
+                    if (n >= 0) {
+                        e->frame_len = ((TLobby *)e->frame)->build_ethernet_frame_header(e->m_20, e->m_10, 0x8863, 0xA7, e->id, n);
+                        ((TLobby *)e->frame)->post_send_message(e->frame_len);
+                    }
+                }
+                e->id = 0;
+                if (TLobby__sub_80426D80(e) >= 0) {
+                    u16 frame_len = e->frame_len;
+                    ((TLobby *)e->frame)->post_send_message(frame_len);
+                    e->state = 1;
+                    restart_timer(e, 2, 3000);
+                }
+            } else {
+                restart_timer(e, e->m_6 - 1, e->timeout);
+            }
+        } else {
+            e->timeout = 0;
+            e->state = -1;
+        }
+        break;
+    case 1:
+    case 3:
+        if (e->m_6 > 0) {
+            if (TLobby__sub_80426D80(e) >= 0) {
+                u16 frame_len = e->frame_len;
+                ((TLobby *)e->frame)->post_send_message(frame_len);
+            }
+            restart_timer(e, e->m_6 - 1, e->timeout * 2);
+        } else {
+            e->timeout = 0;
+            e->state = 5;
+        }
+        break;
+    case 2:
+    case 4:
+    case 5:
+        break;
+    }
+}
+
 
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
