@@ -2393,6 +2393,7 @@ force_active:
   - calc_clamp_offset__11TLoadingCurFlPUcPUc
   - calc_damage__11TTecRaZondeFv
   - calc_death_slide_speed__14TObjEneBm5WolfFPvf
+  - calc_digit_count__18TWindowInputNumberFv
   - calc_digit_transform__17TDuelEffectNumberFlPfPfl
   - calc_dir_angles__11TBoss6Type2FPvPvPvPv
   - calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf
@@ -3005,6 +3006,7 @@ force_active:
   - draw_agreement_text__18TAdAgreementBaseGCFv
   - draw_animated_beam__18TObjLazerFenceNormFv
   - draw_area_chunk_objects__10TObjPlayerFv
+  - draw_arrows__18TWindowInputNumberFv
   - draw_background__13TWindowStatusFPUc
   - draw_background__17TAdGameStartSubGCFPv
   - draw_background__18TWindowPartyStatusFPUc
@@ -3862,6 +3864,7 @@ force_active:
   - is_local_player__10TObjPlayerFv
   - is_lockable_target__13TWindowLockOnFi
   - is_locked__11TWindowMenuFl
+  - is_locked__18TWindowInputNumberFl
   - is_logo_exit_requested__Fi
   - is_mag_full__FPUc
   - is_mode_bit6__11TWindowChatFv
@@ -10881,6 +10884,7 @@ force_active:
   - test_flag_256__12TObjEneLappyFv
   - test_flag_8__10TObjPlayerFPv
   - test_immunity_flags__13TUnk_804806E8Fl
+  - test_input_flag__18TWindowInputNumberFv
   - test_menu_flag__11TWindowMenuFv
   - test_rock_bit__15TBoss6SwordWaveFiUc
   - texture_f512_multiplay_descriptor

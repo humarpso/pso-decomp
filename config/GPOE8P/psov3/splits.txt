@@ -8893,7 +8893,8 @@ pso/misc/TWindowInputNumber.cpp:
 
 pso/misc/TWindowInputNumber_80256170.cpp:
 	.text       start:0x80256170 end:0x80256B94
-	.rodata     start:0x8044EE38 end:0x8044EE40
+	.rodata     start:0x8044EE28 end:0x8044EE40
+	.sdata2     start:0x805DCE18 end:0x805DCE58
 
 pso/misc/TWindowSubStatusDisp_80256B94.cpp:
 	.text       start:0x80256B94 end:0x8025737C
