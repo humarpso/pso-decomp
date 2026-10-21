@@ -1128,6 +1128,7 @@ force_active:
   - TWindowSubStatusDisp__sub_80338B88
   - TWindowSubStatusDisp__sub_8036D994
   - TWindowSubStatusDisp__window_layout
+  - TWindowSubSymbolChatFaceType__sub_80283F38
   - TWindowSubSymbolChat__sub_80281840
   - TWindowSubTechnique__sub_8028753C
   - TWindowSubTradeMessage__name
@@ -3598,6 +3599,7 @@ force_active:
   - handle_grid_navigation__22TWindowSubCustomSelectFv
   - handle_input__11TWindowChatFv
   - handle_input__23TShopJudgmentItemWindowFv
+  - handle_input__28TWindowSubSymbolChatFaceTypeFv
   - handle_input_window_result__24TShopEquipmentSellWindowFv
   - handle_judge_confirm__23TShopJudgmentItemWindowFv
   - handle_loss_sequence__18TObjChallengeRetryFv
@@ -11136,6 +11138,7 @@ force_active:
   - update_particle_emitters__12TBoss6ThanksFv
   - update_particles__13TObjLobbyMainFv
   - update_particles__15TObjBoss2TunnelFv
+  - update_parts_entries__28TWindowSubSymbolChatFaceTypeFv
   - update_password_input__17TAdEnterPPPPassGCFPv
   - update_password_input__18TAdEnterPasswordGCFPv
   - update_path_follow_rotation__13TUnk_804E094CFPvf

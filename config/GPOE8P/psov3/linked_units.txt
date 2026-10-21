@@ -1926,6 +1926,7 @@ pso/misc/TWindowSubStatusDisp_8036D774.cpp
 pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
 pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
+pso/misc/TWindowSubSymbolChatFaceType_80283A70.cpp
 pso/misc/TWindowSubSymbolChatHelp.cpp
 pso/misc/TWindowSubSymbolChatPartsSet.cpp
 pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.cpp
