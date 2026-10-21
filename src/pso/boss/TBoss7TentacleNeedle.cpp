@@ -523,18 +523,6 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
     ((TBoss7Tentacle *)boss7_tentacle)->update_extend_amount();
 }
 
-struct Ten_802F0608 {
-    u8 pad0[0x44];
-    f32 f44;
-    u8 pad48[0x50 - 0x48];
-    V_802F0A5C pts[14];
-    s32 vals[14];
-    u8 pad130[0x158 - 0x130];
-    f32 f158;
-    f32 f15C;
-    f32 f160;
-};
-
 extern "C" {
 f32 newton_sqrtf(f32);
 extern const f32 lbl_805DEC4C;
@@ -546,56 +534,55 @@ extern const f32 lbl_805DEC58;
 #pragma push
 #pragma fp_contract on
 void TBoss7Tentacle__sub_802F0608(TBoss7Tentacle *tentacle, f32 len) {
-    Ten_802F0608 *o = (Ten_802F0608 *)tentacle;
     s32 i;
     s32 prev, ang;
     s32 j;
     f32 scale = lbl_805DEC4C;
     f32 half = scale * len;
-    f32 h = lbl_805DEC50 - o->f44;
+    f32 h = lbl_805DEC50 - tentacle->m_44;
     f32 a;
-    f32 step = o->f158;
+    f32 step = tentacle->m_158;
     a = -(h / (half * half));
     step /= lbl_805DEC54;
     f32 dx, dy, px, py, w, k;
     for (i = 0; i < 10; i++) {
         f32 t = step * (f32)i;
         f32 d = t - half;
-        V_802F0A5C *pt = (V_802F0A5C *)((u8 *)o->pts + (i + 2) * sizeof(V_802F0A5C));
+        Vec *pt = (Vec *)((u8 *)tentacle->m_50 + (i + 2) * sizeof(Vec));
         pt->x = scale * t;
         pt->y = scale * (d * (a * d) + h);
     }
-    o->pts[2].x = TBoss7Tentacle__data_805DEC04;
-    o->pts[2].y = TBoss7Tentacle__data_805DEC04;
-    o->pts[2].z = TBoss7Tentacle__data_805DEC04;
+    tentacle->m_50[2].x = TBoss7Tentacle__data_805DEC04;
+    tentacle->m_50[2].y = TBoss7Tentacle__data_805DEC04;
+    tentacle->m_50[2].z = TBoss7Tentacle__data_805DEC04;
     px = TBoss7Tentacle__data_805DEC04;
     py = TBoss7Tentacle__data_805DEC04;
     prev = 0;
     for (j = 3; j <= 11; j++) {
-        f32 x = o->pts[j].x;
-        f32 y = o->pts[j].y;
+        f32 x = tentacle->m_50[j].x;
+        f32 y = tentacle->m_50[j].y;
         dx = x - px;
         dy = y - py;
         px = x;
         py = y;
         ang = (s32)(lbl_804740D8[0] * atan2_float(dy, dx));
-        o->vals[j - 1] = ang - prev;
+        tentacle->m_f8[j - 1] = ang - prev;
         prev = ang;
-        o->pts[j].x = newton_sqrtf(dy * dy + dx * dx);
-        o->pts[j].y = TBoss7Tentacle__data_805DEC04;
-        o->pts[j].z = TBoss7Tentacle__data_805DEC04;
+        tentacle->m_50[j].x = newton_sqrtf(dy * dy + dx * dx);
+        tentacle->m_50[j].y = TBoss7Tentacle__data_805DEC04;
+        tentacle->m_50[j].z = TBoss7Tentacle__data_805DEC04;
     }
-    o->vals[11] = o->vals[10];
-    w = o->f15C;
+    tentacle->m_f8[11] = tentacle->m_f8[10];
+    w = tentacle->m_15c;
     if (w < TBoss7Tentacle__data_805DEC00) {
         k = TBoss7Tentacle__data_805DEC00 - w;
-        k *= o->f160;
+        k *= tentacle->m_160;
         for (i = 2; i < 12; i++) {
-            o->pts[i].x = o->pts[i].x * w + k * TBoss7Tentacle__segment_offsets[i].x;
+            tentacle->m_50[i].x = tentacle->m_50[i].x * w + k * TBoss7Tentacle__segment_offsets[i].x;
         }
-        o->vals[2] = (s32)(lbl_805DEC58 * (TBoss7Tentacle__data_805DEC00 - o->f15C) + (f32)o->vals[2] * w);
+        tentacle->m_f8[2] = (s32)(lbl_805DEC58 * (TBoss7Tentacle__data_805DEC00 - tentacle->m_15c) + (f32)tentacle->m_f8[2] * w);
         for (i = 3; i < 12; i++) {
-            o->vals[i] = (s32)((f32)o->vals[i] * w);
+            tentacle->m_f8[i] = (s32)((f32)tentacle->m_f8[i] * w);
         }
     }
 }
