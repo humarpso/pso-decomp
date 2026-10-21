@@ -141,6 +141,7 @@ pso/misc/TNowLoading.cpp:
 pso/misc/TLobby_8001D6A0.cpp:
 	.text       start:0x8001D6A0 end:0x8001ED80
 	.rodata     start:0x80434A88 end:0x80434A98
+	.sdata2     start:0x805D7EC8 end:0x805D7EF4
 
 pso/ui/TAdSinglePlyChrSelectGC_8001ED80.cpp:
 	.text       start:0x8001ED80 end:0x8001ED90
