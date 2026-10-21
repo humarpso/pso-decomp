@@ -208,6 +208,7 @@ pso/boss/TBoss5GryphonLightningHorn.cpp
 pso/boss/TBoss5GryphonLightningWing.cpp
 pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp
 pso/boss/TBoss5GryphonShockWave.cpp
+pso/boss/TBoss5GryphonSnarl.cpp
 pso/boss/TBoss5GryphonTornado.cpp
 pso/boss/TBoss6CrushPtcl.cpp
 pso/boss/TBoss6CrushRock.cpp

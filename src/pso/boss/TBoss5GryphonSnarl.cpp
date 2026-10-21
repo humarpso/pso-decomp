@@ -5,6 +5,9 @@
 
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct V_80066DC8 { f32 x, y, z; };
 
@@ -18,6 +21,18 @@ extern u8 boss5_gryphon_snarl_effect_id_table[];
 extern void *TBoss5GryphonSnarl__effect_table;
 extern s32 lbl_805D2820;
 extern const f32 lbl_805D8F0C;
+extern const f32 lbl_805D8EF8;
+extern const f32 lbl_805D8EFC;
+extern const f32 lbl_805D8F00;
+extern const f32 lbl_805D8F04;
+extern const f32 lbl_805D8F08;
+extern s32 boss5_gryphon_bml_resource;
+extern s32 boss5_gryphon_texture_list;
+void TBoss8Dragon__sub_8006402C(s32 instance, void *pos, f32 radius, f32 scale);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+s32 get_bml_model(s32, s32);
+void attach_particle_model(void *, s32, s32, s32, s32, f32);
 
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
@@ -25,6 +40,75 @@ s32 TLobby__sub_803DA16C(void*);
 void TBoss5GryphonSnarl::render() {  }
 
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss5GryphonSnarl::run_task() {
+    Obj_80066DC8 *self = (Obj_80066DC8 *)this;
+    V_80066DC8 v;
+    f32 inner;
+    f32 outer;
+    s32 instance;
+    f32 scale;
+    s32 i;
+    s32 angle;
+    s32 j;
+
+    switch (self->f1c) {
+    case 0:
+        inner = lbl_805D8EF8 * (f32)self->f12c;
+        instance = TBoss8Dragon::get_instance_count();
+        scale = (f32)(30 - self->f12c) / lbl_805D8EFC;
+        scale += lbl_805D8F00;
+        TBoss8Dragon__sub_8006402C(instance, &self->pos, inner, scale);
+        outer = lbl_805D8F04 + inner;
+        for (i = 0; i < 32; i++) {
+            angle = (i << 16) / 32;
+            if (children_20[i] == NULL) {
+                children_20[i] = (TObject *)spawn_continuous_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->f0, 0x2040);
+            }
+            if (children_20[i] != NULL) {
+                v.x = inner * sin_table_lookup(angle) + self->pos.x;
+                v.y = lbl_805D8F08;
+                v.z = inner * cos_table_lookup(angle) + self->pos.z;
+                ((TNowLoading *)children_20[i])->copy_pos(&v);
+            }
+            if (children_a0[i] == NULL) {
+                children_a0[i] = (TObject *)spawn_continuous_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->f4, 0x40);
+                if (children_a0[i] != NULL) {
+                    attach_particle_model(children_a0[i], get_bml_model(boss5_gryphon_bml_resource, 1), boss5_gryphon_texture_list, 0, 0, lbl_805D8F00);
+                }
+            }
+            if (children_a0[i] != NULL) {
+                v.x = outer * sin_table_lookup(angle) + self->pos.x;
+                v.y = lbl_805D8F08;
+                v.z = outer * cos_table_lookup(angle) + self->pos.z;
+                ((TNowLoading *)children_a0[i])->copy_pos(&v);
+            }
+        }
+        self->f12c++;
+        if (self->f12c > 30) {
+            self->f12c = 0;
+            self->f1c = 1;
+        }
+        break;
+    case 1:
+        for (j = 0; j < 32; j++) {
+            if (children_20[j] != NULL) {
+                ((TParticleCtrl *)children_20[j])->enable();
+            }
+            if (children_a0[j] != NULL) {
+                ((TParticleCtrl *)children_a0[j])->enable();
+            }
+        }
+        self->f12c++;
+        if (self->f12c > 30) {
+            queue_destruction__7TObjectFv(this);
+        }
+        break;
+    }
+}
+#pragma pop
 
 TBoss5GryphonSnarl::~TBoss5GryphonSnarl() {
     for (s32 index = 31; index >= 0; --index) {

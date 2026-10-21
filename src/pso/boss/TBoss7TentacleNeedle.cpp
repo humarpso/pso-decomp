@@ -17,7 +17,7 @@ extern "C" {
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-s32 TBoss7Tentacle__sub_802F0608(void *, f32);
+void TBoss7Tentacle__sub_802F0608(TBoss7Tentacle *tentacle, f32 len);
 f32 sin_table_lookup(s32);
 s32 set_matrix_identity(int);
 s32 subtract_vector(void *, void *);
@@ -480,7 +480,7 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
                 *(f32 *)((s8 *)boss7_tentacle + 0x15C) = *(f32 *)((s8 *)boss7_tentacle + 0x158) / (lbl_805DEC44 * len);
             }
             *(s32 *)((s8 *)boss7_tentacle + 0x140) = approach_angle_limited(*(s32 *)((s8 *)boss7_tentacle + 0x140), boss7_tentacle_angle_table[*(s32 *)((s8 *)boss7_tentacle + 0x4C)], 0x100);
-            TBoss7Tentacle__sub_802F0608(boss7_tentacle, len);
+            TBoss7Tentacle__sub_802F0608((TBoss7Tentacle *)boss7_tentacle, len);
             break;
         case 2:
             *(s32 *)((s8 *)boss7_tentacle + 0x164) = *(s32 *)((s8 *)boss7_tentacle + 0x164) + 1;
@@ -503,7 +503,7 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
                 *(f32 *)((s8 *)boss7_tentacle + 0x15C) = *(f32 *)((s8 *)boss7_tentacle + 0x158) / (lbl_805DEC44 * len);
             }
             *(s32 *)((s8 *)boss7_tentacle + 0x140) = approach_angle_limited(*(s32 *)((s8 *)boss7_tentacle + 0x140), 0, 0x100);
-            TBoss7Tentacle__sub_802F0608(boss7_tentacle, len);
+            TBoss7Tentacle__sub_802F0608((TBoss7Tentacle *)boss7_tentacle, len);
             break;
         }
         break;
@@ -522,6 +522,84 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
     }
     ((TBoss7Tentacle *)boss7_tentacle)->update_extend_amount();
 }
+
+struct Ten_802F0608 {
+    u8 pad0[0x44];
+    f32 f44;
+    u8 pad48[0x50 - 0x48];
+    V_802F0A5C pts[14];
+    s32 vals[14];
+    u8 pad130[0x158 - 0x130];
+    f32 f158;
+    f32 f15C;
+    f32 f160;
+};
+
+extern "C" {
+f32 newton_sqrtf(f32);
+extern const f32 lbl_805DEC4C;
+extern const f32 lbl_805DEC50;
+extern const f32 lbl_805DEC54;
+extern const f32 lbl_805DEC58;
+}
+
+#pragma push
+#pragma fp_contract on
+void TBoss7Tentacle__sub_802F0608(TBoss7Tentacle *tentacle, f32 len) {
+    Ten_802F0608 *o = (Ten_802F0608 *)tentacle;
+    s32 i;
+    s32 prev, ang;
+    s32 j;
+    f32 scale = lbl_805DEC4C;
+    f32 half = scale * len;
+    f32 h = lbl_805DEC50 - o->f44;
+    f32 a;
+    f32 step = o->f158;
+    a = -(h / (half * half));
+    step /= lbl_805DEC54;
+    f32 dx, dy, px, py, w, k;
+    for (i = 0; i < 10; i++) {
+        f32 t = step * (f32)i;
+        f32 d = t - half;
+        V_802F0A5C *pt = (V_802F0A5C *)((u8 *)o->pts + (i + 2) * sizeof(V_802F0A5C));
+        pt->x = scale * t;
+        pt->y = scale * (d * (a * d) + h);
+    }
+    o->pts[2].x = TBoss7Tentacle__data_805DEC04;
+    o->pts[2].y = TBoss7Tentacle__data_805DEC04;
+    o->pts[2].z = TBoss7Tentacle__data_805DEC04;
+    px = TBoss7Tentacle__data_805DEC04;
+    py = TBoss7Tentacle__data_805DEC04;
+    prev = 0;
+    for (j = 3; j <= 11; j++) {
+        f32 x = o->pts[j].x;
+        f32 y = o->pts[j].y;
+        dx = x - px;
+        dy = y - py;
+        px = x;
+        py = y;
+        ang = (s32)(lbl_804740D8[0] * atan2_float(dy, dx));
+        o->vals[j - 1] = ang - prev;
+        prev = ang;
+        o->pts[j].x = newton_sqrtf(dy * dy + dx * dx);
+        o->pts[j].y = TBoss7Tentacle__data_805DEC04;
+        o->pts[j].z = TBoss7Tentacle__data_805DEC04;
+    }
+    o->vals[11] = o->vals[10];
+    w = o->f15C;
+    if (w < TBoss7Tentacle__data_805DEC00) {
+        k = TBoss7Tentacle__data_805DEC00 - w;
+        k *= o->f160;
+        for (i = 2; i < 12; i++) {
+            o->pts[i].x = o->pts[i].x * w + k * TBoss7Tentacle__segment_offsets[i].x;
+        }
+        o->vals[2] = (s32)(lbl_805DEC58 * (TBoss7Tentacle__data_805DEC00 - o->f15C) + (f32)o->vals[2] * w);
+        for (i = 3; i < 12; i++) {
+            o->vals[i] = (s32)((f32)o->vals[i] * w);
+        }
+    }
+}
+#pragma pop
 
 void TBoss7Tentacle::advance_path_position() {
     Ten_802F08A8 *o = (Ten_802F08A8 *)this;

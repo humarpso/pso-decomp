@@ -328,8 +328,10 @@ void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len) {
     f32 scale = lbl_805D8548;
     f32 half = scale * len;
     f32 h = lbl_805D854C - o->f144;
-    f32 a = -(h / (half * half));
-    f32 step = o->f138 / lbl_805D8550;
+    f32 a;
+    f32 step = o->f138;
+    a = -(h / (half * half));
+    step /= lbl_805D8550;
     f32 dx, dy, px, py, w, k;
     for (i = 0; i < 10; i++) {
         f32 t = step * (f32)i;
