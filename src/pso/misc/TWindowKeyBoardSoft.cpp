@@ -116,8 +116,8 @@ void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self);
 void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self);
 s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 void fn_8025DE10(void *, void *);
-void TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, u16 *, u32);
-void TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, u16 *, u32, s32);
+void TWindowSubStatusDisp__sub_8025E148(TWindowKeyBoardBase *, TWindowKeyBoardSoft *, f32 *, u16 *, u32);
+void TWindowSubStatusDisp__sub_8025E530(TWindowKeyBoardBase *, TWindowKeyBoardSoft *, f32 *, u16 *, u32, s32);
 void draw_textured_quad_at_depth(void *, f32);
 s32 dispatch_request_0x27__19TWindowKeyBoardSoftFll(void *, s32 *);
 s32 dispatch_request_0x26__19TWindowKeyBoardSoftFll(void *, s32 *);
@@ -695,7 +695,7 @@ void TWindowKeyBoardBase::draw_text_glyphs(void *arg1, void *arg2) {
     }
 }
 
-void TWindowSubStatusDisp__sub_8025E148(void *self, void *box, void *cursor, u16 *text, u32 count) {
+void TWindowSubStatusDisp__sub_8025E148(TWindowKeyBoardBase *self, TWindowKeyBoardSoft *box, f32 *cursor, u16 *text, u32 count) {
     Quad_8025E350 q;
     f32 pos[8];
     Desc_8025DECC d;
@@ -704,7 +704,7 @@ void TWindowSubStatusDisp__sub_8025E148(void *self, void *box, void *cursor, u16
     u16 ch;
     u8 adv;
 
-    depth = lbl_805DD058 + ((Box_8025E350 *)box)->z;
+    depth = lbl_805DD058 + box->depth;
     d.pos = pos;
     d.col = col;
     d.a = 0;
@@ -716,15 +716,15 @@ void TWindowSubStatusDisp__sub_8025E148(void *self, void *box, void *cursor, u16
     while ((s32)*text != 0 && count-- != 0) {
         ch = *text++;
         adv = get_font_char_advance(map_char_to_font_code(ch));
-        if (((f32 *)cursor)[0] + (f32)adv > ((Box_8025E350 *)box)->x + ((Box_8025E350 *)box)->w) {
-            ((f32 *)cursor)[0] = ((Box_8025E350 *)box)->x;
-            ((f32 *)cursor)[1] += lbl_805DD048;
+        if (cursor[0] + (f32)adv > box->inner_x + box->inner_w) {
+            cursor[0] = box->inner_x;
+            cursor[1] += lbl_805DD048;
         }
         if ((s32)ch == 0x20) {
-            ((f32 *)cursor)[0] += (f32)(s32)adv;
+            cursor[0] += (f32)(s32)adv;
         } else {
-            q.x = ((f32 *)cursor)[0];
-            q.y = ((f32 *)cursor)[1];
+            q.x = cursor[0];
+            q.y = cursor[1];
             set_glyph_quad_extents(adv, &q);
             apply_context_transform_to_rect(box, &q);
             pos[0] = q.x;
@@ -736,7 +736,7 @@ void TWindowSubStatusDisp__sub_8025E148(void *self, void *box, void *cursor, u16
             pos[6] = q.x;
             pos[7] = q.y2;
             ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 6, depth);
-            ((f32 *)cursor)[0] += (f32)adv;
+            cursor[0] += (f32)adv;
         }
     }
 }
@@ -783,14 +783,14 @@ void TWindowKeyBoardBase::draw_wrapped_text(void *arg1, void *arg2) {
     }
 }
 
-void TWindowSubStatusDisp__sub_8025E530(void *self, void *box, void *cursor, u16 *text, u32 count, s32 scaled) {
+void TWindowSubStatusDisp__sub_8025E530(TWindowKeyBoardBase *self, TWindowKeyBoardSoft *box, f32 *cursor, u16 *text, u32 count, s32 scaled) {
     Quad_8025E350 q;
     f32 depth;
     s32 code;
     u16 ch;
     u8 adv;
 
-    depth = lbl_805DD05C / (lbl_805DD060 + ((Box_8025E350 *)box)->z);
+    depth = lbl_805DD05C / (lbl_805DD060 + box->depth);
     while ((s32)*text != 0 && count-- != 0) {
         ch = *text++;
         code = map_char_to_font_code(ch);
@@ -799,21 +799,21 @@ void TWindowSubStatusDisp__sub_8025E530(void *self, void *box, void *cursor, u16
         } else {
             adv = get_font_char_advance(code);
         }
-        if (((f32 *)cursor)[0] + (f32)adv > ((Box_8025E350 *)box)->x + ((Box_8025E350 *)box)->w) {
-            ((f32 *)cursor)[0] = ((Box_8025E350 *)box)->x;
-            ((f32 *)cursor)[1] += lbl_805DD048;
+        if (cursor[0] + (f32)adv > box->inner_x + box->inner_w) {
+            cursor[0] = box->inner_x;
+            cursor[1] += lbl_805DD048;
         }
         if ((s32)ch == 0x20) {
-            ((f32 *)cursor)[0] += (f32)(s32)adv;
+            cursor[0] += (f32)(s32)adv;
         } else {
             if (scaled != 0) {
-                q.x = ((f32 *)cursor)[0];
-                q.y = ((f32 *)cursor)[1];
+                q.x = cursor[0];
+                q.y = cursor[1];
                 set_glyph_quad_extents(adv, &q);
                 apply_context_transform_to_rect(box, &q);
                 draw_textured_quad_at_depth(&q, depth);
             }
-            ((f32 *)cursor)[0] += (f32)adv;
+            cursor[0] += (f32)adv;
         }
     }
 }
@@ -833,50 +833,52 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
     s32 var_r31;
     u16 temp_r3;
     u16 temp_r3_2;
+    TWindowKeyBoardSoft *ctx;
+    ctx = (TWindowKeyBoardSoft *)arg1;
     var_r31 = 1;
-    if (!(this->m_62 & 2) || ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0)) {
-        stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
-        stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
-        TWindowSubStatusDisp__sub_8025E530(this, arg1, &stack.sp10, (u16 *) (*(s32 *)((s8 *)((u8 *)this) + 0x6C)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x70)), 0);
+    if (!(this->m_62 & 2) || (ctx->open_tick >= 0)) {
+        stack.sp10 = ctx->inner_x;
+        stack.sp14 = ctx->inner_y;
+        TWindowSubStatusDisp__sub_8025E530(this, ctx, &stack.sp10, this->m_6c, this->m_70, 0);
         temp_r3 = this->m_60;
         if (temp_r3 & 2) {
             if (temp_r3 & 4) {
-                this->draw_text_glyphs(arg1, &stack.sp10);
+                this->draw_text_glyphs(ctx, &stack.sp10);
                 var_r31 = 0;
             } else {
-                TWindowSubStatusDisp__sub_8025E148(this, arg1, &stack.sp10, (u16 *) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), this->m_94);
+                TWindowSubStatusDisp__sub_8025E148(this, ctx, &stack.sp10, this->m_84, this->m_94);
             }
         }
         TWindowSubStatusDisp::reset_gauge(0);
-        stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
-        stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
-        TWindowSubStatusDisp__sub_8025E530(this, arg1, &stack.sp10, (u16 *) (*(s32 *)((s8 *)((u8 *)this) + 0x6C)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x70)), 1);
+        stack.sp10 = ctx->inner_x;
+        stack.sp14 = ctx->inner_y;
+        TWindowSubStatusDisp__sub_8025E530(this, ctx, &stack.sp10, this->m_6c, this->m_70, 1);
         temp_r3_2 = this->m_60;
         if (temp_r3_2 & 2) {
             if (temp_r3_2 & 4) {
-                this->draw_wrapped_text(arg1, &stack.sp10);
+                this->draw_wrapped_text(ctx, &stack.sp10);
             } else {
-                TWindowSubStatusDisp__sub_8025E530(this, arg1, &stack.sp10, (u16 *) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x88)), 1);
+                TWindowSubStatusDisp__sub_8025E530(this, ctx, &stack.sp10, this->m_84, this->m_88, 1);
                 stack.sp8 = stack.sp10;
                 stack.spC = stack.sp14;
-                temp_r3_3 = *(s32 *)((s8 *)((u8 *)this) + 0x88);
+                temp_r3_3 = this->m_88;
                 temp_r7 = this->m_94 - temp_r3_3;
                 if (temp_r7 != 0) {
-                    TWindowSubStatusDisp__sub_8025E530(this, arg1, &stack.sp10, (u16 *) (*(s32 *)((s8 *)((u8 *)this) + 0x84) + (temp_r3_3 * 2)), temp_r7, 1);
+                    TWindowSubStatusDisp__sub_8025E530(this, ctx, &stack.sp10, this->m_84 + temp_r3_3, temp_r7, 1);
                 }
             }
         } else {
             stack.sp8 = stack.sp10;
             stack.spC = stack.sp14;
         }
-        temp_r3_4 = *(s32 *)((s8 *)((u8 *)this) + 0x70);
+        temp_r3_4 = this->m_70;
         temp_r7_2 = this->m_7c - temp_r3_4;
         if (temp_r7_2 != 0) {
-            TWindowSubStatusDisp__sub_8025E530(this, arg1, &stack.sp10, (u16 *) (*(s32 *)((s8 *)((u8 *)this) + 0x6C) + (temp_r3_4 * 2)), temp_r7_2, 1);
+            TWindowSubStatusDisp__sub_8025E530(this, ctx, &stack.sp10, this->m_6c + temp_r3_4, temp_r7_2, 1);
         }
         end_render_forward__20TWindowSubStatusDispFPv();
         if ((var_r31 != 0) && !(this->m_2c & 2)) {
-            fn_8025DE10(arg1, &stack.sp8);
+            fn_8025DE10(ctx, &stack.sp8);
         }
     }
 }
