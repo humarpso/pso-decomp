@@ -2318,11 +2318,11 @@ void TBoss8Dragon__sub_8005DF60(TBoss5Gryphon *self) {
         TBoss8Dragon__sub_8005E040(self);
         self->draw_body();
         self->copy_bone_positions();
-        if (((RenderFadeState *)((u8 *)self + 0x580 + view * 0x1C))->isFading() == 0) {
+        if (self->renderFadeStates[view].isFading() == 0) {
             self->render_with_fade(view);
         }
         self->render_nodes_with_flag();
-    } else if (((RenderFadeState *)((u8 *)self + 0x580 + view * 0x1C))->isFading() != 0) {
+    } else if (self->renderFadeStates[view].isFading() != 0) {
         self->render_with_fade(view);
     }
 }
@@ -2976,7 +2976,7 @@ void handle_message__13TBoss5GryphonFPvi(O_8005FCE4 *self, s32 msg) {
 void TBoss8Dragon__sub_8005FD34(TBoss5Gryphon *self, s32 event) {
     switch (event) {
     case 4:
-        switch (*(s32 *)((u8 *)self + 0x4E4)) {
+        switch (self->m_4e4) {
         case 0:
             self->m_b8 = 0;
             break;
@@ -2990,7 +2990,7 @@ void TBoss8Dragon__sub_8005FD34(TBoss5Gryphon *self, s32 event) {
         break;
     case 0:
         advance_animation_playback(self);
-        switch (*(s32 *)((u8 *)self + 0x4E4)) {
+        switch (self->m_4e4) {
         case 0:
             break;
         case 1:
@@ -3017,7 +3017,7 @@ void TBoss8Dragon__sub_8005FE18(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         ((TBoss8Dragon *)self)->clear_timer();
         ((TBoss8Dragon *)self)->reset_angle();
-        *(u32 *)((u8 *)self + 0x4C0) &= ~4;
+        self->m_4c0 &= ~4;
         break;
     case 0:
         advance_animation_playback(self);
@@ -3200,29 +3200,29 @@ void TBoss8Dragon__sub_800605E8(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
         self->reset_float_3c();
-        *(u32 *)((u8 *)self + 0x4C0) |= 4;
-        *(s32 *)((u8 *)self + 0x6E0) = 0;
-        *(s32 *)((u8 *)self + 0x6DC) = 0;
+        self->m_4c0 |= 4;
+        self->m_6e0 = 0;
+        self->m_6dc = 0;
         break;
     case 0:
         advance_animation_playback(self);
-        switch (*(s32 *)((u8 *)self + 0x6DC)) {
+        switch (self->m_6dc) {
         case 0: {
             f32 t;
             speed = lbl_805D8DE8;
             t = self->get_speed_or_default();
             self->position[1] = lbl_805D8DEC + lbl_805D8DF0 * (t * t) / lbl_805D8DF4;
             if (objInBand((GameObj *)self, lbl_805D8DF8) != 0) {
-                *(s32 *)((u8 *)self + 0x6E0) = 0;
-                *(s32 *)((u8 *)self + 0x6DC) = 1;
+                self->m_6e0 = 0;
+                self->m_6dc = 1;
             }
             break;
         }
         case 1:
             self->position[1] += lbl_805D8D8C;
             speed = lbl_805D8DE8;
-            (*(s32 *)((u8 *)self + 0x6E0))++;
-            if (*(s32 *)((u8 *)self + 0x6E0) >= 0x28) {
+            self->m_6e0++;
+            if (self->m_6e0 >= 0x28) {
                 ((TBoss8Dragon *)self)->set_phase();
                 ((TBoss8Dragon *)self)->reset_radius();
                 *(s32 *)((u8 *)self + 0x5C) = 0x4000;
@@ -3233,7 +3233,7 @@ void TBoss8Dragon__sub_800605E8(TBoss5Gryphon *self, s32 event) {
         move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, speed);
         break;
     case 5:
-        *(u32 *)((u8 *)self + 0x4C0) &= ~4;
+        self->m_4c0 &= ~4;
         ((TBoss8Dragon *)self)->set_phase();
         ((TBoss8Dragon *)self)->reset_radius();
         *(s32 *)((u8 *)self + 0x5C) = 0x4000;
@@ -3281,8 +3281,8 @@ void TBoss8Dragon__sub_8006084C(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         ((TBoss8Dragon *)self)->clear_timer();
         ((TBoss8Dragon *)self)->reset_angle();
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->draw_linked_model(self->position, self->rotation_y);
-        *(s32 *)((u8 *)self + 0x6E4) = 0;
+        self->demo->draw_linked_model(self->position, self->rotation_y);
+        self->m_6e4 = 0;
         push_matrix();
         set_matrix_identity(NULL);
         post_translate_matrix(self->position);
@@ -3290,9 +3290,9 @@ void TBoss8Dragon__sub_8006084C(TBoss5Gryphon *self, s32 event) {
         matrix_mult_vec(0, lbl_804880AC, &left);
         matrix_mult_vec(0, lbl_804880B8, &right);
         pop_matrix();
-        *(s32 *)((u8 *)self + 0x6DC) = TBoss8Dragon::spawn_ground_lightning((s32)self, (s32)&left, self->rotation_y);
-        *(s32 *)((u8 *)self + 0x6E0) = TBoss8Dragon::spawn_ground_lightning((s32)self, (s32)&right, self->rotation_y);
-        subtractive_rng_seed((u8 *)self + 0x5F4, (*(Cfg_80060020 **)((u8 *)self + 0x4BC))->f4);
+        self->m_6dc = TBoss8Dragon::spawn_ground_lightning((s32)self, (s32)&left, self->rotation_y);
+        self->m_6e0 = TBoss8Dragon::spawn_ground_lightning((s32)self, (s32)&right, self->rotation_y);
+        subtractive_rng_seed(self->rng, self->motion->m_4);
         break;
     case 0:
         advance_animation_playback(self);
@@ -3301,22 +3301,22 @@ void TBoss8Dragon__sub_8006084C(TBoss5Gryphon *self, s32 event) {
             self->spawn_lightning_effect();
             TBoss8Dragon__sub_80063FB8((s32)self, (s32)self->position, lbl_805D8DF0);
         }
-        if (*(s32 *)(*(u8 **)(boss5_gryphon_behavior_params.remaining + 4) + 0x28) >= 4 && *(s32 *)((u8 *)self + 0x6E4) % 20 == 0) {
-            TBoss8Dragon__sub_8005D9BC((u8 *)self, (*(s32 *)((u8 *)self + 0x6E4) / 20) & 1 ? 0 : 1, lbl_805D8DCC * calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x5F4));
+        if (*(s32 *)(*(u8 **)(boss5_gryphon_behavior_params.remaining + 4) + 0x28) >= 4 && self->m_6e4 % 20 == 0) {
+            TBoss8Dragon__sub_8005D9BC((u8 *)self, (self->m_6e4 / 20) & 1 ? 0 : 1, lbl_805D8DCC * calc_random_ratio__10TObjPlayerFv(self->rng));
         }
         spawn_ancient_trap__12TBoss8DragonFii((s32)self, 0x40032D11);
-        (*(s32 *)((u8 *)self + 0x6E4))++;
+        self->m_6e4++;
         break;
     case 5:
-        if (*(TBoss8Dragon **)((u8 *)self + 0x6E0) != NULL) {
-            (*(TBoss8Dragon **)((u8 *)self + 0x6E0))->queue_destruction();
-            *(TBoss8Dragon **)((u8 *)self + 0x6E0) = NULL;
+        if ((TBoss8Dragon *)self->m_6e0 != NULL) {
+            ((TBoss8Dragon *)self->m_6e0)->queue_destruction();
+            self->m_6e0 = 0;
         }
-        if (*(TBoss8Dragon **)((u8 *)self + 0x6DC) != NULL) {
-            (*(TBoss8Dragon **)((u8 *)self + 0x6DC))->queue_destruction();
-            *(TBoss8Dragon **)((u8 *)self + 0x6DC) = NULL;
+        if ((TBoss8Dragon *)self->m_6dc != NULL) {
+            ((TBoss8Dragon *)self->m_6dc)->queue_destruction();
+            self->m_6dc = 0;
         }
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->get_state();
+        self->demo->get_state();
         break;
     case 10:
     case 11:
@@ -3360,20 +3360,20 @@ void TBoss8Dragon__sub_80060B18(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         ((TBoss8Dragon *)self)->clear_timer();
         ((TBoss8Dragon *)self)->reset_angle();
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->draw_linked_model(self->position, self->rotation_y);
+        self->demo->draw_linked_model(self->position, self->rotation_y);
         break;
     case 0:
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         if (objInBand((GameObj *)self, lbl_805D8DF8) != 0) {
-            (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->get_state();
+            self->demo->get_state();
         }
         if (TBoss8Dragon__sub_8005FAE0((u8 *)self) != 0) {
             self->advance_motion_entry();
         }
         break;
     case 5:
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->get_state();
+        self->demo->get_state();
         break;
     case 10:
     case 11:
@@ -3389,14 +3389,14 @@ void TBoss8Dragon__sub_80060BF8(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         ((TBoss8Dragon *)self)->clear_timer();
         ((TBoss8Dragon *)self)->reset_angle();
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->draw_linked_model(self->position, self->rotation_y);
+        self->demo->draw_linked_model(self->position, self->rotation_y);
         break;
     case 0:
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         break;
     case 5:
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->get_state();
+        self->demo->get_state();
         break;
     case 10:
     case 11:
@@ -3417,7 +3417,7 @@ void TBoss8Dragon__sub_80060CA4(TBoss5Gryphon *self, s32 event) {
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         if (objInBand((GameObj *)self, lbl_805D8DDC) != 0) {
-            (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->draw_linked_model(self->position, self->rotation_y);
+            self->demo->draw_linked_model(self->position, self->rotation_y);
         }
         if (objInBand((GameObj *)self, lbl_805D8D88) != 0) {
             self->play_se(0x40032D0E);
@@ -3427,7 +3427,7 @@ void TBoss8Dragon__sub_80060CA4(TBoss5Gryphon *self, s32 event) {
         }
         break;
     case 5:
-        (*(TBoss5GryphonDemo **)((u8 *)self + 0x57C))->get_state();
+        self->demo->get_state();
         break;
     case 10:
     case 11:
@@ -3449,7 +3449,7 @@ void TBoss8Dragon__sub_80060D9C(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         ((TBoss8Dragon *)self)->clear_timer();
         ((TBoss8Dragon *)self)->reset_angle();
-        *(u32 *)((u8 *)self + 0x4C0) |= 0x30;
+        self->m_4c0 |= 0x30;
         break;
     case 0:
         advance_animation_playback(self);
@@ -3471,7 +3471,7 @@ void TBoss8Dragon__sub_80060D9C(TBoss5Gryphon *self, s32 event) {
             at.x = self->position[0];
             at.y = lbl_805D8D5C;
             at.z = self->position[2];
-            spawn_particle_effect_with_flags(&at, *(s32 *)(*(u8 **)((u8 *)self + 0x5F0) + 4), 0x40);
+            spawn_particle_effect_with_flags(&at, self->effect_ids[1], 0x40);
             TBoss8Dragon__sub_800646F0((s32)self);
             self->play_se(0x40032D0D);
         }
@@ -3480,7 +3480,7 @@ void TBoss8Dragon__sub_80060D9C(TBoss5Gryphon *self, s32 event) {
         }
         break;
     case 5:
-        *(u32 *)((u8 *)self + 0x4C0) &= ~0x30;
+        self->m_4c0 &= ~0x30;
         break;
     case 10:
     case 11:
@@ -3658,22 +3658,22 @@ void TBoss8Dragon__sub_800615FC(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
         self->reset_float_3c();
-        *(u32 *)((u8 *)self + 0x4C0) |= 0x104;
-        *(s32 *)((u8 *)self + 0x6DC) = 0;
+        self->m_4c0 |= 0x104;
+        self->m_6dc = 0;
         break;
     case 0:
         advance_animation_playback(self);
-        switch (*(s32 *)((u8 *)self + 0x6DC)) {
+        switch (self->m_6dc) {
         case 0:
             speed = lbl_805D8E34;
             self->position[1] = lbl_805D8D50 * sin_table_lookup((s32)(lbl_805D8E28 * self->get_speed_or_default() / lbl_805D8E14)) + lbl_805D8DEC;
             if (objInBand((GameObj *)self, lbl_805D8E14) != 0) {
-                *(s32 *)((u8 *)self + 0x6DC) = 1;
-                *(s32 *)((u8 *)self + 0x6E0) = 0;
+                self->m_6dc = 1;
+                self->m_6e0 = 0;
             }
             break;
         case 1:
-            t = *(s32 *)((u8 *)self + 0x6E0);
+            t = self->m_6e0;
             speed = lbl_805D8E3C;
             if ((f32)t < *(const f32 *)&lbl_805D8E10) {
                 f = (f32)t;
@@ -3687,12 +3687,12 @@ void TBoss8Dragon__sub_800615FC(TBoss5Gryphon *self, s32 event) {
                 self->position[1] = lbl_805D8E20 + d;
             }
             *(s32 *)((u8 *)self + 0x5C) = (s32)(lbl_805D8E44 * f / lbl_805D8E10);
-            (*(s32 *)((u8 *)self + 0x6E0))++;
-            if (*(s32 *)((u8 *)self + 0x6E0) > 0x14) {
+            self->m_6e0++;
+            if (self->m_6e0 > 0x14) {
                 ((TBoss8Dragon *)self)->set_attack_phase();
                 ((TBoss8Dragon *)self)->set_anim_speed();
                 *(s32 *)((u8 *)self + 0x5C) = 0;
-                *(s32 *)((u8 *)self + 0x6DC) = 2;
+                self->m_6dc = 2;
             }
             break;
         case 2:
@@ -3708,7 +3708,7 @@ void TBoss8Dragon__sub_800615FC(TBoss5Gryphon *self, s32 event) {
         }
         break;
     case 5:
-        *(u32 *)((u8 *)self + 0x4C0) &= ~4;
+        self->m_4c0 &= ~4;
         ((TBoss8Dragon *)self)->set_attack_phase();
         ((TBoss8Dragon *)self)->set_anim_speed();
         *(s32 *)((u8 *)self + 0x5C) = 0;
@@ -3812,13 +3812,13 @@ void TBoss8Dragon__sub_80061B8C(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
         self->reset_float_3c();
-        *(u32 *)((u8 *)self + 0x4C0) |= 4;
+        self->m_4c0 |= 4;
         self->enable_particles();
-        *(s32 *)((u8 *)self + 0x6DC) = 0;
+        self->m_6dc = 0;
         break;
     case 0:
         advance_animation_playback(self);
-        switch (*(s32 *)((u8 *)self + 0x6DC)) {
+        switch (self->m_6dc) {
         case 0:
             ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E38, self, self->rotation_y);
             eval_bezier_curve__12TBoss8DragonFPviiPvf(lbl_8048802C, 4, 0, &out, self->get_speed_or_default() / lbl_805D8D50);
@@ -3830,10 +3830,10 @@ void TBoss8Dragon__sub_80061B8C(TBoss5Gryphon *self, s32 event) {
                 at.x = self->position[0];
                 at.y = lbl_805D8D5C;
                 at.z = self->position[2];
-                spawn_particle_effect_with_flags(&at, *(s32 *)(*(u8 **)((u8 *)self + 0x5F0) + 4), 0x40);
+                spawn_particle_effect_with_flags(&at, self->effect_ids[1], 0x40);
                 TCameraCtrl::set_shake_preset(1);
                 TBoss8Dragon__sub_800646F0((s32)self);
-                *(s32 *)((u8 *)self + 0x6DC) = 1;
+                self->m_6dc = 1;
             }
             break;
         case 1:
@@ -3844,7 +3844,7 @@ void TBoss8Dragon__sub_80061B8C(TBoss5Gryphon *self, s32 event) {
         }
         break;
     case 5:
-        *(u32 *)((u8 *)self + 0x4C0) &= ~4;
+        self->m_4c0 &= ~4;
         self->destroy_parts();
         break;
     case 10:
@@ -3867,7 +3867,7 @@ void TBoss8Dragon__sub_80061D34(TBoss5Gryphon *self, s32 event) {
 
     switch (event) {
     case 4:
-        if (*(u32 *)((u8 *)self + 0x4C0) & 0x100) {
+        if (self->m_4c0 & 0x100) {
             self->m_b8 = 0x14;
         } else {
             self->m_b8 = 7;
@@ -3879,37 +3879,37 @@ void TBoss8Dragon__sub_80061D34(TBoss5Gryphon *self, s32 event) {
     case 0:
         advance_animation_playback(self);
         ofs = 0x4000;
-        if (self->position[0] * self->position[0] + self->position[2] * self->position[2] > *(f32 *)(*(u8 **)((u8 *)self + 0x4BC) + 0xC)) {
+        if (self->position[0] * self->position[0] + self->position[2] * self->position[2] > self->motion->m_c) {
             ofs = 0x5000;
         }
-        speed = *(f32 *)(*(u8 **)((u8 *)self + 0x4BC) + 8);
+        speed = self->motion->m_8;
         a = (s32)(lbl_80437EB0 * atan2_float(self->position[0], self->position[2]));
-        if (*(s32 *)(*(u8 **)((u8 *)self + 0x4BC) + 4) > 0) {
+        if (self->motion->m_4 > 0) {
             a += ofs;
             d = angle_diff_s16(self->rotation_y, a);
             if (d > 0) {
-                *(s32 *)((u8 *)self + 0x480) += *(s32 *)(*(u8 **)((u8 *)self + 0x4BC) + 4);
+                self->m_480 += self->motion->m_4;
             }
         } else {
             a -= ofs;
             d = angle_diff_s16(self->rotation_y, a);
             if (d < 0) {
-                *(s32 *)((u8 *)self + 0x480) += *(s32 *)(*(u8 **)((u8 *)self + 0x4BC) + 4);
+                self->m_480 += self->motion->m_4;
             }
         }
         if (fabs_float((f32)d) > lbl_805D8E44) {
             speed *= lbl_805D8DB0;
         }
         move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, speed);
-        if ((f32)*(s16 *)(*(u8 **)((u8 *)self + 0x4BC) + 2) > lbl_805D8D70) {
-            v = (s32)(lbl_805D8E54 * (f32)*(s32 *)((u8 *)self + 0x480));
+        if ((f32)self->motion->timer > lbl_805D8D70) {
+            v = (s32)(lbl_805D8E54 * (f32)self->m_480);
             v = (v < -0x600) ? -0x600 : ((v < 0x600) ? v : 0x600);
             d = angle_diff_s16(self->rotation_z, v);
             self->rotation_z = (s32)(lbl_805D8DB4 * (f32)d + (f32)self->rotation_z);
         } else {
-            self->rotation_z -= self->rotation_z / *(s16 *)(*(u8 **)((u8 *)self + 0x4BC) + 2);
+            self->rotation_z -= self->rotation_z / self->motion->timer;
         }
-        if (*(u32 *)((u8 *)self + 0x4C0) & 0x100) {
+        if (self->m_4c0 & 0x100) {
             TBoss8Dragon__sub_8006435C((u8 *)self);
             TBoss8Dragon__sub_8005E39C((Obj_8005E39C *)self);
         } else {
@@ -3934,7 +3934,7 @@ extern const f32 lbl_805D8E58;
 void TBoss8Dragon__sub_80062018(TBoss5Gryphon *self, s32 event) {
     switch (event) {
     case 4:
-        if (*(u32 *)((u8 *)self + 0x4C0) & 0x100) {
+        if (self->m_4c0 & 0x100) {
             self->m_b8 = 0x14;
         } else {
             self->m_b8 = 7;
@@ -3942,12 +3942,12 @@ void TBoss8Dragon__sub_80062018(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         ((TBoss8Dragon *)self)->set_attack_phase();
         ((TBoss8Dragon *)self)->set_anim_speed();
-        *(s32 *)((u8 *)self + 0x6E0) = 0;
+        self->m_6e0 = 0;
         break;
     case 0:
         advance_animation_playback(self);
         ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E58, self, self->rotation_y);
-        if (*(u32 *)((u8 *)self + 0x4C0) & 0x100) {
+        if (self->m_4c0 & 0x100) {
             TBoss8Dragon__sub_8006435C((u8 *)self);
             TBoss8Dragon__sub_8005E39C((Obj_8005E39C *)self);
         } else {
@@ -3983,22 +3983,22 @@ void TBoss8Dragon__sub_80062114(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
         self->reset_float_3c();
-        *(u32 *)((u8 *)self + 0x4C0) |= 4;
-        *(s32 *)((u8 *)self + 0x6DC) = 0;
+        self->m_4c0 |= 4;
+        self->m_6dc = 0;
         break;
     case 0:
         advance_animation_playback(self);
-        switch (*(s32 *)((u8 *)self + 0x6DC)) {
+        switch (self->m_6dc) {
         case 0:
             speed = lbl_805D8E34;
             self->position[1] = lbl_805D8E50 * sin_table_lookup((s32)(lbl_805D8E28 * self->get_speed_or_default() / lbl_805D8E5C)) + lbl_805D8DEC;
             if (objInBand((GameObj *)self, lbl_805D8E5C) != 0) {
-                *(s32 *)((u8 *)self + 0x6DC) = 1;
-                *(s32 *)((u8 *)self + 0x6E0) = 0;
+                self->m_6dc = 1;
+                self->m_6e0 = 0;
             }
             break;
         case 1:
-            t = *(s32 *)((u8 *)self + 0x6E0);
+            t = self->m_6e0;
             speed = lbl_805D8E3C;
             if ((f32)t < *(const f32 *)&lbl_805D8E00) {
                 f = (f32)t;
@@ -4012,12 +4012,12 @@ void TBoss8Dragon__sub_80062114(TBoss5Gryphon *self, s32 event) {
                 self->position[1] = lbl_805D8E20 + d;
             }
             *(s32 *)((u8 *)self + 0x5C) = (s32)(lbl_805D8E44 * f / lbl_805D8E00);
-            (*(s32 *)((u8 *)self + 0x6E0))++;
-            if (*(s32 *)((u8 *)self + 0x6E0) > 0x1E) {
+            self->m_6e0++;
+            if (self->m_6e0 > 0x1E) {
                 ((TBoss8Dragon *)self)->set_attack_phase();
                 ((TBoss8Dragon *)self)->set_anim_speed();
                 *(s32 *)((u8 *)self + 0x5C) = 0;
-                *(s32 *)((u8 *)self + 0x6DC) = 2;
+                self->m_6dc = 2;
             }
             break;
         case 2:
@@ -4033,7 +4033,7 @@ void TBoss8Dragon__sub_80062114(TBoss5Gryphon *self, s32 event) {
         }
         break;
     case 5:
-        *(u32 *)((u8 *)self + 0x4C0) &= ~4;
+        self->m_4c0 &= ~4;
         ((TBoss8Dragon *)self)->set_attack_phase();
         ((TBoss8Dragon *)self)->set_anim_speed();
         *(s32 *)((u8 *)self + 0x5C) = 0;
@@ -4101,8 +4101,8 @@ void TBoss8Dragon__sub_80062660(TBoss5Gryphon *self, s32 event) {
     case 0:
         advance_animation_playback(self);
         TBoss8Dragon__sub_80063EF4((s32)self);
-        move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, *(f32 *)(*(u8 **)((u8 *)self + 0x4BC) + 8));
-        *(s32 *)((u8 *)self + 0x480) += *(s32 *)(*(u8 **)((u8 *)self + 0x4BC) + 4);
+        move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, self->motion->m_8);
+        self->m_480 += self->motion->m_4;
         break;
     case 5:
         break;

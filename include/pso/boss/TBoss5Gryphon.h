@@ -3,6 +3,19 @@
 
 #include "types.h"
 #include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/misc/RenderFadeState.h"
+#include <stddef.h>
+
+class TBoss5GryphonDemo;
+
+struct Boss5GryphonMotionEntry {
+    s16 state;
+    s16 timer;
+    s32 m_4;
+    f32 m_8;
+    f32 m_c;
+    f32 m_10;
+};
 
 struct TBoss5Gryphon : public TObjEneDD_ST {
     virtual ~TBoss5Gryphon();
@@ -38,32 +51,30 @@ struct TBoss5Gryphon : public TObjEneDD_ST {
     f32 m_39c;
     u8 unk_3A0[0x8];
     f32 m_3a8;
-    u8 unk_3AC[0xB8];
-    u32 m_480;
+    u8 unk_3AC[0xD4];
+    s32 m_480;
     u8 _pad484[0x10];
     void* m_494;
     u8 _pad498[0x24];
-    u32 m_4bc;
+    Boss5GryphonMotionEntry *motion;
     u32 m_4c0;
     void* m_4c4;
     u8 _pad4C8[0x18];
     u32 m_4e0;
-    u32 m_4e4;
+    s32 m_4e4;
     u8 _pad4E8[0x78];
     void* m_560;
     u8 _pad564[0x8];
     void* m_56c;
     u8 _pad570[0x8];
     u32 m_578;
-    u32 m_57c;
-    void* m_580;
-    u8 _pad584[0x6C];
-    u32 m_5f0;
-    void* m_5f4;
-    u8 _pad5F8[0xE4];
-    u32 m_6dc;
-    u32 m_6e0;
-    u32 m_6e4;
+    TBoss5GryphonDemo *demo;
+    RenderFadeState renderFadeStates[4];
+    s32 *effect_ids;
+    u8 rng[0xE8];
+    s32 m_6dc;
+    s32 m_6e0;
+    s32 m_6e4;
     u32 m_6e8;
     u32 m_6ec;
     u32 m_6f0;
@@ -76,7 +87,6 @@ struct TBoss5Gryphon : public TObjEneDD_ST {
     u8 _pad734[0x40];
     u32 m_774;
     u32 m_778;
-    u8 unk_760[0x1C];
     void render_nodes_with_flag();
     void render_with_fade(s32 arg1);
     void render_model();
@@ -105,4 +115,7 @@ struct TBoss5Gryphon : public TObjEneDD_ST {
 };
 
 typedef char TBoss5Gryphon_size[sizeof(TBoss5Gryphon) == 0x77C ? 1 : -1];
+typedef char TBoss5Gryphon_m_480[offsetof(TBoss5Gryphon, m_480) == 0x480 ? 1 : -1];
+typedef char TBoss5Gryphon_fade[offsetof(TBoss5Gryphon, renderFadeStates) == 0x580 ? 1 : -1];
+typedef char TBoss5Gryphon_m_6dc[offsetof(TBoss5Gryphon, m_6dc) == 0x6DC ? 1 : -1];
 #endif
