@@ -498,7 +498,7 @@ pso/unk/text_8004D9A8.cpp:
 pso/object/TObjDFDemo0.cpp:
 	.text       start:0x8004E020 end:0x8004E6D0
 	.rodata     start:0x80437370 end:0x80437378
-	.sdata2     start:0x805D8988 end:0x805D898C
+	.sdata2     start:0x805D8988 end:0x805D89B0
 
 pso/unk/text_8004E6D0.cpp:
 	.text       start:0x8004E6D0 end:0x8004E918
