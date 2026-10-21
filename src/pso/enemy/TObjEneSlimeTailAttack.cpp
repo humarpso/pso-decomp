@@ -1377,12 +1377,6 @@ void TObjEneSlimeOne::copy_position() {
     VecCopy((Vec *)(arg0 + 0x374), (const Vec *)(arg0 + 0x38));
 }
 
-struct SlimeHopFields {
-    u8 pad0[0x3DC];
-    Vec vel;
-    void *trail;
-};
-
 f32 fabs_float(f32);
 void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DA700;
@@ -1391,21 +1385,20 @@ extern const f32 lbl_805DA704;
 #pragma push
 #pragma fp_contract on
 void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self) {
-    SlimeHopFields *f = (SlimeHopFields *)self;
     s32 landed = 0;
     s32 tries = 4;
     s32 angle;
     f32 s;
     f32 c;
 
-    f->vel.y += lbl_805DA700;
+    self->m_3dc.y += lbl_805DA700;
     do {
         Vec next;
         Vec probe;
         VecCopy(&next, (Vec *)self->position);
-        vec3_add_to(&next, &f->vel);
+        vec3_add_to(&next, &self->m_3dc);
         VecCopy(&probe, &next);
-        probe.y += lbl_805DA6AC + fabs_float(f->vel.y);
+        probe.y += lbl_805DA6AC + fabs_float(self->m_3dc.y);
         if (project_actor_to_ground(self, &probe, 0) != 0) {
             VecCopy((Vec *)self->position, &next);
             if (!(self->position[1] > probe.y)) {
@@ -1416,14 +1409,14 @@ void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self) {
         }
         s = sin_table_lookup(0x4000);
         c = cos_table_lookup(0x4000);
-        f->vel.x = c * f->vel.x + s * f->vel.z;
-        f->vel.z = -s * f->vel.x + c * f->vel.z;
+        self->m_3dc.x = c * self->m_3dc.x + s * self->m_3dc.z;
+        self->m_3dc.z = -s * self->m_3dc.x + c * self->m_3dc.z;
     } while (--tries > 0);
     if (tries == 0) {
         Vec probe;
-        f->vel.x = f->vel.z = lbl_805DA6B4;
+        self->m_3dc.x = self->m_3dc.z = lbl_805DA6B4;
         VecCopy(&probe, (Vec *)self->position);
-        probe.y += lbl_805DA6AC + fabs_float(f->vel.y);
+        probe.y += lbl_805DA6AC + fabs_float(self->m_3dc.y);
         if (project_actor_to_ground(self, &probe, 0) != 0) {
             if (!(self->position[1] > probe.y)) {
                 self->position[1] = probe.y;
@@ -1433,13 +1426,13 @@ void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self) {
             landed = 1;
         }
     }
-    if (f->trail != NULL) {
-        ((TNowLoading *)f->trail)->copy_pos(self->position);
+    if (self->m_3e8 != NULL) {
+        ((TNowLoading *)self->m_3e8)->copy_pos(self->position);
     }
     if (landed != 0) {
-        if (f->trail != NULL) {
-            TBoss4Type2::request_destroy((u32)f->trail);
-            f->trail = NULL;
+        if (self->m_3e8 != NULL) {
+            TBoss4Type2::request_destroy((u32)self->m_3e8);
+            self->m_3e8 = NULL;
         }
         for (angle = 0; angle < 0xFFFF; angle += 0x1000) {
             Vec p = *(Vec *)self->position;
