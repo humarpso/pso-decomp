@@ -2236,7 +2236,6 @@ pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
 pso/object/TObject_802EEE9C.cpp
-pso/object/TObject_803503D0.cpp
 pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
@@ -3672,10 +3671,6 @@ pso/unk/text_8034DAA0.cpp
 pso/unk/text_803501BC.cpp
 pso/unk/text_8035029C.cpp
 pso/unk/text_8035033C.cpp
-pso/unk/text_80350394.cpp
-pso/unk/text_80350440.cpp
-pso/unk/text_803504A8.cpp
-pso/unk/text_803505C4.cpp
 pso/unk/text_803516F8.cpp
 pso/unk/text_80352A54.cpp
 pso/unk/text_80352AC0.cpp
@@ -3777,3 +3772,4 @@ pso/unk/text_8042EE4C.cpp
 si/SIBios.c
 si/SISamplingRate.c
 vi/vi.c
+pso/item/TUnk_804F0D34.cpp

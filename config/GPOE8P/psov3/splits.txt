@@ -12353,20 +12353,11 @@ pso/unk/text_8035029C.cpp:
 pso/unk/text_8035033C.cpp:
 	.text       start:0x8035033C end:0x80350394
 
-pso/unk/text_80350394.cpp:
-	.text       start:0x80350394 end:0x803503D0
-
-pso/object/TObject_803503D0.cpp:
-	.text       start:0x803503D0 end:0x80350440
-
-pso/unk/text_80350440.cpp:
-	.text       start:0x80350440 end:0x803504A8
-
-pso/unk/text_803504A8.cpp:
-	.text       start:0x803504A8 end:0x803505C4
-
-pso/unk/text_803505C4.cpp:
-	.text       start:0x803505C4 end:0x8035061C
+pso/item/TUnk_804F0D34.cpp:
+	.text       start:0x80350394 end:0x8035061C
+	.rodata     start:0x80478CD8 end:0x80478D38
+	.data       start:0x804F0D00 end:0x804F0D34
+	.sbss       start:0x805D6EA8 end:0x805D6EB0
 
 pso/object/TObjRainbowLobby.cpp:
 	.text       start:0x8035061C end:0x80350958
