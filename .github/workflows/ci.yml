@@ -1,0 +1,129 @@
+# CI: build every PR and run the repo's own zero-regression gate
+# (tools/check_pr.py: ninja + DOL SHA-1 + report_delta --check vs the base commit's
+# baseline + link_units check).
+#
+# Runs on a donated self-hosted runner (x86_64, native — MWCC/wibo need real x86).
+# Custom label `pso-lxc`; `self-hosted` is implicit on every runner.
+# The runner is a bare, unprivileged Linux container with no Docker: jobs must NOT
+# use `container:`.
+#
+# The original disc is part of the build input and stays on the runner host at
+# /opt/pso-ci/orig (read-only bind mount, verified against the pinned SHA-1 below);
+# it is never uploaded anywhere.
+#
+# Security note for maintainers: this exposes a self-hosted runner to fork PR code.
+# Recommended alongside it: Settings → Actions → General → "Fork pull request workflows
+# in public repositories: Require approval for all outside collaborators".
+# The job itself needs no secrets; its token is read-only plus PR comments.
+
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize, reopened]
+    paths-ignore: ['**.md']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  match-gate:
+    runs-on: [self-hosted, pso-lxc]
+    timeout-minutes: 120
+    env:
+      DISC_SHA1: 0ff155311f4cc57951c03baeb1a8cc15de5fe1cd
+      ORIG: /opt/pso-ci/orig
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # full history: the base-commit baseline step fetches by SHA below, and
+          # shallow clones refuse `git fetch <sha>` ("shallow update not allowed")
+          fetch-depth: 0
+
+      - name: Disc image (verified, read-only, never uploaded)
+        run: |
+          # orig/GPOE8P/ is tracked (.gitkeep placeholders per .gitignore rules),
+          # so checkout always creates it: link the ISO itself into the tracked
+          # directory. NOTE: ln -sfn "$ORIG" orig silently nests orig/orig against
+          # the existing directory — the trap that cost us three runs.
+          mkdir -p orig/GPOE8P
+          ln -sfn "$ORIG/GPOE8P/game.iso" orig/GPOE8P/game.iso
+          # the ISO arrives via a bind-mounted ZFS subpath; give propagation a few
+          # tries before declaring it missing (first job after a long idle can race it)
+          ok=0
+          for i in 1 2 3; do
+            if test -f orig/GPOE8P/game.iso; then ok=1; break; fi
+            sleep 5
+          done
+          [ "$ok" = 1 ] || { echo "::error::original disc copy missing at $ORIG/GPOE8P/game.iso"; exit 1; }
+          echo "$DISC_SHA1  orig/GPOE8P/game.iso" | sha1sum -c -
+
+      - name: Snapshot baseline from the base commit
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git fetch --no-tags origin "$BASE_SHA"
+          git checkout --detach "$BASE_SHA"
+          python3 configure.py
+          ninja
+          ninja baseline
+
+      - name: Build the pull request merge commit
+        if: github.event_name == 'pull_request'
+        env:
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          git fetch --no-tags origin "+refs/pull/${PR}/merge:refs/remotes/origin/pr-${PR}"
+          git checkout --detach refs/remotes/origin/pr-${PR}
+          python3 configure.py
+          ninja
+
+      - name: Full gate (build + DOL SHA-1 + zero regressions + links)
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != pull_request ]; then
+            # Manual run on a branch: no separate base; snapshot its own report so
+            # report_delta is vacuous, and still get the DOL-SHA and link checks.
+            ninja baseline
+          fi
+          python3 tools/check_pr.py 2>&1 | tee ci-gate.log
+          exit "${PIPESTATUS[0]}"
+
+      - name: Build summary
+        if: always()
+        run: |
+          verdict=PASS
+          [ "${{ job.status }}" = success ] || verdict=FAIL
+          touch ci-gate.log
+          {
+            echo "**CI ${verdict}** (${GITHUB_REPOSITORY}@${GITHUB_SHA:0:10})"
+            echo
+            grep -E 'OK$|^PASS$|^FAIL|exact|regression|linked|unlinked' ci-gate.log | head -20 || true
+            echo
+            echo "<details><summary>gate output</summary>"
+            echo
+            echo '```'
+            tail -40 ci-gate.log
+            echo '```'
+            echo "</details>"
+          } > ci-summary.md
+          cat ci-summary.md
+          # GITHUB_TOKEN is read-only for fork PRs, so results live here in the run
+          # log + these annotations (shown in the PR checks UI). A maintainer-side
+          # `workflow_run` job on master can mirror them onto PRs verbatim if desired.
+          if [ "$verdict" = PASS ]; then
+            echo "::notice::CI PASS — DOL byte-exact, zero regressions, links intact"
+          else
+            echo "::error::CI ${verdict} — see job log (ci-summary)"
+          fi
