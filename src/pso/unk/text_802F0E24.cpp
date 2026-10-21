@@ -2,19 +2,50 @@
 #include "pso/unk/text_802F0E24.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"
+#include "pso/system/BmlResourceDescriptor.h"
 
 struct Obj_802F0E94 { u8 pad[0x42C]; u8 *f42c; };
 
 extern "C" {
 void TLobby__sub_803DA16C(void *);
 void TLobby__sub_8001FE7C(void *, int);
-extern u32 boss7_dermt_slot_table[];
-extern void *lbl_805D6950;
-extern void *lbl_805D6954;
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-extern u8 lbl_80474344[];
-extern u8 boss7_common_resource_descriptor[];
+
+#pragma readonly_strings on
+const char *bm_obj_boss7_common_model_names[] = {
+    "boss07_001_obj001.gj",
+    "boss07_001_obj002.gj",
+    "boss07_001_obj004.gj",
+    "boss07_002_obj001.gj",
+    "boss07_002_obj002.gj",
+    "boss07_002_obj003.gj",
+    "boss07_002_obj004.gj",
+    "boss07_003_obj001.gj",
+    "boss07_003_obj002.gj",
+    "boss07_003_obj004.gj",
+    "boss07_004_obj001.gj",
+    "boss07_004_obj002.gj",
+    "boss07_004_obj004.gj",
+    "boss07_005_obj001.gj",
+    "boss07_005_obj002.gj",
+    "boss07_005_obj003.gj",
+    "boss07_005_obj004.gj",
+    "de_obj999_mtn060_bosstenkyu01.gj",
+    "de_obj999_mtn061_bosstenkyu02.gj",
+    "de_obj999_mtn062_bosstenkyu03.gj",
+    NULL,
+};
+const char *bm_obj_boss7_common_motion_names[] = {
+    "mtn060_bosstenkyu01.njm",
+    "mtn061_bosstenkyu02.njm",
+    "mtn062_bosstenkyu03.njm",
+    NULL,
+};
+BmlResourceDescriptor boss7_common_resource_descriptor = { "bm_obj_boss7_common.bml", bm_obj_boss7_common_model_names, bm_obj_boss7_common_motion_names, 20, 3 };
+u32 boss7_dermt_slot_table[8];
+void *lbl_805D6950;
+void *lbl_805D6954;
 void fn_802F0E24(void) {
     s32 i;
     TParticleCtrl::free_heap();
@@ -33,10 +64,10 @@ void load_boss7_common_resources(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 5, boss7_common_resource_descriptor, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, &boss7_common_resource_descriptor, 0, 0, 0);
     }
     lbl_805D6950 = p;
     lbl_805D6954 = *(void **)(((struct Obj_802F0E94 *)p)->f42c + 0xC);
-    TLobby::load_texture_pvm_file((const char *)lbl_80474344, (s32)lbl_805D6954);
+    TLobby::load_texture_pvm_file("obj_boss7_common.gvm", (s32)lbl_805D6954);
     TParticleCtrl::init_heap((void *)0x50000);
 }
