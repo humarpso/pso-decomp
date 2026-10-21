@@ -81,13 +81,32 @@ typedef struct Ent_80427C6C {
     u8 rest[0xE10];
 } Ent_80427C6C;
 
+typedef struct PppoeNames {
+    u8 name[0x100];
+    u8 service[0x100];
+} PppoeNames;
+
 typedef struct Ent_80427D40 {
     s16 state;
     u16 id;
-    u8 pad4[4];
+    u16 m_4;
+    s16 m_6;
     s32 timeout;
     s32 last;
-    u8 rest[0xE14 - 0x10];
+    u8 m_10[6];
+    u8 m_16[6];
+    u8 pad1C[4];
+    u8 *m_20;
+    u8 *m_24;
+    u16 m_28;
+    u8 pad2A[2];
+    u8 *m_2C;
+    u16 m_30;
+    u8 m_32[8];
+    PppoeNames names;
+    u8 frame[0x5EA];
+    u16 frame_len;
+    u8 rest[0xE14 - 0x826];
 } Ent_80427D40;
 
 extern "C" {
@@ -110,6 +129,11 @@ typedef struct Tbl_804267F0 {
 extern u8 lbl_805CF240[];
 
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
+s32 TLobby__sub_8042787C(Ent_80427D40 *e, u8 *p, u16 len);
+s32 TLobby__sub_80427F48(s16 slot, u8 *frame, u16 len);
+s16 TLobby__sub_80426D80(Ent_80427D40 *e);
+s32 TLobby__sub_80426574(s32);
+Ent_80427D40 *TLobby__sub_80427B6C(u8 *p, u16 len);
 s32 TLobby__sub_80427378(Ent_80427D40 *);
 s16 TLobby__sub_804275B0(s32, u16);
 
@@ -192,6 +216,44 @@ s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
 
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
+s32 TLobby__sub_8042787C(Ent_80427D40 *e, u8 *p, u16 len) {
+    s32 result = 1;
+    u8 *cur = p;
+    u16 type;
+    u16 tag_len;
+    u8 *data;
+    while (len != 0) {
+        NetMemcpy(&type, cur, 2);
+        if (type == 0) {
+            break;
+        }
+        NetMemcpy(&tag_len, cur + 2, 2);
+        data = cur + 4;
+        switch (type) {
+        case 0x101:
+        case 0x103:
+            break;
+        case 0x110:
+            e->m_2C = data;
+            e->m_30 = tag_len;
+            break;
+        case 0x201:
+            result = -1;
+            goto done;
+        case 0x202:
+            result = -1;
+            goto done;
+        case 0x203:
+            result = -1;
+            goto done;
+        }
+        cur += tag_len + 4;
+        len -= tag_len + 4;
+    }
+done:
+    return result;
+}
+
 s32 TLobby::parse_tlv_records(s32 arg0, u8 *arg1, u16 arg2) {
     u8 *p = arg1;
     u16 len = arg2;
@@ -235,6 +297,49 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
     if (i >= 1) {
         ret = NULL;
     }
+    return ret;
+}
+
+Ent_80427D40 *TLobby__sub_80427B6C(u8 *p, u16 len) {
+    Ent_80427D40 *e;
+    Ent_80427D40 *ret = NULL;
+    u8 *cur = p;
+    s16 i;
+    u8 *data;
+    u16 type;
+    u16 tag_len;
+    while (len != 0) {
+        NetMemcpy(&type, cur, 2);
+        if (type == 0) {
+            break;
+        }
+        NetMemcpy(&tag_len, cur + 2, 2);
+        switch (type) {
+        case 0x103:
+            if (tag_len != 8) {
+                ret = NULL;
+                goto done;
+            }
+            e = (Ent_80427D40 *)&lobby_pppoe_slot_table;
+            data = cur + 4;
+            i = 0;
+            ret = NULL;
+            for (; i < 1; e++, i++) {
+                ret = e;
+                if (NetMemcmp(data, ret->m_32, 8) == 0) {
+                    break;
+                }
+            }
+            if (i >= 1) {
+                ret = NULL;
+                goto done;
+            }
+            break;
+        }
+        cur += tag_len + 4;
+        len -= tag_len + 4;
+    }
+done:
     return ret;
 }
 
@@ -310,6 +415,96 @@ s16 TLobby::pppoe_recv_packet(u16 bufLen, u16 *outLen) {
     return ret;
 }
 #pragma pop
+
+s32 TLobby__sub_80427F48(s16 slot, u8 *frame, u16 len) {
+    Ent_80427D40 *e;
+    u8 *hdr;
+    u16 type;
+    u8 version;
+    u8 code;
+    u16 session;
+    u16 length;
+    u8 *src;
+    u8 *dst;
+    u16 frame_len;
+    if (slot < 0 || slot >= 1) {
+        return -1;
+    }
+    e = &TBL_80427D40[slot];
+    if (e->state != 4) {
+        return -1;
+    }
+    hdr = frame + 0xE;
+    version = 0x11;
+    NetMemcpy(hdr, &version, 1);
+    code = 0;
+    NetMemcpy(hdr + 1, &code, 1);
+    session = e->id;
+    NetMemcpy(hdr + 2, &session, 2);
+    length = len;
+    NetMemcpy(hdr + 4, &length, 2);
+    dst = e->m_20;
+    type = 0x8864;
+    src = e->m_10;
+    NetMemcpy(frame, dst, 6);
+    NetMemcpy(frame + 6, src, 6);
+    NetMemcpy(frame + 0xC, &type, 2);
+    e->frame_len = len + 0x14;
+    if (e->frame_len < 0x3C) {
+        e->frame_len = 0x3C;
+    }
+    frame_len = e->frame_len;
+    return ((TLobby *)frame)->post_send_message(frame_len);
+}
+
+s32 TLobby__sub_80428094(s16 slot) {
+    Ent_80427D40 *e;
+    if (slot < 0 || slot >= 1) {
+        return -1;
+    }
+    e = &TBL_80427D40[slot];
+    switch (e->state) {
+    case 0:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        e->state = -1;
+        break;
+    case 1:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        e->state = -1;
+        break;
+    case 2:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        e->state = -1;
+        break;
+    case 3:
+        e->state = 5;
+        break;
+    case 4:
+        e->state = 5;
+        if (TLobby__sub_80426D80(e) >= 0) {
+            u16 frame_len = e->frame_len;
+            ((TLobby *)e->frame)->post_send_message(frame_len);
+        }
+        break;
+    case 5:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        if (e->id != 0) {
+            e->state = 6;
+        } else {
+            e->state = -1;
+        }
+        break;
+    }
+    return 0;
+}
 
 s32 TLobby__sub_80428358(void) {
     return 0;
