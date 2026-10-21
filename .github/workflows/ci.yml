@@ -52,6 +52,13 @@ jobs:
 
       - name: Disc image (verified, read-only, never uploaded)
         run: |
+          # TEMP DIAGNOSTIC — remove after mount investigation
+          echo "cwd=$(pwd)"; id
+          echo "ORIG=$ORIG"
+          readlink -f "$ORIG" || true
+          ls -la "$ORIG" || true
+          findmnt "$ORIG" || echo FINDMNT_MISS
+          grep -E 'opt|pso|RAID' /proc/self/mountinfo || echo NO_PSO_IN_MOUNTINFO
           ln -sfn "$ORIG" orig
           # the ISO arrives via a bind-mounted ZFS subpath; give propagation a few
           # tries before declaring it missing (first job after a long idle can race it)
