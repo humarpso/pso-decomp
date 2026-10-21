@@ -748,7 +748,7 @@ s16 TObjPlayer__sub_800A776C(void *p);
 #pragma fp_contract on
 void TObjPlayer__sub_800A49B4(TObjEneSaver *self) {
     ((s32 (*)(void *))advance_animation_playback)(self);
-    step_angle_clamped__10TObjPlayerFPvi(self, 0);
+    TObjPlayer::step_angle_clamped(self, 0);
     if (!(self->actorFlags & 0x800000)) {
         apply_actor_gravity(self, (s32 *)0, lbl_805D9A14);
     }
