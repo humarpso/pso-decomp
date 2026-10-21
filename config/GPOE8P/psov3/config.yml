@@ -3013,6 +3013,8 @@ force_active:
   - dispatch_state__17TObjEneBm3FlyNestFiUii
   - dispatch_state__20TBoss3VoloptHiraisinFv
   - display_exp_gain__FlUlll
+  - do_action_447__10TObjPlayerFv
+  - do_action_447_from_packet__10TObjPlayerFPvPv
   - do_src1
   - do_src2
   - do_voice_portamento
@@ -3815,6 +3817,7 @@ force_active:
   - init_sound_params__14TObjEnvSoundExFv
   - init_state_1536__13TUnk_804ED0A8FlPv
   - init_state_34_alt__13TUnk_804F14A8FlPv
+  - init_state_513__13TUnk_804E1BB0FlPv
   - init_sub__13TLockOnCursorFPv
   - init_sub_object_vectors__10TObjPlayerFl
   - init_subwindow__22TWindowChallengeResultFPv
@@ -10718,6 +10721,10 @@ force_active:
   - spawn_ground_effect__10TObjPlayerFPv
   - spawn_ground_effects__14TObjEneDolmOlmFPvPv
   - spawn_hit_particle_trio__10TObjPlayerFv
+  - spawn_hit_particles__10TObjPlayerFiPv
+  - spawn_hit_particles_at__10TObjPlayerFiii
+  - spawn_hit_particles_at_vec__10TObjPlayerFiii
+  - spawn_item__10TObjPlayerFi
   - spawn_item_follow_effect__FlUlll
   - spawn_laser__12TPhotonPillaFv
   - spawn_lightning_at_angle__16TBGLightningCtrlFl
@@ -10889,6 +10896,7 @@ force_active:
   - sub_802CACD8__15TObjEneMe1GiGueFv
   - sub_802CB6D4__15TObjEneMe1GiGueFv
   - sub_802CCF2C__15TObjEneMe1GiGueFv
+  - sub_802D577C__13TUnk_804E21F8Fv
   - sub_802D7444__12TObjNpcEnemyFv
   - sub_802E0784__13TUnk_804E3008Fv
   - sub_802E1F14__12TAdTimeSetGCFv

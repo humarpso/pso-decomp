@@ -10690,7 +10690,13 @@ pso/ui/TAdMultiPlyChrSelectGC_802D50A0.cpp:
 	.text       start:0x802D50A0 end:0x802D5174
 
 pso/player/TObjPlayer_802D5174.cpp:
-	.text       start:0x802D5174 end:0x802D5F44
+	.text       start:0x802D5174 end:0x802D5B78
+
+pso/player/TObjPlayer_802D5B78.cpp:
+	.text       start:0x802D5B78 end:0x802D5C0C
+
+pso/player/TObjPlayer_802D5C0C.cpp:
+	.text       start:0x802D5C0C end:0x802D5F44
 
 pso/unk/text_802D5F44.cpp:
 	.text       start:0x802D5F44 end:0x802D6348
