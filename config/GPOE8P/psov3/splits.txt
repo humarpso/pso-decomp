@@ -13763,6 +13763,7 @@ pso/misc/TLobby_803C45E4.cpp:
 
 pso/misc/TLobby_803C4698.cpp:
 	.text       start:0x803C4698 end:0x803C5AA0
+	.sdata2     start:0x805E0CE8 end:0x805E0D28
 
 pso/system/AdxStreamRuntime.cpp:
 	.text       start:0x803C5AA0 end:0x803CBCA0
