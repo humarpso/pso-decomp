@@ -7,16 +7,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TUdpSocket.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
-struct RecoveredGlobal_80428374_lbl_805D0A40 {
-    s32 value;
-    u8 remaining[0x5C];
-};
-
-struct RecoveredGlobal_8042839C_lbl_805D0A40 {
-    s32 value;
-    u8 remaining[0x5C];
-};
+#include "pso/misc/TLobby_803FAEA0.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -86,7 +77,7 @@ extern u8 lbl_805CF380[0x48];
 extern "C" {
 void TLobby__sub_803F95E4(u32);
 s32 TLobby__sub_803F77E0(void *);
-extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
+ModemSessionState lobby_net_session_state;
 extern u32 lobby_buffer_pool_alarm_handle;
 s16 TLobby__sub_803F96AC(void *, void *, void *);
 extern s32 lobby_buffer_pool_base;
@@ -116,6 +107,8 @@ s32 TLobby__sub_80428EC0(u8 *src, u8 *dst, u8 **next);
 s16 TLobby__sub_804293B0(u8 *buf, s16 len);
 s16 TLobby__sub_804036FC(u16 *avail);
 s16 TLobby__sub_80403730(u8 *dst, u16 n);
+s16 TLobby__sub_804037B0(void *src, u16 len);
+extern char *lbl_804801E0[];
 extern u32 lbl_805D7BD0;
 extern u32 lbl_805D7BD4;
 
@@ -148,18 +141,17 @@ extern s32 lbl_805D7C20;
 extern s32 lbl_805D7C24;
 extern s32 lobby_buffer_pool_state;
 
-typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_80428374_lbl_805D0A40) == 0x60 ? 1 : -1];
+typedef char ModemSessionState_size[sizeof(ModemSessionState) == 0x60 ? 1 : -1];
 
 typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_80428360_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
 void TLobby::reset_boot_state() {
-    TLobby__sub_803F77E0(&lobby_net_session_state.value);
+    TLobby__sub_803F77E0(&lobby_net_session_state);
 }
 }
 
-typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
 s32 init_modem_session_config(void) {
-    init_modem_buffer_config((void *) (&(*(RecoveredGlobal_8042839C_lbl_805D0A40 *)&lobby_net_session_state).value));
+    init_modem_buffer_config(&lobby_net_session_state);
     return 0;
 }
 
@@ -172,7 +164,7 @@ s32 TLobby::wait_timeout_loop() {
     s32 ret;
     ret = 0;
     TLobby::get_time_ms(&start);
-    p = **(s16 ***)((s8 *)&lobby_net_session_state.value + 0x10);
+    p = (s16 *)lobby_net_session_state.fields[0];
     if (p == NULL) {
         limit = *(s16 *)(arg0 + 4) * 1000;
     } else {
@@ -195,6 +187,96 @@ s32 TLobby::wait_timeout_loop() {
 }
 
 
+
+s32 TLobby__sub_80428A38(void) {
+    s32 out;
+    s32 pos;
+    s32 k;
+    u8 discard[4];
+    u16 avail;
+
+    out = 0;
+    pos = 0;
+    lobby_net_session_state.out[0] = 0;
+    while (lobby_net_session_state.fields[0][pos] != 0) {
+        for (k = 0; lbl_804801E0[k] != NULL; k++) {
+            if (TLobby::compare_strn(lbl_804801E0[k], (const char *)lobby_net_session_state.fields[0] + pos,
+                                     TLobby::str_length((s32)lbl_804801E0[k])) == 0) {
+                break;
+            }
+        }
+        if (lbl_804801E0[k] == NULL) {
+            lobby_net_session_state.out[out] = lobby_net_session_state.fields[0][pos];
+            pos++;
+            out++;
+        } else {
+            TLobby::append_string((char *)lobby_net_session_state.out + out, lobby_net_session_state.subst[k]);
+            out += TLobby::str_length((s32)lobby_net_session_state.subst[k]);
+            pos += TLobby::str_length((s32)lbl_804801E0[k]);
+        }
+    }
+    lobby_net_session_state.out[out] = 0;
+    while (TLobby__sub_804036FC(&avail) == 0 && avail != 0 && TLobby__sub_80403730(discard, 1) == 0) {
+    }
+    if (TLobby__sub_804037B0(lobby_net_session_state.out, TLobby::str_length((s32)lobby_net_session_state.out)) != 0) {
+        return 4;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_80428BB0(ModemRequest *req) {
+    ModemConfig *cfg;
+    s32 len;
+    s32 pos;
+    s32 k;
+    u8 discard[4];
+    u16 avail;
+
+    cfg = (ModemConfig *)TLobby__sub_803FB110();
+    if (cfg == NULL) {
+        return -3;
+    }
+    lobby_net_session_state.cmd[0] = 0;
+    if (req->type == 0) {
+        if (cfg->prefix0 != NULL) {
+            ((TLobby *)lobby_net_session_state.cmd)->copy_string(cfg->prefix0);
+        }
+    } else if (cfg->prefix1 != NULL) {
+        ((TLobby *)lobby_net_session_state.cmd)->copy_string(cfg->prefix1);
+    }
+    if (req->has_arg != 0) {
+        TLobby::append_string((char *)lobby_net_session_state.cmd, req->arg);
+    }
+    len = TLobby::str_length((s32)lobby_net_session_state.cmd);
+    pos = 0;
+    while (lobby_net_session_state.fields[0][pos] != 0) {
+        for (k = 0; lbl_804801E0[k] != NULL; k++) {
+            if (TLobby::compare_strn(lbl_804801E0[k], (const char *)lobby_net_session_state.fields[0] + pos,
+                                     TLobby::str_length((s32)lbl_804801E0[k])) == 0) {
+                break;
+            }
+        }
+        if (lbl_804801E0[k] == NULL) {
+            lobby_net_session_state.cmd[len] = lobby_net_session_state.fields[0][pos];
+            pos++;
+            len++;
+        } else {
+            TLobby::append_string((char *)lobby_net_session_state.cmd + len, lobby_net_session_state.subst[k]);
+            len += TLobby::str_length((s32)lobby_net_session_state.subst[k]);
+            pos += TLobby::str_length((s32)lbl_804801E0[k]);
+        }
+    }
+    if (len > 0 && cfg->terminator != lobby_net_session_state.cmd[len - 1]) {
+        lobby_net_session_state.cmd[len++] = cfg->terminator;
+    }
+    lobby_net_session_state.cmd[len] = 0;
+    while (TLobby__sub_804036FC(&avail) == 0 && avail != 0 && TLobby__sub_80403730(discard, 1) == 0) {
+    }
+    if (TLobby__sub_804037B0(lobby_net_session_state.cmd, TLobby::str_length((s32)lobby_net_session_state.cmd)) != 0) {
+        return 4;
+    }
+    return TLobby__sub_804290D4(req->timeout);
+}
 
 s32 TLobby__sub_80428EC0(u8 *src, u8 *dst, u8 **next) {
     s16 n;

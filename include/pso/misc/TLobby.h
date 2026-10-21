@@ -783,8 +783,8 @@ struct TLobby : public TObject {
     void cancel_thread_if_running();
     static void deactivate_entry_by_key(u32 key);
     static s32 run_current_thread_callback();
-    static void append_string(u8 arg0);
-    static void compare_strn(u8 arg0);
+    static char *append_string(char *dst, const char *src);
+    static s32 compare_strn(const char *a, const char *b, u32 n);
     static void compare_str(u8 arg0);
     void copy_string(void *arg1);
     static u32 str_length(s32 arg0);

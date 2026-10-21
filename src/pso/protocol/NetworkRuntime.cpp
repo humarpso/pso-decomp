@@ -464,8 +464,8 @@ s32 NetMemcmp(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_8040FDA0(u32, s16);
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 void NetMemset(void * _w0, int _w1, int _w2);
-void strcat(u8);
-void strncmp(u8);
+char *strcat(char *dst, const char *src);
+s32 strncmp(const char *a, const char *b, u32 n);
 void strcmp(u8);
 void strcpy(void *, void *);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
@@ -856,8 +856,8 @@ s32 NetSetDefaultThreadPriority(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_803AA0C0_lbl_80556E88_size[sizeof(RecoveredGlobal_803AA0C0_lbl_80556E88) == 0x100 ? 1 : -1];
-void TLobby::append_string(u8 arg0) {
-    strcat(arg0);
+char *TLobby::append_string(char *dst, const char *src) {
+    return strcat(dst, src);
 }
 
 #pragma push
@@ -889,8 +889,8 @@ s32 NetCompareStringsCaseInsensitiveN(u8 *a, u8 *b, u32 n) {
 }
 #pragma pop
 
-void TLobby::compare_strn(u8 arg0) {
-    strncmp(arg0);
+s32 TLobby::compare_strn(const char *a, const char *b, u32 n) {
+    return strncmp(a, b, n);
 }
 
 void TLobby::compare_str(u8 arg0) {
