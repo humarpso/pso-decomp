@@ -382,7 +382,7 @@ void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_74__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
-void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_65__13TUnk_804806E8Fll();
 void vfunc_63__13TUnk_804806E8Fv();
@@ -561,7 +561,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&reset_pose__13TUnk_804806E8Fv,
     (s32)&vfunc_65__13TUnk_804806E8Fll,
     (s32)&vfunc_66__13TUnk_804806E8Fv,
-    (s32)&vfunc_67__13TUnk_804806E8Fv,
+    (s32)&vfunc_67__13TUnk_804806E8Ff,
     (s32)&get_pos__13TUnk_804806E8Fl,
     (s32)&apply_switch_attack__13TUnk_804806E8Fv,
     (s32)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv,

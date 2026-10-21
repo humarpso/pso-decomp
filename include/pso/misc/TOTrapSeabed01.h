@@ -8,7 +8,7 @@ struct TOTrapSeabed01 : public TOTrap {
     virtual ~TOTrapSeabed01();
     void draw_object_tree(u8 *);
     void render_effect_layers();
-    virtual int vfunc_67();
+    virtual int vfunc_67(f32 damage_scale);
     virtual void vfunc_84();
     virtual void vfunc_81();
     virtual void vfunc_82();
