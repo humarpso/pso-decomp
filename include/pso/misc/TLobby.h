@@ -658,7 +658,7 @@ struct TLobby : public TObject {
     void dispatch_request_callback(s16 arg1);
     static s32 dispatch_by_addr_family(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, void *arg4, void *arg5);
     s32 is_multicast_address(s16 arg1);
-    s32 compare_sockaddr(u8 *arg1);
+    s16 compare_sockaddr(u8 *arg1);
     static s32 init_ipv4_interfaces();
     static u16 calc_pseudo_header_checksum(s32 src, s32 dst, s8 proto, void *pkt, s16 flag);
     u16 calc_ip_checksum(s16 b);
