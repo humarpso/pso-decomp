@@ -254,6 +254,7 @@ pso/boss/TBoss7DeRolLeC.cpp
 pso/boss/TBoss7DeRolLeC_802EE4E0.cpp
 pso/boss/TBoss7Joint.cpp
 pso/boss/TBoss7Joint_802EE6E0.cpp
+pso/boss/TBoss7LaserLight.cpp
 pso/boss/TBoss7LaserPtcl.cpp
 pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
@@ -766,6 +767,7 @@ pso/item/TObjItemLight.cpp
 pso/item/TObjItemNameSelect.cpp
 pso/item/TObjItemOKWindow.cpp
 pso/item/TObjItemOKWindow_801F4A6C.cpp
+pso/item/TUnk_804F0D34.cpp
 pso/item/WeaponAttackActions.cpp
 pso/item/WeaponSpecialSelection.cpp
 pso/map/FloorLifecycleTables.cpp
@@ -3769,5 +3771,3 @@ pso/unk/text_8042EE4C.cpp
 si/SIBios.c
 si/SISamplingRate.c
 vi/vi.c
-pso/item/TUnk_804F0D34.cpp
-pso/boss/TBoss7LaserLight.cpp
