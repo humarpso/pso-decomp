@@ -1266,7 +1266,7 @@ void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
 void calc_product_and_ratio__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2);
 void set_animation_by_state__12TBoss8DragonFPv(TBoss8Dragon *arg0);
 s32 TBoss8Dragon__sub_8005EE04(TBoss8Dragon *self, void *out, u32 *entry);
-void TBoss8Dragon__sub_8005F684(void *self, void *params);
+void TBoss8Dragon__sub_8005F684(TBoss8Dragon *self, void *params);
 void trigger_effect__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void turn_toward_angle_limited__13TBoss5GryphonFPvii(void *selfv, s32 arg1, s32 arg2);
 void handle_message__13TBoss5GryphonFPvi(O_8005FCE4 *self, s32 msg);
@@ -2773,7 +2773,7 @@ void TBoss8Dragon::play_animation_index(s32 arg1) {
     temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x778);
     this->m_774 = (s32) *(s32 *)((s8 *)temp_r5 + (arg1 * 4));
     ((s32 (*)(void *, void *, int))trigger_effect__12TBoss8DragonFPvi)((void *) (this), (void *) (&sp8), temp_r5);
-    TBoss8Dragon__sub_8005F684((void *) (this), (void *) (&sp8));
+    TBoss8Dragon__sub_8005F684(this, (void *) (&sp8));
     this->copy_spawn_params((void *) (&sp8));
 }
 
@@ -2803,26 +2803,26 @@ void TBoss8Dragon::init_state_zero(void *boss8_dragon) {
     ((TBoss8Dragon *)boss8_dragon)->play_animation_index(0);
 }
 
-void TBoss8Dragon__sub_8005F684(void *self, void *params) {
+void TBoss8Dragon__sub_8005F684(TBoss8Dragon *self, void *params) {
     s32 i;
     u8 *out;
 
-    if ((u32 *)((TBoss8Dragon *)self)->m_774 == NULL) {
-        ((TBoss8Dragon *)self)->update_target_from_state();
+    if ((u32 *)self->m_774 == NULL) {
+        self->update_target_from_state();
     }
     out = (u8 *)params + 0x14;
     for (i = 0; i < 1;) {
-        u32 *entry = (u32 *)((TBoss8Dragon *)self)->m_774;
+        u32 *entry = (u32 *)self->m_774;
         if (*entry == 0x21) {
             choose_next_action__13TBoss5GryphonFPvPv((u8 *)self, entry);
             continue;
         }
-        if (TBoss8Dragon__sub_8005EE04((TBoss8Dragon *)self, out, entry) != 0) {
+        if (TBoss8Dragon__sub_8005EE04(self, out, entry) != 0) {
             break;
         }
         i++;
         out += 0x14;
-        ((TBoss8Dragon *)self)->m_774 += 0x48;
+        self->m_774 += 0x48;
     }
 }
 
