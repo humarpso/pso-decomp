@@ -49,7 +49,7 @@ void draw_tunnel_segment(u8 *boss7_tunnel_col) {
         draw_ginja_object((int)var_r3);
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        func_80141618__Fv();
+        restore_draw_list_mask();
     }
 }
 
@@ -64,7 +64,7 @@ void fn_802F1DAC(u8 *arg0) {
             ((s32 (*)(int, void *))draw_ginja_object)((*(GE_802F1DAC **)((s8 *)lbl_805D6950 + 0x42C))[(*(s32 **)((s8 *)arg0 + 0x3C))[2]].obj, lbl_805D6950);
         }
         pop_matrix();
-        func_80141618__Fv();
+        restore_draw_list_mask();
     }
 }
 
@@ -76,7 +76,7 @@ void fn_802F1E54(u8 *arg0) {
         TObjPlayer::concat_matrix(0, (int)(arg0 + 0x48));
         ((s32 (*)(int, void *))draw_ginja_object)((*(GE_802F1E54 **)((s8 *)lbl_805D6950 + 0x42C))[(*(s32 **)((s8 *)arg0 + 0x3C))[0]].obj, lbl_805D6950);
         pop_matrix();
-        func_80141618__Fv();
+        restore_draw_list_mask();
     }
 }
 

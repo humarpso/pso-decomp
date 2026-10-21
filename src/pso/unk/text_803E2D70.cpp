@@ -870,11 +870,12 @@ void TObjPlayer__sub_803E492C(s32 a, s32 b) {
 }
 #pragma pop
 
-void func_803e11e8__FUl(s32 arg0) {
-    chunk_render_flags = arg0;
 }
 
-void func_803e11f0__Fv(void) {
-    chunk_render_flags = 0;
+void set_chunk_render_flags(u32 flags) {
+    chunk_render_flags = flags;
 }
+
+void clear_chunk_render_flags() {
+    chunk_render_flags = 0;
 }

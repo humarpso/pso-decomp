@@ -79,7 +79,7 @@ void render__14TObjBoss1FloorFv(void) {
         render_projected_shadow_receiver((u8 *)(temp_r31 + 8), (s32)(temp_r31 + 0x14));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         TScene::apply_single_screen_state();
-        func_80141618__Fv();
+        restore_draw_list_mask();
         pop_matrix();
         model_render_flags = lbl_805D5660;
     }

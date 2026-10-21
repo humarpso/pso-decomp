@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TFogCtrl_EOR.h"
 #include "pso/misc/TQuestVmDownLoadServer_800FA8A4.h"
 
@@ -10,11 +11,6 @@ struct RecoveredGlobal_800FA95C_lbl_8049C700 {
     u8 remaining[0x14];
 };
 
-struct RecoveredGlobal_800FA95C_lbl_80515F48 {
-    s32 value;
-    u8 remaining[0x24];
-};
-
 extern "C" {
 void *__nw__7TObjectFUl(int);
 extern u32 fog_ctrl_instance;
@@ -22,7 +18,6 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 TFogCtrl__fog_instance_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__12TFogCtrl_EOR[];
-extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 s32 TFogCtrl__sub_800FAC84(void *p);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
@@ -40,10 +35,9 @@ TFogCtrl_EOR::~TFogCtrl_EOR() {
 
 
 typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
 u8 *TFogCtrl_EOR::init_object() {
     u8 *arg0 = (u8 *)this;
-    __ct__7TObjectFP7TObject(arg0, &lbl_80515F48.value);
+    __ct__7TObjectFP7TObject(arg0, &end_of_render_root);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&__vt__12TFogCtrl_EOR).value;
     *(s32 *)&this->m_name = (s32) lbl_805D2B1C;
     return arg0;

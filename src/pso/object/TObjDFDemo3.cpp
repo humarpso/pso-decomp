@@ -104,12 +104,12 @@ void TObjDFDemo3::render() {
     rotate_matrix_y(0, this->m_ac);
     TObjFish::set_global_param(this->m_98);
     ((TObjFish *)(this->m_b8))->set_draw_callback_list();
-    func_803e11e8__FUl(1);
+    set_chunk_render_flags(1);
     draw_model_motion((void *)(*(s32 *)&this->m_94), (void *)(*(s32 *)&this->m_9c), *(f32 *)&this->_padB4);
     clear_render_callback__8TObjFishFv(this->m_b8);
-    func_803e11e8__FUl(2);
+    set_chunk_render_flags(2);
     draw_model_motion((void *)(*(s32 *)&this->m_94), (void *)(*(s32 *)&this->m_9c), *(f32 *)&this->_padB4);
-    func_803e11f0__Fv();
+    clear_chunk_render_flags();
     TObjPlayer::clear_global_state();
     pop_matrix();
     if (a < 1.0f) {

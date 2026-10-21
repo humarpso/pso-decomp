@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/debug_print.h"
 #include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -22,9 +23,13 @@ s32 TQuestVmDownLoadServer__sub_8007EB14(void) {
     return TQuestVmDownLoadServer__instance;
 }
 
-void debug_print__FPCc(void) {
+}
+
+void debug_print(const char *text) {
 
 }
+
+extern "C" {
 
 void TLobby__sub_8007EB20(s32 arg0, ...) {}
 void TLobby__sub_8007EB70(void) {  }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -39,7 +40,6 @@ struct Moto_801951C8 { s32 x0; u8 pad4[0x30 - 4]; u32 flags; u8 pad34[0x68 - 0x3
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 get_bml_model(void *, int);
-void func_80141618__Fv(void);
 }
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 extern "C" {
@@ -85,7 +85,7 @@ void TMotorcycle::render() {
             draw_ginja_object();
             pop_matrix();
         }
-        func_80141618__Fv();
+        restore_draw_list_mask();
     }
 }
 

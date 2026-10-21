@@ -1,5 +1,6 @@
 #include "pso/TMainTask.h"
 #include "types.h"
+#include "pso/system/debug_print.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TAdStorySelectGC.h"
@@ -132,9 +133,8 @@ s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 cleanup__6TLobbyFv();
 void run_area_scene_cleanup(u8 *arg0);
 s32 PPCSync();
-s32 debug_print__FPCc(void *);
 s32 run_tl_camera_tasks__9TMainTaskFv(void *);
-extern s32 lbl_80446930[];
+extern const char lbl_80446930[];
 extern s32 lbl_805D5718;
 void __construct_array(void *, void *, int, int, int);
 s32 TLobby__sub_8013A23C(s32 arg0);
@@ -335,7 +335,7 @@ void TLobby::blocking_vsync(void* _w0) {
         run_tl_camera_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
         render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
         render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        debug_print__FPCc(lbl_80446930);
+        ::debug_print(lbl_80446930);
         render_tick__Fv();
     } else {
         controller_stuff__Fv();

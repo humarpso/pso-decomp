@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -80,7 +81,6 @@ extern const f32 lbl_805D8740;
 extern const f32 lbl_805D8748;
 extern const f32 lbl_805D874C;
 extern const f32 lbl_805D8750;
-void func_80141618__Fv(void);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -276,7 +276,7 @@ void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *boss3_volopt_monitor) 
         rotate_matrix_y(0, boss3_volopt_monitor->rotation_y);
         draw_ginja_object((void *)(*(s32 *)((s8 *)boss3_volopt_monitor + 0x34)));
         pop_matrix();
-        func_80141618__Fv();
+        restore_draw_list_mask();
     }
 }
 

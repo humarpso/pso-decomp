@@ -179,7 +179,7 @@ void TLobby::load_now_loading_texture() {
     }
 }
 
-void TLobby__sub_803384D4(void) {
+void render_info_icon_overlay(void) {
     s32 instance;
     instance = TAdPlayerLoadGC::get_instance();
     switch (instance) {

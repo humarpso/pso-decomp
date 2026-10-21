@@ -5,8 +5,9 @@
 
 extern "C" {
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
-void init_light_globals(void);
-void set_some_id__FUl(s32 arg0);
+void init_light_globals(s32, s32);
 }
+
+void set_model_render_flags(u32 flags);
 
 #endif

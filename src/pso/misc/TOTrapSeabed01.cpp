@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/player/TObjPlayer.h"
@@ -365,7 +366,6 @@ void vfunc_84__14TOTrapSeabed01Fv(void);
 s32 draw_ginja_model_with_motion(int, int, f32);
 
 void restore_saved_depth_alpha_state(void);
-void func_80141618__Fv(void);
 void set_model_node_callback(s32 arg0);
 
 extern s32 actor_frame_tick;
@@ -388,13 +388,13 @@ void TOTrapSeabed01::render_effect_layers() {
     set_depth_buffer_settings_3();
     set_depth_buffer_settings_id(1);
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), this->unknownF8, this->m_c0);
-    func_80141618__Fv();
+    restore_draw_list_mask();
     restore_saved_depth_alpha_state();
     TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1();
     set_depth_buffer_settings_id(2);
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), this->unknownF8, this->m_c0);
-    func_80141618__Fv();
+    restore_draw_list_mask();
     restore_saved_depth_alpha_state();
     TParticleCtrl::end_effect_render();
     pop_matrix();
@@ -452,7 +452,7 @@ void TOTrapSeabed01::draw() {
         this->draw_object_tree((u8 *)(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        func_80141618__Fv();
+        restore_draw_list_mask();
         restore_saved_depth_alpha_state();
     }
 }

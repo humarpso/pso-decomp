@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/player/TObjPlayer.h"
@@ -331,7 +332,6 @@ void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, int, char *, int, int, int);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void func_80141618__Fv(void);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
@@ -1152,7 +1152,7 @@ void TOTrapAncient02::render() {
             } else {
                 this->draw_effect_chain();
             }
-            func_80141618__Fv();
+            restore_draw_list_mask();
         }
     }
 }

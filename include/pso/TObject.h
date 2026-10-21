@@ -21,8 +21,8 @@ OBJECT_NAMES
 #undef o
 
 extern TMainTask main_task;
-extern TObject global_obj1;
-extern TObject global_obj2;
+extern TObject end_of_render_root;
+extern TObject keyboard_task_object;
 
 enum object_flags {
     NONE                    = 0x0000,

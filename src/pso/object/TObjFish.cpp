@@ -503,7 +503,7 @@ void render__8TObjFishFv(u8 *arg0) {
                 }
                 TObjPlayer::clear_global_state();
             }
-            func_80141618__Fv();
+            restore_draw_list_mask();
             pop_matrix();
             f++;
         }

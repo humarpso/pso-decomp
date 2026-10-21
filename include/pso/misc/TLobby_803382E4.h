@@ -5,7 +5,7 @@
 
 extern "C" {
 void TLobby__sub_803382E4(void);
-void TLobby__sub_803384D4(void);
+void render_info_icon_overlay(void);
 void TLobby__sub_80338534(void);
 void TWindowSubStatusDisp__sub_803386F0(void);
 }

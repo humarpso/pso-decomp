@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/unk/text_8008271C.h"
 #include "pso/effect/TEffClitical.h"
 #include "pso/unk/text_802A8210.h"
@@ -309,7 +310,6 @@ s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
-void func_80141618__Fv(void);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
@@ -381,7 +381,7 @@ void TUnk_804CCB28::render() {
     set_depth_buffer_settings_id(3);
     get_bml_model(technique_effect_bml, 0xB);
     draw_ginja_object();
-    func_80141618__Fv();
+    restore_draw_list_mask();
     TObjFish::set_cull_none();
     pop_matrix();
     model_render_flags = lbl_805D5660;

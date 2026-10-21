@@ -296,7 +296,7 @@ void TLazerFenceSw::render() {
                 }
             }
             set_material_alpha_compare_reference(0x8F);
-            func_80141618__Fv();
+            restore_draw_list_mask();
         }
     }
 }

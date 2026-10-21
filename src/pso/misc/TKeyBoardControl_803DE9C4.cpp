@@ -219,7 +219,7 @@ void TObjPlayer::init_matrix_stack(s32 arg0, s32 arg1) {
     ((TLobby *)matrix_stack_base)->move_data(identity_matrix, 0x30);
 }
 
-void init_light_globals(void) {
+void init_light_globals(s32, s32) {
     model_render_flags = 0;
     chunk_polygon_flags_and_mask = -1;
     chunk_polygon_flags_or_mask = 0;
@@ -233,8 +233,8 @@ void init_light_globals(void) {
     reset_scene_fog();
 }
 
-void set_some_id__FUl(s32 arg0) {
-    model_render_flags = arg0;
 }
 
+void set_model_render_flags(u32 flags) {
+    model_render_flags = flags;
 }

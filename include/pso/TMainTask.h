@@ -45,6 +45,14 @@ TL_OBJECTS
 TL_OBJECTS
 #undef o
 
+extern u32 some_main_task_flag;
+extern u32 update_flags;
+extern u32 old_update_flags;
+extern u32 render_flags;
+extern u32 old_render_flags;
+extern u32 render_shadow_flags;
+extern u32 old_render_shadow_flags;
+
 class TMainTask : public TObject {
 public:
     u32 task_flags;

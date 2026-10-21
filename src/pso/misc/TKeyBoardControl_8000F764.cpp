@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/object/TObjFish.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TMainTask.h"
@@ -17,11 +18,6 @@
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
     u8 remaining[0xAC];
-};
-
-struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
-    s32 value;
-    u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
@@ -77,7 +73,6 @@ void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 void TKeyBoardControl__sub_8000F764(void);
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
 void TKeyBoardControl__sub_8000F7FC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F9E4(void);
@@ -128,8 +123,6 @@ u32 fn_803DD3DC(int, void *);
 void fn_803DE804(u8 *start, s32 size);
 s32 xmalloc__FUl(u32);
 s32 init_pad_slots_and_read__16TKeyBoardControlFv(int, int, int);
-s32 init_light_globals(int, int);
-void set_some_id__FUl(s32 arg0);
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
 int TKeyBoardControl__sub_8000F828(void);
 int OSResetSystem(void*, void*, void*);
@@ -191,7 +184,6 @@ int VIFlush(void);
 int VISetBlack(void*);
 int xfree__FPv(void*);
 
-extern s32 keyboard_task_object[];
 extern s32 lbl_805D62B0;
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
@@ -209,14 +201,13 @@ void TKeyBoardControl::run_tasks() {
     if ((s32) lbl_805D62B0 != 0) {
         update_music_sequencer();
     }
-    ((TObject *)keyboard_task_object)->run_tasks();
+    keyboard_task_object.run_tasks();
 }
 
 int TKeyBoardControl::get_fog_ctrl() { return clear_split_screen_fog__8TFogCtrlFv(this); }
 
-typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TKeyBoardControl__sub_8000F7FC(void) {
-    ((TObject *)(&lbl_80515F48.value))->run_tasks();
+    end_of_render_root.run_tasks();
 }
 
 void TKeyBoardControl::update() {  }
@@ -356,7 +347,7 @@ void init_game_systems(void) {
     (*(s32 *)&lbl_805D49A4) = xmalloc__FUl(0x73A0);
     fn_803DA754((*(s32 *)&lbl_805D49A0), 0x2E4, (void *)(*(s32 *)&lbl_805D49A4), (void *)(0x2E4));
     init_light_globals(0, 0);
-    set_some_id__FUl(0x100000);
+    set_model_render_flags(0x100000);
     (*(s32 *)&resource_decompress_buffer) = xmalloc__FUl(0x80000);
     (*(s32 *)&lbl_805D5680) = xmalloc__FUl(0x6000);
     (*(s32 *)&anim_model_matrix_array) = xmalloc__FUl(0x14A0);

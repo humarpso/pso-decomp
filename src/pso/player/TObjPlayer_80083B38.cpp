@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80083B38.h"
 #include "pso/system/main_loop.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -89,7 +90,6 @@ s32 GXSetProjection(void *, int);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 pop_matrix();
-void func_80083a00__Fv(void);
 void TObjPlayer__sub_80083FA4(void);
 void C_MTXFrustum(void *, f32, f32, f32, f32, f32, f32);
 f32 vec_squared_length(void *);
@@ -151,7 +151,7 @@ void TObjPlayer::draw_if_all_ready() {
 #pragma fp_contract on
 typedef char RecoveredGlobal_80083CEC_lbl_8048E5D0_size[sizeof(RecoveredGlobal_80083CEC_lbl_8048E5D0) == 0xC ? 1 : -1];
 
-void func_80083a00__Fv(void) {
+void end_shadow_map_pass() {
     u8 *temp_r31;
     if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0) && ((u32) camera_ctrl_instance != 0U)) {
         pop_matrix();
@@ -189,7 +189,7 @@ s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
 #pragma fp_contract on
 #define VIEW ((View_80083D54 *)camera_ctrl_instance)
 #define LIGHT (*(Vec_80083D54 *)&shadow_light_position)
-void camera_stuff(void) {
+void begin_shadow_map_pass(void) {
     Mtx44_80083D54 proj;
     Vec_80083D54 d;
     f32 t;

@@ -153,7 +153,7 @@ void TUnk_804F2A10::render() {
         }
         n--;
     }
-    func_80141618__Fv();
+    restore_draw_list_mask();
     *(s32 *)(lbl_805D6FB8 + 0xB0) = 0;
 }
 

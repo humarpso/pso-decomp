@@ -73,7 +73,7 @@ void TUnk_804CC870::render() {
     draw_ginja_object();
     pop_matrix();
     copy_slot_to_anim_frame(&ctx);
-    func_80141618__Fv();
+    restore_draw_list_mask();
     model_render_flags = lbl_805D5660;
 }
 

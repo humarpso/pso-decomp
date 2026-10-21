@@ -10,6 +10,7 @@
 #include "pso/misc/TUnk_8048E778.h"
 
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -166,7 +167,6 @@ extern const f32 TParticleCtrl__data_805D9500;
 extern const f32 TParticleCtrl__data_805D9504;
 extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
-void func_80141618__Fv();
 void restore_saved_depth_alpha_state();
 f32 vec3_dot(void *, void *);
 void project_world_to_screen(int, void *, void *);
@@ -418,7 +418,7 @@ void TUnk_8048E778::render() {
         } else {
             model_render_flags = lbl_805D5660;
         }
-        func_80141618__Fv();
+        restore_draw_list_mask();
         TParticleCtrl::end_effect_render();
         pop_matrix();
     } else if (flags & 0x2000) {

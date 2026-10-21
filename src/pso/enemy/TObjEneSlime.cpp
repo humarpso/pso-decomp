@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEneSlimeOne_800EC394.h"
 #include "pso/object/TObjFish.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -103,16 +104,13 @@ extern "C" {
 void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 get_bml_model(void *, int);
+void *get_bml_model(void *, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *, void *);
 s32 set_global_param__8TObjFishFl();
-s32 draw_chunk_object();
-void func_803e11e8__FUl(s32 arg0);
-void func_803e11f0__Fv(void);
 extern char lbl_8043D298[];
 extern s32 slime_debug_label_table[];
 extern s32 lbl_80496368[];
@@ -163,21 +161,18 @@ void TObjEneSlime::render() {
         set_global_param__8TObjFishFl();
         if (temp_r31 != 0) {
             model_render_flags |= 0x400000;
-            func_803e11e8__FUl(1);
-            get_bml_model((void *)slime_bml_resource, (int)temp_r30_2);
-            draw_chunk_object();
-            func_803e11f0__Fv();
+            set_chunk_render_flags(1);
+            draw_chunk_object(get_bml_model((void *)slime_bml_resource, (int)temp_r30_2));
+            clear_chunk_render_flags();
             model_render_flags &= 0xFFBFFFFF;
         } else {
-            func_803e11e8__FUl(2);
+            set_chunk_render_flags(2);
             TObjFish::set_cull_back();
-            get_bml_model((void *)slime_bml_resource, (int)temp_r30_2);
-            draw_chunk_object();
+            draw_chunk_object(get_bml_model((void *)slime_bml_resource, (int)temp_r30_2));
             TObjFish::set_cull_mode_front();
-            get_bml_model((void *)slime_bml_resource, (int)temp_r30_2);
-            draw_chunk_object();
+            draw_chunk_object(get_bml_model((void *)slime_bml_resource, (int)temp_r30_2));
             TObjFish::set_cull_none();
-            func_803e11f0__Fv();
+            clear_chunk_render_flags();
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
