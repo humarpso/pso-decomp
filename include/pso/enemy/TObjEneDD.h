@@ -59,7 +59,7 @@ struct TObjEneDD : public TObjEnemy {
     int update_camera_sequence();
     int initialize_enemy_state();
     static s32 get_random_scaled();
-    static f32 rand_range(f32 farg0, f32 farg1);
+    f32 rand_range(f32 farg0, f32 farg1);
     int set_state_8();
     int check_state_flag_4();
     int check_state_flag_2();

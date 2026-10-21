@@ -3404,11 +3404,11 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
         self->m_518 = 0;
         self->m_520 = actor_rand_int((s32)self, 0x14);
         self->m_564 = 0;
-        angle = (s32)(lbl_805DA210 * calc_boss4_scale__10TObjPlayerFi((s32)self));
-        radius = lbl_805DA214 * calc_boss4_scale__10TObjPlayerFi((s32)self);
+        angle = (s32)(lbl_805DA210 * TObjPlayer::calc_boss4_scale((s32)self));
+        radius = lbl_805DA214 * TObjPlayer::calc_boss4_scale((s32)self);
         self->m_394 = radius * sin_table_lookup(angle) + self->m_488.x;
         self->m_39c = radius * cos_table_lookup(angle) + self->m_488.z;
-        self->m_494 = lbl_805DA1E0 * calc_boss4_scale__10TObjPlayerFi((s32)self) + TObjEneBm5GibonU__data_805DA194;
+        self->m_494 = lbl_805DA1E0 * TObjPlayer::calc_boss4_scale((s32)self) + TObjEneBm5GibonU__data_805DA194;
         self->m_498 = 0.0f;
         self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
         self->update_velocity();
@@ -3448,7 +3448,7 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
             } else if (self->has_move_failures(0x14) != 0) {
                 self->m_51c = 0;
                 pick_wander_destination__16TObjEneBm5GibonUFPv((Ene_800D0E14 *)self);
-                self->m_494 = rand_range__9TObjEneDDFff(self, TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
+                self->m_494 = self->rand_range(TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
                 self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
             }
             self->m_c8 = TObjEneBm5GibonU__data_805DA1D0 * self->m_498;
@@ -3460,7 +3460,7 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
             self->approach_target(lbl_805DA224);
             if (self->m_498 <= TObjEneBm5GibonU__data_805DA1B0) {
                 self->m_518 = 2;
-                self->m_51c = rand_range__9TObjEneDDFff(self, lbl_805DA228, lbl_805DA22C);
+                self->m_51c = self->rand_range(lbl_805DA228, lbl_805DA22C);
                 self->m_b8 = 0;
             }
             self->m_c8 = TObjEneBm5GibonU__data_805DA1D0 * self->m_498;
@@ -3471,7 +3471,7 @@ void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
             self->m_51c -= 1;
             if (self->m_51c <= 0) {
                 pick_wander_destination__16TObjEneBm5GibonUFPv((Ene_800D0E14 *)self);
-                self->m_494 = rand_range__9TObjEneDDFff(self, TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
+                self->m_494 = self->rand_range(TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
                 self->m_498 = 0.0f;
                 self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
                 self->m_518 = 0;
