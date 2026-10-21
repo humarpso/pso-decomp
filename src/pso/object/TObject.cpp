@@ -1,3 +1,7 @@
+// Implements both TObject and TMainTask. They were one source file in the
+// original: a single static initializer constructs main_task and the two
+// TObject roots, and one .sdata block holds TMainTask's flag next to the
+// TObject/TMainTask/task-layer names.
 #pragma readonly_strings on
 #define TOBJECT_CPP
 #define TOBJECT_OUT_OF_LINE_HELPERS
