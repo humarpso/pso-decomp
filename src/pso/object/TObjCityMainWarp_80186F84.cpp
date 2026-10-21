@@ -6,6 +6,13 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowSubShortMail.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+
+void initialize_option_dialog(void *dialog, s32 message, s32 position, f32 width);
 
 struct Warp_80187438 {
     u8 pad0[0x38];
@@ -42,7 +49,19 @@ extern const f32 lbl_805DBCA8;
 s32 is_local_client_floor_leader(s32);
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
 s32 close_windows__25TObjCityMainWarpChallengeFv();
-s32 TObjCityMainWarp__sub_801875F8(void *);
+void TObjCityMainWarp__sub_801875F8(void *);
+s32 check_player_flag1__6TLobbyFv(void);
+s32 get_message_10__20TWindowSubStatusDispFl(s32);
+s32 fn_80248994(void *, u32, int);
+void *refresh_with_default_list__20TWindowSubStatusDispFll(s32, void *);
+void request_active_window_close(void);
+void begin_player_keyboard_hold(s32 arg0);
+s32 get_window_layout_position(s32);
+s32 free_member__17TWindowSubComCardFv(void *, int);
+s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(void *, s32, s32, f32);
+extern const f32 lbl_805DBCAC;
+extern const f32 lbl_805DBCB0;
+extern const f32 lbl_805DBCB4;
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *city_common_model_archive;
 s32 get_main_phase();
@@ -252,6 +271,81 @@ void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
             }
         } else if (TObjWarpBossMulti::is_flag_clear(pl2) == 0) {
             ((TObjPlayer *)pl2)->has_item_flag_4096();
+        }
+    }
+}
+
+
+struct CityWarpDialogs {
+    u8 pad0[0xDE];
+    s16 mode;
+    u8 padE0[0xE4 - 0xE0];
+    char names[4][0x18];
+    s32 inside[4];
+    s32 count;
+    s32 n_inside;
+    s32 f15c;
+    u8 pad160[4];
+    void *list;
+    void *dialog;
+};
+
+struct CityWarpListPos {
+    f32 x;
+    f32 y;
+};
+
+void TObjCityMainWarp__sub_801875F8(void *arg0) {
+    CityWarpDialogs *self = (CityWarpDialogs *)arg0;
+    s32 i;
+    s32 j;
+    u32 color;
+    CityWarpListPos pos;
+
+    switch (self->mode) {
+    case 0:
+        if (self->dialog == 0) {
+            self->dialog = TWindowMessageYesNo::create((void *)self, (void *)local_client_id, (void *)0, (void *)0);
+            if (self->dialog != 0) {
+                forward_slot_selection__16TAdChrSelASlotGCFPvPv(self->dialog, get_message_10__20TWindowSubStatusDispFl(0x41), get_window_layout_position(0x36), lbl_805DBCAC);
+                free_member__17TWindowSubComCardFv(self->dialog, 1);
+                ((TWindowSubShortMail *)self->dialog)->notify_warp_flag70();
+                begin_player_keyboard_hold(local_client_id);
+                request_active_window_close();
+                ((TWindowCtrl *)local_client_id)->suppress_slot();
+            }
+        }
+        break;
+    case 1:
+        if (self->dialog == 0) {
+            self->dialog = TWindowMessageYesNo::create((void *)self, (void *)local_client_id, (void *)0, (void *)0);
+            if (self->dialog != 0) {
+                initialize_option_dialog(self->dialog, get_message_10__20TWindowSubStatusDispFl(0x42), get_window_layout_position(0x36), lbl_805DBCAC);
+            }
+        }
+        break;
+    }
+    if (self->list == 0) {
+        pos.x = lbl_805DBCB0;
+        pos.y = lbl_805DBCB4;
+        self->list = refresh_with_default_list__20TWindowSubStatusDispFll(get_window_layout_position(0x34), &pos);
+        if (self->list != 0) {
+            ((TWindowSubTradeMain *)self->list)->set_visible();
+            ((TWindowSubTradeMain *)self->list)->set_close_flag();
+            for (i = 0; i < self->count; i++) {
+                TWindowSubStatusDisp::dispatch_without_flags((s32)self->list, (s32)self->names[i], i);
+            }
+        }
+        request_active_window_close();
+    }
+    if (self->list != 0) {
+        for (j = 0; j < self->count; j++) {
+            ((THunterGuildSeqOffline *)self->list)->advance_matching_entries(self->inside[j] != 0, j);
+            color = 0xF0F0F0FF;
+            if (self->mode == 1 && get_player_by_client_id(j) != NULL && check_player_flag1__6TLobbyFv() != 0) {
+                color = 0xFFFF00FF;
+            }
+            fn_80248994(self->list, color, j);
         }
     }
 }

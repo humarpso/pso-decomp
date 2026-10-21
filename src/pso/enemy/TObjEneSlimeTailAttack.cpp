@@ -437,7 +437,7 @@ extern s32 tl_04;
 #pragma auto_inline off
 #pragma dont_inline off
 extern "C" {
-void TBoss8Dragon__sub_800E92D8();
+void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self);
 }
 extern "C" {
 void vfunc_6__13TUnk_804B9870FPsl();
@@ -1376,6 +1376,83 @@ void TObjEneSlimeOne::copy_position() {
     s32 arg0 = (s32)this;
     VecCopy((Vec *)(arg0 + 0x374), (const Vec *)(arg0 + 0x38));
 }
+
+struct SlimeHopFields {
+    u8 pad0[0x3DC];
+    Vec vel;
+    void *trail;
+};
+
+f32 fabs_float(f32);
+void *spawn_particle_effect(void *pos, s32 id);
+extern const f32 lbl_805DA700;
+extern const f32 lbl_805DA704;
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self) {
+    SlimeHopFields *f = (SlimeHopFields *)self;
+    s32 landed = 0;
+    s32 tries = 4;
+    s32 angle;
+    f32 s;
+    f32 c;
+
+    f->vel.y += lbl_805DA700;
+    do {
+        Vec next;
+        Vec probe;
+        VecCopy(&next, (Vec *)self->position);
+        vec3_add_to(&next, &f->vel);
+        VecCopy(&probe, &next);
+        probe.y += lbl_805DA6AC + fabs_float(f->vel.y);
+        if (project_actor_to_ground(self, &probe, 0) != 0) {
+            VecCopy((Vec *)self->position, &next);
+            if (!(self->position[1] > probe.y)) {
+                self->position[1] = probe.y;
+                landed = 1;
+            }
+            break;
+        }
+        s = sin_table_lookup(0x4000);
+        c = cos_table_lookup(0x4000);
+        f->vel.x = c * f->vel.x + s * f->vel.z;
+        f->vel.z = -s * f->vel.x + c * f->vel.z;
+    } while (--tries > 0);
+    if (tries == 0) {
+        Vec probe;
+        f->vel.x = f->vel.z = lbl_805DA6B4;
+        VecCopy(&probe, (Vec *)self->position);
+        probe.y += lbl_805DA6AC + fabs_float(f->vel.y);
+        if (project_actor_to_ground(self, &probe, 0) != 0) {
+            if (!(self->position[1] > probe.y)) {
+                self->position[1] = probe.y;
+                landed = 1;
+            }
+        } else {
+            landed = 1;
+        }
+    }
+    if (f->trail != NULL) {
+        ((TNowLoading *)f->trail)->copy_pos(self->position);
+    }
+    if (landed != 0) {
+        if (f->trail != NULL) {
+            TBoss4Type2::request_destroy((u32)f->trail);
+            f->trail = NULL;
+        }
+        for (angle = 0; angle < 0xFFFF; angle += 0x1000) {
+            Vec p = *(Vec *)self->position;
+            p.x = lbl_805DA704 * sin_table_lookup(angle) + p.x;
+            p.y += lbl_805DA708;
+            p.z = lbl_805DA704 * cos_table_lookup(angle) + p.z;
+            spawn_particle_effect(&p, 0xE2);
+        }
+        TObjEneSlimeOne__sub_800EAD84((Obj_800EAD84 *)self);
+        self->set_state(1);
+    }
+}
+#pragma pop
 
 void fn_800E9538(u8 *ene_slime_one) {
     *(s32 *)((s8 *)ene_slime_one + 0x3E8) = (s32)create_particle_emitter((ene_slime_one + 0x38), 0xE1);

@@ -1147,6 +1147,78 @@ void TObjPlayer::tick_freeze_state() {
     }
 }
 
+u16 find_nearest_visible_player(void *, int, f32);
+TObjPlayer *get_player_data__10TObjPlayerFi(s32);
+u32 csnVector(void *, void *, s32);
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const Vec lbl_8043BC68;
+}
+u16 get_enemy_target_id(void *p);
+extern "C" {
+
+void beast_select_target(TUnk_80493450 *self) {
+    u16 best;
+    TObjPlayer *player;
+    u16 id;
+    f32 best_dist;
+    f32 dist;
+
+    if (self->m_390 == 1) {
+        self->targetId = 0xFFFF;
+        obj_setFlags30(self, 0x04040000);
+    } else if (obj_testFlags30__13TUnk_804AF8A0FUl(self, 0x1000) != 0) {
+        if (--self->m_374 < 0) {
+            self->targetId = 0xFFFF;
+            self->m_374 = 0;
+            obj_setFlags30(self, 0x1000);
+        } else {
+            self->targetId = find_nearest_visible_player(self, 0, *(f32 *)self->movementParameters);
+        }
+    } else if (obj_testFlags30__13TUnk_804AF8A0FUl(self, 0x10) != 0) {
+        if (self->is_actor_cadence_frame(0x1E) != 0) {
+            s32 i = 0;
+            best = 0xFFFF;
+            Vec d = lbl_8043BC68;
+            best_dist = *(f32 *)self->movementParameters * *(f32 *)self->movementParameters;
+            for (; i < lbl_805D586C + lbl_805D5870; i++) {
+                player = get_player_data__10TObjPlayerFi(i);
+                if (player == NULL) {
+                    break;
+                }
+                id = obj_getField1c(player);
+                if (id < 0x4000 && id != self->m_1c && obj_testFlags30__13TUnk_804AF8A0FUl(player, 0x03000800) == 0) {
+                    VecCopy(&d, (Vec *)&player->m_2fc);
+                    subtract_vector(&d, &self->m_2fc);
+                    dist = d.x * d.x + d.z * d.z;
+                    if (dist < best_dist && check_path_obstructed(self, &player->m_2fc) != 1 &&
+                        csnVector(&self->m_2fc, &player->m_2fc, -1) == 0) {
+                        best = id;
+                        best_dist = dist;
+                    }
+                }
+            }
+            self->targetId = best;
+        }
+    } else if ((s32)self->m_378 != 0) {
+        self->targetId = get_enemy_target_id(self->groupRoot());
+    } else if (self->is_actor_cadence_frame(0x1E) != 0) {
+        self->targetId = find_nearest_visible_player(self, 0, *(f32 *)self->movementParameters);
+    }
+    if (self->targetId < 0x1000) {
+        TObjPlayer *p = (TObjPlayer *)get_player_by_client_id(self->targetId);
+        if (p != NULL && p->get_field_3e4() == get_current_floor()) {
+            self->target = (u8 *)p;
+        } else {
+            self->target = NULL;
+        }
+    } else if (self->targetId < 0x4000) {
+        self->target = get_enemy_entity(self->targetId);
+    } else {
+        self->target = NULL;
+    }
+}
+
 typedef struct VBase_18_477421 VBase_18_477421;
 typedef struct VObj_18_477421 VObj_18_477421;
 void TUnk_80493450::run_task() {
