@@ -1843,6 +1843,7 @@ force_active:
   - __vt__20TObjLiveMonitorSmall
   - __vt__20TPlayerLevelFeedback
   - __vt__20TPlayerParticleOwner
+  - __vt__20TQuadSpriteSclColRot
   - __vt__20TWindowMessageScroll
   - __vt__21TAdMultiChgGameModeGC
   - __vt__21TBoss1DragonEffBreath

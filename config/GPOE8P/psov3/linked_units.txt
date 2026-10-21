@@ -1477,6 +1477,7 @@ pso/misc/TQuadSpriteCol.cpp
 pso/misc/TQuadSpriteNormal.cpp
 pso/misc/TQuadSpriteScl.cpp
 pso/misc/TQuadSpriteSclCol.cpp
+pso/misc/TQuadSpriteSclColRot.cpp
 pso/misc/TQuestColCtrl.cpp
 pso/misc/TQuestColCtrl_8003F3BC.cpp
 pso/misc/TQuestColCtrl_80195CF0.cpp
@@ -2877,6 +2878,7 @@ pso/unk/text_80019B78.cpp
 pso/unk/text_80019EB8.cpp
 pso/unk/text_8001A3BC.cpp
 pso/unk/text_8001B424.cpp
+pso/unk/text_8001C388.cpp
 pso/unk/text_8001CAD4.cpp
 pso/unk/text_8002B094.cpp
 pso/unk/text_8002B164.cpp
