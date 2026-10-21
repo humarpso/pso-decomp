@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/unk/text_80290BEC.h"
 #include "pso/system/main_loop.h"
@@ -17,7 +18,6 @@ struct RecoveredGlobal_80290C20_main_task {
 };
 
 extern "C" {
-s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 TKeyBoardControl__sub_8000F92C();
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s8 func_801A5E54__Fv();
@@ -37,7 +37,7 @@ void fn_80290BEC(void) {
     TLobby::stop_audio_streams();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value));
+    main_task.tl_delete_children();
     TLobby::free_all_resources();
     render_tick();
 }

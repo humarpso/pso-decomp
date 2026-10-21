@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/player/TObjPlayer_801A5AEC.h"
 #include "pso/misc/TWindowCtrlMain.h"
@@ -28,7 +29,6 @@ struct Vec_8023F22C { f32 x, y, z; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern u32 game_mode_scene_instance;
@@ -50,7 +50,6 @@ extern Vec_8023F22C lbl_8044DCE8;
 extern Vec_8023F22C lbl_8044DCF4;
 extern u8 default_scene_light_config[];
 extern Vec_8023F22C TObjLight__scene_light_state;
-extern void *tl_camera;
 extern const f32 lbl_805DC9B8;
 extern const f32 lbl_805DC9BC;
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCDA8_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCDA8) == 0xB8 ? 1 : -1];
@@ -64,7 +63,7 @@ void TLobby::release_scene_resources() {
         queue_destruction__7TObjectFv((void *)game_mode_scene_instance);
         game_mode_scene_instance = 0U;
     }
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8023F1B8_main_task *)&main_task).value));
+    main_task.tl_delete_children();
     call_funcs_reverse__6TLobbyFPvUi(&lobby_scene_release_callback_table.value, 0x38);
     call_funcs_reverse__6TLobbyFPvUi(&lbl_804CCDA8.value, 0xB8);
     TParticleCtrl::free_heap();

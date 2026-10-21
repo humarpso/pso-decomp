@@ -23,7 +23,6 @@ int TLobby__sub_801F36F0(void);
 int TLobby__sub_801F36F8(void);
 int TLobby__sub_801F3700(void);
 int TLobby__sub_801F3708(void);
-void TMainTask__sub_801F34D0(u8 *arg0);
 s32 *TObjItemOKWindow__sub_801F3268(void);
 void bswap_header__6TLobbyFPv(void *p);
 }
@@ -60,7 +59,6 @@ int TLobby__sub_801F36F0(void);
 int TLobby__sub_801F36F8(void);
 int TLobby__sub_801F3700(void);
 int TLobby__sub_801F3708(void);
-void TMainTask__sub_801F34D0(u8 *arg0);
 s32 *TObjItemOKWindow__sub_801F3268(void);
 int fn_801F3480(void *p);
 int fn_801F34A0(void *p);

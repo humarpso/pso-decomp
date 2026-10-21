@@ -1173,7 +1173,6 @@ pso/misc/TMainCursor_8013F104.cpp
 pso/misc/TMainCursor_80154090.cpp
 pso/misc/TMainCursor_801D7A78.cpp
 pso/misc/TMainCursor_801D7AC8.cpp
-pso/misc/TMainTask.cpp
 pso/misc/TMainTask_8001A430.cpp
 pso/misc/TMainTask_80104C40.cpp
 pso/misc/TMapCsnCtrl.cpp

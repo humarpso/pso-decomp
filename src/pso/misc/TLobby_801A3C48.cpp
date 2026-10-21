@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -130,8 +131,6 @@ s32 func_803DCDFC__Fv();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 cleanup__6TLobbyFv();
 void run_area_scene_cleanup(u8 *arg0);
-s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 PPCSync();
 s32 debug_print__FPCc(void *);
 s32 run_tl_camera_tasks__9TMainTaskFv(void *);
@@ -217,18 +216,15 @@ extern RecoveredGlobal_801A4610_lbl_804C2240 lobby_area_reload_callbacks;
 extern unsigned char lbl_80515BA0[];
 extern s32 local_client_id;
 extern s32 online_lobby_scene_handle;
-extern s32 *tl_su;
 void cleanup_online_lobby_scene(void);
 void process_pending_resources(void);
 void clear_quest_floor_designations(void);
 extern u8 TLobby__data_805011D8[];
-extern void *tl_03;
 s32 start_quest_mission(void);
 extern u8 game_variations[];
 extern int TLobby__new_game_setup_flags;
 extern u32 quest_area_manager;
 s32 change_floor_reload_area(void);
-extern void *tl_window;
 void run_online_lobby_scene(void);
 void load_battle_param_entry(void);
 extern s32 TLobby__lobby_number;
@@ -295,8 +291,8 @@ void reload_lobby_floor_scene(void) {
     render_tick__Fv();
     find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     TLobby::free_objects();
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
-    clear_flag3_all_tasks__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    main_task.tl_delete_children();
+    main_task.tl_clear_flag_3();
     promote_area_floor(lbl_80515BA0);
     TLobby::reset_counter();
     reset_story_select__6TLobbyFPv();
@@ -377,7 +373,7 @@ void TLobby::reload_floor_scene() {
             ((TObject *)p)->set_parent((TObject *)(&sp8));
         }
     }
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    main_task.tl_delete_children();
     TKeyBoardControl::update();
     TLobby::create_map_csn_ctrl();
     TParticleCtrl::create_quad_sprites();
@@ -452,7 +448,7 @@ s32 start_quest_mission(void) {
             ((TObject *)p)->set_parent((TObject *)tmp);
         }
     }
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    main_task.tl_delete_children();
     promote_area_floor(lbl_80515BA0);
     TLobby::sync_story_select();
     TAdStorySelectGC::set_state(0);
@@ -518,7 +514,7 @@ s32 change_floor_reload_area(void) {
             ((TObject *)p)->set_parent((TObject *)tmp);
         }
     }
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    main_task.tl_delete_children();
     promote_area_floor(lbl_80515BA0);
     ((TLobby *)lbl_80515BA0)->clear_ready_flag_unless_locked();
     TKeyBoardControl::update();
@@ -582,11 +578,11 @@ void cleanup_online_lobby_scene(void) {
     TLobby::free_objects();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+    main_task.tl_delete_children();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
-    clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-    var_r3 = tl_su;
+    main_task.tl_clear_flag_3();
+    var_r3 = (s32 *)tl_su;
     ((TObject *)var_r3)->delete_children();
     PPCSync();
     var_r31 = 0;

@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/system/main_loop.h"
 #include "pso/system/vector.h"
@@ -112,11 +113,8 @@ s32 is_split_screen(void);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 TLobby__sub_801A3B98();
 s32 run_area_scene_cleanup(void *);
-s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_801A3540_lbl_804C1F68 offline_game_scene_callbacks;
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
-extern s32 tl_su;
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -181,7 +179,6 @@ void process_pending_resources();
 extern u8 TLobby__data_805011D8[];
 extern s32 TLobby__designated_client_id;
 extern u32 quest_area_manager;
-extern void *tl_03;
 void run_offline_area_transfer(void);
 void load_battle_param_entry(void);
 extern u8 fn_801B309C[];
@@ -238,7 +235,7 @@ void TLobby::reload_offline_area() {
         }
     }
     TLobby::reset_quest_state();
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A3540_main_task *)&main_task));
+    main_task.tl_delete_children();
     promote_area_floor(&lbl_80515BA0);
     TLobby::backup_story_select();
     TKeyBoardControl::update();
@@ -296,7 +293,7 @@ void TLobby::rebuild_area_keep_players() {
             ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A3540_main_task *)&main_task));
+    main_task.tl_delete_children();
     promote_area_floor(&lbl_80515BA0);
     TLobby::sync_story_select();
     TAdStorySelectGC::set_state(0);
@@ -371,7 +368,7 @@ void run_offline_area_transfer(void) {
             ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
-    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value);
+    main_task.tl_delete_children();
     promote_area_floor(&lbl_80515BA0.value);
     TKeyBoardControl::update();
     TLobby::create_map_csn_ctrl();
@@ -410,8 +407,8 @@ void TLobby::teardown_scene() {
     TLobby::stop_audio_streams();
     TLobby::update_lobby_subsystems();
     TLobby::reset_quest_state();
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
-    clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
+    main_task.tl_delete_children();
+    main_task.tl_clear_flag_3();
     ((TObject *)tl_su)->delete_children();
     run_area_scene_cleanup(&lbl_80515BA0.value);
     call_funcs_reverse__6TLobbyFPvUi(&offline_game_scene_callbacks.value, 0x180);

@@ -165,7 +165,7 @@ void TQuestListOnline::begin_file_download() {
         render_screen_overlay__9TMainTaskFv(((u8 *)&main_task));
         render_tick();
         ((TWindowCtrl *)local_client_id)->suppress_slot();
-        ((TMainTask *)((u8 *)&main_task))->run_all_lists();
+        main_task.tl_toggle_flag_3();
         quest_download_active = 1;
         quest_download_received_bytes = 0;
         quest_download_graph_current_bytes = 0;

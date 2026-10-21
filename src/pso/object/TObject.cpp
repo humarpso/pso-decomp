@@ -71,6 +71,7 @@ void func_80083a00();
 void func_80141618();
 void func_803e11e8(u32 arg1);
 void func_803e11f0();
+extern "C" void TLobby__sub_803384D4();
 
 extern "C" {
 TMainTask *__ct__9TMainTaskFv(TMainTask *);
@@ -541,6 +542,127 @@ void TMainTask::run_tl_camera_tasks() {
     task_flags |= 1;
     tl_camera->run_tasks();
     task_flags &= ~1;
+}
+
+void TMainTask::empty_render_screen_overlay_func() {
+
+}
+
+void TMainTask::tl_02_clear_flag_3() {
+    tl_02->clear_flag_3();
+    tl_03->clear_flag_3();
+    tl_item_equip->clear_flag_3();
+    tl_loc_start->clear_flag_3();
+    tl_04->clear_flag_3();
+    tl_05->clear_flag_3();
+    tl_06->clear_flag_3();
+    tl_07->clear_flag_3();
+    tl_loc_end->clear_flag_3();
+    tl_window->clear_flag_3();
+    tl_particle->clear_flag_3();
+    tl_particlemodel->clear_flag_3();
+    tl_radermap->clear_flag_3();
+    tl_clipout->clear_flag_3();
+    tl_fade->clear_flag_3();
+    tl_fadeafter->clear_flag_3();
+}
+
+void TMainTask::tl_02_toggle_flag_3() {
+    tl_02->toggle_flag_3();
+    tl_03->toggle_flag_3();
+    tl_item_equip->toggle_flag_3();
+    tl_loc_start->toggle_flag_3();
+    tl_04->toggle_flag_3();
+    tl_05->toggle_flag_3();
+    tl_06->toggle_flag_3();
+    tl_07->toggle_flag_3();
+    tl_loc_end->toggle_flag_3();
+    tl_window->toggle_flag_3();
+    tl_particle->toggle_flag_3();
+    tl_particlemodel->toggle_flag_3();
+    tl_radermap->toggle_flag_3();
+    tl_clipout->toggle_flag_3();
+    tl_fade->toggle_flag_3();
+    tl_fadeafter->toggle_flag_3();
+}
+
+void TMainTask::tl_delete_children() {
+    tl_00->delete_children();
+    tl_camera->delete_children();
+    tl_01->delete_children();
+    tl_02->delete_children();
+    tl_03->delete_children();
+    tl_item_equip->delete_children();
+    tl_loc_start->delete_children();
+    tl_04->delete_children();
+    tl_05->delete_children();
+    tl_06->delete_children();
+    tl_07->delete_children();
+    tl_loc_end->delete_children();
+    tl_window->delete_children();
+    tl_particle->delete_children();
+    tl_particlemodel->delete_children();
+    tl_radermap->delete_children();
+    tl_clipout->delete_children();
+    tl_fade->delete_children();
+    tl_fadeafter->delete_children();
+}
+
+void TMainTask::tl_clear_flag_3() {
+    tl_00->clear_flag_3();
+    tl_camera->clear_flag_3();
+    tl_01->clear_flag_3();
+    tl_02->clear_flag_3();
+    tl_03->clear_flag_3();
+    tl_item_equip->clear_flag_3();
+    tl_loc_start->clear_flag_3();
+    tl_04->clear_flag_3();
+    tl_05->clear_flag_3();
+    tl_06->clear_flag_3();
+    tl_07->clear_flag_3();
+    tl_loc_end->clear_flag_3();
+    tl_window->clear_flag_3();
+    tl_particle->clear_flag_3();
+    tl_particlemodel->clear_flag_3();
+    tl_radermap->clear_flag_3();
+    tl_clipout->clear_flag_3();
+    tl_fade->clear_flag_3();
+    tl_fadeafter->clear_flag_3();
+}
+
+void TMainTask::tl_toggle_flag_3() {
+    tl_00->toggle_flag_3();
+    tl_camera->toggle_flag_3();
+    tl_01->toggle_flag_3();
+    tl_02->toggle_flag_3();
+    tl_03->toggle_flag_3();
+    tl_item_equip->toggle_flag_3();
+    tl_loc_start->toggle_flag_3();
+    tl_04->toggle_flag_3();
+    tl_05->toggle_flag_3();
+    tl_06->toggle_flag_3();
+    tl_07->toggle_flag_3();
+    tl_loc_end->toggle_flag_3();
+    tl_window->toggle_flag_3();
+    tl_particlemodel->toggle_flag_3();
+    tl_radermap->toggle_flag_3();
+    tl_clipout->toggle_flag_3();
+    tl_fade->toggle_flag_3();
+    tl_fadeafter->toggle_flag_3();
+}
+
+void TMainTask::some_empty_func() {
+
+}
+
+void TMainTask::render_screen_overlay() {
+    if (task_flags & 0x100) {
+        render_clipout_and_fade();
+        empty_func();
+        empty_render_screen_overlay_func();
+        TLobby__sub_803384D4();
+    }
+    task_flags &= ~0x180;
 }
 
 #pragma defer_codegen off

@@ -113,7 +113,7 @@ public:
     void disallow_rendering();
     void clear_flag_3();
     void set_flag_3();
-    void toggle_flag_3()              { m_flags ^= BIT_3; }
+    void toggle_flag_3();
     void queue_destruction();
 #else
     void allow_rendering_shadows()    { m_flags &= ~DISALLOW_RENDER_SHADOWS; }
@@ -125,7 +125,7 @@ public:
     void disallow_rendering()         { m_flags |= DISALLOW_RENDER; }
     void clear_flag_3()               { m_flags &= ~BIT_3; }
     void set_flag_3()                 { m_flags |= BIT_3; }
-    void toggle_flag_3()              { m_flags ^= BIT_3; }
+    void toggle_flag_3();
     void queue_destruction()          { m_flags |= QUEUE_DESTRUCTION; }
 
 #endif

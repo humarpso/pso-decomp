@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #pragma push
 
 #include "types.h"
@@ -57,7 +58,6 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
 u8 * create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(void *, void *, void *);
 int request_queued_main_phase(void*);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 extern void *character_select_scene_resource_callbacks[];
 s32 TWindow__close(void *);
 int check_room_seq_4__16TAdChrSelASlotGCFl(void*, void*);
@@ -67,7 +67,6 @@ int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, 
 u32 __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(int);
 
-extern s32 tl_fade;
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(int, void *, int);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(int, int);
@@ -100,7 +99,7 @@ s32 func_803DCDFC__Fv();
 extern V3_8033B2AC lbl_80477D78[];
 extern V3_8033B2AC lbl_80477D84[];
 s32 TKeyBoardControl__sub_8000F90C(int);
-s32 TCameraCtrl__ct(u32, s32);
+s32 TCameraCtrl__ct(u32, TObject *);
 s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
@@ -113,7 +112,6 @@ extern u8 lbl_80477D90[];
 extern u8 default_scene_light_config[];
 
 extern u8 lobby_rule_settings[];
-extern s32 tl_camera;
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(int, int);
 u32 init_char_slots__23TAdSinglePlyChrSelectGCFi();
 int TAdSinglePlyChrSelectGC__sub_801FCD3C(void *);
@@ -406,7 +404,7 @@ void TAdSinglePlyChrSelectGC::set_char_slots(s32 arg1, s32 arg2) {
 }
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_phase(p); }
 void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value));
+    main_task.tl_delete_children();
     TLobby::stop_audio_streams();
     TLobby::set_and_notify(0);
     call_funcs_reverse__6TLobbyFPvUi((void *) (&(*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks).value), 0x30);
@@ -510,10 +508,9 @@ struct RecoveredGlobal_8033B9C4_lbl_80513910 {
 };
 
 extern void *lbl_804EF8C0[];
-extern s32 tl_01;
 extern "C" {
 s32 __ct__12TAdBackTxtGCFv(void *, void *);
-s32 __ct__7TObjectFP7TObject(void *, s32);
+s32 __ct__7TObjectFP7TObject(void *, TObject *);
 s32 __ct__9TAdBackGCFv(void *, void *);
 
 void __dl__7TObjectFPv(void *);

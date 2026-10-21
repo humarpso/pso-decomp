@@ -34,9 +34,9 @@ extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
 extern "C" {
 int TLobby__sub_800FC3CC(void);
-int delete_all_task_children__9TMainTaskFv(void*);
+int tl_delete_children__9TMainTaskFv(void*);
 
-void TAdEndText::cleanup() { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick(); }
+void TAdEndText::cleanup() { ending_sequence_active = 0; tl_delete_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void TKeyBoardControl::run_main_frame() {
     s32 *var_r3;

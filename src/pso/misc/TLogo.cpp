@@ -37,7 +37,6 @@ extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 u32 __ct__10TAdADXlogoFv(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -216,7 +215,7 @@ void *__ct__5TLogoFv(void *object) {
     extern int lbl_805D49D0;
 
 void TLogo__sub_8013F5AC() {
-    delete_all_task_children__9TMainTaskFv(&main_task);
+    main_task.tl_delete_children();
     call_funcs_reverse__6TLobbyFPvUi(logo_load_callback_table, sizeof(logo_load_callback_table));
     render_tick();
 }

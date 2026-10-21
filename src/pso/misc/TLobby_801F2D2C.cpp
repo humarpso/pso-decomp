@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TLobby_801F2D2C.h"
@@ -324,9 +325,7 @@ int fn_801F34A0(void* p) { return ((TObjPlayer *)p)->check_technique_flag(); }
 s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
 s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 
-void TMainTask__sub_801F34D0(u8 *arg0) {
-    *(u16 *)((s8 *)arg0 + 4) = (u16) (*(u16 *)((s8 *)arg0 + 4) ^ 8);
-}
+void TObject::toggle_flag_3() { m_flags ^= BIT_3; }
 
 void TLobby::set_floor(s16 v) { *(s16*)((char*)this + 0x11a) = v; }
 
