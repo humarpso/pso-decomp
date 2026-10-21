@@ -789,7 +789,7 @@ struct TLobby : public TObject {
     void copy_string(void *arg1);
     static u32 str_length(s32 arg0);
     static void memmove_wrapper();
-    s32 check_connection_status();
+    s16 check_connection_status();
     static s32 clear_flag_bit4(s32 arg0, u8 *arg1);
     void init_net_state_entry();
     static void update_battle_mode();

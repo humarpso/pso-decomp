@@ -1368,6 +1368,81 @@ u32 TLobby__sub_803FEA88(A_80403F4C *out, Strm_80405A74 **src) {
     return hl;
 }
 
+extern s32 lbl_805D7AA0;
+
+s16 TLobby__sub_803FED78(u8 *conn) {
+    Conn_804004DC *v6;
+    Conn_804004DC *c;
+    RecoveredGlobal_804050DC_lbl_805C18A0 *g;
+    u8 *sub;
+    s16 status;
+    s16 st;
+    c = (Conn_804004DC *)conn;
+    status = 1;
+    sub = c->sub;
+    c->abort = 0;
+    {
+        u8 *p = lbl_805C0038 + 0xD4;
+        ((Conn_804004DC *)p)->abort = 0;
+        v6 = (Conn_804004DC *)p;
+    }
+    g = &lbl_805C18A0;
+    while (c->state != 5 && lbl_805D7AA0 < 2) {
+        if (TLobby::is_timed_out() != 0 || *sub == 4) {
+            TLobby::update_connection_state((int)c);
+            c->abort = 0;
+            v6->abort = 0;
+            return -1;
+        }
+        if (c->abort != 0) {
+            break;
+        }
+        status = ((TLobby *)v6)->check_connection_status();
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    st = lbl_805D7A7C;
+    if (st != 6 && st != 0) {
+        if (c->abort != 0) {
+            v6->abort = 0;
+            c->abort = 0;
+            return -1;
+        }
+        v6->abort = 0;
+        c->abort = 0;
+        return 0;
+    }
+    g = &lbl_805C18A0;
+    while (status > 0) {
+        status = ((TLobby *)v6)->check_connection_status();
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    switch (status) {
+    case 0:
+        c->abort = 0;
+        v6->abort = 0;
+        return 0;
+    case -2:
+        if (c->abort == 0) {
+            c->abort = 0;
+            v6->abort = 0;
+            return 0;
+        }
+        break;
+    case -1:
+        break;
+    }
+    TLobby::update_connection_state((int)c);
+    v6->abort = 0;
+    c->abort = 0;
+    return -1;
+}
+
 s32 set_socket_flags_by_mode__6TLobbyFsPv(s16 arg0, u8 *arg1) {
     struct Fields_arg1 { s16 field_0; u8 pad_2[2]; s16 field_4; u8 pad_6[10]; s16 field_10; s16 field_12; s8 field_14; u8 pad_15[19]; s16 field_28; };
     if (arg0 == 0) {

@@ -922,7 +922,7 @@ void NetMemcpy(void * _w0, void * _w1, int _w2) {
     memcpy();
 }
 
-s32 TLobby::check_connection_status() {
+s16 TLobby::check_connection_status() {
     u8 *arg0 = (u8 *)this;
     struct Fields_arg0 { u8 field_0; u8 pad_1[7]; s16 field_8; u8 pad_A[2]; u8 * field_C; };
     struct Fields_temp_r31 { u8 field_0; };
