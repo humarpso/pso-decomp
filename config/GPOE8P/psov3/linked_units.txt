@@ -1873,8 +1873,6 @@ pso/misc/TWindowSubMag_802627D8.cpp
 pso/misc/TWindowSubMag_80278760.cpp
 pso/misc/TWindowSubQuestBoard.cpp
 pso/misc/TWindowSubQuestBoardSelect.cpp
-pso/misc/TWindowSubQuestBoardSelect_8027D3BC.cpp
-pso/misc/TWindowSubQuestBoardSelect_8027D9AC.cpp
 pso/misc/TWindowSubQuestBoard_8027D148.cpp
 pso/misc/TWindowSubQuestBoard_8027D1E8.cpp
 pso/misc/TWindowSubShortCut.cpp
@@ -3528,8 +3526,6 @@ pso/unk/text_80278BD8.cpp
 pso/unk/text_80278E48.cpp
 pso/unk/text_8027ACF8.cpp
 pso/unk/text_8027C13C.cpp
-pso/unk/text_8027D230.cpp
-pso/unk/text_8027DA14.cpp
 pso/unk/text_8027FCE4.cpp
 pso/unk/text_802841FC.cpp
 pso/unk/text_80286AA8.cpp
