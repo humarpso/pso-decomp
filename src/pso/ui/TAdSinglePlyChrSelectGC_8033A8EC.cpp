@@ -91,10 +91,6 @@ s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 void process_async_file_reads(void);
 void update_sound_request_slots(void);
 extern "C" {
-s32 render_screen_overlay__9TMainTaskFv(void *);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 extern V3_8033B2AC lbl_80477D78[];
 extern V3_8033B2AC lbl_80477D84[];
@@ -419,10 +415,10 @@ void TAdSinglePlyChrSelectGC::run_frame() {
     V3_8033B2AC b = lbl_80477D84[0];
     activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
-    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
-    run_task__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
-    render__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render();
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();

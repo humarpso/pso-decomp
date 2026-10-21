@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/ui/TAdEp3Exist.h"
 #include "pso/misc/TQuestListVM_8007EAF8.h"
@@ -67,7 +68,6 @@ s32 render_status_line__15TAdSubPlyItemGCFi(int, int, f32, f32, f32);
 extern const f32 lbl_805E0440;
 extern const f32 lbl_805E0444;
 extern const f32 lbl_805E0448;
-s32 get_state_flag__9TMainTaskFv();
 void queue_destruction__7TObjectFv(void *);
 s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(void *, void *);
 u8 *get_instance__23TAdSinglePlyChrSelectGCFv(void);
@@ -76,12 +76,11 @@ void __ct__7TObjectFP7TObject(void);
 int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-u32 __ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
+u32 __ct__14TAdSelectCurGCFv(void *, TObject *, void *, void *);
 extern u8 lbl_8047B8A8[];
 extern u8 lbl_8047B8B0[];
 extern s32 __vt__11TAdEp3Exist[];
 extern s32 lbl_805D4500;
-extern s32 tl_clipout;
 void *TAdEp3Exist__ct(Ep3_8036F354 *o);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -104,7 +103,7 @@ void TAdEp3Exist::draw_message_window(s32 arg1) {
 }
 
 void TAdEp3Exist::render() {
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return;
     }
 }

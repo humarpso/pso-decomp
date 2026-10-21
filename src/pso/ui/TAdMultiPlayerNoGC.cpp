@@ -4,6 +4,7 @@
 #include "pso/system/ModelDrawContext.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -29,7 +30,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__18TAdMultiPlayerNoGC[];
 extern s32 TAdMultiPlayerNoGC__name;
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg);
-int get_state_flag__9TMainTaskFv(void*);
 
 extern s32 lbl_805D6D78;
 
@@ -42,7 +42,7 @@ void TAdMultiPlayerNoGC::render_status() {
     TWindowSubStatusDisp::get_player();
 }
 
-void TAdMultiPlayerNoGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void TAdMultiPlayerNoGC::render() { if (TMainTask::get_state_flag() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 void TAdMultiPlayerNoGC::run_task() {  }
 #pragma fp_contract on
 TAdMultiPlayerNoGC::~TAdMultiPlayerNoGC() {}

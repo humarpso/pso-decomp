@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -42,7 +43,6 @@ extern "C" {
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
-s32 get_state_flag__9TMainTaskFv();
 extern s32 camera_ctrl_instance;
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
@@ -71,7 +71,6 @@ void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 s32 set_global_param__8TObjFishFl();
 
-extern void *tl_05;
 
 extern "C" u8 lbl_8047A0A8[];
 extern "C" u8 lbl_8047A0C4[];
@@ -226,7 +225,7 @@ void *TObjLaboDesignBase__create(void *arg0) {
 }
 
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {

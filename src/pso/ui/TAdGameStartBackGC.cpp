@@ -5,6 +5,7 @@
 #include "pso/player/TUnk_804E70A8.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -29,7 +30,6 @@ extern const f32 lbl_805DF098;
 extern const f32 lbl_805DF09C;
 extern const f32 lbl_805DF0A0;
 extern const f32 lbl_805DF080;
-int get_state_flag__9TMainTaskFv(void*);
 
 extern const f32 lbl_805DF078;
 
@@ -42,7 +42,7 @@ void TAdGameStartBackGC::render_background_status() {
     TWindowSubStatusDisp::get_player();
 }
 
-void TAdGameStartBackGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { TObjPlayer::init_xyz_limits(); render_background_status(); TObjPlayer::reset_transform_state(); } }
+void TAdGameStartBackGC::render() { if (TMainTask::get_state_flag() != 1) { TObjPlayer::init_xyz_limits(); render_background_status(); TObjPlayer::reset_transform_state(); } }
 
 #pragma push
 #pragma fp_contract on

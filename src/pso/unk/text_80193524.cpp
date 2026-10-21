@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TMainTask.h"
+extern s32 model_render_flags;
 #include "pso/system/GinjaMaterial.h"
 #include "pso/system/MaterialAlphaCompare.h"
 #include "pso/unk/text_80141550.h"
@@ -113,7 +115,6 @@ struct Node_80193CA4 {
 };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 s32 fn_80156BBC(void *, void *);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
@@ -162,7 +163,6 @@ __declspec(section ".data") u32 lazer_fence_sw_ginja_model_table[2];
 __declspec(section ".data") u32 lazer_fence_beam_motions[2];
 __declspec(section ".data") u32 lazer_fence_beam_node_table[3];
 #define lazer_fence_beam_motions (*(RecoveredGlobal_80193A84_lbl_8050DCF0 *)lazer_fence_beam_motions)
-extern void *tl_05;
 
 void *TObjLazerFence4::create() {
     void *o = __nw__7TObjectFUl(0xF8);
@@ -237,7 +237,6 @@ void post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern u32 actor_frame_tick;
-extern s32 model_render_flags;
 extern const f32 lbl_805DBE78;
 void TLazerFenceSw::draw_laser_beam() {
     Sw_801936E0 *self = (Sw_801936E0 *)this;
@@ -283,7 +282,7 @@ void TLazerFenceSw::draw_laser_beam() {
 void TLazerFenceSw::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
-        if (get_state_flag__9TMainTaskFv() != 1) {
+        if (TMainTask::get_state_flag() != 1) {
             set_depth_buffer_settings_id(3);
             set_material_alpha_compare_reference(0x80);
             if (fn_80156BBC(arg0 + 0xF0, (u8 *)&this->position) != 0) {

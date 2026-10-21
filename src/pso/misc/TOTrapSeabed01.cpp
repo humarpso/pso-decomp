@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrap.h"
@@ -357,7 +358,6 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 s32 is_split_screen();
-s32 get_state_flag__9TMainTaskFv();
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0);
 s32 PPCSync();
@@ -457,7 +457,7 @@ void TOTrapSeabed01::draw() {
     }
 }
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
-    if (get_state_flag__9TMainTaskFv() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
+    if (TMainTask::get_state_flag() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
         switch (arg0->f326) {
         case 0:
         case 1:
@@ -549,7 +549,6 @@ void queue_destruction__7TObjectFv(void *arg0);
 
 void TOTrapSeabed01::vfunc_84() {  }
 
-extern void *tl_05;
 
 inline f32 clampf_802CA5F4(f32 lo, f32 hi, f32 v) {
     f32 r;

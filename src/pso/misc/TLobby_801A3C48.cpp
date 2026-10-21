@@ -123,17 +123,11 @@ s32 controller_stuff__Fv();
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 render_tick__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
-s32 render_screen_overlay__9TMainTaskFv(void *);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
-s32 render_shadows__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 cleanup__6TLobbyFv();
 void run_area_scene_cleanup(u8 *arg0);
 s32 PPCSync();
-s32 run_tl_camera_tasks__9TMainTaskFv(void *);
 extern const char lbl_80446930[];
 extern s32 lbl_805D5718;
 void __construct_array(void *, void *, int, int, int);
@@ -310,9 +304,9 @@ void reload_lobby_floor_scene(void) {
     load_area_scene_and_init(lbl_80515BA0);
     load_battle_param_entry();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
-    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
-    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render_screen_overlay();
     TLobby__sub_801F494C(0);
     TLobby__sub_801A3E94();
     process_deferred_player_setup__6TLobbyFv();
@@ -331,19 +325,19 @@ void TLobby::blocking_vsync(void* _w0) {
     TLoadCtrl::set_field1C(0);
     func_803DCDFC__Fv();
     if ((s32) lbl_805D5718 != 0) {
-        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        run_tl_camera_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        main_task.some_empty_func();
+        main_task.run_tl_camera_tasks();
+        main_task.render();
+        main_task.render_screen_overlay();
         ::debug_print(lbl_80446930);
         render_tick__Fv();
     } else {
         controller_stuff__Fv();
         TKeyBoardControl::update_input_frame();
-        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        main_task.some_empty_func();
+        main_task.run_task();
+        main_task.render();
+        main_task.render_screen_overlay();
         process_async_file_reads();
         update_sound_request_slots();
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -386,9 +380,9 @@ void TLobby::reload_floor_scene() {
     arrive_floor_population();
     TLobby::create_tasks();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
-    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
-    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render_screen_overlay();
     for (j = 0; j < 12; j++) {
         p = (Pl_801A40D8 *)get_player_by_client_id(j);
         if (p != NULL) {
@@ -476,9 +470,9 @@ s32 start_quest_mission(void) {
     get_current_floor();
     unlock_main_warp_destination();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render_screen_overlay();
     for (j = 0; j < 12; j++) {
         p = (VObj_18_801A4268 *) get_player_by_client_id(j);
         if (p != NULL) {
@@ -535,9 +529,9 @@ s32 change_floor_reload_area(void) {
     get_current_floor();
     unlock_main_warp_destination();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render_screen_overlay();
     for (j = 0; j < 12; j++) {
         p = (VObj_18_801A441C *) get_player_by_client_id(j);
         if (p != NULL) {
@@ -618,11 +612,11 @@ void TLobby::run_lobby_frame() {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    render_shadows__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render_shadows();
+    main_task.render();
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -667,11 +661,11 @@ void TLobby::run_main_frame() {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    render_shadows__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
-    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render_shadows();
+    main_task.render();
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -761,10 +755,10 @@ void run_online_lobby_scene(void) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         TKeyBoardControl::update_input_frame();
-        some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-        run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-        render__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-        render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        main_task.some_empty_func();
+        main_task.run_task();
+        main_task.render();
+        main_task.render_screen_overlay();
         process_async_file_reads();
         update_sound_request_slots();
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -803,9 +797,9 @@ void run_online_lobby_scene(void) {
         load_area_scene_and_init(lbl_80515BA0);
         TLoadCtrl::cleanup_scene();
         process_deferred_player_setup__6TLobbyFv();
-        some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-        run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
-        render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        main_task.some_empty_func();
+        main_task.run_task();
+        main_task.render_screen_overlay();
         if (TLobby__sub_801A3E8C() != 0) {
             TLobby::start_udp_test_game();
         } else {

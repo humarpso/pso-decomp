@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/menu/TAdEndText_80307A34.h"
 #include "pso/system/main_loop.h"
 #include "pso/TAdEndText.h"
@@ -15,10 +16,6 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s8 func_801A5E54__Fv();
-void render_screen_overlay__9TMainTaskFv(void *object);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
 void func_803DCDFC__Fv(void);
 void TKeyBoardControl__sub_8000F90C(s32 arg0);
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
@@ -34,9 +31,8 @@ extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
 extern "C" {
 int TLobby__sub_800FC3CC(void);
-int tl_delete_children__9TMainTaskFv(void*);
 
-void TAdEndText::cleanup() { ending_sequence_active = 0; tl_delete_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick(); }
+void TAdEndText::cleanup() { ending_sequence_active = 0; main_task.tl_delete_children(); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void TKeyBoardControl::run_main_frame() {
     s32 *var_r3;
@@ -45,16 +41,16 @@ void TKeyBoardControl::run_main_frame() {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    main_task.some_empty_func();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    main_task.run_task();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    main_task.render();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
-    render_screen_overlay__9TMainTaskFv((&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    main_task.render_screen_overlay();
     process_async_file_reads();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();

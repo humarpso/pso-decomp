@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/boss/TObjBoss2Tunnel_8007C5C0.h"
 #include "pso/boss/TObjBoss2Tunnel_8007CF0C.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
@@ -90,7 +91,6 @@ extern s32 *boss2_tunnel_snapshot_buffer;
 VObj_8007C5C0 *create__8TDLGraphFv(void);
 s8 func_801A5E54__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void render__9TMainTaskFv(void *);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
 extern f32 lbl_8048DF4C[];
@@ -149,7 +149,7 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         if (camera_ctrl_instance != 0U) {
             ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
         }
-        render__9TMainTaskFv(((u8 *)&main_task));
+        main_task.render();
         draw_snapshot_capture_overlay();
         TLobby::wait_ready_loop();
         if (func_801A5E54__Fv() != 0) {
@@ -231,7 +231,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
         if (camera_ctrl_instance != 0U) {
             ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
         }
-        render__9TMainTaskFv(((u8 *)&main_task));
+        main_task.render();
         if ((f32)frames >= lbl_805D9220) {
             break;
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TQuestThread.h"
@@ -167,7 +168,6 @@ extern RecoveredGlobal_80321B28_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80321B28_lbl_8050E3B8 controller_physical_port_bank;
 extern u32 TAdEnterSerialAccessGC__keyboard_control;
 extern s32 TAdEnterSerialAccessGC__input_state;
-s32 get_state_flag__9TMainTaskFv();
 extern char lbl_804764D8[];
 extern char lbl_804764E0[];
 extern T_80321738 lbl_80476530;
@@ -184,14 +184,13 @@ s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(void *, void *)
 void *__nw__7TObjectFUl(int);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
+void *__ct__14TAdSelectCurGCFv(void *, TObject *, void *, void *);
 extern u8 lbl_804764F8[];
 extern s32 __vt__22TAdEnterSerialAccessGC[];
 extern s32 TAdEnterSerialAccessGC__name;
-extern s32 tl_clipout;
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, Col_803214C4, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
-void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
+void *__ct__19TAdPlyChrSelPlateGCFv(void *, TObject *, void *);
 extern Vec2_803214C4 lbl_80476548[];
 extern Vec2_803214C4 serial_plate_position_table[];
 extern Col_803214C4 lbl_805DF4D8;
@@ -228,7 +227,7 @@ s32 __vt__22TAdEnterSerialAccessGC[6] = {
 };
 
 void TAdEnterSerialAccessGC::render(void *self) {
-    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    if (TMainTask::get_state_flag() == 1) { return;
     }
 }
 

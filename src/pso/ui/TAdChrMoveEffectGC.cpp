@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
 #include "pso/system/ModelDrawContext.h"
 #include "pso/TObjCMHairMenu.h"
@@ -106,9 +107,8 @@ extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
 void __ct__7TObjectFP7TObject(void *);
 
-int get_state_flag__9TMainTaskFv(void*);
 
-void TAdChrMoveEffectGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); sub_80348E34(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void TAdChrMoveEffectGC::render() { if (TMainTask::get_state_flag() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); sub_80348E34(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 
 extern s32 __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;

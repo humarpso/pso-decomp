@@ -523,9 +523,6 @@ extern "C" {
 void func_80019A68__Fv();
 s32 get_csn_group_flags(s32);
 s8 func_801A5E54__Fv();
-void render_screen_overlay__9TMainTaskFv(void *);
-void some_empty_func__9TMainTaskFv(void *);
-void render__9TMainTaskFv(void *);
 int atoi(const char *);
 void func_803DCDFC__Fv();
 s8 str_length__6TLobbyFl(char *);
@@ -597,10 +594,10 @@ int TSocket::resolve_domain(char *domain) {
                 if (func_801A5E54__Fv() != 0) {
                     break;
                 }
-                some_empty_func__9TMainTaskFv(&main_task);
+                main_task.some_empty_func();
                 ((TMainTask *)(&main_task))->run_tl_camera_tasks();
-                render__9TMainTaskFv(&main_task);
-                render_screen_overlay__9TMainTaskFv(&main_task);
+                main_task.render();
+                main_task.render_screen_overlay();
                 func_80019A68__Fv();
                 render_tick();
             } while (result == -1);

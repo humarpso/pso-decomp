@@ -1,6 +1,7 @@
 #include "pso/TAdGameStartShadowGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Rec_80320CB8 { f32 x, y, x2, y2; f32 u0, v0, u1, v1; };
@@ -26,9 +27,8 @@ extern const f32 lbl_805DF48C;
 extern const f32 lbl_805DF490;
 extern const f32 lbl_805DF494;
 Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *parent);
-int get_state_flag__9TMainTaskFv(void*);
 
-void TAdGameStartShadowGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { sub_80320B38(); } }
+void TAdGameStartShadowGC::render() { if (TMainTask::get_state_flag() != 1) { sub_80320B38(); } }
 
 void TAdGameStartShadowGC::run_task() {
     s32 temp_r0;

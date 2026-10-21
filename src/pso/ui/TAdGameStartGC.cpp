@@ -15,6 +15,7 @@ public:
 };
 
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/object/TObjFish.h"
@@ -262,9 +263,8 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
 extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
 void set_cached_blend_factor(s32 arg0, s32 arg1);
-int get_state_flag__9TMainTaskFv(void*);
 
-void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); draw_background__17TAdGameStartSubGCFPv((u8 *)p); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void render__17TAdGameStartSubGCFv(void* p) { if (TMainTask::get_state_flag() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); draw_background__17TAdGameStartSubGCFPv((u8 *)p); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 #pragma push
 #pragma fp_contract on
 void run_task__17TAdGameStartSubGCFv(u8 *arg0) {

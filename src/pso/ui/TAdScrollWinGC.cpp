@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/system/ModelDrawContext.h"
 #include "pso/unk/text_80145A94.h"
 #include "pso/ui/TAdScrollWinGC.h"
 
 extern "C" {
-int get_state_flag__9TMainTaskFv(void*);
 
-void TAdScrollWinGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status_value(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void TAdScrollWinGC::render() { if (TMainTask::get_state_flag() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status_value(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 s32 TAdScrollWinGC::get_scroll_delay_for_mode() {
     TAdScrollWinGC *arg0 = this;
     s32 r = 0;

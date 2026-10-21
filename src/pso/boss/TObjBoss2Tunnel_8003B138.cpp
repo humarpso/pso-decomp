@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/TObject.h"
 #include "pso/misc/TFogCtrl.h"
@@ -153,7 +154,6 @@ extern "C" {
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, s32, s32);
 extern Rec_8003C108 boss2_tunnel_particle_pos_table[];
 extern const f32 lbl_805D85B0;
-s32 get_state_flag__9TMainTaskFv();
 struct O_8003C21C;
 u8 * sub_8003C21C__15TObjBoss2TunnelFv(O_8003C21C *self);
 s32 rotate_matrix_z(s32, s32);
@@ -191,7 +191,6 @@ void enable_fog__15TObjBoss2TunnelFv(void);
 void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *arg0);
 void TObjBoss2Tunnel__sub_801339EC(f32, f32, f32);
 extern u32 TObjBoss2Tunnel__global_flags;
-extern void *tl_05;
 void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
 #define release_children__15TObjBoss2TunnelFPvf ((void (*)(u32, f32))release_children__15TObjBoss2TunnelFPvf)
 #define sub_8003C21C__15TObjBoss2TunnelFv ((s32 (*)(void *, void *))sub_8003C21C__15TObjBoss2TunnelFv)
@@ -206,7 +205,6 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
 void TObjBoss2Tunnel__sub_8003B2B0(void);
 void *__ct__7TObjectFP7TObject(void *, void *);
 
-extern void *tl_07;
 
 void TObjBoss2Tunnel__sub_8003B2B0(void) {
     void *o;
@@ -222,7 +220,7 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
     s32 i;
     Tunnel_8003B2EC *o = (Tunnel_8003B2EC *)arg0;
     Vec_8003B2EC v = boss2_tunnel_render_zero_vec[0];
-    if (TObjPlayer::is_any_teammate_in_state() == 0 && get_state_flag__9TMainTaskFv() == 0) {
+    if (TObjPlayer::is_any_teammate_in_state() == 0 && TMainTask::get_state_flag() == 0) {
     push_matrix();
     {
         Fog_8003B2EC *f = *lbl_805D4BEC;
@@ -880,7 +878,6 @@ void TObjBoss2Tunnel::set_global_flag_400() {
 
 void TObjBoss2Tunnel__sub_8003C648(void) {  }
 
-extern void *tl_02;
 
 void *TObjBoss2Tunnel::create() {
     void *o = __nw__7TObjectFUl(0xDC);

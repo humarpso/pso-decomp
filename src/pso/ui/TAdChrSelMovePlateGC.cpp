@@ -2,6 +2,7 @@
 #include "pso/ui/TAdMultiPlyChrSelectGC_802C6F88.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 
 struct T_8032572C { u8 pad[0x20]; u32 count; u8 pad24[0x184]; s32 arr[1]; };
 
@@ -33,9 +34,8 @@ extern s32 lbl_805D4190;
 extern s32 chr_sel_move_plate_texture;
 Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0);
 int draw_move_plate_quads(void*);
-int get_state_flag__9TMainTaskFv(void*);
 
-void TAdChrSelMovePlateGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { draw_move_plate_quads(this); } }
+void TAdChrSelMovePlateGC::render() { if (TMainTask::get_state_flag() != 1) { draw_move_plate_quads(this); } }
 void TAdChrSelMovePlateGC::clear_entries() {
     T_8032572C *self = (T_8032572C *)this;
     u32 i;

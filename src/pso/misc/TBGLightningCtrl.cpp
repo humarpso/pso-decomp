@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/TObject.h"
 #include "pso/misc/TBGLightningCtrl.h"
 #include "pso/object/TObjMotion.h"
@@ -62,7 +63,6 @@ extern "C" {
 
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 s32 queue_destruction__7TObjectFv();
-s32 get_state_flag__9TMainTaskFv();
 s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 u8 *load_gvm_texture_file(s32 arg0);
 void __dl__7TObjectFPv(void *);
@@ -87,7 +87,6 @@ const char *TBGLightningCtrl__name = lbl_8046FC78;
 __declspec(section ".rodata") s32 lbl_8046FC8C[3] = { 1, 5, 0 };
 extern void *camera_ctrl_instance;
 extern int bg_lightning_texture_handle;
-extern void *tl_05;
 
 void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param(bg_lightning_texture_handle); }
 
@@ -261,7 +260,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
 void render__12TBGLightningFv(s32 arg0) {
     Stack_802AA0A4 stack;
     s32 temp_r31;
-    if (get_state_flag__9TMainTaskFv() != 0) {
+    if (TMainTask::get_state_flag() != 0) {
         temp_r31 = *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + 0x4000;
         stack.sp8 = sin_table_lookup(temp_r31);
         stack.spC = (-1.0f);

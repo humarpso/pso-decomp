@@ -26,10 +26,6 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void);
 void process_async_file_reads(void);
 void update_sound_request_slots(void);
 extern "C" {
-void render_screen_overlay__9TMainTaskFv(void *object);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
 void func_803DCDFC__Fv(void);
 typedef char RecoveredGlobal_80290BEC_main_task_size[sizeof(RecoveredGlobal_80290BEC_main_task) == 0x34 ? 1 : -1];
 void fn_80290BEC(void) {
@@ -49,16 +45,16 @@ void run_main_frame(void) {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    main_task.some_empty_func();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    main_task.run_task();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    main_task.render();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
-    render_screen_overlay__9TMainTaskFv((&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();

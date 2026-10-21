@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrap.h"
@@ -109,7 +110,6 @@ extern const f64 lbl_80442F38;
 extern Vec_8017A3C0 lbl_8050BEE0[];
 extern Vec_8017A3C0 lbl_8050BF00[];
 extern u8 identity_matrix[];
-extern s32 tl_07;
 extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA80;
 extern const f32 lbl_805DBA84;
@@ -326,7 +326,6 @@ struct Trap_8017B6D8 {
 u16 obj_getField1c(void *);
 void obj_setFlags30(void *, u32);
 s32 is_split_screen();
-s32 get_state_flag__9TMainTaskFv();
 void * get_bml_model(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, int, char *, int, int, int);
@@ -368,7 +367,6 @@ extern const f32 lbl_805DBA7C;
 extern const f32 lbl_805DBA9C;
 extern const f32 lbl_805DBAA0;
 extern const f32 lbl_805DBAA4;
-extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
@@ -1143,7 +1141,7 @@ void TOTrapAncient02::draw_effect_chain() {
 }
 
 void TOTrapAncient02::render() {
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         this->m_340 = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
         if (((s32) this->m_340 == 1) && (((s32) this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
             set_depth_buffer_settings_id(3);

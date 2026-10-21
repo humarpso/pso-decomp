@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/object/TObjMotion.h"
@@ -38,7 +39,6 @@ typedef char RecoveredGlobal_801950B8_lbl_804B8564_size[sizeof(RecoveredGlobal_8
 struct Moto_801951C8 { s32 x0; u8 pad4[0x30 - 4]; u32 flags; u8 pad34[0x68 - 0x34]; f32 x68; u8 pad6C[0xBC - 0x6C]; s32 xBC; };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv(void);
 s32 get_bml_model(void *, int);
 }
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
@@ -74,7 +74,7 @@ void *__nw__7TObjectFUl(int);
 
 void TMotorcycle::render() {
     u8 *arg0 = (u8 *)this;
-    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
+    if ((TMainTask::get_state_flag() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
         set_depth_buffer_settings_id(3);
         if ((u32) TMotorcycle__texture_list != 0U) {
             TObjFish::set_global_param((s32) TMotorcycle__texture_list);
@@ -91,7 +91,6 @@ void TMotorcycle::render() {
 
 void TMotorcycle::vfunc_14() {  }
 
-extern void *tl_05;
 
 void *TMotorcycle::create() {
     void *o = __nw__7TObjectFUl(0xC0);

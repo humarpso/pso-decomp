@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/TObject.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/object/TObject_80019A50.h"
@@ -36,7 +37,6 @@ void * __nw__7TObjectFUl(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void render__8TObjFishFv(u8 *arg0);
 s32 init_fish_school__8TObjFishFPvll(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3);
-extern void* tl_05;
 extern s32 TObjFish__area_bml_resource;
 extern void* __vt__8TObjFish[];
 extern void* fish_resource_name_table[];
@@ -393,7 +393,6 @@ struct Fish_8029D5C8 {
 
 extern "C" {
 
-s32 get_state_flag__9TMainTaskFv();
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DDD40;
 extern const f32 TObjFish__data_805DDD44;
@@ -417,7 +416,7 @@ void render__8TObjFishFv(u8 *arg0) {
     s32 n;
     struct { f32 x, y, z; } d;
 
-    if (get_state_flag__9TMainTaskFv() != 1 &&
+    if (TMainTask::get_state_flag() != 1 &&
         ((VObj_18_26a62c *)arg0)->m8(lbl_805DDD40, TObjFish__data_805DDD44) != 0 &&
         F(Fish_8029D5C8 *, 0xA0) != NULL && ((s32 (*)(void *))update_state__8TObjFishFv)(arg0) != 0) {
         f = F(Fish_8029D5C8 *, 0xA0);
