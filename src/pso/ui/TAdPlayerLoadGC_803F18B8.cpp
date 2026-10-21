@@ -213,7 +213,7 @@ void TAdPlayerLoadGC__sub_803F2CD0(s32 card_channel, s32 result) {
     }
 }
 
-struct CardInfo_803F31D8 { s32 state; s32 f4; s32 f8; };
+struct CardInfo_803F31D8 { s32 state; s32 f4; u32 sector_size; };
 s32 CARDMountAsync(s32, void *, void *, void *);
 s32 CARDCheckAsync(s32, void (*)(s32, s32));
 s32 CARDGetSectorSize(s32, u32 *);
@@ -268,7 +268,7 @@ void TAdPlayerLoadGC__sub_803F2D20(s32 card_channel) {
             break;
         }
     case 5:
-        TAdPlayerLoadGC__load_request_slots[card_channel].f5C = CARDGetSectorSize(card_channel, (u32 *)&((CardInfo_803F31D8 *)lbl_805A5ED0)[card_channel].f8);
+        TAdPlayerLoadGC__load_request_slots[card_channel].f5C = CARDGetSectorSize(card_channel, &((CardInfo_803F31D8 *)lbl_805A5ED0)[card_channel].sector_size);
         if (TAdPlayerLoadGC__load_request_slots[card_channel].f5C < 0) {
             TAdPlayerLoadGC__load_request_slots[card_channel].f58 = -202;
             *st = 0x18;
