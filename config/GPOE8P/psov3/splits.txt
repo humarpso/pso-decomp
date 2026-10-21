@@ -2917,7 +2917,13 @@ pso/unk/text_8011B328.cpp:
 	.text       start:0x8011B328 end:0x8011B3B0
 
 pso/item/TItemShootGun.cpp:
-	.text       start:0x8011B3B0 end:0x8011B620
+	.text       start:0x8011B3B0 end:0x8011B444
+
+pso/item/TItemShootGun_ctor.cpp:
+	.text       start:0x8011B444 end:0x8011B598
+
+pso/item/TItemShootGun_8011B598.cpp:
+	.text       start:0x8011B598 end:0x8011B620
 
 pso/unk/text_8011B620.cpp:
 	.text       start:0x8011B620 end:0x8011B694
