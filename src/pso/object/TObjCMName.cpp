@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
@@ -15,6 +16,7 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/unk/text_80131ADC.h"
@@ -38,18 +40,6 @@ struct Menu_80296D68
   u8 pad50[8];
   f32 scroll;
 };
-
-struct Name_80294A2C {
-    u8 pad0[0x1C];
-    char *name;
-    s32 opened;
-    void *keyboard;
-    s32 ticks;
-    s32 active;
-    f32 fade;
-};
-
-struct Vec2_80294A2C { f32 x, y; };
 
 struct Menu_80297B18 {
     u8 pad0[0x1C];
@@ -399,8 +389,8 @@ void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void fn_802910A4(s32, void *, void *, f32);
 void fn_802947A8(void);
-int TObjCMName__sub_802948F4(void);
-void *TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
+int TObjCMName__sub_802948F4(TObjCMName *, char *);
+TKeyBoardControl *TKeyBoardControl__ct(void *, TObject *, s32, s32, s32, s32);
 int get_keyboard_field_6c__15TWindowMakeTeamFv(void *, char *);
 void mem_free(void *p);
 void * create__10TObjCMNameFPv(void *arg0);
@@ -555,66 +545,65 @@ CreationMenuModeList creation_menu_mode_lists[6] = {
 };
 #define TObjCMMainMenu__data_804DB9C8 (*(RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 *)TObjCMMainMenu__data_804DB9C8)
 
-int TObjCMName__sub_802948F4(void) { return 0; }
+int TObjCMName__sub_802948F4(TObjCMName *, char *) { return 0; }
 
 void TObjCMName::run_task() {
-    Name_80294A2C *self = (Name_80294A2C *)this;
-    Vec2_80294A2C pos;
+    f32 pos[2];
     char name[13];
-    void *kb;
-    void *buf;
+    TKeyBoardControl *kb;
+    char *buf;
     s32 sound;
     f32 scale;
 
-    self->ticks++;
-    if (self->opened == 0) {
-        if (self->ticks > 1) {
-            kb = __nw__7TObjectFUl(0x2C);
+    ticks++;
+    if (opened == 0) {
+        if (ticks > 1) {
+            kb = (TKeyBoardControl *)TObject::operator new(sizeof(TKeyBoardControl));
             if (kb != NULL) {
                 kb = TKeyBoardControl__ct(kb, this, 12, 0, 0, TChCrEffCtrlPl::get_clamped_player_index());
             }
-            self->keyboard = kb;
-            get_keyboard_field_6c__15TWindowMakeTeamFv(self->keyboard, self->name);
+            keyboard = kb;
+            get_keyboard_field_6c__15TWindowMakeTeamFv(keyboard, (char *)appearance->name);
             scale = TObjCMMainMenu::get_scale();
-            pos.x = 148.0f;
-            pos.y = 137.0f * scale;
-            ((TWindowMakeTeam *)self->keyboard)->set_sub_position((u8 *)&pos);
-            pos.x = 53.0f;
-            pos.y = 178.0f * scale;
-            fn_80131ADC((u8 *)self->keyboard, (u8 *)&pos);
-            self->opened = 1;
+            pos[0] = 148.0f;
+            pos[1] = 137.0f * scale;
+            ((TWindowMakeTeam *)keyboard)->set_sub_position((u8 *)pos);
+            pos[0] = 53.0f;
+            pos[1] = 178.0f * scale;
+            fn_80131ADC((u8 *)keyboard, (u8 *)pos);
+            opened = 1;
         }
-    } else if (self->active == 0) {
-        if ((self->fade += -0.083333336f) <= 0.0f) {
-            self->fade = 0.0f;
-            queue_destruction__7TObjectFv(this);
+    } else if (active == 0) {
+        if ((fade += -0.083333336f) <= 0.0f) {
+            fade = 0.0f;
+            queue_destruction();
         }
     } else {
-        if ((self->fade += 0.16666667f) > 1.0f) {
-            self->fade = 1.0f;
+        if ((fade += 0.16666667f) > 1.0f) {
+            fade = 1.0f;
         }
-        if (((TWindowSubComCard *)self->keyboard)->update_keyboard() != 0) {
-            buf = (void *)((TWindowSubComCard *)self->keyboard)->realloc_buffer();
+        if (((TWindowSubComCard *)keyboard)->update_keyboard() != 0) {
+            buf = (char *)((TWindowSubComCard *)keyboard)->realloc_buffer();
             sound = 0x53704;
-            strncpy(name, (char *)buf, 12);
+            strncpy(name, buf, 12);
             name[12] = 0;
             if (TObjCMMainMenu::validate_character_name((s8 *)name) == 0) {
                 sound = 0x5280D;
             }
-            if (((int (*)(void *, char *))TObjCMName__sub_802948F4)(this, name) != 0) {
+            if (TObjCMName__sub_802948F4(this, name) != 0) {
                 sound = 0x52608;
-                strncpy(name, self->name, 12);
+                strncpy(name, (char *)appearance->name, 12);
                 name[12] = 0;
             }
             ((TObjCMMainMenu *)name)->copy_char_name();
-            strncpy(self->name, name, 12);
-            self->name[12] = 0;
+            strncpy((char *)appearance->name, name, 12);
+            appearance->name[12] = 0;
             mem_free(buf);
             play_sound_effect(sound, 0, 0, 0);
             TObjCMMainMenu::clear_task_state();
-            queue_destruction__7TObjectFv(self->keyboard);
-            self->keyboard = NULL;
-            self->active = 0;
+            keyboard->queue_destruction();
+            keyboard = NULL;
+            active = 0;
         }
     }
 }
