@@ -19,9 +19,6 @@ struct Obj_80019AB0 { u8 pad[0x20]; Sub_80019AB0 *sub; f32 f24; };
 extern "C" {
 void fn_80019EB8(Node_80019AB0 *n, f32 v);
 
-void queue_destruction__7TObjectFv(void *object) {
-    ((TObject *)object)->m_flags = (u16) (((TObject *)object)->m_flags | 1);
-}
 }
 
 extern s32 logo_texture_e_handle;

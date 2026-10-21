@@ -2675,7 +2675,6 @@ pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
 pso/system/TSetEvtDestroy.cpp
 pso/ui/TAdADXlogo.cpp
-pso/ui/TAdADXlogo_80019848.cpp
 pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp

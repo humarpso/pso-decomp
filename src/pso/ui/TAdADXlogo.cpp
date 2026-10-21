@@ -1,41 +1,75 @@
-#include "pso/TAdADXlogo.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/ui/TAdADXlogo.h"
-TAdADXlogo::~TAdADXlogo() {}
+#pragma readonly_strings on
+#define TOBJECT_OUT_OF_LINE_HELPERS
 
 #include "types.h"
+#include "pso/TAdADXlogo.h"
+#include "pso/TMainTask.h"
+#include "pso/TObject.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/TAdBackGC.h"
 
-extern "C" {
+s32 get_logo_texture_e_handle();
 
-void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
+const char *TAdADXlogo_name = "TAdADXlogo";
 
-extern s32 __vt__10TAdADXlogo[];
-extern void *lbl_805D2600;
-extern u32 TAdADXlogo__state;
-extern u32 lbl_805D49D0;
-extern void *tl_00;
-extern s32 destroy__10TAdADXlogoFv[];
+void *TAdADXlogo__texture;
+u32 TAdADXlogo__state;
+u32 TAdADXlogo__done;
 
-void *__ct__10TAdADXlogoFv(void *ad_ad_xlogo) {
-    void *o;
-    __ct__7TObjectFP7TObject(ad_ad_xlogo);
-    *(s32 **)((s8 *)ad_ad_xlogo + 0x18) = __vt__10TAdADXlogo;
-    *(void * *)&((TAdADXlogo *)ad_ad_xlogo)->m_name = lbl_805D2600;
-    *(u32 *)((s8 *)ad_ad_xlogo + 0x1C) = 0;
-    TAdADXlogo__state = 0;
-    lbl_805D49D0 = 0;
-    o = __nw__7TObjectFUl(0x28);
-    if (o != NULL) {
-        ((TLobby *)o)->init_fade(tl_00, destroy__10TAdADXlogoFv);
+void TAdADXlogo::fade_out_done(TObject *fade) {
+    fade->queue_destruction();
+    TAdADXlogo__done = 1;
+}
+
+void TAdADXlogo::fade_in_done(TObject *fade) {
+    fade->queue_destruction();
+    TAdADXlogo__state = 1;
+}
+
+void TAdADXlogo::render() {
+    render_logo_with_default(TAdADXlogo__texture, 0, -1, -150.0f);
+}
+
+void TAdADXlogo::run_task() {
+    switch (TAdADXlogo__state) {
+    case 0:
+        break;
+    case 1:
+        if ((f32)++m_frames > 60.0f) {
+            void *fade;
+            TAdADXlogo__state = 2;
+            fade = operator new(0x28);
+            if (fade != NULL) {
+                ((THunterGuildSeqOffline *)fade)->init(tl_00, (void *)fade_out_done);
+            }
+        }
+        break;
+    case 2:
+        break;
     }
-    return ad_ad_xlogo;
 }
 
-void TLogo__sub_80019A28(void) {  }
+TAdADXlogo::~TAdADXlogo() {}
 
-    extern int lbl_805D49C8;
-void TLogo__sub_80019A2C(void) { lbl_805D49C8 = get_logo_texture_e_handle(); }
+TAdADXlogo::TAdADXlogo(TObject *parent) : TObject(parent) {
+    void *fade;
+    m_name = TAdADXlogo_name;
+    m_frames = 0;
+    TAdADXlogo__state = 0;
+    TAdADXlogo__done = 0;
+    fade = operator new(0x28);
+    if (fade != NULL) {
+        ((TLobby *)fade)->init_fade(tl_00, (void *)fade_in_done);
+    }
+}
+
+void free_adx_logo_texture() {
 
 }
+
+void load_adx_logo_texture() {
+    TAdADXlogo__texture = (void *)get_logo_texture_e_handle();
+}
+
+void TObject::queue_destruction() { m_flags |= QUEUE_DESTRUCTION; }
