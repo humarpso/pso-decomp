@@ -36,7 +36,7 @@ public:
     void* m_50;
     f32 m_54;
     void* m_58;
-    void* m_5c;
+    s32 m_5c;
     s32 rotation_y;
     s32 rotation_z;
     f32 scale;

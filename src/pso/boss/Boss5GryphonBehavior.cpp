@@ -3223,7 +3223,7 @@ void TBoss8Dragon__sub_800605E8(TBoss5Gryphon *self, s32 event) {
             if (self->m_6e0 >= 0x28) {
                 ((TBoss8Dragon *)self)->set_phase();
                 ((TBoss8Dragon *)self)->reset_radius();
-                *(s32 *)((u8 *)self + 0x5C) = 0x4000;
+                self->m_5c = 0x4000;
                 self->advance_motion_entry();
             }
             break;
@@ -3234,7 +3234,7 @@ void TBoss8Dragon__sub_800605E8(TBoss5Gryphon *self, s32 event) {
         self->m_4c0 &= ~4;
         ((TBoss8Dragon *)self)->set_phase();
         ((TBoss8Dragon *)self)->reset_radius();
-        *(s32 *)((u8 *)self + 0x5C) = 0x4000;
+        self->m_5c = 0x4000;
         break;
     case 10:
     case 11:
@@ -3684,12 +3684,12 @@ void TBoss8Dragon__sub_800615FC(TBoss5Gryphon *self, s32 event) {
                 d = -lbl_805D8E40 * d + lbl_805D8E40;
                 self->position[1] = lbl_805D8E20 + d;
             }
-            *(s32 *)((u8 *)self + 0x5C) = (s32)(lbl_805D8E44 * f / lbl_805D8E10);
+            self->m_5c = (s32)(lbl_805D8E44 * f / lbl_805D8E10);
             self->m_6e0++;
             if (self->m_6e0 > 0x14) {
                 ((TBoss8Dragon *)self)->set_attack_phase();
                 ((TBoss8Dragon *)self)->set_anim_speed();
-                *(s32 *)((u8 *)self + 0x5C) = 0;
+                self->m_5c = 0;
                 self->m_6dc = 2;
             }
             break;
@@ -3709,7 +3709,7 @@ void TBoss8Dragon__sub_800615FC(TBoss5Gryphon *self, s32 event) {
         self->m_4c0 &= ~4;
         ((TBoss8Dragon *)self)->set_attack_phase();
         ((TBoss8Dragon *)self)->set_anim_speed();
-        *(s32 *)((u8 *)self + 0x5C) = 0;
+        self->m_5c = 0;
         break;
     case 10:
     case 11:
@@ -4009,12 +4009,12 @@ void TBoss8Dragon__sub_80062114(TBoss5Gryphon *self, s32 event) {
                 d = -lbl_805D8E48 * d + lbl_805D8E48;
                 self->position[1] = lbl_805D8E20 + d;
             }
-            *(s32 *)((u8 *)self + 0x5C) = (s32)(lbl_805D8E44 * f / lbl_805D8E00);
+            self->m_5c = (s32)(lbl_805D8E44 * f / lbl_805D8E00);
             self->m_6e0++;
             if (self->m_6e0 > 0x1E) {
                 ((TBoss8Dragon *)self)->set_attack_phase();
                 ((TBoss8Dragon *)self)->set_anim_speed();
-                *(s32 *)((u8 *)self + 0x5C) = 0;
+                self->m_5c = 0;
                 self->m_6dc = 2;
             }
             break;
@@ -4034,7 +4034,7 @@ void TBoss8Dragon__sub_80062114(TBoss5Gryphon *self, s32 event) {
         self->m_4c0 &= ~4;
         ((TBoss8Dragon *)self)->set_attack_phase();
         ((TBoss8Dragon *)self)->set_anim_speed();
-        *(s32 *)((u8 *)self + 0x5C) = 0;
+        self->m_5c = 0;
         break;
     case 10:
     case 11:
