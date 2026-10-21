@@ -16,13 +16,12 @@
 struct RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw { s32 value; u8 remaining[0x148]; };
 typedef char RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw_size[sizeof(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw) == 0x14C ? 1 : -1];
 
-struct Ent_8008D68C { void *obj; s16 model_index; s16 part_index; s16 a; s16 b; s16 c; s16 d; };
+struct Ent_8008D68C { s16 *plist; s16 model_index; s16 part_index; s16 a; s16 b; s16 c; s16 d; };
 
-struct BalClawModelSet { u8 pad0[0x18]; u32 model; };
-struct BalClawResource { u8 pad0[0x42C]; BalClawModelSet *models; };
-struct BalClawPart { u32 flags; };
-struct BalClawNode { u8 pad0[4]; void *obj; };
-struct BalClawPartNode { u8 pad0[4]; BalClawNode *node; };
+struct BalClawModelEntry { u32 flags; u32 m_4; u32 model; u32 m_c; };
+struct BalClawResource { u8 pad0[0x42C]; BalClawModelEntry *models; };
+struct BalClawModel { void *vlist; s16 *plist; };
+struct BalClawObject { u32 evalflags; BalClawModel *model; };
 
 static const char balclaw_body_model[] = "re6_b_bal_body.nj";
 static const char balclaw_bcbody_model[] = "re6_b_bcbody.nj";
@@ -94,7 +93,7 @@ void TObjEneBalClaw__sub_8008D68C(void) {
         balclaw_last_shared_update_frame = actor_frame_tick;
         for (i = 0; i < 7; i++) {
             Ent_8008D68C *e = &balclaw_parts[i];
-            TObjPlayer__sub_8023DEE0((s16 *)e->obj, e->a, e->b, e->c);
+            TObjPlayer__sub_8023DEE0(e->plist, e->a, e->b, e->c);
         }
     }
 }
@@ -171,7 +170,7 @@ void TObjEneBalClaw::release_global_805D4F20() {
     }
 }
 
-extern BalClawPart *lbl_805006F8[4][11];
+extern BalClawObject *lbl_805006F8[4][11];
 extern void *lbl_805007A8[];
 extern void *lbl_805007B0[];
 extern void *lbl_805007B8[];
@@ -185,7 +184,7 @@ u32 get_bml_model(u32, s32);
 
 void TObjEneBalClaw__sub_8008D924(void) {
     Ent_8008D68C *e;
-    BalClawPart *part;
+    BalClawObject *part;
     u32 model;
     s32 k;
     s32 base;
@@ -199,13 +198,13 @@ void TObjEneBalClaw__sub_8008D924(void) {
         p = load_resource_from_descriptor(p, 1, &balclaw_resource_descriptor, 0, 0, 0);
     }
     lbl_805D4F20 = (u32)p;
-    model = ((BalClawResource *)p)->models->model;
+    model = ((BalClawResource *)p)->models[1].model;
     for (k = 0; k < 4; k++) {
         base = balclaw_part_base[k];
         count = 0;
         for (j = 0; j < 10; j++) {
-            part = (BalClawPart *)TBoss3Volopt::collect_and_count(model, base + j);
-            if (part != NULL && !(part->flags & 8)) {
+            part = (BalClawObject *)TBoss3Volopt::collect_and_count(model, base + j);
+            if (part != NULL && !(part->evalflags & 8)) {
                 lbl_805006F8[k][count] = part;
                 count++;
             }
@@ -214,7 +213,7 @@ void TObjEneBalClaw__sub_8008D924(void) {
     }
     for (m = 0; m < 7; m++) {
         e = &balclaw_parts[m];
-        e->obj = ((BalClawPartNode *)TBoss3Volopt::collect_and_count(get_bml_model(lbl_805D4F20, e->model_index), e->part_index))->node->obj;
+        e->plist = ((BalClawObject *)TBoss3Volopt::collect_and_count(get_bml_model(lbl_805D4F20, e->model_index), e->part_index))->model->plist;
     }
     for (n = 0; n < 2; n++) {
         lbl_805007A8[n] = TLobby::register_boss(31);
