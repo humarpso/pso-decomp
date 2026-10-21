@@ -9557,7 +9557,7 @@ pso/misc/TWindowSubSymbolChatHelp.cpp:
 pso/misc/TWindowSubSymbolChatParts.cpp:
 	.text       start:0x80284C04 end:0x80285E10
 	.rodata     start:0x8044FC08 end:0x8044FC10
-	.sdata2     start:0x805DD7D4 end:0x805DD7F8
+	.sdata2     start:0x805DD7C8 end:0x805DD810
 
 pso/misc/TWindowSubSymbolChat_80285E10.cpp:
 	.text       start:0x80285E10 end:0x80286120
