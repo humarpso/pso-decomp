@@ -3,34 +3,32 @@
 
 #include "types.h"
 #include "pso/TObject.h"
+#include <dolphin/mtx.h>
 
-struct TBoss7LaserLight : public TObject {
+struct TObjLight;
+
+extern const char *TBoss7LaserLight_name;
+
+class TBoss7LaserLight : public TObject {
+public:
+    enum State { OFF, FADE_IN, ON, FADE_OUT };
+    enum Request { REQUEST_NONE, REQUEST_ON, REQUEST_OFF };
+
+    Vec *m_position;
+    s32 m_state;
+    u32 m_request;
+    f32 m_color[4];
+    f32 m_range[2];
+    TObjLight *m_light;
+
+    TBoss7LaserLight(TObject *parent, Vec *position);
     virtual ~TBoss7LaserLight();
-    u32 m_1c;
-    u32 m_20;
-    u32 m_24;
-    void* m_28;
-    u8 _pad2C[0xC];
-    void* m_38;
-    u8 _pad3C[0x4];
-    u32 m_40;
-    virtual void render();
     virtual void run_task();
-    u8 *construct_with_params(s32 arg1, s32 arg2, s32 arg3);
+    virtual void render();
+
+    void turn_off();
+    void turn_on();
 };
-
 typedef char TBoss7LaserLight_size[sizeof(TBoss7LaserLight) == 0x44 ? 1 : -1];
-
-extern "C" {
-void TBoss7LaserLight__sub_802EF120(void *p);
-void TBoss7LaserLight__sub_802EF12C(void *p);
-}
-
-// --- C functions defined in TBoss7LaserLight.cpp ---
-extern "C" {
-void TBoss7LaserLight__sub_802EF120(void *p);
-void TBoss7LaserLight__sub_802EF12C(void *p);
-}
-// --- end of C functions
 
 #endif

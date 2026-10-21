@@ -10904,20 +10904,12 @@ pso/boss/TBoss7Joint_802EE6E0.cpp:
 pso/boss/TBoss7Joint.cpp:
 	.text       start:0x802EE9A4 end:0x802EED20
 
-pso/unk/text_802EED20.cpp:
-	.text       start:0x802EED20 end:0x802EEE24
-
-pso/unk/text_802EEE24.cpp:
-	.text       start:0x802EEE24 end:0x802EEE9C
-
-pso/object/TObject_802EEE9C.cpp:
-	.text       start:0x802EEE9C end:0x802EEF10
-	.data       start:0x804E4788 end:0x804E47A0
-
 pso/boss/TBoss7LaserLight.cpp:
-	.text       start:0x802EEF10 end:0x802EF26C
-	.data       start:0x804E47A0 end:0x804E47B8
-	.sdata2     start:0x805DEBC4 end:0x805DEBD4
+	.text       start:0x802EED20 end:0x802EF26C
+	.rodata     start:0x80473FF0 end:0x80474008
+	.data       start:0x804E4788 end:0x804E47B8
+	.sdata      start:0x805D3FC8 end:0x805D3FD0
+	.sdata2     start:0x805DEBC0 end:0x805DEBE0
 
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp:
 	.text       start:0x802EF26C end:0x802EF800

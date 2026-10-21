@@ -2235,7 +2235,6 @@ pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
-pso/object/TObject_802EEE9C.cpp
 pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
@@ -3610,8 +3609,6 @@ pso/unk/text_802E4A4C.cpp
 pso/unk/text_802E52AC.cpp
 pso/unk/text_802E62A4.cpp
 pso/unk/text_802EDCF0.cpp
-pso/unk/text_802EED20.cpp
-pso/unk/text_802EEE24.cpp
 pso/unk/text_802F0E24.cpp
 pso/unk/text_802F0F04.cpp
 pso/unk/text_802F190C.cpp
@@ -3773,3 +3770,4 @@ si/SIBios.c
 si/SISamplingRate.c
 vi/vi.c
 pso/item/TUnk_804F0D34.cpp
+pso/boss/TBoss7LaserLight.cpp

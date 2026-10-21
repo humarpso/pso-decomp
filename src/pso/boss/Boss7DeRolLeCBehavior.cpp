@@ -9,6 +9,8 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss7Joint.h"
 #include "pso/boss/TBoss7LaserPtcl.h"
+#include "pso/boss/TBoss7LaserLight.h"
+#include "pso/object/TUnk_804E4788.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -910,8 +912,6 @@ u8 *csnVector(s32 *, void *, s32);
 u32 __nw__7TObjectFUl(int);
 void set_state_and_send__14TBoss7DeRolLeCFl(u8 *arg0, s32 arg1);
 #define set_state_and_send__14TBoss7DeRolLeCFl ((s32 (*)(void *, int))set_state_and_send__14TBoss7DeRolLeCFl)
-s32 push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
-u32 construct_with_params__16TBoss7LaserLightFlll(void *, void *, int, int);
 s32 is_state_2__15TBoss7LaserPtclFv(void *);
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 extern s32 boss7_laser_particle_params[];
@@ -1743,8 +1743,6 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     struct { f32 v[3]; } sp8;
     s32 temp_r4_2;
     u32 boss7_laser_ptcl;
-    u32 var_r0_2;
-    u32 var_r0_3;
     u8 *temp_r30;
     u8 *src;
     u8 *temp_r3;
@@ -1845,22 +1843,14 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             if (temp_r3 != NULL) {
                 VecCopy__FP3VecPC3Vec((int)((int)src), (void *)((int) (*(s32 *)((s8 *)temp_r3 + 4))));
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x71C) == 0U) {
-                    var_r0_2 = __nw__7TObjectFUl(0x124);
-                    if (var_r0_2 != 0U) {
-                        var_r0_2 = construct_with_params__16TBoss7LaserLightFlll((void *) var_r0_2, (void *)arg0, 6, 0x208);
-                    }
-                    *(u32 *)((s8 *)arg0 + 0x71C) = var_r0_2;
+                    *(TUnk_804E4788 **)((s8 *)arg0 + 0x71C) = new TUnk_804E4788((TObject *)arg0, 6, 0x208);
                 } else {
-                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x71C), src);
+                    (*(TUnk_804E4788 **)((s8 *)arg0 + 0x71C))->push_ring_point((const Vec *)src);
                 }
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x720) == 0U) {
-                    var_r0_3 = __nw__7TObjectFUl(0x124);
-                    if (var_r0_3 != 0U) {
-                        var_r0_3 = construct_with_params__16TBoss7LaserLightFlll((void *) var_r0_3, (void *)arg0, 0xF, 0x209);
-                    }
-                    *(u32 *)((s8 *)arg0 + 0x720) = var_r0_3;
+                    *(TUnk_804E4788 **)((s8 *)arg0 + 0x720) = new TUnk_804E4788((TObject *)arg0, 0xF, 0x209);
                 } else {
-                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x720), src);
+                    (*(TUnk_804E4788 **)((s8 *)arg0 + 0x720))->push_ring_point((const Vec *)src);
                 }
             }
             *(ByteBlock_14 *)(copy_storage_802E8FCC.bytes) = *(const ByteBlock_14 *)((s32) ((u8 *)((void *)((u8 *)boss7_laser_particle_params + -4))) + 4);
@@ -3519,13 +3509,11 @@ void TObjFish::pick_random_target() {
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
-void TBoss7LaserLight__sub_802EF120(void *p);
-void TBoss7LaserLight__sub_802EF12C(void *p);
 
 void release_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
     void *temp_r3 = *(void **)((s8 *)arg0 + 0x708);
     if ((u32) temp_r3 != 0U) {
-        TBoss7LaserLight__sub_802EF120(temp_r3);
+        ((TBoss7LaserLight *)temp_r3)->turn_off();
     }
     *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFEF);
 }
@@ -3533,7 +3521,7 @@ void release_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
 void TBoss7LaserPtcl::free_laser_light() {
     void *temp_r3 = *(void **)((s8 *)this + 0x708);
     if ((u32) temp_r3 != 0U) {
-        TBoss7LaserLight__sub_802EF12C(temp_r3);
+        ((TBoss7LaserLight *)temp_r3)->turn_on();
     }
     *(s32 *)((s8 *)this + 0x628) = (s32) (*(s32 *)((s8 *)this + 0x628) | 0x10);
 }
