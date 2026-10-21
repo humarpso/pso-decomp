@@ -391,7 +391,7 @@ void fn_802910A4(s32, void *, void *, f32);
 void fn_802947A8(void);
 int TObjCMName__sub_802948F4(TObjCMName *, char *);
 TKeyBoardControl *TKeyBoardControl__ct(void *, TObject *, s32, s32, s32, s32);
-int get_keyboard_field_6c__15TWindowMakeTeamFv(void *, char *);
+int get_keyboard_field_6c__15TWindowMakeTeamFv(TKeyBoardControl *, char *);
 void mem_free(void *p);
 void * create__10TObjCMNameFPv(void *arg0);
 void * __ct__10TObjCMNameFv(void *arg0);
