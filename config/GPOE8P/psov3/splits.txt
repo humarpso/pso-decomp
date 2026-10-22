@@ -5838,6 +5838,7 @@ pso/object/TObjBgmColCtrl_8017E498.cpp:
 
 pso/player/TObjPlayer_8017E4EC.cpp:
 	.text       start:0x8017E4EC end:0x8017E664
+	.rodata     start:0x80443690 end:0x80443870
 
 pso/object/TObjBgmCol_8017E664.cpp:
 	.text       start:0x8017E664 end:0x8017E6C8
