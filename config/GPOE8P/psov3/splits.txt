@@ -10940,6 +10940,10 @@ pso/boss/TBoss7TentacleNeedle.cpp:
 
 pso/unk/text_802F0E24.cpp:
 	.text       start:0x802F0E24 end:0x802F0F04
+	.rodata     start:0x804740E0 end:0x80474360
+	.data       start:0x804E4860 end:0x804E48D8
+	.bss        start:0x80541928 end:0x80541948
+	.sbss       start:0x805D6950 end:0x805D6958
 
 pso/unk/text_802F0F04.cpp:
 	.text       start:0x802F0F04 end:0x802F105C
