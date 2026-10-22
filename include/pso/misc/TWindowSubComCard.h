@@ -73,7 +73,8 @@ struct TWindowSubComCard : public TObject {
     s32 realloc_buffer();
     int is_keyboard_active();
     int update_keyboard();
-    static void submit_card_password(s32 arg0);
+    static s32 contains_profanity(char *text);
+    static void mask_profanity_words(char *src, char *dst);
     s32 get_field_20();
     f32 calc_offset();
     f32 get_normalized_progress();
