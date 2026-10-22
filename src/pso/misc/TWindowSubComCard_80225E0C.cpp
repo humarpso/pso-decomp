@@ -1,11 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include <string.h>
 
-extern "C" {
-
-s32 strncmp(void *, void *, s32);
-s32 memset(void *, s32, s32);
-char *strncpy(char *, const char *, s32);
+#define TOLOWERCASE(x) (((x) & 0x5F) + 0x20)
 
 const char profanity_word_mask[] = "#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%";
 
@@ -276,8 +273,10 @@ s32 TWindowSubComCard::contains_profanity(char *text) {
 
     memset(name, 0, sizeof(name));
     memset(masked, 0, sizeof(masked));
+
     strncpy(name, text, sizeof(name) - 1);
     mask_profanity_words(name, masked);
+
     return strncmp(name, masked, sizeof(name) - 1);
 }
 
@@ -296,14 +295,14 @@ void TWindowSubComCard::mask_profanity_words(char *src, char *dst) {
     buf[0] = ' ';
     while (src[i] != 0) {
         char c = src[i];
-        u8 alpha = 0;
+        u8 is_letter = 0;
         s32 lc;
         if (c >= 'A' && c <= 'z') {
-            alpha = 1;
+            is_letter = 1;
         }
         lc = c;
-        if (alpha) {
-            lc = (lc & 0x5F) + 0x20;
+        if (is_letter) {
+            lc = TOLOWERCASE(lc);
         }
         dst[i] = c;
         buf[i + 1] = lc;
@@ -336,6 +335,4 @@ void TWindowSubComCard::mask_profanity_words(char *src, char *dst) {
             }
         } while (pos != -1);
     }
-}
-
 }
