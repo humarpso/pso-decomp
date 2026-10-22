@@ -8,6 +8,7 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TFogCtrl.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TLobby_800FC3CC.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/object/TObjFogCollisionPoison.h"
@@ -93,8 +94,6 @@ struct Pos_800FBFD8 {
     u8 pad[0x18];
 };
 
-struct E_800FC220 { f32 w; f32 x; };
-
 struct Quad_800FC310 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
 struct O_800FB400;
@@ -106,8 +105,6 @@ extern "C" {
 
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
-
-extern E_800FC220 *small_font_metrics_table_ptr;
 
 #pragma push
 #pragma inline_depth(1)
@@ -222,7 +219,7 @@ u32 calc_small_font_text_width(const char *s) {
 extern "C" {
 
 s32 get_small_font_glyph_width(u8 c) {
-    return (s32)small_font_metrics_table_ptr[c - 0x20].w;
+    return (s32)small_font_metrics_table_ptr[c - 0x20].width;
 }
 
 void TWindowSubStatusDisp__sub_800FC248(void) {  }
@@ -230,26 +227,26 @@ void TWindowSubStatusDisp__sub_800FC248(void) {  }
 void calc_plain_glyph_quad(u8 c, Quad_800FC24C *q) {
     f32 a = (f32)((c & 0xF) << 4);
     f32 b = 109.0f + (f32)(c & 0xF0);
-    E_800FC220 *g = &small_font_metrics_table_ptr[c - 0x20];
-    q->y0 = q->y0 + g->x;
-    q->x1 = q->x0 + g->w;
+    GlyphMetrics *g = &small_font_metrics_table_ptr[c - 0x20];
+    q->y0 = q->y0 + g->y_offset;
+    q->x1 = q->x0 + g->width;
     q->y1 = 13.0f + q->y0;
     q->u0 = a / 256.0f;
     q->v0 = b / 256.0f;
-    q->u1 = (a + g->w) / 256.0f;
+    q->u1 = (a + g->width) / 256.0f;
     q->v1 = (13.0f + b) / 256.0f;
 }
 
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q) {
     f32 a = (f32)((c << 4) & 0xF0);
     f32 b = (f32)(c & 0xF0);
-    E_800FC220 *g = &small_font_metrics_table_ptr[c - 0x20];
-    q->y0 = q->y0 + g->x;
-    q->x1 = q->x0 + g->w;
+    GlyphMetrics *g = &small_font_metrics_table_ptr[c - 0x20];
+    q->y0 = q->y0 + g->y_offset;
+    q->x1 = q->x0 + g->width;
     q->y1 = 13.0f + q->y0;
     q->u0 = a / 256.0f;
     q->v0 = b / 256.0f;
-    q->u1 = (a + g->w) / 256.0f;
+    q->u1 = (a + g->width) / 256.0f;
     q->v1 = (13.0f + b) / 256.0f;
 }
 }

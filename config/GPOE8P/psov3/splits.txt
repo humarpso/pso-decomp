@@ -2279,6 +2279,8 @@ pso/misc/TWindowSubStatusDisp_800FBD74.cpp:
 
 pso/misc/TLobby_800FC3CC.cpp:
 	.text       start:0x800FC3CC end:0x800FC3E0
+	.data       start:0x8049C730 end:0x8049CA28
+	.sbss       start:0x805D5398 end:0x805D53A0
 
 pso/misc/TWindowSubStatusDisp_800FC3E0.cpp:
 	.text       start:0x800FC3E0 end:0x800FC760
@@ -2917,7 +2919,13 @@ pso/unk/text_8011B328.cpp:
 	.text       start:0x8011B328 end:0x8011B3B0
 
 pso/item/TItemShootGun.cpp:
-	.text       start:0x8011B3B0 end:0x8011B620
+	.text       start:0x8011B3B0 end:0x8011B444
+
+pso/item/TItemShootGun_ctor.cpp:
+	.text       start:0x8011B444 end:0x8011B598
+
+pso/item/TItemShootGun_8011B598.cpp:
+	.text       start:0x8011B598 end:0x8011B620
 
 pso/unk/text_8011B620.cpp:
 	.text       start:0x8011B620 end:0x8011B694
@@ -5832,6 +5840,7 @@ pso/object/TObjBgmColCtrl_8017E498.cpp:
 
 pso/player/TObjPlayer_8017E4EC.cpp:
 	.text       start:0x8017E4EC end:0x8017E664
+	.rodata     start:0x80443690 end:0x80443870
 
 pso/object/TObjBgmCol_8017E664.cpp:
 	.text       start:0x8017E664 end:0x8017E6C8
@@ -8092,6 +8101,8 @@ pso/unk/text_80225CD8.cpp:
 
 pso/misc/TWindowSubComCard_80225E0C.cpp:
 	.text       start:0x80225E0C end:0x8022602C
+	.rodata     start:0x8044C828 end:0x8044C850
+	.data       start:0x804CA3A0 end:0x804CB7C8
 
 pso/player/TObjPlayer_8022602C.cpp:
 	.text       start:0x8022602C end:0x80226070
@@ -10924,6 +10935,10 @@ pso/boss/TBoss7TentacleNeedle.cpp:
 
 pso/unk/text_802F0E24.cpp:
 	.text       start:0x802F0E24 end:0x802F0F04
+	.rodata     start:0x804740E0 end:0x80474360
+	.data       start:0x804E4860 end:0x804E48D8
+	.bss        start:0x80541928 end:0x80541948
+	.sbss       start:0x805D6950 end:0x805D6958
 
 pso/unk/text_802F0F04.cpp:
 	.text       start:0x802F0F04 end:0x802F105C
@@ -13892,6 +13907,7 @@ pso/system/RefCountedWorkBuffer.cpp:
 
 pso/unk/text_803D2F1C.cpp:
 	.text       start:0x803D2F1C end:0x803D3194
+	.data       start:0x804F9E60 end:0x804FA020
 
 pso/misc/TLobby_803D3194.cpp:
 	.text       start:0x803D3194 end:0x803D31A4

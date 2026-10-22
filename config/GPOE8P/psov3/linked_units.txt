@@ -726,6 +726,8 @@ pso/item/TItemReverseTechPart2.cpp
 pso/item/TItemReverseTechPart2_801198F8.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp
 pso/item/TItemShoot.cpp
+pso/item/TItemShootGun.cpp
+pso/item/TItemShootGun_8011B598.cpp
 pso/item/TItemShootGun_dtor.cpp
 pso/item/TItemShootHook.cpp
 pso/item/TItemShootModel.cpp

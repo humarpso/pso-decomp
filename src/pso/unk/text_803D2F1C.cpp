@@ -10,7 +10,15 @@ typedef struct Buf_803D2F1C { u8 *data; s32 size; } Buf_803D2F1C;
 
 extern "C" {
 int strncmp(const char *, const char *, u32);
-extern u32 lbl_804F9E60[];
+u32 lbl_804F9E60[112] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0,
+    0, 10, 11, 12, 13, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 10, 11, 12, 13, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+};
 u8 *find_archive_entry__6TLobbyFPvPvPvPv(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out);
 
 #define HEX_803D2F1C(p, i) lbl_804F9E60[(s8)(p)[i]]
