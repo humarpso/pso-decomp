@@ -14,7 +14,9 @@
 # Security note for maintainers: this exposes a self-hosted runner to fork PR code.
 # Recommended alongside it: Settings → Actions → General → "Fork pull request workflows
 # in public repositories: Require approval for all outside collaborators".
-# The job itself needs no secrets; its token is read-only plus PR comments.
+# The job itself needs no secrets and its token is read-only. It uploads the gate's
+# results as the `ci-result` artifact; ci-comment.yml (which runs from master, never
+# PR code) turns that into the pull request comment.
 
 name: CI
 
@@ -97,33 +99,27 @@ jobs:
             # report_delta is vacuous, and still get the DOL-SHA and link checks.
             ninja baseline
           fi
-          python3 tools/check_pr.py 2>&1 | tee ci-gate.log
-          exit "${PIPESTATUS[0]}"
+          python3 tools/check_pr.py --json ci-result/result.json
 
       - name: Build summary
         if: always()
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          verdict=PASS
-          [ "${{ job.status }}" = success ] || verdict=FAIL
-          touch ci-gate.log
-          {
-            echo "**CI ${verdict}** (${GITHUB_REPOSITORY}@${GITHUB_SHA:0:10})"
-            echo
-            grep -E 'OK$|^PASS$|^FAIL|exact|regression|linked|unlinked' ci-gate.log | head -20 || true
-            echo
-            echo "<details><summary>gate output</summary>"
-            echo
-            echo '```'
-            tail -40 ci-gate.log
-            echo '```'
-            echo "</details>"
-          } > ci-summary.md
-          cat ci-summary.md
-          # GITHUB_TOKEN is read-only for fork PRs, so results live here in the run
-          # log + these annotations (shown in the PR checks UI). A maintainer-side
-          # `workflow_run` job on master can mirror them onto PRs verbatim if desired.
-          if [ "$verdict" = PASS ]; then
+          python3 tools/ci_comment.py ci-result/result.json --sha "$HEAD_SHA" --run-url "$RUN_URL" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+          if [ "${{ job.status }}" = success ]; then
             echo "::notice::CI PASS — DOL byte-exact, zero regressions, links intact"
           else
-            echo "::error::CI ${verdict} — see job log (ci-summary)"
+            echo "::error::CI FAIL — see the job summary"
           fi
+
+      - name: Upload results for the PR comment
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-result
+          path: ci-result/
+          if-no-files-found: ignore
+          retention-days: 7
