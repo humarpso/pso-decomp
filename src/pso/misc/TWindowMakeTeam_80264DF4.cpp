@@ -35,7 +35,6 @@ void get_keyboard_field_6c__15TWindowMakeTeamFv(void *, char *);
 void mem_free(void *);
 char *realloc_buffer__17TWindowSubComCardFv(void *);
 char *get_shared_text_buffer(void);
-void mask_profanity_words(char *, char *);
 s32 measure_string_len__20TWindowSubStatusDispFv(char *);
 char *strncpy(char *, const char *, u32);
 void *create_entry_menu_window__15TWindowMakeTeamFv(void *);
@@ -103,7 +102,7 @@ void TWindowMakeTeam::run_task() {
             s32 n;
             mem_free(self->name);
             self->name = realloc_buffer__17TWindowSubComCardFv(self->keyboard);
-            mask_profanity_words(self->name, get_shared_text_buffer());
+            TWindowSubComCard::mask_profanity_words(self->name, get_shared_text_buffer());
             n = measure_string_len__20TWindowSubStatusDispFv(self->name);
             strncpy(self->name, get_shared_text_buffer(), n);
             ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(self->name, 0);
@@ -131,7 +130,7 @@ void TWindowMakeTeam::run_task() {
             s32 n;
             mem_free(self->comment);
             self->comment = realloc_buffer__17TWindowSubComCardFv(self->keyboard);
-            mask_profanity_words(self->comment, get_shared_text_buffer());
+            TWindowSubComCard::mask_profanity_words(self->comment, get_shared_text_buffer());
             n = measure_string_len__20TWindowSubStatusDispFv(self->comment);
             strncpy(self->comment, get_shared_text_buffer(), n);
             ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(self->comment, 1);

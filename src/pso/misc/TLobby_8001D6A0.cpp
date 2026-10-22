@@ -10,6 +10,7 @@
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 void* get_player_entry__6TLobbyFii(int a0, int a1);
 void* TLobby__sub_8001E270(int a0, int a1);
@@ -35,7 +36,6 @@ struct Pool_8001D6E0 { u8 pad[0x2C]; Node_8001D6E0 *head; };
 extern "C" {
 extern s32 aram_dma_pending;
 
-s32 mask_profanity_words(void *, int);
 s32 strncpy(int, int, int);
 extern s32 auto_reply_flags;
 Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
@@ -200,7 +200,7 @@ void TLobby::set_short_mail_text() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x2050);
-    mask_profanity_words((void *)arg0, (int) (((s32 (*)(void))get_shared_text_buffer)()));
+    TWindowSubComCard::mask_profanity_words((char *)arg0, (char *)get_shared_text_buffer());
     strncpy((int)temp_r31, (int) (((s32 (*)(void))get_shared_text_buffer)()), 0xAB);
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     auto_reply_flags |= 4;

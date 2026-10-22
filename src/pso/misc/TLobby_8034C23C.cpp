@@ -2,9 +2,9 @@
 #include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
-s32 mask_profanity_words(void *, int);
 s32 strncpy(int, int, int);
 extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
@@ -38,7 +38,7 @@ void TLobby::set_info_board_text() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x20FC);
-    mask_profanity_words((void *)arg0, (int) (get_shared_text_buffer()));
+    TWindowSubComCard::mask_profanity_words((char *)arg0, (char *)get_shared_text_buffer());
     strncpy((int)temp_r31, (int) (get_shared_text_buffer()), 0xAB);
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     info_board_state_flags |= 1;

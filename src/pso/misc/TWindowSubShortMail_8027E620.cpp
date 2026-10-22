@@ -65,7 +65,6 @@ s32 TKeyBoardControl__ct(s32, s32, s32, s32, s32, s32);
 s32 get_shared_text_buffer();
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
 int send_find_user_self_tag__6TLobbyFi(void*);
-s32 mask_profanity_words(s32, s32);
 s32 __nw__7TObjectFUl(s32);
 u8 *fn_80267F38(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
 int get_flag_bit0__6TLobbyFv(void);
@@ -82,7 +81,7 @@ void TWindowSubShortMail::close() {
     s32 var_r29;
 
     temp_r31 = realloc_buffer__17TWindowSubComCardFv(this->m_5c);
-    mask_profanity_words(temp_r31, get_shared_text_buffer());
+    TWindowSubComCard::mask_profanity_words((char *)temp_r31, (char *)get_shared_text_buffer());
     send_simple_mail__6TLobbyFiPv(this->m_2c, (void *)(get_shared_text_buffer()));
     mem_free((void *)temp_r31);
     temp_r31_2 = get_short_mail_ctrl__6TLobbyFv();
