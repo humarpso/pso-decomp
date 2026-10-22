@@ -1816,7 +1816,7 @@ extern "C" {
 
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 #define rotate_matrix_y ((void (*)(s32, s32))rotate_matrix_y)
 void push_matrix(void);
 void draw_chunk_object(void *child);
@@ -1847,7 +1847,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
     lbl_805D5660 = model_render_flags;
     if (((RenderFadeState *)(&self->s418))->updateFromCamera((const f32*)(self->f2fc)) != 0) {
         self->s418.m6();
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
+        if (defer_render__7TObjectFv(self) != 0) {
             model_render_flags = lbl_805D5660;
             return;
         }

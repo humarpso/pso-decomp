@@ -408,7 +408,7 @@ int TTcpSocket::test_connection() {
 		} else if (m_send_window > 4095) {
 			return 0;
 		} else {
-			main_task.some_empty_func();
+			main_task.begin_frame();
 			main_task.run_tl_camera_tasks();
 			main_task.render();
 			main_task.render_screen_overlay();
@@ -500,7 +500,7 @@ int TTcpSocket::open() {
 						} else if (func_801A5E54()) {
 							return -2;
 						} else {
-							main_task.some_empty_func();
+							main_task.begin_frame();
 							main_task.run_tl_camera_tasks();
 							main_task.render();
 							main_task.render_screen_overlay();
@@ -523,9 +523,6 @@ extern "C" {
 void func_80019A68__Fv();
 s32 get_csn_group_flags(s32);
 s8 func_801A5E54__Fv();
-void render_screen_overlay__9TMainTaskFv(void *);
-void some_empty_func__9TMainTaskFv(void *);
-void render__9TMainTaskFv(void *);
 int atoi(const char *);
 void func_803DCDFC__Fv();
 s8 str_length__6TLobbyFl(char *);
@@ -597,10 +594,10 @@ int TSocket::resolve_domain(char *domain) {
                 if (func_801A5E54__Fv() != 0) {
                     break;
                 }
-                some_empty_func__9TMainTaskFv(&main_task);
+                main_task.begin_frame();
                 ((TMainTask *)(&main_task))->run_tl_camera_tasks();
-                render__9TMainTaskFv(&main_task);
-                render_screen_overlay__9TMainTaskFv(&main_task);
+                main_task.render();
+                main_task.render_screen_overlay();
                 func_80019A68__Fv();
                 render_tick();
             } while (result == -1);

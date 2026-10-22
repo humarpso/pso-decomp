@@ -611,10 +611,10 @@ void TQuestVmDownLoadServer::run_task() {
     case 4:
         if (lbl_805D55C0 != 0) {
             if (m_290 != NULL) {
-                ((TObject *)m_290)->set_flag_4();
+                ((TObject *)m_290)->suspend_update();
             }
             if (m_29c != NULL) {
-                ((TObject *)m_29c)->set_flag_4();
+                ((TObject *)m_29c)->suspend_update();
             }
         } else {
             if (m_290 != NULL) {
@@ -1191,7 +1191,7 @@ void TQuestVmDownLoadServer::check_client_connections() {
     {
         if ((s32) lbl_805D55C0 != 0) {
             if ((u32) this->m_29c != 0U) {
-                ((TObject *)(this->m_29c))->set_flag_4();
+                ((TObject *)(this->m_29c))->suspend_update();
             }
         } else {
             if ((u32) this->m_29c != 0U) {

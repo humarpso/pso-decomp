@@ -1339,7 +1339,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFv(void *, f32, f32);
 s32 isFading__15RenderFadeStateCFv(void *);
 void update_obstruction_fade(void *);
 u8 *find_entity_by_id(s32);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_z(s32, s32);
 void subtract_vector(void *, void *);
 s32 translate_matrix(s32, f32, f32, f32);
@@ -1993,7 +1993,7 @@ void TBoss1Dragon::render() {
             }
         }
         if (visible == 0) {
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) != 0) {
+            if (defer_render__7TObjectFv(((u8 *)this)) != 0) {
                 visible = 0;
             } else {
                 visible = 1;

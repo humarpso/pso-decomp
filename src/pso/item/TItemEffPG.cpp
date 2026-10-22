@@ -33,7 +33,7 @@ void *create_particle_emitter(void *pos, s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__13TUnk_804F0BF0[];
 extern const f32 lbl_805DFE10;
-s32 get_state_flag__9TMainTaskFv();
+s32 get_render_pass__9TMainTaskFv();
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
@@ -86,7 +86,7 @@ void TUnk_804F0BF0::render() {
         return;
     }
     {
-        if (((void *) this->m_20 != NULL) && (get_state_flag__9TMainTaskFv() == 1)) {
+        if (((void *) this->m_20 != NULL) && (get_render_pass__9TMainTaskFv() == 1)) {
             set_depth_buffer_settings_id(3);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;

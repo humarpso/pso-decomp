@@ -297,7 +297,7 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl(s32);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 
 void TObjEneBalClawClaw::clear_flag() {
     this->m_388 = (s32) (this->m_388 & 0xDFFFFFFF);
@@ -388,7 +388,7 @@ void TObjEneBalClawClaw::render() {
                     if (((VB_80090950 *)(arg0 + 0x390))->m8() != 0) {
                         ((VB_80090950 *)(arg0 + 0x390))->m6();
                         var_r29 = 1;
-                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                        if (defer_render__7TObjectFv(arg0) != 0) {
                             var_r29 = 0;
                         }
                         if (var_r29 != 0) {
@@ -1604,7 +1604,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         doDraw = 1;
         if (fade != 0) {
             o->fades[cam].m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) != 0) {
+            if (defer_render__7TObjectFv(o) != 0) {
                 doDraw = 0;
             }
         }

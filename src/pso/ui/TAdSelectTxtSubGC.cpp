@@ -4,6 +4,7 @@
 #include "pso/ui/TAdSelectTxtSubGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct Src_802A37A0 {
@@ -45,9 +46,8 @@ extern const f32 lbl_805DDF58;
 Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src);
 void *TObjControl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
-int get_state_flag__9TMainTaskFv(void*);
 
-void TAdSelectTxtSubGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void TAdSelectTxtSubGC::render() { if (TMainTask::get_render_pass() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 
     extern int ad_select_text_texture_handle;
 
@@ -110,7 +110,6 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
 
 int TObjNpcHosa__sub_802A39B0(void) {  return ad_select_text_texture_handle; }
 
-extern void *tl_04;
 
 void * TObjNpcHosa__create(void *arg0) {
     void *o;

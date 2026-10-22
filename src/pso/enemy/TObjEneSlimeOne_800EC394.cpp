@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEneSlimeOne_800EC394.h"
 #include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/enemy/TObjEneRe4Bit.h"
@@ -68,8 +69,6 @@ extern s8 slime_one_animation_end_initialized;
 extern f32 slime_one_animation_end_frame;
 extern f32 lbl_805DA760;
 s32 TObjFish__sub_8001EDB0(s32, s32);
-void func_803e11e8__FUl(s32 arg0);
-void func_803e11f0__Fv(void);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void TObjEneSlimeOne__sub_803E4B54(void *child, void *arg1, void *arg2, f32 farg0);
 extern s32 slime_one_part_texture_index_table[];
@@ -130,52 +129,52 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         TObjFish::set_global_param(TObjFish__sub_8001EDB0(TObjEneSlimeOne::get_instance(), slime_one_part_texture_index_table[((TObjEneSlimeOne *)(*(void * *)&this->m_name))->get_attack_target()]));
         if (arg1 != 0) {
             model_render_flags |= 0x400000;
-            func_803e11e8__FUl(1);
+            set_chunk_render_flags(1);
             ((TObjMotion *)(*(void * *)&this->m_name))->draw();
-            func_803e11f0__Fv();
+            clear_chunk_render_flags();
             model_render_flags &= ~0x400000;
             return;
         }
         TObjFish::set_cull_back();
-        func_803e11e8__FUl(2);
+        set_chunk_render_flags(2);
         ((TObjMotion *)(*(void * *)&this->m_name))->draw();
         TObjFish::set_cull_mode_front();
         ((TObjMotion *)(*(void * *)&this->m_name))->draw();
         TObjFish::set_cull_none();
-        func_803e11f0__Fv();
+        clear_chunk_render_flags();
         return;
     }
     if (state < 9) {
         TObjFish::set_global_param(*(s32 *)&this->m_next);
         if (arg1 != 0) {
             model_render_flags |= 0x400000;
-            func_803e11e8__FUl(1);
+            set_chunk_render_flags(1);
             TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), (void *)(*(s32 *)&this->m_down), *(f32 *)&this->actorFlags);
-            func_803e11f0__Fv();
+            clear_chunk_render_flags();
             model_render_flags &= ~0x400000;
             return;
         }
-        func_803e11e8__FUl(2);
+        set_chunk_render_flags(2);
         TObjFish::set_cull_back();
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), (void *)(*(s32 *)&this->m_down), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_mode_front();
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), (void *)(*(s32 *)&this->m_down), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_none();
-        func_803e11f0__Fv();
+        clear_chunk_render_flags();
         return;
     }
     TObjFish::set_global_param(*(s32 *)&this->m_next);
     TObjPlayer::set_global_flag();
     if (arg1 != 0) {
         model_render_flags |= 0x400000;
-        func_803e11e8__FUl(1);
+        set_chunk_render_flags(1);
         draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
         TObjFish::set_global_param(*(s32 *)&this->m_1c);
         draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
-        func_803e11f0__Fv();
+        clear_chunk_render_flags();
         model_render_flags &= ~0x400000;
     } else {
-        func_803e11e8__FUl(2);
+        set_chunk_render_flags(2);
         TObjFish::set_cull_back();
         draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_mode_front();
@@ -186,7 +185,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         TObjFish::set_cull_mode_front();
         draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_none();
-        func_803e11f0__Fv();
+        clear_chunk_render_flags();
     }
     TObjPlayer::clear_global_state();
 }

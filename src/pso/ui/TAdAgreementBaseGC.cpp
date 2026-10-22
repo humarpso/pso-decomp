@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
@@ -46,17 +47,15 @@ extern RecoveredGlobal_80329830_lbl_8050E3B8 controller_physical_port_bank;
 extern const f32 lbl_805DF710;
 extern char lbl_804770BC[];
 extern char lbl_804770C4[];
-s32 get_state_flag__9TMainTaskFv();
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
+void *__ct__14TAdSelectCurGCFv(void *, TObject *, void *, void *);
 extern u8 agreement_item_rect_table[];
 extern u8 lbl_804770A0[];
 extern s32 __vt__18TAdAgreementBaseGC[];
 extern s32 lbl_805D41B8;
-extern s32 tl_clipout;
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1);
 void *get_localized_text_entry(int, u32);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
@@ -67,7 +66,7 @@ extern const f32 lbl_805DF708;
 extern const f32 lbl_805DF70C;
 
 void TAdAgreementBaseGC::check_main_task_state() {
-    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

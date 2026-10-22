@@ -38,7 +38,7 @@ void fn_8023F3F8(void) {
     func_803DCDFC__Fv();
     controller_stuff();
     TKeyBoardControl::update_input_frame();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render();
     main_task.render_screen_overlay();

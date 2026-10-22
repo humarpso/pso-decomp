@@ -1520,7 +1520,7 @@ void * TObjEneMe3Shinowa__ct(void *arg0);
 s32 check_enemy_body_collisions(void *);
 void free_collision_body_parts(void *);
 s32 get_stat_by_key_state__13TUnk_804B9870Fv(int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 s32 create__10TTecDebandFlll(void *, void *, s32);
 void bind_motion_context(s32, f32);
@@ -2003,7 +2003,7 @@ void TObjEneMe3ShinowaMirage::draw_model() {
             }
         }
         var_r30 = 1;
-        if ((this->update_effect() != 0) && (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *)this) != 0)) {
+        if ((this->update_effect() != 0) && (defer_render__7TObjectFv((void *)this) != 0)) {
             var_r30 = 0;
         }
         if (var_r30 != 0) {

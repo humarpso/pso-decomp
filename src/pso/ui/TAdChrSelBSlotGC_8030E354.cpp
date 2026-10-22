@@ -51,7 +51,7 @@ s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(s32 plate, s32 i);
 s32 is_slot_state_one__16TAdChrSelBSlotGCFlUl(s32 arg0, u32 i);
 
 void TAdChrSelBSlotGC::render() {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

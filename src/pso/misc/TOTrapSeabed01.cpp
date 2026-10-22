@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/player/TObjPlayer.h"
@@ -356,7 +358,6 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 s32 is_split_screen();
-s32 get_state_flag__9TMainTaskFv();
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0);
 s32 PPCSync();
@@ -365,7 +366,6 @@ void vfunc_84__14TOTrapSeabed01Fv(void);
 s32 draw_ginja_model_with_motion(int, int, f32);
 
 void restore_saved_depth_alpha_state(void);
-void func_80141618__Fv(void);
 void set_model_node_callback(s32 arg0);
 
 extern s32 actor_frame_tick;
@@ -388,13 +388,13 @@ void TOTrapSeabed01::render_effect_layers() {
     set_depth_buffer_settings_3();
     set_depth_buffer_settings_id(1);
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), this->unknownF8, this->m_c0);
-    func_80141618__Fv();
+    restore_draw_list_mask();
     restore_saved_depth_alpha_state();
     TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1();
     set_depth_buffer_settings_id(2);
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), this->unknownF8, this->m_c0);
-    func_80141618__Fv();
+    restore_draw_list_mask();
     restore_saved_depth_alpha_state();
     TParticleCtrl::end_effect_render();
     pop_matrix();
@@ -452,12 +452,12 @@ void TOTrapSeabed01::draw() {
         this->draw_object_tree((u8 *)(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        func_80141618__Fv();
+        restore_draw_list_mask();
         restore_saved_depth_alpha_state();
     }
 }
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
-    if (get_state_flag__9TMainTaskFv() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
+    if (TMainTask::get_render_pass() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
         switch (arg0->f326) {
         case 0:
         case 1:
@@ -549,7 +549,6 @@ void queue_destruction__7TObjectFv(void *arg0);
 
 void TOTrapSeabed01::vfunc_84() {  }
 
-extern void *tl_05;
 
 inline f32 clampf_802CA5F4(f32 lo, f32 hi, f32 v) {
     f32 r;

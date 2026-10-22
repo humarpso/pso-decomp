@@ -122,7 +122,7 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 translate_matrix(int, f32, f32, f32);
 s32 set_global_state__16TObjEneRe7BeruraFl(void *, int, void *);
 extern Vec_802CE740 lbl_80472490;
@@ -282,14 +282,14 @@ void TObjEneBm9Mericarol::render() {
     if (self->f438 & 8) {
         if (self->f46C.m8() != 0) {
             self->f46C.m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) == 0) {
+            if (defer_render__7TObjectFv(((u8 *)this)) == 0) {
                 ((TObjMotion *)((u8 *)this))->draw();
             }
             self->f46C.m7();
         }
     } else if (vis != 0) {
         fade->m6();
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) == 0) {
+        if (defer_render__7TObjectFv(((u8 *)this)) == 0) {
             if (mode == 1) {
                 ((TObjMotion *)((u8 *)this))->draw();
             } else {

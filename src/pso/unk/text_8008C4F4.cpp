@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/unk/text_8008C4F4.h"
 #include "pso/system/main_loop.h"
@@ -25,13 +26,8 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s8 func_801A5E54__Fv();
-void render_screen_overlay__9TMainTaskFv(void *object);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
 void func_803DCDFC__Fv(void);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8008C4F4_lbl_8048E7C0 ending_scene_callbacks;
 typedef char RecoveredGlobal_8008C534_main_task_size[sizeof(RecoveredGlobal_8008C534_main_task) == 0x34 ? 1 : -1];
 
@@ -43,7 +39,7 @@ void fn_8008C4F4(void) {
     TLobby::stop_audio_streams();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value);
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value));
+    main_task.delete_layer_children();
     var_r3 = &ending_scene_callbacks.value;
     var_r4 = 0x68;
     var_r3 = &ending_scene_callbacks.value;
@@ -60,16 +56,16 @@ void run_game_frame(void) {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value));
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value));
+    main_task.run_task();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value));
+    main_task.render();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv((&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value));
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     TAdSinglePlyChrSelectGC::noop();

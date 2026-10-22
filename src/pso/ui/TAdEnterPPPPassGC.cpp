@@ -74,7 +74,7 @@ void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 
 void render__17TAdEnterPPPPassGCFv(void *self) {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/system/date.h"
@@ -502,7 +503,6 @@ namespace pf2_p3 { extern "C" { extern int quest_string_append_cursor; } }
 #define quest_string_append_cursor pf2_p3::quest_string_append_cursor
 void TLobby__sub_801E6C40(int a0, int a1) { TLobby__quest_script_read_ptr = a0; quest_string_append_cursor = a1; }
 
-    extern int tl_01;
 
 void TLobby__sub_801E6C4C(s32 arg0) {
     if (TBoss6PlotFalz::is_phase_reached() != 0) {
@@ -2002,7 +2002,7 @@ int reset__9TCineCtrlFl(void*);
 void * get_state__23TAdSinglePlyChrSelectGCFv();
 volatile unsigned long get_actor_section_id__15TPlyPhotonChairFv(int);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
-void clear_flag_3__7TObjectFv(void *arg0);
+void resume_update__7TObjectFv(void *arg0);
 u32 prs_decompress_buffer(s32, s32);
 void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
@@ -2085,7 +2085,7 @@ void * set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
 void * start_inventory_update__10TObjPlayerFi(void *, s32);
 void * get_owner_if_alive__10TObjPlayerFv(void *);
 s32 fn_801DA140(int, int, int);
-void* __ct__13TQuestBgmCtrlFP7TObject(void*, s32);
+void* __ct__13TQuestBgmCtrlFP7TObject(void*, TObject *);
 void TLobby__sub_801E72B4(u8 i);
 void TLobby__sub_801E7408(void);
 void send_data__6TLobbyFv(void);
@@ -2388,7 +2388,6 @@ int fn_801F34A0(void *p);
 s32 get_field_d4(void *);
 extern "C" {
 s32 fn_get_field_3ac(void *);
-void TMainTask__sub_801F34D0(u8 *arg0);
 void TLobby__sub_801F34E8(int a0, int a1);
 int TLobby__sub_801F34F8(void);
 void TLobby__sub_801F3500(void *, Vec_801E8930 *);
@@ -2423,7 +2422,7 @@ s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 int create__16TObjItemOKWindowFPv(void*);
 int create__18TObjItemNameSelectFPv(void*);
 void *create__17TObjItemNameEntryFPv(void *arg0);
-s32 destroy_children_with_tag(s32);
+s32 destroy_children_with_tag(TObject *);
 }
 void clear_floor_handler(s32 i);
 void set_floor_handler(s32 i, s32 v);
@@ -2457,8 +2456,6 @@ void clear_current_floor_switch(s32 id);
 void set_current_floor_switch(s32 id);
 void init_switch_table(void);
 extern "C" {
-s32 update_all_task_lists__9TMainTaskFv(s32 *);
-s32 clear_all_flag3__9TMainTaskFv(s32 *);
 void * __nw__7TObjectFUl(u32);
 }
 void create_quest_telepipe_for_client(u16 arg0);
@@ -2626,10 +2623,6 @@ extern const f32 lbl_805DC4C8;
 extern const f32 lbl_805DC4CC;
 extern const f32 lbl_805DC4D4;
 extern const f32 lbl_805DC4D8;
-extern s32 tl_00;
-extern void *tl_03;
-extern void *tl_04;
-extern s32 tl_05;
 
 void TLobby::request_1c38_1_7() {
     TLobby::pop_stack_into_slots(1, 7);
@@ -3126,7 +3119,7 @@ void TLobby__sub_801E8440(void) {
 void TLobby::clear_flag3() {
     void *self = tl_03;
     if (self != NULL) {
-        clear_flag_3__7TObjectFv(self);
+        resume_update__7TObjectFv(self);
     }
 }
 #pragma pop
@@ -3138,7 +3131,7 @@ void TLobby::clear_flag3() {
 void TLobby::free_static() {
     void *temp = tl_03;
     if (temp != 0) {
-        TMainTask__sub_801F34D0((u8 *)temp);
+        ((TObject *)temp)->toggle_pause();
     }
 }
 #pragma pop
@@ -3442,7 +3435,7 @@ void TLobby::spawn_quest_col(u8 i, u8 out) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E905C(void) {
-    clear_all_flag3__9TMainTaskFv((s32 *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&main_task).value));
+    main_task.resume_game_layers();
 }
 #pragma pop
 
@@ -3451,7 +3444,7 @@ void TLobby__sub_801E905C(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E9084(void) {
-    update_all_task_lists__9TMainTaskFv((s32 *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&main_task).value));
+    main_task.toggle_pause_game_layers();
 }
 #pragma pop
 
@@ -3462,7 +3455,7 @@ void TLobby__sub_801E9084(void) {
 void TLobby::clear_flag() {
     void *temp = tl_04;
     if (temp != 0) {
-        clear_flag_3__7TObjectFv(temp);
+        resume_update__7TObjectFv(temp);
     }
 }
 #pragma pop
@@ -3474,7 +3467,7 @@ void TLobby::clear_flag() {
 void TLobby::free_child() {
     void *temp = tl_04;
     if (temp != 0) {
-        TMainTask__sub_801F34D0((u8 *)temp);
+        ((TObject *)temp)->toggle_pause();
     }
 }
 #pragma pop

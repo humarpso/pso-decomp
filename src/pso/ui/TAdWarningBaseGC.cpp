@@ -39,7 +39,7 @@ void clear_aram_request_busy(void) { aram_request_busy_flag = 0; }
 extern s32 __vt__16TAdWarningBaseGC[];
 
 void TAdWarningBaseGC::vfunc_9() {
-    if (TMainTask::get_state_flag() == 1) { return;
+    if (TMainTask::get_render_pass() == 1) { return;
     }
 }
 

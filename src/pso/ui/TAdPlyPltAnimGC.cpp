@@ -69,7 +69,7 @@ void TLobby__sub_803DA16C(void*);
 #pragma fp_contract on
 void TAdPlyPltAnimGC::render() {
     u8 *arg0 = (u8 *)this;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (TMainTask::get_state_flag() != 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (TMainTask::get_render_pass() != 1)) {
         TObjPlayer::init_xyz_limits();
         begin_screen_draw(1);
         TObjFish::set_global_param(player_prate_texture_list_ptr);

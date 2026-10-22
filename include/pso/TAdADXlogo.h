@@ -2,12 +2,23 @@
 #define PSO_TADADXLOGO_H
 #include "pso/TObject.h"
 #include "types.h"
+
+extern u32 TAdADXlogo__done;
+
 class TAdADXlogo : public TObject {
 public:
-    virtual void render();
+    s32 m_frames;
+
+    TAdADXlogo(TObject *parent);
     virtual ~TAdADXlogo();
     virtual void run_task();
-public:
-    static void destroy();
+    virtual void render();
+
+    static void fade_in_done(TObject *fade);
+    static void fade_out_done(TObject *fade);
 };
+
+void free_adx_logo_texture();
+void load_adx_logo_texture();
+
 #endif

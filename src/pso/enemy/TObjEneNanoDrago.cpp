@@ -1146,7 +1146,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(int);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_chunk_object(int);
@@ -1565,7 +1565,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         update_obstruction_fade((int) (((u8 *)var_r29)));
         if (((RenderFadeState *)var_r29)->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
             ((VObj_14 *)(((u8 *)var_r29)))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 model_render_flags = lbl_805D5660;
                 return;
             }

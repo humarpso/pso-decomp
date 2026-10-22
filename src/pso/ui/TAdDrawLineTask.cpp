@@ -50,7 +50,7 @@ void run_task__15TAdDrawLineTaskFv(void *object) {
             ((TAdDrawLineCtrl *)temp)->sub_80019B08(*(s32 *)((s8 *)object + 0x20));
         }
     }
-    ((TObject *)object)->set_flag_4();
+    ((TObject *)object)->suspend_update();
 }
 
 }

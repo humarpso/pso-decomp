@@ -33,7 +33,7 @@ void TAdGuideButtonGC::draw_quad(int style) {
     }
 }
 void TAdGuideButtonGC::render() {
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         draw_quad(0);
         draw_label(0,label);
     }

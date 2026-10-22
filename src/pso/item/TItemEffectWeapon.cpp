@@ -9,7 +9,7 @@ extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *p);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_803DF768(s32);
-void set_flag_9__7TObjectFv(void*);
+void set_render_deferred__7TObjectFv(void*);
 void *mem_alloc(u32 size);
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
@@ -101,7 +101,7 @@ void TItemEffectWeapon::render_trail() {
             TParticleCtrl::end_effect_render();
         }
     } else {
-        set_flag_9__7TObjectFv(this);
+        set_render_deferred__7TObjectFv(this);
     }
 }
 

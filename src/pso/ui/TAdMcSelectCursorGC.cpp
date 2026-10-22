@@ -48,7 +48,7 @@ extern const f32 lbl_805DF73C;
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void restore_saved_depth_alpha_state(void);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 
 extern s32 TAdMcSelectCursorGC__texture_entry;
 extern const f32 lbl_805DF728;
@@ -64,12 +64,12 @@ void TAdMcSelectCursorGC::render_cursor() {
 
 void TAdMcSelectCursorGC::render() {
     if ((s32) this->m_13c == 1) {
-        if (TMainTask::get_state_flag() == 1) {
+        if (TMainTask::get_render_pass() == 1) {
             return;
         }
         goto block_5;
     }
-    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
+    if (defer_render__7TObjectFv() == 0) {
         set_depth_buffer_settings_2();
 block_5:
         TObjPlayer::init_xyz_limits();

@@ -1135,5 +1135,11 @@
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/boss/TBoss7LaserLight.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,s",
+    "inline": "deferred",
+    "use_lmw_stmw": "on"
   }
 }

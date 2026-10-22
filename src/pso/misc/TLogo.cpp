@@ -12,6 +12,7 @@ public:
 };
 
 #include "types.h"
+#include "pso/TAdADXlogo.h"
 
 #include "pso/TMainTask.h"
 
@@ -37,9 +38,8 @@ extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-u32 __ct__10TAdADXlogoFv(void *, void *);
+u32 __ct__10TAdADXlogoFP7TObject(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 u32 __ct__11TAdSEGAlogoFv(void *, void *);
 u32 __ct__12TAdSoniclogoFv(void *, void *);
@@ -74,7 +74,7 @@ void reset_view_state__11TCameraCtrlFv(); void reset__11TCameraCtrlFv(); void TC
 void register_texture_f256_ad_pic_2(); void TAdSinglePlyChrSelectGC::free_global();
 void register_texture_f256_backtext(); void TAdSinglePlyChrSelectGC::free_singleton_805D65C0();
 void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
-void TWindowCtrlMain__sub_8024D838(); void TWindowCtrlMain::free_all_windows(); void TLogo__sub_80019A2C(); void TLogo__sub_80019A28();
+void TWindowCtrlMain__sub_8024D838(); void TWindowCtrlMain::free_all_windows();
 void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
 void *logo_load_callback_table[18] = {
     (void *)reset_view_state__11TCameraCtrlFv, (void *)reset__11TCameraCtrlFv,
@@ -85,7 +85,7 @@ void *logo_load_callback_table[18] = {
     (void *)register_texture_logo_e, (void *)free_held_object__5TLogoFv,
     (void *)TLogo__sub_8001C364, (void *)TLogo__sub_8001C360,
     (void *)TWindowCtrlMain__sub_8024D838, (void *)TWindowCtrlMain::free_all_windows,
-    (void *)TLogo__sub_80019A2C, (void *)TLogo__sub_80019A28,
+    (void *)load_adx_logo_texture, (void *)free_adx_logo_texture,
 };
 void *__vt__5TLogo[6] = {
     0, 0,
@@ -178,7 +178,7 @@ void run_task__5TLogoFv(u8 *ad_seg_alogo) {
             *(u32 *)((s8 *)ad_seg_alogo + 0x30) = 0U;
             var_r0_8 = __nw__7TObjectFUl(0x20);
             if (var_r0_8 != 0U) {
-                var_r0_8 = __ct__10TAdADXlogoFv((void *)var_r0_8, ad_seg_alogo);
+                var_r0_8 = __ct__10TAdADXlogoFP7TObject((void *)var_r0_8, ad_seg_alogo);
             }
             *(u32 *)((s8 *)ad_seg_alogo + 0x34) = var_r0_8;
             *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 6U;
@@ -213,10 +213,9 @@ void *__ct__5TLogoFv(void *object) {
     return object;
 }
 
-    extern int lbl_805D49D0;
 
 void TLogo__sub_8013F5AC() {
-    delete_all_task_children__9TMainTaskFv(&main_task);
+    main_task.delete_layer_children();
     call_funcs_reverse__6TLobbyFPvUi(logo_load_callback_table, sizeof(logo_load_callback_table));
     render_tick();
 }
@@ -229,7 +228,7 @@ void run_frame__5TLogoFv(void) {
     set_active_camera_pose(&a, &b);
     controller_stuff();
     TKeyBoardControl::update_input_frame();
-    main_task.some_empty_func();
+    main_task.begin_frame();
     main_task.run_task();
     main_task.render();
     main_task.render_screen_overlay();
@@ -282,7 +281,7 @@ void init_logo_scene__5TLogoFv(void) {
     }
 }
 
-int TLogo__sub_8013F7E8(int _w0) {  return lbl_805D49D0; }
+int TLogo__sub_8013F7E8(int _w0) {  return TAdADXlogo__done; }
 }
 
     extern int TLogo__exit_requested_flag;

@@ -7,7 +7,6 @@ extern "C" {
 void TLobby__sub_8007EB70(void);
 s32 TQuestVmDownLoadServer__sub_8007EB14(void);
 void __dl__FPv(void);
-void debug_print__FPCc(void);
 }
 
 #endif

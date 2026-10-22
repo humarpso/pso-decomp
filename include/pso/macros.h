@@ -57,6 +57,26 @@
     o(tl_fade, TL_FADE) \
     o(tl_fadeafter, TL_FADEAFTER)
 
+/* Declaration order of the task layers (TObject.cpp's .sdata and .sbss);
+ * init_main_task creates tl_item_equip before tl_03. */
+#define TL_OBJECTS_IN_ADDRESS_ORDER \
+    o(tl_su, TL_SU) \
+    o(tl_00, TL_00) \
+    o(tl_camera, TL_CAMERA) \
+    o(tl_01, TL_01) \
+    o(tl_02, TL_02) \
+    o(tl_03, TL_03) \
+    o(tl_item_equip, TL_ITEM_EQUIP) \
+    o(tl_loc_start, TL_LOC_START) \
+    o(tl_04, TL_04) \
+    o(tl_05, TL_05) \
+    o(tl_06, TL_06) \
+    o(tl_07, TL_07) \
+    o(tl_loc_end, TL_LOC_END) \
+    o(tl_window, TL_WINDOW) \
+    o(tl_particle, TL_PARTICLE) \
+    TL_PARTICLE_MODEL_OBJECTS
+
 #define FOREACH_NODE(type, first, varname) \
     for (type *varname = (type *)(first); varname != NULL; varname = (type *)(varname->m_next))
 

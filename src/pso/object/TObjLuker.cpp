@@ -114,7 +114,7 @@ void *TObjLuker__create(void *arg0);
 
 void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i) {
     if (self->parts[i] != 0) {
-        ((TObject *)(self->parts[i]))->set_flag_4();
+        ((TObject *)(self->parts[i]))->suspend_update();
         disallow_rendering__7TObjectFv((TObject *)self->parts[i]);
     }
 }
@@ -164,7 +164,7 @@ void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self) {
             if (!(self->wins[i]->flags & 4)) {
                 play_sound_effect(0x53704, 0, 0, 0);
             }
-            ((TObject *)(self->wins[i]))->set_flag_4();
+            ((TObject *)(self->wins[i]))->suspend_update();
             disallow_rendering__7TObjectFv((TObject *)self->wins[i]);
         }
     }
@@ -187,7 +187,7 @@ void TObjLuker::open_destination_windows() {
                 ((TAdChrSelASlotGC *)(self->wins[i]))->set_flag_40();
                 ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();
                 align_menu_entry_positions(self->wins[i]);
-                ((TObject *)(self->wins[i]))->set_flag_4();
+                ((TObject *)(self->wins[i]))->suspend_update();
                 disallow_rendering__7TObjectFv((TObject *)self->wins[i]);
             }
         }

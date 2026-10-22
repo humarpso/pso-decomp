@@ -1,148 +1,172 @@
+#pragma readonly_strings on
 #define TOBJECT_OUT_OF_LINE_HELPERS
+
+// Built with -inline deferred (compiler_profiles.json), which emits functions
+// in reverse source order: bodies here run from the highest address down.
+
 #include "types.h"
-#include "pso/boss/TBoss7LaserLight.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjLight.h"
+#include "pso/system/vector.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
+#include "pso/unk/text_80087278.h"
 
-struct V3_802EEF10 { f32 x, y, z; };
+#include "pso/object/TUnk_804E4788.h"
+#include "pso/boss/TBoss7LaserLight.h"
 
-struct Obj_802EEF10 { u8 pad[0x1C]; V3_802EEF10 v[20]; };
+const char *TBoss7LaserLight_name = "TBoss7LaserLight";
 
-typedef struct Obj_802EEF9C {
-    u8 pad0[0x1C];
-    s32 x1C;
-    s32 state;
-    u32 req;
-    u8 pad28[0x38 - 0x28];
-    f32 x38;
-    f32 x3C;
-    s32 x40;
-} Obj_802EEF9C;
-
-typedef struct Obj_802EF1AC {
-    u8 pad0[0x28];
-    f32 color[4];
-    f32 x38;
-    f32 x3C;
-    u32 light;
-} Obj_802EF1AC;
-
-extern "C" {
-s32 __ct__7TObjectFP7TObject(void *, s32);
-extern s32 __vt__13TUnk_804E4788[];
-extern const f32 TBoss7LaserLight__data_805DEBC4;
-extern const f32 lbl_805DEBD4;
-extern const f32 lbl_805DEBD8;
-extern const f32 lbl_805DEBDC;
-extern s32 __vt__16TBoss7LaserLight[];
-extern const char *lbl_805D3FC8;
-TBoss7LaserLight *TBoss7LaserLight__ct(TBoss7LaserLight *self, TObject *parent, s32 target);
-void noop_laser__23TAdSinglePlyChrSelectGCFv(s32);
-void TAdSinglePlyChrSelectGC__sub_80133508(s32);
-
-u8 *TBoss7LaserLight::construct_with_params(s32 arg1, s32 arg2, s32 arg3) {
-    s32 i;
-    __ct__7TObjectFP7TObject(this, arg1);
-    *(s32 **)((s8 *)((u8 *)this) + 0x18) = __vt__13TUnk_804E4788;
-    for (i = 0; i < 20; i++) {
-        ((Obj_802EEF10 *)((u8 *)this))->v[i].x = TBoss7LaserLight__data_805DEBC4;
-        ((Obj_802EEF10 *)((u8 *)this))->v[i].y = TBoss7LaserLight__data_805DEBC4;
-        ((Obj_802EEF10 *)((u8 *)this))->v[i].z = TBoss7LaserLight__data_805DEBC4;
+TBoss7LaserLight::TBoss7LaserLight(TObject *parent, Vec *position) : TObject(parent) {
+    m_name = TBoss7LaserLight_name;
+    m_position = position;
+    m_state = OFF;
+    m_request = REQUEST_NONE;
+    m_color[0] = 1.0f;
+    m_color[1] = 1.0f;
+    m_color[2] = 0.2f;
+    m_color[3] = 2.0f;
+    m_range[0] = 0.0f;
+    m_range[1] = 0.0f;
+    m_light = (TObjLight *)TObjLight::alloc_light_slot();
+    if (m_light == NULL) {
+        queue_destruction();
+        return;
     }
-    *(s32 *)((s8 *)((u8 *)this) + 0x10C) = 0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x110) = 0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x114) = arg2;
-    *(s32 *)((s8 *)((u8 *)this) + 0x118) = arg3;
-    *(s32 *)((s8 *)((u8 *)this) + 0x11C) = 0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x120) = 0;
-    return ((u8 *)this);
+    ((TAdSinglePlyChrSelectGC *)m_light)->noop_laser();
+    ((TAdSinglePlyChrSelectGC *)m_light)->set_position(m_color);
+    ((TAdSinglePlyChrSelectGC *)m_light)->forward_to_field_0x14(m_range);
 }
 
-void TBoss7LaserLight::render() {  }
+TBoss7LaserLight::~TBoss7LaserLight() {
+    if (m_light != NULL) {
+        m_light->unregister_and_free();
+        m_light = NULL;
+    }
+}
+
+void TBoss7LaserLight::turn_on() { m_request = REQUEST_ON; }
+
+void TBoss7LaserLight::turn_off() { m_request = REQUEST_OFF; }
 
 void TBoss7LaserLight::run_task() {
-    Obj_802EEF9C *arg0 = (Obj_802EEF9C *)this;
-    f32 v;
-    switch (arg0->state) {
-    case 0:
-    case 3:
-        if (arg0->req == 1) {
-            arg0->req = 0;
-            arg0->state = 1;
-            TAdSinglePlyChrSelectGC__sub_80133508(arg0->x40);
+    f32 range;
+
+    switch (m_state) {
+    case OFF:
+    case FADE_OUT:
+        if (m_request == REQUEST_ON) {
+            m_request = REQUEST_NONE;
+            m_state = FADE_IN;
+            TAdSinglePlyChrSelectGC__sub_80133508(m_light);
         }
         break;
-    case 1:
-    case 2:
-        if (arg0->req == 2) {
-            arg0->req = 0;
-            arg0->state = 3;
+    case FADE_IN:
+    case ON:
+        if (m_request == REQUEST_OFF) {
+            m_request = REQUEST_NONE;
+            m_state = FADE_OUT;
         }
         break;
     }
-    switch (arg0->state) {
-    case 0:
+
+    switch (m_state) {
+    case OFF:
         break;
-    case 1:
-        v = arg0->x38;
-        v += 3.0f;
-        if (v >= 60.0f) {
-            v = 60.0f;
-            arg0->state = 2;
+    case FADE_IN:
+        range = m_range[0];
+        range += 3.0f;
+        if (range >= 60.0f) {
+            range = 60.0f;
+            m_state = ON;
         }
-        arg0->x38 = v;
-        arg0->x3C = 40.0f + v;
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->forward_to_field_0x14(&arg0->x38);
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)arg0->x1C);
+        m_range[0] = range;
+        m_range[1] = 40.0f + range;
+        ((TAdSinglePlyChrSelectGC *)m_light)->forward_to_field_0x14(m_range);
+        ((TAdSinglePlyChrSelectGC *)m_light)->set_vec3(m_position);
         break;
-    case 2:
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)arg0->x1C);
+    case ON:
+        ((TAdSinglePlyChrSelectGC *)m_light)->set_vec3(m_position);
         break;
-    case 3:
-        v = arg0->x38;
-        v -= 3.0f;
-        if (v <= 0.0f) {
-            v = 0.0f;
-            arg0->state = 0;
-            noop_laser__23TAdSinglePlyChrSelectGCFv(arg0->x40);
+    case FADE_OUT:
+        range = m_range[0];
+        range -= 3.0f;
+        if (range <= 0.0f) {
+            range = 0.0f;
+            m_state = OFF;
+            ((TAdSinglePlyChrSelectGC *)m_light)->noop_laser();
         }
-        arg0->x38 = v;
-        arg0->x3C = 40.0f + v;
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->forward_to_field_0x14(&arg0->x38);
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)arg0->x1C);
+        m_range[0] = range;
+        m_range[1] = 40.0f + range;
+        ((TAdSinglePlyChrSelectGC *)m_light)->forward_to_field_0x14(m_range);
+        ((TAdSinglePlyChrSelectGC *)m_light)->set_vec3(m_position);
         break;
     }
 }
 
-void TBoss7LaserLight__sub_802EF120(void* p) { *(s32*)((char*)p + 0x24) = 2; }
-void TBoss7LaserLight__sub_802EF12C(void* p) { *(s32*)((char*)p + 0x24) = 1; }
+void TBoss7LaserLight::render() {}
 
-}
-TBoss7LaserLight::~TBoss7LaserLight() {
-    if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); this->m_40 = 0; }
-}
-
-TBoss7LaserLight *TBoss7LaserLight__ct(TBoss7LaserLight *self, TObject *parent, s32 target) {
-    Obj_802EF1AC *o = (Obj_802EF1AC *)self;
-    __ct__7TObjectFP7TObject(self, (s32)parent);
-    *(s32 **)((u8 *)self + 0x18) = __vt__16TBoss7LaserLight;
-    self->m_name = lbl_805D3FC8;
-    self->m_1c = target;
-    self->m_20 = 0;
-    self->m_24 = 0;
-    o->color[0] = lbl_805DEBD4;
-    o->color[1] = lbl_805DEBD4;
-    o->color[2] = lbl_805DEBD8;
-    o->color[3] = lbl_805DEBDC;
-    o->x38 = TBoss7LaserLight__data_805DEBC4;
-    o->x3C = TBoss7LaserLight__data_805DEBC4;
-    o->light = TObjLight::alloc_light_slot();
-    if (o->light == 0) {
-        self->queue_destruction();
-        return self;
+TUnk_804E4788::TUnk_804E4788(TObject *parent, s32 limit, s32 effect_id) : TObject(parent) {
+    s32 i;
+    for (i = 0; i < NUM_POINTS; i++) {
+        m_points[i].x = 0.0f;
+        m_points[i].y = 0.0f;
+        m_points[i].z = 0.0f;
     }
-    noop_laser__23TAdSinglePlyChrSelectGCFv(o->light);
-    ((TAdSinglePlyChrSelectGC *)o->light)->set_position(o->color);
-    ((TAdSinglePlyChrSelectGC *)o->light)->forward_to_field_0x14(&o->x38);
-    return self;
+    m_head = 0;
+    m_cur = 0;
+    m_limit = limit;
+    m_effect_id = effect_id;
+    m_particle = NULL;
+    m_state = 0;
+}
+
+TUnk_804E4788::~TUnk_804E4788() {
+    if (m_particle != NULL) {
+        m_particle->queue_destruction();
+        m_particle = NULL;
+    }
+}
+
+void TUnk_804E4788::push_ring_point(const Vec *pos) {
+    VecCopy(&m_points[m_head], pos);
+    m_points[m_head].y += 5.0f;
+    m_head++;
+    if (m_head >= NUM_POINTS) {
+        m_head = 0;
+    }
+}
+
+void TUnk_804E4788::run_task() {
+    if (m_particle == NULL) {
+        m_particle = (TParticleCtrl *)spawn_continuous_particle_effect_with_flags(m_points, m_effect_id, 0x40);
+        if (m_particle != NULL) {
+            m_particle->enable();
+        }
+    } else {
+        switch (m_state) {
+        case 0:
+            if (m_head >= m_limit) {
+                m_state = 1;
+                m_cur = 0;
+            }
+            m_particle->enable();
+            break;
+        case 1:
+            ((TNowLoading *)m_particle)->copy_pos(&m_points[m_cur]);
+            m_cur++;
+            if (m_cur >= NUM_POINTS) {
+                m_cur = 0;
+            }
+            if (m_cur == m_head) {
+                m_state = 2;
+            }
+            break;
+        case 2:
+            m_particle->enable();
+            break;
+        }
+    }
 }

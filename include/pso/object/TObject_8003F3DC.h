@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void set_flag_3__7TObjectFv(void *arg0);
+void pause_update__7TObjectFv(void *arg0);
 }
 
 #endif

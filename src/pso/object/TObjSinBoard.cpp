@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/unk/text_80198A2C.h"
 #include "pso/unk/text_80235A8C.h"
 #include "pso/math/MatrixTransforms.h"
@@ -46,7 +47,6 @@ extern s32 gogo_ball_bml_resource;
 s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 __vt__12TObjSinBoard[];
 extern s32 TObjSinBoard__class_name;
-s32 get_state_flag__9TMainTaskFv();
 void scale_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, int);
 extern Pos_8019806C TObjSinBoard__quad_position_table;
@@ -57,8 +57,6 @@ extern u8 gogo_ball_sync_state[];
 s32 play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
 extern u8 gogo_ball_configuration[];
-extern void *tl_05;
-extern s32 tl_06;
 extern const f32 lbl_805DBF40;
 void __dl__7TObjectFPv(void *);
 
@@ -68,7 +66,7 @@ void TObjSinBoard::render() {
     Uv_8019806C uv;
     Desc_8019806C d;
     s16 col[8];
-    if (get_state_flag__9TMainTaskFv() != 1 && TObjSinBoard__texture_buffer != 0) {
+    if (TMainTask::get_render_pass() != 1 && TObjSinBoard__texture_buffer != 0) {
         pos = TObjSinBoard__quad_position_table;
         uv = sin_board_uv_table;
         col[0] = 0;

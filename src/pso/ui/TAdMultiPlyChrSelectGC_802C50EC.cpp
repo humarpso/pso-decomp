@@ -304,7 +304,7 @@ void TAdMultiPlyChrSelectGC::draw_selection_cursors() {
 
 void TAdMultiPlyChrSelectGC::update() {
     s32 arg0 = (s32)this;
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         draw_selection_cursors();
         switch ((s32) TAdMultiPlyChrSelectGC__select_mode) {
         case 0:

@@ -798,7 +798,7 @@ void free_collision_body_parts(void *);
 s32 send_entity_set_flags__9TObjEnemyFv();
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 play_sound_effect(void *, void *, int, int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
@@ -1128,7 +1128,7 @@ void TObjEneBm3FlyNest::render() {
             update_obstruction_fade(cm);
             if (((RenderFadeState *)cm)->updateFromCamera((const f32*)(&self->f2FC)) != 0) {
                 ((VObj_14_aa9368 *)(cm))->m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+                if (defer_render__7TObjectFv(this) != 0) {
                     draw = 0;
                 }
             }

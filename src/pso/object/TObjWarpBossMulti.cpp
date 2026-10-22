@@ -644,15 +644,15 @@ void TObjWarpBoss::update_warp_boss_visibility() {
     }
     if (var_r30 == 0) {
         if ((u32) *(u32 *)((s8 *)this + 0x168) != 0U) {
-            ((TObject *)(*(void **)((s8 *)this + 0x168)))->set_flag_4();
+            ((TObject *)(*(void **)((s8 *)this + 0x168)))->suspend_update();
             disallow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0x168))));
         }
         if ((u32) this->m_b0 != 0U) {
-            ((TObject *)(*(void **)((s8 *)this + 0xB0)))->set_flag_4();
+            ((TObject *)(*(void **)((s8 *)this + 0xB0)))->suspend_update();
             disallow_rendering__7TObjectFv((TObject *)(this->m_b0));
         }
         if ((u32) this->m_180 != 0U) {
-            ((TObject *)(*(void **)((s8 *)this + 0x164)))->set_flag_4();
+            ((TObject *)(*(void **)((s8 *)this + 0x164)))->suspend_update();
             disallow_rendering__7TObjectFv((TObject *)(this->m_180));
         }
     } else {

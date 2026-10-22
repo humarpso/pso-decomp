@@ -97,7 +97,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         pop_matrix();
         TParticleCtrl::end_effect_render();
         TObjPlayer::reset_transform_state();
-        func_80141618__Fv();
+        restore_draw_list_mask();
         ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -122,7 +122,7 @@ void TObjPlayer::draw_item_model() {
         pop_matrix();
         TParticleCtrl::end_effect_render();
         TObjPlayer::reset_transform_state();
-        func_80141618__Fv();
+        restore_draw_list_mask();
     }
 }
 

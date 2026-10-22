@@ -3,7 +3,6 @@
 
 #include "types.h"
 
-void camera_stuff(void);
 void controller_stuff(void);
 void render_tick(void);
 

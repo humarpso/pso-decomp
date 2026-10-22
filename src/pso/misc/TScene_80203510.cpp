@@ -451,7 +451,7 @@ void TScene::render() {
     s32 i;
 
     if (TScene__floor_scene_ready_flag != 0 && TScene__data_805D5FCC != NULL) {
-        if (TMainTask::get_state_flag() == 0) {
+        if (TMainTask::get_render_pass() == 0) {
             for (i = 0; i < TScene__data_805D5FCC->count; i++) {
                 TScene__data_805D5FCC->sections[i].flags &= ~0x10000;
             }
@@ -608,7 +608,7 @@ void TScene::render_static_map_section(SceneMaterialSection *scene_material_sect
                 TObjEneRecon::update_particle_if_active();
             } else if (e->flags & 0x400) {
                 Model_8020533C *m = (Model_8020533C *)e->node;
-                if (m != NULL && TMainTask::get_state_flag() == 1) {
+                if (m != NULL && TMainTask::get_render_pass() == 1) {
                     Lobby_8020533C l;
                     l.v.x = node->pos.x;
                     l.v.y = node->pos.y;

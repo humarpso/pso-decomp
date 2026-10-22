@@ -1545,7 +1545,7 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 s32 render_with_position_override__9TObjEnemyFPUcl(void *, void *, int, f32);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void draw_chunk_object(void *child);
 extern s32 lbl_805D5660;
@@ -1589,7 +1589,7 @@ void TObjGrass::render() {
                 lbl_805D5664 = chunk_polygon_flags_and_mask;
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 (&self->sub)->m6(chunk_polygon_flags_and_mask, model_render_flags);
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) == 0) {
+                if (defer_render__7TObjectFv(self) == 0) {
                     ((TObjMotion *)self)->draw();
                 }
                 (&self->sub)->m7();

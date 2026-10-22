@@ -69,7 +69,7 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
     typedef char sp14_offset[(offsetof(Stack_80191874, sp14) == 0xC) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_80191874, sp18) == 0x10) ? 1 : -1];
     Stack_80191874 stack;
-    if (TMainTask::get_state_flag() == 1) {
+    if (TMainTask::get_render_pass() == 1) {
         return this->m_1e;
     }
     if (xz_distance_squared((void *)(camera_ctrl_instance + 0x178), (void *)(arg0 + 0x38)) < (farg1 * farg1)) {

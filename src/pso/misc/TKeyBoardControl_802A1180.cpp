@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TKeyBoardControl_802A1180.h"
 #include "pso/system/main_loop.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -17,10 +18,6 @@ s32 TKeyBoardControl__sub_8000F92C();
 s32 request_queued_main_phase();
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s8 func_801A5E54__Fv();
-void render_screen_overlay__9TMainTaskFv(void *object);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
 extern s8 movie_finished_flag;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -44,16 +41,16 @@ void update_movie_phase(void) {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value));
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value));
+    main_task.run_task();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value));
+    main_task.render();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv((&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value));
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     TAdSinglePlyChrSelectGC::noop();

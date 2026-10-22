@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -2541,7 +2542,6 @@ void rotate_matrix_x(int, s32);
 s32 push_matrix_from(int);
 s32 push_matrix();
 s32 pop_matrix();
-void set_some_id__FUl(s32 arg0);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 void draw_chunk_object(void *child);
 
@@ -7458,7 +7458,7 @@ void draw_body__10TObjPlayerFPvi(u8 *player, s32 arg1) {
         ((s32 (*)(int, f32, f32, f32))scale_matrix)(0, (f32) (*(f32 *)((s8 *)temp_r3 + 0)), (f32) (*(f32 *)((s8 *)temp_r3 + 4)), (f32) (*(f32 *)((s8 *)temp_r3 + 8)));
     }
     save_render_material_state((player + 0x608));
-    set_some_id__FUl(8);
+    set_model_render_flags(8);
     ((TObjPlayer *)player)->apply_material_color_override();
     if (((TObjPlayer *)player)->m_flags & 0x400) {
         model_render_flags |= 0x810;

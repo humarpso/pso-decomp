@@ -32,7 +32,7 @@ s32 render_status_pair__20TWindowSubStatusDispFl(void *, s32);
 void TAdTitleTexGC::render() {
     s32 temp_r31;
 
-    if (TMainTask::get_state_flag() != 1) {
+    if (TMainTask::get_render_pass() != 1) {
         render_status_pair__20TWindowSubStatusDispFl(this, (*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
         sub_802A4D74((s32)((*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF), (u8 *)(get_localized_text_entry(0x28, 0)), (u8 *)(get_localized_text_entry(0x28, 1)));
     }

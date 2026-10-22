@@ -1,3 +1,4 @@
+#include "pso/TMainTask.h"
 #include "types.h"
 #include "pso/system/memory.h"
 #include "pso/system/main_loop.h"
@@ -39,11 +40,6 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s8 func_801A5E54__Fv();
-void render_screen_overlay__9TMainTaskFv(void *object);
-s32 some_empty_func__9TMainTaskFv(void *);
-s32 render__9TMainTaskFv(void *);
-s32 run_task__9TMainTaskFv(void *);
-s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 prs_decompress_alloc(int, int, int);
@@ -72,7 +68,6 @@ void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
 extern u8 default_scene_light_config[];
-extern s32 tl_camera;
 extern const float lbl_805DAC4C;
 extern const f32 lbl_805DAC50;
 extern "C" {
@@ -81,11 +76,10 @@ int TItemReverseTech__sub_8011A55C(void);
 int TItemReverseTech__sub_8011A580(void);
 void TItemReverseTech__sub_8011A5A4(void);
 void free__16TItemReverseTechFv(void);
-s32 TItemReverseTech__ct(void *, s32);
+s32 TItemReverseTech__ct(void *, TObject *);
 s32 free_texture_if_valid(u32 arg0);
 int set_global_flags__6TLobbyFl(void*);
 
-extern s32 tl_01;
 
 void TItemReverseTech::create() {
     void *obj = __nw__7TObjectFUl(0x28);
@@ -137,16 +131,16 @@ void TItemReverseTech::run_frame() {
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
+    main_task.begin_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
+    main_task.run_task();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
+    main_task.render();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv((&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
+    main_task.render_screen_overlay();
     process_async_file_reads();
     update_sound_request_slots();
     TAdSinglePlyChrSelectGC::noop();
@@ -168,7 +162,7 @@ void TItemReverseTech::run_cleanup_callbacks() {
   s32 (*temp_r12)();
   u8 *var_r31;
   s32 var_r30;
-  delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A3D8_main_task *)&(*(RecoveredGlobal_8011A350_main_task *)&main_task)).value));
+  main_task.delete_layer_children();
   var_r30 = 6;
   var_r31 = ((u8 *)&TItemReverseTech__cleanup_callback_table.value) + 0x30;
   do

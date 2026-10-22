@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.h"
@@ -48,7 +49,6 @@ extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_802D4570_lbl_80472510 single_chr_select_item_rect_table;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-s32 get_state_flag__9TMainTaskFv(void);
 s32 get_selected_menu_value(int);
 s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_80472538[];
@@ -59,14 +59,13 @@ u32 TAdSinglePlyChrSelectGC__sub_801FE4BC();
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
 u32 check_flag__23TAdSinglePlyChrSelectGCFl(s32);
 u32 __nw__7TObjectFUl(s32);
-u32 __ct__9TAdFadeGCFP7TObjectPv(u32, s32, s32);
+u32 __ct__9TAdFadeGCFP7TObjectPv(u32, TObject *, s32);
 s32 TAdChrSelASlotGC__sub_8030C3C0(s32, s32);
 u32 TAdChrSelASlotGC__sub_8030CA84(s32, s32 *);
 extern s32 lbl_80472540[];
 extern s32 lbl_80472548[];
 extern s32 lbl_80472550[];
 extern s32 controller_physical_port_bank[];
-extern s32 tl_fade;
 extern s32 lbl_805DE784;
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
@@ -75,7 +74,7 @@ s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 
 void TAdSinglePlyChrSelectGC::render() {
-    if (get_state_flag__9TMainTaskFv() == 1) return;
+    if (TMainTask::get_render_pass() == 1) return;
 }
 
 s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {

@@ -44,7 +44,7 @@ s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
         this->m_1e = 0;
         return 0;
     }
-    if (TMainTask::get_state_flag() == 1) {
+    if (TMainTask::get_render_pass() == 1) {
         return this->m_1e;
     }
     transform_point_by_current_matrix((void *) (((u8 *)this) + 0x38), (void *)&stack.sp10);
@@ -100,7 +100,7 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
         this->m_1e = 0;
         return 0;
     }
-    if (TMainTask::get_state_flag() == 1) {
+    if (TMainTask::get_render_pass() == 1) {
         return this->m_1e;
     }
     transform_point_by_current_matrix((u8 *)&this->position, (void *)&stack.sp10);

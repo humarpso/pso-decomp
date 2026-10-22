@@ -744,7 +744,7 @@ s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 submit_cursor_candidate(void *, s32);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 void __destroy_arr(void *, void *, int, int);
@@ -1436,7 +1436,7 @@ void TObjEneGyaranzo::render() {
             update_fade_value(var_r30);
             if (((RenderFadeState *)var_r30)->updateFromCamera((const f32*)(((u8 *)this) + 0x2FC)) != 0) {
                 ((VObj_14_fddec9 *)(var_r30))->m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+                if (defer_render__7TObjectFv(this) != 0) {
                     model_render_flags = lbl_805D5660;
                     return;
                 }

@@ -350,7 +350,7 @@ void TUnk_804999A0::run_task() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        ((TObject *)arg0)->set_flag_4();
+        ((TObject *)arg0)->suspend_update();
     }
     *(s8 *)((s8 *)arg0 + 0x23) = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
     TWindowCtrlMain::set_value((s32)(*(s32 *)((s8 *)arg0 + 0x24)), this->m_20);
@@ -381,7 +381,7 @@ void TUnk_804999B8::run_task() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        this->set_flag_4();
+        this->suspend_update();
     }
 }
 #pragma pop
@@ -419,7 +419,7 @@ void TUnk_804999D0::run_task() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        this->set_flag_4();
+        this->suspend_update();
     }
 }
 #pragma pop

@@ -30,7 +30,7 @@ u8 fn_8035510C(s32 *arg0, s32 arg1) {
 }
 
 void TAdPlyPltAnimCtrlGC::render() {
-    if (TMainTask::get_state_flag() == 1) {
+    if (TMainTask::get_render_pass() == 1) {
         return;
     }
 }

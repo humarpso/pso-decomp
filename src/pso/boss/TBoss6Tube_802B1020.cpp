@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/boss/TBoss6Tube.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -19,7 +20,6 @@ extern s32 TBoss6Tube__previous_scroll_phase;
 extern f32 TBoss6Tube__scroll_delta;
 void get_bml_model(s32, s32);
 s32 query_teammate_state__9TObjEneDDFv(void);
-void func_80141618__Fv(void);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void push_matrix(void);
 s32 pop_matrix(void);
@@ -85,7 +85,7 @@ void TBoss6Tube::render() {
             pop_matrix();
         }
     }
-    func_80141618__Fv();
+    restore_draw_list_mask();
 }
 
 f32 TBoss6Tube::scale_by_const(f32 farg0) {

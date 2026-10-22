@@ -876,7 +876,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 update_obstruction_fade(void *);
 s32 scroll_strip_uvs(int, int, int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -980,12 +980,12 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
         temp_r29 = ((RenderFadeState *)temp_r28)->updateFromCamera((const f32*)(arg0 + 0x2FC));
         if (*(s32 *)((s8 *)arg0 + 0x3C0) & 2) {
             ((VObj_14_aa9368 *)(arg0 + (964)))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 var_r27 = 0;
             }
         } else if (temp_r29 != 0) {
             ((VObj_14_aa9368 *)(temp_r28))->m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+            if (defer_render__7TObjectFv(arg0) != 0) {
                 var_r27 = 0;
             }
         }

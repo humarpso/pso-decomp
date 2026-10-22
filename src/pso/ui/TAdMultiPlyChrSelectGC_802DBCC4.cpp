@@ -51,7 +51,7 @@ void queue_destruction__7TObjectFv(void *arg0);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdMultiPlyChrSelectGC::render() {
-    if (TMainTask::get_state_flag() == 1) return;
+    if (TMainTask::get_render_pass() == 1) return;
 }
 
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0) {

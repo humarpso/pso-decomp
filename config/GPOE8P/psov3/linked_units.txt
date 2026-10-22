@@ -254,6 +254,7 @@ pso/boss/TBoss7DeRolLeC.cpp
 pso/boss/TBoss7DeRolLeC_802EE4E0.cpp
 pso/boss/TBoss7Joint.cpp
 pso/boss/TBoss7Joint_802EE6E0.cpp
+pso/boss/TBoss7LaserLight.cpp
 pso/boss/TBoss7LaserPtcl.cpp
 pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
@@ -768,6 +769,7 @@ pso/item/TObjItemLight.cpp
 pso/item/TObjItemNameSelect.cpp
 pso/item/TObjItemOKWindow.cpp
 pso/item/TObjItemOKWindow_801F4A6C.cpp
+pso/item/TUnk_804F0D34.cpp
 pso/item/WeaponAttackActions.cpp
 pso/item/WeaponSpecialSelection.cpp
 pso/map/FloorLifecycleTables.cpp
@@ -1175,7 +1177,6 @@ pso/misc/TMainCursor_8013F104.cpp
 pso/misc/TMainCursor_80154090.cpp
 pso/misc/TMainCursor_801D7A78.cpp
 pso/misc/TMainCursor_801D7AC8.cpp
-pso/misc/TMainTask.cpp
 pso/misc/TMainTask_8001A430.cpp
 pso/misc/TMainTask_80104C40.cpp
 pso/misc/TMapCsnCtrl.cpp
@@ -2238,8 +2239,6 @@ pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
-pso/object/TObject_802EEE9C.cpp
-pso/object/TObject_803503D0.cpp
 pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
@@ -2678,7 +2677,6 @@ pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
 pso/system/TSetEvtDestroy.cpp
 pso/ui/TAdADXlogo.cpp
-pso/ui/TAdADXlogo_80019848.cpp
 pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp
@@ -3615,8 +3613,6 @@ pso/unk/text_802E4A4C.cpp
 pso/unk/text_802E52AC.cpp
 pso/unk/text_802E62A4.cpp
 pso/unk/text_802EDCF0.cpp
-pso/unk/text_802EED20.cpp
-pso/unk/text_802EEE24.cpp
 pso/unk/text_802F0E24.cpp
 pso/unk/text_802F0F04.cpp
 pso/unk/text_802F190C.cpp
@@ -3676,10 +3672,6 @@ pso/unk/text_8034DAA0.cpp
 pso/unk/text_803501BC.cpp
 pso/unk/text_8035029C.cpp
 pso/unk/text_8035033C.cpp
-pso/unk/text_80350394.cpp
-pso/unk/text_80350440.cpp
-pso/unk/text_803504A8.cpp
-pso/unk/text_803505C4.cpp
 pso/unk/text_803516F8.cpp
 pso/unk/text_80352A54.cpp
 pso/unk/text_80352AC0.cpp

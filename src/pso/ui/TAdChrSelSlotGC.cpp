@@ -127,7 +127,7 @@ void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void restore_saved_depth_alpha_state(void);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 
 void TUnk_804E0B28::render() {  }
 
@@ -222,12 +222,12 @@ void TAdChrSelSlotGC::draw_slot_icons() {
 
 void TAdChrSelSlotGC::render() {
     if ((s32) this->enabled == 1) {
-        if (TMainTask::get_state_flag() == 1) {
+        if (TMainTask::get_render_pass() == 1) {
             return;
         }
         goto block_5;
     }
-    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
+    if (defer_render__7TObjectFv() == 0) {
         set_depth_buffer_settings_2();
 block_5:
         set_cached_blend_factor(0, 8);

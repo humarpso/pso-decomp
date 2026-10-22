@@ -14,15 +14,15 @@ void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
 void __ct__7TObjectFP7TObject(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 
 void TAdDrawLineCtrl::render() {
     if ((s32) this->render_mode == 0) {
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
+        if (defer_render__7TObjectFv() == 0) {
             set_depth_buffer_settings_2();
             goto block_5;
         }
-    } else if ((get_main_phase() != 2) || (TMainTask::get_state_flag() != 1)) {
+    } else if ((get_main_phase() != 2) || (TMainTask::get_render_pass() != 1)) {
 block_5:
         TObjPlayer::reset_transform_state();
         if ((u32) this->child_root != 0U) {

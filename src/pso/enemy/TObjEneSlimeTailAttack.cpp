@@ -84,7 +84,7 @@ extern const f32 lbl_805DA758;
 extern const f32 lbl_805DA6AC;
 s32 TObjEneSlimeOne__sub_800EAD84(Obj_800EAD84 *arg0);
 void TObjPlayer__sub_800EBE48(f32 farg0);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 void scale_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -1998,7 +1998,7 @@ struct Bomb_800E9090;
 void render__15TObjEneSlimeOneFv(TObjEneSlimeOne *ene_slime_one) {
     s32 temp_r31;
     if ((TObjPlayer::check_demo_mode() == 0) && !(ene_slime_one->m_3a0 <= lbl_805DA6B4) && (((VObj_18_26a62c *)(ene_slime_one))->m8(lbl_805DA728, lbl_805DA6E4) != 0)) {
-        temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv(ene_slime_one);
+        temp_r31 = defer_render__7TObjectFv(ene_slime_one);
         if (ene_slime_one->m_3a0 < lbl_805DA67C) {
             TObjPlayer__sub_800EBE48(ene_slime_one->m_3a0);
         }

@@ -203,7 +203,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 translate_matrix(s32, f32, f32, f32);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -456,7 +456,7 @@ void TObjEneShark::render() {
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         ((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m6();
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0)
+        if (defer_render__7TObjectFv(arg0) == 0)
         {
           model_render_flags |= 1;
           ((TObjMotion *)arg0)->draw();
@@ -476,7 +476,7 @@ void TObjEneShark::render() {
       }
       if (fade != 0)
       {
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0)
+        if (defer_render__7TObjectFv(arg0) == 0)
         {
           if (res == 1)
           {

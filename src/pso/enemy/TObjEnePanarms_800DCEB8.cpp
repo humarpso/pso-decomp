@@ -1051,7 +1051,7 @@ extern "C" {
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 void update_obstruction_fade(RenderFadeState *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 s32 submit_cursor_candidate(void *, s32);
@@ -1095,7 +1095,7 @@ void TObjEnePanarms::render() {
     if (fade->updateFromCamera(&this->m_2fc) != 0) {
         ((VFade_800DEF5C *)fade)->begin_draw();
         draw = 1;
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+        if (defer_render__7TObjectFv(this) != 0) {
             draw = 0;
         }
         if (draw != 0) {

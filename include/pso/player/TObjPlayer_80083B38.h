@@ -22,11 +22,13 @@ void TObjPlayer__sub_80084780(void);
 void capture_viewport_texture(void);
 void disable_camera_capture_overlay(void);
 extern "C" {
-void func_80083a00__Fv(void);
 }
 void init_capture_texture(s32 wide);
 extern "C" {
 s32 is_in_shadow_range(u8 *arg0, f32 farg0);
 }
+
+void begin_shadow_map_pass();
+void end_shadow_map_pass();
 
 #endif

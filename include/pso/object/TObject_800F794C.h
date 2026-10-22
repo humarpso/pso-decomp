@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void clear_flag_3__7TObjectFv(void *arg0);
+void resume_update__7TObjectFv(void *arg0);
 }
 
 #endif

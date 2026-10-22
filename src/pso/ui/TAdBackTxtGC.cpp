@@ -12,15 +12,15 @@
 extern "C" {
 
 void __ct__7TObjectFP7TObject(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
+s32 defer_render__7TObjectFv();
 
 void render__12TAdBackTxtGCFv(TAdBackTxtGC *ad_back_txt_gc) {
     if ((s32) *(s32 *)((s8 *)ad_back_txt_gc + 0x24) == 0) {
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
+        if (defer_render__7TObjectFv() == 0) {
             set_depth_buffer_settings_2();
             goto block_4;
         }
-    } else if (TMainTask::get_state_flag() != 1) {
+    } else if (TMainTask::get_render_pass() != 1) {
 block_4:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);

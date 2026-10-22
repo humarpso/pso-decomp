@@ -142,7 +142,7 @@ struct Recon_8031BE8C { u8 pad[0x480]; VObj_14_fddec9 fade; };
 extern "C" {
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 extern Vec_8031BE8C lbl_804760FC;
@@ -184,7 +184,7 @@ void render__12TObjEneReconFv(u8 *ene_recon) {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 if (((s16) *(s16 *)((s8 *)ene_recon + 0x326) == 5) && (((Recon_8031BE8C *)ene_recon)->fade.m8() != 0)) {
                     ((Recon_8031BE8C *)ene_recon)->fade.m6();
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(ene_recon) != 0) {
+                    if (defer_render__7TObjectFv(ene_recon) != 0) {
                         var_r29 = 0;
                     }
                 }

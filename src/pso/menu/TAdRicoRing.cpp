@@ -27,7 +27,7 @@ extern s32 TAdRicoRing__resource_bundle;
 int post_translate_matrix(void*);
 int push_matrix(void*);
 
-void TAdRicoRing::render() { push_matrix(this); TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x50))); post_translate_matrix((char*)this + 0x58); rotate_matrix_zyx((void*)0, (s32)(*(void**)((char*)this + 0x64)), (s32)(*(void**)((char*)this + 0x68)), (s32)(*(void**)((char*)this + 0x6c))); func_803e11e8__FUl((s32)((void*)1)); draw_chunk_object((void *)(*(void**)((char*)this + 0x4c))); func_803e11e8__FUl((s32)((void*)2)); draw_chunk_object((void *)(*(void**)((char*)this + 0x4c))); func_803e11f0__Fv(); pop_matrix(); }
+void TAdRicoRing::render() { push_matrix(this); TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x50))); post_translate_matrix((char*)this + 0x58); rotate_matrix_zyx((void*)0, (s32)(*(void**)((char*)this + 0x64)), (s32)(*(void**)((char*)this + 0x68)), (s32)(*(void**)((char*)this + 0x6c))); set_chunk_render_flags((s32)((void*)1)); draw_chunk_object((void *)(*(void**)((char*)this + 0x4c))); set_chunk_render_flags((s32)((void*)2)); draw_chunk_object((void *)(*(void**)((char*)this + 0x4c))); clear_chunk_render_flags(); pop_matrix(); }
 
 void TAdRicoRingCtrl::set_scale4(f32 farg0) {
     *(f32 *)&this->m_1c = farg0;

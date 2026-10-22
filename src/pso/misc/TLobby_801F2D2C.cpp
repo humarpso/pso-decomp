@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TLobby_801F2D2C.h"
@@ -291,7 +292,7 @@ void TLobby::clear_quest_vm_flag() {
 
 void TLobby::free_luker_object() {
     if ((u32) quest_mission_manager != 0U) {
-        ((TObject *)quest_mission_manager)->set_flag_4();
+        ((TObject *)quest_mission_manager)->suspend_update();
     }
 }
 
@@ -324,9 +325,7 @@ int fn_801F34A0(void* p) { return ((TObjPlayer *)p)->check_technique_flag(); }
 s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
 s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 
-void TMainTask__sub_801F34D0(u8 *arg0) {
-    *(u16 *)((s8 *)arg0 + 4) = (u16) (*(u16 *)((s8 *)arg0 + 4) ^ 8);
-}
+void TObject::toggle_pause() { m_flags ^= PAUSE_UPDATE; }
 
 void TLobby::set_floor(s16 v) { *(s16*)((char*)this + 0x11a) = v; }
 

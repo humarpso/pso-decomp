@@ -956,7 +956,7 @@ void render__13TObjEneMorfosFv(u8 *ene_morfos) {
         vis = 0;
     }
     if (vis != 0 && ((TObjEneMorfos *)ene_morfos)->render_model_if_visible() == 0) {
-        ((TObject *)ene_morfos)->toggle_flag_9_if_flag_10_is_clear();
+        ((TObject *)ene_morfos)->defer_render();
         ((TObjEneMorfos *)ene_morfos)->render_part(cam, vis);
         if (((TObjEneMorfos *)ene_morfos)->mode != 0xB && !(*(u32 *)((s8 *)ene_morfos + 0x3C4) & 0x4000)) {
             Vec_80332850 v = lbl_804775E4;

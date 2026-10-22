@@ -4,6 +4,7 @@
 #include "pso/unk/text_803DF204.h"
 
 #include "types.h"
+#include "pso/system/debug_print.h"
 #include "pso/misc/TLobby.h"
 
 struct L_8013FF20 { u8 pad0[0x1012]; s16 a[0x1000]; u8 pad1[0x5016 - 0x3012]; s16 b[0x1101]; };
@@ -41,7 +42,6 @@ struct Lz_8013F99C {
 extern "C" {
 void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
 void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
-void debug_print__FPCc(const char *);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
 extern char lbl_8043F168[];
@@ -149,7 +149,7 @@ s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
     ((Lz_8013F99C *)this)->codesize += 8;
     t1 = TLobby__sub_803DF1CC();
     sprintf(msg, lbl_8043F168, size, ((Lz_8013F99C *)this)->codesize, fn_803DF204(TLobby::calc_delta(t0, t1)));
-    debug_print__FPCc(msg);
+    ::debug_print(msg);
     return ((Lz_8013F99C *)this)->codesize;
 }
 #pragma pop

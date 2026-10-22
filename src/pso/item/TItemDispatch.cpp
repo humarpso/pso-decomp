@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
@@ -75,7 +76,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_by_client_id(s32 i);
 s32 push_to_player_list__5TItemFPv();
-void func_80141618__Fv(void);
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_8010255C_lbl_8050BEC0 saved_model_draw_color;
@@ -142,7 +142,7 @@ void TItem::render_shadows() {
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
             TObjPlayer::reset_transform_state();
-            func_80141618__Fv();
+            restore_draw_list_mask();
         }
         ((TUnk_804AF8A0 *)arg0)->clear_shadow_flag();
     }

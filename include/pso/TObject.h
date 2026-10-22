@@ -21,27 +21,21 @@ OBJECT_NAMES
 #undef o
 
 extern TMainTask main_task;
-extern TObject global_obj1;
-extern TObject global_obj2;
+extern TObject end_of_render_root;
+extern TObject keyboard_task_object;
 
 enum object_flags {
     NONE                    = 0x0000,
     QUEUE_DESTRUCTION       = 0x0001,
     CHILD_QUEUE_DESTRUCTION = 0x0002,
-    BIT_2                   = 0x0004,
-    BIT_3                   = 0x0008,
-    DISALLOW_UPDATE         = 0x000F,
+    SUSPEND_UPDATE          = 0x0004, // the object stops updating itself
+    PAUSE_UPDATE            = 0x0008, // paused from outside (whole layers via TMainTask)
+    DISALLOW_UPDATE         = 0x000F, // any of the above: run_tasks skips the node
     DISALLOW_RENDER         = 0x0010,
     DISALLOW_DESTRUCTION    = 0x0020,
     DISALLOW_RENDER_SHADOWS = 0x0100,
-    BIT_9                   = 0x0200,
-    BIT_10                  = 0x0400,
-    BIT_11                  = 0x0800,
-    BIT_12                  = 0x1000,
-    BIT_13                  = 0x2000,
-    BIT_14                  = 0x4000,
-    BIT_15                  = 0x8000,
-    ALL_BITS                = 0xFFFF
+    DEFER_RENDER            = 0x0200, // drawn in render_deferred_nodes' later pass
+    NO_DEFER_RENDER         = 0x0400  // defer_render() never defers this node
 };
 
 class TObject {
@@ -106,26 +100,26 @@ public:
 #ifdef TOBJECT_OUT_OF_LINE_HELPERS
     void allow_rendering_shadows();
     void disallow_rendering_shadows();
-    void clear_flag_9();
-    void set_flag_9();
-    u32 get_flag_9();
+    void clear_render_deferred();
+    void set_render_deferred();
+    u32 is_render_deferred();
     void allow_rendering();
     void disallow_rendering();
-    void clear_flag_3();
-    void set_flag_3();
-    void toggle_flag_3()              { m_flags ^= BIT_3; }
+    void resume_update();
+    void pause_update();
+    void toggle_pause();
     void queue_destruction();
 #else
     void allow_rendering_shadows()    { m_flags &= ~DISALLOW_RENDER_SHADOWS; }
     void disallow_rendering_shadows() { m_flags |= DISALLOW_RENDER_SHADOWS; }
-    void clear_flag_9()               { m_flags &= ~BIT_9; }
-    void set_flag_9()                 { m_flags |= BIT_9; }
-    u32  get_flag_9()                 { return m_flags & BIT_9; }
+    void clear_render_deferred()      { m_flags &= ~DEFER_RENDER; }
+    void set_render_deferred()        { m_flags |= DEFER_RENDER; }
+    u32  is_render_deferred()         { return m_flags & DEFER_RENDER; }
     void allow_rendering()            { m_flags &= ~DISALLOW_RENDER; }
     void disallow_rendering()         { m_flags |= DISALLOW_RENDER; }
-    void clear_flag_3()               { m_flags &= ~BIT_3; }
-    void set_flag_3()                 { m_flags |= BIT_3; }
-    void toggle_flag_3()              { m_flags ^= BIT_3; }
+    void resume_update()              { m_flags &= ~PAUSE_UPDATE; }
+    void pause_update()               { m_flags |= PAUSE_UPDATE; }
+    void toggle_pause();
     void queue_destruction()          { m_flags |= QUEUE_DESTRUCTION; }
 
 #endif
@@ -135,7 +129,7 @@ public:
     virtual void run_task();
     virtual void render();
     virtual void render_shadows();
-    void set_flag_4();
+    void suspend_update();
 
     void *operator new(size_t size);
     void  operator delete(void *ptr);
@@ -145,15 +139,15 @@ public:
     void run_tasks();
     void render_nodes();
     void render_shadows_for_each_node();
-    void render_nodes2();
-    void empty_func();
+    void render_deferred_nodes();
+    void debug_render();
     void set_parent(TObject *parent);
 
-    void empty_func2();
+    void debug_update();
     void log(const char *str);
     int  get_node_count();
     int  all_parents_unqueued_for_destruction();
-    bool toggle_flag_9_if_flag_10_is_clear();
+    bool defer_render();
 public:
 };
 

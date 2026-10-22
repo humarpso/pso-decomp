@@ -558,7 +558,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *, s32, s32, s32);
 s32 restore_scene_lighting(s32, s32);
 s32 select_actor_lighting(void *);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 translate_matrix(s32, f32, f32, f32);
 
 s32 draw_chunk_object(s32);
@@ -1525,7 +1525,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
     draw = 1;
     if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(arg0 + 0x38)) == 1) {
         fade->m6();
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+        if (defer_render__7TObjectFv(arg0) != 0) {
             draw = 0;
         } else {
             model_render_flags &= ~1;

@@ -63,7 +63,7 @@ extern s32 boss3_volopt_core_active_flag;
 extern const f32 lbl_805D86A4;
 extern const f32 lbl_805D86A8;
 
-s32 set_flag_3__7TObjectFv(void *);
+s32 pause_update__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006A044(int, f32);
 s32 spawn_particle_effect(void *, int);
 s32 is_local_client_floor_leader();
@@ -803,7 +803,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
         for (i = 0; i < 6; i++) {
             p = (u8 *)find_entity_by_id(volopt_target_entity_ids[i]);
             if (p != NULL) {
-                set_flag_3__7TObjectFv(p);
+                pause_update__7TObjectFv(p);
             }
         }
         p = (u8 *)find_entity_by_id(lbl_805D271C);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/system/ModelDrawContext.h"
@@ -119,7 +120,6 @@ u32 ply_status_index;
 s32 TAdPlyStatusGC__is_shown;
 void close_window__14TAdPlyStatusGCFv(void *arg0);
 void render__14TAdPlyStatusGCFv(void* p);
-int get_state_flag__9TMainTaskFv(void*);
 
 void *TAdPlyStatusGC__status_window_box[8] = {
     (void *)0x42a60000, (void *)0x41200000, (void *)0x42e60000, (void *)0x42280000,
@@ -133,7 +133,7 @@ void *ply_status_window_points_second[6] = {
     (void *)0x42700000, (void *)0x42280000, (void *)0x42700000, (void *)0x42780000,
     (void *)0x42700000, (void *)0x42a40000,
 };
-void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void render__14TAdPlyStatusGCFv(void* p) { if (TMainTask::get_render_pass() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 

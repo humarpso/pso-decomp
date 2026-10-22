@@ -268,7 +268,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 update_obstruction_fade(void *);
 s32 scroll_strip_uvs(s32, int, int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
@@ -365,7 +365,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 berura_demo_flag = 0;
                 ((Fade_80092CCC *)fade)->v.m6();
                 f1 = 1;
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) != 0) {
+                if (defer_render__7TObjectFv(o) != 0) {
                     f1 = 0;
                 }
                 if (f1 != 0) {
@@ -390,7 +390,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 if (o->f3D8.v.m8() != 0) {
                     o->f3D8.v.m6();
                     f2 = 1;
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) != 0) {
+                    if (defer_render__7TObjectFv(o) != 0) {
                         f2 = 0;
                     }
                     if (f2 != 0) {

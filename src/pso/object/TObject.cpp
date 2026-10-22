@@ -1,15 +1,30 @@
+// Implements both TObject and TMainTask. They were one source file in the
+// original: a single static initializer constructs main_task and the two
+// TObject roots, and one .sdata block holds TMainTask's flag next to the
+// TObject/TMainTask/task-layer names.
 #pragma readonly_strings on
 #define TOBJECT_CPP
 #define TOBJECT_OUT_OF_LINE_HELPERS
-#define global_obj1 lbl_80515F48
-#define global_obj2 keyboard_task_object
 
 #include "pso/THeap.h"
-#include "pso/object/TObject.h"
 #include "pso/TMainTask.h"
 #include "pso/TObject.h"
+#include "pso/misc/TKeyBoardControl_803DE9C4.h"
+#include "pso/misc/TLobby_803382E4.h"
+#include "pso/player/TObjPlayer_80083B38.h"
+#include "pso/system/debug_print.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803E2D70.h"
 
-u32 some_main_task_flag = 1;
+extern u32 model_render_flags;
+
+// 0 while the scene tree is drawn for geometry, particles and UI; 1 during
+// the effects traversal and the deferred-object pass (see TMainTask::render).
+u32 render_pass = 1;
+
+// The original's static initializer sits before the weak copies of the
+// TObject inlines this unit emits, which no compiler-generated __sinit
+// reproduces, so the destructor chain and __sinit are spelled out.
 struct DestructorChain {
     DestructorChain *next;
     void *destructor;
@@ -17,12 +32,12 @@ struct DestructorChain {
 };
 #pragma suppress_init_code on
 #pragma no_static_dtors on
-DestructorChain tobject_destructor_chain;
+DestructorChain main_task_dtor_chain;
 TMainTask main_task;
-DestructorChain main_task_root1_dtor_registration;
-TObject global_obj1;
-DestructorChain main_task_root2_dtor_registration;
-TObject global_obj2;
+DestructorChain end_of_render_root_dtor_chain;
+TObject end_of_render_root;
+DestructorChain keyboard_task_object_dtor_chain;
+TObject keyboard_task_object;
 #pragma no_static_dtors reset
 #pragma suppress_init_code reset
 
@@ -30,49 +45,23 @@ TObject global_obj2;
 OBJECT_NAMES
 #undef o
 
-const char *tl_su_name = "TL_SU";
-const char *tl_00_name = "TL_00";
-const char *tl_camera_name = "TL_CAMERA";
-const char *tl_01_name = "TL_01";
-const char *tl_02_name = "TL_02";
-const char *tl_03_name = "TL_03";
-const char *tl_item_equip_name = "TL_ITEM_EQUIP";
-const char *tl_loc_start_name = "TL_LOC_START";
-const char *tl_04_name = "TL_04";
-const char *tl_05_name = "TL_05";
-const char *tl_06_name = "TL_06";
-const char *tl_07_name = "TL_07";
-const char *tl_loc_end_name = "TL_LOC_END";
-const char *tl_window_name = "TL_WINDOW";
-const char *tl_particle_name = "TL_PARTICLE";
-const char *tl_particlemodel_name = "TL_PARTICLEMODEL";
-const char *tl_radermap_name = "TL_RADERMAP";
-const char *tl_clipout_name = "TL_CLIPOUT";
-const char *tl_fade_name = "TL_FADE";
-const char *tl_fadeafter_name = "TL_FADEAFTER";
+#define o(var, name) const char *var##_name = #name;
+TL_OBJECTS_IN_ADDRESS_ORDER
+#undef o
 
-void debug_print(const char *fmt);
+#define o(var, name) TObject *var;
+TL_OBJECTS_IN_ADDRESS_ORDER
+#undef o
 
-extern u32 some_main_task_flag;
-extern u32 update_flags, old_update_flags;
-extern u32 render_flags, old_render_flags;
-extern u32 render_shadow_flags, old_render_shadow_flags;
-extern u32 model_render_flags;
-
-void camera_stuff();
-void set_depth_buffer_settings_1();
-void set_depth_buffer_settings_2();
-void set_depth_buffer_settings_3();
-void set_depth_buffer_settings_id(u32 id);
-void save_depth_buffer_settings();
-void restore_depth_buffer_settings();
-void set_some_id(u32 id);
-void func_80083a00();
-void func_80141618();
-void func_803e11e8(u32 arg1);
-void func_803e11f0();
+u32 update_flags;
+u32 old_update_flags;
+u32 render_flags;
+u32 old_render_flags;
+u32 render_shadow_flags;
+u32 old_render_shadow_flags;
 
 extern "C" {
+void __sinit_TObject_cpp();
 TMainTask *__ct__9TMainTaskFv(TMainTask *);
 TObject *__ct__7TObjectFP7TObject(TObject *, TObject *);
 void __dt__9TMainTaskFv(TMainTask *, s16);
@@ -82,21 +71,21 @@ void *__register_global_object(void *, void *, void *);
 __declspec(section ".ctors") static void *const object_global_initializer = (void *)__sinit_TObject_cpp;
 
 #pragma defer_codegen on
-u32 TObject::get_flag_9() { return m_flags & BIT_9; }
+u32 TObject::is_render_deferred() { return m_flags & DEFER_RENDER; }
 
-void TObject::set_flag_9() { m_flags |= BIT_9; }
+void TObject::set_render_deferred() { m_flags |= DEFER_RENDER; }
 
-void TObject::clear_flag_9() { m_flags &= ~BIT_9; }
+void TObject::clear_render_deferred() { m_flags &= ~DEFER_RENDER; }
 
 void TObject::allow_rendering_shadows() { m_flags &= ~DISALLOW_RENDER_SHADOWS; }
 
 void __sinit_TObject_cpp() {
     __register_global_object(__ct__9TMainTaskFv(&main_task),
-        (void *)__dt__9TMainTaskFv, &tobject_destructor_chain);
-    __register_global_object(__ct__7TObjectFP7TObject(&global_obj1, NULL),
-        (void *)__dt__7TObjectFv, &main_task_root1_dtor_registration);
-    __register_global_object(__ct__7TObjectFP7TObject(&global_obj2, NULL),
-        (void *)__dt__7TObjectFv, &main_task_root2_dtor_registration);
+        (void *)__dt__9TMainTaskFv, &main_task_dtor_chain);
+    __register_global_object(__ct__7TObjectFP7TObject(&end_of_render_root, NULL),
+        (void *)__dt__7TObjectFv, &end_of_render_root_dtor_chain);
+    __register_global_object(__ct__7TObjectFP7TObject(&keyboard_task_object, NULL),
+        (void *)__dt__7TObjectFv, &keyboard_task_object_dtor_chain);
 }
 
 TObject::TObject(TObject *parent) {
@@ -141,11 +130,11 @@ void TObject::run_tasks() {
                     node->m_flags &= ~CHILD_QUEUE_DESTRUCTION;
                 }
 
-                if (node->m_flags & BIT_2) {
+                if (node->m_flags & SUSPEND_UPDATE) {
                     continue;
                 }
 
-                if (node->m_flags & BIT_3) {
+                if (node->m_flags & PAUSE_UPDATE) {
                     continue;
                 }
             }
@@ -174,17 +163,17 @@ void TObject::render_shadows_for_each_node() {
     }
 }
 
-void TObject::render_nodes2() {
+void TObject::render_deferred_nodes() {
     FOREACH_NODE(TObject, this->m_down, child) {
-        if (child->m_flags & BIT_9) {
+        if (child->m_flags & DEFER_RENDER) {
             child->render();
-            child->clear_flag_9();
+            child->clear_render_deferred();
         }
-        child->render_nodes2();
+        child->render_deferred_nodes();
     }
 }
 
-void TObject::empty_func() {
+void TObject::debug_render() {
 
 }
 
@@ -205,7 +194,7 @@ void TObject::render_shadows() {
 
 }
 
-void TObject::empty_func2() {
+void TObject::debug_update() {
 
 }
 
@@ -239,15 +228,15 @@ void TObject::operator delete(void *ptr) {
     obj_heap->heap_free(ptr);
 }
 
-bool TObject::toggle_flag_9_if_flag_10_is_clear() {
-    if (m_flags & BIT_10) {
+bool TObject::defer_render() {
+    if (m_flags & NO_DEFER_RENDER) {
         return false;
     }
-    if ((s32)get_flag_9() == 0) {
-        set_flag_9();
+    if ((s32)is_render_deferred() == 0) {
+        set_render_deferred();
         return true;
     } else {
-        clear_flag_9();
+        clear_render_deferred();
         return false;
     }
 }
@@ -255,8 +244,8 @@ bool TObject::toggle_flag_9_if_flag_10_is_clear() {
 TMainTask::TMainTask() : TObject(NULL) {
     m_name = TMainTask_name;
     task_flags = 0;
-    mbr_0x20 = 0;
-    mbr_0x24 = 0;
+    reserved_20 = 0;
+    reserved_24 = 0;
 }
 
 void TMainTask::init_main_task() {
@@ -277,7 +266,7 @@ TMainTask::~TMainTask() {
 
 void TMainTask::render_shadows() {
     tl_particlemodel->disallow_rendering_shadows();
-    camera_stuff();
+    begin_shadow_map_pass();
     DISALLOW_OR_ALLOW_CHILD(render_shadow_flags, old_render_shadow_flags, rendering_shadows);
 
     set_depth_buffer_settings_3();
@@ -285,7 +274,7 @@ void TMainTask::render_shadows() {
     save_depth_buffer_settings();
 
     render_shadows_for_each_node();
-    func_80083a00();
+    end_shadow_map_pass();
 
     tl_particlemodel->allow_rendering_shadows();
     tl_particlemodel->render_shadows_for_each_node();
@@ -294,23 +283,23 @@ void TMainTask::render_shadows() {
 }
 
 void TMainTask::run_task() {
-    SET_OR_CLEAR_CHILD_FLAGS(update_flags, old_update_flags, 3);
-    some_main_task_flag = 0;
-    task_flags |= 1;
+    PAUSE_OR_RESUME_CHILD(update_flags, old_update_flags);
+    render_pass = 0;
+    task_flags |= MAIN_TASK_UPDATING;
     run_tasks();
-    task_flags &= ~1;
-    task_flags |= 0x80;
+    task_flags &= ~MAIN_TASK_UPDATING;
+    task_flags |= MAIN_TASK_UPDATED;
 }
 
 void TMainTask::render_clipout_and_fade() {
-    u32 some_id;
-    task_flags |= 2;
+    u32 saved_render_flags;
+    task_flags |= MAIN_TASK_RENDERING;
 
     set_depth_buffer_settings_2();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
-    some_id = model_render_flags;
-    set_some_id(1);
+    saved_render_flags = model_render_flags;
+    set_model_render_flags(1);
 
     tl_clipout->allow_rendering();
     tl_clipout->render_nodes();
@@ -319,28 +308,28 @@ void TMainTask::render_clipout_and_fade() {
     tl_fadeafter->allow_rendering();
     tl_fadeafter->render_nodes();
 
-    set_some_id(some_id);
+    set_model_render_flags(saved_render_flags);
     restore_depth_buffer_settings();
 
-    task_flags &= ~2;
+    task_flags &= ~MAIN_TASK_RENDERING;
 }
 
 void TMainTask::render_scene_passes() {
-    task_flags |= 0x10;
-    some_main_task_flag = 0;
+    task_flags |= MAIN_TASK_SCENE_PASSES;
+    render_pass = 0;
     render_geometry();
-    some_main_task_flag = 1;
+    render_pass = 1;
     render_effects();
     render_objects();
-    some_main_task_flag = 0;
+    render_pass = 0;
     render_particle_effects();
-    unused_render_func();
-    task_flags &= ~0x10;
+    render_after_scene();
+    task_flags &= ~MAIN_TASK_SCENE_PASSES;
 }
 
 void TMainTask::render_object_layers(int mode) {
-    task_flags |= 0x20;
-    some_main_task_flag = 0;
+    task_flags |= MAIN_TASK_OBJECT_LAYERS;
+    render_pass = 0;
     set_depth_buffer_settings_3();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
@@ -352,7 +341,7 @@ void TMainTask::render_object_layers(int mode) {
         tl_item_equip->allow_rendering();
         tl_item_equip->render_nodes();
         tl_item_equip->disallow_rendering();
-        func_80141618();
+        restore_draw_list_mask();
         break;
     case 1:
         tl_03->render_nodes();
@@ -366,47 +355,47 @@ void TMainTask::render_object_layers(int mode) {
         break;
     case 4:
         set_depth_buffer_settings_id(1);
-        func_803e11e8(1);
+        set_chunk_render_flags(1);
         tl_item_equip->allow_rendering();
         tl_item_equip->render_nodes();
         tl_item_equip->disallow_rendering();
-        func_803e11f0();
-        func_80141618();
+        clear_chunk_render_flags();
+        restore_draw_list_mask();
         break;
     case 5:
         set_depth_buffer_settings_id(2);
-        func_803e11e8(2);
+        set_chunk_render_flags(2);
         tl_item_equip->allow_rendering();
         tl_item_equip->render_nodes();
         tl_item_equip->disallow_rendering();
-        func_803e11f0();
-        func_80141618();
+        clear_chunk_render_flags();
+        restore_draw_list_mask();
         break;
     }
     restore_depth_buffer_settings();
-    some_main_task_flag = 1;
+    render_pass = 1;
     set_depth_buffer_settings_1();
     set_depth_buffer_settings_id(2);
     save_depth_buffer_settings();
     restore_depth_buffer_settings();
-    task_flags &= ~0x20;
+    task_flags &= ~MAIN_TASK_OBJECT_LAYERS;
 }
 
 void TMainTask::render_task_layer_02() {
-    task_flags |= 0x40;
-    some_main_task_flag = 0;
+    task_flags |= MAIN_TASK_LAYER_02;
+    render_pass = 0;
     set_depth_buffer_settings_3();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
     tl_02->render_nodes();
     restore_depth_buffer_settings();
-    some_main_task_flag = 1;
+    render_pass = 1;
     set_depth_buffer_settings_1();
     set_depth_buffer_settings_id(2);
     save_depth_buffer_settings();
     tl_02->render_nodes();
     restore_depth_buffer_settings();
-    task_flags &= ~0x40;
+    task_flags &= ~MAIN_TASK_LAYER_02;
 }
 
 void TMainTask::render_geometry() {
@@ -432,14 +421,14 @@ void TMainTask::render_geometry() {
 
     restore_depth_buffer_settings();
     set_depth_buffer_settings_id(1);
-    func_803e11e8(1);
+    set_chunk_render_flags(1);
 
     tl_item_equip->allow_rendering();
     tl_item_equip->render_nodes();
-    func_803e11f0();
+    clear_chunk_render_flags();
     tl_item_equip->disallow_rendering();
 
-    func_80141618();
+    restore_draw_list_mask();
 }
 
 void TMainTask::render_effects() {
@@ -471,76 +460,197 @@ void TMainTask::render_particle_effects() {
 }
 
 void TMainTask::render_ui() {
-    u32 some_id;
+    u32 saved_render_flags;
     set_depth_buffer_settings_2();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
-    some_id = model_render_flags;
-    set_some_id(1);
+    saved_render_flags = model_render_flags;
+    set_model_render_flags(1);
 
     tl_window->allow_rendering();
     tl_window->render_nodes();
     tl_radermap->allow_rendering();
     tl_radermap->render_nodes();
 
-    set_some_id(some_id);
+    set_model_render_flags(saved_render_flags);
     restore_depth_buffer_settings();
 }
 
 void TMainTask::render_objects() {
-    task_flags |= 0x200;
+    task_flags |= MAIN_TASK_DEFERRED_OBJECTS;
 
-    tl_03->render_nodes2();
-    tl_04->render_nodes2();
+    tl_03->render_deferred_nodes();
+    tl_04->render_deferred_nodes();
 
     set_depth_buffer_settings_id(0);
-    func_803e11e8(4);
+    set_chunk_render_flags(4);
 
     tl_item_equip->allow_rendering();
     tl_item_equip->render_nodes();
 
-    func_80141618();
-    func_803e11f0();
+    restore_draw_list_mask();
+    clear_chunk_render_flags();
 
-    task_flags &= ~0x200;
+    task_flags &= ~MAIN_TASK_DEFERRED_OBJECTS;
 
     set_depth_buffer_settings_id(2);
-    func_803e11e8(2);
+    set_chunk_render_flags(2);
 
     tl_item_equip->allow_rendering();
     tl_item_equip->render_nodes();
     tl_item_equip->disallow_rendering();
 
-    func_803e11f0();
-    func_80141618();
+    clear_chunk_render_flags();
+    restore_draw_list_mask();
 }
 
-void TMainTask::unused_render_func() {
+void TMainTask::render_after_scene() {
 
 }
 
 void TMainTask::render() {
     ALLOW_OR_DISALLOW_CHILD(render_flags, old_render_flags, rendering);
-    task_flags |= 2;
-    some_main_task_flag = 0;
+    task_flags |= MAIN_TASK_RENDERING;
+    render_pass = 0;
     render_geometry();
-    some_main_task_flag = 1;
+    render_pass = 1;
     render_effects();
-    some_main_task_flag = 0;
+    render_pass = 0;
     render_particle_effects();
-    some_main_task_flag = 1;
+    render_pass = 1;
     render_objects();
-    some_main_task_flag = 0;
-    unused_render_func();
+    render_pass = 0;
+    render_after_scene();
     render_ui();
-    task_flags &= ~2;
-    task_flags |= 0x100;
+    task_flags &= ~MAIN_TASK_RENDERING;
+    task_flags |= MAIN_TASK_RENDERED;
 }
 
 void TMainTask::run_tl_camera_tasks() {
-    task_flags |= 1;
+    task_flags |= MAIN_TASK_UPDATING;
     tl_camera->run_tasks();
-    task_flags &= ~1;
+    task_flags &= ~MAIN_TASK_UPDATING;
+}
+
+void TMainTask::debug_render_overlay() {
+
+}
+
+void TMainTask::resume_game_layers() {
+    tl_02->resume_update();
+    tl_03->resume_update();
+    tl_item_equip->resume_update();
+    tl_loc_start->resume_update();
+    tl_04->resume_update();
+    tl_05->resume_update();
+    tl_06->resume_update();
+    tl_07->resume_update();
+    tl_loc_end->resume_update();
+    tl_window->resume_update();
+    tl_particle->resume_update();
+    tl_particlemodel->resume_update();
+    tl_radermap->resume_update();
+    tl_clipout->resume_update();
+    tl_fade->resume_update();
+    tl_fadeafter->resume_update();
+}
+
+void TMainTask::toggle_pause_game_layers() {
+    tl_02->toggle_pause();
+    tl_03->toggle_pause();
+    tl_item_equip->toggle_pause();
+    tl_loc_start->toggle_pause();
+    tl_04->toggle_pause();
+    tl_05->toggle_pause();
+    tl_06->toggle_pause();
+    tl_07->toggle_pause();
+    tl_loc_end->toggle_pause();
+    tl_window->toggle_pause();
+    tl_particle->toggle_pause();
+    tl_particlemodel->toggle_pause();
+    tl_radermap->toggle_pause();
+    tl_clipout->toggle_pause();
+    tl_fade->toggle_pause();
+    tl_fadeafter->toggle_pause();
+}
+
+void TMainTask::delete_layer_children() {
+    tl_00->delete_children();
+    tl_camera->delete_children();
+    tl_01->delete_children();
+    tl_02->delete_children();
+    tl_03->delete_children();
+    tl_item_equip->delete_children();
+    tl_loc_start->delete_children();
+    tl_04->delete_children();
+    tl_05->delete_children();
+    tl_06->delete_children();
+    tl_07->delete_children();
+    tl_loc_end->delete_children();
+    tl_window->delete_children();
+    tl_particle->delete_children();
+    tl_particlemodel->delete_children();
+    tl_radermap->delete_children();
+    tl_clipout->delete_children();
+    tl_fade->delete_children();
+    tl_fadeafter->delete_children();
+}
+
+void TMainTask::resume_layers() {
+    tl_00->resume_update();
+    tl_camera->resume_update();
+    tl_01->resume_update();
+    tl_02->resume_update();
+    tl_03->resume_update();
+    tl_item_equip->resume_update();
+    tl_loc_start->resume_update();
+    tl_04->resume_update();
+    tl_05->resume_update();
+    tl_06->resume_update();
+    tl_07->resume_update();
+    tl_loc_end->resume_update();
+    tl_window->resume_update();
+    tl_particle->resume_update();
+    tl_particlemodel->resume_update();
+    tl_radermap->resume_update();
+    tl_clipout->resume_update();
+    tl_fade->resume_update();
+    tl_fadeafter->resume_update();
+}
+
+void TMainTask::toggle_pause_layers() {
+    tl_00->toggle_pause();
+    tl_camera->toggle_pause();
+    tl_01->toggle_pause();
+    tl_02->toggle_pause();
+    tl_03->toggle_pause();
+    tl_item_equip->toggle_pause();
+    tl_loc_start->toggle_pause();
+    tl_04->toggle_pause();
+    tl_05->toggle_pause();
+    tl_06->toggle_pause();
+    tl_07->toggle_pause();
+    tl_loc_end->toggle_pause();
+    tl_window->toggle_pause();
+    tl_particlemodel->toggle_pause();
+    tl_radermap->toggle_pause();
+    tl_clipout->toggle_pause();
+    tl_fade->toggle_pause();
+    tl_fadeafter->toggle_pause();
+}
+
+void TMainTask::begin_frame() {
+
+}
+
+void TMainTask::render_screen_overlay() {
+    if (task_flags & MAIN_TASK_RENDERED) {
+        render_clipout_and_fade();
+        debug_render();
+        debug_render_overlay();
+        render_info_icon_overlay();
+    }
+    task_flags &= ~(MAIN_TASK_UPDATED | MAIN_TASK_RENDERED);
 }
 
 #pragma defer_codegen off

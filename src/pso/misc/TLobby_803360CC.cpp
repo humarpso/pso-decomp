@@ -179,7 +179,7 @@ void TUnk_804EEF64::run_task() {
         TLobby__sub_803362A4(((Obj_80336340 *)this));
     }
     if ((s32) ((TUnk_804EEF64 *)((Obj_80336340 *)this))->m_38 == (s32) *(s32 *)((s8 *)((Obj_80336340 *)this) + 0x34)) {
-        ((TObject *)(*(void **)((s8 *)((Obj_80336340 *)this) + 0x24)))->set_flag_4();
+        ((TObject *)(*(void **)((s8 *)((Obj_80336340 *)this) + 0x24)))->suspend_update();
         TWindowOptionCtrl__sub_802273B4(0x1E);
     }
     if (((s32) ((TUnk_804EEF64 *)((Obj_80336340 *)this))->m_38 < (s32) *(s32 *)((s8 *)((Obj_80336340 *)this) + 0x34)) && (((TAdSinglePlyChrSelectGC *)((Obj_80336340 *)this))->start_offline_seq() != 0)) {
@@ -240,7 +240,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     this->m_20 = p;
     this->m_28 = 0;
     if (*(void **)((s8 *)arg0 + 0x24) != 0) {
-        ((TObject *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
+        ((TObject *)(*(void **)((s8 *)arg0 + 0x24)))->suspend_update();
     }
     TAdMultiChgGameModeGC::apply_bgm_col_ctrl((s32)lbl_80477824);
     {

@@ -31,7 +31,7 @@ void TAdMultiSaveGC::load_shared_resource() {
     (*(s32 *)&admultisave_shared_model_resource) = var_r0;
 }
 void TAdMultiSaveGC::render() {
-    if (TMainTask::get_state_flag() == 1) return;
+    if (TMainTask::get_render_pass() == 1) return;
 }
 
 }

@@ -657,7 +657,7 @@ void render__19TObjEneEpsilonGuardFv(u8 *ene_epsilon_guard) {
         }
         if (var_r31 != 0) {
             update_player_state__9TObjEneDDFv(ene_epsilon_guard, 0, 0);
-            ((TObject *)ene_epsilon_guard)->toggle_flag_9_if_flag_10_is_clear();
+            ((TObject *)ene_epsilon_guard)->defer_render();
             render_with_fade__19TObjEneEpsilonGuardFPvi(ene_epsilon_guard, var_r31);
             ((TObjEneEpsilonGuard *)ene_epsilon_guard)->render_guard_effect();
             return;

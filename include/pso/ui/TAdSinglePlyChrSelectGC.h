@@ -48,7 +48,7 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void advance_field28();
     s32 get_selected_slot();
     void set_position(void* q);
-    static void noop_laser();
+    void noop_laser();
     void forward_to_field_0x14(void* a1);
     void set_vec3(void* q);
     void render_status_disp(f32 arg1, f32 arg2);

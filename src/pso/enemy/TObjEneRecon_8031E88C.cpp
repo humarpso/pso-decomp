@@ -165,7 +165,7 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(int);
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+s32 defer_render__7TObjectFv(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -251,7 +251,7 @@ void TObjEneRecobox::render() {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
                     if (((Fade_8031EA70 *)(arg0 + 0x3C0))->m8() != 0) {
-                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                        if (defer_render__7TObjectFv(arg0) != 0) {
                             model_render_flags = lbl_805D5660;
                             chunk_polygon_flags_and_mask = lbl_805D5664;
                             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -271,7 +271,7 @@ block_18:
                 update_obstruction_fade((int)temp_r29);
                 temp_r30 = ((RenderFadeState *)temp_r29)->updateFromCamera((const f32*)(arg0 + 0x2FC));
                 if ((var_r27 == 0) && (temp_r30 != 0)) {
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                    if (defer_render__7TObjectFv(arg0) != 0) {
                         model_render_flags = lbl_805D5660;
                         chunk_polygon_flags_and_mask = lbl_805D5664;
                         chunk_polygon_flags_or_mask = lbl_805D5668;
