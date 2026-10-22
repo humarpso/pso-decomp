@@ -4,7 +4,19 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-struct Obj_802F0E94 { u8 pad[0x42C]; u8 *f42c; };
+#define ARRAY_COUNT(arr) (sizeof(arr) / sizeof((arr)[0]))
+
+struct BmlModelEntry {
+    u32 flags;
+    s32 unk4;
+    void *model;
+    void *texture_list;
+};
+
+struct BmlResource {
+    u8 pad0[0x42C];
+    BmlModelEntry *models;
+};
 
 extern "C" {
 void TLobby__sub_803DA16C(void *);
@@ -37,14 +49,23 @@ const char *bm_obj_boss7_common_model_names[] = {
     "de_obj999_mtn062_bosstenkyu03.gj",
     NULL,
 };
+
 const char *bm_obj_boss7_common_motion_names[] = {
     "mtn060_bosstenkyu01.njm",
     "mtn061_bosstenkyu02.njm",
     "mtn062_bosstenkyu03.njm",
     NULL,
 };
-BmlResourceDescriptor boss7_common_resource_descriptor = { "bm_obj_boss7_common.bml", bm_obj_boss7_common_model_names, bm_obj_boss7_common_motion_names, 20, 3 };
-u32 boss7_dermt_slot_table[8];
+
+BmlResourceDescriptor boss7_common_resource_descriptor = {
+    "bm_obj_boss7_common.bml",
+    bm_obj_boss7_common_model_names,
+    bm_obj_boss7_common_motion_names,
+    ARRAY_COUNT(bm_obj_boss7_common_model_names) - 1,
+    ARRAY_COUNT(bm_obj_boss7_common_motion_names) - 1
+};
+
+u32 boss7_dermt_slot_table[7];
 void *boss7_common_bml_resource;
 void *boss7_common_texture_list;
 
@@ -64,12 +85,15 @@ void free_boss7_common_resources(void) {
 
 void load_boss7_common_resources(void) {
     void *p;
+
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 5, &boss7_common_resource_descriptor, 0, 0, 0);
     }
+
     boss7_common_bml_resource = p;
-    boss7_common_texture_list = *(void **)(((struct Obj_802F0E94 *)p)->f42c + 0xC);
+    boss7_common_texture_list = ((BmlResource *)p)->models[0].texture_list;
+
     TLobby::load_texture_pvm_file("obj_boss7_common.gvm", (s32)boss7_common_texture_list);
     TParticleCtrl::init_heap((void *)0x50000);
 }
