@@ -6,7 +6,7 @@ extern "C" {
 s32 strncmp(void *, void *, s32);
 void mask_profanity_words(char *, char *);
 s32 memset(void *, s32, s32);
-s32 strncpy(void *, s32, s32);
+char *strncpy(char *, const char *, s32);
 
 const char profanity_word_mask[] = "#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%";
 
@@ -271,13 +271,13 @@ char profanity_word_table[258][20] = {
     "",
 };
 
-s32 TWindowSubComCard::contains_profanity(s32 arg0) {
+s32 TWindowSubComCard::contains_profanity(char *text) {
     char name[0x11];
     char masked[0x11];
 
     memset(name, 0, sizeof(name));
     memset(masked, 0, sizeof(masked));
-    strncpy(name, arg0, sizeof(name) - 1);
+    strncpy(name, text, sizeof(name) - 1);
     mask_profanity_words(name, masked);
     return strncmp(name, masked, sizeof(name) - 1);
 }

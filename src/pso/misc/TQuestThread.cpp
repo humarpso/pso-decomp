@@ -214,7 +214,7 @@ void fn_801F6520(void* p);
 int TQuestListVM__sub_801F6530(void);
 int TQuestListOnline__sub_801F6540(void);
 s32 *TQuestThread__sub_801F6548(void);
-s32 contains_profanity__17TWindowSubComCardFl(s32);
+s32 contains_profanity__17TWindowSubComCardFPc(char *);
 s32 __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32);
 s32 __dt__7TObjectFv(void *, s32);
@@ -330,7 +330,7 @@ s32 TWindowSubComCard::process_keyboard_input() {
             ((s32 (*)(u32))free_menu_object)(*(u32 *)((s8 *)this + 0x1C));
             return 0;
         }
-        if (contains_profanity__17TWindowSubComCardFl(temp_r31) != 0) {
+        if (contains_profanity__17TWindowSubComCardFPc((char *)temp_r31) != 0) {
             ((s32 (*)(u32))free_menu_object)(*(u32 *)((s8 *)this + 0x1C));
             mem_free((void *)temp_r31);
             return 0;
