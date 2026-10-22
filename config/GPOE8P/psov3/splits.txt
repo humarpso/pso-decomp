@@ -2917,7 +2917,13 @@ pso/unk/text_8011B328.cpp:
 	.text       start:0x8011B328 end:0x8011B3B0
 
 pso/item/TItemShootGun.cpp:
-	.text       start:0x8011B3B0 end:0x8011B620
+	.text       start:0x8011B3B0 end:0x8011B444
+
+pso/item/TItemShootGun_ctor.cpp:
+	.text       start:0x8011B444 end:0x8011B598
+
+pso/item/TItemShootGun_8011B598.cpp:
+	.text       start:0x8011B598 end:0x8011B620
 
 pso/unk/text_8011B620.cpp:
 	.text       start:0x8011B620 end:0x8011B694
@@ -8141,7 +8147,10 @@ pso/misc/TWindowSubStatusDisp_80228F5C.cpp:
 
 pso/misc/TSwitch.cpp:
 	.text       start:0x802290F8 end:0x802294E4
+	.rodata     start:0x8044CB70 end:0x8044CB78
 	.data       start:0x804CC060 end:0x804CC078
+	.bss        start:0x80515CC8 end:0x80515F08
+	.sdata      start:0x805D3728 end:0x805D3730
 
 pso/misc/TMainTask.cpp:
 	.text       start:0x802294E4 end:0x80229890
@@ -10690,7 +10699,13 @@ pso/ui/TAdMultiPlyChrSelectGC_802D50A0.cpp:
 	.text       start:0x802D50A0 end:0x802D5174
 
 pso/player/TObjPlayer_802D5174.cpp:
-	.text       start:0x802D5174 end:0x802D5F44
+	.text       start:0x802D5174 end:0x802D5B78
+
+pso/player/TObjPlayer_802D5B78.cpp:
+	.text       start:0x802D5B78 end:0x802D5C0C
+
+pso/player/TObjPlayer_802D5C0C.cpp:
+	.text       start:0x802D5C0C end:0x802D5F44
 
 pso/unk/text_802D5F44.cpp:
 	.text       start:0x802D5F44 end:0x802D6348

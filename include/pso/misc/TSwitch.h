@@ -3,9 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
-void *__ct__7TSwitchFv(void *arg0);
-}
 void clear_current_floor_switch(s32 id);
 void clear_floor_switch_flag(u32 id, s16 floor);
 void clear_switch_table(void);
