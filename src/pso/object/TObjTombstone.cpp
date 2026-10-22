@@ -2,6 +2,7 @@
 #include "pso/object/TObjLuker_801329B0.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjTombstone.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct E_80075D68 { u8 f0; u8 pad[0x2f]; };
 
@@ -40,7 +41,6 @@ f32 vector_length(Vec_8007598C *);
 extern s32 local_client_id;
 extern const f32 lbl_805D91A8;
 extern const f32 TObjTombstone__data_805D9174;
-s32 contains_profanity__17TWindowSubComCardFPc(char *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804387F8[];
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -121,7 +121,7 @@ void TObjTombstone::format_date_text() {
 void TObjTombstone::format_quoted_name() {
     Obj_80075AE8 *self = (Obj_80075AE8 *)this;
     char *buf = self->buf;
-    if (self->name[0] == 0 || contains_profanity__17TWindowSubComCardFPc(self->name) != 0) {
+    if (self->name[0] == 0 || TWindowSubComCard::contains_profanity(self->name) != 0) {
         buf[0] = 0;
     } else {
         sprintf(buf, lbl_804387F8, self->name);
@@ -149,7 +149,7 @@ void TObjTombstone::format_enemy_text() {
 void TObjTombstone::build_name_text() {
     Obj_80075BE0 *self = (Obj_80075BE0 *)this;
     char *buf = self->buf;
-    if (self->name[0] == 0 || contains_profanity__17TWindowSubComCardFPc(self->name) != 0) {
+    if (self->name[0] == 0 || TWindowSubComCard::contains_profanity(self->name) != 0) {
         buf[0] = 0;
     } else {
         sprintf(buf, lbl_80438800, TQuestVmDownLoadServer__sub_8006EF6C(0x4C), self->name);
