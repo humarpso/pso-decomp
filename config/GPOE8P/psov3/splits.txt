@@ -8098,6 +8098,8 @@ pso/unk/text_80225CD8.cpp:
 
 pso/misc/TWindowSubComCard_80225E0C.cpp:
 	.text       start:0x80225E0C end:0x8022602C
+	.rodata     start:0x8044C828 end:0x8044C850
+	.data       start:0x804CA3A0 end:0x804CB7C8
 
 pso/player/TObjPlayer_8022602C.cpp:
 	.text       start:0x8022602C end:0x80226070
