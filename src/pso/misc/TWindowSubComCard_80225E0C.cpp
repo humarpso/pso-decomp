@@ -8,9 +8,9 @@ void TWindowSubComCard__sub_80225E80(char *, char *);
 s32 memset(void *, s32, s32);
 s32 strncpy(void *, s32, s32);
 
-const char lbl_8044C828[] = "#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%";
+const char profanity_word_mask[] = "#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%#!@%";
 
-char lbl_804CA3A0[258][20] = {
+char profanity_word_table[258][20] = {
     "adulterine",
     " anal ",
     " anus",
@@ -284,7 +284,7 @@ void TWindowSubComCard::submit_card_password(s32 arg0) {
 
 void TWindowSubComCard__sub_80225E80(char *src, char *dst) {
     char buf[0x108];
-    const char *mask = lbl_8044C828;
+    const char *mask = profanity_word_mask;
     s32 i;
     s32 j;
     s32 k;
@@ -314,8 +314,8 @@ void TWindowSubComCard__sub_80225E80(char *src, char *dst) {
     buf[i + 2] = 0;
     dst[i] = 0;
 
-    for (j = 0; lbl_804CA3A0[j][0] != 0; j++) {
-        word = lbl_804CA3A0[j];
+    for (j = 0; profanity_word_table[j][0] != 0; j++) {
+        word = profanity_word_table[j];
         do {
             pos = -1;
             for (k = 0; buf[k] != 0; k++) {
