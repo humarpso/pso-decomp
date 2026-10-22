@@ -28,7 +28,7 @@ s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8028DA0C_lbl_8051C07C character_creation_name_buffer;
 u8 *get_class_appearance_preset(s32 arg0);
 s32 TAdEndText__sub_8001B3EC(s32);
-s32 submit_card_password__17TWindowSubComCardFl(u8 *);
+s32 contains_profanity__17TWindowSubComCardFl(u8 *);
 
 typedef char RecoveredGlobal_8028D9A8_lbl_8051C094_size[sizeof(RecoveredGlobal_8028D9A8_lbl_8051C094) == 0x54 ? 1 : -1];
 s32 *TObjCMMainMenu__sub_8028D9A8(void) {
@@ -81,7 +81,7 @@ s32 TObjCMMainMenu::validate_character_name(s8 *arg0) {
         *arg0 = 0;
         return 0;
     }
-    if (submit_card_password__17TWindowSubComCardFl((u8 *)buf) != 0) {
+    if (contains_profanity__17TWindowSubComCardFl((u8 *)buf) != 0) {
         *arg0 = 0;
         return 0;
     }
@@ -95,7 +95,7 @@ s32 TObjCMMainMenu::validate_character_name(s8 *arg0) {
         p++;
     }
     *q = 0;
-    if (submit_card_password__17TWindowSubComCardFl((u8 *)out) != 0) {
+    if (contains_profanity__17TWindowSubComCardFl((u8 *)out) != 0) {
         *arg0 = 0;
         return 0;
     }

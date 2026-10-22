@@ -4,7 +4,7 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 TWindowSubComCard__sub_80225E80(void *, int);
+s32 mask_profanity_words(void *, int);
 s32 strncpy(int, int, int);
 extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
@@ -38,7 +38,7 @@ void TLobby::set_info_board_text() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x20FC);
-    TWindowSubComCard__sub_80225E80((void *)arg0, (int) (get_shared_text_buffer()));
+    mask_profanity_words((void *)arg0, (int) (get_shared_text_buffer()));
     strncpy((int)temp_r31, (int) (get_shared_text_buffer()), 0xAB);
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     info_board_state_flags |= 1;

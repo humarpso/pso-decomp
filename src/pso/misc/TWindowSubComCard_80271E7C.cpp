@@ -40,7 +40,7 @@ extern "C" {
 u8 *get_shared_text_buffer(void);
 void mem_free(void *p);
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
-void TWindowSubComCard__sub_80225E80(void *, void *);
+void mask_profanity_words(void *, void *);
 }
 s32 *get_selected_guild_card_record(void);
 extern "C" {
@@ -146,7 +146,7 @@ void TWindowSubComCard::sub_802721D8() {
   u8 *temp_r31;
   temp_r30 = ((TWindowSubComCard *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0x80))))->realloc_buffer();
   lobby = (u8 *) ((u8* (*)(void))get_selected_guild_card_record)();
-  TWindowSubComCard__sub_80225E80((void *) temp_r30, get_shared_text_buffer());
+  mask_profanity_words((void *) temp_r30, get_shared_text_buffer());
   new_var = get_shared_text_buffer();
   temp_r31 = (u8 *) new_var;
   send_simple_mail__6TLobbyFiPv(((TLobby *)lobby)->get_id(), temp_r31);
@@ -1017,7 +1017,7 @@ void run_task__17TWindowSubComCardFv(TWindowSubComCard *window_sub_com_card) {
         }
         if (((TWindowSubComCard *)(window_sub_com_card->m_80))->update_keyboard() != 0) {
             temp_r29 = ((TWindowSubComCard *)(window_sub_com_card->m_80))->realloc_buffer();
-            ((s32 (*)(int, int))TWindowSubComCard__sub_80225E80)((int)temp_r29, (int) (((s32 (*)(void))get_shared_text_buffer)()));
+            ((s32 (*)(int, int))mask_profanity_words)((int)temp_r29, (int) (((s32 (*)(void))get_shared_text_buffer)()));
             keyboard_mode = TWindowSubComCard::get_keyboard_mode();
             ((TWindowSubComCard *)keyboard_mode)->set_text((void *)(((s32 (*)(void))get_shared_text_buffer)()));
             mem_free((void *)temp_r29);
@@ -1144,7 +1144,7 @@ void run_task__17TWindowSubComCardFv(TWindowSubComCard *window_sub_com_card) {
         }
         if (((TWindowSubComCard *)(window_sub_com_card->m_80))->update_keyboard() != 0) {
             temp_r29 = ((TWindowSubComCard *)(window_sub_com_card->m_80))->realloc_buffer();
-            ((s32 (*)(int, int))TWindowSubComCard__sub_80225E80)((int)temp_r29, (int) (((s32 (*)(void))get_shared_text_buffer)()));
+            ((s32 (*)(int, int))mask_profanity_words)((int)temp_r29, (int) (((s32 (*)(void))get_shared_text_buffer)()));
             ((TWindowSubComCard *)(window_sub_com_card->m_24))->set_card_text((int) (((s32 (*)(void))get_shared_text_buffer)()));
             mem_free((void *)temp_r29);
             window_sub_com_card->m_1c = 1U;
