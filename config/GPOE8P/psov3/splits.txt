@@ -13917,6 +13917,7 @@ pso/system/RefCountedWorkBuffer.cpp:
 
 pso/unk/text_803D2F1C.cpp:
 	.text       start:0x803D2F1C end:0x803D3194
+	.data       start:0x804F9E60 end:0x804FA020
 
 pso/misc/TLobby_803D3194.cpp:
 	.text       start:0x803D3194 end:0x803D31A4
