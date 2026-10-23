@@ -684,7 +684,7 @@ struct TLobby : public TObject {
     static s32 mark_connection_closed(s16 arg0);
     static s32 abort_tcp_connection(s16 arg0);
     static s16 tcp_connect_start(s16 arg0, s32 arg1, s16 arg2);
-    static s32 validate_tcp_handle(s16 i);
+    static s16 validate_tcp_handle(s16 i);
     s32 close_if_open();
     s32 get_field_534();
     s32 get_field_d8();

@@ -1,3 +1,4 @@
+#include "pso/network/SocketEvents.h"
 #include "pso/network/NetworkDispatch.h"
 #include "pso/misc/TLobby.h"
 #include "pso/network/BufferRef.h"
@@ -6013,7 +6014,6 @@ s32 TLobby__sub_8041A1D8(void) {
 struct E_8041A498 { u8 pad0[6]; s16 f6; u8 pad8[6]; u8 fE; u8 padF[0x1ED]; s32 f1FC; s32 f200; u8 pad204[0xCC]; s32 f2D0; u8 pad2D4[0x270]; };
 void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void set_thread_state_and_resume__6TLobbyFv(s16, s32, s16);
-void TLobby__sub_80422E30(s32, s32, s32, s16);
 void TLobby__sub_8041A498(E_8041A498 *arg0, s16 arg1) {
     s16 idx = arg0 - (E_8041A498 *)tcp_protocol_state.p;
 
@@ -6026,12 +6026,12 @@ void TLobby__sub_8041A498(E_8041A498 *arg0, s16 arg1) {
     case 4:
         set_thread_state_and_resume__6TLobbyFv(idx, arg0->f1FC, -8);
         set_slot_state_and_resume__6TLobbyFv(idx, arg0->f200, -8);
-        TLobby__sub_80422E30(idx, arg0->f2D0, 3, 0xB);
+        NetDispatchSocketEvent(idx, arg0->f2D0, 3, 0xB);
         break;
     default:
         set_thread_state_and_resume__6TLobbyFv(idx, arg0->f1FC, -5);
         set_slot_state_and_resume__6TLobbyFv(idx, arg0->f200, -5);
-        TLobby__sub_80422E30(idx, arg0->f2D0, 3, 0xA);
+        NetDispatchSocketEvent(idx, arg0->f2D0, 3, 0xA);
         break;
     }
     if (TLobby__sub_8041B5C0(arg0) != 0) {
@@ -6315,7 +6315,7 @@ s16 TLobby::tcp_connect_start(s16 arg0, s32 arg1, s16 arg2) {
     s16 TLobby__sub_8041EC14(u8 *);
     s16 TLobby__sub_8041ECA4(u8 *arg0);
     u16 get_adjusted_slot_count__6TLobbyFPv(u8 *arg0);
-    void TLobby__sub_80422E30(s16, s32, s32, s16);
+    void NetDispatchSocketEvent(s16, s32, s32, s16);
 
     if (arg0 < 0 || arg0 >= tcp_protocol_state.n) {
         r = -4;
@@ -6330,11 +6330,11 @@ s16 TLobby::tcp_connect_start(s16 arg0, s32 arg1, s16 arg2) {
     e = tcp_protocol_state.p;
     e += arg0;
     if (TLobby__sub_8040DA54((u8 *)arg1, (u8 *)e + 0x290) == 0) {
-        TLobby__sub_80422E30((s16)(e - tcp_protocol_state.p), *(s32 *)((s8 *)e + 0x2D0), 3, 0xC);
+        NetDispatchSocketEvent((s16)(e - tcp_protocol_state.p), *(s32 *)((s8 *)e + 0x2D0), 3, 0xC);
         return -6;
     }
     if (is_addr_unspecified__6TLobbyFPv((u8 *)e + 0x290) != 0 && select_source_address__6TLobbyFPvPv((u8 *)e + 0x290, (void *)arg1) < 0) {
-        TLobby__sub_80422E30((s16)(e - tcp_protocol_state.p), *(s32 *)((s8 *)e + 0x2D0), 3, 0xC);
+        NetDispatchSocketEvent((s16)(e - tcp_protocol_state.p), *(s32 *)((s8 *)e + 0x2D0), 3, 0xC);
         return -6;
     }
     if (*(u16 *)((s8 *)e + 0x268) == 0) {
@@ -6375,7 +6375,7 @@ s16 TLobby::tcp_connect_start(s16 arg0, s32 arg1, s16 arg2) {
 
 #pragma pop
 
-s32 TLobby::validate_tcp_handle(s16 i) {
+s16 TLobby::validate_tcp_handle(s16 i) {
     if (i < 0 || i >= tcp_protocol_state.n) { return -4; }
     if (tcp_protocol_state.p[i].f4 != 1) { return -4; }
     return 0;
