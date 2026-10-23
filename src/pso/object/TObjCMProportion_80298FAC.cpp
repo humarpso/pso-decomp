@@ -5,12 +5,14 @@
 extern "C" {
 s32 get_creation_pad(void);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
-extern s32 cm_proportion_pad_button_masks[];
 extern u8 controller_input_state[];
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 }
-extern s32 creation_direction_priority_masks[4];
+
+static s32 cm_proportion_pad_button_masks[4] = {0x10, 0x20, 0x40, 0x80};
+static s32 creation_direction_priority_masks[4] = {0x10, 0x20, 0x40, 0x80};
+CreationInputState creation_input_state;
 
 f32 TObjCMProportion::get_ratio() {
     return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x18) / 255.0f;
