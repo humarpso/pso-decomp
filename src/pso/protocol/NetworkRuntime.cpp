@@ -1,4 +1,5 @@
 #include "types.h"
+#include "string.h"
 #include "pso/misc/TLobby.h"
 #include "pso/protocol/NetworkRuntime.h"
 #include "pso/protocol/NetworkRuntimeSlots.h"
@@ -31,17 +32,6 @@ typedef struct B_803FADA0 { u8 *buf; u16 len; } B_803FADA0;
 typedef struct A_803FADA0 { u8 pad0[4]; u32 a; u32 b; } A_803FADA0;
 
 extern "C" {
-void strlen(s32);
-s32 memmove();
-s32 memcmp();
-s32 memset();
-s32 memcpy();
-
-void strcat(u8);
-void strncmp(u8);
-void strcmp(u8);
-void strcpy(void *, void *);
-
 u8 *write_network_u16_be(u8 *p, u16 v);
 
 s32 TLobby__sub_80405304(void *arg0);
@@ -226,40 +216,42 @@ s32 NetSetDefaultThreadPriority(s32 arg0) {
     return 0;
 }
 
-void TLobby::append_string(u8 arg0) {
-    strcat(arg0);
+extern "C" {
+char* NetAppendString(char* destination, const char* source) {
+    return strcat(destination, source);
 }
 
-void TLobby::compare_strn(u8 arg0) {
-    strncmp(arg0);
+s32 NetCompareStringsN(const char* left, const char* right, u32 size) {
+    return strncmp(left, right, size);
 }
 
-void TLobby::compare_str(u8 arg0) {
-    strcmp(arg0);
+s32 NetCompareStrings(const char* left, const char* right) {
+    return strcmp(left, right);
 }
 
-void TLobby::copy_string(void *arg1) {
-    strcpy(this, arg1);
+char* NetCopyString(char* destination, const char* source) {
+    return strcpy(destination, source);
 }
 
-u32 TLobby::str_length(s32 arg0) {
-    strlen(arg0);
+u32 NetStringLength(const char* text) {
+    return strlen(text);
 }
 
-void TLobby::memmove_wrapper() {
-    memmove();
+void* NetMemmove(void* destination, const void* source, u32 size) {
+    return memmove(destination, source, size);
 }
 
-s32 NetMemcmp(void * _w0, void * _w1, int _w2) {
-    memcmp();
+s32 NetMemcmp(void* left, void* right, int size) {
+    return memcmp(left, right, size);
 }
 
-void NetMemset(void * _w0, int _w1, int _w2) {
-    memset();
+void NetMemset(void* destination, int value, int size) {
+    memset(destination, value, size);
 }
 
-void NetMemcpy(void * _w0, void * _w1, int _w2) {
-    memcpy();
+void NetMemcpy(void* destination, void* source, int size) {
+    memcpy(destination, source, size);
+}
 }
 
 s32 TLobby::check_connection_status() {

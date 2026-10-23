@@ -450,7 +450,7 @@ s32 TLobby__sub_804251C0(s16 id, void *out) {
             if (out != NULL) {
                 switch (tbl[i].kind) {
                 case 0:
-                    ((TLobby *)out)->copy_string(tbl[i].data);
+                    NetCopyString((char*)out, (const char*)tbl[i].data);
                     break;
                 case 1:
                     NetMemcpy(out, tbl[i].data, tbl[i].size);

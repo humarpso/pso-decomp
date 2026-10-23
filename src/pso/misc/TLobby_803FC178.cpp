@@ -679,14 +679,14 @@ Buf_803FC684 lbl_805C0180;
 s32 TLobby__sub_803FC684(u8 *arg0, u8 *arg1, u8 *arg2) {
     char **p = *(char ***)(arg2 + 0x30);
 
-    if (TLobby::str_length((s32)arg0) >= 0x80) {
+    if (NetStringLength((const char*)arg0) >= 0x80) {
         arg0[0x7F] = 0;
     }
-    if (TLobby::str_length((s32)arg1) >= 0x80) {
+    if (NetStringLength((const char*)arg1) >= 0x80) {
         arg1[0x7F] = 0;
     }
-    ((TLobby *)(lbl_805C0180.a))->copy_string(arg0);
-    ((TLobby *)(lbl_805C0180.b))->copy_string(arg1);
+    NetCopyString((char*)lbl_805C0180.a, (const char*)arg0);
+    NetCopyString((char*)lbl_805C0180.b, (const char*)arg1);
     p[0] = lbl_805C0180.a;
     p[1] = lbl_805C0180.b;
     return 0;
@@ -1961,13 +1961,13 @@ s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2) {
     u32 m;
     p = *(u8 ***)(arg2 + 0x30);
     g = &lbl_805C04D8;
-    n = TLobby::str_length((s32)(arg0));
+    n = NetStringLength((const char*)arg0);
     if (n >= 0x80) {
         n = 0x7F;
     }
     NetMemcpy(g->a, arg0, n);
     g->a[n] = 0;
-    m = TLobby::str_length((s32)(arg1));
+    m = NetStringLength((const char*)arg1);
     if (m >= 0x80) {
         m = 0x7F;
     }

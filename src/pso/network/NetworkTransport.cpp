@@ -144,7 +144,6 @@ extern s32 net_param_word_h;
 extern s32 net_param_word_i;
 extern s32 lobby_map_state_code;
 extern E_803F7684 lbl_804FD350[];
-s32 compare_str__6TLobbyFUc(void *, u32);
 s32 TLobby__sub_803F7684(void *arg0);
 extern u8 run_net_thread_loop__6TLobbyFv[];
 s16 TLobby__sub_803F96AC(void *);
@@ -242,7 +241,7 @@ s32 TLobby__sub_803F767C(void) {
 s32 TLobby__sub_803F7684(void *lobby) {
     E_803F7684 *p;
     for (p = lbl_804FD350; p->key != 0; p++) {
-        if (compare_str__6TLobbyFUc(lobby, p->key) == 0) {
+        if (NetCompareStrings((const char*)lobby, (const char*)p->key) == 0) {
             return p->val;
         }
     }
@@ -596,7 +595,7 @@ s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p) {
         return -1;
     }
     while (n != 0) {
-        len = TLobby::str_length(p);
+        len = NetStringLength((const char*)p);
         if (len > 0x3FU) {
             return -1;
         }

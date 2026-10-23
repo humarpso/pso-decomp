@@ -1,3 +1,4 @@
+#include "pso/protocol/NetworkRuntime.h"
 #include "pso/network/UdpRuntime.h"
 #include "pso/network/SocketEvents.h"
 #include "types.h"
@@ -139,7 +140,6 @@ s32 tcp_create__Fv(void);
 s32 TLobby__sub_80421B3C(s32 a);
 s32 mark_connection_closed__6TLobbyFs(s32);
 s32 tcp_delete__Fs(s32 a);
-u16 str_length__6TLobbyFl(void *);
 void TLobby__sub_80425288(s32, s32, void *);
 extern volatile s32 lbl_805D7BA0;
 s32 TLobby__sub_8042455C(void *a);
@@ -1168,7 +1168,7 @@ s32 TLobby::build_dhcp_release() {
     *p++ = 4;
     NetMemcpy(p, lbl_805D7B24, 4);
     p += 4;
-    len = str_length__6TLobbyFl(dhcp_hostname);
+    len = NetStringLength((const char*)dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
@@ -1233,7 +1233,7 @@ s32 TLobby::dhcp_build_packet() {
         NetMemcpy(p, &lbl_805D7B28, 4);
         p += 4;
     }
-    len = str_length__6TLobbyFl(((char *)&dhcp_hostname));
+    len = NetStringLength((const char*)&dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
@@ -1285,7 +1285,7 @@ s32 TLobby::build_dhcp_discover_packet() {
         NetMemcpy(p, &spC, 4);
         p += 4;
     }
-    len = str_length__6TLobbyFl(dhcp_hostname);
+    len = NetStringLength((const char*)dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         n = len + 1;
@@ -1383,15 +1383,16 @@ s32 TLobby__sub_80423C04(void) {
 }
 
 s32 TLobby__sub_8042455C(void *a) {
-    u16 n;
+    u32 length;
     lbl_805D7BA0 = 0;
     if (a == 0) {
         lbl_805D7BA0 = 1;
         return -1;
     }
-    n = str_length__6TLobbyFl(a);
-    if (n < 0x20 && n != 0) {
-        TLobby__sub_80425288(0x10, n, a);
+    length = NetStringLength((const char*)a);
+    // Preserve the original 16-bit hostname-length checks.
+    if ((u16)length < 0x20 && (u16)length != 0) {
+        TLobby__sub_80425288(0x10, (u16)length, a);
         return 0;
     }
     lbl_805D7BA0 = 1;
