@@ -1,3 +1,6 @@
+#include "pso/protocol/NetworkRuntime.h"
+#include "pso/network/UdpRuntime.h"
+#include "pso/network/SocketEvents.h"
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
@@ -134,14 +137,9 @@ s32 TRKValidMemory32(void *, void *, void *, int, int, int);
 s32 TLobby__sub_80421A50(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8041E780();
 s32 tcp_create__Fv(void);
-s32 TUdpSocket__sub_80421178(s16);
-s16 TUdpSocket__sub_80421438(void);
-s16 TUdpSocket__sub_804212E4(s16, void *, s32);
-s16 TUdpSocket__sub_80421200(s16, void *, s32, s32, void *);
 s32 TLobby__sub_80421B3C(s32 a);
 s32 mark_connection_closed__6TLobbyFs(s32);
 s32 tcp_delete__Fs(s32 a);
-u16 str_length__6TLobbyFl(void *);
 void TLobby__sub_80425288(s32, s32, void *);
 extern volatile s32 lbl_805D7BA0;
 s32 TLobby__sub_8042455C(void *a);
@@ -185,8 +183,6 @@ s32 tcp_connect_start__6TLobbyFsls(int, void *, u16);
 s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, u16 port, IpAddr_80422B8C *opt);
 s32 TLobby__sub_8041E5E4(int, void *, u16);
 s32 tcp_bind__FsP10at_ip_addrUs(s32 a, void *addr, u16 port);
-s32 resume_thread__6TLobbyFv(s32);
-void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code);
 s16 TLobby__sub_8040F00C(s16, void *, int, void *);
 s16 TLobby__sub_80412058(s16, void *, int, void *);
 s16 TLobby__sub_80422F70(s16 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -416,7 +412,7 @@ s32 TLobby__sub_80421B3C(s32 a) {
     g = ((G_80421B3C *)&network_dispatch_state);
     m = a & 0xFFFFF3FF;
     TLobby::lock_mutex((int)((void *)g->f0));
-    r = TUdpSocket__sub_80421178(m);
+    r = NetUdpClose(m);
     TUdpSocket::unlock_mutex((int)((void *)g->f0));
     return r;
 }
@@ -509,20 +505,20 @@ s16 TUdpSocket__sub_80421DEC(void *src, s32 sport, void *dst, s32 dport, s32 arg
         dst = any;
     }
     TLobby::lock_mutex(network_dispatch_state.value);
-    h = TUdpSocket__sub_80421438();
+    h = NetUdpCreate();
     if (h < 0) {
         TUdpSocket::unlock_mutex(network_dispatch_state.value);
         return h;
     }
-    r = TUdpSocket__sub_804212E4(h, src, sport);
+    r = NetUdpBind(h, (NetworkAddress*)src, sport);
     if (r < 0) {
-        TUdpSocket__sub_80421178(h);
+        NetUdpClose(h);
         TUdpSocket::unlock_mutex(network_dispatch_state.value);
         return r;
     }
-    r = TUdpSocket__sub_80421200(h, dst, dport, arg4, cb);
+    r = NetUdpConnect(h, (NetworkAddress*)dst, dport, arg4, (u32)cb);
     if (r < 0) {
-        TUdpSocket__sub_80421178(h);
+        NetUdpClose(h);
         TUdpSocket::unlock_mutex(network_dispatch_state.value);
         return r;
     }
@@ -683,7 +679,7 @@ s32 set_slot_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2
   {
     if (s->fl & 2)
     {
-      resume_thread__6TLobbyFv(s->th);
+      TLobby::resume_thread(s->th);
     }
     s->st = arg2;
     s->fl &= ~1;
@@ -712,7 +708,7 @@ s32 set_thread_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 ar
   {
     if (s->fl & 2)
     {
-      resume_thread__6TLobbyFv(s->th);
+      TLobby::resume_thread(s->th);
     }
     s->st = arg2;
     s->fl &= ~1;
@@ -814,7 +810,7 @@ s32 TLobby__sub_80422AB8(s32 idx, void (*cb)(s16, s16, s32, s32), s16 code, s32 
     } else {
         s->st = code;
         if (s->fl & 2) {
-            resume_thread__6TLobbyFv(s->th);
+            TLobby::resume_thread(s->th);
         }
     }
     s->fl &= ~1;
@@ -908,7 +904,7 @@ s32 tcp_create__Fv(void) {
     return temp_r31;
 }
 
-void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code) {
+void NetDispatchSocketEvent(s16 v, s32 cb_, s32 type, s16 code) {
     T_80422E30 *s;
     switch ((s16)type) {
     case 1:
@@ -921,7 +917,7 @@ void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code) {
         v |= 0x400;
         break;
     case 3:
-        if (validate_tcp_handle__6TLobbyFs(v) < 0) {
+        if (TLobby::validate_tcp_handle(v) < 0) {
             return;
         }
         s = (T_80422E30 *)tcp_protocol_state[0];
@@ -930,12 +926,12 @@ void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code) {
             if (s->fl2 & 2) {
                 s->st2 = -5;
                 s->fl2 &= ~1;
-                resume_thread__6TLobbyFv(s->th2);
+                TLobby::resume_thread(s->th2);
             }
             if (s->fl1 & 2) {
                 s->st1 = -5;
                 s->fl1 &= ~1;
-                resume_thread__6TLobbyFv(s->th1);
+                TLobby::resume_thread(s->th1);
             }
         }
         break;
@@ -943,7 +939,7 @@ void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code) {
         return;
     }
     if ((void *)cb_ != NULL) {
-        ((void (*)(s32, s16))cb_)(v, code);
+        ((void (*)(s16, s16))cb_)(v, code);
     }
 }
 
@@ -1172,7 +1168,7 @@ s32 TLobby::build_dhcp_release() {
     *p++ = 4;
     NetMemcpy(p, lbl_805D7B24, 4);
     p += 4;
-    len = str_length__6TLobbyFl(dhcp_hostname);
+    len = NetStringLength((const char*)dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
@@ -1237,7 +1233,7 @@ s32 TLobby::dhcp_build_packet() {
         NetMemcpy(p, &lbl_805D7B28, 4);
         p += 4;
     }
-    len = str_length__6TLobbyFl(((char *)&dhcp_hostname));
+    len = NetStringLength((const char*)&dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
@@ -1289,7 +1285,7 @@ s32 TLobby::build_dhcp_discover_packet() {
         NetMemcpy(p, &spC, 4);
         p += 4;
     }
-    len = str_length__6TLobbyFl(dhcp_hostname);
+    len = NetStringLength((const char*)dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         n = len + 1;
@@ -1387,15 +1383,16 @@ s32 TLobby__sub_80423C04(void) {
 }
 
 s32 TLobby__sub_8042455C(void *a) {
-    u16 n;
+    u32 length;
     lbl_805D7BA0 = 0;
     if (a == 0) {
         lbl_805D7BA0 = 1;
         return -1;
     }
-    n = str_length__6TLobbyFl(a);
-    if (n < 0x20 && n != 0) {
-        TLobby__sub_80425288(0x10, n, a);
+    length = NetStringLength((const char*)a);
+    // Preserve the original 16-bit hostname-length checks.
+    if ((u16)length < 0x20 && (u16)length != 0) {
+        TLobby__sub_80425288(0x10, (u16)length, a);
         return 0;
     }
     lbl_805D7BA0 = 1;

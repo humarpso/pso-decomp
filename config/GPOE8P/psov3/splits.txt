@@ -14263,16 +14263,10 @@ pso/misc/TLobby_804050DC.cpp:
 	.data       start:0x804FD84C end:0x804FD890
 	.bss        start:0x805C1AD8 end:0x805C1DF0
 
-pso/unk/text_8041ED8C.cpp:
-	.text       start:0x8041ED8C end:0x80421178
+pso/network/SocketProtocolRuntime.cpp:
+	.text       start:0x8041ED8C end:0x80421620
 	.data       start:0x804FD890 end:0x804FD8F0
 	.bss        start:0x805C1DF0 end:0x805C1E00
-
-pso/misc/TUdpSocket_80421178.cpp:
-	.text       start:0x80421178 end:0x80421518
-
-pso/unk/text_80421518.cpp:
-	.text       start:0x80421518 end:0x80421620
 
 pso/unk/text_80421620.cpp:
 	.text       start:0x80421620 end:0x804245DC

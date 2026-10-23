@@ -359,6 +359,11 @@ void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self) {
         }
     }
 }
+}
+
+TAdSubPlyItemGC::~TAdSubPlyItemGC() {}
+
+extern "C" {
 #pragma push
 #pragma opt_common_subs off
 Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self) {
@@ -377,8 +382,6 @@ Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self) {
 #pragma pop
 
 }
-
-TAdSubPlyItemGC::~TAdSubPlyItemGC() {}
 
 extern "C" {
 void __dt__15TAdSubPlyItemGCFv(void);

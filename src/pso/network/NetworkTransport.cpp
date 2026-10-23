@@ -1,3 +1,4 @@
+#include "pso/protocol/NetworkRuntime.h"
 #include "pso/network/NetworkTransport.h"
 
 #include "types.h"
@@ -121,7 +122,6 @@ struct Info_803F861C {
 extern NetworkPacketBufferStorage network_packet_buffer_storage;
 extern s32 lbl_805D7A00;
 extern "C" {
-void TLobby__sub_803F95E4(u32);
 void TLobby__sub_803F97E8(s32);
 s32 TLobby__sub_80428094(s16);
 void TAdSinglePlyChrSelectGC__sub_8042D604(void);
@@ -144,20 +144,16 @@ extern s32 net_param_word_h;
 extern s32 net_param_word_i;
 extern s32 lobby_map_state_code;
 extern E_803F7684 lbl_804FD350[];
-s32 compare_str__6TLobbyFUc(void *, u32);
 s32 TLobby__sub_803F7684(void *arg0);
 extern u8 run_net_thread_loop__6TLobbyFv[];
 s16 TLobby__sub_803F96AC(void *);
-void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
 void TLobby__sub_803F7A90(void);
-void NetSuspendCurrentThread(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 }
 extern s32 TLobby__queue_timeout_remaining;
-void NetYieldThread(void);
 void subtract_network_queue_timeout(s32 arg0);
 void set_lobby_map_state_code(s32 arg0);
 extern "C" {
@@ -168,8 +164,6 @@ extern Q_803F7AF4 TLobby__next_send_chunk;
 extern s32 lobby_send_chunk_size;
 Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
-void resume_thread__6TLobbyFv(s32);
-void NetMemcpy(void *_w0, void *_w1, int _w2);
 extern s32 lobby_ring_buffer_write_pos;
 s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);
@@ -247,7 +241,7 @@ s32 TLobby__sub_803F767C(void) {
 s32 TLobby__sub_803F7684(void *lobby) {
     E_803F7684 *p;
     for (p = lbl_804FD350; p->key != 0; p++) {
-        if (compare_str__6TLobbyFUc(lobby, p->key) == 0) {
+        if (NetCompareStrings((const char*)lobby, (const char*)p->key) == 0) {
             return p->val;
         }
     }
@@ -408,7 +402,7 @@ void TLobby::stop_network_thread() {
     ((TLobby *)(*(s32 *)((s8 *)&lbl_805C18A0.value + 4)))->cancel_thread_if_running();
     TLobby::deactivate_entry_by_key((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 4))));
     TUdpSocket::unlock_mutex((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0)));
-    TLobby__sub_803F95E4((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0))));
+    NetReleaseMutex((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0))));
 }
 
 void TLobby__sub_803F7A90(void) {
@@ -485,7 +479,7 @@ s32 TLobby::write_ring_buffer(u8 *src, s32 len) {
     if (lobby_ring_buffer_size - lobby_send_ring_pending_bytes < len) {
         TUdpSocket::unlock_mutex(TLobby__send_ring_mutex);
         if (OSIsThreadSuspended(thread) == 1) {
-            resume_thread__6TLobbyFv(queue_thread_handle);
+            TLobby::resume_thread(queue_thread_handle);
         }
         return 0;
     }
@@ -503,7 +497,7 @@ s32 TLobby::write_ring_buffer(u8 *src, s32 len) {
     lobby_send_ring_pending_bytes += len;
     TUdpSocket::unlock_mutex(TLobby__send_ring_mutex);
     if (OSIsThreadSuspended(thread) == 1) {
-        resume_thread__6TLobbyFv(queue_thread_handle);
+        TLobby::resume_thread(queue_thread_handle);
     }
     return 1;
 }
@@ -601,7 +595,7 @@ s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p) {
         return -1;
     }
     while (n != 0) {
-        len = TLobby::str_length(p);
+        len = NetStringLength((const char*)p);
         if (len > 0x3FU) {
             return -1;
         }
@@ -718,7 +712,7 @@ loop_3:
     } else {
         ((TLobby *)queue_thread_handle)->cancel_thread_if_running();
         TLobby::deactivate_entry_by_key((u32) queue_thread_handle);
-        TLobby__sub_803F95E4(TLobby__send_ring_mutex);
+        NetReleaseMutex(TLobby__send_ring_mutex);
 block_10:
         if ((u32) (((TAdSinglePlyChrSelectGC *)0U)->copy_default_and_get_state() - 2) <= 1U) {
             TAdSinglePlyChrSelectGC__sub_8042D604();

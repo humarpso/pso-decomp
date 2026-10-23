@@ -170,25 +170,28 @@ s32 TLobby__sub_80427240(u8 **arg0) {
     return 4;
 }
 
+#pragma push
+#pragma opt_common_subs off
 s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
-    struct Fields_arg1 { u8 pad_0[58]; u8 field_3A; };
+    struct Fields_arg1 { u8 pad_0[58]; char name[1]; };
     s16 sp12;
     s16 sp10;
     s16 temp_r3;
-    if ((u8) ((Fields_arg1*)arg1)->field_3A == 0) {
+    if ((u8) ((Fields_arg1*)arg1)->name[0] == 0) {
         return 0;
     }
     sp12 = 0x102;
     NetMemcpy((void *)(*arg0), (&sp12), 2);
     *arg0 += 2;
-    temp_r3 = TLobby::str_length((s32)(arg1 + 0x3A));
+    temp_r3 = NetStringLength(((Fields_arg1*)arg1)->name);
     sp10 = temp_r3;
     NetMemcpy((void *)(*arg0), (&sp10), 2);
     *arg0 += 2;
-    NetMemcpy((void *)(*arg0), (arg1 + 0x3A), (temp_r3));
+    NetMemcpy((void *)(*arg0), ((Fields_arg1*)arg1)->name, (temp_r3));
     *arg0 += temp_r3;
     return temp_r3 + 4;
 }
+#pragma pop
 
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
