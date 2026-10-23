@@ -1,3 +1,4 @@
+#include "pso/protocol/NetworkRuntime.h"
 #include "pso/network/NetworkTransport.h"
 #include "pso/misc/TLobby_80428374.h"
 #include "pso/network/ModemRuntime.h"
@@ -84,7 +85,6 @@ extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
 extern "C" {
-void TLobby__sub_803F95E4(u32);
 s32 TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 extern u32 lobby_buffer_pool_alarm_handle;
@@ -193,8 +193,6 @@ s32 TLobby::wait_timeout_loop() {
     }
     return ret;
 }
-
-
 
 s32 TLobby__sub_80428EC0(u8 *src, u8 *dst, u8 **next) {
     s16 n;
@@ -316,7 +314,7 @@ s16 TLobby__sub_804293B0(u8 *buf, s16 len) {
 }
 
 void TLobby::cancel_alarm_b() {
-    TLobby__sub_803F95E4(lobby_buffer_pool_alarm_handle);
+    NetReleaseMutex(lobby_buffer_pool_alarm_handle);
 }
 
 s32 TLobby::init_buffer_pool() {

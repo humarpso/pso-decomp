@@ -11,6 +11,8 @@ void NetStoreTick(s32* tick);
 void NetStoreCurrentThread(s32* thread);
 void NetSuspendCurrentThread(void);
 void NetResumeThread(u32 thread);
+void NetReceiveMessage(u32 handle, void* destination, s32 size);
+void NetReleaseMutex(u32 handle);
 
 s32 NetIPv4IsLoopback(s32 address);
 s32 NetIPv4IsUnspecified(u32 address);

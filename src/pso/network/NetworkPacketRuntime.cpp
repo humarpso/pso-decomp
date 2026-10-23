@@ -1,3 +1,4 @@
+#include "pso/protocol/NetworkRuntime.h"
 #include "pso/network/NetworkPacketPool.h"
 #include <stddef.h>
 #include "pso/network/NetworkTransport.h"
@@ -111,9 +112,7 @@ extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
 extern "C" {
-void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
-s32 NetMemcpy(void *, void *, int);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern u8 lobby_net_channel_table[];
 extern u8 lbl_805CF380[];
@@ -128,7 +127,6 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s32 NetMemcmp(void *, void *, int);
 s16 TLobby__sub_804262CC(void *);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void NetUnregisterTimer(void *);
@@ -161,7 +159,6 @@ struct DhcpOption_804FD948 {
 extern DhcpOption_804FD948 lbl_804FD948[12];
 void TLobby__sub_803F97E8(s32);
 s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, Arg_804249F0 *));
-void NetMemset(void *, int, int);
 s32 TLobby__sub_80424DCC(s16, s32, s32, void *, void *, void *, void *, s32);
 s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1);
 extern void *lbl_805D7B40;
@@ -608,7 +605,7 @@ u8 *TLobby::find_entry_by_address(s32 arg0) {
 }
 
 void TLobby::cancel_alarm_a() {
-    TLobby__sub_803F95E4(lbl_805D7BA8);
+    NetReleaseMutex(lbl_805D7BA8);
 }
 }
 s32 initialize_network_packet_pool(void) {

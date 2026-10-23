@@ -242,6 +242,30 @@ void TLobby::lock_mutex(int _w0) {
     OSLockMutex((OSMutex*)_w0);
 }
 
+void NetReceiveMessage(u32 handle, void* destination, s32 size) {
+    s32 slotIndex;
+    OSMessage message;
+    s32 index;
+    for (index = 0; index < 2; index++) {
+        slotIndex = index;
+        if (handle == network_message_queue_slot_table[slotIndex].handle) break;
+    }
+    if (index < 2) {
+        OSReceiveMessage(&network_message_queue_slot_table[index].queue, &message, OS_MESSAGE_BLOCK);
+        NetworkMessageSlot* slot = (NetworkMessageSlot*)message;
+        NetMemcpy((void *)(destination), (void *)(slot->data), (int)(size));
+        slot->active = 0;
+    }
+}
+
+void NetReleaseMutex(u32 handle) {
+    s32 index;
+    for (index = 0; index < 8; index++) {
+        if (handle == network_mutex_slot_table[index].handle) break;
+    }
+    if (index < 8) network_mutex_slot_table[index].active = 0;
+}
+
 void NetStoreCurrentThread(s32 *thread) {
     *thread = (s32)OSGetCurrentThread();
 }

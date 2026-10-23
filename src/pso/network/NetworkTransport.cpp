@@ -122,7 +122,6 @@ struct Info_803F861C {
 extern NetworkPacketBufferStorage network_packet_buffer_storage;
 extern s32 lbl_805D7A00;
 extern "C" {
-void TLobby__sub_803F95E4(u32);
 void TLobby__sub_803F97E8(s32);
 s32 TLobby__sub_80428094(s16);
 void TAdSinglePlyChrSelectGC__sub_8042D604(void);
@@ -404,7 +403,7 @@ void TLobby::stop_network_thread() {
     ((TLobby *)(*(s32 *)((s8 *)&lbl_805C18A0.value + 4)))->cancel_thread_if_running();
     TLobby::deactivate_entry_by_key((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 4))));
     TUdpSocket::unlock_mutex((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0)));
-    TLobby__sub_803F95E4((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0))));
+    NetReleaseMutex((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0))));
 }
 
 void TLobby__sub_803F7A90(void) {
@@ -714,7 +713,7 @@ loop_3:
     } else {
         ((TLobby *)queue_thread_handle)->cancel_thread_if_running();
         TLobby::deactivate_entry_by_key((u32) queue_thread_handle);
-        TLobby__sub_803F95E4(TLobby__send_ring_mutex);
+        NetReleaseMutex(TLobby__send_ring_mutex);
 block_10:
         if ((u32) (((TAdSinglePlyChrSelectGC *)0U)->copy_default_and_get_state() - 2) <= 1U) {
             TAdSinglePlyChrSelectGC__sub_8042D604();
