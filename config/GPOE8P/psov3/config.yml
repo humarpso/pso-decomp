@@ -2306,6 +2306,8 @@ force_active:
   - bm_o_rock_cave03_motion_names
   - bm_o_rock_cave03_resource_bundle
   - bm_o_rock_jungle_model_names
+  - bm_obj_boss7_common_model_names
+  - bm_obj_boss7_common_motion_names
   - bm_obj_boss8_piller_model_names
   - bm_obj_boss8_piller_motion_names
   - bm_obj_boss8_piller_resource_descriptor
@@ -2372,6 +2374,8 @@ force_active:
   - boss6_type2_initial_state
   - boss6_type2_motion_table
   - boss6_type2_zero_vec3_block
+  - boss7_common_resource_descriptor
+  - boss7_dermt_slot_table
   - boss8_collision_segment_desc
   - boss_warp_model_names
   - boss_warp_motion_names
@@ -4366,6 +4370,7 @@ force_active:
   - lbl_804F7120
   - lbl_804F7130
   - lbl_804F7168
+  - lbl_804F9E60
   - lbl_80500B24
   - lbl_80500B2C
   - lbl_80500B58
@@ -9488,6 +9493,7 @@ force_active:
   - process_keyboard_input__17TWindowSubComCardFv
   - process_lobby_action_14__18TObjCityDoor_LobbyFv
   - process_trade_target__10TObjPlayerFiPv
+  - profanity_word_table
   - prs_read_control_bit
   - prune_weapon_attributes__9TItemDropFPvPv
   - psycho_wand_ct__FPUcPUcl
@@ -10805,6 +10811,7 @@ force_active:
   - state_spawn__17TObjEneBm3FlyNestFPvi
   - state_wait__17TObjEneBm3FlyNestFPvi
   - state_wait__18TObjEneRe4SorcererFl
+  - status_alphabet_metrics_table
   - stelth_bml_resource_desc
   - step_angle_toward__11TBoss6Type2Flll
   - step_camera_scalar__FPCfPCfPff
