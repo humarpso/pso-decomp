@@ -1,3 +1,4 @@
+#include "pso/menu/CreationInput.h"
 #include "types.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TSaveChCr.h"
@@ -23,7 +24,6 @@ extern s32 lbl_80477CAC[];
 extern s32 lbl_80477CB4[];
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void *);
-s32 TObjCMProportion__sub_8029916C(s32);
 s32 poll_memcard_status__23TAdSinglePlyChrSelectGCFv();
 
 s32 TSaveChCr::poll_memcard_status() {
@@ -62,7 +62,7 @@ s32 TSaveChCr::poll_memcard_status() {
 }
 
 s32 TSaveChCr__sub_80339F30(void) {
-    return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
+    return creation_buttons_pressed(4) ? 1 : 0;
 }
 
 void TSaveChCr::close_and_advance(void* a1) { close_window(); set_message_by_index((s32)a1); }

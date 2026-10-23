@@ -1,3 +1,4 @@
+#include "pso/menu/CreationInput.h"
 #include "types.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
@@ -89,8 +90,6 @@ struct Auto_802952E0
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 TChCrCharSelect__sub_80298F8C(int);
-s32 TObjCMProportion__sub_8029916C(s32);
 extern const f32 lbl_805DDA70;
 extern const f32 lbl_805DDA90;
 extern const f32 lbl_805DDAA8;
@@ -411,7 +410,6 @@ void * TObjCMMainMenu__ct(void *arg0, void *parent);
 u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void);
 s32 * TObjCMMainMenu__sub_80298DD4(void);
 s32 get_creation_pad(void);
-s32 TObjCMProportion__sub_8029914C(int);
 void fn_802993F0(void);
 void fn_8029945C(u8 *arg0);
 u32 __cvt_fp2unsigned(f32);
@@ -549,7 +547,6 @@ void *create__10TObjCMNameFPv(void *arg0) {
 }
 void reset_character_creation_figure_rotation(void);
 void draw_creation_ruler_lines(f32 farg0);
-void get_creation_pad_stick(s32*,f32*);
 TObjCMName::~TObjCMName() {}
 
 void *__ct__10TObjCMNameFv(void *obj_cm_name) {
@@ -620,14 +617,14 @@ void TObjCMProportion::run_task() {
         var_f30 = lbl_805DDAE4 * (sp8 * sin_table_lookup(spC));
         var_f29 = lbl_805DDAE4 * (sp8 * -cos_table_lookup(spC));
         if (lbl_805DDA90 == (fabs_float(var_f30) + fabs_float(var_f29))) {
-            if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x80) != 0) {
+            if (creation_buttons_held(0x80) != 0) {
                 var_f30 = lbl_805DDAE8;
-            } else if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x40) != 0) {
+            } else if (creation_buttons_held(0x40) != 0) {
                 var_f30 = lbl_805DDAEC;
             }
-            if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x20) != 0) {
+            if (creation_buttons_held(0x20) != 0) {
                 var_f29 = lbl_805DDAE8;
-            } else if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x10) != 0) {
+            } else if (creation_buttons_held(0x10) != 0) {
                 var_f29 = lbl_805DDAEC;
             }
         }
@@ -649,7 +646,7 @@ void TObjCMProportion::run_task() {
         } else if (temp_f1_4 < lbl_805DDA90) {
             temp_r3_4->height = (f32) lbl_805DDA90;
         }
-        if (TObjCMProportion__sub_8029916C(6) != 0) {
+        if (creation_buttons_pressed(6) != 0) {
             ((void (*)(s32, s32, s32, s32))play_sound_effect)(0x53704, 0, 0, 0);
             TObjCMMainMenu::clear_task_state();
             arg0->active = 0;
@@ -760,14 +757,14 @@ void TObjCMAutoMkData::run_task() {
       self->state = 1;
       break;
     case 1:
-      if (TObjCMProportion__sub_8029916C(2) != 0)
+      if (creation_buttons_pressed(2) != 0)
     {
       play_sound_effect(0x53704, 0, 0, 0);
       TObjCMMainMenu::clear_task_state();
       self->state = 2;
       break;
     }
-      if (TObjCMProportion__sub_8029916C(4) == 0)
+      if (creation_buttons_pressed(4) == 0)
     {
       break;
     }
@@ -894,14 +891,14 @@ void TObjCMHairMenu::run_task() {
         if (temp_f1_2 > lbl_805DDA70) {
             fade = lbl_805DDA70;
         }
-        if (TChCrCharSelect__sub_80298F8C(0x20) != 0) {
+        if (creation_direction_repeated(0x20) != 0) {
             temp_r0 = selection + 1;
             selection = temp_r0;
             if (temp_r0 >= 4) {
                 selection = 0;
             }
             ((s32 (*)(int, int, int, int))play_sound_effect)(0x54100, 0, 0, 0);
-        } else if (TChCrCharSelect__sub_80298F8C(0x10) != 0) {
+        } else if (creation_direction_repeated(0x10) != 0) {
             temp_r0_2 = selection - 1;
             selection = temp_r0_2;
             if (temp_r0_2 < 0) {
@@ -912,12 +909,12 @@ void TObjCMHairMenu::run_task() {
         temp_r3 = selection;
         if (temp_r3 == 0) {
             app = appearance;
-            if (TChCrCharSelect__sub_80298F8C(0x80) != 0) {
+            if (creation_direction_repeated(0x80) != 0) {
                 if (++app->hair >= count) {
                     app->hair = 0;
                 }
                 ((s32 (*)(int, int, int, int))play_sound_effect)(0x54100, 0, 0, 0);
-            } else if (TChCrCharSelect__sub_80298F8C(0x40) != 0) {
+            } else if (creation_direction_repeated(0x40) != 0) {
                 if (--app->hair < 0) {
                     app->hair = count - 1;
                 }
@@ -926,13 +923,13 @@ void TObjCMHairMenu::run_task() {
         } else {
             app = appearance;
             off = (temp_r3 + 4) * 2 + 0x38;
-            if (((s32 (*)(int))TObjCMProportion__sub_8029916C)(0x80) != 0) {
+            if (creation_buttons_pressed(0x80) != 0) {
                 *(s16 *)((s8 *)app + off) = *(s16 *)((s8 *)app + off) + 1;
-            } else if (((s32 (*)(int))TObjCMProportion__sub_8029916C)(0x40) != 0) {
+            } else if (creation_buttons_pressed(0x40) != 0) {
                 *(s16 *)((s8 *)app + off) = *(s16 *)((s8 *)app + off) - 1;
-            } else if (TObjCMProportion__sub_8029914C(0x80) != 0) {
+            } else if (creation_buttons_held(0x80) != 0) {
                 *(s16 *)((s8 *)app + off) = *(s16 *)((s8 *)app + off) + 5;
-            } else if (TObjCMProportion__sub_8029914C(0x40) != 0) {
+            } else if (creation_buttons_held(0x40) != 0) {
                 *(s16 *)((s8 *)app + off) = *(s16 *)((s8 *)app + off) - 5;
             }
             temp_r0_4 = *(s16 *)((s8 *)app + off);
@@ -942,7 +939,7 @@ void TObjCMHairMenu::run_task() {
                 *(s16 *)((s8 *)app + off) = 0;
             }
         }
-        if (((s32 (*)(int))TObjCMProportion__sub_8029916C)(6) != 0) {
+        if (creation_buttons_pressed(6) != 0) {
             ((s32 (*)(int, int, int, int))play_sound_effect)(0x53704, 0, 0, 0);
             TObjCMMainMenu::clear_task_state();
             active = 0;
@@ -1260,23 +1257,23 @@ void run_task__16TObjCMAssignMenuFv(void *arg0) {
   delta = 0;
   if (self->enabled != 0)
   {
-    if (TChCrCharSelect__sub_80298F8C(0x80) != 0)
+    if (creation_direction_repeated(0x80) != 0)
     {
       delta = 1;
     }
     else
-      if (TChCrCharSelect__sub_80298F8C(0x40) != 0)
+      if (creation_direction_repeated(0x40) != 0)
     {
       delta = -1;
     }
     if (self->columns > 1)
     {
-      if (TChCrCharSelect__sub_80298F8C(0x20) != 0)
+      if (creation_direction_repeated(0x20) != 0)
       {
         delta = self->step;
       }
       else
-        if (TChCrCharSelect__sub_80298F8C(0x10) != 0)
+        if (creation_direction_repeated(0x10) != 0)
       {
         delta = -self->step;
       }
@@ -1352,7 +1349,7 @@ void run_task__16TObjCMAssignMenuFv(void *arg0) {
       self->scroll = (f32) self->target;
     }
   }
-  if ((self->enabled != 0) && (TObjCMProportion__sub_8029916C(6) != 0))
+  if ((self->enabled != 0) && (creation_buttons_pressed(6) != 0))
   {
     play_sound_effect(0x53704, 0, 0, 0);
     TObjCMMainMenu::clear_task_state();
@@ -1764,7 +1761,7 @@ void TObjCMMainMenu::run_task() {
     }
     TObjCMMainMenu::set_speed(lbl_805DDB00 * (lbl_805DDA70 - this->preview));
     get_creation_pad_stick(0, &sp8);
-    if (sp8 > lbl_805DDA90 || TObjCMProportion__sub_8029914C(0xF0) != 0) {
+    if (sp8 > lbl_805DDA90 || creation_buttons_held(0xF0) != 0) {
         if (this->idle_ticks > 0) {
             request_creation_motion(0);
         }
@@ -1793,21 +1790,21 @@ void TObjCMMainMenu::handle_creation_input() {
         TChCrEffTag::set_eff_tag(2);
     }
     if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
-        if (((s8) *(u8 *)((s8 *)(*(u8 * *)&this->character) + 0x30) == -1) && (TObjCMProportion__sub_8029916C(2) != 0)) {
+        if (((s8) *(u8 *)((s8 *)(*(u8 * *)&this->character) + 0x30) == -1) && (creation_buttons_pressed(2) != 0)) {
             play_sound_effect(0x53704, 0, 0, 0);
             TObjCMMainMenu__sub_8028D9B4((void *) (*(u8 * *)&this->character));
             this->delay = 7;
             TObjCMMainMenu__data_805D659C = 6;
             return;
         }
-        if (TChCrCharSelect__sub_80298F8C(0x20) != 0) {
+        if (creation_direction_repeated(0x20) != 0) {
             temp_r3 = this->selected_entry + 1;
             this->selected_entry = temp_r3;
             if (temp_r3 >= (s32) this->entry_count) {
                 this->selected_entry = 0;
             }
             play_sound_effect(0x54100, 0, 0, 0);
-        } else if (TChCrCharSelect__sub_80298F8C(0x10) != 0) {
+        } else if (creation_direction_repeated(0x10) != 0) {
             temp_r0 = this->selected_entry - 1;
             this->selected_entry = temp_r0;
             if (temp_r0 < 0) {
@@ -1815,7 +1812,7 @@ void TObjCMMainMenu::handle_creation_input() {
             }
             play_sound_effect(0x54100, 0, 0, 0);
         }
-        if (TObjCMProportion__sub_8029916C(4) != 0) {
+        if (creation_buttons_pressed(4) != 0) {
             (reinterpret_cast<TObjCMMainMenu*>(this)->*(*reinterpret_cast<CreationMenuCallback*>((u8*)&TObjCMMainMenu__data_804DB9C8 + (*(s32 *)((s8 *)((*(s32 *)&this->entries) + (this->selected_entry * 4)) + 0) * 0x10) + 4)))();
         }
     }
@@ -1850,7 +1847,7 @@ void TObjCMMainMenu::sub_80298534() {
         if (fv > lbl_805DDA70) {
             this->progress = lbl_805DDA70;
         }
-        if (TObjCMProportion__sub_8029916C(4) != 0) {
+        if (creation_buttons_pressed(4) != 0) {
             play_sound_effect(0x52D01, 0, 0, 0);
             this->delay = 7;
             TObjCMMainMenu__data_805D659C = 5;

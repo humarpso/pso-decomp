@@ -2923,6 +2923,9 @@ force_active:
   - create_window__16TObjBagWarnWin4PFv
   - create_window__19TWindowSubShortMailFv
   - creation_camera_height_bounds_table
+  - creation_stick_dead_zone
+  - creation_stick_range
+  - creation_stick_zero
   - ct_init_placement_ring__9TItemListFPUclPUcPUcSc
   - ct_shoot_model__10TObjPlayerFPv
   - curvecmp
