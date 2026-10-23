@@ -185,7 +185,6 @@ s32 tcp_connect_start__6TLobbyFsls(int, void *, u16);
 s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, u16 port, IpAddr_80422B8C *opt);
 s32 TLobby__sub_8041E5E4(int, void *, u16);
 s32 tcp_bind__FsP10at_ip_addrUs(s32 a, void *addr, u16 port);
-s32 resume_thread__6TLobbyFv(s32);
 void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code);
 s16 TLobby__sub_8040F00C(s16, void *, int, void *);
 s16 TLobby__sub_80412058(s16, void *, int, void *);
@@ -683,7 +682,7 @@ s32 set_slot_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2
   {
     if (s->fl & 2)
     {
-      resume_thread__6TLobbyFv(s->th);
+      TLobby::resume_thread(s->th);
     }
     s->st = arg2;
     s->fl &= ~1;
@@ -712,7 +711,7 @@ s32 set_thread_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 ar
   {
     if (s->fl & 2)
     {
-      resume_thread__6TLobbyFv(s->th);
+      TLobby::resume_thread(s->th);
     }
     s->st = arg2;
     s->fl &= ~1;
@@ -814,7 +813,7 @@ s32 TLobby__sub_80422AB8(s32 idx, void (*cb)(s16, s16, s32, s32), s16 code, s32 
     } else {
         s->st = code;
         if (s->fl & 2) {
-            resume_thread__6TLobbyFv(s->th);
+            TLobby::resume_thread(s->th);
         }
     }
     s->fl &= ~1;
@@ -930,12 +929,12 @@ void TLobby__sub_80422E30(s32 v, s32 cb_, s32 type, s16 code) {
             if (s->fl2 & 2) {
                 s->st2 = -5;
                 s->fl2 &= ~1;
-                resume_thread__6TLobbyFv(s->th2);
+                TLobby::resume_thread(s->th2);
             }
             if (s->fl1 & 2) {
                 s->st1 = -5;
                 s->fl1 &= ~1;
-                resume_thread__6TLobbyFv(s->th1);
+                TLobby::resume_thread(s->th1);
             }
         }
         break;

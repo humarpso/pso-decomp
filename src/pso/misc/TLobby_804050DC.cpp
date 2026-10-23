@@ -2897,7 +2897,7 @@ s32 TLobby::close_and_reset_connection() {
     *(s16 *)&this->m_up = -0x41;
     *(s16 *)((s8 *)arg0 + 0x12) = 0;
     if (*(u32 *)&this->m_next != 0xFFFFFFFFU) {
-        TLobby::resume_thread();
+        TLobby::resume_thread((s32)this->m_next);
         *(s32 *)&this->m_next = -1;
     }
     TLobby__sub_804217E4();
@@ -2995,67 +2995,67 @@ void TLobby__sub_8040C74C(void *);
 s16 TLobby__sub_8040C8A8(u32, void *, s16);
 s16 TLobby__sub_8040C978(void *);
 
-void TLobby::dispatch_request_callback(s16 arg1) {
-    Conn_8040C540 *arg0 = (Conn_8040C540 *)this;
+void TLobby::dispatch_request_callback(s16 status) {
+    Conn_8040C540 *connection = (Conn_8040C540 *)this;
     SubA_8040C540 *a;
     SubB_8040C540 *b;
     s32 err;
 
-    switch (arg0->state) {
+    switch (connection->state) {
     case 1:
-        a = (SubA_8040C540 *)arg0->sub;
+        a = (SubA_8040C540 *)connection->sub;
         if ((u32)a->cb == 0xFFFFFFFFU) {
             return;
         }
         if (a->cb == NULL) {
-            if (arg1 != 0) {
+            if (status != 0) {
                 TLobby__sub_80421814();
-                if (arg0->thread != 0xFFFFFFFFU) {
-                    TLobby::resume_thread();
-                    arg0->thread = -1;
+                if (connection->thread != 0xFFFFFFFFU) {
+                    TLobby::resume_thread(connection->thread);
+                    connection->thread = -1;
                 }
                 TLobby__sub_804217E4();
                 return;
             }
-            if (arg0->thread != 0xFFFFFFFFU) {
-                TLobby::resume_thread();
-                arg0->thread = -1;
+            if (connection->thread != 0xFFFFFFFFU) {
+                TLobby::resume_thread(connection->thread);
+                connection->thread = -1;
             }
             return;
         }
-        err = arg0->err;
+        err = connection->err;
         if ((s16)err < 0) {
-            a->cb(arg0->id, a->f4, err, a->fC, 0);
+            a->cb(connection->id, a->f4, err, a->fC, 0);
         } else {
             TLobby__sub_8040C74C(a);
-            a->cb(arg0->id, a->f4, a->f8, a->fC, a->f10);
+            a->cb(connection->id, a->f4, a->f8, a->fC, a->f10);
         }
         a->cb = NULL;
         break;
     case 12:
-        b = (SubB_8040C540 *)arg0->sub;
+        b = (SubB_8040C540 *)connection->sub;
         if ((u32)b->cb == 0xFFFFFFFFU) {
             return;
         }
         if (b->cb == NULL) {
-            if (arg1 != 0) {
+            if (status != 0) {
                 TLobby__sub_80421814();
-                if (arg0->thread != 0xFFFFFFFFU) {
-                    TLobby::resume_thread();
-                    arg0->thread = -1;
+                if (connection->thread != 0xFFFFFFFFU) {
+                    TLobby::resume_thread(connection->thread);
+                    connection->thread = -1;
                 }
                 TLobby__sub_804217E4();
                 return;
             }
-            if (arg0->thread != 0xFFFFFFFFU) {
-                TLobby::resume_thread();
-                arg0->thread = -1;
+            if (connection->thread != 0xFFFFFFFFU) {
+                TLobby::resume_thread(connection->thread);
+                connection->thread = -1;
             }
             return;
         }
-        err = arg0->err;
+        err = connection->err;
         if ((s16)err < 0) {
-            b->cb(arg0->id, b->f0, err);
+            b->cb(connection->id, b->f0, err);
         } else {
             if (b->fC == NULL) {
                 b->f4 = -0x42;
@@ -3064,7 +3064,7 @@ void TLobby::dispatch_request_callback(s16 arg1) {
             } else {
                 b->f4 = TLobby__sub_8040C8A8(b->f0, b->fC + 0x1C, b->f4);
             }
-            b->cb(arg0->id, b->f0, b->f4);
+            b->cb(connection->id, b->f0, b->f4);
         }
         b->cb = NULL;
         break;

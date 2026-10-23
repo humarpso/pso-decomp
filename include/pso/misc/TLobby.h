@@ -779,7 +779,7 @@ struct TLobby : public TObject {
     static void clear_slot_for_handle(u32 arg0);
     static void lock_mutex(int _w0);
     static void signal_alarm_queue(void *alarm);
-    static void resume_thread();
+    static void resume_thread(s32 thread);
     void cancel_thread_if_running();
     static void deactivate_entry_by_key(u32 key);
     static s32 run_current_thread_callback();

@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/protocol/NetworkRuntime.h"
+#include "pso/protocol/NetworkRuntimeSlots.h"
+#include "dolphin/os/OSInterrupt.h"
 
 struct Self_803FD85C;
 struct Tbl_803FD85C {
@@ -20,11 +22,6 @@ struct Self_803FD85C {
 struct Info_8040098C { u8 pad[0x1C]; s16 f1C; u8 pad1E[6]; u16 f24; u8 pad26[0x2A]; s16 f50; u8 pad52[6]; u16 f58; };
 struct St_8040098C { s8 f0; u8 f1; u8 f2; u8 pad3[0x69]; u8 f6C[0x9C]; s32 f108; s32 f10C; };
 struct Self_8040098C { u8 pad[0xC]; St_8040098C *st; u8 pad10[0x20]; Info_8040098C *info; };
-
-struct RecoveredGlobal_803F94A0_lbl_805BF770 {
-    s32 value;
-    u8 remaining[0x74C];
-};
 
 struct RecoveredGlobal_8041123C_lbl_805C1BB8 {
     union { s32 value; struct { s16 a; s16 b; } ab; };
@@ -88,13 +85,6 @@ struct Q_803FA2A8 {
 
 struct P_803FA2A8 { u8 pad[0x30]; Q_803FA2A8 *q; };
 
-struct Slot_803F8E08 {
-    s32 active;
-    u8 pad4[4];
-    u8 alarm[0x28];
-    u8 queue[0x28];
-};
-
 typedef struct Ent_804099B4 {
     s16 active;
     u8 pad[0x2E];
@@ -136,29 +126,11 @@ typedef struct B_803FADA0 { u8 *buf; u16 len; } B_803FADA0;
 typedef struct A_803FADA0 { u8 pad0[4]; u32 a; u32 b; } A_803FADA0;
 
 extern "C" {
-s32 OSGetTick();
-void NetStoreTick(s32 *arg0);
-extern RecoveredGlobal_803F94A0_lbl_805BF770 network_message_queue_slot_table;
-s32 OSUnlockMutex();
-s32 OSLockMutex();
-s32 OSGetCurrentThread();
-void NetStoreCurrentThread(s32 *arg0);
-s32 OSYieldThread();
-s32 OSResumeThread();
-s32 OSSuspendThread();
-void NetSuspendCurrentThread(void);
-s32 OSCancelThread(void *);
-s32 OSIsThreadTerminated();
-void NetResumeThread(void);
 void strlen(s32);
 s32 memmove();
 s32 memcmp();
 s32 memset();
 s32 memcpy();
-s32 NetMemcmp(void *, void *, int);
-void NetMemset(void *, int, int);
-void NetMemcpy(void *, void *, int);
-s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1);
 void TLobby__sub_803FD85C(void *);
 s32 TLobby__sub_804062A0(s16);
 extern s32 lobby_timer_list_head;
@@ -166,10 +138,8 @@ void TLobby__sub_803F8A08(void *);
 s32 TLobby__sub_8040799C(s16, void *, void *);
 void TLobby__sub_803F8A9C(void *);
 extern s16 lobby_handler_table_desc;
-s32 NetMemcmp(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_8040FDA0(u32, s16);
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
-void NetMemset(void * _w0, int _w1, int _w2);
 void strcat(u8);
 void strncmp(u8);
 void strcmp(u8);
@@ -186,17 +156,10 @@ u32 TLobby__sub_80402AFC(u8 *p);
 u8 *write_network_u16_be(u8 *p, u16 v);
 extern Tbl_80408718 lbl_805C1AB0;
 s32 TLobby__sub_80405304(void *arg0);
-s64 OSGetTime();
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
 void TLobby__sub_803FA2A8(P_803FA2A8 *o);
-s32 OSDisableInterrupts(void);
-s32 OSRestoreInterrupts(s32);
-void OSCancelAlarm(void *);
-s32 OSSendMessage(void *, void *, s32);
 s32 TLobby__sub_80428358(void);
-extern Slot_803F8E08 lobby_alarm_slot_table[0x40];
-void NetMemcpy(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
 s16 TLobby__sub_80401BCC(void *, void *, int);
 extern u8 lcp_read_value_buffer[4];
@@ -206,9 +169,6 @@ extern u8 lobby_ppp_read_buf;
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
-void TLobby__sub_803FA234(void);
-void TLobby__sub_803FA238(u8 *arg0);
-void TLobby__sub_803FA280(void);
 
 void TLobby__sub_803F87DC(void * _w0);
 
@@ -230,13 +190,13 @@ extern s32 lbl_805D4810;
 s32 TLobby::cancel_pending_alarms() {
     s32 i;
     s32 lvl;
-    Slot_803F8E08 *s;
+    NetworkAlarmSlot *s;
     lvl = OSDisableInterrupts();
     for (i = 0; i < 0x40; i++) {
         s = &lobby_alarm_slot_table[i];
         if (s->active != 0) {
-            OSCancelAlarm(s->alarm);
-            OSSendMessage(s->queue, NULL, 0);
+            OSCancelAlarm(&s->alarm);
+            OSSendMessage(&s->queue, NULL, 0);
         }
     }
     OSRestoreInterrupts(lvl);
@@ -256,78 +216,75 @@ void TLobby::get_time_ms(s32 *out) {
     *out = (s32)(t / (s64)((*(u32 *)0x800000F8 >> 2) / 1000));
 }
 
-void NetStoreTick(s32 *arg0) {
-    *arg0 = OSGetTick();
+void NetStoreTick(s32 *tick) {
+    *tick = OSGetTick();
 }
 
-void TLobby::clear_slot_for_handle(u32 arg0) {
-    s32 var_r5;
-    var_r5 = 0;
-    if (arg0 != (u32) *(u32 *)((s8 *)&network_message_queue_slot_table.value + 4)) {
-        var_r5 = 1;
-        if (arg0 != (u32) *(u32 *)((s8 *)&network_message_queue_slot_table.value + 0x3AC)) {
-            var_r5 = 2;
+void TLobby::clear_slot_for_handle(u32 handle) {
+    s32 index;
+    index = 0;
+    if (handle != network_message_queue_slot_table[0].handle) {
+        index = 1;
+        if (handle != network_message_queue_slot_table[1].handle) {
+            index = 2;
         }
     }
-    if (var_r5 < 2) {
-        *(s32 *)((s8 *)((u8 *)&network_message_queue_slot_table.value + (var_r5 * 0x3A8)) + 0) = 0;
+    if (index < 2) {
+        network_message_queue_slot_table[index].active = 0;
     }
 }
 
 void TUdpSocket::unlock_mutex(int _w0) {
-    OSUnlockMutex();
+    OSUnlockMutex((OSMutex*)_w0);
 }
 
 void TLobby::lock_mutex(int _w0) {
-    OSLockMutex();
+    OSLockMutex((OSMutex*)_w0);
 }
 
-void NetStoreCurrentThread(s32 *arg0) {
-    *arg0 = OSGetCurrentThread();
+void NetStoreCurrentThread(s32 *thread) {
+    *thread = (s32)OSGetCurrentThread();
 }
 }
-void NetIPv6CPCancelTimer(s32 arg0);
 u8 *write_network_u32_be(u8 *p, u32 v);
 void TLobby::signal_alarm_queue(void *alarm) {
     s32 i;
-    Slot_803F8E08 *s;
+    NetworkAlarmSlot *s;
 
     for (i = 0; i < 0x40; i++) {
-        if (lobby_alarm_slot_table[i].alarm == alarm) {
+        if (&lobby_alarm_slot_table[i].alarm == alarm) {
             break;
         }
     }
     if (i < 0x40) {
         s = &lobby_alarm_slot_table[i];
         if (s->active != 0) {
-            OSSendMessage(s->queue, NULL, 0);
+            OSSendMessage(&s->queue, NULL, 0);
         }
     }
 }
-void NetYieldThread(void);
 s32 NetSetDefaultThreadPriority(s32 arg0);
 void NetYieldThread(void) {
     OSYieldThread();
 }
 
-void TLobby::resume_thread() {
-    OSResumeThread();
+void TLobby::resume_thread(s32 thread) {
+    OSResumeThread((OSThread*)thread);
 }
 
 void NetSuspendCurrentThread(void) {
-    OSGetCurrentThread();
-    OSSuspendThread();
+    OSSuspendThread(OSGetCurrentThread());
 }
 
 void TLobby::cancel_thread_if_running() {
     s32 arg0 = (s32)this;
-    if (OSIsThreadTerminated() == 0) {
-        OSCancelThread((void *)arg0);
+    if (OSIsThreadTerminated((OSThread*)this) == 0) {
+        OSCancelThread((OSThread*)arg0);
     }
 }
 
-void NetResumeThread(void) {
-    OSResumeThread();
+void NetResumeThread(u32 thread) {
+    OSResumeThread((OSThread*)thread);
 }
 
 void TLobby::deactivate_entry_by_key(u32 key) {
@@ -346,7 +303,7 @@ void TLobby::deactivate_entry_by_key(u32 key) {
 }
 
 s32 TLobby::run_current_thread_callback() {
-    u32 key = OSGetCurrentThread();
+    u32 key = (u32)OSGetCurrentThread();
     Ent_803F9C78 *p;
     u16 n = lbl_805D7A68;
     Ent_803F9C78 *base = (*(Ent_803F9C78 * *)&lbl_805D7A6C);
@@ -941,7 +898,7 @@ struct RecoveredFields_804143BC_arg0 {
 typedef char RecoveredFields_804143BC_arg0_0_offset[offsetof(RecoveredFields_804143BC_arg0, field_0) == 0x0 ? 1 : -1];
 typedef char RecoveredFields_804143BC_arg0_1_offset[offsetof(RecoveredFields_804143BC_arg0, field_1) == 0x1 ? 1 : -1];
 
-Slot_803F8E08 lobby_alarm_slot_table[0x40];
-u32 network_mutex_slot_table[0x40];
-RecoveredGlobal_803F94A0_lbl_805BF770 network_message_queue_slot_table;
+NetworkAlarmSlot lobby_alarm_slot_table[0x40];
+NetworkMutexSlot network_mutex_slot_table[8];
+NetworkMessageQueueSlot network_message_queue_slot_table[2];
 u32 ppp_ipv6cp_protocol_state[0x2A];

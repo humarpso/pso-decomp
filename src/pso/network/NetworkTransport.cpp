@@ -1,3 +1,4 @@
+#include "pso/protocol/NetworkRuntime.h"
 #include "pso/network/NetworkTransport.h"
 
 #include "types.h"
@@ -148,16 +149,13 @@ s32 compare_str__6TLobbyFUc(void *, u32);
 s32 TLobby__sub_803F7684(void *arg0);
 extern u8 run_net_thread_loop__6TLobbyFv[];
 s16 TLobby__sub_803F96AC(void *);
-void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
 void TLobby__sub_803F7A90(void);
-void NetSuspendCurrentThread(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 }
 extern s32 TLobby__queue_timeout_remaining;
-void NetYieldThread(void);
 void subtract_network_queue_timeout(s32 arg0);
 void set_lobby_map_state_code(s32 arg0);
 extern "C" {
@@ -168,8 +166,6 @@ extern Q_803F7AF4 TLobby__next_send_chunk;
 extern s32 lobby_send_chunk_size;
 Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
-void resume_thread__6TLobbyFv(s32);
-void NetMemcpy(void *_w0, void *_w1, int _w2);
 extern s32 lobby_ring_buffer_write_pos;
 s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);
@@ -485,7 +481,7 @@ s32 TLobby::write_ring_buffer(u8 *src, s32 len) {
     if (lobby_ring_buffer_size - lobby_send_ring_pending_bytes < len) {
         TUdpSocket::unlock_mutex(TLobby__send_ring_mutex);
         if (OSIsThreadSuspended(thread) == 1) {
-            resume_thread__6TLobbyFv(queue_thread_handle);
+            TLobby::resume_thread(queue_thread_handle);
         }
         return 0;
     }
@@ -503,7 +499,7 @@ s32 TLobby::write_ring_buffer(u8 *src, s32 len) {
     lobby_send_ring_pending_bytes += len;
     TUdpSocket::unlock_mutex(TLobby__send_ring_mutex);
     if (OSIsThreadSuspended(thread) == 1) {
-        resume_thread__6TLobbyFv(queue_thread_handle);
+        TLobby::resume_thread(queue_thread_handle);
     }
     return 1;
 }
