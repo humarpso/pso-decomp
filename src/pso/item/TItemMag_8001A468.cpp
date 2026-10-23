@@ -72,7 +72,7 @@ struct Stack_8001A8F0 {
     u8 trailing_storage[0x12];
 };
 
-struct Cam_8001A77C { u8 pad0[0x14]; s32 f14; s32 f18; EndingVector v1c; EndingVector v28; s32 tail[4]; };
+struct Cam_8001A77C { u8 pad0[0x14]; s32 f14; s32 f18; Vec v1c; Vec v28; s32 tail[4]; };
 
 typedef struct ColorF { f32 r, g, b, a; } ColorF;
 
@@ -118,11 +118,11 @@ int TObjPlayer::publish_light_color(void *p) {
 
 int TObjPlayer__sub_8001A77C(void *p) {
     Cam_8001A77C sp20;
-    EndingVector sp14 = ending_camera_position;
-    EndingVector sp8 = ending_camera_direction;
+    Vec sp14 = ending_camera_position;
+    Vec sp8 = ending_camera_direction;
     activate_camera_mode(9);
-    VecCopy((Vec *)&sp20.v1c, (const Vec *)&sp14);
-    VecCopy((Vec *)&sp20.v28, (const Vec *)&sp8);
+    VecCopy(&sp20.v1c, &sp14);
+    VecCopy(&sp20.v28, &sp8);
     sp20.f14 = 0x1693;
     set_active_camera_pose_from_params((u8 *)&sp20);
 }
@@ -154,7 +154,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *object, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
     *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&__vt__13TUnk_80480938).value;
     player_light_index = 0;
-    EndingVector position = ending_player_start_position;
+    Vec position = ending_player_start_position;
     temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)))->create_ending_player();
     ending_player = temp_r3;
     query_darkfalz_state__10TObjPlayerFv(temp_r3, (void *)&position);

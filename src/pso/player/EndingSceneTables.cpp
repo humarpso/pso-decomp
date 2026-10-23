@@ -1,6 +1,6 @@
 #include "pso/player/EndingSceneTables.h"
 
-const EndingVector ending_player_positions_0[12] = {
+const Vec ending_player_positions_0[12] = {
     {7.0f, -7.27548f, -25.0f},
     {-2000.0f, 0.0f, 0.0f},
     {8.4f, -8.3f, -21.0f},
@@ -29,7 +29,7 @@ const EndingPlayerAngle ending_player_angles_0[12] = {
     {2, -17, -15},
 };
 
-const EndingVector ending_player_positions_1[12] = {
+const Vec ending_player_positions_1[12] = {
     {7.0f, -7.27548f, -25.0f},
     {-2000.0f, 0.0f, 0.0f},
     {8.4f, -8.3f, -21.0f},
@@ -58,7 +58,7 @@ const EndingPlayerAngle ending_player_angles_1[12] = {
     {0, -5, 0},
 };
 
-const EndingVector ending_player_positions_2[12] = {
+const Vec ending_player_positions_2[12] = {
     {7.0f, -7.27548f, -25.0f},
     {-2000.0f, 0.0f, 0.0f},
     {8.4f, -8.3f, -21.0f},
@@ -102,7 +102,7 @@ const EndingLightColor player_light_color_rgba_table[21] = {
     {255, 220, 230, 255},
 };
 
-const EndingVector player_light_direction_color_table[12] = {
+const Vec player_light_direction_color_table[12] = {
     {-0.235111f, 0.493468f, 0.837384f},
     {-0.235111f, 0.493468f, 0.837384f},
     {-0.007547f, 0.051515f, 0.998644f},
@@ -117,6 +117,6 @@ const EndingVector player_light_direction_color_table[12] = {
     {-0.033862f, 0.483642f, 0.874611f},
 };
 
-__declspec(section ".rodata") EndingVector ending_player_start_position = {-2000.0f, 0.0f, 0.0f};
-__declspec(section ".rodata") EndingVector ending_camera_position = {0.0f, 0.0f, 71.593f};
-__declspec(section ".rodata") EndingVector ending_camera_direction = {0.0f, 0.0f, -1.0f};
+__declspec(section ".rodata") Vec ending_player_start_position = {-2000.0f, 0.0f, 0.0f};
+__declspec(section ".rodata") Vec ending_camera_position = {0.0f, 0.0f, 71.593f};
+__declspec(section ".rodata") Vec ending_camera_direction = {0.0f, 0.0f, -1.0f};
