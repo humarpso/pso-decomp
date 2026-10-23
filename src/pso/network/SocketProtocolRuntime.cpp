@@ -550,6 +550,35 @@ s16 NetUdpConnect(s16 id, NetworkAddress* remoteAddress, s32 port, s32 eventCall
     entry->receiveCallback = receiveCallback;
     return 0;
 }
+
+s16 NetUdpBind(s16 id, NetworkAddress* localAddress, s32 port) {
+    if (id < 0 || id >= udp_runtime_state.count) return -4;
+    if (localAddress != NULL && NetValidateLocalAddress(localAddress) < 0) return -4;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    entry += id;
+    if (!entry->active) return -4;
+    if ((u16)port != 0) {
+        s16 index = 0;
+        UdpControlBlock* other = udp_runtime_state.entries;
+        for (; index < udp_runtime_state.count; index++, other++) {
+            if (other->active && other->localPort == (u16)port) return -3;
+        }
+    }
+    if (localAddress->family != 0) {
+        NetMemcpy(&entry->localAddress, localAddress, sizeof(NetworkAddress));
+    } else {
+        NetMemset(&entry->localAddress, 0, sizeof(NetworkAddress));
+    }
+    // Keep both narrowing casts to preserve MWCC's register allocation.
+    if ((u16)(s16)port != 0) {
+        entry->localPort = port;
+    } else {
+        entry->localPort = NetUdpAllocateEphemeralPort();
+    }
+    entry->sourcePort = entry->localPort;
+    return 0;
+}
+
 #pragma push
 #pragma opt_dead_assignments off
 s16 NetUdpCreate(void) {
@@ -579,4 +608,39 @@ s16 NetUdpCreate(void) {
 }
 
 #pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s16 IsUdpPortInUse(u16 port) {
+    s16 index = 0;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    for (; index < udp_runtime_state.count; index++, entry++) {
+        if (entry->active == 1 && port == entry->localPort) return 1;
+    }
+    return 0;
+}
+
+u16 NetUdpAllocateEphemeralPort() {
+    if (!udp_runtime_state.ephemeralPort) {
+        s32 tick;
+        NetStoreTick(&tick);
+        udp_runtime_state.ephemeralPort = udp_runtime_state.ephemeralPortStart;
+        udp_runtime_state.ephemeralPort |= tick & 0x3FF;
+    } else if (udp_runtime_state.ephemeralPort < udp_runtime_state.ephemeralPortEnd) {
+        udp_runtime_state.ephemeralPort++;
+    } else {
+        udp_runtime_state.ephemeralPort = udp_runtime_state.ephemeralPortStart;
+    }
+    while (IsUdpPortInUse(udp_runtime_state.ephemeralPort)) {
+        if (udp_runtime_state.ephemeralPort < udp_runtime_state.ephemeralPortEnd) {
+            udp_runtime_state.ephemeralPort++;
+        } else {
+            udp_runtime_state.ephemeralPort = udp_runtime_state.ephemeralPortStart;
+        }
+    }
+    return udp_runtime_state.ephemeralPort;
+}
+#pragma pop
+
 }

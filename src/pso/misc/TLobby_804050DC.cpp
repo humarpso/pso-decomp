@@ -1,3 +1,4 @@
+#include "pso/network/UdpRuntime.h"
 #include "pso/network/SocketEvents.h"
 #include "pso/network/NetworkDispatch.h"
 #include "pso/misc/TLobby.h"
@@ -586,7 +587,6 @@ s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 void TLobby__sub_80405328(u8 *arg0);
 s16 TLobby__sub_8040FCEC(u32);
 s16 TLobby__sub_804136EC(s32);
-s16 TLobby__sub_8040DABC(u8 *arg0);
 void TLobby__sub_803F892C(void *);
 extern RecoveredGlobal_8040DD68_lbl_805C1B38 ipv4_protocol_state;
 s32 TLobby__sub_8040DD68(void);
@@ -3225,19 +3225,19 @@ s32 TLobby__sub_8040DA54(u8 *arg0, u8 *arg1) {
     }
 }
 
-s16 TLobby__sub_8040DABC(u8 *arg0) {
+s16 NetValidateLocalAddress(NetworkAddress* address) {
     u32 ip;
-    switch (*(s32 *)((s8 *)arg0 + 0)) {
+    switch ((s32)address->family) {
     case 0:
         return 0;
     case 4:
-        ip = *(u32 *)((s8 *)arg0 + 4);
+        ip = address->ipv4;
         if (ip != 0) {
             return TLobby__sub_8040FCEC(ip);
         }
         return 0;
     case 6:
-        return TLobby__sub_804136EC((s32) (arg0 + 4));
+        return TLobby__sub_804136EC((s32)address->address);
     default:
         return -2;
     }

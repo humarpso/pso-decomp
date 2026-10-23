@@ -136,7 +136,6 @@ s32 TRKValidMemory32(void *, void *, void *, int, int, int);
 s32 TLobby__sub_80421A50(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8041E780();
 s32 tcp_create__Fv(void);
-s16 TUdpSocket__sub_804212E4(s16, void *, s32);
 s32 TLobby__sub_80421B3C(s32 a);
 s32 mark_connection_closed__6TLobbyFs(s32);
 s32 tcp_delete__Fs(s32 a);
@@ -511,7 +510,7 @@ s16 TUdpSocket__sub_80421DEC(void *src, s32 sport, void *dst, s32 dport, s32 arg
         TUdpSocket::unlock_mutex(network_dispatch_state.value);
         return h;
     }
-    r = TUdpSocket__sub_804212E4(h, src, sport);
+    r = NetUdpBind(h, (NetworkAddress*)src, sport);
     if (r < 0) {
         NetUdpClose(h);
         TUdpSocket::unlock_mutex(network_dispatch_state.value);
