@@ -1395,7 +1395,9 @@ force_active:
   - __dt__15TAdChrSelSlotGCFv
   - __dt__15TAdDrawLineCtrlFv
   - __dt__15TAdMcSelectMcGCFv
+  - __dt__15TAdPlayerLoadGCFv
   - __dt__15TAdPlyPltAnimGCFv
+  - __dt__15TAdSubPlyItemGCFv
   - __dt__15TBoss2PhotonPadFv
   - __dt__15TBoss3VoloptP01Fv
   - __dt__15TBoss6CrushPtclFv
@@ -1753,7 +1755,9 @@ force_active:
   - __vt__15TAdChrSelSlotGC
   - __vt__15TAdDrawLineCtrl
   - __vt__15TAdMcSelectMcGC
+  - __vt__15TAdPlayerLoadGC
   - __vt__15TAdPlyPltAnimGC
+  - __vt__15TAdSubPlyItemGC
   - __vt__15TBoss2PhotonPad
   - __vt__15TBoss3VoloptP01
   - __vt__15TBoss6CrushPtcl
@@ -3431,6 +3435,7 @@ force_active:
   - format_challenge_stage_times__23TAdSinglePlyChrSelectGCFll
   - format_dashed_serial__22TAdEnterSerialAccessGCFPUcUlPUl
   - format_drop_table_filename
+  - format_level_text__15TAdSubPlyItemGCFii
   - format_status_strings__14TAdPlyStatusGCFPv
   - format_trade_out_of_range_message__Fl
   - forward_card_at_1c__11TWindowChatFv
@@ -3550,6 +3555,7 @@ force_active:
   - get_particle__20TPlayerParticleOwnerFv
   - get_pipe_interaction_latch__FPv
   - get_player__11TPlayerSoulFv
+  - get_player_load_state__Fv
   - get_pos_ptr__10TObjPlayerFv
   - get_quest_thread_id__10TObjPlayerFPv
   - get_render_mode_for_tv_format
@@ -9714,7 +9720,9 @@ force_active:
   - render__14TWindowComCardFv
   - render__15TAdChrSelSlotGCFv
   - render__15TAdDrawLineCtrlFv
+  - render__15TAdPlayerLoadGCFv
   - render__15TAdPlyPltAnimGCFv
+  - render__15TAdSubPlyItemGCFv
   - render__15TBoss2PhotonPadFv
   - render__15TBoss3VoloptP01Fv
   - render__15TBoss6EmptyWarpFv
@@ -10084,7 +10092,9 @@ force_active:
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdChrSelSlotGCFv
   - run_task__15TAdDrawLineCtrlFv
+  - run_task__15TAdPlayerLoadGCFv
   - run_task__15TAdPlyPltAnimGCFv
+  - run_task__15TAdSubPlyItemGCFv
   - run_task__15TBoss2PhotonPadFv
   - run_task__15TBoss3VoloptP01Fv
   - run_task__15TBoss6CrushPtclFv
@@ -10339,6 +10349,7 @@ force_active:
   - set_bit__15TBoss6SwordWaveFiUc
   - set_boss4_state__12TObjEneLappyFv
   - set_card_index__17TWindowSubComCardFl
+  - set_character_select_b_slot_state__Fi
   - set_child_windows_enabled__19TWindowSubTradeMainFl
   - set_code_43_6__10TObjPlayerFv
   - set_com_param__17TWindowSubComCardFl
