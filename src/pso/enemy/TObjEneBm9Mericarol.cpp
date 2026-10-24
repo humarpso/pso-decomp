@@ -21,6 +21,9 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TLobby.h"
+#include "pso/enemy/TObjEneDD_800BB804.h"
+#include "pso/boss/TBoss4Type3_800D9960.h"
+#include "pso/unk/text_802D1C84.h"
 
 struct SubBase { char pad[0x14]; };
 
@@ -785,6 +788,73 @@ void *TObjEneBm9Mericarol::create(void *arg0) {
         o = TObjEneBm9Mericarol__ct((Obj_802D0D3C *)o, tl_04, (s32)arg0);
     }
     return o;
+}
+
+struct MotionEntry_802D1130 { s32 flags; s32 index; f32 speed; s32 pad; };
+struct MotionPair_802D1130 { s32 id; s32 motion; };
+struct SpawnPos_802D1130 { MotionPair_802D1130 *motions; s32 w[3]; };
+s32 is_split_screen();
+void TObjPlayer__sub_800F0928(void);
+void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
+extern const s32 lbl_804722E8[];
+extern const s32 lbl_804722F4[];
+extern const s32 lbl_80472300[];
+extern const s32 lbl_8047230C[];
+extern const SpawnPos_802D1130 lbl_80472480;
+extern const f32 lbl_805DE754;
+extern u32 lbl_805D686C;
+extern u32 lbl_805D6870;
+extern u32 lbl_805D6874;
+extern u32 lbl_805D6878;
+
+void TBoss4Type3__sub_802D1130(void) {
+    s32 i;
+    void *p;
+    MotionPair_802D1130 *pair;
+
+    if (is_split_screen() != 0) {
+        lbl_805D6868 = load_enemy_bml_resource((u8 *)lbl_804E1624);
+    } else {
+        lbl_805D6868 = load_enemy_bml_resource((u8 *)lbl_804E15E8);
+    }
+    lbl_805D686C = 0;
+    lbl_805D6870 = 0;
+    ((f32 *)lbl_80540B88)[0] = lbl_805DE70C;
+    ((f32 *)lbl_80540B88)[1] = lbl_805DE70C;
+    ((f32 *)lbl_80540B88)[2] = lbl_805DE70C;
+    lbl_805D6874 = 0;
+    lbl_805D6878 = 0;
+    fn_802D1CC8();
+    TObjPlayer__sub_800F0928();
+    for (i = 0; i < 3; i++) {
+        bm9_mericarol_phase_hp_table[i] = (u32)TLobby::register_boss(lbl_804722E8[i]);
+        lbl_80540B64[i] = (u32)TLobby::dispatch_shared_handler_b(lbl_804722F4[i]);
+        lbl_80540B70[i] = (u32)TLobby::register_object(lbl_80472300[i]);
+        mericarol_phase_param_table[i] = (u32)TLobby::dispatch_shared_handler_a(lbl_8047230C[i]);
+    }
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
+    if (p != NULL) {
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805DE70C, lbl_805DE704, lbl_805DE754);
+    }
+    TBoss4Type3_shared_instance = (u32)p;
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
+    if (p != NULL) {
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805DE70C, lbl_805DE704, lbl_805DE754);
+    }
+    lbl_805D6864 = (u32)p;
+    TObjPlayer::set_global_flag();
+    pair = (MotionPair_802D1130 *)((Res_802D0D3C *)lbl_805D6868)->f430 + ((MotionEntry_802D1130 *)lbl_804E1634)[8].index;
+    draw_trail_with_colors((u8 *)TBoss4Type3_shared_instance, ((Res_802D0D3C *)lbl_805D6868)->f42C[2], pair->motion, 0x20, 0x21);
+    pair = (MotionPair_802D1130 *)((Res_802D0D3C *)lbl_805D6868)->f430 + ((MotionEntry_802D1130 *)lbl_804E1634)[8].index;
+    draw_trail_with_colors((u8 *)lbl_805D6864, ((Res_802D0D3C *)lbl_805D6868)->f42C[2], pair->motion, 0x2A, 0x2B);
+    TObjPlayer::clear_global_state();
+    {
+        SpawnPos_802D1130 pos = lbl_80472480;
+        pair = (MotionPair_802D1130 *)((Res_802D0D3C *)lbl_805D6868)->f430;
+        pos.motions = pair;
+        TLobby::spawn_npc_enemy(0x42, ((Res_802D0D3C *)lbl_805D6868)->f42C[2], ((Res_802D0D3C *)lbl_805D6868)->f42C[3], (s32)&pos,
+            *(f32 *)&lbl_804E1564[3], lbl_805DE70C);
+    }
 }
 
 s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range) {
