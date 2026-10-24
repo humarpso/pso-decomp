@@ -3,9 +3,12 @@
 
 #include "types.h"
 
+struct AltChunkObject;
+
 extern "C" {
 void TObjPlayer__sub_800F083C(void);
-s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
+AltChunkObject *TObjPlayer__sub_800F08AC(AltChunkObject *next, s32 diffuse);
+void TObjPlayer__sub_800F0928(void);
 void draw_blob_shadow(s32 arg0);
 s32 is_split_screen__10TObjPlayerFv(void);
 }
