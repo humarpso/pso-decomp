@@ -398,6 +398,7 @@ pso/enemy/TObjEneDelDepth_80315AD8.cpp
 pso/enemy/TObjEneDelDepth_8031624C.cpp
 pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDf2Bringer_80097100.cpp
+pso/enemy/TObjEneDf2Bringer_800972B0.cpp
 pso/enemy/TObjEneDimedian.cpp
 pso/enemy/TObjEneDolmOlm.cpp
 pso/enemy/TObjEneDubchik.cpp
@@ -1023,6 +1024,7 @@ pso/misc/TLobby_801D726C.cpp
 pso/misc/TLobby_801DA7DC.cpp
 pso/misc/TLobby_801DEFC4.cpp
 pso/misc/TLobby_801E43E4.cpp
+pso/misc/TLobby_801E6544.cpp
 pso/misc/TLobby_801F2D2C.cpp
 pso/misc/TLobby_801F3A24.cpp
 pso/misc/TLobby_801F487C.cpp
@@ -3744,6 +3746,7 @@ pso/unk/text_803CBCA0.cpp
 pso/unk/text_803CBCF8.cpp
 pso/unk/text_803CC070.cpp
 pso/unk/text_803CC134.cpp
+pso/unk/text_803CD840.cpp
 pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
 pso/unk/text_803CE240.cpp
