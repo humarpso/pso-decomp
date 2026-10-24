@@ -13,27 +13,13 @@ struct P_802D4F2C { f32 x, y; };
 
 struct T_802D4F2C { P_802D4F2C p[3]; };
 
-class Self_802D4B6C {
-public:
-    void a0();
-    void a1();
-    void a2();
-    void a3();
-    void a4();
-    void a5();
-    void a6();
-    void a7();
-    void a8();
-    void a9();
-    void a10();
-    void a11();
-    void a12();
+struct Self_802D4B6C {
     s32 pad[7];
     s32 flag1c;
     s32 state;
     s32 prev;
 };
-typedef void (Self_802D4B6C::*Act_802D4B6C)();
+typedef void (TAdSinglePlyChrSelectGC::*Act_802D4B6C)();
 
 extern "C" {
 s32 set_default_camera__21TAdMultiChgGameModeGCFv(void *);
@@ -119,12 +105,21 @@ void TAdSinglePlyChrSelectGC::run_task() {
     Self_802D4B6C *self = (Self_802D4B6C *)this;
     set_default_camera__21TAdMultiChgGameModeGCFv(self);
     static Act_802D4B6C tbl[13] = {
-        &Self_802D4B6C::a0, &Self_802D4B6C::a1, &Self_802D4B6C::a2, &Self_802D4B6C::a3,
-        &Self_802D4B6C::a4, &Self_802D4B6C::a5, &Self_802D4B6C::a6, &Self_802D4B6C::a7,
-        &Self_802D4B6C::a8, &Self_802D4B6C::a9, &Self_802D4B6C::a10, &Self_802D4B6C::a11,
-        &Self_802D4B6C::a12,
+        &TAdSinglePlyChrSelectGC::cleanup,
+        &TAdSinglePlyChrSelectGC::sub_802D486C,
+        &TAdSinglePlyChrSelectGC::sub_802D4730,
+        &TAdSinglePlyChrSelectGC::sub_802D4664,
+        &TAdSinglePlyChrSelectGC::sub_802D4570,
+        &TAdSinglePlyChrSelectGC::handle_slot_selection,
+        &TAdSinglePlyChrSelectGC::handle_menu_selection,
+        &TAdSinglePlyChrSelectGC::update,
+        &TAdSinglePlyChrSelectGC::update_card_input,
+        &TAdSinglePlyChrSelectGC::handle_card_select2,
+        &TAdSinglePlyChrSelectGC::handle_card_select,
+        &TAdSinglePlyChrSelectGC::close_and_change_scene,
+        &TAdSinglePlyChrSelectGC::finish_character_selection_transition,
     };
-    (self->*tbl[self->state])();
+    (this->*tbl[self->state])();
     if (self->state != self->prev) {
         self->flag1c = 0;
     }

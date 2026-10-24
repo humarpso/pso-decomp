@@ -1350,9 +1350,13 @@ pso/enemy/TObjEneMe1CanadinLeader.cpp:
 	.text       start:0x80085774 end:0x80085798
 
 pso/misc/TParticleCtrl.cpp:
-	.text       start:0x80085798 end:0x800866F8
+	.text       start:0x80085798 end:0x80085EE4
+	.sdata2     start:0x805D9478 end:0x805D94BC
+
+pso/misc/TParticleCtrl_80085EE4.cpp:
+	.text       start:0x80085EE4 end:0x800866F8
 	.rodata     start:0x80439418 end:0x80439420
-	.sdata2     start:0x805D9480 end:0x805D94E0
+	.sdata2     start:0x805D94C0 end:0x805D94E0
 
 pso/misc/TParticleCtrl_800866F8.cpp:
 	.text       start:0x800866F8 end:0x800867AC
@@ -1518,7 +1522,7 @@ pso/enemy/TObjEneRe7Berura_8009358C.cpp:
 pso/enemy/TObjEneRe7Berura.cpp:
 	.text       start:0x80094994 end:0x80095E18
 	.data       start:0x8048F650 end:0x8048F930
-	.bss        start:0x805007C8 end:0x805007D4
+	.bss        start:0x805007C8 end:0x805008A4
 
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp:
 	.text       start:0x80095E18 end:0x80095EA0
@@ -7823,7 +7827,7 @@ pso/misc/TLobby_8020F00C.cpp:
 pso/misc/TCheckRoomSequence.cpp:
 	.text       start:0x8020F034 end:0x802115F4
 	.data       start:0x804C9490 end:0x804C9664
-	.bss        start:0x80513D88 end:0x80513D98
+	.bss        start:0x80513D88 end:0x80513DC8
 	.sbss       start:0x805D6170 end:0x805D6178
 
 pso/misc/TShopEquipmentSellWindow_802115F4.cpp:
@@ -8091,7 +8095,7 @@ pso/misc/TWindowSubStatusDisp.cpp:
 pso/unk/text_80223B98.cpp:
 	.text       start:0x80223B98 end:0x8022448C
 	.rodata     start:0x8044C468 end:0x8044C478
-	.sdata2     start:0x805DC730 end:0x805DC738
+	.sdata2     start:0x805DC730 end:0x805DC734
 
 pso/misc/ShopToolStock.cpp:
 	.text       start:0x8022448C end:0x80224660
@@ -8731,27 +8735,9 @@ pso/misc/TWindowCtrl_8024B794.cpp:
 	.text       start:0x8024B794 end:0x8024B7D4
 
 pso/misc/TWindowCtrl_8024B7D4.cpp:
-	.text       start:0x8024B7D4 end:0x8024B9C0
+	.text       start:0x8024B7D4 end:0x8024BFB8
 	.rodata     start:0x8044EBE8 end:0x8044EBF0
 	.sdata2     start:0x805DCBE8 end:0x805DCC18
-
-pso/misc/TWindowCtrl_8024B9C0.cpp:
-	.text       start:0x8024B9C0 end:0x8024BB30
-
-pso/misc/TWindowCtrl_8024BB30.cpp:
-	.text       start:0x8024BB30 end:0x8024BBBC
-
-pso/misc/TWindowCtrl_8024BBBC.cpp:
-	.text       start:0x8024BBBC end:0x8024BC7C
-
-pso/misc/TWindowCtrl_8024BC7C.cpp:
-	.text       start:0x8024BC7C end:0x8024BD68
-
-pso/misc/TWindowCtrl_8024BD68.cpp:
-	.text       start:0x8024BD68 end:0x8024BE80
-
-pso/misc/TWindowCtrl_8024BE80.cpp:
-	.text       start:0x8024BE80 end:0x8024BFB8
 
 pso/misc/TWindowCtrl_8024BFB8.cpp:
 	.text       start:0x8024BFB8 end:0x8024C024
@@ -8790,27 +8776,9 @@ pso/misc/TWindowCtrl_8024C6CC.cpp:
 	.text       start:0x8024C6CC end:0x8024C820
 
 pso/misc/TWindowCtrlMain_8024C820.cpp:
-	.text       start:0x8024C820 end:0x8024C8A4
-
-pso/misc/TWindowCtrlClipOut.cpp:
-	.text       start:0x8024C8A4 end:0x8024C98C
-
-pso/ui/TWindowCtrlSub.cpp:
-	.text       start:0x8024C98C end:0x8024CA5C
+	.text       start:0x8024C820 end:0x8024D368
 	.data       start:0x804CEAD0 end:0x804CEAE8
 	.sdata      start:0x805D38D8 end:0x805D38DC
-
-pso/misc/TWindowCtrlScreen_8024CA5C.cpp:
-	.text       start:0x8024CA5C end:0x8024CB30
-
-pso/misc/TWindowCtrlScreen.cpp:
-	.text       start:0x8024CB30 end:0x8024CB74
-
-pso/misc/TWindowCtrlMain_8024CB74.cpp:
-	.text       start:0x8024CB74 end:0x8024CB7C
-
-pso/misc/TWindowCtrlMain_8024CB7C.cpp:
-	.text       start:0x8024CB7C end:0x8024D368
 	.sdata2     start:0x805DCC18 end:0x805DCC58
 
 pso/misc/TWindowCtrlMain.cpp:
@@ -11139,7 +11107,7 @@ pso/unk/text_803000C8.cpp:
 
 pso/ui/TAdMultiSelGameModeGC.cpp:
 	.text       start:0x80300120 end:0x80300CE4
-	.data       start:0x804E66B0 end:0x804E6728
+	.data       start:0x804E66B0 end:0x804E6740
 	.sbss       start:0x805D69F8 end:0x805D6A00
 
 pso/enemy/TObjEneDolmOlm.cpp:
@@ -12025,7 +11993,7 @@ pso/misc/TLobby_8033A810.cpp:
 pso/ui/TAdSinglePlyChrSelectGC_8033A8EC.cpp:
 	.text       start:0x8033A8EC end:0x8033BAB4
 	.data       start:0x804EF728 end:0x804EF8C0
-	.sbss       start:0x805D6D94 end:0x805D6D98
+	.sbss       start:0x805D6D80 end:0x805D6D98
 
 pso/unk/text_8033BAB4.cpp:
 	.text       start:0x8033BAB4 end:0x8033BB14
@@ -12151,7 +12119,7 @@ pso/misc/TWindowDD_80341A08.cpp:
 pso/misc/TWindowDD_80342254.cpp:
 	.text       start:0x80342254 end:0x803424EC
 	.ctors      start:0x8043400C end:0x80434010
-	.data       start:0x804EFC50 end:0x804EFC90
+	.data       start:0x804EFC50 end:0x804EFCA8
 
 pso/misc/TWindowDD_803424EC.cpp:
 	.text       start:0x803424EC end:0x80342554
@@ -13377,6 +13345,7 @@ PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp:
 
 pso/unk/text_8039739C.cpp:
 	.text       start:0x8039739C end:0x80397454
+	.rodata     start:0x8047BA20 end:0x8047BA91
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c:
 	.text       start:0x80397454 end:0x80397520

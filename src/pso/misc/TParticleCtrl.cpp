@@ -181,9 +181,7 @@ s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 lbl_8048E6A8[];
 extern s32 lbl_8048E6DC[];
 extern s32 lbl_805D2930;
-extern const f32 lbl_805D9484;
 extern Col_80085798 demo_mode_particle_color;
-extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -198,7 +196,6 @@ s32 post_translate_matrix(void *);
 s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
-extern const f32 lbl_805D94D8;
 void fn_80141EB4(void);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -208,8 +205,6 @@ void DVDConvertEntrynumToPath(f32 *q);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 }
 s32 find_particle_texture_index(s32 id);
-extern const f32 TParticleCtrl__data_805D94C4;
-extern const f32 TParticleCtrl__data_805D94CC;
 void *init_particle_base(void *arg0, void *arg1, s32 arg2);
 void load_projected_texture_matrix(f32 farg0);
 void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);
@@ -217,8 +212,6 @@ s32 set_texture_num(s32 i);
 void setSpriteInverseColorBlend(void);
 void set_constant_material_color(u32 x);
 extern Cam_80085EE4 lbl_8058D4F8;
-extern const f32 lbl_805D94C0;
-extern const f32 lbl_805D94C8;
 extern "C" {
 f32 fabs_float(f32);
 u32 csnVector(void *, void *, int);
@@ -229,11 +222,6 @@ s32 normalize_vector(void *);
 s32 push_matrix_from(void *);
 extern Vec_80085CB0 lbl_804393D0;
 extern s32 identity_matrix[];
-extern const f32 lbl_805D9480;
-extern const f32 lbl_805D9488;
-extern const f32 lbl_805D94AC;
-extern const f32 lbl_805D94B4;
-extern const f32 lbl_805D94B8;
 void project_world_to_screen(s32, void *, void *);
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1);
@@ -242,13 +230,12 @@ void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 
 extern s32 local_client_id;
-extern const f32 lbl_805D947C;
 
 void TUnk_8048E6A8::render() {
     Obj_80085798 *self = (Obj_80085798 *)this;
     if (TObjPlayer::check_demo_mode() != 0) {
         Col_80085798 c = demo_mode_particle_color;
-        TObjRoomId__sub_80141CF4(self->target, &c, lbl_805D9478);
+        TObjRoomId__sub_80141CF4(self->target, &c, 40.0f);
     }
 }
 
@@ -257,8 +244,8 @@ void TUnk_8048E6A8::run_task() {
     u32 player;
 
     player = (u32)get_player_by_client_id((local_client_id));
-    if ((player != 0U) && (horizontal_distance_squared((void *)(player + 0x38), (void *)(arg0 + 0x38)) < lbl_805D947C)) {
-        if (this->scale > lbl_805D9480) {
+    if ((player != 0U) && (horizontal_distance_squared((void *)(player + 0x38), (void *)(arg0 + 0x38)) < 400.0f)) {
+        if (this->scale > 0.0f) {
             lbl_805D2930 = 1;
             return;
         }
@@ -406,9 +393,9 @@ void TUnk_8048E6DC::run_task() {
     f32 r;
     if ((*(Player_80085CB0 * *)&camera_ctrl_instance) != NULL) {
         d.x = self->pos.x - (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos.x;
-        d.y = lbl_805D9480;
+        d.y = 0.0f;
         d.z = self->pos.z - (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos.z;
-        if (lbl_805D9480 != vec_squared_length((u8 *)&d)) {
+        if (0.0f != vec_squared_length((u8 *)&d)) {
             normalize_vector(&d);
         }
         push_matrix_from(identity_matrix);
@@ -419,14 +406,14 @@ void TUnk_8048E6DC::run_task() {
         self->f94 = vec3_dot(&out, &d);
         r = fabs_float(self->f94);
         if (self->f94 >= 0.0f) {
-            v = fabs_float(lbl_805D94AC - r);
-            if (v > lbl_805D94B4) {
-                v = lbl_805D94B4;
+            v = fabs_float(1.0f - r);
+            if (v > 0.6f) {
+                v = 0.6f;
             }
         } else {
             v = 0.0f;
         }
-        self->f90 = lbl_805D9488 * v + lbl_805D94B8;
+        self->f90 = 50.0f * v + 25.0f;
         Vec_80085CB0 p = (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos;
         if (csnVector(&p, &self->pos, 0x100) != 0) {
             self->f98 = 1;
@@ -454,241 +441,8 @@ u8 *TParticleCtrl::init_particle_obj(s32 arg1, s32 arg2) {
     __ct__13TUnk_804B9870FP7TObject(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80085E78_lbl_8048E6DC *)&lbl_8048E6DC).value;
     ((VObj_18_1a504b *)(this))->m5(arg1);
-    *(f32 *)((s8 *)((u8 *)this) + 0xA4) = (f32) lbl_805D9484;
+    *(f32 *)((s8 *)((u8 *)this) + 0xA4) = 225.0f;
     lbl_805D2930 = 1;
     return ((u8 *)this);
 }
-
-#pragma push
-#pragma fp_contract on
-void TUnk_8048E778::draw_sprite_quad(s32 kind) {
-    Particle_80085EE4 *p = (Particle_80085EE4 *)this;
-    Vec_80085EE4 view;
-    Vec_80085EE4 world;
-    Quad_80085EE4 quad;
-    UV_80086248 *uv;
-    f32 sx;
-    f32 sy;
-    f32 x;
-    f32 cy;
-    f32 z;
-    f32 y;
-    f32 c;
-    f32 s;
-    u32 flags;
-    f32 a;
-    f32 b;
-
-    flags = lbl_804C5820[kind].flags;
-    if (flags & 2) {
-        if (flags & 4) {
-            fn_80141EB4();
-        } else {
-            TObjPlayer::reset_transform_state();
-        }
-    } else if (flags & 4) {
-        setSpriteInverseColorBlend();
-    } else {
-        TObjPlayer::init_xyz_limits();
-    }
-    sy = lbl_8058D4F8.scale;
-    x = lbl_8058D4F8.cx;
-    cy = lbl_8058D4F8.cy;
-    sx = sy * (lbl_805D94C0 / (lbl_805D94C0 * lbl_8058D4F8.aspect));
-    TParticleCtrl::begin_effect_render();
-    begin_screen_draw(1);
-    TObjFish::set_global_param(lbl_804C5820[kind].param);
-    set_draw_texture_and_color(lbl_804C5820[kind].tex, lbl_804C5820[kind].color);
-    uv = &lbl_804C5820[kind].uvs[p->f94];
-    quad.u = uv->u0;
-    quad.v = uv->v0;
-    quad.du = uv->u1 - uv->u0;
-    quad.k1 = quad.k0 = TParticleCtrl__data_805D94C4;
-    quad.dv = uv->v1 - uv->v0;
-    world.x = p->pos.x + p->off.x;
-    world.y = p->pos.y + p->off.y;
-    world.z = p->pos.z + p->off.z;
-    if (p->f95 != 1) {
-        matrix_mult_vec(0, &world, &view);
-        view.y = -view.y;
-    } else {
-        VecCopy((Vec *)&view, (const Vec *)&world);
-    }
-    if (view.z <= lbl_805D94C8 || p->f95 == 1) {
-        set_constant_material_color(p->f90);
-        if (p->f95 != 1) {
-            z = TParticleCtrl__data_805D94CC / -view.z;
-            a = sx * z;
-            b = sy * z;
-            sx = a;
-            sy = b;
-            x = view.x * a + x;
-            y = view.y * b + cy;
-        } else {
-            sx = TParticleCtrl__data_805D94CC;
-            z = view.z;
-            sy = sx;
-            x = view.x;
-            y = view.y;
-        }
-        sx *= lbl_804C5820[kind].sx;
-        sy *= lbl_804C5820[kind].sy;
-        sx *= p->f88;
-        sy *= p->f8C;
-        c = cos_table_lookup(p->f96);
-        s = -sin_table_lookup(p->f96);
-        quad.z = z;
-        quad.x = x - (sx * c + sy * s);
-        quad.y = y - (-sx * s + sy * c);
-        sy = sy + sy;
-        sx = sx + sx;
-        quad.ax = sx * c;
-        quad.ay = -sx * s;
-        quad.bx = sy * s;
-        quad.by = sy * c;
-        DVDConvertEntrynumToPath((f32 *)&quad);
-    }
-    TWindowSubStatusDisp::get_player();
-    TParticleCtrl::end_effect_render();
-    TObjPlayer::reset_transform_state();
-}
-#pragma pop
-
-s32 TUnk_8048E728::is_particle_sprite_additive() {
-    u8 *arg0 = (u8 *)this;
-    return **(s32 **)((s8 *)(*(s32 *)((s8 *)&TParticleCtrl__data_80511F70.value + (*(u16 *)((s8 *)arg0 + 0x1C) * 4))) + 0x28) & 1;
-}
-
-void TParticleCtrl::mark_active() {
-    *(u16 *)((s8 *)this + 0x24) = (u16) (*(u16 *)((s8 *)this + 0x24) | 0x2000);
-    ((TParticleCtrl *)0x1F)->get_object();
-}
-typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
-
-void TUnk_8048E728::draw_particle_refraction_quad() {
-    Ctrl_80086248 *self = (Ctrl_80086248 *)this;
-    Vec_80086248 p;
-    Vtx_80086248 v[4];
-    s32 frame;
-    UV_80086248 *uv;
-    frame = self->frame;
-    if (is_split_screen() != 0) {
-        return;
-    }
-    TParticleCtrl::begin_effect_render();
-    uv = &lbl_804C5820[self->tex].uvs[frame];
-    p.x = self->pos.x + self->ofs.x;
-    p.y = self->pos.y + self->ofs.y;
-    p.z = self->pos.z + self->ofs.z;
-    v[0].x = 10.0f * self->w; v[0].y = 10.0f * self->h; v[0].z = 0.0f; v[0].u = uv->u0; v[0].v = uv->v0; v[0].color = self->color;
-    v[1].x = 10.0f * self->w; v[1].y = -10.0f * self->h; v[1].z = 0.0f; v[1].u = uv->u1; v[1].v = uv->v0; v[1].color = self->color;
-    v[2].x = -10.0f * self->w; v[2].y = 10.0f * self->h; v[2].z = 0.0f; v[2].u = uv->u0; v[2].v = uv->v1; v[2].color = self->color;
-    v[3].x = -10.0f * self->w; v[3].y = -10.0f * self->h; v[3].z = 0.0f; v[3].u = uv->u1; v[3].v = uv->v1; v[3].color = self->color;
-    push_matrix();
-    post_translate_matrix(&p);
-    rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
-    rotate_matrix_x(0, *(s32 *)(camera_ctrl_instance + 0x190));
-    load_projected_texture_matrix(lbl_805D94D8);
-    TObjFish::set_global_param(*(s32 *)((u8 *)lbl_804C5820 + 0x16C));
-    set_texture_num(self->tex);
-    TParticleCtrl::setup_particle_draw(1);
-    GXSetNumTevStages(2);
-    GXSetNumTexGens(2);
-    GXSetTevOp(0, 0);
-    play_indirect_effect_recipe(0x1F, 0, 1);
-    TObjPlayer::setup_tev_stage();
-    TParticleCtrl__sub_803E2A1C(v, 4);
-    TParticleCtrl::reset_particles();
-    TParticleCtrl::disable_if_single_screen();
-    TParticleCtrl::set_tev_direct(1);
-    pop_matrix();
-    TParticleCtrl::end_effect_render();
-}
-
-void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
-    Ctrl_80086418 *self = (Ctrl_80086418 *)this;
-    FCol_80086418 f;
-    if (mode != 0) {
-        set_color_blend_mode(1, 4, 1, 0);
-        Col_80086418 c = self->color;
-        f.a = 0.0f;
-        f.r = -(1.0f - c.r / 255.0f);
-        f.g = -(1.0f - c.g / 255.0f);
-        f.b = -(1.0f - c.b / 255.0f);
-    } else {
-        set_color_blend_mode(1, 4, 5, 0);
-        Col_80086418 c = self->color;
-        f.a = -(1.0f - c.a / 255.0f);
-        f.r = 0.0f;
-        f.g = 0.0f;
-        f.b = 0.0f;
-    }
-    ((TUnk_80494AE0 *)((f32 *)&f))->set_chunk_material_color();
-}
-
-u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_8048E728.value;
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            ((TUnk_8048E728 *)arg0)->free_from_heap();
-        }
-    }
-    return arg0;
-}
-}
-void *init_particle_base(void *object, void *arg1, s32 arg2) {
-    Particle_800865BC *p = (Particle_800865BC *)object;
-    f32 v;
-    __ct__7TObjectFP7TObject(object, (void *)arg2);
-    p->vt = &lbl_8048E728.value;
-    p->fB0 = 0;
-    p->fB4 = 0;
-    p->fB8 = 0;
-    p->fBC = TParticleCtrl__data_805D94C4;
-    p->f48 = TParticleCtrl__data_805D94C4;
-    p->f4C = TParticleCtrl__data_805D94C4;
-    p->f50 = TParticleCtrl__data_805D94C4;
-    p->f54 = TParticleCtrl__data_805D94C4;
-    p->f98 = 0;
-    p->f9C = 0;
-    p->fA0 = 0;
-    p->fA4 = TParticleCtrl__data_805D94CC;
-    p->fA8 = TParticleCtrl__data_805D94CC;
-    p->src = (Src_800865BC *)arg1;
-    v = TParticleCtrl__data_805D94C4;
-    if (p->src->f58 > TParticleCtrl__data_805D94C4) {
-        v = TParticleCtrl__data_805D94CC / p->src->f58;
-    }
-    p->f60 = v;
-    v = TParticleCtrl__data_805D94C4;
-    if (p->src->f5C > TParticleCtrl__data_805D94C4) {
-        v = TParticleCtrl__data_805D94CC / p->src->f5C;
-    }
-    p->f64 = v;
-    p->tex = find_particle_texture_index(p->src->texId);
-    p->f28 = TParticleCtrl__data_805D94CC;
-    p->f2C = TParticleCtrl__data_805D94CC;
-    p->f3C = TParticleCtrl__data_805D94C4;
-    p->f40 = TParticleCtrl__data_805D94C4;
-    p->f44 = TParticleCtrl__data_805D94C4;
-    p->f58 = TParticleCtrl__data_805D94C4;
-    p->f5C = TParticleCtrl__data_805D94C4;
-    p->f70 = TParticleCtrl__data_805D94C4;
-    p->f74 = TParticleCtrl__data_805D94C4;
-    p->f78 = TParticleCtrl__data_805D94C4;
-    p->f7C = TParticleCtrl__data_805D94C4;
-    p->f80 = TParticleCtrl__data_805D94C4;
-    p->f84 = TParticleCtrl__data_805D94C4;
-    p->f88 = TParticleCtrl__data_805D94C4;
-    p->f8C = TParticleCtrl__data_805D94C4;
-    p->f90 = 0;
-    p->f94 = 0;
-    p->f95 = 0;
-    p->f96 = 0;
-    p->f6C = 0;
-    p->f24 = 0;
-    p->f26 = 0xFFFF;
-    return object;
 }

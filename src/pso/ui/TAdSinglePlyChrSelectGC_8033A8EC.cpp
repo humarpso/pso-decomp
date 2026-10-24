@@ -42,14 +42,14 @@ struct V3_8033B2AC { s32 x, y, z; };
 
 struct V3_8033B39C { f32 x, y, z; };
 
-extern s32 single_ply_quest_download_server;
-extern s32 lbl_805D6D80;
-extern s32 lbl_805D6D84;
-extern s32 lbl_805D6D88;
+s32 lbl_805D6D80;
+s32 lbl_805D6D84;
+s32 lbl_805D6D88;
+s32 single_ply_quest_download_server;
+s32 lbl_805D6D90;
 extern "C" {
 void free_buffer__13TUnk_804EF8C0Fv(void* p);
 int memset(void*, void*, void*);
-extern s32 lbl_805D6D90;
 int queue_destruction__7TObjectFv(void*);
 struct TAdSinglePlyChrSelectGC__sub_8033B5F0;
 s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
@@ -67,20 +67,16 @@ int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, 
 u32 __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(int);
 
-void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(int, void *, int);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(int, int);
 extern u8 lbl_804C89BC[];
 extern u8 lbl_804C88C0[];
 s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
-void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *arg0);
-void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 void check_ready__23TAdSinglePlyChrSelectGCFv(void);
 
-void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 set_active_camera_pose(void *, void *);
@@ -149,9 +145,10 @@ void TAdSinglePlyChrSelectGC__sub_8033A9F0(TAdSinglePlyChrSelectGC *ad_single_pl
     ad_single_ply_chr_select_gc->set_char_slots(0xA, (s32)(*(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x24) + 0xF));
     ad_single_ply_chr_select_gc->init_warps();
 }
-int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TAdSinglePlyChrSelectGC::queue_destruction(void *) { return queue_destruction__7TObjectFv(this); }
 
-void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
+void TAdSinglePlyChrSelectGC::sub_8033AA64() {
+    O_8033AA64 *arg0 = (O_8033AA64 *)this;
     if (((TWindowMenu *)(arg0->f3c))->is_visible() != 0) {
         switch (get_selected_menu_value(arg0->f3c)) {
         case 0:
@@ -216,7 +213,8 @@ void TAdSinglePlyChrSelectGC::update_setup() {
     ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(this);
 }
 
-void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
+#define arg0 ((O_8033AC44 *)this)
+void TAdSinglePlyChrSelectGC::check_memcard_space() {
     switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(arg0->f24, lbl_804C89BC, 0)) {
     case 0:
         arg0->f2c = 7;
@@ -235,8 +233,10 @@ void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
         break;
     }
 }
+#undef arg0
 
-void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0) {
+void TAdSinglePlyChrSelectGC::sub_8033ACF4() {
+    O_8033ACF4 *arg0 = (O_8033ACF4 *)this;
     if (((TAdPlayerLoadGC *)(arg0->f24))->probe_card_slot() == 0) {
         arg0->f2C = 0;
         ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
@@ -326,7 +326,8 @@ void TAdSinglePlyChrSelectGC::handle_load_result() {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *ad_single_ply_chr_select_gc) {
+#define ad_single_ply_chr_select_gc ((O_8033AFC8 *)this)
+void TAdSinglePlyChrSelectGC::sub_8033AFC8() {
     switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(ad_single_ply_chr_select_gc->f24, lbl_804C88C0, 0)) {
     case 0:
         if (ad_single_ply_chr_select_gc->f20 != 0) {
@@ -355,8 +356,10 @@ void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *ad_single_ply_chr_select_
         break;
     }
 }
+#undef ad_single_ply_chr_select_gc
 
-void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *ad_single_ply_chr_select_gc) {
+void TAdSinglePlyChrSelectGC::sub_8033B0AC() {
+    void *ad_single_ply_chr_select_gc = this;
     u32 o;
     if (*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40) != 0) {
         if (((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B9F8)(*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40)) == 1) {
@@ -487,16 +490,12 @@ typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033
 
 #include "pso/misc/TWindowCtrlMain.h"
 
-class Sel_8033B640 {
-public:
-    void s0(); void s1(); void s2(); void s3(); void s4();
-    void s5(); void s6(); void s7(); void s8(); void s9();
-    void s10(); void s11(); void s12(); void s13(); void s14();
+struct Sel_8033B640 {
     u8 pad[0x2C];
     s32 state;
 };
 
-typedef void (Sel_8033B640::*SelFn_8033B640)();
+typedef void (TAdSinglePlyChrSelectGC::*SelFn_8033B640)();
 
 struct RecoveredGlobal_8033B9C4_lbl_80513910 {
     s32 value;
@@ -540,13 +539,23 @@ void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
 void TUnk_804EF8C0::run_task() {
     Sel_8033B640 *arg0 = (Sel_8033B640 *)this;
     static SelFn_8033B640 table[15] = {
-        &Sel_8033B640::s0, &Sel_8033B640::s1, &Sel_8033B640::s2,
-        &Sel_8033B640::s3, &Sel_8033B640::s4, &Sel_8033B640::s5,
-        &Sel_8033B640::s6, &Sel_8033B640::s7, &Sel_8033B640::s8,
-        &Sel_8033B640::s9, &Sel_8033B640::s10, &Sel_8033B640::s11,
-        &Sel_8033B640::s12, &Sel_8033B640::s13, &Sel_8033B640::s14,
+        &TAdSinglePlyChrSelectGC::start_check_memory_card,
+        &TAdSinglePlyChrSelectGC::sub_8033B0AC,
+        &TAdSinglePlyChrSelectGC::sub_8033AFC8,
+        &TAdSinglePlyChrSelectGC::handle_load_result,
+        &TAdSinglePlyChrSelectGC::update_select_state,
+        &TAdSinglePlyChrSelectGC::sub_8033ACF4,
+        &TAdSinglePlyChrSelectGC::check_memcard_space,
+        &TAdSinglePlyChrSelectGC::update_setup,
+        &TAdSinglePlyChrSelectGC::handle_player_load,
+        &TAdSinglePlyChrSelectGC::sub_8033AA64,
+        &TAdSinglePlyChrSelectGC::sub_8033AA64,
+        &TAdSinglePlyChrSelectGC::sub_8033AA64,
+        &TAdSinglePlyChrSelectGC::sub_8033AA64,
+        &TAdSinglePlyChrSelectGC::sub_8033AA64,
+        (SelFn_8033B640)&TAdSinglePlyChrSelectGC::queue_destruction,
     };
-    (arg0->*table[arg0->state])();
+    (((TAdSinglePlyChrSelectGC *)this)->*table[arg0->state])();
 }
 
 void *TAdSinglePlyChrSelectGC::destroy(s16 arg1) {
