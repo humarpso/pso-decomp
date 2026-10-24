@@ -1350,9 +1350,13 @@ pso/enemy/TObjEneMe1CanadinLeader.cpp:
 	.text       start:0x80085774 end:0x80085798
 
 pso/misc/TParticleCtrl.cpp:
-	.text       start:0x80085798 end:0x800866F8
+	.text       start:0x80085798 end:0x80085EE4
+	.sdata2     start:0x805D9478 end:0x805D94BC
+
+pso/misc/TParticleCtrl_80085EE4.cpp:
+	.text       start:0x80085EE4 end:0x800866F8
 	.rodata     start:0x80439418 end:0x80439420
-	.sdata2     start:0x805D9480 end:0x805D94E0
+	.sdata2     start:0x805D94C0 end:0x805D94E0
 
 pso/misc/TParticleCtrl_800866F8.cpp:
 	.text       start:0x800866F8 end:0x800867AC

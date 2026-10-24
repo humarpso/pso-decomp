@@ -2903,6 +2903,7 @@ force_active:
   - construct_material__13TUnk_8049FBC0FPvPv
   - construct_nug2000_bazooka__13TUnk_804E71F8FlPv
   - construct_panzer_faust__FPUcPUcl
+  - construct_particle_obj__13TParticleCtrlFll
   - construct_placement_search_base__FPUcPUcPUcPUcSc
   - construct_rappys_fan__13TUnk_804F0908FlPv
   - construct_s_rank_j_cutter_weapon__FPvlPv
@@ -4011,6 +4012,7 @@ force_active:
   - init_params__18TObjButterflyLobbyFv
   - init_params__20TBoss3VoloptHiraisinFv
   - init_particle_effect__10TObjPlayerFv
+  - init_particle_obj__13TParticleCtrlFll
   - init_parts__13TUnk_804A7488Fv
   - init_plate_rects__20TAdChrSelMovePlateGCFv
   - init_player__13TUnk_804E3008FPvPvPvPv

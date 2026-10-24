@@ -1413,7 +1413,9 @@ pso/misc/TOWreckAncientBrakable05.cpp
 pso/misc/TOWreckAncientBrakable_8017D444.cpp
 pso/misc/TOWreckAncientBrakable_8017D5A4.cpp
 pso/misc/TPacket.cpp
+pso/misc/TParticleCtrl.cpp
 pso/misc/TParticleCtrl_80083550.cpp
+pso/misc/TParticleCtrl_80085EE4.cpp
 pso/misc/TParticleCtrl_800866F8.cpp
 pso/misc/TParticleCtrl_800867AC.cpp
 pso/misc/TParticleCtrl_800867E4.cpp
