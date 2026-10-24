@@ -1,12 +1,6 @@
-#include "types.h"
-#include "pso/TObjWarpString.h"
+#include "pso/ui/MenuText.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 
-extern "C" {
-void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
-extern const f32 lbl_805DB1A8;
-void TObjWarpString::draw_string(s32 arg1, f32 farg0, f32 farg1) {
-    u8 *arg0 = (u8 *)this;
-    draw_menu_font_string((const char *)arg0, (s32)arg1, (u32)(0), (f32)farg0, (f32)farg1, (f32)lbl_805DB1A8);
-}
-
+void draw_menu_text(f32 x, f32 y, const char *text, u32 color) {
+    draw_menu_font_string(text, color, 0, x, y, menu_font_default_scale);
 }

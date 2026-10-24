@@ -777,6 +777,7 @@ pso/map/FloorLifecycleTables.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdGuideTxtGC.cpp
+pso/menu/TAdGuideTxtGC_802B17D4.cpp
 pso/menu/TAdMultiOkGC.cpp
 pso/menu/TAdPlyChrSelPlateGC.cpp
 pso/menu/TAdRicoRing.cpp
@@ -2944,6 +2945,7 @@ pso/unk/text_8008197C.cpp
 pso/unk/text_80081A30.cpp
 pso/unk/text_80081B7C.cpp
 pso/unk/text_80081BB0.cpp
+pso/unk/text_8008271C.cpp
 pso/unk/text_800827E0.cpp
 pso/unk/text_80082910.cpp
 pso/unk/text_800832EC.cpp
@@ -3480,6 +3482,7 @@ pso/unk/text_80248840.cpp
 pso/unk/text_80248994.cpp
 pso/unk/text_80248A14.cpp
 pso/unk/text_80249004.cpp
+pso/unk/text_80249078.cpp
 pso/unk/text_802497A8.cpp
 pso/unk/text_8024AADC.cpp
 pso/unk/text_8024AB18.cpp
@@ -3498,6 +3501,7 @@ pso/unk/text_80253974.cpp
 pso/unk/text_80255A38.cpp
 pso/unk/text_8025CD10.cpp
 pso/unk/text_8025FF8C.cpp
+pso/unk/text_802628C0.cpp
 pso/unk/text_80262C3C.cpp
 pso/unk/text_80263A20.cpp
 pso/unk/text_80266BD0.cpp

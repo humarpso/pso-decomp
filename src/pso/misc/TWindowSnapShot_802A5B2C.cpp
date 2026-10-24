@@ -1,3 +1,4 @@
+#include "pso/system/RlcArchive.h"
 #include "types.h"
 #include "pso/misc/TWindowSnapShot_802A5B2C.h"
 #include "pso/system/memory.h"
@@ -19,22 +20,15 @@ extern s32 lbl_804DD098[];
 u32 mem_alloc();
 s32 memset(void *, int, int);
 
-void fn_802A5B2C(s32 arg0) {
-    fn_802A5B74(arg0, arg0 + 4);
 }
 
-int fn_802A5B50(s32 arg0) { return fn_802A5B74(arg0, (s32)((void *) arg0)); }
+u32 RlcDirectoryEntry::get_size() { return read_be32(size_be); }
+u32 RlcDirectoryEntry::get_offset() { return read_be32(offset_be); }
+u32 RlcDirectoryEntry::read_be32(const s8 *bytes) { return 0; }
 
-int fn_802A5B74(s32 _w0, s32 _w1) { return 0; }
-
-int rlc_get_directory_offset(void *arg0) { return fn_802A5BFC((s32)arg0, (s32)((s8 *)arg0 + 0x14)); }
-}
-
-s32 rlc_get_chunk_count(s32 arg0) {
-    fn_802A5BFC(arg0, arg0 + 0x10);
-}
-
-int fn_802A5BFC(s32 _w0, s32 _w1) { return 0; }
+u32 RlcHeader::get_directory_offset() { return read_be32(directory_offset_be); }
+u32 RlcHeader::get_chunk_count() { return read_be32(chunk_count_be); }
+u32 RlcHeader::read_be32(const s8 *bytes) { return 0; }
 
 s32 fn_802A5C3C(u32 *arg0) {
     u32 temp_r0;
@@ -43,11 +37,11 @@ s32 fn_802A5C3C(u32 *arg0) {
         ((TWindowSnapShot *)arg0)->set_mode(7);
         return -1;
     }
-    return rlc_get_chunk_count(temp_r0);
+    return ((RlcHeader *)temp_r0)->get_chunk_count();
 }
 
 void fn_802A5C7C(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 4) = (s32) (*(s32 *)((s8 *)arg0 + 8) + rlc_get_directory_offset((void *)((void*)((void*)(*(s32 *)((s8 *)arg0 + 0))))));
+    *(s32 *)((s8 *)arg0 + 4) = (s32) (*(s32 *)((s8 *)arg0 + 8) + ((RlcHeader *)(*(s32 *)((s8 *)arg0 + 0)))->get_directory_offset());
 }
 void fn_802A5CB8(void* p) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)p + 0x8); }
 

@@ -1274,6 +1274,7 @@ pso/effect/TEffClitical.cpp:
 
 pso/unk/text_8008271C.cpp:
 	.text       start:0x8008271C end:0x800827E0
+	.sdata2     start:0x805D93B8 end:0x805D93C0
 
 pso/unk/text_800827E0.cpp:
 	.text       start:0x800827E0 end:0x80082910
@@ -8606,6 +8607,8 @@ pso/misc/TWindowSubStatusDisp_80249060.cpp:
 
 pso/unk/text_80249078.cpp:
 	.text       start:0x80249078 end:0x80249120
+	.rodata     start:0x8044EB08 end:0x8044EB10
+	.sdata2     start:0x805DCBB0 end:0x805DCBB8
 
 pso/misc/TWindowSubComCard_80249120.cpp:
 	.text       start:0x80249120 end:0x80249240
@@ -9012,6 +9015,7 @@ pso/misc/TWindowSubMag_802627D8.cpp:
 
 pso/unk/text_802628C0.cpp:
 	.text       start:0x802628C0 end:0x8026297C
+	.sdata2     start:0x805DD0D8 end:0x805DD0F4
 
 pso/misc/TWindowLoadItemTexture.cpp:
 	.text       start:0x8026297C end:0x80262C3C

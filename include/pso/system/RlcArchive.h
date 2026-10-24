@@ -1,0 +1,30 @@
+#ifndef PSO_SYSTEM_RLC_ARCHIVE_H
+#define PSO_SYSTEM_RLC_ARCHIVE_H
+
+#include "types.h"
+
+// RLC stores header and directory words in big-endian byte order.
+struct RlcDirectoryEntry {
+    s8 offset_be[4];
+    s8 size_be[4];
+
+    u32 get_size();
+    u32 get_offset();
+    u32 read_be32(const s8 *bytes);
+};
+
+struct RlcHeader {
+    u8 m_00[0x10];
+    s8 chunk_count_be[4];
+    s8 directory_offset_be[4];
+    u8 m_18[8];
+
+    u32 get_directory_offset();
+    u32 get_chunk_count();
+    u32 read_be32(const s8 *bytes);
+};
+
+typedef char RlcDirectoryEntry_size[sizeof(RlcDirectoryEntry) == 8 ? 1 : -1];
+typedef char RlcHeader_size[sizeof(RlcHeader) == 0x20 ? 1 : -1];
+
+#endif

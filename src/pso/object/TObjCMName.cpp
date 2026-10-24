@@ -1,3 +1,4 @@
+#include "pso/ui/MenuText.h"
 #include "pso/menu/CreationInput.h"
 #include "types.h"
 #include "pso/math/AngleLookup.h"
@@ -102,7 +103,6 @@ f32 fabs_float(f32);
 void TCameraCtrl__sub_80068EF0(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 u32 calc_text_width(char *s);
-void draw_string__14TObjWarpStringFlff(const char *, u32, f32, f32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 s32 TAdSinglePlyChrSelectGC__sub_802905B8();
@@ -1638,7 +1638,7 @@ void TObjCMMainMenu::sub_80297B18() {
             const char *str = (const char *)TQuestVmDownLoadServer__sub_8006EF6C(i + 0x3B);
             f32 x = lbl_805DDBA0 - (f32)calc_text_width((char *)str);
             TCameraCtrl::restore_full_screen_view();
-            draw_string__14TObjWarpStringFlff(str, color, x, y);
+            draw_menu_text(x, y, str, color);
             TCameraCtrl__sub_80068EF0();
             y += step;
         }
