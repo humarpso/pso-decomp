@@ -228,7 +228,7 @@ void TObject::operator delete(void *ptr) {
     obj_heap->heap_free(ptr);
 }
 
-bool TObject::defer_render() {
+int TObject::defer_render() {
     if (m_flags & NO_DEFER_RENDER) {
         return false;
     }

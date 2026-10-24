@@ -9,6 +9,7 @@
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 {
     s32 value;
@@ -93,7 +94,7 @@ struct Obj_80353F5C
 };
 
 extern "C" {
-void TBoss6Rock__sub_803542E8(void *, s32);
+void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed);
 extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
@@ -424,9 +425,70 @@ u8 *TBoss6Rock::get_rock_entry(s32 arg0) {
 }
 #pragma pop
 
+extern "C" {
+void TBoss6PlotFalz__sub_802AC724(void *, void *);
+extern s32 lbl_805D6EFC;
+extern const f32 lbl_805DFF8C;
+extern const f32 lbl_805DFF90;
+}
+
+void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed) {
+    s32 count;
+    E_803546B0 *entries;
+    s32 i;
+    TObjPlayer *player;
+    f32 radius;
+    f32 dist;
+    Vec d;
+
+    if (landed == 0) {
+        rock->m_e0++;
+        if (rock->m_e0 & 1) {
+            return;
+        }
+    }
+    count = TLobby::get_game_mode();
+    entries = (E_803546B0 *)&TBoss6Rock__data_80479258;
+    radius = entries[rock->m_b4].f4;
+    if (landed != 0) {
+        radius += lbl_805DFF8C;
+    }
+    for (i = 0; i < count; i++) {
+        player = TObjPlayer::get_player_data(i);
+        if (((TBoss6PlotFalz *)player)->is_active() == 0) {
+            continue;
+        }
+        VecCopy(&d, (const Vec *)player->position);
+        subtract_vector(&d, &rock->m_d4);
+        d.y = TBoss6Rock__data_805DFF50;
+        dist = vector_length(&d);
+        if (dist >= radius) {
+            continue;
+        }
+        if (dist <= lbl_805DFF64) {
+            d.x = TBoss6Rock__data_805DFF5C;
+        }
+        normalize_vector(&d);
+        d.x *= radius;
+        d.z *= radius;
+        vec3_add_to(&d, &rock->m_d4);
+        TBoss6PlotFalz__sub_802AC724(player, &d);
+        if (landed != 0) {
+            DirectAttackPayload h;
+            s32 damage = TBoss6PlotFalz::rand_vary_count(lbl_805D6EFC, lbl_805DFF90);
+            h.kind = 0;
+            h.power = damage;
+            {
+                DirectAttackPayload t = h;
+                player->receive_direct_attack(TBoss6Rock__data_805D6EF8, &t, 0, -1, -1);
+            }
+        }
+    }
+}
+
 void TBoss6Rock::break_and_release() {
     u8 *arg0 = (u8 *)this;
-    TBoss6Rock__sub_803542E8(arg0, 0);
+    TBoss6Rock__sub_803542E8(this, 0);
     if ((s32) this->m_bc == 1) {
         this->m_c8 = 0;
     }
@@ -462,7 +524,7 @@ void TBoss6Rock::update_fall() {
     if (*(f32 *)((s8 *)arg0 + 0x3C) <= TBoss6Rock__data_805DFF50) {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
         *(f32 *)&this->unk_CC = (f32) TBoss6Rock__data_805DFF50;
-        TBoss6Rock__sub_803542E8(arg0, 1);
+        TBoss6Rock__sub_803542E8(this, 1);
         ((TBoss6Rock *)arg0)->sub_80353F5C();
         play_sound_effect(0x4006B51E, (u32)(arg0 + 0x38), 0, 0);
         spawn_particle_effect(((u8 *)&this->position), 0x220);

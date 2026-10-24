@@ -1487,6 +1487,7 @@ force_active:
   - __dt__18TAdTrialModemChkGCFv
   - __dt__18TBoss2PhotonBulletFv
   - __dt__18TBoss5GryphonColliFv
+  - __dt__18TBoss5GryphonSnarlFv
   - __dt__18TBoss7PhotonBulletFv
   - __dt__18TChCrTagOccupationFv
   - __dt__18TChallenge4PResultFv
@@ -1844,6 +1845,7 @@ force_active:
   - __vt__18TAdTrialModemChkGC
   - __vt__18TBoss2PhotonBullet
   - __vt__18TBoss5GryphonColli
+  - __vt__18TBoss5GryphonSnarl
   - __vt__18TBoss7PhotonBullet
   - __vt__18TChCrTagOccupation
   - __vt__18TChallenge4PResult
@@ -9786,6 +9788,7 @@ force_active:
   - render__18TAdMultiPlayerNoGCFv
   - render__18TAdTrialModemChkGCFv
   - render__18TBoss2PhotonBulletFv
+  - render__18TBoss5GryphonSnarlFv
   - render__18TBoss7PhotonBulletFv
   - render__18TChCrTagOccupationFv
   - render__18TItemReverseTechBGFv
@@ -10178,6 +10181,7 @@ force_active:
   - run_task__18TAdMultiPlayerNoGCFv
   - run_task__18TAdTrialModemChkGCFv
   - run_task__18TBoss2PhotonBulletFv
+  - run_task__18TBoss5GryphonSnarlFv
   - run_task__18TBoss7PhotonBulletFv
   - run_task__18TChallenge4PResultFv
   - run_task__18TItemReverseTechBGFv

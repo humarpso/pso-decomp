@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/system/vector.h"
 
 struct TBoss6Rock : public TUnk_804AF8A0 {
     virtual ~TBoss6Rock();
@@ -18,8 +19,8 @@ struct TBoss6Rock : public TUnk_804AF8A0 {
     u32 m_c8;
     u8 unk_CC[0x4];
     s32 m_d0;
-    void* m_d4;
-    u8 _padD8[0xC];
+    Vec m_d4;
+    s32 m_e0;
     u32 m_e4;
     void set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
     static void *create();

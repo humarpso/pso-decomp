@@ -17,8 +17,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #pragma inline_depth(2)
 struct DamageRecipientTaskHeaderABI { u8 pad[0x18]; };
 
-struct DirectAttackPayload { s32 kind; f32 power; };
-
 struct DamageRecipientABI : DamageRecipientTaskHeaderABI {
     virtual void v0();
     virtual void v1();
