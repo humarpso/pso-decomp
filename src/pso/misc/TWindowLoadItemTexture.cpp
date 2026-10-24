@@ -1,3 +1,39 @@
+// ---- pso/unk/text_802628C0
+#include "pso/ui/ItemTextureConstants.h"
+#include "types.h"
+#include "pso/misc/TWindowLoadItemTexture.h"
+#include "pso/misc/TWindowSubStatusDisp_8025B050.h"
+#pragma push
+#pragma opt_common_subs off
+
+extern "C" {
+void *__nw__7TObjectFUl(int);
+
+#pragma push
+#pragma fp_contract on
+TWindowLoadItemTexture *fn_802628C0(void *layout, void *table, void *id) {
+    TWindowLoadItemTexture *window;
+    s32 sprite;
+
+    window = (TWindowLoadItemTexture *)__nw__7TObjectFUl(0x74);
+    if (window != NULL) {
+        window = (TWindowLoadItemTexture *)TWindowLoadItemTexture__ct(window, layout, table, id);
+    }
+    fn_80262C2C(window);
+    sprite = window->get_array_entry(0);
+    *(f32 *)(sprite + 0x8) = 0.5f * window->m_38 - 32.0f - 4.0f;
+    *(f32 *)(sprite + 0xC) = 0.5f * *(f32 *)window->unk_3C - 32.0f - 1e+01f;
+    *(f32 *)(sprite + 0x10) = 64.0f;
+    *(f32 *)(sprite + 0x14) = 64.0f;
+    set_sprite_uv_bounds((void *)sprite, 0.0f, 0.0f, 1.0f, 1.0f);
+    return window;
+}
+#pragma pop
+}
+
+#pragma pop
+
+// ---- pso/misc/TWindowLoadItemTexture
 #include "pso/ui/ItemTextureConstants.h"
 #include "pso/item/TItemTexLoad.h"
 #include "pso/misc/TWindowSubMag_802627D8.h"
@@ -16,17 +52,17 @@ extern s32 lbl_804D0058[];
 extern s32 __vt__22TWindowLoadItemTexture[];
 extern s32 lbl_805D3940;
 extern s32 tl_07;
-extern const f32 lbl_805DD0FC;
+
 
 s32 draw_visible_window_entries(void *, void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void set_sprite_uv_bounds(f32, f32, f32, f32);
+
 int initialize_subwindow__9TWindowDDFv(void*);
 
 extern s32 lbl_8044F280[];
-extern const f32 lbl_805DD0F4;
-extern const f32 lbl_805DD0F8;
+
+
 
 void *TWindowLoadItemTexture::create(void *arg1) {
     void *o;
@@ -35,7 +71,7 @@ void *TWindowLoadItemTexture::create(void *arg1) {
         o = TWindowLoadItemTexture__ct((TWindowLoadItemTexture *)o, (void *)this, (void *)lbl_8044F280, (void *)arg1);
     }
     get_array_entry__13TUnk_804CE018Fi(o, 0);
-    set_sprite_uv_bounds(item_texture_uv_origin, item_texture_uv_origin, lbl_805DD0F4, lbl_805DD0F8);
+    ((void (*)(f32, f32, f32, f32))set_sprite_uv_bounds)(0.0f, 0.0f, 0.625f, 0.46875f);
     return o;
 }
 
@@ -77,14 +113,14 @@ void *TWindowLoadItemTexture__ct(TWindowLoadItemTexture *window_load_item_textur
     *(s32 *)((s8 *)window_load_item_texture + 0) = lbl_805D3940;
     switch (TCameraCtrl::get_camera_id()) {
     case 1:
-        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = item_texture_full_scale;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = 1.0f;
         break;
     case 2:
-        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = item_texture_half_scale;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = 0.5f;
         break;
     case 3:
     case 4:
-        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = lbl_805DD0FC;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = 0.37f;
         break;
     }
     window_load_item_texture->m_38 = *(f32 *)((s8 *)arg2 + 0);

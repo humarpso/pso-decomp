@@ -1,3 +1,4 @@
+// ---- pso/object/TObjWarpLobby_801A0760
 #include "types.h"
 #include "pso/misc/TPlyJoinLobbyEntry.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
@@ -34,16 +35,16 @@ s32 align_menu_entry_positions(s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(f32 *, s32, f32);
 extern s32 warp_lobby_directory_label_table[];
-extern const f32 lbl_805DC058;
-extern const f32 lbl_805DC05C;
+
+
 s32 queue_destruction__7TObjectFv(u32);
 s32 is_idle__6TLobbyFv();
 u32 find_warp_player_in_range(void *, u16, f32);
 s32 get_selected_menu_value(u32);
 extern s32 local_client_id;
-extern const f32 lbl_805DC068;
-extern const f32 lbl_805DC06C;
-extern const f32 lbl_805DC070;
+
+
+
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
@@ -54,15 +55,15 @@ u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 
 extern u8 *TObjWarpLobby__instance;
 extern s32 lbl_805D5CCC;
-extern const f32 lbl_805DC060;
-extern const f32 lbl_805DC064;
+
+
 
 void TObjWarpLobby::open_lobby_menu() {
     f32 sp[2];
     s32 i;
-    sp[0] = lbl_805DC058;
-    sp[1] = lbl_805DC05C;
-    this->m_cc = check_room_seq_4__16TAdChrSelASlotGCFl(sp, 0xF, lbl_805DC058);
+    sp[0] = 4.5e+02f;
+    sp[1] = 1e+02f;
+    this->m_cc = check_room_seq_4__16TAdChrSelASlotGCFl(sp, 0xF, 4.5e+02f);
     for (i = 0; i < 0xF; i++) {
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)this->m_cc, (int)warp_lobby_directory_label_table[i], 6, (int)i);
     }
@@ -74,7 +75,7 @@ void TObjWarpLobby::open_lobby_menu() {
 
 void TObjWarpLobby::render() {
     u8 *arg0 = (u8 *)this;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) && (((WarpLobbyVObj_801A07F8*)arg0)->m8(lbl_805DC060, lbl_805DC064) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) && (((WarpLobbyVObj_801A07F8*)arg0)->m8(4e+02f, 2e+01f) != 0)) {
         TObjFish::set_global_param(lbl_805D5CCC);
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
@@ -90,11 +91,11 @@ extern s32 __vt__13TObjWarpLobby[];
 
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
     s32 selected_menu_value;
-    ((TObjWarpLobby *)arg0)->m_c8 = (f32) (((TObjWarpLobby *)arg0)->m_c8 + lbl_805DC068);
+    ((TObjWarpLobby *)arg0)->m_c8 += 4.0f;
     if ((f32) (*(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xD8)) + 4) - 1) < ((TObjWarpLobby *)arg0)->m_c8) {
-        ((TObjWarpLobby *)arg0)->m_c8 = (f32) lbl_805DC06C;
+        ((TObjWarpLobby *)arg0)->m_c8 = (f32) 0.0f;
     }
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) + lbl_805DC070);
+    *(f32 *)((s8 *)arg0 + 0xC4) += 336.0f;
     if ((find_warp_player_in_range(arg0, (u16) local_client_id, *(f32 *)((s8 *)arg0 + 0xAC)) != 0U) && (arg0->m14() != 0)) {
         if (((u32) ((TObjWarpLobby *)arg0)->m_cc == 0U) && (is_idle__6TLobbyFv() != 0)) {
             ((TObjWarpLobby *)arg0)->open_lobby_menu();
@@ -124,6 +125,54 @@ void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+}
+
+// ---- pso/object/TObjWarpLobby_801A0A34
+#include "types.h"
+#include "pso/object/TObjWarpLobby_801A0A34.h"
+#include "pso/object/TObjWarpLobby.h"
+
+extern "C" {
+
+s32 TObjAreaWarp__ct();
+
+extern s32 __vt__13TObjWarpLobby[];
+extern s32 lbl_805D34A0;
+
+
+
+void *TObjWarpLobby__ct(TObjWarpLobby *warp_lobby) {
+
+    TObjAreaWarp__ct();
+    *(s32 **)((s8 *)warp_lobby + 0x18) = __vt__13TObjWarpLobby;
+    *(s32 *)((s8 *)warp_lobby + 0) = (s32) lbl_805D34A0;
+    warp_lobby->m_c8 = (f32) 0.0f;
+    *(f32 *)((s8 *)warp_lobby + 0xC4) = (f32) 0.0f;
+    warp_lobby->m_cc = 0;
+    *(s32 *)((s8 *)warp_lobby + 0xD0) = 0;
+    *(s32 *)((s8 *)warp_lobby + 0xD4) = 0;
+    *(s32 *)((s8 *)warp_lobby + 0xD8) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)TObjWarpLobby__instance + 0x430)) + 4);
+    *(s32 *)((s8 *)warp_lobby + 0xDC) = 0;
+    if ((s32) *(s32 *)((s8 *)warp_lobby + 0x88) < 0) {
+        *(s32 *)((s8 *)warp_lobby + 0x88) = 0;
+    }
+    if ((s32) *(s32 *)((s8 *)warp_lobby + 0x88) > 1) {
+        *(s32 *)((s8 *)warp_lobby + 0x88) = 1;
+    }
+    switch (*(s32 *)((s8 *)warp_lobby + 0x88)) {
+    case 0:
+        *(s32 *)((s8 *)warp_lobby + 0xCC) = 1;
+        break;
+    case 1:
+        *(s32 *)((s8 *)warp_lobby + 0xCC) = 0;
+        break;
+    default:
+        *(s32 *)((s8 *)warp_lobby + 0xCC) = 1;
+        break;
+    }
+    return warp_lobby;
 }
 
 }

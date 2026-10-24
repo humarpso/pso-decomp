@@ -1373,7 +1373,6 @@ pso/misc/TOSignCave01.cpp
 pso/misc/TOSignCave02.cpp
 pso/misc/TOSignCave03.cpp
 pso/misc/TOSparkMachine01.cpp
-pso/misc/TOSwitchAttack.cpp
 pso/misc/TOSwitchAttack_801778A4.cpp
 pso/misc/TOSwitchItem.cpp
 pso/misc/TOSwitchItem_80102C44.cpp
@@ -1821,7 +1820,6 @@ pso/misc/TWindowSubAreaMapDisp.cpp
 pso/misc/TWindowSubAreaMapDisp_802717B8.cpp
 pso/misc/TWindowSubComCard.cpp
 pso/misc/TWindowSubComCardList.cpp
-pso/misc/TWindowSubComCardList_8026CB08.cpp
 pso/misc/TWindowSubComCard_8007341C.cpp
 pso/misc/TWindowSubComCard_80073DB8.cpp
 pso/misc/TWindowSubComCard_80077788.cpp
@@ -2236,7 +2234,6 @@ pso/object/TObjWarpJungMain.cpp
 pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0760.cpp
-pso/object/TObjWarpLobby_801A0A34.cpp
 pso/object/TObjWeddingLobby.cpp
 pso/object/TObject.cpp
 pso/object/TObject_80019A50.cpp
@@ -3199,7 +3196,6 @@ pso/unk/text_801747F8.cpp
 pso/unk/text_80174954.cpp
 pso/unk/text_80174AB4.cpp
 pso/unk/text_80174C14.cpp
-pso/unk/text_80177608.cpp
 pso/unk/text_801782A0.cpp
 pso/unk/text_8017866C.cpp
 pso/unk/text_8017B8A0.cpp
@@ -3438,7 +3434,6 @@ pso/unk/text_80253974.cpp
 pso/unk/text_80255A38.cpp
 pso/unk/text_8025CD10.cpp
 pso/unk/text_8025FF8C.cpp
-pso/unk/text_802628C0.cpp
 pso/unk/text_80262C3C.cpp
 pso/unk/text_80263A20.cpp
 pso/unk/text_80266BD0.cpp
@@ -3457,9 +3452,6 @@ pso/unk/text_8026AC50.cpp
 pso/unk/text_8026ACDC.cpp
 pso/unk/text_8026B260.cpp
 pso/unk/text_8026C664.cpp
-pso/unk/text_8026C7AC.cpp
-pso/unk/text_8026C9C8.cpp
-pso/unk/text_8026C9DC.cpp
 pso/unk/text_8026CB5C.cpp
 pso/unk/text_80271400.cpp
 pso/unk/text_802752D8.cpp

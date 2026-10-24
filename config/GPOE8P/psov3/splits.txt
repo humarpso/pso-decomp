@@ -5507,15 +5507,10 @@ pso/misc/TOSparkMachine01.cpp:
 	.rodata     start:0x80442BB8 end:0x80442BC0
 
 pso/system/TOSwitchAttackSub.cpp:
-	.text       start:0x801774BC end:0x80177608
-	.data       start:0x804B4438 end:0x804B4450
-
-pso/unk/text_80177608.cpp:
-	.text       start:0x80177608 end:0x80177760
-
-pso/misc/TOSwitchAttack.cpp:
-	.text       start:0x80177760 end:0x801778A4
+	.text       start:0x801774BC end:0x801778A4
 	.rodata     start:0x80442C78 end:0x80442C80
+	.data       start:0x804B4438 end:0x804B4450
+	.sdata2     start:0x805DBA00 end:0x805DBA08
 
 pso/misc/TOSwitchAttack_801778A4.cpp:
 	.text       start:0x801778A4 end:0x80177D60
@@ -6220,11 +6215,9 @@ pso/unk/text_801A069C.cpp:
 	.text       start:0x801A069C end:0x801A0760
 
 pso/object/TObjWarpLobby_801A0760.cpp:
-	.text       start:0x801A0760 end:0x801A0A34
+	.text       start:0x801A0760 end:0x801A0B08
 	.rodata     start:0x80446868 end:0x80446870
-
-pso/object/TObjWarpLobby_801A0A34.cpp:
-	.text       start:0x801A0A34 end:0x801A0B08
+	.sdata2     start:0x805DC058 end:0x805DC074
 
 pso/object/TObjWarpLobby.cpp:
 	.text       start:0x801A0B08 end:0x801A0B94
@@ -8816,12 +8809,9 @@ pso/misc/TWindowKeyBoardSoft_80261440.cpp:
 pso/misc/TWindowSubMag_802627D8.cpp:
 	.text       start:0x802627D8 end:0x802628C0
 
-pso/unk/text_802628C0.cpp:
-	.text       start:0x802628C0 end:0x8026297C
-	.sdata2     start:0x805DD0D8 end:0x805DD0F4
-
 pso/misc/TWindowLoadItemTexture.cpp:
-	.text       start:0x8026297C end:0x80262C3C
+	.text       start:0x802628C0 end:0x80262C3C
+	.sdata2     start:0x805DD0D8 end:0x805DD100
 
 pso/unk/text_80262C3C.cpp:
 	.text       start:0x80262C3C end:0x80263A20
@@ -9045,20 +9035,9 @@ pso/misc/TWindowOptionCtrl_8026C5D8.cpp:
 	.text       start:0x8026C5D8 end:0x8026C664
 
 pso/unk/text_8026C664.cpp:
-	.text       start:0x8026C664 end:0x8026C7AC
-
-pso/unk/text_8026C7AC.cpp:
-	.text       start:0x8026C7AC end:0x8026C9C8
+	.text       start:0x8026C664 end:0x8026CB5C
 	.rodata     start:0x8044F4C0 end:0x8044F4C8
-
-pso/unk/text_8026C9C8.cpp:
-	.text       start:0x8026C9C8 end:0x8026C9DC
-
-pso/unk/text_8026C9DC.cpp:
-	.text       start:0x8026C9DC end:0x8026CB08
-
-pso/misc/TWindowSubComCardList_8026CB08.cpp:
-	.text       start:0x8026CB08 end:0x8026CB5C
+	.sdata2     start:0x805DD270 end:0x805DD2C8
 
 pso/unk/text_8026CB5C.cpp:
 	.text       start:0x8026CB5C end:0x8026CB80

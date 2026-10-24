@@ -519,6 +519,7 @@ force_active:
   - TOSignCave02__resource_descriptor
   - TOSignCave03__ct
   - TOSparkMachine01__ct
+  - TOSwitchAttackSub__ct
   - TOSwitchAttack__ct
   - TOSwitchItem__ct
   - TOSwitchTimer__ct
@@ -1203,6 +1204,7 @@ force_active:
   - TWindowKeyBoardSoft__sub_80080B34
   - TWindowKeyBoardSoft__sub_80080F68
   - TWindowKeyBoardSoft__sub_8025C51C
+  - TWindowLoadItemTexture__ct
   - TWindowLockOn__ct
   - TWindowLockOn__update_for_enemy
   - TWindowLockOn__update_for_item
@@ -1933,6 +1935,7 @@ force_active:
   - __vt__17TItemEffectWeapon
   - __vt__17TMCFormatSequence
   - __vt__17TMedicalCenterMes
+  - __vt__17TOSwitchAttackSub
   - __vt__17TOTrapChainSawKey
   - __vt__17TObjBoss2DustCtrl
   - __vt__17TObjBoss7DustCtrl
@@ -3629,6 +3632,7 @@ force_active:
   - fn_8024450C
   - fn_80248324
   - fn_802483C8
+  - fn_80262C2C
   - fn_80271848
   - fn_8028DBC4
   - fn_80293D84
@@ -4236,10 +4240,6 @@ force_active:
   - item_system_generation
   - item_texture_afs_work_buffer
   - item_texture_filename_buffer
-  - item_texture_half_size
-  - item_texture_horizontal_inset
-  - item_texture_size
-  - item_texture_vertical_inset
   - jungle_boss_warp_resource_block
   - jungle_warp_beam_resource_descriptor
   - keyboard_poll_key_codes
