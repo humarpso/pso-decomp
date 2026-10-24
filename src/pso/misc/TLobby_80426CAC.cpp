@@ -292,6 +292,26 @@ s16 TLobby__sub_80426EB8(Ent_80427D40 *e) {
     return total;
 }
 
+s16 TLobby__sub_804270C0(Ent_80427D40 *e) {
+    u8 *p;
+    s16 n;
+    s16 total;
+    p = e->frame + 0x14;
+    n = put_service_name(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total = n;
+    n = TLobby::write_name_field((s32 *)&p, (u8 *)e);
+    if (n < 0) {
+        return -1;
+    }
+    total += n;
+    total += put_host_uniq(&p, e);
+    total += put_end_of_list(&p);
+    return total;
+}
+
 s16 TLobby__sub_80427240(u8 **p, Ent_80427D40 *e) {
     u16 type;
     u16 len;
@@ -308,7 +328,7 @@ s16 TLobby__sub_80427240(u8 **p, Ent_80427D40 *e) {
 
 #pragma push
 #pragma opt_common_subs off
-s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
+s16 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
     struct Fields_arg1 { u8 pad_0[58]; char name[1]; };
     s16 sp12;
     s16 sp10;

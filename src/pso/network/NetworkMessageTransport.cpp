@@ -132,7 +132,7 @@ u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
 s32 TLobby__sub_8042558C(void *);
 extern u8 lbl_805E1190[6];
-s32 TLobby__sub_80426660(u8 *arg0);
+s16 TLobby__sub_80426660(u8 *arg0);
 s32 TLobby__sub_804089A8(s32, s32, void *, void *);
 s32 TLobby__sub_80425640(s32 len);
 s32 TLobby__sub_80426AAC(u16 key, s32 len);
@@ -492,7 +492,7 @@ s32 TLobby__sub_80426574(void) {
     return 0;
 }
 
-s32 TLobby__sub_80426660(u8 *arg0) {
+s16 TLobby__sub_80426660(u8 *arg0) {
     Obj_80426110 *g = (Obj_80426110 *)lobby_net_channel_table;
     if (TLobby__sub_804262CC(g) < 0) {
         return -1;
