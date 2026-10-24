@@ -21,7 +21,6 @@ struct Rec_8001A470 { s32 f0; Sub_8001A470 a; Sub_8001A470 b; f32 f24; f32 f28; 
 
 extern "C" {
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s);
-void TObjPlayer__sub_8001A4CC(s32 state, s8 index);
 void init__9TItemDataFv(TItemData *item);
 extern s32 game_difficulty_selection;
 }
@@ -40,24 +39,24 @@ void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
     d->f28 = s->f28;
 }
 
-void TObjPlayer__sub_8001A4CC(s32 state, s8 index) {
+void TUnk_80480938::pose_player(s32 state, s8 picture) {
     switch (state) {
         case 0: {
-            ending_player->set_position_from((void *)&ending_player_positions_0[index]);
-            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_0[index].y;
-            TObjPlayer::set_animation_from_data((s32)ending_player, index);
+            ending_player->set_position_from((void *)&ending_player_positions_0[picture]);
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_0[picture].y;
+            TObjPlayer::set_animation_from_data((s32)ending_player, picture);
             break;
         }
         case 1: {
-            ending_player->set_position_from((void *)&ending_player_positions_1[index]);
-            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_1[index].y;
-            TObjPlayer::set_animation_from_data((s32)ending_player, index);
+            ending_player->set_position_from((void *)&ending_player_positions_1[picture]);
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_1[picture].y;
+            TObjPlayer::set_animation_from_data((s32)ending_player, picture);
             break;
         }
         case 2: {
-            ending_player->set_position_from((void *)&ending_player_positions_2[index]);
-            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_2[index].y;
-            TObjPlayer::set_animation_from_data((s32)ending_player, index);
+            ending_player->set_position_from((void *)&ending_player_positions_2[picture]);
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_2[picture].y;
+            TObjPlayer::set_animation_from_data((s32)ending_player, picture);
             break;
         }
     }
@@ -108,14 +107,14 @@ void TUnk_80480938::set_camera() {
     set_active_camera_pose_from_params((u8 *)&camera);
 }
 
-void TObjPlayer::update_flag890_state(s32 index) {
+void TUnk_80480938::set_picture(s32 picture) {
     if (game_difficulty_selection != 3 && get_ending_scene_active() == 0) {
         s32 state;
 
-        player_light_index = (s8)index;
+        player_light_index = (s8)picture;
         state = ending_player->get_flag890_state();
         ending_player_state = state;
-        TObjPlayer__sub_8001A4CC(state, (s8)index);
+        pose_player(state, (s8)picture);
     }
 }
 

@@ -279,7 +279,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int has_flag_128();
     s16 get_mag_data();
     s32 get_flag890_state();
-    static void update_flag890_state(s32 index);
     static void add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2);
     void drain_owner_hp_fraction(f32 farg0);
     s32 is_mode_two_and_ready();

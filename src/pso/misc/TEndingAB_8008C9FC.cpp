@@ -5,6 +5,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TUnk_80480938.h"
 
 extern "C" {
 void restore_saved_depth_alpha_state(void);
@@ -28,7 +29,7 @@ void TEndingAB::advance_fade_sequence() {
         temp_r4 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingAB__fade_sequence_state = 2;
-            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
+            TUnk_80480938::set_picture(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
@@ -47,7 +48,7 @@ void TEndingAB::advance_fade_sequence() {
         temp_r4_2 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingAB__fade_sequence_state = 4;
-            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
+            TUnk_80480938::set_picture(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }

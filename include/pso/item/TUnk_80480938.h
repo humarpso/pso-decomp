@@ -10,6 +10,8 @@ public:
     virtual void run_task();
     void publish_light();
     void set_camera();
+    static void pose_player(s32 state, s8 picture);
+    static void set_picture(s32 picture);
 };
 
 #endif
