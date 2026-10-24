@@ -72,7 +72,7 @@ struct Stack_8001A8F0 {
     u8 trailing_storage[0x12];
 };
 
-struct Cam_8001A77C { u8 pad0[0x14]; s32 f14; s32 f18; Vec v1c; Vec v28; s32 tail[4]; };
+struct EndingCamera { u8 pad0[0x14]; s32 f14; s32 f18; Vec v1c; Vec v28; s32 tail[4]; };
 
 typedef struct ColorF { f32 r, g, b, a; } ColorF;
 
@@ -117,14 +117,16 @@ int TObjPlayer::publish_light_color(void *p) {
 }
 
 int TObjPlayer__sub_8001A77C(void *p) {
-    Cam_8001A77C sp20;
-    Vec sp14 = ending_camera_position;
-    Vec sp8 = ending_camera_direction;
+    EndingCamera camera;
+    Vec position = ending_camera_position;
+    Vec direction = ending_camera_direction;
+
     activate_camera_mode(9);
-    VecCopy(&sp20.v1c, &sp14);
-    VecCopy(&sp20.v28, &sp8);
-    sp20.f14 = 0x1693;
-    set_active_camera_pose_from_params((u8 *)&sp20);
+    VecCopy(&camera.v1c, &position);
+    VecCopy(&camera.v28, &direction);
+    camera.f14 = 0x1693;
+
+    set_active_camera_pose_from_params((u8 *)&camera);
 }
 
 void TObjPlayer::update_flag890_state(s32 arg0) {
@@ -138,7 +140,10 @@ void TObjPlayer::update_flag890_state(s32 arg0) {
 }
 
 void TUnk_80480938::render() {  }
-void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C(this); TObjPlayer::publish_light_color(this); }
+void TUnk_80480938::run_task() {
+    TObjPlayer__sub_8001A77C(this);
+    TObjPlayer::publish_light_color(this);
+}
 
 }
 TUnk_80480938::~TUnk_80480938() {
