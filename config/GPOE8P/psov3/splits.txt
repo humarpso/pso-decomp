@@ -8735,27 +8735,9 @@ pso/misc/TWindowCtrl_8024B794.cpp:
 	.text       start:0x8024B794 end:0x8024B7D4
 
 pso/misc/TWindowCtrl_8024B7D4.cpp:
-	.text       start:0x8024B7D4 end:0x8024B9C0
+	.text       start:0x8024B7D4 end:0x8024BFB8
 	.rodata     start:0x8044EBE8 end:0x8044EBF0
 	.sdata2     start:0x805DCBE8 end:0x805DCC18
-
-pso/misc/TWindowCtrl_8024B9C0.cpp:
-	.text       start:0x8024B9C0 end:0x8024BB30
-
-pso/misc/TWindowCtrl_8024BB30.cpp:
-	.text       start:0x8024BB30 end:0x8024BBBC
-
-pso/misc/TWindowCtrl_8024BBBC.cpp:
-	.text       start:0x8024BBBC end:0x8024BC7C
-
-pso/misc/TWindowCtrl_8024BC7C.cpp:
-	.text       start:0x8024BC7C end:0x8024BD68
-
-pso/misc/TWindowCtrl_8024BD68.cpp:
-	.text       start:0x8024BD68 end:0x8024BE80
-
-pso/misc/TWindowCtrl_8024BE80.cpp:
-	.text       start:0x8024BE80 end:0x8024BFB8
 
 pso/misc/TWindowCtrl_8024BFB8.cpp:
 	.text       start:0x8024BFB8 end:0x8024C024

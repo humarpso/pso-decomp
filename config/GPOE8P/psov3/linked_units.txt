@@ -1681,12 +1681,7 @@ pso/misc/TWindowCtrl_8024B704.cpp
 pso/misc/TWindowCtrl_8024B728.cpp
 pso/misc/TWindowCtrl_8024B760.cpp
 pso/misc/TWindowCtrl_8024B794.cpp
-pso/misc/TWindowCtrl_8024B9C0.cpp
-pso/misc/TWindowCtrl_8024BB30.cpp
-pso/misc/TWindowCtrl_8024BBBC.cpp
-pso/misc/TWindowCtrl_8024BC7C.cpp
-pso/misc/TWindowCtrl_8024BD68.cpp
-pso/misc/TWindowCtrl_8024BE80.cpp
+pso/misc/TWindowCtrl_8024B7D4.cpp
 pso/misc/TWindowCtrl_8024BFB8.cpp
 pso/misc/TWindowCtrl_8024C024.cpp
 pso/misc/TWindowCtrl_8024C160.cpp
