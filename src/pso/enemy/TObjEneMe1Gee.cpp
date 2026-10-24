@@ -120,7 +120,7 @@ extern "C" void vfunc_113__13TUnk_8049387CFv();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
-extern "C" void vfunc_67__13TUnk_804806E8Fv();
+extern "C" void vfunc_67__13TUnk_804806E8Ff();
 extern "C" void vfunc_66__13TUnk_804806E8Fv();
 extern "C" void vfunc_65__13TUnk_804806E8Fll();
 extern "C" void vfunc_60__13TUnk_804806E8Fv();
@@ -258,7 +258,7 @@ void *me1_gee_dispatch_table[118] = {
     (void *)TObjPlayer::apply_defense_stat_status, (void *)cure_poison_ailment__13TUnk_804806E8Fv, (void *)cure_paralysis__13TUnk_804806E8Fv, (void *)clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)apply_action_hold_status__13TUnk_804806E8Ff, (void *)apply_anti_technique__13TUnk_804806E8Fl, (void *)vfunc_58__13TUnk_804806E8Fv, (void *)vfunc_59__13TUnk_804806E8Fv,
     (void *)vfunc_60__13TUnk_804806E8Fv, (void *)vfunc_61__13TObjEneMe1GeeFv, (void *)vfunc_62__13TObjEneMe1GeeFv, (void *)vfunc_63__13TObjEneMe1GeeFv,
-    (void *)reset_pose__13TUnk_804806E8Fv, (void *)vfunc_65__13TUnk_804806E8Fll, (void *)vfunc_66__13TUnk_804806E8Fv, (void *)vfunc_67__13TUnk_804806E8Fv,
+    (void *)reset_pose__13TUnk_804806E8Fv, (void *)vfunc_65__13TUnk_804806E8Fll, (void *)vfunc_66__13TUnk_804806E8Fv, (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl, (void *)apply_switch_attack__13TUnk_804806E8Fv, (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)vfunc_73__13TUnk_804806E8Fv, (void *)vfunc_74__9TObjEnemyFl, (void *)vfunc_75__13TUnk_804806E8Ff,
     (void *)vfunc_76__13TUnk_804806E8Fv, (void *)vfunc_77__13TUnk_804806E8Fv, (void *)vfunc_78__13TUnk_804806E8Fl, (void *)vfunc_79__9TObjEneDDFv,
@@ -2708,10 +2708,10 @@ void TObjEneMe1Gee__sub_800C9DF8(void *o_, s32 arg1) {
                 } else {
                     o->toggle = 1;
                 }
-                z = o->f3A8;
                 x = o->f3A0;
-                o->f3A0 = x * c + z * s;
-                o->f3A8 = z * c - x * s;
+                z = o->f3A8 * c - x * s;
+                o->f3A0 = x * c + o->f3A8 * s;
+                o->f3A8 = z;
                 o->f448 = lbl_805DA114 * k;
                 o->f44C = lbl_805DA114 * (o->f3EC - o->f3F4);
             }

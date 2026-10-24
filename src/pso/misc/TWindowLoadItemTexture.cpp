@@ -1,3 +1,4 @@
+#include "pso/ui/ItemTextureConstants.h"
 #include "pso/item/TItemTexLoad.h"
 #include "pso/misc/TWindowSubMag_802627D8.h"
 #include "pso/object/TObject_80019A50.h"
@@ -15,8 +16,6 @@ extern s32 lbl_804D0058[];
 extern s32 __vt__22TWindowLoadItemTexture[];
 extern s32 lbl_805D3940;
 extern s32 tl_07;
-extern const f32 lbl_805DD0D8;
-extern const f32 lbl_805DD0F0;
 extern const f32 lbl_805DD0FC;
 
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -26,7 +25,6 @@ void set_sprite_uv_bounds(f32, f32, f32, f32);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 extern s32 lbl_8044F280[];
-extern const f32 lbl_805DD0EC;
 extern const f32 lbl_805DD0F4;
 extern const f32 lbl_805DD0F8;
 
@@ -37,7 +35,7 @@ void *TWindowLoadItemTexture::create(void *arg1) {
         o = TWindowLoadItemTexture__ct((TWindowLoadItemTexture *)o, (void *)this, (void *)lbl_8044F280, (void *)arg1);
     }
     get_array_entry__13TUnk_804CE018Fi(o, 0);
-    set_sprite_uv_bounds(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
+    set_sprite_uv_bounds(item_texture_uv_origin, item_texture_uv_origin, lbl_805DD0F4, lbl_805DD0F8);
     return o;
 }
 
@@ -79,10 +77,10 @@ void *TWindowLoadItemTexture__ct(TWindowLoadItemTexture *window_load_item_textur
     *(s32 *)((s8 *)window_load_item_texture + 0) = lbl_805D3940;
     switch (TCameraCtrl::get_camera_id()) {
     case 1:
-        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = lbl_805DD0F0;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = item_texture_full_scale;
         break;
     case 2:
-        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = lbl_805DD0D8;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = item_texture_half_scale;
         break;
     case 3:
     case 4:

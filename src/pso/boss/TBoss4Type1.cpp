@@ -319,13 +319,13 @@ void render_and_update_effects__10TObjPlayerFPv(void* p);
 void request_state_3__11TBoss4Type2FPv(TBoss4Type2 *arg0);
 void fn_800548E4(u8 *arg0);
 S_80054938 * __dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag);
-s32 TBoss4Type2__sub_80054DA8();
+void TBoss4Type2__sub_80054DA8(TBoss4Type2 *boss);
 void create_all_tenchu_furu__11TBoss4Type2Fi(s32 arg0);
 s32 TBoss4Type2__sub_80054FC0(void *, f32);
 void TBoss4Type2__sub_80055300(void);
 Vec_80053E40 * get_position_ptr__10TObjPlayerFv(void *);
 void * create__9TBoss4UroFi(Params_80052CDC *);
-void spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *, s32);
 void *create_particle_emitter(void *pos, s32 id);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 s32 clear_render_callback__8TObjFishFv(s32);
@@ -561,7 +561,7 @@ extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void vfunc_28__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
-extern "C" void vfunc_67__13TUnk_804806E8Fv();
+extern "C" void vfunc_67__13TUnk_804806E8Ff();
 extern "C" void vfunc_66__13TUnk_804806E8Fv();
 extern "C" void vfunc_65__13TUnk_804806E8Fll();
 extern "C" void vfunc_61__13TUnk_804806E8Fv();
@@ -648,7 +648,7 @@ void *__vt__11TBoss4Type1[83] = {
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TUnk_804806E8Fv, (void *)&fn_800548E4, (void *)&request_state_3__11TBoss4Type2FPv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
     (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
@@ -696,7 +696,7 @@ void TBoss4Type2__sub_800525AC(u8 *boss4_type2) {
     if (temp_r0 == 6) {
         ((s32 (*)(void))create_all_tenchu_furu__11TBoss4Type2Fi)();
     } else if (temp_r0 == 1) {
-        TBoss4Type2__sub_80054DA8();
+        TBoss4Type2__sub_80054DA8((TBoss4Type2 *)boss4_type2);
     }
     if ((s32) *(s32 *)((s8 *)boss4_type2 + 0x3E4) == 0xD) {
         temp_f1 = *(f32 *)((s8 *)boss4_type2 + 0x3E8);
@@ -1791,6 +1791,63 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
 }
 
 #pragma pop
+
+extern const f32 lbl_805D8B88;
+
+void TBoss4Type2__sub_80054DA8(TBoss4Type2 *boss) {
+    Vec_80053914 *spot;
+    s32 i;
+    s32 n;
+    TObjPlayer *player;
+    s32 hit;
+    s32 count;
+    Vec_80053914 *target;
+    s32 j;
+    f32 power;
+    Vec_80053914 pos;
+
+    power = (f32)*(s32 *)((u8 *)TLobby::dispatch_shared_handler_a(0x36) + 0x20);
+    spot = (Vec_80053914 *)&TBoss4Type2__tenchu_furu_array;
+    for (i = 0; i < 0x40; i++) {
+        TBoss4Type2 *effect = (TBoss4Type2 *)spawn_particle_effect(spot, (s32)lbl_80485B08[i & 1]);
+        if (effect != NULL) {
+            effect->set_flags(0x40);
+        }
+        spot++;
+    }
+    count = TLobby::get_game_mode();
+    for (n = 0; n < count; n++) {
+        player = TObjPlayer::get_player_data(n);
+        hit = 0;
+        if (player == NULL) {
+            continue;
+        }
+        if (TBoss4Type3__sub_8005254C(obj_getField1c(player)) == 0) {
+            continue;
+        }
+        target = (Vec_80053914 *)&TBoss4Type2__tenchu_furu_array;
+        VecCopy__FP3VecPC3Vec(&pos, player->get_position_ptr());
+        pos.y = lbl_805D8B20;
+        for (j = 0; j < 0x40; j++) {
+            if (xyz_distance(&pos, target) < lbl_805D8B88) {
+                hit = 1;
+                break;
+            }
+            target++;
+        }
+        if (hit != 0) {
+            DirectAttackPayload h;
+            h.kind = 0;
+            h.power = power;
+            {
+                DirectAttackPayload t = h;
+                player->receive_direct_attack(boss, &t, 0, -1, -1);
+            }
+        }
+    }
+    play_sound_effect(0x4003A818, 0, 0, 0);
+    TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+}
 
 s32 TBoss4Type1::create(s32 arg0) {
     s32 var_r31;

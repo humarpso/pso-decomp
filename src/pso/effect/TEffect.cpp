@@ -1,3 +1,4 @@
+#include "pso/effect/EffectConstants.h"
 #include "pso/effect/TEffect.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 
@@ -57,8 +58,6 @@ extern Color_80082CDC lbl_805E1218;
 
 extern TObject* tl_particle;
 extern const char* TEffect__class_name;
-extern const f32 lbl_805D93B8;
-extern const f32 lbl_805D93BC;
 
 TEffect::~TEffect() {
     source = 0;
@@ -66,24 +65,24 @@ TEffect::~TEffect() {
 
 TEffect::TEffect() : TObject(tl_particle) {
     m_name = TEffect__class_name;
-    position.x = lbl_805D93B8;
-    position.y = lbl_805D93B8;
-    position.z = lbl_805D93B8;
-    field_2c[0] = lbl_805D93B8;
-    field_2c[1] = lbl_805D93B8;
-    field_2c[2] = lbl_805D93B8;
-    field_2c[3] = lbl_805D93B8;
-    scale.x = lbl_805D93BC;
-    scale.y = lbl_805D93BC;
-    scale.z = lbl_805D93BC;
-    direction[0] = lbl_805D93B8;
-    direction[1] = lbl_805D93B8;
-    direction[2] = lbl_805D93B8;
+    position.x = effect_zero;
+    position.y = effect_zero;
+    position.z = effect_zero;
+    field_2c[0] = effect_zero;
+    field_2c[1] = effect_zero;
+    field_2c[2] = effect_zero;
+    field_2c[3] = effect_zero;
+    scale.x = effect_one;
+    scale.y = effect_one;
+    scale.z = effect_one;
+    direction[0] = effect_zero;
+    direction[1] = effect_zero;
+    direction[2] = effect_zero;
     angles[0] = 0;
     angles[1] = 0;
     angles[2] = 0;
-    field_60[0] = lbl_805D93B8;
-    field_60[1] = lbl_805D93B8;
+    field_60[0] = effect_zero;
+    field_60[1] = effect_zero;
     age = 0;
     field_6c = 0;
     source = 0;

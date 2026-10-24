@@ -79,12 +79,22 @@ extern u8 gvrt_header_read_buffer[];
 extern char lbl_805D46D8[4];
 extern Slot_803DD784 *record_array_ptr;
 s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx);
+void TObjPlayer__sub_803DD5E8(GvmTextureList_803DDDC8 *list, GvmTextureEntry_803DDDC8 *entries, u32 names, s32 count);
 }
 u32 *find_gvrt_texture_chunk(TLobby *arg0, u32 *arg1, u32 *arg2);
 extern s32 ginja_draw_flags;
 
 void set_ginja_draw_flags(s32 arg0) {
     ginja_draw_flags = arg0;
+}
+
+void TObjPlayer__sub_803DD5E8(GvmTextureList_803DDDC8 *list, GvmTextureEntry_803DDDC8 *entries, u32 names, s32 count) {
+    int i;
+
+    for (i = 0; i < count; ++i) {
+        entries[i].name = (char *)(names + i * 0x1C);
+    }
+    list->textures = entries;
 }
 
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1) {

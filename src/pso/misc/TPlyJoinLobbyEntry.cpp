@@ -26,6 +26,7 @@
 #include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #include "pso/ui/TAdScrollWinGC.h"
+#include "pso/ui/TWindowRoom.h"
 
 struct Entry_8013634C {
     u8 tag[8];
@@ -1176,6 +1177,61 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     ((void (*)(void *, s32))__dt__18TPlyJoinLobbyEntryFv)(&e, -1);
 }
 
+struct Rec_801378AC;
+extern char lbl_8043EF80[];
+extern char lbl_8043EF90[];
+extern char lbl_8043EF9C[];
+extern char lbl_8043EFB4[];
+extern TObject *lobby_player_construction_window;
+void close_all_windows__6TLobbyFv(void);
+void *__ct__11TWindowRoomFPc(void *self, char *title);
+void handle_chat_message__11TWindowCtrlFPc(char *);
+
+void construct_lobby_players(Rec_801378AC *records, s32 count, int self_id, s32 unused) {
+    s32 j;
+    s32 i;
+    u8 *plr;
+    void *room;
+
+    for (i = 0; i < count; i++) {
+        if (self_id == ((Entry_8013634C *)records)[i].client_id) {
+            if (((void *(*)(s32))get_player_by_client_id)(self_id) == NULL) {
+                plr = create_player_object(self_id, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
+                ((TLobby *)(plr + 0xDAC))->copy_header_struct(&((Entry_8013634C *)records)[i]);
+                ((Plr_80136080 *)plr)->m6();
+                lobby_debug_printf_stub(lbl_8043EF80, self_id);
+                lobby_debug_printf_stub(lbl_8043EF90, sizeof(((Entry_8013634C *)records)->char_data));
+            } else {
+                lobby_debug_printf_stub(lbl_8043EF9C, i);
+            }
+        }
+    }
+    for (j = 0; j < count; j++) {
+        if (self_id != ((Entry_8013634C *)records)[j].client_id) {
+            if (((void *(*)(s32))get_player_by_client_id)(((Entry_8013634C *)records)[j].client_id) == NULL) {
+                plr = create_player_object(((Entry_8013634C *)records)[j].client_id, 4, ((Entry_8013634C *)records)[j].char_data);
+                ((TLobby *)(plr + 0xDAC))->copy_header_struct(&((Entry_8013634C *)records)[j]);
+                ((Plr_80136080 *)plr)->m6();
+                lobby_debug_printf_stub(lbl_8043EE7C, ((Entry_8013634C *)records)[j].client_id);
+            } else {
+                lobby_debug_printf_stub(lbl_8043EE68, ((Entry_8013634C *)records)[j].client_id);
+            }
+        }
+    }
+    *(void **)(TLobby__protocol_instance + 0xBBF0) = (void *)handle_chat_message__11TWindowCtrlFPc;
+    if (lobby_player_construction_window != NULL) {
+        lobby_player_construction_window->queue_destruction();
+        lobby_player_construction_window = NULL;
+    }
+    sprintf((char *)lbl_80509D3C, lbl_8043EFB4, TLobby__data_8050AAAC, TLobby__data_805D55AC, TLobby__lobby_number + 1);
+    room = __nw__7TObjectFUl(sizeof(TWindowRoom));
+    if (room != NULL) {
+        room = __ct__11TWindowRoomFPc(room, (char *)lbl_80509D3C);
+    }
+    lobby_player_construction_window = (TObject *)room;
+    close_all_windows__6TLobbyFv();
+}
+
 #pragma push
 #pragma opt_propagation off
 void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7) {
@@ -1571,7 +1627,7 @@ extern char lbl_8043F044[];
 extern s32 local_client_id;
 extern void *TLobby__protocol_instance;
 void handle_register_result__6TLobbyFi(s32 arg0);
-s32 construct_lobby_players(Rec_801378AC *, s16, s16, s32);
+void construct_lobby_players(Rec_801378AC *, s32, int, s32);
 extern Rec_801378AC TLobby__data_80506A6C[];
 extern s32 TLobby__designated_client_id;
 extern void *TLobby__protocol_instance;

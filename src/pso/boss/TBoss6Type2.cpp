@@ -16,6 +16,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TBoss6SwordWave.h"
 #include "pso/enemy/TObjEneDD.h"
 
 struct TBoss6Type2_802BD014;
@@ -223,6 +224,8 @@ void build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 void TBoss6Type2__sub_802BA7B0(void* p);
 int TBoss6Type2__sub_802BB694(void);
 void TBoss6Type2__sub_802BB818(TBoss6Type2 *self, f32);
+void TBoss6Type2__sub_802BBC74(TBoss6Type2 *self);
+extern const f32 lbl_805DE4A0;
 u16 TBoss6PlotFalz__sub_802AAE48(s32 i);
 void TBoss4DarkFalz__sub_8004B4F0(void *dst, void *src);
 void TBoss6Rock__sub_80354A44(void);
@@ -1731,6 +1734,37 @@ void TBoss6Type2::apply_rock_hits_to_players() {
             }
         }
     }
+}
+
+void TBoss6Type2__sub_802BBC74(TBoss6Type2 *self) {
+    s32 end_angle = 0xFFFF;
+    f32 radius = TBoss6Type2__data_805DE45C;
+    s32 start_angle = 0;
+    s32 sound = 0x40069E08;
+    switch (self->m_374) {
+    case 15:
+    case 18:
+    case 21:
+        radius = lbl_805DE4A0;
+        start_angle = (self->m_60 - 0x1500) & 0xFFFF;
+        sound = 0x40069E09;
+        end_angle = start_angle + 0x8500;
+        break;
+    case 16:
+    case 19:
+    case 22:
+        radius = lbl_805DE4A0;
+        start_angle = (self->m_60 - 0x7000) & 0xFFFF;
+        sound = 0x40069E09;
+        end_angle = start_angle + 0x8500;
+        break;
+    case 17:
+    case 20:
+    case 23:
+        break;
+    }
+    TBoss6SwordWave::create((s32)self, (s32)&self->position, start_angle, end_angle, radius);
+    play_sound_effect(sound, &self->position, 0, 1);
 }
 
 void TBoss6Type2::set_owner_flag_bit0() {

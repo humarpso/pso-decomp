@@ -577,7 +577,7 @@ void vfunc_74__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
 void consume_timer_field__13TUnk_804806E8Fl();
-void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_65__13TUnk_804806E8Fll();
 void vfunc_63__13TUnk_804806E8Fv();
@@ -714,7 +714,7 @@ void *__vt__13TObjDFHorming[] = {
     (void *)reset_pose__13TUnk_804806E8Fv,
     (void *)vfunc_65__13TUnk_804806E8Fll,
     (void *)vfunc_66__13TUnk_804806E8Fv,
-    (void *)vfunc_67__13TUnk_804806E8Fv,
+    (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,

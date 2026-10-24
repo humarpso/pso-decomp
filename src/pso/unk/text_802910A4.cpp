@@ -1,14 +1,5 @@
-#include "types.h"
-#include "pso/unk/text_802910A4.h"
+#include "pso/ui/UISprite.h"
 
-extern "C" {
-s32 draw_ui_sprite_scaled(f32, f32);
-extern const f32 lbl_805DD964;
-#pragma push
-#pragma fp_contract on
-void fn_802910A4(f32 arg0) {
-    draw_ui_sprite_scaled(arg0, lbl_805DD964);
-}
-#pragma pop
-
+void draw_ui_sprite_opaque(s32 sprite_id, const vec2f *position, const vec2f *scale, f32 depth) {
+    draw_ui_sprite_scaled(sprite_id, position, scale, depth, ui_sprite_unit_scale);
 }

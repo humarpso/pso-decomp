@@ -1,43 +1,25 @@
 #include "types.h"
 #include "pso/object/TObjCMProportion.h"
-
-struct RecoveredGlobal_8029914C_lbl_805409C8 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8029916C_lbl_805409C8 {
-    s32 value;
-    u8 remaining[0x14];
-};
+#include "pso/menu/CreationInput.h"
 
 extern "C" {
 s32 get_creation_pad(void);
-extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
-u8 TObjCMProportion__sub_8029914C(s32 arg0);
-u8 TObjCMProportion__sub_8029916C(s32 arg0);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
-extern s32 cm_proportion_pad_button_masks[];
 extern u8 controller_input_state[];
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 }
-extern s32 creation_direction_priority_masks[4];
-void update_creation_direction_repeat(void);
-extern const f64 lbl_80465170;
-extern const f32 lbl_805DDC28;
-extern const f32 lbl_805DDC2C;
-extern const f32 lbl_805DDC30;
-void get_creation_pad_stick(s32 *arg0, f32 *arg1);
-extern const f32 lbl_805DDC20;
+
+static s32 cm_proportion_pad_button_masks[4] = {0x10, 0x20, 0x40, 0x80};
+static s32 creation_direction_priority_masks[4] = {0x10, 0x20, 0x40, 0x80};
+CreationInputState creation_input_state;
 
 f32 TObjCMProportion::get_ratio() {
-    return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x18) / lbl_805DDC20;
+    return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x18) / 255.0f;
 }
 f32 TObjCMProportion::get_right_trigger_ratio() {
-    return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x1A) / lbl_805DDC20;
+    return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x1A) / 255.0f;
 }
-typedef char RecoveredGlobal_8029914C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029914C_lbl_805409C8) == 0x18 ? 1 : -1];
 
 #pragma push
 #pragma fp_contract on
@@ -48,14 +30,14 @@ void get_creation_pad_stick(s32 *arg0, f32 *arg1) {
     s32 ang;
     x = (f32)*(s16 *)((s8 *)(get_creation_pad()) + 0x1C);
     y = (f32)*(s16 *)((s8 *)(get_creation_pad()) + 0x1E);
-    ang = (s32)(lbl_80465170 * atan2_float(x, -y));
-    d = newton_sqrtf(x * x + y * y) / lbl_805DDC28;
+    ang = (s32)(10430.38043493439 * atan2_float(x, -y));
+    d = newton_sqrtf(x * x + y * y) / creation_stick_range;
     if (d > 1.0f) {
         d = 1.0f;
     }
-    if (d < lbl_805DDC2C) {
+    if (d < creation_stick_dead_zone) {
         ang = 0;
-        d = lbl_805DDC30;
+        d = creation_stick_zero;
     }
     if (arg0 != NULL) {
         *arg0 = ang;
@@ -66,31 +48,29 @@ void get_creation_pad_stick(s32 *arg0, f32 *arg1) {
 }
 #pragma pop
 
-u8 TObjCMProportion__sub_8029914C(s32 arg0) {
-    return (u8) ((*(s32 *)((s8 *)(&creation_input_state.value) + 0xC) & arg0) != 0);
+s32 creation_buttons_held(s32 mask) {
+    return (u8) ((creation_input_state.held_buttons & mask) != 0);
 }
-typedef char RecoveredGlobal_8029916C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029916C_lbl_805409C8) == 0x18 ? 1 : -1];
-u8 TObjCMProportion__sub_8029916C(s32 arg0) {
-    return (u8) ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029916C_lbl_805409C8 *)&creation_input_state).value) + 0x10) & arg0) != 0);
+s32 creation_buttons_pressed(s32 mask) {
+    return (u8) ((creation_input_state.pressed_buttons & mask) != 0);
 }
-#define G_80299238(off) (*(s32 *)((s8 *)(&creation_input_state) + (off)))
 void update_creation_direction_repeat(void) {
     s32 held;
     s32 rest;
     s32 *p;
-    held = G_80299238(0xC) & 0xF0;
-    G_80299238(0x14) = 0;
+    held = creation_input_state.held_buttons & 0xF0;
+    creation_input_state.repeated_buttons = 0;
     if (held == 0) {
-        G_80299238(0x8) = 0;
-        G_80299238(0x4) = 0;
-        G_80299238(0x14) = 0;
+        creation_input_state.repeat_frames = 0;
+        creation_input_state.repeat_direction = 0;
+        creation_input_state.repeated_buttons = 0;
         return;
     }
-    if (held & G_80299238(0x4)) {
-        G_80299238(0x8)++;
-        if (G_80299238(0x8) == 7 || G_80299238(0x8) >= 10) {
-            G_80299238(0x14) = G_80299238(0x4);
-            G_80299238(0x8) = 7;
+    if (held & creation_input_state.repeat_direction) {
+        creation_input_state.repeat_frames++;
+        if (creation_input_state.repeat_frames == 7 || creation_input_state.repeat_frames >= 10) {
+            creation_input_state.repeated_buttons = creation_input_state.repeat_direction;
+            creation_input_state.repeat_frames = 7;
         }
         return;
     }
@@ -99,38 +79,42 @@ void update_creation_direction_repeat(void) {
     while ((rest &= ~*p) != 0) {
         p++;
     }
-    G_80299238(0x4) = held & *p;
-    G_80299238(0x14) = G_80299238(0x4);
-    G_80299238(0x8) = 0;
+    creation_input_state.repeat_direction = held & *p;
+    creation_input_state.repeated_buttons = creation_input_state.repeat_direction;
+    creation_input_state.repeat_frames = 0;
 }
 void TObjCMProportion::poll_pad_buttons() {
     s32 old;
     s32 i;
-    old = G_80299238(0xC);
-    G_80299238(0xC) = *(s32 *)((s8 *)(get_creation_pad()) + 8);
-    if (!(G_80299238(0xC) & 0xF0)) {
+    old = creation_input_state.held_buttons;
+    creation_input_state.held_buttons = *(s32 *)((s8 *)(get_creation_pad()) + 8);
+    if (!(creation_input_state.held_buttons & 0xF0)) {
         if (*(s16 *)((s8 *)(get_creation_pad()) + 0x1C) < -0x73) {
-            G_80299238(0xC) |= 0x40;
+            creation_input_state.held_buttons |= 0x40;
         } else if (*(s16 *)((s8 *)(get_creation_pad()) + 0x1C) > 0x73) {
-            G_80299238(0xC) |= 0x80;
+            creation_input_state.held_buttons |= 0x80;
         } else if (*(s16 *)((s8 *)(get_creation_pad()) + 0x1E) < -0x73) {
-            G_80299238(0xC) |= 0x10;
+            creation_input_state.held_buttons |= 0x10;
         } else if (*(s16 *)((s8 *)(get_creation_pad()) + 0x1E) > 0x73) {
-            G_80299238(0xC) |= 0x20;
+            creation_input_state.held_buttons |= 0x20;
         } else {
             for (i = 0; i < 4; i++) {
                 if (is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, cm_proportion_pad_button_masks[i]) != 0) {
-                    G_80299238(0xC) |= cm_proportion_pad_button_masks[i];
+                    creation_input_state.held_buttons |= cm_proportion_pad_button_masks[i];
                     break;
                 }
             }
         }
     }
-    if (!(G_80299238(0xC) & 4) && is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, 4) != 0) {
-        G_80299238(0xC) |= 4;
+    if (!(creation_input_state.held_buttons & 4) && is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, 4) != 0) {
+        creation_input_state.held_buttons |= 4;
     }
-    if (!(G_80299238(0xC) & 2) && is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, 2) != 0) {
-        G_80299238(0xC) |= 2;
+    if (!(creation_input_state.held_buttons & 2) && is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, 2) != 0) {
+        creation_input_state.held_buttons |= 2;
     }
-    G_80299238(0x10) = G_80299238(0xC) & ~old;
+    creation_input_state.pressed_buttons = creation_input_state.held_buttons & ~old;
 }
+
+__declspec(section ".sdata2") const f32 creation_stick_range = 115.2f;
+__declspec(section ".sdata2") const f32 creation_stick_dead_zone = 0.1f;
+__declspec(section ".sdata2") const f32 creation_stick_zero = 0.0f;

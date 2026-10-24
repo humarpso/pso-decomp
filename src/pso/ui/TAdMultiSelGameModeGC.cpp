@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/TAdMultiSelGameModeGC.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/enemy/TObjEneDolmOlm.h"
@@ -5,8 +6,6 @@
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdMultiSelGameModeGC.h"
 #include "pso/misc/TWindowSubComCardList.h"
-
-TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 
 #include "types.h"
 #include "pso/TAdMultiChgGameModeGC.h"
@@ -23,13 +22,8 @@ TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 struct Self_80300770 {
     u8 pad0[0x1C];
     s32 state;
-    void m0();
-    void m1();
-    void m2();
-    void m3();
-    void m4();
 };
-typedef void (Self_80300770::*Action_80300770)();
+typedef void (TAdMultiSelGameModeGC::*Action_80300770)();
 
 struct Ent_80300850 { u8 pad[0x364]; s32 f364; };
 
@@ -157,7 +151,8 @@ void TAdMultiSelGameModeGC::update_transition_state() {
     }
 }
 
-void TAdMultiSelGameModeGC__sub_803003A4(Obj_8030095C *self) {
+void TAdMultiSelGameModeGC::sub_803003A4() {
+    Obj_8030095C *self = (Obj_8030095C *)this;
     switch (TAdSinglePlyChrSelectGC__sub_801334DC(self->f3C)) {
     case 0:
         if (((TWindowSubComCard *)self->f2C)->get_status_flag() != 0) {
@@ -225,7 +220,8 @@ void TAdMultiSelGameModeGC__sub_803003A4(Obj_8030095C *self) {
     }
 }
 
-void TAdMultiSelGameModeGC__sub_80300648(Obj_8030095C *self) {
+void TAdMultiSelGameModeGC::sub_80300648() {
+    Obj_8030095C *self = (Obj_8030095C *)this;
     self->f24 = TAdSinglePlyChrSelectGC__sub_801334DC(self->f3C);
     if (self->f28 != self->f24) {
         ((TAdMultiPlyChrSelectGC *)self->f40)->set_entry_value(0, get_localized_text_entry(0x18, self->f24));
@@ -253,15 +249,16 @@ void TAdMultiSelGameModeGC__sub_80300648(Obj_8030095C *self) {
     self->f28 = self->f24;
 }
 
-void TAdMultiSelGameModeGC__sub_80300764(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
+void TAdMultiSelGameModeGC::sub_80300764() { *(s32*)((char*)this + 0x1c) = 1; }
 
 void run_task__21TAdMultiSelGameModeGCFv(Self_80300770 *self) {
     set_default_camera__21TAdMultiChgGameModeGCFv(self);
     static Action_80300770 tbl[5] = {
-        &Self_80300770::m0, &Self_80300770::m1, &Self_80300770::m2,
-        &Self_80300770::m3, &Self_80300770::m4,
+        &TAdMultiSelGameModeGC::sub_80300764, &TAdMultiSelGameModeGC::sub_80300648,
+        &TAdMultiSelGameModeGC::sub_803003A4, &TAdMultiSelGameModeGC::update_transition_state,
+        &TAdMultiSelGameModeGC::exit_keyboard_mode,
     };
-    (self->*tbl[self->state])();
+    (((TAdMultiSelGameModeGC *)self)->*tbl[self->state])();
 }
 }
 s32 get_max_difficulty_for_party_level(void) {
@@ -287,6 +284,8 @@ s32 get_max_difficulty_for_party_level(void) {
     }
     return (m < 80 ? -1 : 0) + 3;
 }
+
+TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 
 Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s32 mode) {
     void *p;

@@ -52,6 +52,8 @@ s32 strlen(const char *);
 extern char number_format_digit_buffer[];
 extern const char lbl_805E0D28[2];
 extern const s32 adx_signed_nibbles[16];
+f64 cos(f64);
+void calc_adx_predictor_coeffs(s32 cutoff, s32 rate, s16 *k0, s16 *k1);
 s32 set_callback_params__6TLobbyFll();
 
 extern s32 TLobby__init_ref_count;
@@ -215,6 +217,43 @@ s32 TLobby::find_terminator_index(s16 *arg0, s32 arg1, s16 *arg2) {
     *arg2 = 0;
     return -1;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma fp_contract on
+static inline f32 adx_cosf(f32 x) {
+    f32 r = cos(x);
+    return r;
+}
+
+static inline f32 adx_sqrtf(f32 x) {
+    if (x > 0.0f) {
+        volatile f32 r;
+        f64 g = __frsqrte(x);
+        g = 0.5 * g * (3.0 - x * (g * g));
+        g = 0.5 * g * (3.0 - x * (g * g));
+        g = 0.5 * g * (3.0 - x * (g * g));
+        r = (f32)(x * g);
+        return r;
+    }
+    return x;
+}
+
+void calc_adx_predictor_coeffs(s32 cutoff, s32 rate, s16 *k0, s16 *k1) {
+    f32 c;
+    f64 a;
+    f64 b;
+    f64 x;
+
+    c = adx_cosf(6.28318530717958 * cutoff / rate);
+    a = adx_sqrtf(2.0f) - c;
+    b = adx_sqrtf(2.0f) - 1.0;
+    x = (a - adx_sqrtf((a + b) * (a - b))) / b;
+    *k0 = 4096.0 * (2.0 * x);
+    *k1 = 4096.0 * (-x * x);
+}
+#pragma pop
 
 void TLobby::set_global_805D7520(s32 arg0) {
     lbl_805D7520 = arg0;

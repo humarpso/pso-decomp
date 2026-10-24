@@ -2150,6 +2150,8 @@ extern "C" {
 void TLobby__sub_801EAB90(s32 arg0);
 void TLobby__sub_801EABEC(s32 arg0);
 void TLobby__sub_801EAC48(int _w0);
+void TLobby__sub_801EADD8(s32 reg);
+void TObjTombstone__sub_80074E74(f32 *w);
 void TLobby__sub_801EB048(s32 arg0);
 void TLobby__sub_801EB0A0(s32 arg0);
 void TLobby__sub_801EB0F8(s32 arg0);
@@ -4858,6 +4860,53 @@ void TLobby::spawn_chat_sensor() {
     }
 }
 #pragma pop
+
+void TLobby__sub_801EADD8(s32 reg) {
+    f32 params[10];
+    int *p = &(*(int **)&TLobby__script_reg_array)[(u8)reg];
+    f32 num, den, ratio;
+    num = p[0];
+    den = p[1];
+    ratio = num / den;
+    params[0] = ratio;
+    num = p[2];
+    den = p[3];
+    ratio = num / den;
+    params[1] = ratio;
+    num = p[4];
+    den = p[5];
+    ratio = num / den;
+    params[2] = ratio;
+    num = p[6];
+    den = p[7];
+    ratio = num / den;
+    params[3] = ratio;
+    num = p[8];
+    den = p[9];
+    ratio = num / den;
+    params[4] = ratio;
+    num = p[10];
+    den = p[11];
+    ratio = num / den;
+    params[5] = ratio;
+    num = p[12];
+    den = p[13];
+    ratio = num / den;
+    params[6] = ratio;
+    num = p[14];
+    den = p[15];
+    ratio = num / den;
+    params[7] = ratio;
+    num = p[16];
+    den = p[17];
+    ratio = num / den;
+    params[8] = ratio;
+    num = p[18];
+    den = p[19];
+    ratio = num / den;
+    params[9] = ratio;
+    TObjTombstone__sub_80074E74(params);
+}
 
 #pragma push
 #pragma inline_depth(1)

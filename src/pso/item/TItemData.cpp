@@ -5,6 +5,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopEquipmentListWindow.h"
 #include "pso/item/TItem.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Parm_8010C1E0;
 struct Item_8010C498;
@@ -147,13 +148,19 @@ struct Stats_8010BEC4 { s16 s0; s16 s2; s16 s4; s16 s6; s16 s8; s16 sA; s16 sC; 
 
 struct Stats2_8010BEC4 { s16 s0; s16 s2; };
 
+struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
+
+struct Mag_8010D614 { u16 a0; u16 a2; u16 s[4]; u8 c; u8 d; u8 e; };
+
 struct Bonus_8010BA9C { u8 kind; u8 pad; s16 val; };
 
 struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 xC; };
 
 extern s32 lbl_8043E348;
 extern const f32 lbl_805DAB6C;
+extern const f32 lbl_8043E324[];
 extern "C" {
+void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
@@ -292,6 +299,19 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             break;
         }
         break;
+    }
+}
+
+void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, Stats_8010BEC4 *st, s32 w5) {
+    Mag_8010D614 mag;
+
+    ((TItemData *)&mag)->initialize_mag_data();
+    deserialize_mag__9TItemDataFPvPv((Raw_8010D614 *)item, &mag);
+    if (st != NULL && st != NULL) {
+        st->s0 += (s16)(lbl_8043E324[0] * (f32)((TItemData *)&mag)->get_percent());
+        st->sA += (s16)(lbl_8043E324[1] * (f32)(((TItemData *)&mag)->get_level() * 10));
+        st->s8 += (s16)(lbl_8043E324[2] * (f32)((TItemData *)&mag)->get_stat_percent());
+        st->s2 += (s16)(lbl_8043E324[3] * (f32)((TItemData *)&mag)->get_mag_mind_level());
     }
 }
 
@@ -790,10 +810,6 @@ s32 TItemData::get_item_use_result() {
 #define is_custom_name_srank__9TItemDataFPv ((s32 (*)(void *))is_custom_name_srank__9TItemDataFPv)
 #define memset ((void * (*)(void *, int, int))memset)
 
-struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
-
-struct Mag_8010D614 { u16 a0; u16 a2; u16 s[4]; u8 c; u8 d; u8 e; };
-
 struct Pair_8010E344 { u8 a; u8 b; };
 
 struct TItemData_8010E344 { u8 data[6]; Pair_8010E344 stats[3]; s32 id; s32 f10; };
@@ -852,8 +868,8 @@ extern char lbl_8043E390[];
 extern s32 current_language;
 extern char lbl_805DAB8C;
 void TItemData__clear_unidentified_flag(void *arg0);
-s32 apply_custom_shield_bonus__9TItemDataFv(void *, s32, s32, s32, s32, s32);
-s32 add_mag_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
+void apply_custom_shield_bonus__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, Stats_8010BEC4 *st, s32 w5);
+void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, Stats_8010BEC4 *st, s32 w5);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8);
 
 void lookup_item_def__9TItemDataFPv(void *arg0) {
@@ -1470,11 +1486,11 @@ void TItemData::apply_equip_effects(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 
             }
             break;
         case 2:
-            add_mag_stat_bonuses__9TItemDataFv(this, arg1, arg2, arg3, arg4, arg5);
+            add_mag_stat_bonuses__9TItemDataFv((u8 *)this, arg1, (u8 *)arg2, (u8 *)arg3, (Stats_8010BEC4 *)arg4, arg5);
             break;
         }
         apply_bonuses(this, arg1, arg2, arg3, arg4, arg5);
-        apply_custom_shield_bonus__9TItemDataFv(this, arg1, arg2, arg3, arg4, arg5);
+        apply_custom_shield_bonus__9TItemDataFv((u8 *)this, arg1, (u8 *)arg2, (u8 *)arg3, (Stats_8010BEC4 *)arg4, arg5);
     }
 }
 

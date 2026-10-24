@@ -80,7 +80,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void vfunc_77();
     void vfunc_76();
     void vfunc_75(f32);
-    int vfunc_67();
+    int vfunc_67(f32 damage_scale);
     void render_shadows();
     void render();
     void run_task();
@@ -94,7 +94,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     ActionPalette* select_action_palette(int secondary);
     s32 add_meseta(s32 amount);
     void request_normal_attack_stage1();
-    void show_miss_for_collider(int collider);
+    void show_miss_for_collider(s32 collider);
     u32 m_334;
     u8 unk_338[0x1];
     s8 m_339;
@@ -282,12 +282,14 @@ struct TObjPlayer : public TUnk_804806E8 {
     static int publish_light_color(void *p);
     static void update_flag890_state(s32 arg0);
     static void add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2);
+    static void step_angle_clamped(void *actor, int arg1);
     void drain_owner_hp_fraction(f32 farg0);
     s32 is_mode_two_and_ready();
     void copy_field6_from(void* a1);
     void call_callback_1ec(s32 arg1, s32 arg2);
     void copy_wall_polygon(u8 *arg1);
     static void copy_matrix(u32 arg0, u32 arg1);
+    static f32 calc_boss4_scale(int arg0);
     static s32 run_next_key_callback(s32 arg0);
     static s32 sample_next_quaternion_key(s32 arg0);
     void interpolate_motion_key(s32 arg1, s32 *arg2, f32 farg0);
@@ -423,6 +425,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void clear_velocity_vectors();
     static void set_com_card_window(s32 arg0);
     static s32 check_demo_mode();
+    static TObjPlayer *get_player_data(int index);
     int queue_destruction();
     void set_position_xy(f32 a, f32 b);
     u8 test_action_mask(s32 arg1);

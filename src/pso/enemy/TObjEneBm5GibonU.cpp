@@ -480,7 +480,7 @@ extern "C" {
 void consume_timer_field__13TUnk_804806E8Fl();
 }
 extern "C" {
-void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Ff();
 }
 extern "C" {
 void vfunc_66__13TUnk_804806E8Fv();
@@ -785,7 +785,7 @@ void *lbl_80493F04[107] = {
     (void *)TObjPlayer::apply_defense_stat_status, (void *)cure_poison_ailment__13TUnk_804806E8Fv, (void *)cure_paralysis__13TUnk_804806E8Fv, (void *)clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)apply_action_hold_status__13TUnk_804806E8Ff, (void *)apply_anti_technique__13TUnk_804806E8Fl, (void *)vfunc_58__13TUnk_804806E8Fv, (void *)vfunc_59__13TUnk_804806E8Fv,
     (void *)vfunc_60__13TUnk_804806E8Fv, (void *)vfunc_61__16TObjEneBm5GibonUFv, (void *)vfunc_62__16TObjEneBm5GibonUFv, (void *)vfunc_63__16TObjEneBm5GibonUFv,
-    (void *)reset_pose__13TUnk_804806E8Fv, (void *)vfunc_65__13TUnk_804806E8Fll, (void *)vfunc_66__13TUnk_804806E8Fv, (void *)vfunc_67__13TUnk_804806E8Fv,
+    (void *)reset_pose__13TUnk_804806E8Fv, (void *)vfunc_65__13TUnk_804806E8Fll, (void *)vfunc_66__13TUnk_804806E8Fv, (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl, (void *)apply_switch_attack__13TUnk_804806E8Fv, (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)vfunc_73__13TUnk_804806E8Fv, (void *)vfunc_74__9TObjEnemyFl, (void *)vfunc_75__13TUnk_804806E8Ff,
     (void *)vfunc_76__13TUnk_804806E8Fv, (void *)vfunc_77__13TUnk_804806E8Fv, (void *)vfunc_78__13TUnk_804806E8Fl, (void *)vfunc_79__9TObjEneDDFv,
@@ -1645,7 +1645,7 @@ s32 fn_800D88E4(void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE30(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800CFA48(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1);
 void action__16TObjEneBm5GibonUFPvi(TObjEneBm5GibonU *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
@@ -3380,6 +3380,111 @@ void TObjEneBm5GibonU__sub_800CF7CC(u8 *actor, s32 arg1) {
     }
 }
 
+}
+s32 actor_rand_int(s32 actor, s32 range);
+extern "C" {
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm5GibonU__sub_800CFA48(TObjEneBm5GibonU *self, s32 arg1) {
+    s32 angle;
+    f32 radius;
+    TObjPlayer *target;
+    f32 dx;
+    f32 dz;
+
+    switch (arg1) {
+    case 4:
+        self->m_b8 = 1;
+        self->set_field_378(8);
+        self->vfunc_96();
+        self->m_51c = 0;
+        self->m_518 = 0;
+        self->m_520 = actor_rand_int((s32)self, 0x14);
+        self->m_564 = 0;
+        angle = (s32)(lbl_805DA210 * TObjPlayer::calc_boss4_scale((s32)self));
+        radius = lbl_805DA214 * TObjPlayer::calc_boss4_scale((s32)self);
+        self->m_394 = radius * sin_table_lookup(angle) + self->m_488.x;
+        self->m_39c = radius * cos_table_lookup(angle) + self->m_488.z;
+        self->m_494 = lbl_805DA1E0 * TObjPlayer::calc_boss4_scale((s32)self) + TObjEneBm5GibonU__data_805DA194;
+        self->m_498 = 0.0f;
+        self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
+        self->update_velocity();
+        break;
+    case 3:
+        if (self->m_564 != 0) {
+            self->select_attack_by_range();
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        advance_animation_playback(self);
+        if (self->play_sound_variant() != 0) {
+            f32 dist;
+            target = self->m_390;
+            dx = target->position[0] - self->position[0];
+            dz = target->position[2] - self->position[2];
+            dist = dx * dx;
+            dist += dz * dz;
+            if (dist < lbl_805DA218) {
+                self->m_564 = 1;
+            }
+            self->face_target();
+        } else {
+            TObjEneBm5GibonU::turn_toward_angle(self, self->rotation_y);
+        }
+        switch (self->m_518) {
+        case 0:
+            TObjEneBm5GibonU__sub_800CCE28((u8 *)self);
+            self->update_velocity();
+            self->approach_target(lbl_805DA21C);
+            self->m_51c += 1;
+            if (self->m_3ac < self->m_530 || self->m_51c > 100) {
+                self->m_518 = 1;
+                self->m_494 = 0.0f;
+            } else if (self->has_move_failures(0x14) != 0) {
+                self->m_51c = 0;
+                TObjEneBm5GibonU::pick_wander_destination(self);
+                self->m_494 = self->rand_range(TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
+                self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
+            }
+            self->m_c8 = TObjEneBm5GibonU__data_805DA1D0 * self->m_498;
+            enemy_turn_and_move_on_ground((u8 *)self, lbl_805DA220 * self->m_498, self->m_498);
+            break;
+        case 1:
+            TObjEneBm5GibonU__sub_800CCE28((u8 *)self);
+            self->update_velocity();
+            self->approach_target(lbl_805DA224);
+            if (self->m_498 <= TObjEneBm5GibonU__data_805DA1B0) {
+                self->m_518 = 2;
+                self->m_51c = self->rand_range(lbl_805DA228, lbl_805DA22C);
+                self->m_b8 = 0;
+            }
+            self->m_c8 = TObjEneBm5GibonU__data_805DA1D0 * self->m_498;
+            enemy_turn_and_move_on_ground((u8 *)self, lbl_805DA220 * self->m_498, self->m_498);
+            break;
+        case 2:
+            self->m_b8 = 0;
+            self->m_51c -= 1;
+            if (self->m_51c <= 0) {
+                TObjEneBm5GibonU::pick_wander_destination(self);
+                self->m_494 = self->rand_range(TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
+                self->m_498 = 0.0f;
+                self->m_530 = TObjEneBm5GibonU__data_805DA188 + TObjBoss2Tunnel::calc_scaled_value(0x200, self->m_494);
+                self->m_518 = 0;
+                self->m_b8 = 1;
+            }
+            self->vfunc_102();
+            break;
+        }
+        self->vfunc_89();
+        ((TObjPlayer *)self)->update_enemy_collision_flags();
+        break;
+    }
+}
+#pragma pop
+
 void TObjEneBm5GibonU__sub_800CFE30(u8 * _w0, s32 _w1) {  }
 
 typedef struct VBase_18_9e83f9 VBase_18_9e83f9;
@@ -3701,7 +3806,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg) {
         TObjEneBm5GibonU__sub_800CFE34(actor, msg);
         break;
     case 8:
-        TObjEneBm5GibonU__sub_800CFA48(actor, msg);
+        TObjEneBm5GibonU__sub_800CFA48((TObjEneBm5GibonU *)actor, msg);
         break;
     case 9:
         TObjEneBm5GibonU__sub_800CF7CC(actor, msg);
@@ -4353,10 +4458,10 @@ void TObjEneBm5GibonU::run_task() {
         all_parents_unqueued_for_destruction__7TObjectFv();
     }
     if (this->vfunc_83() != 4) {
-        temp_r3 = this->m_52c;
+        temp_r3 = this->m_510;
         if (temp_r3 != 0) {
-            this->m_52c = (temp_r3 - 1);
-            if ((s32) this->m_52c == 0) {
+            this->m_510 = (temp_r3 - 1);
+            if ((s32) this->m_510 == 0) {
                 temp_r0 = this->mode;
                 if ((temp_r0 != 0x11) && (temp_r0 != 0x12)) {
                     transition_enemy_state__9TObjEneDDFs(this, (void*)(0xF));
@@ -4705,3 +4810,5 @@ s32 TObjEneBm5GibonU::try_activate() {
 #undef update_movement_status__13TUnk_804806E8Fv
 #undef obj_getField1c
 #pragma pop
+
+__declspec(section ".ctors") static void *const __sinit_TObjEneBm5GibonU_cpp_ref = (void *)TObjEneBm5GibonU::register_global_objects;

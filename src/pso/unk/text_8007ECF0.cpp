@@ -1,3 +1,4 @@
+#include "pso/ui/MenuText.h"
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/object/TObject_80019A50.h"
@@ -92,17 +93,17 @@ s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 
 
     x = (f32)(u32)(x0 - calc_text_width((char *)str));
     y = (f32)y0;
-    ((TObjWarpString *)str)->draw_string(0xFF000000, x - 2.0f, y - 2.0f);
-    ((TObjWarpString *)str)->draw_string(0xFF000000, x, y - 2.0f);
+    draw_menu_text(x - 2.0f, y - 2.0f, (const char *)str, 0xFF000000);
+    draw_menu_text(x, y - 2.0f, (const char *)str, 0xFF000000);
     xr = 2.0f + x;
-    ((TObjWarpString *)str)->draw_string(0xFF000000, xr, y - 2.0f);
-    ((TObjWarpString *)str)->draw_string(0xFF000000, x - 2.0f, y);
-    ((TObjWarpString *)str)->draw_string(0xFF000000, xr, y);
+    draw_menu_text(xr, y - 2.0f, (const char *)str, 0xFF000000);
+    draw_menu_text(x - 2.0f, y, (const char *)str, 0xFF000000);
+    draw_menu_text(xr, y, (const char *)str, 0xFF000000);
     yb = 2.0f + y;
-    ((TObjWarpString *)str)->draw_string(0xFF000000, x - 2.0f, yb);
-    ((TObjWarpString *)str)->draw_string(0xFF000000, x, yb);
-    ((TObjWarpString *)str)->draw_string(0xFF000000, xr, yb);
-    ((TObjWarpString *)str)->draw_string(0xFFFFFFFF, x, y);
+    draw_menu_text(x - 2.0f, yb, (const char *)str, 0xFF000000);
+    draw_menu_text(x, yb, (const char *)str, 0xFF000000);
+    draw_menu_text(xr, yb, (const char *)str, 0xFF000000);
+    draw_menu_text(x, y, (const char *)str, 0xFFFFFFFF);
 }
 
 void TDLGraph::draw_percent_text(f32 farg0, f32 farg1) {

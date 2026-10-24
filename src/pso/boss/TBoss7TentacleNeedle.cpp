@@ -17,7 +17,7 @@ extern "C" {
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-s32 TBoss7Tentacle__sub_802F0608(void *, f32);
+void TBoss7Tentacle__sub_802F0608(TBoss7Tentacle *tentacle, f32 len);
 f32 sin_table_lookup(s32);
 s32 set_matrix_identity(int);
 s32 subtract_vector(void *, void *);
@@ -480,7 +480,7 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
                 *(f32 *)((s8 *)boss7_tentacle + 0x15C) = *(f32 *)((s8 *)boss7_tentacle + 0x158) / (lbl_805DEC44 * len);
             }
             *(s32 *)((s8 *)boss7_tentacle + 0x140) = approach_angle_limited(*(s32 *)((s8 *)boss7_tentacle + 0x140), boss7_tentacle_angle_table[*(s32 *)((s8 *)boss7_tentacle + 0x4C)], 0x100);
-            TBoss7Tentacle__sub_802F0608(boss7_tentacle, len);
+            TBoss7Tentacle__sub_802F0608((TBoss7Tentacle *)boss7_tentacle, len);
             break;
         case 2:
             *(s32 *)((s8 *)boss7_tentacle + 0x164) = *(s32 *)((s8 *)boss7_tentacle + 0x164) + 1;
@@ -503,7 +503,7 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
                 *(f32 *)((s8 *)boss7_tentacle + 0x15C) = *(f32 *)((s8 *)boss7_tentacle + 0x158) / (lbl_805DEC44 * len);
             }
             *(s32 *)((s8 *)boss7_tentacle + 0x140) = approach_angle_limited(*(s32 *)((s8 *)boss7_tentacle + 0x140), 0, 0x100);
-            TBoss7Tentacle__sub_802F0608(boss7_tentacle, len);
+            TBoss7Tentacle__sub_802F0608((TBoss7Tentacle *)boss7_tentacle, len);
             break;
         }
         break;
@@ -522,6 +522,71 @@ void run_task__14TBoss7TentacleFv(u8 *boss7_tentacle) {
     }
     ((TBoss7Tentacle *)boss7_tentacle)->update_extend_amount();
 }
+
+extern "C" {
+f32 newton_sqrtf(f32);
+extern const f32 lbl_805DEC4C;
+extern const f32 lbl_805DEC50;
+extern const f32 lbl_805DEC54;
+extern const f32 lbl_805DEC58;
+}
+
+#pragma push
+#pragma fp_contract on
+void TBoss7Tentacle__sub_802F0608(TBoss7Tentacle *tentacle, f32 len) {
+    s32 i;
+    s32 prev, ang;
+    s32 j;
+    f32 scale = lbl_805DEC4C;
+    f32 half = scale * len;
+    f32 h = lbl_805DEC50 - tentacle->m_44;
+    f32 a;
+    f32 step = tentacle->m_158;
+    a = -(h / (half * half));
+    step /= lbl_805DEC54;
+    f32 dx, dy, px, py, w, k;
+    for (i = 0; i < 10; i++) {
+        f32 t = step * (f32)i;
+        f32 d = t - half;
+        Vec *pt = (Vec *)((u8 *)tentacle->m_50 + (i + 2) * sizeof(Vec));
+        pt->x = scale * t;
+        pt->y = scale * (d * (a * d) + h);
+    }
+    tentacle->m_50[2].x = TBoss7Tentacle__data_805DEC04;
+    tentacle->m_50[2].y = TBoss7Tentacle__data_805DEC04;
+    tentacle->m_50[2].z = TBoss7Tentacle__data_805DEC04;
+    px = TBoss7Tentacle__data_805DEC04;
+    py = TBoss7Tentacle__data_805DEC04;
+    prev = 0;
+    for (j = 3; j <= 11; j++) {
+        f32 x = tentacle->m_50[j].x;
+        f32 y = tentacle->m_50[j].y;
+        dx = x - px;
+        dy = y - py;
+        px = x;
+        py = y;
+        ang = (s32)(lbl_804740D8[0] * atan2_float(dy, dx));
+        tentacle->m_f8[j - 1] = ang - prev;
+        prev = ang;
+        tentacle->m_50[j].x = newton_sqrtf(dy * dy + dx * dx);
+        tentacle->m_50[j].y = TBoss7Tentacle__data_805DEC04;
+        tentacle->m_50[j].z = TBoss7Tentacle__data_805DEC04;
+    }
+    tentacle->m_f8[11] = tentacle->m_f8[10];
+    w = tentacle->m_15c;
+    if (w < TBoss7Tentacle__data_805DEC00) {
+        k = TBoss7Tentacle__data_805DEC00 - w;
+        k *= tentacle->m_160;
+        for (i = 2; i < 12; i++) {
+            tentacle->m_50[i].x = tentacle->m_50[i].x * w + k * TBoss7Tentacle__segment_offsets[i].x;
+        }
+        tentacle->m_f8[2] = (s32)(lbl_805DEC58 * (TBoss7Tentacle__data_805DEC00 - tentacle->m_15c) + (f32)tentacle->m_f8[2] * w);
+        for (i = 3; i < 12; i++) {
+            tentacle->m_f8[i] = (s32)((f32)tentacle->m_f8[i] * w);
+        }
+    }
+}
+#pragma pop
 
 void TBoss7Tentacle::advance_path_position() {
     Ten_802F08A8 *o = (Ten_802F08A8 *)this;

@@ -1,3 +1,4 @@
+#include "pso/ui/MenuText.h"
 #include "types.h"
 #include "pso/unk/text_800F7DAC.h"
 #include "pso/misc/TCameraCtrl_803D6538.h"
@@ -969,11 +970,10 @@ typedef struct {
 s32 DVDGetDriveStatus(void);
 void TCameraCtrl__sub_80068EF0(void);
 
-void draw_string__14TObjWarpStringFlff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1);
 s8 func_801A5E54__Fv(void);
 s32 DVDCheckDisk(void);
 
-#define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFlff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
+#define show_msg_800F8FB8(arr, i) draw_menu_text(arr[i].x, arr[i].y, (const char *)arr[i].str, 0x8FFFFFFF)
 
 #pragma push
 #pragma dont_inline off

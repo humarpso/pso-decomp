@@ -4,6 +4,8 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemy.h"
 
+struct TObjPlayer;
+
 struct TObjEneSaver : public TObjEnemy {
     virtual ~TObjEneSaver();
     void turn_toward_target();
@@ -33,18 +35,22 @@ struct TObjEneSaver : public TObjEnemy {
     virtual void vfunc_59();
     virtual void vfunc_60();
     virtual void vfunc_62();
-    void* m_390;
-    u8 _pad394[0x8];
-    u32 m_39c;
-    u32 m_3a0;
-    void* m_3a4;
-    u8 _pad3A8[0x18];
-    u32 m_3c0;
-    u32 m_3c4;
-    u32 m_3c8;
+    u32 m_374;
+    u8 _pad378[0x8];
+    u32 m_380;
+    u32 m_384;
+    s16 m_388;
+    u8 _pad38A[0x2];
+    TObjPlayer *m_38c;
+    u8 _pad390[0x14];
+    u32 m_3a4;
+    u32 m_3a8;
+    u32 m_3ac;
     u8 unk_3B0[0x1C];
     static void *create(void *arg0, void *arg1);
 };
 
 typedef char TObjEneSaver_size[sizeof(TObjEneSaver) == 0x3CC ? 1 : -1];
+typedef char TObjEneSaver_m_374[offsetof(TObjEneSaver, m_374) == 0x374 ? 1 : -1];
+typedef char TObjEneSaver_m_3a4[offsetof(TObjEneSaver, m_3a4) == 0x3A4 ? 1 : -1];
 #endif

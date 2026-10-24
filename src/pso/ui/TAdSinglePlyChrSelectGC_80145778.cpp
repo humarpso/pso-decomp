@@ -1,3 +1,4 @@
+#include "pso/ui/MenuText.h"
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -17,10 +18,9 @@ extern s32 menu_font_glyph_table;
 extern struct VObj_801457A4 *menu_font_object;
 void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
 
-extern const f32 lbl_805DB1A8;
 
 void TAdSinglePlyChrSelectGC::render_status_disp(f32 arg1, f32 arg2) {
-    draw_menu_font_string((const char *)this, -1, (u32)(0), (f32)arg1, (f32)arg2, (f32)lbl_805DB1A8);
+    draw_menu_font_string((const char *)this, -1, (u32)(0), (f32)arg1, (f32)arg2, (f32)menu_font_default_scale);
 }
 #pragma push
 #pragma fp_contract on

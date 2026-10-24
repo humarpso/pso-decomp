@@ -57,3 +57,5 @@ void TLobby__sub_8003A8D0(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TObjBoss2CeilJunk_8003A81C_cpp_ref = (void *)TObjBoss2CeilJunk__sub_8003A868;

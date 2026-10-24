@@ -5,6 +5,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -84,6 +85,45 @@ void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar) {
         v = (target * bar->scale) / max;
     }
     bar->width = v;
+}
+
+void TWindowSubStatusDisp__sub_80256C40(Gauge_80256E0C *self, TWindowKeyBoardSoft *ctx, Pos_80256E0C *pos, f32 depth) {
+    Quad_80256E0C q;
+    f32 w;
+    w = self->max - -2.0f;
+    q.x0 = -1.0f + pos->x;
+    q.y0 = -1.0f + pos->y;
+    q.x1 = 20.0f + q.x0;
+    q.y1 = 9.0f + q.y0;
+    q.u0 = 0.1484375f;
+    q.v0 = 0.93359375f;
+    q.u1 = 0.2265625f;
+    q.v1 = 0.96875f;
+    if (try_open__19TWindowKeyBoardSoftFii(ctx, &q) != 0) {
+        draw_textured_quad_at_depth((f32 *)&q, depth);
+    }
+    q.x0 = 20.0f + (-1.0f + pos->x);
+    q.y0 = -1.0f + pos->y;
+    q.x1 = ((q.x0 + w) - 20.0f) - 20.0f;
+    q.y1 = 9.0f + q.y0;
+    q.u0 = 0.23046875f;
+    q.v0 = 0.93359375f;
+    q.u1 = 0.30859375f;
+    q.v1 = 0.96875f;
+    if (try_open__19TWindowKeyBoardSoftFii(ctx, &q) != 0) {
+        draw_textured_quad_at_depth((f32 *)&q, depth);
+    }
+    q.x0 = ((-1.0f + pos->x) + w) - 20.0f;
+    q.y0 = -1.0f + pos->y;
+    q.x1 = 20.0f + q.x0;
+    q.y1 = 9.0f + q.y0;
+    q.u0 = 0.41015625f;
+    q.v0 = 0.93359375f;
+    q.u1 = 0.48828125f;
+    q.v1 = 0.96875f;
+    if (try_open__19TWindowKeyBoardSoftFii(ctx, &q) != 0) {
+        draw_textured_quad_at_depth((f32 *)&q, depth);
+    }
 }
 
 void TUnk_804CF930::draw_status_gauge_bar(void *ctx, void *pos_arg, f32 depth, f32 len) {

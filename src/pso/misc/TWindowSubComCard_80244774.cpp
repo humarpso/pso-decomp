@@ -112,7 +112,10 @@ struct QFrameCtx_80245808
 extern "C" {
 void reset_line_width(void);
 void set_line_width(int a0);
-void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
+struct Vec2_80245A10 { f32 x, y; };
+struct Lines_80245A10 { Vec2_80245A10 *verts; u32 *colors; s32 f8; s32 count; };
+void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, TWindowKeyBoardSoft *r, f32 len);
+void draw_color_lines(Lines_80245A10 *l, s32 n, s32 flags, f32 scale);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32, s32);
@@ -711,6 +714,52 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
 
 #pragma push
 #pragma fp_contract on
+void TWindowSubComCard__sub_80245A10(u8 *card, s32 row, TWindowKeyBoardSoft *r, f32 len) {
+    Lines_80245A10 lines;
+    u32 colors[3];
+    Vec2_80245A10 pts[3];
+    f32 depth;
+    f32 t;
+    u8 alpha;
+    f32 y;
+
+    if (len <= 0.0f) {
+        return;
+    }
+    if (len >= *(f32 *)(card + 0x48) - 24.0f) {
+        return;
+    }
+    lines.verts = pts;
+    lines.colors = colors;
+    lines.f8 = 0;
+    lines.count = 3;
+    t = len / (r->w - 24.0f);
+    depth = r->depth;
+    lines.colors[0] = 0x282828;
+    lines.colors[1] = 0x282828;
+    lines.colors[2] = 0x282828;
+    if (t > 0.5f) {
+        alpha = 2.0f * (255.0f * (1.0f - t));
+    } else {
+        alpha = 255.0f * (2.0f * t);
+    }
+    lines.colors[1] |= alpha << 24;
+    pts[0].x = 12.0f + r->x;
+    pts[2].x = (r->x + r->w) - 12.0f;
+    pts[1].x = pts[0].x + len;
+    y = 4.0f * (f32)row + (12.0f + r->y);
+    pts[0].y = y;
+    pts[1].y = y;
+    pts[2].y = y;
+    r->scale_point_about_pivot(&pts[0].x);
+    r->scale_point_about_pivot(&pts[1].x);
+    r->scale_point_about_pivot(&pts[2].x);
+    draw_color_lines(&lines, 3, 0x14, depth);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
 void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     s32 n1;
     s32 i;
@@ -735,7 +784,7 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     TObjPlayer::init_xyz_limits();
     step = 1.0f;
     for (i = 0; i < n2; i++) {
-        TWindowSubComCard__sub_80245A10(arg0, i, arg1, y);
+        TWindowSubComCard__sub_80245A10(arg0, i, (TWindowKeyBoardSoft *)arg1, y);
         y -= step;
     }
     TObjPlayer::reset_transform_state();
@@ -870,6 +919,30 @@ void TUnk_804CE018::update_fade() {
     (*(f32 *)((u8 *)this + 0x48)) += ((*(f32 *)((u8 *)this + 0x38)) - (*(f32 *)((u8 *)this + 0x48))) / (f32) (*(u32 *)((u8 *)this + 0x50));
     *(f32 *)((s8 *)this + 0x4C) += (*(f32 *)((s8 *)this + 0x3C) - *(f32 *)((s8 *)this + 0x4C)) / (f32) (*(u32 *)((u8 *)this + 0x50));
     (*(u32 *)((u8 *)this + 0x50)) = (u32) ((*(u32 *)((u8 *)this + 0x50)) - 1);
+}
+
+extern "C" {
+s32 rand(void);
+
+void TWindowSubComCard__sub_8024634C(void) {
+    switch (window_ui_theme_index) {
+    case 0:
+        lbl_805D63F6 = 60.0f * ((1.0f / 32768.0f) * rand()) + 60.0f;
+        window_ui_theme_index = 1;
+    case 1:
+        if (lbl_805D63F6-- < 0) {
+            lbl_805D63F6 = 0;
+            window_ui_theme_index = 2;
+        }
+        break;
+    case 2:
+        lbl_805D63F6++;
+        if (5.0f * ((f32)lbl_805D63F6 - 0.2f * TWindowSubComCard::trunc_float(120.0f)) >= 840.0f) {
+            window_ui_theme_index = 0;
+        }
+        break;
+    }
+}
 }
 
 void TWindowSubComCard::update_open_close() {

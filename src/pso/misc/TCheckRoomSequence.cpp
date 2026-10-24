@@ -144,7 +144,7 @@ public:
     void accept_meseta_deposit(void *);
     void begin_meseta_deposit(void *);
     void begin_meseta_withdrawal(void *);
-    void sub_8020F2D8();
+    void open_get_item_window(void *);
     void handle_withdraw_choice();
     void accept_meseta_withdrawal(void *);
     void sub_802100FC();
@@ -152,7 +152,7 @@ public:
     void handle_error_ack(void *);
     void sub_8020F1DC();
     void set_quest_list_mode_19(void *);
-    void sub_8020F268();
+    void open_delete_item_window(void *);
 };
 typedef void (TCheckRoomSequence::*Fn_802102D0)();
 
@@ -257,9 +257,6 @@ extern u32 bank_item_records_by_slot[4];
 void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1);
 s32 copy_bank_item_with_stack_limit(s32 idx, void *data, s32 *out, s32 slot);
 void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p);
-void TCheckRoomSequence__sub_8020F1DC(void);
-void TCheckRoomSequence__sub_802100F8(void);
-void TCheckRoomSequence__sub_802100FC(void);
 void TCheckRoomSequence__vt10(void* p);
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
 }
@@ -333,7 +330,9 @@ void notify_quest_list_vm__18TCheckRoomSequenceFPv(u8 *arg0) {
     }
 }
 
-void TCheckRoomSequence__sub_8020F1DC(void) {  }
+}
+void TCheckRoomSequence::sub_8020F1DC() {  }
+extern "C" {
 
 #pragma push
 #pragma optimization_level 1
@@ -717,8 +716,10 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
 }
 #pragma pop
 
-void TCheckRoomSequence__sub_802100F8(void) {  }
-void TCheckRoomSequence__sub_802100FC(void) {  }
+}
+void TCheckRoomSequence::sub_802100F8() {  }
+void TCheckRoomSequence::sub_802100FC() {  }
+extern "C" {
 
 #pragma push
 #pragma optimization_level 1
@@ -767,7 +768,7 @@ void TCheckRoomSequence__vt9(TCheckRoomSequence *self) {
         (Fn_802102D0)&TCheckRoomSequence::begin_meseta_deposit,
         (Fn_802102D0)&TCheckRoomSequence::begin_meseta_withdrawal,
         0,
-        (Fn_802102D0)&TCheckRoomSequence::sub_8020F2D8,
+        (Fn_802102D0)&TCheckRoomSequence::open_get_item_window,
         (Fn_802102D0)&TCheckRoomSequence::handle_withdraw_choice,
         (Fn_802102D0)&TCheckRoomSequence::vt11,
         (Fn_802102D0)&TCheckRoomSequence::accept_meseta_withdrawal,
@@ -777,7 +778,7 @@ void TCheckRoomSequence__vt9(TCheckRoomSequence *self) {
         (Fn_802102D0)&TCheckRoomSequence::handle_error_ack,
         (Fn_802102D0)&TCheckRoomSequence::sub_8020F1DC,
         (Fn_802102D0)&TCheckRoomSequence::set_quest_list_mode_19,
-        (Fn_802102D0)&TCheckRoomSequence::sub_8020F268,
+        (Fn_802102D0)&TCheckRoomSequence::open_delete_item_window,
     };
     if (fns[self->state]) {
         (self->*fns[self->state])();
@@ -939,6 +940,39 @@ s32 get_bank_deposit_capacity_for_item(Item_80210A04 *item, s32 slot) {
     }
     return get_item_use_result__9TItemDataFv(item);
 }
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+s32 TCheckRoomSequence__sub_80210B34(u8 *item, s32 amount, s32 slot) {
+    Item_80210A04 *recs = (Item_80210A04 *)bank_item_records_by_slot[slot];
+    s32 i;
+    if (item[0] != 3) {
+        return 0;
+    }
+    if (get_item_def__18TCheckRoomSequenceFUl(item) == 0) {
+        return 0;
+    }
+    for (i = 0; i < 200; i++) {
+        if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[i]) == 0 &&
+            item[0] == recs[i].b0 && item[1] == recs[i].b1 && item[2] == recs[i].b2) {
+            recs[i].f14 += amount;
+            if (recs[i].f14 > get_item_use_result__9TItemDataFv(&recs[i])) {
+                recs[i].f14 = get_item_use_result__9TItemDataFv(&recs[i]);
+            }
+            return 1;
+        }
+    }
+    for (i = 0; i < 200; i++) {
+        if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[i]) != 0) {
+            copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv((u8 *)&recs[i], item);
+            recs[i].f14 = amount;
+            lbl_80513D98[slot]++;
+            return 1;
+        }
+    }
+    return 0;
 }
 #pragma pop
 

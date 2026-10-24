@@ -44,8 +44,8 @@ u8 *TWindowSubStatusDisp__sub_80248BE8(s32 arg0, s32 arg1, s32 arg2) {
     return var_r0;
 }
 
-void TWindowSubStatusDisp::refresh_with_default_list(s32 a, s32 b) {
-    TWindowSubStatusDisp__sub_80248BE8(a, b, local_client_id);
+void *TWindowSubStatusDisp::refresh_with_default_list(s32 a, s32 b) {
+    return TWindowSubStatusDisp__sub_80248BE8(a, b, local_client_id);
 }
 
 void TWindowSubStatusDisp::render_status_and_children() {

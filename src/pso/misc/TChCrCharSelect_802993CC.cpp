@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/object/TObjCMProportion_80298FAC.h"
+#include "pso/menu/CreationInput.h"
 #include "pso/TChCrCharSelect.h"
 #include "pso/object/TObjCMProportion.h"
 

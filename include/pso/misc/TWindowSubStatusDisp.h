@@ -84,7 +84,7 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void set_selected_index(s16 arg1);
     static void draw_status(s32 arg1, s32 arg2, s32 arg3);
     static void dispatch_without_flags(s32 arg1, s32 arg2, s32 arg3);
-    static void refresh_with_default_list(s32 a, s32 b);
+    static void *refresh_with_default_list(s32 a, s32 b);
     void handle_input();
     int is_flag_4_set();
     u8 get_type();

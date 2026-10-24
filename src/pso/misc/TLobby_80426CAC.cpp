@@ -81,13 +81,33 @@ typedef struct Ent_80427C6C {
     u8 rest[0xE10];
 } Ent_80427C6C;
 
+typedef struct PppoeNames {
+    u8 name[0x100];
+    u8 service[0x100];
+} PppoeNames;
+
 typedef struct Ent_80427D40 {
     s16 state;
     u16 id;
-    u8 pad4[4];
+    s16 m_4;
+    s16 m_6;
     s32 timeout;
     s32 last;
-    u8 rest[0xE14 - 0x10];
+    u8 m_10[6];
+    u8 m_16[6];
+    u16 m_1C;
+    u16 m_1E;
+    u8 *m_20;
+    u8 *m_24;
+    u16 m_28;
+    u8 pad2A[2];
+    u8 *m_2C;
+    u16 m_30;
+    u8 m_32[8];
+    PppoeNames names;
+    u8 frame[0x5EA];
+    u16 frame_len;
+    u8 rest[0xE14 - 0x826];
 } Ent_80427D40;
 
 extern "C" {
@@ -110,7 +130,12 @@ typedef struct Tbl_804267F0 {
 extern u8 lbl_805CF240[];
 
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
-s32 TLobby__sub_80427378(Ent_80427D40 *);
+s32 TLobby__sub_8042787C(Ent_80427D40 *e, u8 *p, u16 len);
+s32 TLobby__sub_80427F48(s16 slot, u8 *frame, u16 len);
+s16 TLobby__sub_80426D80(Ent_80427D40 *e);
+s32 TLobby__sub_80426574(s32);
+Ent_80427D40 *TLobby__sub_80427B6C(u8 *p, u16 len);
+void TLobby__sub_80427378(Ent_80427D40 *e);
 s16 TLobby__sub_804275B0(s32, u16);
 
 #pragma push
@@ -158,21 +183,152 @@ s16 TLobby::build_ethernet_frame_header(void *src, void *mac, u16 type, u8 flag,
   return r;
 }
 
-s32 TLobby__sub_80427240(u8 **arg0) {
-    s16 a = 0;
-    s16 b;
-    u8 pad[6];
-    NetMemcpy(*arg0, &a, 2);
-    *arg0 += 2;
-    b = 0;
-    NetMemcpy(*arg0, &b, 2);
-    *arg0 += 2;
-    return 4;
+inline s16 put_service_name(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 n;
+    s16 ret;
+    type = 0x101;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    n = NetStringLength((char *)e->names.service);
+    len = n;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    NetMemcpy(*p, e->names.service, n);
+    ret = n + 4;
+    *p += n;
+    return ret;
+}
+
+inline s16 put_host_uniq(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 ret;
+    type = 0x103;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    len = 8;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    NetMemcpy(*p, e->m_32, 8);
+    *p += 8;
+    ret = 12;
+    return ret;
+}
+
+inline s16 put_ac_cookie(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 n = 0;
+    if (e->m_24 != NULL) {
+        type = 0x104;
+        NetMemcpy(*p, &type, 2);
+        *p += 2;
+        len = e->m_28;
+        NetMemcpy(*p, &len, 2);
+        *p += 2;
+        NetMemcpy(*p, e->m_24, e->m_28);
+        n = e->m_28 + 4;
+        *p += e->m_28;
+    }
+    return n;
+}
+
+inline s16 put_relay_session_id(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 n = 0;
+    if (e->m_2C != NULL) {
+        type = 0x110;
+        NetMemcpy(*p, &type, 2);
+        *p += 2;
+        len = e->m_30;
+        NetMemcpy(*p, &len, 2);
+        *p += 2;
+        NetMemcpy(*p, e->m_2C, e->m_30);
+        n = e->m_30 + 4;
+        *p += e->m_30;
+    }
+    return n;
+}
+
+inline s16 put_end_of_list(u8 **p) {
+    u16 type;
+    u16 len;
+    s16 ret;
+    type = 0;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    len = 0;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    ret = 4;
+    return ret;
+}
+
+s16 TLobby__sub_80426EB8(Ent_80427D40 *e) {
+    u8 *p;
+    s16 n;
+    s16 total;
+    p = e->frame + 0x14;
+    n = put_service_name(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total = n;
+    total += put_host_uniq(&p, e);
+    n = put_ac_cookie(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total += n;
+    n = put_relay_session_id(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total += n;
+    total += put_end_of_list(&p);
+    return total;
+}
+
+s16 TLobby__sub_804270C0(Ent_80427D40 *e) {
+    u8 *p;
+    s16 n;
+    s16 total;
+    p = e->frame + 0x14;
+    n = put_service_name(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    total = n;
+    n = TLobby::write_name_field((s32 *)&p, (u8 *)e);
+    if (n < 0) {
+        return -1;
+    }
+    total += n;
+    total += put_host_uniq(&p, e);
+    total += put_end_of_list(&p);
+    return total;
+}
+
+s16 TLobby__sub_80427240(u8 **p, Ent_80427D40 *e) {
+    u16 type;
+    u16 len;
+    s16 ret;
+    type = 0;
+    NetMemcpy(*p, &type, 2);
+    *p += 2;
+    len = 0;
+    NetMemcpy(*p, &len, 2);
+    *p += 2;
+    ret = 4;
+    return ret;
 }
 
 #pragma push
 #pragma opt_common_subs off
-s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
+s16 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
     struct Fields_arg1 { u8 pad_0[58]; char name[1]; };
     s16 sp12;
     s16 sp10;
@@ -193,7 +349,125 @@ s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
 }
 #pragma pop
 
+inline s16 build_padt(Ent_80427D40 *e) {
+    u8 *payload;
+    u8 *p;
+    s16 n;
+    payload = e->frame + 0x14;
+    p = payload;
+    n = TLobby__sub_80427240(&p, e);
+    if (n < 0) {
+        return -1;
+    }
+    return n;
+}
+
+inline void restart_timer(Ent_80427D40 *e, s16 retries, s32 timeout) {
+    TLobby::get_time_ms(&e->last);
+    e->timeout = timeout;
+    e->m_6 = retries;
+}
+
+void TLobby__sub_80427378(Ent_80427D40 *e) {
+    u16 len;
+    u16 proto;
+    u8 *p;
+    s16 n;
+    switch (e->state) {
+    case 0:
+        if (e->m_6 > 0) {
+            if (TLobby__sub_80426440() >= 0) {
+                if (e->m_4 != 0) {
+                    p = e->frame + 0x14;
+                    proto = 0xC021;
+                    NetMemcpy(p, &proto, 2);
+                    p[2] = 5;
+                    p[3] = 1;
+                    len = 4;
+                    NetMemcpy(p + 4, &len, 2);
+                    e->frame_len = ((TLobby *)e->frame)->build_ethernet_frame_header(e->m_20, e->m_10, 0x8864, 0, e->id, 6);
+                    ((TLobby *)e->frame)->post_send_message(e->frame_len);
+                    n = build_padt(e);
+                    if (n >= 0) {
+                        e->frame_len = ((TLobby *)e->frame)->build_ethernet_frame_header(e->m_20, e->m_10, 0x8863, 0xA7, e->id, n);
+                        ((TLobby *)e->frame)->post_send_message(e->frame_len);
+                    }
+                }
+                e->id = 0;
+                if (TLobby__sub_80426D80(e) >= 0) {
+                    u16 frame_len = e->frame_len;
+                    ((TLobby *)e->frame)->post_send_message(frame_len);
+                    e->state = 1;
+                    restart_timer(e, 2, 3000);
+                }
+            } else {
+                restart_timer(e, e->m_6 - 1, e->timeout);
+            }
+        } else {
+            e->timeout = 0;
+            e->state = -1;
+        }
+        break;
+    case 1:
+    case 3:
+        if (e->m_6 > 0) {
+            if (TLobby__sub_80426D80(e) >= 0) {
+                u16 frame_len = e->frame_len;
+                ((TLobby *)e->frame)->post_send_message(frame_len);
+            }
+            restart_timer(e, e->m_6 - 1, e->timeout * 2);
+        } else {
+            e->timeout = 0;
+            e->state = 5;
+        }
+        break;
+    case 2:
+    case 4:
+    case 5:
+        break;
+    }
+}
+
+
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
+
+s32 TLobby__sub_8042787C(Ent_80427D40 *e, u8 *p, u16 len) {
+    s32 result = 1;
+    u8 *cur = p;
+    u16 type;
+    u16 tag_len;
+    u8 *data;
+    while (len != 0) {
+        NetMemcpy(&type, cur, 2);
+        if (type == 0) {
+            break;
+        }
+        NetMemcpy(&tag_len, cur + 2, 2);
+        data = cur + 4;
+        switch (type) {
+        case 0x101:
+        case 0x103:
+            break;
+        case 0x110:
+            e->m_2C = data;
+            e->m_30 = tag_len;
+            break;
+        case 0x201:
+            result = -1;
+            goto done;
+        case 0x202:
+            result = -1;
+            goto done;
+        case 0x203:
+            result = -1;
+            goto done;
+        }
+        cur += tag_len + 4;
+        len -= tag_len + 4;
+    }
+done:
+    return result;
+}
 
 s32 TLobby::parse_tlv_records(s32 arg0, u8 *arg1, u16 arg2) {
     u8 *p = arg1;
@@ -213,6 +487,69 @@ s32 TLobby::parse_tlv_records(s32 arg0, u8 *arg1, u16 arg2) {
         len -= t;
     }
     return 0;
+}
+
+s16 TLobby__sub_80427988(Ent_80427D40 *e, u8 *p, u16 len) {
+    s16 result = 0;
+    u8 *cur;
+    u16 type;
+    u16 tag_len;
+    u8 *data;
+    e->m_1C = 1;
+    if (e->names.service[0] != 0) {
+        e->m_1C = 0;
+    }
+    e->m_1E = 1;
+    if (e->names.name[0] != 0) {
+        e->m_1E = 0;
+    }
+    cur = p;
+    while (len != 0) {
+        NetMemcpy(&type, cur, 2);
+        if (type == 0) {
+            break;
+        }
+        NetMemcpy(&tag_len, cur + 2, 2);
+        data = cur + 4;
+        switch (type) {
+        case 0x101:
+            if (e->names.service[0] != 0 && NetMemcmp(e->names.service, data, tag_len) == 0) {
+                e->m_1C = 1;
+            }
+            break;
+        case 0x102:
+            if (e->names.name[0] != 0 && NetMemcmp(e->names.name, data, tag_len) == 0) {
+                e->m_1E = 1;
+            }
+            break;
+        case 0x103:
+            break;
+        case 0x104:
+            e->m_24 = data;
+            e->m_28 = tag_len;
+            break;
+        case 0x110:
+            e->m_2C = data;
+            e->m_30 = tag_len;
+            break;
+        case 0x201:
+            result = -1;
+            goto done;
+        case 0x202:
+            result = -1;
+            goto done;
+        case 0x203:
+            result = -1;
+            goto done;
+        }
+        cur += tag_len + 4;
+        len -= tag_len + 4;
+    }
+done:
+    if (result == 0 && e->m_1C != 0 && e->m_1E != 0) {
+        result = 1;
+    }
+    return result;
 }
 
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
@@ -238,6 +575,49 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
     if (i >= 1) {
         ret = NULL;
     }
+    return ret;
+}
+
+Ent_80427D40 *TLobby__sub_80427B6C(u8 *p, u16 len) {
+    Ent_80427D40 *e;
+    Ent_80427D40 *ret = NULL;
+    u8 *cur = p;
+    s16 i;
+    u8 *data;
+    u16 type;
+    u16 tag_len;
+    while (len != 0) {
+        NetMemcpy(&type, cur, 2);
+        if (type == 0) {
+            break;
+        }
+        NetMemcpy(&tag_len, cur + 2, 2);
+        switch (type) {
+        case 0x103:
+            if (tag_len != 8) {
+                ret = NULL;
+                goto done;
+            }
+            e = (Ent_80427D40 *)&lobby_pppoe_slot_table;
+            data = cur + 4;
+            i = 0;
+            ret = NULL;
+            for (; i < 1; e++, i++) {
+                ret = e;
+                if (NetMemcmp(data, ret->m_32, 8) == 0) {
+                    break;
+                }
+            }
+            if (i >= 1) {
+                ret = NULL;
+                goto done;
+            }
+            break;
+        }
+        cur += tag_len + 4;
+        len -= tag_len + 4;
+    }
+done:
     return ret;
 }
 
@@ -313,6 +693,96 @@ s16 TLobby::pppoe_recv_packet(u16 bufLen, u16 *outLen) {
     return ret;
 }
 #pragma pop
+
+s32 TLobby__sub_80427F48(s16 slot, u8 *frame, u16 len) {
+    Ent_80427D40 *e;
+    u8 *hdr;
+    u16 type;
+    u8 version;
+    u8 code;
+    u16 session;
+    u16 length;
+    u8 *src;
+    u8 *dst;
+    u16 frame_len;
+    if (slot < 0 || slot >= 1) {
+        return -1;
+    }
+    e = &TBL_80427D40[slot];
+    if (e->state != 4) {
+        return -1;
+    }
+    hdr = frame + 0xE;
+    version = 0x11;
+    NetMemcpy(hdr, &version, 1);
+    code = 0;
+    NetMemcpy(hdr + 1, &code, 1);
+    session = e->id;
+    NetMemcpy(hdr + 2, &session, 2);
+    length = len;
+    NetMemcpy(hdr + 4, &length, 2);
+    dst = e->m_20;
+    type = 0x8864;
+    src = e->m_10;
+    NetMemcpy(frame, dst, 6);
+    NetMemcpy(frame + 6, src, 6);
+    NetMemcpy(frame + 0xC, &type, 2);
+    e->frame_len = len + 0x14;
+    if (e->frame_len < 0x3C) {
+        e->frame_len = 0x3C;
+    }
+    frame_len = e->frame_len;
+    return ((TLobby *)frame)->post_send_message(frame_len);
+}
+
+s32 TLobby__sub_80428094(s16 slot) {
+    Ent_80427D40 *e;
+    if (slot < 0 || slot >= 1) {
+        return -1;
+    }
+    e = &TBL_80427D40[slot];
+    switch (e->state) {
+    case 0:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        e->state = -1;
+        break;
+    case 1:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        e->state = -1;
+        break;
+    case 2:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        e->state = -1;
+        break;
+    case 3:
+        e->state = 5;
+        break;
+    case 4:
+        e->state = 5;
+        if (TLobby__sub_80426D80(e) >= 0) {
+            u16 frame_len = e->frame_len;
+            ((TLobby *)e->frame)->post_send_message(frame_len);
+        }
+        break;
+    case 5:
+        if (e->state != -1) {
+            TLobby__sub_80426574(0);
+        }
+        if (e->id != 0) {
+            e->state = 6;
+        } else {
+            e->state = -1;
+        }
+        break;
+    }
+    return 0;
+}
 
 s32 TLobby__sub_80428358(void) {
     return 0;

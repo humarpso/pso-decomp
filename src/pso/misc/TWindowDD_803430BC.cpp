@@ -953,6 +953,105 @@ void free_buffers__9TWindowDDFv(void) {
         lbl_805D6E50 = 0U;
     }
 }
+struct DDPoint_80344114 { f32 x; f32 y; };
+struct WordList_80344114 { u8 *words; s32 count; };
+extern "C++" void ws_data_load(void);
+void *mem_alloc(u32 size);
+void *memset(void *dst, int c, u32 n);
+extern s32 current_language;
+extern u32 TWindowDD__ws_data_base;
+extern u32 lbl_805D6E34;
+extern u32 lbl_805D6E4C;
+extern DDPoint_80344114 TWindowDD__data_805434E8[][8];
+extern const DDPoint_80344114 lbl_80478568[];
+extern const f32 lbl_804785A0[];
+extern const f32 TWindowDD__data_805DFB18;
+extern const f32 lbl_805DFB24;
+extern const f32 lbl_805DFB28;
+void set_quad_corners_scaled__9TWindowDDFfff(DDPoint_80344114 *quad, f32 x, f32 y, f32 size);
+void init_ws_data_tables__9TWindowDDFv(void);
+
+void TWindowDD__sub_80344114(void) {
+    s32 i;
+    u8 *list;
+    s32 j;
+    WordList_80344114 *entry;
+    const DDPoint_80344114 *src;
+    DDPoint_80344114 *pt;
+    f32 x;
+    f32 y;
+    f32 x2;
+    f32 dy;
+
+    TWindowDD__data_805D6E28 = 0;
+    TWindowDD__ws_data_base = 0;
+    TWindowDD__ws_data_table = 0;
+    lbl_805D6E34 = 0;
+    TWindowDD__data_805D6E40 = 0;
+    TWindowDD__data_805D6E44 = 0;
+    TWindowDD__data_805D6E48 = 0;
+    lbl_805D6E4C = 0;
+    lbl_805D6E50 = 0;
+    lbl_805D6E54 = 0;
+    lbl_805D6E58 = 0;
+    lbl_805D6E5C = 0;
+    TWindowDD__ws_data_buffer = 0;
+    TWindowDD__window_mode = current_language;
+    if (TWindowDD__window_mode < 0 || TWindowDD__window_mode >= 5) {
+        TWindowDD__window_mode = 0;
+    }
+    ws_data_load();
+    TWindowDD__work_buffer = (u32)mem_alloc(0x80);
+    window_dd_buffer_a = (u32)mem_alloc(0x80);
+    memset((void *)TWindowDD__work_buffer, 0, 0x80);
+    memset((void *)window_dd_buffer_a, 0, 0x80);
+    window_dd_buffer_b = (u32)mem_alloc(0x120);
+    memset((void *)window_dd_buffer_b, 0, 0x120);
+    TWindowDD__player_name_buffers = (u32)mem_alloc(0x30);
+    for (i = 0; i < 12; i++) {
+        ((char **)TWindowDD__player_name_buffers)[i] = (char *)window_dd_buffer_b + i * 0x18;
+        ((char **)TWindowDD__player_name_buffers)[i][0] = 0;
+    }
+    lbl_805D6E20 = (u32)mem_alloc(0x100);
+    TWindowDD__word_select_lists = (u32)mem_alloc(0x30);
+    list = (u8 *)lbl_805D6E20;
+    for (j = 0; j < 6; j++) {
+        entry = &((WordList_80344114 *)TWindowDD__word_select_lists)[j];
+        entry->words = list;
+        entry->count = 0;
+        switch (j) {
+        case 0:
+        case 1:
+            list += 0x40;
+            break;
+        default:
+            list += 0x20;
+            break;
+        }
+    }
+    lbl_805D6E24 = -1;
+    for (i = 0; i < 6; i++) {
+        src = &lbl_80478568[i];
+        set_quad_corners_scaled__9TWindowDDFfff(TWindowDD__data_805434E8[i], src->x, src->y, lbl_804785A0[i]);
+    }
+    pt = TWindowDD__data_805434E8[6];
+    x2 = lbl_80478568[6].x;
+    y = lbl_80478568[6].y;
+    x = x2 * TWindowDD__data_805DFB18;
+    y *= TWindowDD__data_805DFB18;
+    x2 = TWindowDD__data_805DFB18 * (x2 + lbl_805DFB24);
+    dy = lbl_805DFB28 * TWindowDD__data_805DFB18;
+    for (i = 0; i < 4; i++) {
+        pt[0].x = x;
+        pt[0].y = y;
+        pt[1].x = x2;
+        pt[1].y = y;
+        y += dy;
+        pt += 2;
+    }
+    init_ws_data_tables__9TWindowDDFv();
+}
+
 s16 TWindowDD__sub_8034435C(u8 *window_dd, u32 arg1, s32 arg2, s32 value_index) {
     s16 v;
     switch (arg1) {

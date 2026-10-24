@@ -200,7 +200,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 s32 is_valid_and_active__10TObjPlayerFUl();
 extern s32 lbl_805D3530;
-s32 vfunc_67__14TOTrapSeabed01Fv(Trap_802C9F70 *self);
+s32 vfunc_67__14TOTrapSeabed01Ff(Trap_802C9F70 *self);
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0);
 s32 receive_physical_attack__6TOTrapFPvf(s32, s32, f32);
 s32 sub_802C9D38__14TOTrapSeabed01Fv();
@@ -244,7 +244,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     ((TOTrapSeabed01 *)self)->sub_802C9C18(1);
 }
 
-int TOTrapSeabed01::vfunc_67() {
+int TOTrapSeabed01::vfunc_67(f32) {
     s32 i;
     VObj_802C9F70 *o;
     for (i = 0; i < 0x10; i++) {
@@ -855,7 +855,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&reset_pose__13TUnk_804806E8Fv,
     (void *)&vfunc_65__13TUnk_804806E8Fll,
     (void *)&vfunc_66__13TUnk_804806E8Fv,
-    (void *)&vfunc_67__14TOTrapSeabed01Fv,
+    (void *)&vfunc_67__14TOTrapSeabed01Ff,
     (void *)&get_pos__13TUnk_804806E8Fl,
     (void *)&apply_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
