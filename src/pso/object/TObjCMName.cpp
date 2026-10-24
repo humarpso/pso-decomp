@@ -1,5 +1,7 @@
 #include "pso/menu/CreationInput.h"
 #include "types.h"
+#include "pso/math/AngleLookup.h"
+#include "pso/ui/UISprite.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TObjCMName.h"
@@ -103,7 +105,6 @@ u32 calc_text_width(char *s);
 void draw_string__14TObjWarpStringFlff(const char *, u32, f32, f32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
-f32 sin_table_lookup(s32);
 s32 TAdSinglePlyChrSelectGC__sub_802905B8();
 s32 rand();
 extern const f32 lbl_805DDC10;
@@ -155,10 +156,6 @@ struct Hair_802964B0 {
     s32 a38[3];
 };
 
-struct V2_80296560 {
-    f32 x;
-    f32 y;
-};
 
 struct Menu_80296560 {
     u8 pad[0x30];
@@ -168,10 +165,6 @@ struct Menu_80296560 {
     f32 timer;
 };
 
-struct V2_80296648 {
-    f32 x;
-    f32 y;
-};
 
 struct Menu_80296648 {
     u8 pad[0x30];
@@ -209,10 +202,6 @@ struct Menu_80297128 {
 
 struct Row_80297128 { s16 v[0x16]; };
 
-struct V2_80296744 {
-    f32 x;
-    f32 y;
-};
 
 struct Menu_80296744 {
     u8 pad[0x30];
@@ -226,10 +215,6 @@ struct Menu_80296744 {
     f32 scroll;
 };
 
-struct V2_80296928 {
-    f32 x;
-    f32 y;
-};
 
 struct Owner_80296928 {
     u8 pad[0x34];
@@ -257,13 +242,9 @@ struct RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 {
     u8 remaining[0x9C];
 };
 
-struct V2_80297DB8 {
-    f32 x;
-    f32 y;
-};
 
 struct Quad_80297DB8 {
-    V2_80297DB8 p[4];
+    vec2f p[4];
 };
 
 struct Cols_80297DB8 {
@@ -271,7 +252,7 @@ struct Cols_80297DB8 {
 };
 
 struct Prim_80297DB8 {
-    V2_80297DB8 *pts;
+    vec2f *pts;
     u32 *colors;
     s32 start;
     s32 count;
@@ -349,7 +330,7 @@ typedef char RecoveredGlobal_80298F08_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80298DD4_lbl_8051C07C_size[sizeof(RecoveredGlobal_80298DD4_lbl_8051C07C) == 0x18 ? 1 : -1];
 
-struct V2_802975DC { f32 x, y; };
+
 
 struct Menu_802975DC {
     u8 pad0[0x1C];
@@ -379,9 +360,6 @@ Chara_80298B70 * TObjCMMainMenu__sub_8028D9A8(void);
 s32 TObjCMMainMenu__sub_8028D9B4(void *);
 u8 calc_section_id_from_name();
 s32 get_creation_sprite_id__14TObjCMMainMenuFl(int);
-void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
-void draw_ui_sprite(s32, void *, f32, f32);
-void fn_802910A4(s32, void *, void *, f32);
 void fn_802947A8(void);
 int TObjCMName__sub_802948F4(void);
 void * create__10TObjCMNameFPv(void *arg0);
@@ -414,7 +392,6 @@ void fn_802993F0(void);
 void fn_8029945C(u8 *arg0);
 u32 __cvt_fp2unsigned(f32);
 char * strncpy(char *, const char *, u32);
-f32 cos_table_lookup(s32);
 
 extern const f32 TObjCMAssignMenu__data_805DDB20;
 extern s32 __vt__10TObjCMName[];
@@ -425,15 +402,15 @@ extern s32 __vt__16TObjCMProportion[];
 extern u8 lbl_80464F50[];
 extern s32 char_creation_root_menu_tab_table[];
 extern f32 char_creation_assign_menu_tab_positions[];
-extern u8 lbl_80465048[];
-extern u8 lbl_80465050[];
-extern u8 lbl_80465058[];
+extern vec2f lbl_80465048[];
+extern vec2f lbl_80465050[];
+extern vec2f lbl_80465058[];
 extern s32 char_creation_assign_sprite_id_table[];
 extern s32 char_creation_assign_icon_sprite_id_table[];
 extern Ent_802964B0 class_appearance_table[];
 extern Cols_80297DB8 footer_divider_colors[2];
 extern Quad_80297DB8 footer_divider_vertices[2];
-extern u8 lbl_804DBCC8[];
+extern vec2f lbl_804DBCC8[];
 extern s32 lbl_804DBDA8[];
 extern RecoveredGlobal_80298F08_lbl_8050E3B8 controller_physical_port_bank;
 extern RecoveredGlobal_80298DD4_lbl_8051C07C character_creation_name_buffer;
@@ -548,6 +525,39 @@ void *create__10TObjCMNameFPv(void *arg0) {
 void reset_character_creation_figure_rotation(void);
 void draw_creation_ruler_lines(f32 farg0);
 TObjCMName::~TObjCMName() {}
+
+#pragma push
+#pragma fp_contract on
+void TObjCMName::render()
+{
+  vec2f position;
+  vec2f scale;
+  float right_edge;
+  if (!(this->fade <= 0.33f))
+  {
+    f32 amount = (this->fade >= 0.66f) ? (1.0f) : ((this->fade - 0.33f) / 0.33f);
+    scale.y = 1.0f;
+    position.y = 124.0f;
+    right_edge = 115.0f + (232.0f * amount);
+    position.x = 115.0f;
+    f32 right = right_edge;
+    f32 left = (9.0f * sin_table_lookup(this->ticks << 10)) + position.x;
+    f32 width = right - left;
+    position.x = left;
+    scale.x = width / 48.0f;
+    draw_ui_sprite_opaque(8, &position, &scale, -2.75f);
+    position.x = right;
+    scale.x = 1.0f;
+    draw_ui_sprite_opaque(9, &position, &scale, -2.75f);
+  }
+  if (!(this->fade <= 0.0f))
+  {
+    draw_ui_sprite(0, creation_name_panel_position, -2.4375f, (this->fade >= 0.33f) ? (1.0f) : (this->fade / 0.33f));
+  }
+}
+
+#pragma pop
+
 
 void *__ct__10TObjCMNameFv(void *obj_cm_name) {
     __ct__7TObjectFP7TObject(obj_cm_name);
@@ -984,7 +994,7 @@ void TObjCMAssignMenu::draw_assign_icons() {
     s32 i;
     f32 step;
     f32 a;
-    V2_80296560 pos;
+    vec2f pos;
     if (!(self->timer <= lbl_805DDA74)) {
         a = (self->timer - lbl_805DDA74) / lbl_805DDB10;
         pos.x = lbl_805DDB48;
@@ -1016,7 +1026,7 @@ void TObjCMAssignMenu::sub_80296648() {
     s32 i;
     f32 step;
     f32 a;
-    V2_80296648 pos;
+    vec2f pos;
     if (!(self->timer <= lbl_805DDA74)) {
         a = (self->timer - lbl_805DDA74) / lbl_805DDB10;
         pos.x = lbl_805DDB48;
@@ -1050,7 +1060,7 @@ void TObjCMAssignMenu::render_assign_slots() {
     s32 i;
     s32 n;
     s32 j;
-    V2_80296744 pos;
+    vec2f pos;
     if (self->pages == 1) return;
     t = self->timer;
     a = t * (t * (lbl_805DDB50 * t));
@@ -1088,10 +1098,10 @@ void TObjCMAssignMenu::render_assign_slots() {
 #pragma fp_contract on
 #pragma opt_loop_invariants off
 void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
-    V2_80296928 pos;
-    V2_80296928 scl;
-    V2_80296928 pos2;
-    V2_80296928 pos3;
+    vec2f pos;
+    vec2f scl;
+    vec2f pos2;
+    vec2f pos3;
     f32 pulse;
     f32 base;
     f32 alpha;
@@ -1126,10 +1136,10 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
         pos.x = 75.0f;
         pos.x = 9.0f * sin_table_lookup(self->frame << 10) + pos.x;
         scl.x = (w - pos.x) / 48.0f;
-        fn_802910A4(8, &pos, &scl, -2.75f);
+        draw_ui_sprite_opaque(8, &pos, &scl, -2.75f);
         pos.x = w;
         scl.x = 1.0f;
-        fn_802910A4(9, &pos, &scl, -2.75f);
+        draw_ui_sprite_opaque(9, &pos, &scl, -2.75f);
     }
     if (!(self->timer <= 0.0f)) {
         draw_ui_sprite(0, lbl_804DBCC8, -2.4375f,
@@ -1496,10 +1506,10 @@ void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0) {
 void TObjCMMainMenu::draw_root_menu() {
     u8 *arg0 = (u8 *)this;
     Menu_802975DC *m = (Menu_802975DC *)arg0;
-    V2_802975DC a;
-    V2_802975DC b;
-    V2_802975DC c;
-    V2_802975DC d;
+    vec2f a;
+    vec2f b;
+    vec2f c;
+    vec2f d;
     f32 t;
     f32 ratio;
     f32 step;
@@ -1546,10 +1556,10 @@ void TObjCMMainMenu::draw_root_menu() {
                 a.x += 9.0f * ((f32 (*)(int))sin_table_lookup)(m->pulse << 10);
             }
             b.x = (x - a.x) / 48.0f;
-            fn_802910A4(k + 6, &a, &b, -2.125f);
+            draw_ui_sprite_opaque(k + 6, &a, &b, -2.125f);
             a.x = x;
             b.x = 1.0f;
-            fn_802910A4(k + 7, &a, &b, -2.125f);
+            draw_ui_sprite_opaque(k + 7, &a, &b, -2.125f);
             a.y += 44.0f;
         }
     }

@@ -1,0 +1,20 @@
+#ifndef PSO_SYSTEM_BML_RESOURCE_H
+#define PSO_SYSTEM_BML_RESOURCE_H
+
+#include "types.h"
+
+struct BmlModelEntry {
+    s32 m_0;
+    s32 m_4;
+    s32 model;
+    s32 m_c;
+};
+
+struct BmlResource {
+    u8 m_0[0x42C];
+    BmlModelEntry *models;
+};
+
+extern "C" s32 get_bml_model(BmlResource *resource, s32 index);
+
+#endif
