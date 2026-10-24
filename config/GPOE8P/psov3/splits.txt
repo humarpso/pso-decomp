@@ -4748,6 +4748,7 @@ pso/misc/TMovie_80144250.cpp:
 
 pso/misc/TMovie_80144324.cpp:
 	.text       start:0x80144324 end:0x801443C0
+	.sdata2     start:0x805DB17C end:0x805DB180
 
 pso/misc/TMovie_801443C0.cpp:
 	.text       start:0x801443C0 end:0x80144484
@@ -8194,6 +8195,7 @@ pso/unk/text_8022BE64.cpp:
 
 pso/misc/TTecCtrl_8022C444.cpp:
 	.text       start:0x8022C444 end:0x8022C6C4
+	.rodata     start:0x8044D078 end:0x8044D080
 
 pso/player/TObjPlayer_8022C6C4.cpp:
 	.text       start:0x8022C6C4 end:0x8022DBC0
