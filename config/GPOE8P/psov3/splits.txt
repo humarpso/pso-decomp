@@ -2556,23 +2556,11 @@ pso/item/TItemDropSub_80107BF0.cpp:
 pso/item/TItemDropSub_80107C40.cpp:
 	.text       start:0x80107C40 end:0x80107C9C
 
-pso/unk/text_80107C9C.cpp:
-	.text       start:0x80107C9C end:0x80107D4C
-	.rodata     start:0x8043E170 end:0x8043E178
-
-pso/unk/text_80107D4C.cpp:
-	.text       start:0x80107D4C end:0x80107DA4
-	.data       start:0x8049EFB8 end:0x8049EFD0
-
-pso/item/TItemEffArmor_80107DA4.cpp:
-	.text       start:0x80107DA4 end:0x80107FBC
-
 pso/item/TItemEffArmor.cpp:
-	.text       start:0x80107FBC end:0x80108020
-	.data       start:0x8049EFD0 end:0x8049EFE8
-
-pso/unk/text_80108020.cpp:
-	.text       start:0x80108020 end:0x80108254
+	.text       start:0x80107C9C end:0x80108254
+	.rodata     start:0x8043E170 end:0x8043E178
+	.data       start:0x8049EFB8 end:0x8049EFE8
+	.sdata2     start:0x805DAAE8 end:0x805DAB0C
 
 pso/item/TItemEffBringer.cpp:
 	.text       start:0x80108254 end:0x8010853C
@@ -5081,11 +5069,9 @@ pso/misc/TODoorAncient06.cpp:
 	.sdata2     start:0x805DB430 end:0x805DB44C
 
 pso/misc/TODoorAncient07.cpp:
-	.text       start:0x8015F6C8 end:0x8015F930
-
-pso/misc/TODoorAncient07_8015F930.cpp:
-	.text       start:0x8015F930 end:0x8015FC40
+	.text       start:0x8015F6C8 end:0x8015FC40
 	.rodata     start:0x80440C18 end:0x80440C20
+	.sdata2     start:0x805DB450 end:0x805DB46C
 
 pso/unk/text_8015FC40.cpp:
 	.text       start:0x8015FC40 end:0x8015FCBC

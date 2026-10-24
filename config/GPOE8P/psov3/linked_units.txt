@@ -549,7 +549,6 @@ pso/item/TItemDrop_800F9C00.cpp
 pso/item/TItemDrop_80105D0C.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
-pso/item/TItemEffArmor_80107DA4.cpp
 pso/item/TItemEffBringer.cpp
 pso/item/TItemEffCane.cpp
 pso/item/TItemEffEquip.cpp
@@ -1271,7 +1270,6 @@ pso/misc/TODoorAncient04.cpp
 pso/misc/TODoorAncient05.cpp
 pso/misc/TODoorAncient06.cpp
 pso/misc/TODoorAncient07.cpp
-pso/misc/TODoorAncient07_8015F930.cpp
 pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
 pso/misc/TODoorCave01.cpp
@@ -2976,9 +2974,6 @@ pso/unk/text_80103674.cpp
 pso/unk/text_801036CC.cpp
 pso/unk/text_80104F4C.cpp
 pso/unk/text_801057A8.cpp
-pso/unk/text_80107C9C.cpp
-pso/unk/text_80107D4C.cpp
-pso/unk/text_80108020.cpp
 pso/unk/text_80108860.cpp
 pso/unk/text_80108F04.cpp
 pso/unk/text_801094D8.cpp
