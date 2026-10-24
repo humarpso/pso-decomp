@@ -2621,6 +2621,7 @@ force_active:
   - calc_preview_offset__23TAdSinglePlyChrSelectGCFPvlll
   - calc_range__9TTecZaruaFv
   - calc_rate_from_field__14TBoss4DarkFalzFv
+  - calc_recoil_offsets__13TUnk_80490470Fv
   - calc_remaining_char_slots__6TLobbyFv
   - calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv
   - calc_rotated_vector__14TObjEneBm5WolfFPviPvPv
@@ -11319,6 +11320,7 @@ force_active:
   - sub_8019A44C__13TUnk_804B8E18Fl
   - sub_8019B77C__14TObjWarpStringFv
   - sub_8019E418__12TObjWarpBossFv
+  - sub_8019F9E4__14TObjWarpBoss03Fv
   - sub_801AD4A8__12TPhotonMyllaFv
   - sub_801F6B00__22TQuestVmDownLoadServerFv
   - sub_801F6C74__22TQuestVmDownLoadServerFv

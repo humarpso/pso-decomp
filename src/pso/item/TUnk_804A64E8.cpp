@@ -1,12 +1,13 @@
+// ---- pso/unk/text_8012F704
 #include "types.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TUnk_804A64E8.h"
 
-    extern const float lbl_805DAFB8;
-void TUnk_804A64E8::update_idle() { this->m_204 = 0; *(float*)((char*)this + 0x200) = lbl_805DAFB8; *(float*)((char*)this + 0x1fc) = lbl_805DAFB8; *(float*)((char*)this + 0x1f8) = lbl_805DAFB8; }
+    
+void TUnk_804A64E8::update_idle() { this->m_204 = 0; *(float*)((char*)this + 0x200) = 1.0f; *(float*)((char*)this + 0x1fc) = 1.0f; *(float*)((char*)this + 0x1f8) = 1.0f; }
 
-    extern const float lbl_805DAFBC;
-void TUnk_804A64E8::update_attack() { *(int *)&this->m_204 = 10922; *(float*)((char*)this + 0x200) = lbl_805DAFBC; *(float *)&this->m_1fc = lbl_805DAFBC; *(float*)((char*)this + 0x1f8) = lbl_805DAFBC; }
+    
+void TUnk_804A64E8::update_attack() { *(int *)&this->m_204 = 10922; *(float*)((char*)this + 0x200) = 1e+01f; *(float *)&this->m_1fc = 1e+01f; *(float*)((char*)this + 0x1f8) = 1e+01f; }
 
 #include "pso/misc/TTecSlicer.h"
 #include "pso/player/TObjPlayer.h"
@@ -41,9 +42,9 @@ struct SlicerState_801295FC;
 void init_slicer_launch_state(void *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
-extern const f32 lbl_805DAFB8;
-extern const f32 lbl_805DAFC0;
-extern const f32 lbl_805DAFC4;
+
+
+
 
 void TUnk_804A64E8::emit_marker_effects() {
     Tec_8012F704 tec;
@@ -56,14 +57,49 @@ void TUnk_804A64E8::emit_marker_effects() {
     tec.f10 = TObjPlayer__sub_801D2F4C((s16 *)((u8 *)((Self_8012F704 *)this)->owner + 0x7CC));
     tec.f12 = get_validated_attack_stage((u8 *)((Self_8012F704 *)this)->owner + 0x7CC);
     tec.f14 = query_extended_state__10TObjPlayerFv(((Self_8012F704 *)this)->owner);
-    tec.f18 = lbl_805DAFB8;
-    tec.f1C = lbl_805DAFC0;
-    tec.f20 = lbl_805DAFB8;
-    tec.f24 = lbl_805DAFC4;
+    tec.f18 = 1.0f;
+    tec.f1C = 0.0f;
+    tec.f20 = 1.0f;
+    tec.f24 = 0.7f;
     tec.f28 = ((Self_8012F704 *)this)->owner->f60;
     ((TObjPlayer *)this)->draw_icon(5, (s32)&tec.pos);
     ((TObjPlayer *)this)->draw_icon(4, (s32)&tec.dir);
     TTecSlicer::create((u16*)&tec);
 }
+
+}
+
+// ---- pso/item/TItemEquipVariant_8012F7D8
+#include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_8012F7D8.h"
+#include "pso/player/TObjPlayer.h"
+
+extern s32 lbl_804A64E8[];
+
+void *__dt__13TUnk_804A64E8Fv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A64E8;
+        __dt__11TItemWeaponFv(arg0, 0);
+        if (arg1 > 0) {
+            TObjPlayer::free_obj_heap(arg0);
+        }
+    }
+    return arg0;
+}
+
+// ---- pso/player/TObjPlayer_8012F830
+#include "types.h"
+#include "pso/item/TUnk_804A64E8.h"
+#include "pso/player/TObjPlayer.h"
+
+extern "C" {
+
+int TItemWeapon__ct(void);
+int set_status_flags__10TObjPlayerFUl(void*, void*);
+
+
+    
+void*TUnk_804A64E8::init_position_state() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A64E8; set_status_flags__10TObjPlayerFUl(this, (void*)2); *(int *)&(this->m_204) = 0; *(float*)((char*)this + 0x200) = 1.0f; *(float *)&(this->m_1fc) = 1.0f; *(float*)((char*)this + 0x1f8) = 1.0f; return this; }
 
 }

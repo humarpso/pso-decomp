@@ -1,3 +1,39 @@
+// ---- pso/unk/text_800A0320
+#include "types.h"
+#include "pso/unk/text_800A0320.h"
+#include "pso/unk/text_803E2D70.h"
+#include "pso/player/TUnk_80490470.h"
+#include "pso/player/TObjPlayer.h"
+
+extern "C" {
+
+s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
+
+
+s32 TUnk_80490470::vfunc_10() {
+    return *(f32 *)&this->unk_18 > 0.0f;
+}
+
+void TUnk_80490470::set_flags_and_apply_damage_color() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(7424); }
+s32 TUnk_80490470::advance_toward_max() {
+    f32 temp_f1;
+    temp_f1 = *(f32 *)&this->unk_18;
+    *(f32 *)&this->unk_18 = (f32) (temp_f1 + *(f32 *)&this->unk_10);
+    calc_recoil_offsets__13TUnk_80490470Fv(temp_f1);
+    return *(f32 *)&this->unk_18 >= 2.0f;
+}
+s32 TUnk_80490470::decay_value_toward_floor() {
+    u8 *arg0 = (u8 *)this;
+    f32 temp_f1;
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
+    calc_recoil_offsets__13TUnk_80490470Fv(temp_f1);
+    return *(f32 *)((s8 *)arg0 + 0x18) <= 0.0f;
+}
+
+}
+
+// ---- pso/player/TObjPlayer_800A0408
 #include "types.h"
 #include "pso/enemy/DarkGunner.h"
 #include "pso/object/TObjControl.h"
@@ -6,43 +42,43 @@
 #include "pso/system/memory.h"
 #include "pso/player/TUnk_80490470.h"
 
-extern const f32 lbl_805D9958;
-extern const f32 lbl_805D995C;
-extern const f32 lbl_805D9960;
-extern const f32 lbl_805D9964;
+
+
+
+
 
 void TUnk_80490470::calc_recoil_offsets() {
     f32 temp_f1;
     f32 var_f0;
 
     temp_f1 = *(f32 *)&this->unk_18;
-    if (temp_f1 > lbl_805D9960) {
-        if (temp_f1 > lbl_805D995C) {
-            *(f32 *)&this->unk_0 = (f32) lbl_805D9958;
+    if (temp_f1 > 1.0f) {
+        if (temp_f1 > 2.0f) {
+            *(f32 *)&this->unk_0 = (f32) 0.0f;
         } else {
-            *(f32 *)&this->unk_0 = (f32) (temp_f1 - lbl_805D995C);
+            *(f32 *)&this->unk_0 = (f32) (temp_f1 - 2.0f);
         }
-        this->m_4 = (f32) lbl_805D9958;
-        *(f32 *)&this->unk_8 = (f32) lbl_805D9958;
-        this->m_c = (f32) lbl_805D9958;
+        this->m_4 = (f32) 0.0f;
+        *(f32 *)&this->unk_8 = (f32) 0.0f;
+        this->m_c = (f32) 0.0f;
         return;
     }
-    *(f32 *)&this->unk_0 = (f32) lbl_805D9964;
-    var_f0 = *(f32 *)&this->unk_18 - lbl_805D9960;
-    if (var_f0 < lbl_805D9964) {
-        var_f0 = lbl_805D9964;
+    *(f32 *)&this->unk_0 = (f32) (-1.0f);
+    var_f0 = *(f32 *)&this->unk_18 - 1.0f;
+    if (var_f0 < (-1.0f)) {
+        var_f0 = (-1.0f);
     }
     this->m_4 = var_f0;
     *(f32 *)&this->unk_8 = var_f0;
     this->m_c = var_f0;
 }
 
-    extern const float lbl_805D9958;
-    extern const float lbl_805D9964;
-void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805D9958; *(float *)&this->unk_0 = lbl_805D9964; this->m_4 = lbl_805D9964; *(float *)&this->unk_8 = lbl_805D9964; this->m_c = lbl_805D9964; }
+    
+    
+void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = 0.0f; *(float *)&this->unk_0 = (-1.0f); this->m_4 = (-1.0f); *(float *)&this->unk_8 = (-1.0f); this->m_c = (-1.0f); }
 
-    extern const float lbl_805D995C;
-void TUnk_80490470::vfunc_4() { *(float *)&this->unk_18 = lbl_805D995C; *(float *)&this->unk_0 = lbl_805D9958; this->m_4 = lbl_805D9958; *(float *)&this->unk_8 = lbl_805D9958; this->m_c = lbl_805D9958; }
+    
+void TUnk_80490470::vfunc_4() { *(float *)&this->unk_18 = 2.0f; *(float *)&this->unk_0 = 0.0f; this->m_4 = 0.0f; *(float *)&this->unk_8 = 0.0f; this->m_c = 0.0f; }
 
 struct Base_800A04F0 { f32 v0, v4, v8, vc; f32 rate; };
 
@@ -61,32 +97,32 @@ struct Obj_800A0554 : Base_800A0554 {
 };
 
 extern "C" {
-extern const f32 lbl_805D9968;
+
 void TObjPlayer__sub_800A04F0(Obj_800A04F0 *self);
-extern const f32 lbl_805D996C;
+
 void TObjPlayer__sub_800A0554(Obj_800A0554 *self);
 void TUnk_80490470::set_rate_from_divisor(s32 arg1) {
-    *(f32 *)&this->unk_10 = (f32) (lbl_805D995C / (f32) arg1);
+    *(f32 *)&this->unk_10 = (f32) (2.0f / (f32) arg1);
 }
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_800A04F0(Obj_800A04F0 *self) {
     self->m1(10);
-    self->f18 = lbl_805D9968 * self->rate + lbl_805D995C;
-    self->v0 = lbl_805D9960;
-    self->v4 = lbl_805D9960;
-    self->v8 = lbl_805D9960;
-    self->vc = lbl_805D9960;
+    self->f18 = 1e+01f * self->rate + 2.0f;
+    self->v0 = 1.0f;
+    self->v4 = 1.0f;
+    self->v8 = 1.0f;
+    self->vc = 1.0f;
 }
 #pragma pop
 
 void TObjPlayer__sub_800A0554(Obj_800A0554 *self) {
     self->m1(10);
-    self->f18 = -(lbl_805D996C * self->rate);
-    self->v0 = lbl_805D9958;
-    self->v4 = lbl_805D9958;
-    self->v8 = lbl_805D9958;
-    self->vc = lbl_805D9958;
+    self->f18 = -(2e+01f * self->rate);
+    self->v0 = 0.0f;
+    self->v4 = 0.0f;
+    self->v8 = 0.0f;
+    self->vc = 0.0f;
 }
 
 extern s32 lbl_80490470[];
@@ -117,7 +153,7 @@ void TObjPlayer__sub_800A0654(Obj_800A0654 *self);
 s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self);
 int TObjPlayer__sub_800D9718(void);
 
-void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float *)&this->unk_18 = lbl_805D9958; return this; }
+void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float *)&this->unk_18 = 0.0f; return this; }
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {

@@ -1,10 +1,11 @@
+// ---- pso/protocol/subcommand_validation_player
 #include "pso/protocol/subcommand_validation.h"
 
 extern "C" {
 s32 is_in_view__17TObjEneHoldEffectFv(s32);
 s32 is_camera_visible__17TObjEneHoldEffectFv(s32);
-extern const f32 lbl_805E03A8;
-extern const f32 lbl_805E03AC;
+
+
 u16 TObjRoomId__sub_801A1DB8(u16);
 void *find_entity_by_id(u16 id);
 
@@ -102,7 +103,7 @@ s32 validate_6x87_shrink_player(G_ClientIDHeader *packet) {
         return 0;
     }
     temp_f1 = *(f32 *)((s8 *)packet + 4);
-    if ((temp_f1 < lbl_805E03A8) || (temp_f1 > lbl_805E03AC)) {
+    if ((temp_f1 < 0.0f) || (temp_f1 > 1e+01f)) {
         return 0;
     }
     return 1;
@@ -226,7 +227,7 @@ s32 validate_6x2C_impose_hold(G_ClientIDHeader *packet) {
     if (is_camera_visible__17TObjEneHoldEffectFv((s32)((u8*)packet + 8)) != 0) {
         return 0;
     }
-    cond = (*(f32 *)((s8 *)((u8*)packet) + 0x10) < lbl_805E03A8);
+    cond = (*(f32 *)((s8 *)((u8*)packet) + 0x10) < 0.0f);
     return (u32)__cntlzw(cond) >> 5;
 }
 
@@ -310,4 +311,37 @@ s32 validate_6x23_set_player_visible(G_ClientIDHeader *packet) {
 
 s32 validate_6x22_set_player_invisible(G_ClientIDHeader *packet) {
     return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+// ---- pso/unk/text_8036C9D8
+#include "types.h"
+#include "pso/protocol/subcmd_6x.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
+struct LobbyAnimationState { G_ClientIDHeader header; s16 animation_number; u16 unused; u32 player_flags; f32 animation_timer; };
+
+extern "C" {
+s32 is_matching_id__6TLobbyFlUs(void *, u16);
+s32 get_player_by_client_id(u16);
+s32 is_action_id_none(s16);
+
+s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0);
+s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0) {
+    s32 player;
+    player = get_player_by_client_id(arg0->header.client_id);
+    if (player == 0) {
+        return 0;
+    }
+    if (is_matching_id__6TLobbyFlUs(arg0, arg0->header.client_id) != 0) {
+        return 0;
+    }
+    if (((is_action_id_none(arg0->animation_number) == 0) && (arg0->animation_number < 0)) || (arg0->animation_number >= TLobby::get_hold_effect_size_by_type())) {
+        return 0;
+    }
+    if ((arg0->animation_timer < 0.0f) || (arg0->animation_timer >= ((TObjPlayer *)player)->get_table_value_f32(arg0->animation_number))) {
+        return 0;
+    }
+    return 1;
+}
+
 }

@@ -1,3 +1,51 @@
+// ---- pso/unk/text_802A15BC
+#include "types.h"
+struct O_802A15BC {
+    u8 a[0x10];
+    u8 b[8];
+    s32 f18;
+    u8 f1c;
+    u8 c[15];
+    s32 f2c;
+    u8 f30, f31, f32_, f33;
+    s32 f34;
+    s16 d[8];
+    f32 f48;
+    f32 f4c;
+};
+
+extern "C" {
+
+void clear_player_data_block(O_802A15BC *arg0);
+void clear_player_data_block(O_802A15BC *arg0) {
+    s32 i;
+    for (i = 0; i < 0x10; i++) {
+        arg0->a[i] = 0;
+    }
+    for (i = 0; i < 8; i++) {
+        arg0->b[i] = 0;
+    }
+    arg0->f1c = 0;
+    arg0->f18 = 0;
+    for (i = 0; i < 15; i++) {
+        arg0->c[i] = 0;
+    }
+    arg0->f34 = 0;
+    arg0->f33 = 0;
+    arg0->f32_ = 0;
+    arg0->f31 = 0;
+    arg0->f30 = 0;
+    arg0->f2c = 0;
+    for (i = 0; i < 8; i++) {
+        arg0->d[i] = 0;
+    }
+    arg0->f4c = 0.0f;
+    arg0->f48 = 0.0f;
+}
+
+}
+
+// ---- pso/ui/TAdSelectTxtGC
 #include "pso/TAdSelectTxtGC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_8023E480.h"
@@ -51,8 +99,8 @@ extern const s32 current_language;
 extern u32 ad_select_text_texture_handle;
 void TLobby__sub_803DA16C(void*);
 
-    extern const float lbl_805DDDF8;
-void TAdSelectTxtGC::reset_state() { *(short *)&this->m_prev = 0; *(short *)&this->m_id = 0; *(short *)&this->m_flags = 0; *(short*)((char*)this + 0x2) = 0; *(short *)&this->m_name = 0; *(short*)((char*)this + 0xe) = 0; *(short *)&this->m_next = 0; *(short*)((char*)this + 0xa) = 0; *(float *)&this->m_up = lbl_805DDDF8; *(float *)&this->m_down = lbl_805DDDF8; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
+    
+void TAdSelectTxtGC::reset_state() { *(short *)&this->m_prev = 0; *(short *)&this->m_id = 0; *(short *)&this->m_flags = 0; *(short*)((char*)this + 0x2) = 0; *(short *)&this->m_name = 0; *(short*)((char*)this + 0xe) = 0; *(short *)&this->m_next = 0; *(short*)((char*)this + 0xa) = 0; *(float *)&this->m_up = 0.0f; *(float *)&this->m_down = 0.0f; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
 
 void TAdSelectTxtGC__sub_802A16A8(void* p) { *(u8*)((char*)p + 0x0) = 0; *(u8*)((char*)p + 0x1) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 TAdSelectTxtGC__sub_802A16C0(void* p) { return *(s32*)((char*)p + 0x3e8); }

@@ -1,3 +1,74 @@
+// ---- pso/unk/text_80126740
+#include "types.h"
+#include "pso/unk/text_80126740.h"
+#include "pso/item/TItemProUnit.h"
+
+
+extern "C" {
+u8 * baranz_launcher_ct(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+}
+extern s32 tl_05;
+
+u8 *create_baranz_launcher(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
+        var_r0 = temp_r3;
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(baranz_launcher_ct(temp_r3, tl_05, arg0));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
+void fist_reset_attack_rate(u8 *arg0) {
+    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(1.0f);
+}
+
+// ---- pso/player/TObjPlayer_801267C4
+#include "types.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemProUnit.h"
+
+extern "C" {
+
+u8 get_slot_count__5TItemFv();
+
+
+
+
+
+
+
+void TObjPlayer::apply_shield_scale_to_unit() {
+    f32 var_f31;
+    u8 temp_r3;
+
+    var_f31 = 1.0f;
+    temp_r3 = get_slot_count__5TItemFv();
+    switch ((s32) temp_r3) {
+    case 0:
+        var_f31 = 1.05f;
+        break;
+    case 1:
+        var_f31 = 1.1f;
+        break;
+    case 2:
+        var_f31 = 1.15f;
+        break;
+    case 3:
+        var_f31 = 1.2f;
+        break;
+    }
+    ((TItemProUnit *)(*(s32 *)&this->unk_F0 + 0x7CC))->set_evp(var_f31);
+}
+
+}
+
+// ---- pso/unk/text_8012685C
 #include "types.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -91,21 +162,21 @@ void *spawn_particle_effect(void *pos, s32 id);
 s16 get_validated_attack_stage(u8 *arg0);
 }
 extern s32 knuckle_second_hand_pass;
-extern const f32 lbl_805DAD80;
-extern const f32 lbl_805DAD94;
+
+
 void reflect_knuckle_second_hand(s32 arg0);
 extern s32 knuckle_marker_joint_table[];
 extern s32 tl_05;
 void reflect_knuckle_second_hand(s32 arg0) {
     Stack_8012685C stack;
     if ((TObjPlayer::get_player_list() == 0) && (((TItem *)arg0)->get_slot_count() == 3) && ((s32) knuckle_second_hand_pass != 0)) {
-        stack.sp10 = lbl_805DAD94;
-        stack.spC = lbl_805DAD94;
-        stack.sp8 = lbl_805DAD94;
-        stack.sp1C = lbl_805DAD94;
-        stack.sp18 = lbl_805DAD94;
-        stack.sp14 = lbl_805DAD80;
-        reflect_matrix_in_plane(0, &stack.sp8, lbl_805DAD94);
+        stack.sp10 = 0.0f;
+        stack.spC = 0.0f;
+        stack.sp8 = 0.0f;
+        stack.sp1C = 0.0f;
+        stack.sp18 = 0.0f;
+        stack.sp14 = 1.0f;
+        reflect_matrix_in_plane(0, &stack.sp8, 0.0f);
     }
 }
 
