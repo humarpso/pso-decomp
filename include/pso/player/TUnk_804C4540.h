@@ -6,6 +6,8 @@
 class TUnk_804C4540 : public TObjPlayer {
 public:
     virtual ~TUnk_804C4540();
+    int set_position_from(void *pos);
+    void set_animation_default(s16 index);
 };
 typedef char TUnk_804C4540_size[sizeof(TUnk_804C4540) == 0xDB8 ? 1 : -1];
 

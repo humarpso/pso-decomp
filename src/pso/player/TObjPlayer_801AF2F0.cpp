@@ -3941,7 +3941,7 @@ void handle_6x24_teleport_player(s32 arg0) {
     if (player == 0) {
         return;
     }
-    ((TBoss4DarkFalz *)player)->set_position_from(pkt.pos);
+    ((TUnk_804B9870 *)player)->set_position_from(pkt.pos);
     *(s32 *)(player + 0x60) = *(s32 *)(player + 0x3F0) = pkt.heading;
     ((TUnk_804806E8 *)player)->calc_attach_pos();
     ((TObjPlayer *)player)->clear_flag_4000();
@@ -7292,7 +7292,7 @@ void handle_6x20_set_position(void *arg0) {
     if (validate_6x20_set_position((G_ClientIDHeader *)&m) != 0) {
         p = ((Player_801BA838 *)get_player_by_client_id(m.slot));
         if (p != NULL) {
-            ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+            ((TUnk_804B9870 *)p)->set_position_from(m.vec);
             ((TObjPlayer *)p)->set_floor_index(TLobby::get_player_floor(m.floor));
             ((TObjPlayer *)p)->set_floor(m.floor);
             p->ang = m.ang;

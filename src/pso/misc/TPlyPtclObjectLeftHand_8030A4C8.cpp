@@ -70,7 +70,7 @@ Ctrl_8030A5B8 *TPlyFollowParticleCtrl__ct(Ctrl_8030A5B8 *self, u8 *arg1) {
     self->link->flags &= 0xFFFFFFFE;
     self->s_ac = obj_getField1c(arg1);
     self->s_ae = 0xFFFF;
-    ((TBoss4DarkFalz *)self)->set_position_from(arg1 + 0x74);
+    ((TUnk_804B9870 *)self)->set_position_from(arg1 + 0x74);
     return self;
 }
 

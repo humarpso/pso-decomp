@@ -3,6 +3,7 @@
 #include "pso/menu/TAdEndText.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804C4540.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TItemData.h"
 #include "pso/player/EndingSceneTables.h"
@@ -18,8 +19,6 @@ struct Sub_8001A470 { s32 w[4]; };
 
 struct Rec_8001A470 { s32 f0; Sub_8001A470 a; Sub_8001A470 b; f32 f24; f32 f28; };
 
-struct Plr_8001A4CC { u8 pad[0x60]; s32 f60; };
-
 extern "C" {
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s);
 void TObjPlayer__sub_8001A4CC(s32 state, s8 index);
@@ -27,7 +26,7 @@ void init__9TItemDataFv(TItemData *item);
 extern s32 game_difficulty_selection;
 }
 
-TObjPlayer *ending_player;
+TUnk_804C4540 *ending_player;
 s8 player_light_index;
 s32 ending_player_state;
 
@@ -45,19 +44,19 @@ void TObjPlayer__sub_8001A4CC(s32 state, s8 index) {
     switch (state) {
         case 0: {
             ending_player->set_position_from((void *)&ending_player_positions_0[index]);
-            ((Plr_8001A4CC *)ending_player)->f60 = 182.04445f * (f32)ending_player_angles_0[index].y;
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_0[index].y;
             TObjPlayer::set_animation_from_data((s32)ending_player, index);
             break;
         }
         case 1: {
             ending_player->set_position_from((void *)&ending_player_positions_1[index]);
-            ((Plr_8001A4CC *)ending_player)->f60 = 182.04445f * (f32)ending_player_angles_1[index].y;
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_1[index].y;
             TObjPlayer::set_animation_from_data((s32)ending_player, index);
             break;
         }
         case 2: {
             ending_player->set_position_from((void *)&ending_player_positions_2[index]);
-            ((Plr_8001A4CC *)ending_player)->f60 = 182.04445f * (f32)ending_player_angles_2[index].y;
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_2[index].y;
             TObjPlayer::set_animation_from_data((s32)ending_player, index);
             break;
         }
@@ -134,7 +133,7 @@ TUnk_80480938::TUnk_80480938(TObject *parent) : TObject(parent) {
 
     player_light_index = 0;
     Vec position = ending_player_start_position;
-    ending_player = (TObjPlayer *)((TObjPlayer *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF))->create_ending_player();
+    ending_player = (TUnk_804C4540 *)((TObjPlayer *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF))->create_ending_player();
     ending_player->set_position_from(&position);
     init__9TItemDataFv(&item);
     item.data1.data_u8[0] = 2;

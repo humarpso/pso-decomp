@@ -64,7 +64,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = (u8 *)(((TEneParticleCtrl *)arg0)->m_a4);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
     ((TEneParticleCtrl *)arg0)->m_ac = obj_getField1c((void *)arg1);
-    ((TBoss4DarkFalz *)arg0)->set_position_from((void *)(arg1 + 0x74));
+    ((TUnk_804B9870 *)arg0)->set_position_from((void *)(arg1 + 0x74));
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg1 + 0x2FC));
     ((TEneParticleCtrl *)arg0)->m_b0 = arg2;
     ((TEneParticleCtrl *)arg0)->m_c0 = (u32)spawn_continuous_particle_effect_with_flags((arg0 + 0xB4), (((TEneParticleCtrl *)arg0)->m_b0), 0x10);

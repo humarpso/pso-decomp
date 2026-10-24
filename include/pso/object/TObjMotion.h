@@ -18,6 +18,7 @@ public:
     s32 mask_object_set_row_flags(s32);
     s32 set_event_source_flag(s32);
     void set_item_count(s16);
+    int set_position_from(void *pos);
     u16 m_1c;
     s16 m_1e;
     u8 m_20;

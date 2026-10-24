@@ -722,7 +722,7 @@ void TTecLuker::setup_telepipe_field() {
     s->visual = v;
     s->phase = 1;
     if (s->collider != 0) {
-        ((TBoss4DarkFalz *)(s->collider))->set_position_from(&s->pos);
+        ((TUnk_804B9870 *)(s->collider))->set_position_from(&s->pos);
     } else {
         u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
         if (c != 0) {

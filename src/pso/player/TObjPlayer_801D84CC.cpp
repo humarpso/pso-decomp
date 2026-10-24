@@ -41,7 +41,6 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
     virtual s8 m31();
 };
 
-int set_position_from__14TBoss4DarkFalzFPv(void *, void *);
 s32 advance_item_id_counter();
 void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
 void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
@@ -51,7 +50,6 @@ s32 get_field_d8__5TItemFv();
 s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
 void *lookup_inventory_item__10TObjPlayerFv(void *);
 u16 obj_getField1c(void *);
-int set_animation__10TObjMotionFs(void*);
 void set_flag_20000__10TObjPlayerFi(s32 arg0);
 
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *player) {
@@ -101,8 +99,8 @@ s32 rotate_matrix_y(int, int);
 void TObjPlayer__sub_801D877C(u8 *arg0);
 void TObjPlayer__sub_801D8864(void);
 
-int TObjPlayer::set_position_from(void *pos) { return set_position_from__14TBoss4DarkFalzFPv(this, pos); }
-int TObjPlayer::set_animation_default() { return set_animation__10TObjMotionFs(this); }
+int TUnk_804C4540::set_position_from(void *pos) { return TUnk_804B9870::set_position_from(pos); }
+void TUnk_804C4540::set_animation_default(s16 index) { set_animation(index); }
 
 struct Player_801D88C8;
 struct Src_801D88C8;
