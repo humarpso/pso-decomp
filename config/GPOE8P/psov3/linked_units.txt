@@ -1111,6 +1111,7 @@ pso/misc/TLobby_8036B204.cpp
 pso/misc/TLobby_8036DBC4.cpp
 pso/misc/TLobby_8036F81C.cpp
 pso/misc/TLobby_803C45E4.cpp
+pso/misc/TLobby_803C4698.cpp
 pso/misc/TLobby_803CBE88.cpp
 pso/misc/TLobby_803CBEA8.cpp
 pso/misc/TLobby_803CBEC8.cpp

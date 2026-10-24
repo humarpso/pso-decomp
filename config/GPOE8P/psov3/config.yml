@@ -381,6 +381,7 @@ force_active:
   - TLobby__sub_8034C1D0
   - TLobby__sub_80351FDC
   - TLobby__sub_8036B424
+  - TLobby__sub_803C4698
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D346C
@@ -2677,6 +2678,8 @@ force_active:
   - clear_counter__6TLobbyFPv
   - clear_entry_flags__20TBoss5GryphonColli_CFv
   - clear_episode1_quest_availability__FPv
+  - clear_error_callback__6TLobbyFv
+  - clear_error_callback_state__6TLobbyFv
   - clear_field2A0__22TQuestVmDownLoadServerFv
   - clear_field_d8__14TOTrapChainSawFv
   - clear_flag4c_bit8__13TWindowSubLogFv
@@ -2957,6 +2960,8 @@ force_active:
   - debug_print_ranges__8TOKurageFv
   - debug_render_overlay__9TMainTaskFv
   - decay_glow_and_calc_hp_ratio__9TBoss6MagFv
+  - decode_adx_stereo__FPSclPsPsPsPsss
+  - decode_adx_stereo_downmix__FPSclPsPsPsPsss
   - decode_params__14TOTrapChainSawFv
   - decode_params__17TOTrapChainSawKeyFv
   - decode_params__20TOTrapChainSawDamageFv
