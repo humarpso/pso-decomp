@@ -392,8 +392,13 @@ force_active:
   - TLobby__sub_8036B424
   - TLobby__sub_803C4698
   - TLobby__sub_803CBE40
+  - TLobby__sub_803CE2A0
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D346C
+  - TLobby__sub_803DDD20
+  - TLobby__sub_803DDD2C
+  - TLobby__sub_803DDD40
+  - TLobby__sub_803DDD78
   - TLobby__sub_80425D88
   - TLobby__sub_80426110
   - TLobby__sub_80426190
@@ -1012,6 +1017,7 @@ force_active:
   - TObjPlayer__sub_803DA8B4
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
+  - TObjPlayer__sub_803DD6DC
   - TObjPlayer__sub_803E24E0
   - TObjPlayer__sub_803E500C
   - TObjPlayer__sub_803E5378
@@ -2500,6 +2506,7 @@ force_active:
   - break_rocks_in_wave__15TBoss6SwordWaveFv
   - broadcast_state__15TOAttackableColFv
   - bsearch_record__6TLobbyFPvii
+  - bswap32_in_place__6TLobbyFPUl
   - bswap_6x79_gogo_ball__12TWindowTimerFi
   - bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFv
   - bswap__13TPlyStartGameFPv
@@ -2517,6 +2524,7 @@ force_active:
   - bswap_packet_field__6TLobbyFv
   - bswap_pair__14TPlyDispConfigFv
   - bswap_state__15TOAttackableColFv
+  - bswap_u32__6TLobbyFPUl
   - bswap_udp_test_header__6TLobbyFv
   - buffer_init
   - build_6x05_write_switch_flag__FPv
@@ -2564,6 +2572,7 @@ force_active:
   - calc_duel_number_uv__FlPUcl
   - calc_follow_position__11TCameraCtrlFv
   - calc_freeze_chance__FP10TObjPlayerP10TObjPlayerP10TObjPlayerf
+  - calc_gvm_entry_stride__FUs
   - calc_highlight_scale__12TChCrTagNameFPv
   - calc_hit_zone_index__13TUnk_80483A10Fv
   - calc_lunge_aim__14TObjEneBm5WolfFPv
@@ -2926,6 +2935,7 @@ force_active:
   - conversation_camera_obstructed__FP16FollowControllerl
   - convert_quest_object_rows
   - convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi
+  - copy_4word_struct__6TLobbyFPvPv
   - copy__11TBreakUpMdlFPv
   - copy__12TChCrLoadReqFPv
   - copy__16TPlyGuildCardTagFPv
@@ -10186,6 +10196,7 @@ force_active:
   - render_ui__9TMainTaskFv
   - render_with_fade__19TObjEneEpsilonGuardFPvi
   - render_with_state_debug__17TObjEneBm3FlyNestFv
+  - replace_gvm_texture_directory
   - repositioning_state__14TObjEneBm5WolfFl
   - request_aram_load_state__16TAdWarningBaseGCFPv
   - request_close__22THunterGuildSeqOfflineFv
@@ -10605,6 +10616,7 @@ force_active:
   - secretary_body_resource_descriptor
   - seed_character_select_serial_rng__Fl
   - seed_download_rng__Fl
+  - seek_gvrt_chunk__6TLobbyFv
   - select_and_advance__20TShopItemTecSequenceFPv
   - select_attack_by_range__16TObjEneBm5GibonUFv
   - select_attack_target__18TObjEneRe4SorcererFiff

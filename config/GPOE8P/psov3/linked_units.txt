@@ -736,6 +736,7 @@ pso/item/TItemReverseTech_8011A1E8.cpp
 pso/item/TItemShoot.cpp
 pso/item/TItemShootGun.cpp
 pso/item/TItemShootGun_8011B598.cpp
+pso/item/TItemShootGun_ctor.cpp
 pso/item/TItemShootGun_dtor.cpp
 pso/item/TItemShootHook.cpp
 pso/item/TItemShootModel.cpp
@@ -3018,6 +3019,7 @@ pso/unk/text_800FCC78.cpp
 pso/unk/text_800FD8A0.cpp
 pso/unk/text_800FD930.cpp
 pso/unk/text_800FEA34.cpp
+pso/unk/text_800FEDA4.cpp
 pso/unk/text_800FFC6C.cpp
 pso/unk/text_80100BB0.cpp
 pso/unk/text_80103674.cpp
@@ -3351,6 +3353,7 @@ pso/unk/text_801BC194.cpp
 pso/unk/text_801BC688.cpp
 pso/unk/text_801BD0C0.cpp
 pso/unk/text_801BD318.cpp
+pso/unk/text_801BDBB4.cpp
 pso/unk/text_801BDE60.cpp
 pso/unk/text_801BDFC4.cpp
 pso/unk/text_801BE104.cpp
@@ -3743,6 +3746,7 @@ pso/unk/text_803CC070.cpp
 pso/unk/text_803CC134.cpp
 pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
+pso/unk/text_803CE240.cpp
 pso/unk/text_803D0C34.cpp
 pso/unk/text_803D0F1C.cpp
 pso/unk/text_803D2F1C.cpp
@@ -3768,6 +3772,7 @@ pso/unk/text_803DAFA8.cpp
 pso/unk/text_803DC86C.cpp
 pso/unk/text_803DCDB0.cpp
 pso/unk/text_803DCDFC.cpp
+pso/unk/text_803DD5E0.cpp
 pso/unk/text_803DE7E0.cpp
 pso/unk/text_803DE838.cpp
 pso/unk/text_803DE864.cpp
