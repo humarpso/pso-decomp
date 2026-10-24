@@ -116,6 +116,9 @@ pso/ui/TAdSoniclogo.cpp:
 
 pso/unk/text_8001C388.cpp:
 	.text       start:0x8001C388 end:0x8001C5A0
+	.rodata     start:0x804349B8 end:0x804349C0
+	.sbss       start:0x805D4A58 end:0x805D4A78
+	.sdata2     start:0x805D7E80 end:0x805D7E8C
 
 pso/ui/TAdBackGC.cpp:
 	.text       start:0x8001C5A0 end:0x8001C5E8
@@ -7396,6 +7399,8 @@ pso/misc/TQuadSpriteSclCol.cpp:
 
 pso/misc/TQuadSpriteSclColRot.cpp:
 	.text       start:0x801E5F7C end:0x801E63A4
+	.data       start:0x804C6958 end:0x804C6970
+	.sdata2     start:0x805DC490 end:0x805DC4A0
 
 pso/menu/TQuestBgmCtrl.cpp:
 	.text       start:0x801E63A4 end:0x801E6544
