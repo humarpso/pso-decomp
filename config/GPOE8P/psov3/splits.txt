@@ -14302,6 +14302,7 @@ pso/misc/TLobby_80426CAC.cpp:
 
 pso/misc/TLobby_80428374.cpp:
 	.text       start:0x80428374 end:0x80429598
+	.bss        start:0x805D0A40 end:0x805D0AA0
 
 pso/misc/TLobby_80429598.cpp:
 	.text       start:0x80429598 end:0x8042BF48

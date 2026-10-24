@@ -3,15 +3,17 @@
 
 #include "types.h"
 
+struct Ent_80427D40;
+
 extern "C" {
-s32 TLobby__sub_80427240(u8 * *arg0);
+s16 TLobby__sub_80427240(u8 **arg0, Ent_80427D40 *e);
 s32 TLobby__sub_80428358(void);
 s32 TLobby__sub_80428360(void);
 }
 
 // --- C functions defined in TLobby_80426CAC.cpp ---
 extern "C" {
-s32 TLobby__sub_80427240(u8 * *arg0);
+s16 TLobby__sub_80427240(u8 **arg0, Ent_80427D40 *e);
 s32 TLobby__sub_80428358(void);
 s32 TLobby__sub_80428360(void);
 }
