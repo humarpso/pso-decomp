@@ -646,7 +646,6 @@ pso/item/TItemEquipVariant_8012D410.cpp
 pso/item/TItemEquipVariant_8012D5C8.cpp
 pso/item/TItemEquipVariant_8012D7EC.cpp
 pso/item/TItemEquipVariant_8012DCEC.cpp
-pso/item/TItemEquipVariant_8012E190.cpp
 pso/item/TItemEquipVariant_8012E7D8.cpp
 pso/item/TItemEquipVariant_8012EA50.cpp
 pso/item/TItemEquipVariant_8012ECA4.cpp
@@ -847,7 +846,6 @@ pso/misc/TChCrEffCtrlPl_80339658.cpp
 pso/misc/TChCrEffFade.cpp
 pso/misc/TChCrEffTag.cpp
 pso/misc/TChCrEffTagStr.cpp
-pso/misc/TChCrEffTag_8029AC44.cpp
 pso/misc/TChCrEffTag_8029ACA8.cpp
 pso/misc/TChCrEffTag_8029B098.cpp
 pso/misc/TChCrLoadAfs.cpp
@@ -926,7 +924,6 @@ pso/misc/TKeyBoardControl_8025CB70.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
 pso/misc/TKeyBoardControl_802A1180.cpp
 pso/misc/TKeyBoardControl_803CBDE0.cpp
-pso/misc/TKeyBoardControl_803DE9C4.cpp
 pso/misc/TKeyBoardControl_803F0C50.cpp
 pso/misc/TKomorebi.cpp
 pso/misc/TLanguage.cpp
@@ -1272,9 +1269,7 @@ pso/misc/TODoorAncient01_8015DDE8.cpp
 pso/misc/TODoorAncient03.cpp
 pso/misc/TODoorAncient04.cpp
 pso/misc/TODoorAncient05.cpp
-pso/misc/TODoorAncient05_8015EE50.cpp
 pso/misc/TODoorAncient06.cpp
-pso/misc/TODoorAncient06_8015F3B8.cpp
 pso/misc/TODoorAncient07.cpp
 pso/misc/TODoorAncient07_8015F930.cpp
 pso/misc/TODoorAncient08.cpp

@@ -1,3 +1,4 @@
+// ---- pso/unk/TUnk_804A5C18
 // ---- pso/player/TObjPlayer_8012DD44
 #include "types.h"
 #include "pso/math/MatrixTransforms.h"
@@ -235,4 +236,23 @@ u8 *create_shot_weapon(u8 *item) {
         return var_r0;
     }
     return NULL;
+}
+
+// ---- pso/item/TItemEquipVariant_8012E190
+#include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_8012E190.h"
+#include "pso/player/TObjPlayer.h"
+
+
+
+void *__dt__13TUnk_804A5C18Fv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804A5C18;
+        __dt__11TItemWeaponFv(arg0, 0);
+        if (arg1 > 0) {
+            TObjPlayer::free_obj_heap(arg0);
+        }
+    }
+    return arg0;
 }

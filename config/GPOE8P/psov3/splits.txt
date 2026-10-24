@@ -4040,11 +4040,8 @@ pso/item/TItemEquipVariant_8012DCEC.cpp:
 	.text       start:0x8012DCEC end:0x8012DD44
 
 pso/unk/TUnk_804A5C18.cpp:
-	.text       start:0x8012DD44 end:0x8012E190
+	.text       start:0x8012DD44 end:0x8012E1E8
 	.sdata2     start:0x805DAF58 end:0x805DAF6C
-
-pso/item/TItemEquipVariant_8012E190.cpp:
-	.text       start:0x8012E190 end:0x8012E1E8
 
 pso/player/TUnk_804A5D28.cpp:
 	.text       start:0x8012E1E8 end:0x8012E708
@@ -5074,18 +5071,14 @@ pso/misc/TODoorAncient04.cpp:
 	.data       start:0x804B0E88 end:0x804B0EA8
 
 pso/misc/TODoorAncient05.cpp:
-	.text       start:0x8015EBE8 end:0x8015EE50
-
-pso/misc/TODoorAncient05_8015EE50.cpp:
-	.text       start:0x8015EE50 end:0x8015F150
+	.text       start:0x8015EBE8 end:0x8015F150
 	.rodata     start:0x80440B30 end:0x80440B38
+	.sdata2     start:0x805DB410 end:0x805DB42C
 
 pso/misc/TODoorAncient06.cpp:
-	.text       start:0x8015F150 end:0x8015F3B8
-
-pso/misc/TODoorAncient06_8015F3B8.cpp:
-	.text       start:0x8015F3B8 end:0x8015F6C8
+	.text       start:0x8015F150 end:0x8015F6C8
 	.rodata     start:0x80440B80 end:0x80440B88
+	.sdata2     start:0x805DB430 end:0x805DB44C
 
 pso/misc/TODoorAncient07.cpp:
 	.text       start:0x8015F6C8 end:0x8015F930
@@ -9747,13 +9740,11 @@ pso/unk/text_8029A97C.cpp:
 	.text       start:0x8029A97C end:0x8029AA34
 
 pso/misc/TChCrEffTag.cpp:
-	.text       start:0x8029AA34 end:0x8029AC44
+	.text       start:0x8029AA34 end:0x8029ACA8
 	.rodata     start:0x804652D8 end:0x804652E0
 	.data       start:0x804DBF40 end:0x804DBF58
-
-pso/misc/TChCrEffTag_8029AC44.cpp:
-	.text       start:0x8029AC44 end:0x8029ACA8
 	.sdata      start:0x805D3D08 end:0x805D3D0C
+	.sdata2     start:0x805DDC90 end:0x805DDCAC
 
 pso/misc/TChCrEffTag_8029ACA8.cpp:
 	.text       start:0x8029ACA8 end:0x8029ACF8
@@ -13857,12 +13848,10 @@ pso/unk/text_803DE890.cpp:
 pso/unk/text_803DE8BC.cpp:
 	.text       start:0x803DE8BC end:0x803DE9C4
 
-pso/misc/TKeyBoardControl_803DE9C4.cpp:
-	.text       start:0x803DE9C4 end:0x803DED78
-	.data       start:0x804FC698 end:0x804FC6E4
-
 pso/system/ChunkMaterialState.cpp:
-	.text       start:0x803DED78 end:0x803DEE48
+	.text       start:0x803DE9C4 end:0x803DEE48
+	.data       start:0x804FC698 end:0x804FC6E4
+	.sdata2     start:0x805E0FB0 end:0x805E0FC4
 
 pso/unk/text_803DEE48.cpp:
 	.text       start:0x803DEE48 end:0x803DEE6C

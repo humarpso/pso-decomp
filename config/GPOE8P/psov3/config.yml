@@ -452,6 +452,8 @@ force_active:
   - TODoorAncient01__ct
   - TODoorAncient03__ct
   - TODoorAncient04__ct
+  - TODoorAncient05__ct
+  - TODoorAncient06__ct
   - TODoorAncient08__ct
   - TODoorCave01__resource_descriptor
   - TODoorCave02__ct
@@ -1756,6 +1758,7 @@ force_active:
   - __vt__11TAdRicoRing
   - __vt__11TBoss4Bishi
   - __vt__11TBreakUpMdl
+  - __vt__11TChCrEffTag
   - __vt__11TItemMagSub
   - __vt__11TItemObject
   - __vt__11TLoadingCur
