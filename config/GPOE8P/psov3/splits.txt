@@ -7823,7 +7823,7 @@ pso/misc/TLobby_8020F00C.cpp:
 pso/misc/TCheckRoomSequence.cpp:
 	.text       start:0x8020F034 end:0x802115F4
 	.data       start:0x804C9490 end:0x804C9664
-	.bss        start:0x80513D88 end:0x80513D98
+	.bss        start:0x80513D88 end:0x80513DC8
 	.sbss       start:0x805D6170 end:0x805D6178
 
 pso/misc/TShopEquipmentSellWindow_802115F4.cpp:
@@ -11139,7 +11139,7 @@ pso/unk/text_803000C8.cpp:
 
 pso/ui/TAdMultiSelGameModeGC.cpp:
 	.text       start:0x80300120 end:0x80300CE4
-	.data       start:0x804E66B0 end:0x804E6728
+	.data       start:0x804E66B0 end:0x804E6740
 	.sbss       start:0x805D69F8 end:0x805D6A00
 
 pso/enemy/TObjEneDolmOlm.cpp:
@@ -12025,7 +12025,7 @@ pso/misc/TLobby_8033A810.cpp:
 pso/ui/TAdSinglePlyChrSelectGC_8033A8EC.cpp:
 	.text       start:0x8033A8EC end:0x8033BAB4
 	.data       start:0x804EF728 end:0x804EF8C0
-	.sbss       start:0x805D6D94 end:0x805D6D98
+	.sbss       start:0x805D6D80 end:0x805D6D98
 
 pso/unk/text_8033BAB4.cpp:
 	.text       start:0x8033BAB4 end:0x8033BB14
@@ -12151,7 +12151,7 @@ pso/misc/TWindowDD_80341A08.cpp:
 pso/misc/TWindowDD_80342254.cpp:
 	.text       start:0x80342254 end:0x803424EC
 	.ctors      start:0x8043400C end:0x80434010
-	.data       start:0x804EFC50 end:0x804EFC90
+	.data       start:0x804EFC50 end:0x804EFCA8
 
 pso/misc/TWindowDD_803424EC.cpp:
 	.text       start:0x803424EC end:0x80342554

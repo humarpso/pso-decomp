@@ -136,6 +136,11 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void update();
     void handle_menu_selection();
     void handle_slot_selection();
+    void finish_character_selection_transition();
+    void sub_802D4570();
+    void sub_802D4664();
+    void sub_802D4730();
+    void sub_802D486C();
     static int get_flag_count();
     static int get_selected_count();
     static int get_data();
@@ -201,6 +206,12 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void update_select_state();
     void handle_load_result();
     void start_check_memory_card();
+    int queue_destruction(void *);
+    void sub_8033AA64();
+    void check_memcard_space();
+    void sub_8033ACF4();
+    void sub_8033AFC8();
+    void sub_8033B0AC();
     void set_char_slots(s32 arg1, s32 arg2);
     static void run_frame();
     void init_warp();

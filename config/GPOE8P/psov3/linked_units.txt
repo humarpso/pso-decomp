@@ -409,6 +409,7 @@ pso/enemy/TObjEneHoldEffect_800FD814.cpp
 pso/enemy/TObjEneHoldEffect_80142478.cpp
 pso/enemy/TObjEneHoldEffect_8036CDFC.cpp
 pso/enemy/TObjEneHoldEffect_8036D070.cpp
+pso/enemy/TObjEneIllGill.cpp
 pso/enemy/TObjEneLappy.cpp
 pso/enemy/TObjEneLappy_800F5DE0.cpp
 pso/enemy/TObjEneMe1CanadinLeader.cpp
@@ -867,6 +868,7 @@ pso/misc/TCharaMaking_8028E790.cpp
 pso/misc/TChatMessage.cpp
 pso/misc/TChatMessage_801DF918.cpp
 pso/misc/TCheckMemoryCard.cpp
+pso/misc/TCheckRoomSequence.cpp
 pso/misc/TCheckRoomSequence_8013AD28.cpp
 pso/misc/TCheckRoomSequence_80211614.cpp
 pso/misc/TCheckRoomSequence_8021E464.cpp
@@ -1147,6 +1149,7 @@ pso/misc/TLobby_803D60A8.cpp
 pso/misc/TLobby_803DE778.cpp
 pso/misc/TLobby_803DF1FC.cpp
 pso/misc/TLobby_803E2D50.cpp
+pso/misc/TLobby_803F8794.cpp
 pso/misc/TLockOnCursor.cpp
 pso/misc/TLockOnCursor_8013D91C.cpp
 pso/misc/TLockOnCursor_8013E0D0.cpp
@@ -1702,6 +1705,7 @@ pso/misc/TWindowDD_8020C2DC.cpp
 pso/misc/TWindowDD_8024662C.cpp
 pso/misc/TWindowDD_80246F8C.cpp
 pso/misc/TWindowDD_803411E8.cpp
+pso/misc/TWindowDD_80342254.cpp
 pso/misc/TWindowDD_803424EC.cpp
 pso/misc/TWindowDD_80342554.cpp
 pso/misc/TWindowDD_803426CC.cpp
@@ -2787,6 +2791,7 @@ pso/ui/TAdMultiPlyChrSelectGC_803495B4.cpp
 pso/ui/TAdMultiSaveGC.cpp
 pso/ui/TAdMultiSaveGC_802FF0A0.cpp
 pso/ui/TAdMultiSaveGC_802FF14C.cpp
+pso/ui/TAdMultiSelGameModeGC.cpp
 pso/ui/TAdMultiSelGameModeGC_802D5098.cpp
 pso/ui/TAdPlayerLoadGC.cpp
 pso/ui/TAdPlayerLoadGC_80076BBC.cpp
@@ -2821,6 +2826,7 @@ pso/ui/TAdSelectGameModeGC.cpp
 pso/ui/TAdSelectGameModeGC_801A2F7C.cpp
 pso/ui/TAdSelectTxtGC.cpp
 pso/ui/TAdSelectTxtSubGC.cpp
+pso/ui/TAdSinglePlyChrSelectGC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8001C5E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8001ED80.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8007B7E4.cpp
@@ -2845,6 +2851,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E3AE4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80336054.cpp
+pso/ui/TAdSinglePlyChrSelectGC_8033A8EC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8033C640.cpp
 pso/ui/TAdSnAkPassConfirmGC.cpp
 pso/ui/TAdSoniclogo.cpp
