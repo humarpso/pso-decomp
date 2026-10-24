@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/item/TUnk_80480938.h"
-#include "pso/item/TItemMag_8001A468.h"
 #include "pso/menu/TAdEndText.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
@@ -23,6 +22,7 @@ struct Plr_8001A4CC { u8 pad[0x60]; s32 f60; };
 
 extern "C" {
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s);
+void TObjPlayer__sub_8001A4CC(s32 state, s8 index);
 void init__9TItemDataFv(TItemData *item);
 extern s32 game_difficulty_selection;
 }
@@ -85,7 +85,7 @@ s32 TObjPlayer::get_flag890_state() {
     return state;
 }
 
-void TObjPlayer::publish_light_color(void *p) {
+void TUnk_80480938::publish_light() {
     ColorF c;
 
     c.r = player_light_color_rgba_table[player_light_index].r / 255.0f;
@@ -96,7 +96,7 @@ void TObjPlayer::publish_light_color(void *p) {
     publish_light_direction_color(0, (void *)&player_light_direction_color_table[player_light_index], &c);
 }
 
-void TObjPlayer__sub_8001A77C(void *p) {
+void TUnk_80480938::set_camera() {
     EndingCamera camera;
     Vec position = ending_camera_position;
     Vec direction = ending_camera_direction;
@@ -123,8 +123,8 @@ void TObjPlayer::update_flag890_state(s32 index) {
 void TUnk_80480938::render() {}
 
 void TUnk_80480938::run_task() {
-    TObjPlayer__sub_8001A77C(this);
-    TObjPlayer::publish_light_color(this);
+    set_camera();
+    publish_light();
 }
 
 TUnk_80480938::~TUnk_80480938() {}

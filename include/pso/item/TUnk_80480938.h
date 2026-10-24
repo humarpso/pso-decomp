@@ -9,6 +9,8 @@ public:
     virtual ~TUnk_80480938();
     virtual void render();
     virtual void run_task();
+    void publish_light();
+    void set_camera();
 };
 typedef char TUnk_80480938_size[sizeof(TUnk_80480938) == 0x1C ? 1 : -1];
 

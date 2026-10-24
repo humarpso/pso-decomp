@@ -854,7 +854,7 @@ force_active:
   - TObjPlayer__sub_8001941C
   - TObjPlayer__sub_8001951C
   - TObjPlayer__sub_8001A4CC
-  - TObjPlayer__sub_8001A77C
+  - set_camera__13TUnk_80480938Fv
   - TObjPlayer__sub_8003F81C
   - TObjPlayer__sub_8003F9D4
   - TObjPlayer__sub_8003FCD0
@@ -9491,7 +9491,7 @@ force_active:
   - prs_read_control_bit
   - prune_weapon_attributes__9TItemDropFPvPv
   - psycho_wand_ct__FPUcPUcl
-  - publish_light_color__10TObjPlayerFPv
+  - publish_light__13TUnk_80480938Fv
   - push_attack_target_entry__FPUcl
   - push_list_node__14TObjEneBm5WolfFPPvPPv
   - push_model_fade_color__10TObjPlayerFv
