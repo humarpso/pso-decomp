@@ -3288,23 +3288,9 @@ pso/item/TItemEquipVariant_80122DCC.cpp:
 pso/player/TObjPlayer_80122E24.cpp:
 	.text       start:0x80122E24 end:0x80122E60
 
-pso/unk/text_80122E60.cpp:
-	.text       start:0x80122E60 end:0x80122E9C
-
-pso/player/TObjPlayer_80122E9C.cpp:
-	.text       start:0x80122E9C end:0x80122ED8
-
-pso/unk/text_80122ED8.cpp:
-	.text       start:0x80122ED8 end:0x80122F3C
-
-pso/item/TItemEquipVariant_80122F3C.cpp:
-	.text       start:0x80122F3C end:0x80122F94
-
-pso/player/TObjPlayer_80122F94.cpp:
-	.text       start:0x80122F94 end:0x80122FEC
-
-pso/unk/text_80122FEC.cpp:
-	.text       start:0x80122FEC end:0x80123044
+pso/item/TUnk_804A1570.cpp:
+	.text       start:0x80122E60 end:0x80123044
+	.sdata2     start:0x805DACF8 end:0x805DAD08
 
 pso/player/TObjPlayer_80123044.cpp:
 	.text       start:0x80123044 end:0x801230D4

@@ -3425,6 +3425,7 @@ force_active:
   - ensure_field384__14TBoss6PlotFalzFv
   - enter_request_state__16TAdWarningBaseGCFv
   - enter_state_3__11TBoss4BishiFPv
+  - enter_state_513__13TUnk_804A1570Fv
   - enter_state_804F27E0__13TUnk_804F27E0FlPv
   - enter_timed_state__13TUnk_804F0810FlPv
   - ep2_area_gsl_filename_table
