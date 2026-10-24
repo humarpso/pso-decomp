@@ -2967,6 +2967,7 @@ force_active:
   - construct_targeted__10TTecRaFoieFPvPvPvPvi
   - construct_tec_barta_facing__FP9TTecBartaPvPvPvPv
   - construct_technique_disk_item__FPvPvPv
+  - construct_weapon_casing__10TObjPlayerFPUcPUcPUcPUcPUc
   - construct_with_index__22TObjFogCollisionPoisonFPUcl
   - construct_with_vtable__13TUnk_8049F40CFPvii
   - consume_counter__14TOTrapChainSawFPv
@@ -3270,6 +3271,7 @@ force_active:
   - draw_current_pic__10TEndingPicFv
   - draw_cursor__19TWindowSubMagPhotonFi
   - draw_cursor__22TWindowSubCustomSelectFPUc
+  - draw_dialing_status__12TAdDialingGCFv
   - draw_door_model__12TODoorCave01FPvii
   - draw_effect_chain__15TOTrapAncient02Fv
   - draw_entry__12TAdMultiOkGCFi
@@ -3920,6 +3922,7 @@ force_active:
   - handle_selection__24TShopEquipmentSellWindowFv
   - handle_sell_confirm__24TShopEquipmentSellWindowFv
   - handle_socket_event__10TUdpSocketFsPUc
+  - handle_state__12TAdDialingGCFv
   - handle_state__16TObjEneBm5GibonUFl
   - handle_state__17TObjEneBm3FlyNestFPvi
   - handle_state__17TObjEneDf2BringerFl
@@ -4015,6 +4018,7 @@ force_active:
   - init_ctrl_default__19TPlayerBattleCtrl4PFPv
   - init_cursor_record__15TBoss3VoloptP01Fv
   - init_default_fields__6TLobbyFv
+  - init_dialog__12TAdDialingGCFv
   - init_drop_table__9TItemDropFv
   - init_effect_flags__13TItemProArmorFv
   - init_effect_object__13TUnk_804EDD20Fv
@@ -4967,7 +4971,6 @@ force_active:
   - lbl_805DAE34
   - lbl_805DAE38
   - lbl_805DAE3C
-  - lbl_805DAE80
   - lbl_805DB08C
   - lbl_805DB090
   - lbl_805DB094
@@ -9992,6 +9995,7 @@ force_active:
   - refill_gstream_buffer__Fl
   - reflect_velocity_off_collision__13TUnk_804B8E18FPvPv
   - refresh__14TWindowSubItemFv
+  - refresh_display__12TAdDialingGCFv
   - refresh_item_list__20TShopArmorListWindowFPv
   - refresh_label__11TChCrEffTagFv
   - refresh_mail_list__19TWindowSubShortMailFPv
@@ -11582,6 +11586,7 @@ force_active:
   - update_destroy_countdown__18TObjChallengeRetryFv
   - update_destruction_countdown__6TLobbyFPv
   - update_detonation__10TTecRaFoieFPv
+  - update_dialing_display__12TAdDialingGCFi
   - update_direction__15TObjEneMe1GiGueFv
   - update_displayed_item__13TWindowSubMagFv
   - update_distance_state__16TObjEneMe3StelthFv
@@ -11781,6 +11786,8 @@ force_active:
   - update_state_resta_cast__16TObjEneMe3StelthFl
   - update_state_serial__22TAdMultiPlyChrSelectGCFPv
   - update_state_spin__10TObjPlayerFv
+  - update_status_display__12TAdDialingGCFv
+  - update_status_message__12TAdDialingGCFv
   - update_status_message__6TLobbyFPv
   - update_stream__15PSOV3EncryptionFv
   - update_stream_buffers__6TLobbyFv

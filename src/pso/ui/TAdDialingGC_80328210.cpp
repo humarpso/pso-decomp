@@ -1,9 +1,11 @@
+// ---- pso/ui/TAdDialingGC_80328210
 #include "types.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TLobby_803FAEA0.h"
 #include "pso/ui/TAdDialingGC_80328210.h"
 #include "pso/ui/TAdDialingGC.h"
+#include "pso/misc/TLobby_8013AD38.h"
 
 struct Stack_803286AC {
     s32 sp8;
@@ -25,8 +27,6 @@ struct Obj_803285C0 { u8 pad[0x20]; s32 mode; u8 pad2[0xC]; s16 state; };
 extern "C" {
 s32 create_guide_button(void *, void *, f32);
 s32 init_guide_button_params(void *);
-extern const f32 lbl_805DF6E4;
-extern const f32 lbl_805DF6E8;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_803284F8_lbl_8050E208 controller_input_state;
@@ -150,15 +150,13 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
     }
 }
 
-extern f32 lbl_805DF6E0;
-
 void TAdDialingGC::spawn_title_screen(s32) {
     if (!(this->m_a4 & 1)) {
         u32 temp_nw;
         if (((s32) this->m_1c == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
             __ct__10TAdTitleGCFP7TObjectl(temp_nw, this, 5);
         }
-        create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, 0x11, (f32)lbl_805DF6E0);
+        create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, 0x11, 0.0f);
         this->m_a4 = (s32) (this->m_a4 | 1);
     }
 }
@@ -237,11 +235,11 @@ void TAdDialingGC::show_guide_button() {
         init_guide_button_params(&stack.sp8);
         stack.sp8 = 1;
         stack.sp28 = get_localized_text_entry(0xF, 0x13);
-        stack.spC = lbl_805DF6E4;
-        stack.sp14 = lbl_805DF6E4;
-        stack.sp10 = lbl_805DF6E8;
-        stack.sp18 = lbl_805DF6E8;
-        create_guide_button(arg0, &stack.sp8, lbl_805DF6E4);
+        stack.spC = 485.0f;
+        stack.sp14 = 485.0f;
+        stack.sp10 = 421.0f;
+        stack.sp18 = 421.0f;
+        create_guide_button(arg0, &stack.sp8, 485.0f);
         this->m_a4 = (s32) (this->m_a4 | 2);
     }
 }
@@ -290,6 +288,171 @@ void TAdDialingGC::update() {
         }
         break;
     }
+}
+
+}
+
+// ---- pso/ui/TAdDialingGC_80328848
+
+struct Obj_80328874 { u8 pad[0x9C]; s32 state; };
+
+extern "C" {
+void refresh_display__12TAdDialingGCFv(void *);
+s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
+
+
+
+
+void TAdDialingGC::update_dialing_display(int _w0) {
+    ((s32 (*)())TAdDialingGC__sub_8013ADBC)();
+    render_status_disp__23TAdSinglePlyChrSelectGCFff(23.0f, 331.0f);
+}
+void TAdDialingGC::update_status_message() {
+    Obj_80328874 *arg0 = (Obj_80328874 *)this;
+    switch (this->m_9c) {
+    case 11:
+        TAdDialingGC::update_dialing_display(0x11);
+        return;
+    case 12:
+        TAdDialingGC::update_dialing_display(0x12);
+        return;
+    case 13:
+        TAdDialingGC::update_dialing_display(0x13);
+        return;
+    case 14:
+        refresh_display__12TAdDialingGCFv(arg0);
+        return;
+    case 8:
+        TAdDialingGC::update_dialing_display(0xF);
+        return;
+    case 15:
+        TAdDialingGC::update_dialing_display(0x16);
+        return;
+    default:
+        TAdDialingGC::update_dialing_display(0x10);
+        return;
+    }
+}
+
+}
+
+// ---- pso/ui/TAdDialingGC_80328904
+
+struct Obj_80328990 { u8 pad[0x9C]; u32 state; };
+
+extern "C" {
+
+void TAdDialingGC::handle_state() {
+
+    switch (this->m_9c) {
+    case 11:
+        TAdDialingGC::update_dialing_display(0x11);
+        return;
+    case 12:
+        TAdDialingGC::update_dialing_display(0x12);
+        return;
+    case 13:
+        TAdDialingGC::update_dialing_display(0x13);
+        return;
+    case 14:
+        refresh_display__12TAdDialingGCFv(this);
+        return;
+    case 15:
+        TAdDialingGC::update_dialing_display(0x16);
+        return;
+    default:
+        TAdDialingGC::update_dialing_display(0x10);
+        return;
+    }
+}
+void TAdDialingGC::update_status_display() {
+    Obj_80328990 *arg0 = (Obj_80328990 *)this;
+    switch (this->m_9c) {
+    case 1:
+        refresh_display__12TAdDialingGCFv(arg0);
+        return;
+    case 2:
+        TAdDialingGC::update_dialing_display(9);
+        return;
+    case 3:
+        TAdDialingGC::update_dialing_display(0xA);
+        return;
+    case 4:
+        TAdDialingGC::update_dialing_display(0xC);
+        return;
+    case 5:
+        TAdDialingGC::update_dialing_display(0xB);
+        return;
+    case 6:
+        TAdDialingGC::update_dialing_display(0xD);
+        return;
+    case 7:
+        TAdDialingGC::update_dialing_display(6);
+        return;
+    case 16:
+        TAdDialingGC::update_dialing_display(5);
+        return;
+    case 8:
+        TAdDialingGC::update_dialing_display(0xF);
+        return;
+    case 9:
+        TAdDialingGC::update_dialing_display(0x10);
+        return;
+    case 10:
+        TAdDialingGC::update_dialing_display(0x10);
+        return;
+    case 0:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 17:
+        return;
+    }
+}
+
+}
+
+// ---- pso/ui/TAdDialingGC_80328A4C
+
+extern "C" {
+
+int update_dialing_display__12TAdDialingGCFi(void*);
+
+int TAdDialingGC::refresh_display() { return update_dialing_display__12TAdDialingGCFi((void*)(8)); }
+
+}
+
+// ---- pso/ui/TAdDialingGC_80328A70
+
+extern "C" {
+
+s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
+
+
+
+
+void TAdDialingGC::init_dialog() {
+    TAdDialingGC__sub_8013ADBC(0);
+    render_status_disp__23TAdSinglePlyChrSelectGCFff(23.0f, 331.0f);
+}
+
+
+s32 fn_80145A44(void *);
+s32 call_146CA0_with_5708__6TLobbyFv();
+int sprintf(char *, const char *, ...);
+extern char lbl_804767C8[];
+void TAdDialingGC::draw_dialing_status() {
+    char a[0x20];
+    char c[0x100];
+    char b[0x100];
+    if (fn_80145A44(a) == 0) {
+        a[0] = 0;
+    }
+    sprintf(b, lbl_804767C8, a, call_146CA0_with_5708__6TLobbyFv());
+    sprintf(c, (char *)TAdDialingGC__sub_8013ADBC(1), b);
+    ((void (*)(void *, f32, f32))render_status_disp__23TAdSinglePlyChrSelectGCFff)(c, 23.0f, 351.0f);
 }
 
 }

@@ -3852,24 +3852,9 @@ pso/item/TItemEquipVariant_8012B198.cpp:
 pso/player/TObjPlayer_8012B1F0.cpp:
 	.text       start:0x8012B1F0 end:0x8012B200
 
-pso/item/TItemEquipVariant_8012B200.cpp:
-	.text       start:0x8012B200 end:0x8012B258
-
-pso/unk/text_8012B258.cpp:
-	.text       start:0x8012B258 end:0x8012B318
-	.sdata2     start:0x805DAE80 end:0x805DAE84
-
-pso/player/TObjPlayer_8012B318.cpp:
-	.text       start:0x8012B318 end:0x8012B3C4
-
-pso/unk/text_8012B3C4.cpp:
-	.text       start:0x8012B3C4 end:0x8012B4BC
-
-pso/player/TObjPlayer_8012B4BC.cpp:
-	.text       start:0x8012B4BC end:0x8012B524
-
-pso/unk/text_8012B524.cpp:
-	.text       start:0x8012B524 end:0x8012B618
+pso/item/TUnk_804A4D70.cpp:
+	.text       start:0x8012B200 end:0x8012B618
+	.sdata2     start:0x805DAE80 end:0x805DAEA8
 
 pso/player/TObjPlayer_8012B618.cpp:
 	.text       start:0x8012B618 end:0x8012B664
@@ -4061,27 +4046,10 @@ pso/unk/TUnk_804A5C18.cpp:
 pso/item/TItemEquipVariant_8012E190.cpp:
 	.text       start:0x8012E190 end:0x8012E1E8
 
-pso/unk/text_8012E1E8.cpp:
-	.text       start:0x8012E1E8 end:0x8012E32C
-
-pso/player/TObjPlayer_8012E32C.cpp:
-	.text       start:0x8012E32C end:0x8012E3B4
-
-pso/player/TObjPlayer_8012E3B4.cpp:
-	.text       start:0x8012E3B4 end:0x8012E414
-
-pso/unk/text_8012E414.cpp:
-	.text       start:0x8012E414 end:0x8012E550
+pso/player/TUnk_804A5D28.cpp:
+	.text       start:0x8012E1E8 end:0x8012E708
 	.rodata     start:0x8043E9B8 end:0x8043E9C0
-
-pso/player/TObjPlayer_8012E550.cpp:
-	.text       start:0x8012E550 end:0x8012E5A0
-
-pso/unk/text_8012E5A0.cpp:
-	.text       start:0x8012E5A0 end:0x8012E690
-
-pso/player/TObjPlayer_8012E690.cpp:
-	.text       start:0x8012E690 end:0x8012E708
+	.sdata2     start:0x805DAF70 end:0x805DAF94
 
 pso/unk/text_8012E708.cpp:
 	.text       start:0x8012E708 end:0x8012E760
@@ -4251,14 +4219,9 @@ pso/player/TObjPlayer_80130778.cpp:
 pso/player/TObjPlayer_8013085C.cpp:
 	.text       start:0x8013085C end:0x80130898
 
-pso/unk/text_80130898.cpp:
-	.text       start:0x80130898 end:0x80130AC4
-
-pso/item/TItemEquipVariant_80130AC4.cpp:
-	.text       start:0x80130AC4 end:0x80130B1C
-
-pso/player/TObjPlayer_80130B1C.cpp:
-	.text       start:0x80130B1C end:0x80130B98
+pso/item/TUnk_804A6AD8.cpp:
+	.text       start:0x80130898 end:0x80130B98
+	.sdata2     start:0x805DB008 end:0x805DB01C
 
 pso/unk/text_80130B98.cpp:
 	.text       start:0x80130B98 end:0x80130BF0
@@ -4266,14 +4229,9 @@ pso/unk/text_80130B98.cpp:
 pso/player/TObjPlayer_80130BF0.cpp:
 	.text       start:0x80130BF0 end:0x80130C2C
 
-pso/unk/text_80130C2C.cpp:
-	.text       start:0x80130C2C end:0x80130D84
-
-pso/item/TItemEquipVariant_80130D84.cpp:
-	.text       start:0x80130D84 end:0x80130DDC
-
-pso/player/TObjPlayer_80130DDC.cpp:
-	.text       start:0x80130DDC end:0x80130E48
+pso/item/TUnk_804A6BD0.cpp:
+	.text       start:0x80130C2C end:0x80130E48
+	.sdata2     start:0x805DB020 end:0x805DB034
 
 pso/unk/text_80130E48.cpp:
 	.text       start:0x80130E48 end:0x80130EA0
@@ -4658,11 +4616,9 @@ pso/misc/TWindowSubStatusDisp_80144B14.cpp:
 pso/ui/TAdSubPlyItemGC.cpp:
 	.text       start:0x8014572C end:0x80145750
 
-pso/unk/text_80145750.cpp:
-	.text       start:0x80145750 end:0x80145778
-
 pso/ui/TAdSinglePlyChrSelectGC_80145778.cpp:
-	.text       start:0x80145778 end:0x80145804
+	.text       start:0x80145750 end:0x80145804
+	.sdata2     start:0x805DB1A8 end:0x805DB1AC
 
 pso/unk/text_80145804.cpp:
 	.text       start:0x80145804 end:0x80145A28
@@ -9727,10 +9683,8 @@ pso/misc/TChCrCharSelect_80293D58.cpp:
 	.text       start:0x80293D58 end:0x80293D84
 
 pso/unk/text_80293D84.cpp:
-	.text       start:0x80293D84 end:0x80293F98
-
-pso/unk/text_80293F98.cpp:
-	.text       start:0x80293F98 end:0x8029400C
+	.text       start:0x80293D84 end:0x8029400C
+	.sdata2     start:0x805DD9E0 end:0x805DD9F8
 
 pso/misc/TChCrEffFade.cpp:
 	.text       start:0x8029400C end:0x8029427C
@@ -11525,22 +11479,9 @@ pso/unk/text_803281B8.cpp:
 	.text       start:0x803281B8 end:0x80328210
 
 pso/ui/TAdDialingGC_80328210.cpp:
-	.text       start:0x80328210 end:0x80328848
-	.data       start:0x804ED5E0 end:0x804ED628
-
-pso/ui/TAdDialingGC_80328848.cpp:
-	.text       start:0x80328848 end:0x80328904
-	.data       start:0x804ED628 end:0x804ED648
-
-pso/ui/TAdDialingGC_80328904.cpp:
-	.text       start:0x80328904 end:0x80328A4C
-	.data       start:0x804ED648 end:0x804ED690
-
-pso/ui/TAdDialingGC_80328A4C.cpp:
-	.text       start:0x80328A4C end:0x80328A70
-
-pso/ui/TAdDialingGC_80328A70.cpp:
-	.text       start:0x80328A70 end:0x80328B20
+	.text       start:0x80328210 end:0x80328B20
+	.data       start:0x804ED5E0 end:0x804ED690
+	.sdata2     start:0x805DF6E0 end:0x805DF6F8
 
 pso/ui/TAdDialingGC_80328B20.cpp:
 	.text       start:0x80328B20 end:0x80328C94
