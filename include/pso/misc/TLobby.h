@@ -684,7 +684,7 @@ struct TLobby : public TObject {
     static s32 mark_connection_closed(s16 arg0);
     static s32 abort_tcp_connection(s16 arg0);
     static s16 tcp_connect_start(s16 arg0, s32 arg1, s16 arg2);
-    static s32 validate_tcp_handle(s16 i);
+    static s16 validate_tcp_handle(s16 i);
     s32 close_if_open();
     s32 get_field_534();
     s32 get_field_d8();
@@ -779,16 +779,10 @@ struct TLobby : public TObject {
     static void clear_slot_for_handle(u32 arg0);
     static void lock_mutex(int _w0);
     static void signal_alarm_queue(void *alarm);
-    static void resume_thread();
+    static void resume_thread(s32 thread);
     void cancel_thread_if_running();
     static void deactivate_entry_by_key(u32 key);
     static s32 run_current_thread_callback();
-    static void append_string(u8 arg0);
-    static void compare_strn(u8 arg0);
-    static void compare_str(u8 arg0);
-    void copy_string(void *arg1);
-    static u32 str_length(s32 arg0);
-    static void memmove_wrapper();
     s32 check_connection_status();
     static s32 clear_flag_bit4(s32 arg0, u8 *arg1);
     void init_net_state_entry();

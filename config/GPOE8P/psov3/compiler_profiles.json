@@ -134,12 +134,6 @@
     "use_lmw_stmw": "on",
     "sdata2": 8
   },
-  "pso/unk/text_8041ED8C.cpp": {
-    "mw_version": "GC/1.2.5n",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
   "pso/ui/TAdPlayerLoadGC_803F18B8.cpp": {
     "mw_version": "GC/1.2.5",
     "optimization": "-O4,p",
@@ -1130,16 +1124,16 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/misc/TUdpSocket_80421178.cpp": {
-    "mw_version": "GC/1.2.5n",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
   "pso/boss/TBoss7LaserLight.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,s",
     "inline": "deferred",
+    "use_lmw_stmw": "on"
+  },
+  "pso/network/SocketProtocolRuntime.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
     "use_lmw_stmw": "on"
   }
 }

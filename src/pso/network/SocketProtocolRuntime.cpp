@@ -1,10 +1,7 @@
+#include "pso/protocol/NetworkRuntime.h"
+#include "pso/network/UdpRuntime.h"
 #include "types.h"
 #include "pso/misc/TLobby.h"
-
-struct RecoveredGlobal_80420C5C_lbl_805C1DF0 {
-    s16 value;
-    u8 remaining[0xE];
-};
 
 struct P_8041FDA0 { s32 a; s32 b; };
 
@@ -19,16 +16,6 @@ struct S_80420BD0 {
     u8 pad38[0x1FC - 0x38]; s32 f1FC; u8 pad200[4];
     u8 flag : 1; u8 rest : 7;
 };
-
-struct E_80420D38 { u8 pad0[4]; u16 f4; u8 pad6[8]; u16 fE; u8 pad10[0x30]; s32 f40; };
-
-struct G_80420D38 { s16 count; u8 pad2[6]; E_80420D38 *ents; };
-
-struct Addr_80420FC8 { u32 family; u8 a[0x10]; };
-
-struct E_80420FC8 { u8 pad0[4]; u16 f4; u8 f6[2]; u16 f8; s16 fA; s16 fC; u8 padE[2]; u16 f10; u8 pad12[2]; Addr_80420FC8 f14; Addr_80420FC8 f28; u8 pad3C[4]; s32 f40; };
-
-struct G_80420FC8 { s16 count; u8 pad2[6]; E_80420FC8 *ents; };
 
 struct Item_80420FC8 { s16 len; u8 pad2[2]; u8 data[8]; };
 
@@ -92,12 +79,6 @@ struct Obj_8041F11C {
 
 struct G_8041F11C { Obj_8041F11C *p; s16 n; u8 pad[0xA2]; };
 
-struct Addr_80420DE4 { u32 family; u8 a[0x10]; };
-
-struct E_80420DE4 { u8 pad0[4]; u16 f4; u8 f6[8]; u16 fE; u16 f10; u8 pad12[2]; Addr_80420DE4 f14; Addr_80420DE4 f28; s32 f3C; u8 pad40[4]; };
-
-struct G_80420DE4 { s16 count; u8 pad2[6]; E_80420DE4 *ents; };
-
 struct Hdr_80420DE4 { u16 src; u16 dst; u16 len; u16 sum; };
 
 struct O_80420DE4 { u8 pad0[8]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1A[2]; u8 f1C[4]; };
@@ -106,24 +87,20 @@ struct TcpSeqRange { u32 start; u32 end; };
 
 struct TcpSackView { u8 pad0[0xFA]; s16 last_reasm; TcpSeqRange reasm[32]; u8 pad1FC[0x2F8 - 0x1FC]; TcpSeqRange sack[5]; };
 
-struct E_80420C9C { u8 c0; u8 c1; u8 c2; u8 c3; s16 f4; u8 pad6[0x3E]; };
-struct G_80420C9C { s16 count; s16 f2; s16 f4; s16 f6; E_80420C9C *ents; };
 extern "C" {
 void TLobby__sub_803F87C8(u8 *arg0);
 s32 TLobby__sub_803F87C4(void *);
-extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
 void TLobby__sub_8041FED4(TcpSackView *tcb);
 void NetMemcpy(void *_w0, void *_w1, int _w2);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
-void TLobby__sub_80422E30(s16, s32, s32, s16);
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
 s16 dispatch_by_addr_family__6TLobbyFlPUcPUcPUcPvPv(void *, void *, void *, s32, s32, int);
 s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
 s16 select_source_address__6TLobbyFPvPv(void *, void *);
 s16 TLobby__sub_8040DA54(void *, void *);
 s16 is_addr_unspecified__6TLobbyFPv(void *);
-s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
+s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, NetworkAddress *src, NetworkAddress *dst, u16 port, s32 arg5);
 void TLobby__sub_8041F66C(O_8041F66C *o);
 void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
@@ -135,10 +112,8 @@ s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
 s16 compare_sockaddr__6TLobbyFPUc(void *, void *);
 s16 is_multicast_address__6TLobbyFs(void *, s32);
 s16 TLobby__sub_80421F10(void *, void *, void *, u16, s32, s16);
-s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3);
-RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
-
-typedef char RecoveredGlobal_80420C5C_lbl_805C1DF0_size[sizeof(RecoveredGlobal_80420C5C_lbl_805C1DF0) == 0x10 ? 1 : -1];
+s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, NetworkAddress *src, NetworkAddress *dst, s32 arg3);
+UdpRuntimeState udp_runtime_state;
 
 struct O_8041FE44;
 
@@ -232,7 +207,7 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
         }
     }
     if (self->fD8 == 0 && (self->fB & 8) && !(self->fB & 0x20)) {
-        TLobby__sub_80422E30((s16)(self - tcp_protocol_state.p), self->f2D0, 3, 3);
+        NetDispatchSocketEvent((s16)(self - tcp_protocol_state.p), self->f2D0, 3, 3);
         self->fB |= 0x20;
     }
     return 0;
@@ -245,7 +220,7 @@ s32 TLobby__sub_8041F11C(Obj_8041F11C *self) {
         set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -7);
     }
     if (self->fD8 == 0 && !(self->fB & 0x20)) {
-        TLobby__sub_80422E30((s16)(self - (*(G_8041F11C *)&tcp_protocol_state).p), self->f2D0, 3, 3);
+        NetDispatchSocketEvent((s16)(self - (*(G_8041F11C *)&tcp_protocol_state).p), self->f2D0, 3, 3);
         self->fB |= 0x20;
     }
     return 0;
@@ -391,39 +366,37 @@ s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2) {
 }
 
 s32 TLobby::reset_stack_module() {
-    TLobby__sub_803F87C4(&lbl_805C1DF0.value);
-    lbl_805C1DF0.value = 0;
+    TLobby__sub_803F87C4(&udp_runtime_state.count);
+    udp_runtime_state.count = 0;
     return 0;
 }
-#define G_ (*(G_80420C9C *)&lbl_805C1DF0)
 s32 TLobby::init_ucb_entries() {
     s16 i;
-    E_80420C9C *e;
+    UdpControlBlock *e;
 
-    TLobby__sub_803F87C8((u8 *)&G_);
-    e = G_.ents;
+    TLobby__sub_803F87C8((u8 *)&udp_runtime_state);
+    e = udp_runtime_state.entries;
     i = 0;
-    while (i < G_.count) {
-        e->c0 = 0x55;
-        e->c1 = 0x43;
-        e->c2 = 0x42;
-        e->c3 = i;
-        e->f4 = 0;
+    while (i < udp_runtime_state.count) {
+        e->signature[0] = 0x55;
+        e->signature[1] = 0x43;
+        e->signature[2] = 0x42;
+        e->index = i;
+        e->active = 0;
         i++;
         e++;
     }
-    G_.f2 = 0;
-    G_.f4 = 0x7FF;
-    G_.f6 = 0x400;
+    udp_runtime_state.ephemeralPort = 0;
+    udp_runtime_state.ephemeralPortEnd = 0x7FF;
+    udp_runtime_state.ephemeralPortStart = 0x400;
     return 0;
 }
-#undef G_
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1) {
     s16 i;
-    E_80420D38 *e;
-    G_80420D38 *g = (G_80420D38 *)&lbl_805C1DF0;
-    for (i = 0, e = g->ents; i < g->count; i++, e++) {
-        if (e->f4 != 0 && e->fE == arg0) {
+    UdpControlBlock *e;
+    UdpRuntimeState *g = &udp_runtime_state;
+    for (i = 0, e = g->entries; i < g->count; i++, e++) {
+        if (e->active != 0 && e->localPort == arg0) {
             s16 f = 0;
             if ((u8)(arg1 - 2) <= 1) {
                 f = 0x81;
@@ -431,7 +404,7 @@ s32 TLobby__sub_80420D38(u16 arg0, u8 arg1) {
                 f = 0x80;
             }
             if (f != 0) {
-                TLobby__sub_80422E30(i, e->f40, 2, f);
+                NetDispatchSocketEvent(i, e->eventCallback, 2, f);
             }
             break;
         }
@@ -450,50 +423,50 @@ inline void add_item_80420FC8(Pkt_80420FC8 *pkt, void *data, s32 len) {
     pkt->count++;
 }
 
-s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3) {
+s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, NetworkAddress *src, NetworkAddress *dst, s32 arg3) {
     u8 sp20[8];
     Hdr_80420DE4 hdr;
-    G_80420DE4 *g;
+    UdpRuntimeState *g;
     s16 i;
     s16 *plen;
-    E_80420DE4 *e;
+    UdpControlBlock *e;
     plen = &arg0->f18;
     ((TLobby *)sp20)->set_value_and_enable((s32)&hdr);
     TLobby__sub_80406FD8(sp20, plen + 2, 8);
     if (hdr.sum != 0 && (u16)TLobby__sub_8040D8F0(src, dst, 0x11, arg0, 0) != 0) {
         return -1;
     }
-    g = (G_80420DE4 *)&lbl_805C1DF0;
-    e = g->ents;
+    g = &udp_runtime_state;
+    e = g->entries;
     i = 0;
     while (i < g->count) {
-        if (e->f4 == 0) {
+        if (e->active == 0) {
             goto next;
         }
-        if (is_addr_unspecified__6TLobbyFPv(&e->f28) != 0) {
-            if (e->f28.family != 0 && e->f28.family != src->family) {
+        if (is_addr_unspecified__6TLobbyFPv(&e->remoteAddress) != 0) {
+            if (e->remoteAddress.family != 0 && e->remoteAddress.family != src->family) {
                 goto next;
             }
-        } else if (compare_sockaddr__6TLobbyFPUc(&e->f28, src) != 0) {
+        } else if (compare_sockaddr__6TLobbyFPUc(&e->remoteAddress, src) != 0) {
             goto next;
         }
-        if (is_addr_unspecified__6TLobbyFPv(&e->f14) != 0) {
-            if (e->f14.family != 0 && e->f14.family != dst->family) {
+        if (is_addr_unspecified__6TLobbyFPv(&e->localAddress) != 0) {
+            if (e->localAddress.family != 0 && e->localAddress.family != dst->family) {
                 goto next;
             }
-        } else if (compare_sockaddr__6TLobbyFPUc(&e->f14, dst) != 0) {
+        } else if (compare_sockaddr__6TLobbyFPUc(&e->localAddress, dst) != 0) {
             goto next;
         }
-        if (e->f10 != 0 && e->f10 != hdr.src) {
+        if (e->remotePort != 0 && e->remotePort != hdr.src) {
             goto next;
         }
-        if (e->fE != hdr.dst) {
+        if (e->localPort != hdr.dst) {
             goto next;
         }
         arg0->f8 -= 8;
         *plen -= 8;
         TLobby__sub_80406EB8(plen + 2, 8);
-        if (TLobby__sub_80421F10(arg0, src, dst, hdr.src, e->f3C, i) != 0) {
+        if (TLobby__sub_80421F10(arg0, src, dst, hdr.src, e->receiveCallback, i) != 0) {
             return -1;
         }
         return 0;
@@ -507,44 +480,166 @@ s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420D
     return -2;
 }
 
-s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5) {
+s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, NetworkAddress *src, NetworkAddress *dst, u16 port, s32 arg5) {
     s16 r;
-    E_80420FC8 *e;
-    if (id < 0 || id >= ((G_80420FC8 *)&lbl_805C1DF0)->count) {
+    UdpControlBlock *e;
+    if (id < 0 || id >= udp_runtime_state.count) {
         return -4;
     }
-    e = ((G_80420FC8 *)&lbl_805C1DF0)->ents;
+    e = udp_runtime_state.entries;
     e += id;
-    if (e->f4 == 0) {
+    if (e->active == 0) {
         return -4;
     }
-    if (is_addr_unspecified__6TLobbyFPv(&e->f28) == 0) {
-        dst = &e->f28;
+    if (is_addr_unspecified__6TLobbyFPv(&e->remoteAddress) == 0) {
+        dst = &e->remoteAddress;
     }
-    if (e->f14.family != 0) {
-        src = &e->f14;
+    if (e->localAddress.family != 0) {
+        src = &e->localAddress;
     }
     if (src->family != 0 && src->family != dst->family) {
         return -2;
     }
-    if (e->f10 != 0) {
-        e->f8 = e->f10;
+    if (e->remotePort != 0) {
+        e->destinationPort = e->remotePort;
     } else {
-        e->f8 = port;
+        e->destinationPort = port;
     }
     if (TLobby__sub_8040DA54(dst, src) == 0) {
-        TLobby__sub_80422E30(id, e->f40, 2, 0x80);
+        NetDispatchSocketEvent(id, e->eventCallback, 2, 0x80);
         return -6;
     }
     r = select_source_address__6TLobbyFPvPv(src, dst);
     if (r < 0) {
         return r;
     }
-    e->fA = pkt->len + 8;
-    add_item_80420FC8(pkt, e->f6, 8);
-    e->fC = 0;
-    e->fC = TLobby__sub_8040D8F0(src, dst, 0x11, pkt, 1);
+    e->length = pkt->len + 8;
+    add_item_80420FC8(pkt, &e->sourcePort, 8);
+    e->checksum = 0;
+    e->checksum = TLobby__sub_8040D8F0(src, dst, 0x11, pkt, 1);
     return dispatch_by_addr_family__6TLobbyFlPUcPUcPUcPvPv(pkt, dst, src, arg5 + 4, arg5 + 4, 0x11);
+}
+#pragma pop
+
+}
+
+extern "C" {
+s32 NetUdpClose(s16 id) {
+    if (id < 0 || id >= udp_runtime_state.count) return -4;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    entry += id;
+    if (!entry->active) return -4;
+    NetDispatchSocketEvent(id, entry->eventCallback, 2, 0xFF);
+    entry->active = 0;
+    return 0;
+}
+s16 NetUdpConnect(s16 id, NetworkAddress* remoteAddress, s32 port, s32 eventCallback, u32 receiveCallback) {
+    if (id < 0 || id >= udp_runtime_state.count) return -4;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    entry += id;
+    if (!entry->active) return -4;
+    if (entry->receiveCallback != 0) return -4;
+    if (remoteAddress->family != 0) {
+        NetMemcpy(&entry->remoteAddress, remoteAddress, sizeof(NetworkAddress));
+    } else {
+        NetMemset(&entry->remoteAddress, 0, sizeof(NetworkAddress));
+    }
+    entry->remotePort = port;
+    entry->destinationPort = port;
+    entry->eventCallback = eventCallback;
+    entry->receiveCallback = receiveCallback;
+    return 0;
+}
+
+s16 NetUdpBind(s16 id, NetworkAddress* localAddress, s32 port) {
+    if (id < 0 || id >= udp_runtime_state.count) return -4;
+    if (localAddress != NULL && NetValidateLocalAddress(localAddress) < 0) return -4;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    entry += id;
+    if (!entry->active) return -4;
+    if ((u16)port != 0) {
+        s16 index = 0;
+        UdpControlBlock* other = udp_runtime_state.entries;
+        for (; index < udp_runtime_state.count; index++, other++) {
+            if (other->active && other->localPort == (u16)port) return -3;
+        }
+    }
+    if (localAddress->family != 0) {
+        NetMemcpy(&entry->localAddress, localAddress, sizeof(NetworkAddress));
+    } else {
+        NetMemset(&entry->localAddress, 0, sizeof(NetworkAddress));
+    }
+    // Keep both narrowing casts to preserve MWCC's register allocation.
+    if ((u16)(s16)port != 0) {
+        entry->localPort = port;
+    } else {
+        entry->localPort = NetUdpAllocateEphemeralPort();
+    }
+    entry->sourcePort = entry->localPort;
+    return 0;
+}
+
+#pragma push
+#pragma opt_dead_assignments off
+s16 NetUdpCreate(void) {
+    s16 index = 0;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    for (; index < udp_runtime_state.count; index++, entry++) {
+        if (!entry->active) {
+            entry->signature[0] = 'U';
+            entry->signature[1] = 'C';
+            entry->signature[2] = 'B';
+            entry->index = index;
+            entry->active = 1;
+            entry->sourcePort = 0;
+            entry->destinationPort = 0;
+            entry->length = 0;
+            entry->checksum = 0;
+            entry->localPort = 0;
+            entry->remotePort = 0;
+            NetMemset(&entry->remoteAddress, 0, sizeof(NetworkAddress));
+            NetMemset(&entry->localAddress, 0, sizeof(NetworkAddress));
+            entry->receiveCallback = 0;
+            entry->eventCallback = 0;
+            return index;
+        }
+    }
+    return -0x104;
+}
+
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s16 IsUdpPortInUse(u16 port) {
+    s16 index = 0;
+    UdpControlBlock* entry = udp_runtime_state.entries;
+    for (; index < udp_runtime_state.count; index++, entry++) {
+        if (entry->active == 1 && port == entry->localPort) return 1;
+    }
+    return 0;
+}
+
+u16 NetUdpAllocateEphemeralPort() {
+    if (!udp_runtime_state.ephemeralPort) {
+        s32 tick;
+        NetStoreTick(&tick);
+        udp_runtime_state.ephemeralPort = udp_runtime_state.ephemeralPortStart;
+        udp_runtime_state.ephemeralPort |= tick & 0x3FF;
+    } else if (udp_runtime_state.ephemeralPort < udp_runtime_state.ephemeralPortEnd) {
+        udp_runtime_state.ephemeralPort++;
+    } else {
+        udp_runtime_state.ephemeralPort = udp_runtime_state.ephemeralPortStart;
+    }
+    while (IsUdpPortInUse(udp_runtime_state.ephemeralPort)) {
+        if (udp_runtime_state.ephemeralPort < udp_runtime_state.ephemeralPortEnd) {
+            udp_runtime_state.ephemeralPort++;
+        } else {
+            udp_runtime_state.ephemeralPort = udp_runtime_state.ephemeralPortStart;
+        }
+    }
+    return udp_runtime_state.ephemeralPort;
 }
 #pragma pop
 

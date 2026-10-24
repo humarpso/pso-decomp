@@ -239,6 +239,7 @@ pso/boss/TBoss6Type1_80320AE0.cpp
 pso/boss/TBoss6Type1_80323DCC.cpp
 pso/boss/TBoss6Type2_802B97E0.cpp
 pso/boss/TBoss6Type2_802B9858.cpp
+pso/boss/TBoss6Type2_802BE588.cpp
 pso/boss/TBoss6Type2_802BF558.cpp
 pso/boss/TBoss6Type2_8032E708.cpp
 pso/boss/TBoss6Type2_803309D8.cpp
@@ -2777,6 +2778,7 @@ pso/ui/TAdMultiSaveGC.cpp
 pso/ui/TAdMultiSaveGC_802FF0A0.cpp
 pso/ui/TAdMultiSaveGC_802FF14C.cpp
 pso/ui/TAdMultiSelGameModeGC_802D5098.cpp
+pso/ui/TAdPlayerLoadGC.cpp
 pso/ui/TAdPlayerLoadGC_80076BBC.cpp
 pso/ui/TAdPlayerLoadGC_800F9EF8.cpp
 pso/ui/TAdPlayerLoadGC_802D6348.cpp

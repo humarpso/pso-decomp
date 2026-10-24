@@ -103,6 +103,14 @@ void TBoss6Type2::update_rock_spawn_state() {
     select_next_state();
 }
 
+void TBoss6Type2__sub_802BE738(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x4D4);
+    *(s32 *)((s8 *)arg0 + 0x45C) = temp_r0;
+    *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
+    *(s32 *)((s8 *)arg0 + 0x420) = (s32) (*(s32 *)((s8 *)arg0 + 0x420) + 1);
+}
+
 void TBoss6Type2::tick_timer_0x460() {
     s32 temp_r0;
 
@@ -486,14 +494,6 @@ void update_death_sequence__11TBoss6Type2FPv(u8 *boss6_type2) {
 void TBoss6Type2__sub_802BF3F4(void* p) { if (*(int*)((char*)p + 0x460) == 45) { TBoss6Type2::drop_random_rocks((s32)p, (s32)((void*)0)); } }
 
 extern "C" {
-
-void TBoss6Type2__sub_802BE738(u8 *arg0) {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x4D4);
-    *(s32 *)((s8 *)arg0 + 0x45C) = temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x420) = (s32) (*(s32 *)((s8 *)arg0 + 0x420) + 1);
-}
 
 void TBoss6Type2::init_timers_and_copy_pos() {
     u8 *arg0 = (u8 *)this;
