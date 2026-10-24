@@ -1518,7 +1518,7 @@ pso/enemy/TObjEneRe7Berura_8009358C.cpp:
 pso/enemy/TObjEneRe7Berura.cpp:
 	.text       start:0x80094994 end:0x80095E18
 	.data       start:0x8048F650 end:0x8048F930
-	.bss        start:0x805007C8 end:0x805007D4
+	.bss        start:0x805007C8 end:0x805008A4
 
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp:
 	.text       start:0x80095E18 end:0x80095EA0
@@ -8091,7 +8091,7 @@ pso/misc/TWindowSubStatusDisp.cpp:
 pso/unk/text_80223B98.cpp:
 	.text       start:0x80223B98 end:0x8022448C
 	.rodata     start:0x8044C468 end:0x8044C478
-	.sdata2     start:0x805DC730 end:0x805DC738
+	.sdata2     start:0x805DC730 end:0x805DC734
 
 pso/misc/ShopToolStock.cpp:
 	.text       start:0x8022448C end:0x80224660
@@ -13377,6 +13377,7 @@ PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp:
 
 pso/unk/text_8039739C.cpp:
 	.text       start:0x8039739C end:0x80397454
+	.rodata     start:0x8047BA20 end:0x8047BA91
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c:
 	.text       start:0x80397454 end:0x80397520

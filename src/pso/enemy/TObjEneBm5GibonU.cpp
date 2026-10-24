@@ -4810,3 +4810,5 @@ s32 TObjEneBm5GibonU::try_activate() {
 #undef update_movement_status__13TUnk_804806E8Fv
 #undef obj_getField1c
 #pragma pop
+
+__declspec(section ".ctors") static void *const __sinit_TObjEneBm5GibonU_cpp_ref = (void *)TObjEneBm5GibonU::register_global_objects;

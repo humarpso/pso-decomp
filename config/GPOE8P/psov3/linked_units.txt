@@ -298,6 +298,7 @@ pso/boss/TObjBoss1Crater.cpp
 pso/boss/TObjBoss1Crater_8002C6B4.cpp
 pso/boss/TObjBoss1Floor.cpp
 pso/boss/TObjBoss2CeilJunk.cpp
+pso/boss/TObjBoss2CeilJunk_8003A81C.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
 pso/boss/TObjBoss2Dust.cpp
 pso/boss/TObjBoss2DustCtrl.cpp
@@ -366,6 +367,7 @@ pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
 pso/enemy/TObjEneBeast.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest.cpp
+pso/enemy/TObjEneBm5GibonU.cpp
 pso/enemy/TObjEneBm5Wolf.cpp
 pso/enemy/TObjEneBm9Mericarol_802CECE0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
@@ -453,6 +455,7 @@ pso/enemy/TObjEneRe2Flower_800C4B78.cpp
 pso/enemy/TObjEneRe4Bit.cpp
 pso/enemy/TObjEneRe4Sorcerer_800EDB98.cpp
 pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
+pso/enemy/TObjEneRe7Berura.cpp
 pso/enemy/TObjEneRe7BeruraPunch.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp
@@ -3448,6 +3451,7 @@ pso/unk/text_80222C28.cpp
 pso/unk/text_80222DE8.cpp
 pso/unk/text_802233F8.cpp
 pso/unk/text_8022350C.cpp
+pso/unk/text_80223B98.cpp
 pso/unk/text_80225CD8.cpp
 pso/unk/text_802264B8.cpp
 pso/unk/text_80228C54.cpp
@@ -3732,6 +3736,7 @@ pso/unk/text_8036C9D8.cpp
 pso/unk/text_8036D0C0.cpp
 pso/unk/text_8036F764.cpp
 pso/unk/text_80396328.cpp
+pso/unk/text_8039739C.cpp
 pso/unk/text_803C1668.cpp
 pso/unk/text_803CBCA0.cpp
 pso/unk/text_803CBCF8.cpp
