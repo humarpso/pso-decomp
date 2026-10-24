@@ -8776,27 +8776,9 @@ pso/misc/TWindowCtrl_8024C6CC.cpp:
 	.text       start:0x8024C6CC end:0x8024C820
 
 pso/misc/TWindowCtrlMain_8024C820.cpp:
-	.text       start:0x8024C820 end:0x8024C8A4
-
-pso/misc/TWindowCtrlClipOut.cpp:
-	.text       start:0x8024C8A4 end:0x8024C98C
-
-pso/ui/TWindowCtrlSub.cpp:
-	.text       start:0x8024C98C end:0x8024CA5C
+	.text       start:0x8024C820 end:0x8024D368
 	.data       start:0x804CEAD0 end:0x804CEAE8
 	.sdata      start:0x805D38D8 end:0x805D38DC
-
-pso/misc/TWindowCtrlScreen_8024CA5C.cpp:
-	.text       start:0x8024CA5C end:0x8024CB30
-
-pso/misc/TWindowCtrlScreen.cpp:
-	.text       start:0x8024CB30 end:0x8024CB74
-
-pso/misc/TWindowCtrlMain_8024CB74.cpp:
-	.text       start:0x8024CB74 end:0x8024CB7C
-
-pso/misc/TWindowCtrlMain_8024CB7C.cpp:
-	.text       start:0x8024CB7C end:0x8024D368
 	.sdata2     start:0x805DCC18 end:0x805DCC58
 
 pso/misc/TWindowCtrlMain.cpp:

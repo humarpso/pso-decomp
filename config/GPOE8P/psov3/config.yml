@@ -1146,6 +1146,8 @@ force_active:
   - TWindowComCard__sub_80249E80
   - TWindowComCard__window_desc
   - TWindowComCard__window_desc_b
+  - TWindowCtrlMain__sub_8024CE34
+  - TWindowCtrlMain__sub_8024D2A4
   - TWindowCtrlSub__name
   - TWindowCtrl__sub_8024DAAC
   - TWindowCtrl__sub_8026D4E8
@@ -3241,6 +3243,7 @@ force_active:
   - draw_lights__20TODoorFourLightSpaceFv
   - draw_line_strip__10TObjPlayerFPviif
   - draw_locked__8TObjDoorFPv
+  - draw_menu_backdrop_gradients__Fl
   - draw_model_12__25TBoss6Demo20_TYPE2_APPEARFv
   - draw_model_13__23TBoss6Demo21_TYPE2_DEADFv
   - draw_model__12TObjComputerFv
@@ -3746,6 +3749,7 @@ force_active:
   - get_type__23TAdSinglePlyChrSelectGCFPv
   - get_vidlist
   - get_viewport_offset__19TWindowKeyBoardSoftFi
+  - get_window_control_state__Fl
   - gi_gue_njm_name_table
   - gibon_collision_body_templates
   - gibon_u_animation_file_table
@@ -11516,6 +11520,7 @@ force_active:
   - update_fade__12TChCrEffFadeFv
   - update_fade__13TObjLobbyMainFv
   - update_fade__18TObjButterflyLobbyFv
+  - update_fade_alphas__15TWindowCtrlMainFv
   - update_fade_in__13TObjLobbyMainFv
   - update_fade_out__12TBoss4ThanksFv
   - update_fade_out__12TBoss6ThanksFv

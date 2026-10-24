@@ -1648,16 +1648,12 @@ pso/misc/TWindowChoiceSetting_80249610.cpp
 pso/misc/TWindowComCard.cpp
 pso/misc/TWindowCost.cpp
 pso/misc/TWindowCtrl.cpp
-pso/misc/TWindowCtrlClipOut.cpp
 pso/misc/TWindowCtrlMain.cpp
 pso/misc/TWindowCtrlMain_800FC91C.cpp
 pso/misc/TWindowCtrlMain_8024674C.cpp
 pso/misc/TWindowCtrlMain_8024C820.cpp
-pso/misc/TWindowCtrlMain_8024CB74.cpp
 pso/misc/TWindowCtrlMain_8024EEF8.cpp
 pso/misc/TWindowCtrlPlayer.cpp
-pso/misc/TWindowCtrlScreen.cpp
-pso/misc/TWindowCtrlScreen_8024CA5C.cpp
 pso/misc/TWindowCtrl_8006E85C.cpp
 pso/misc/TWindowCtrl_800FD868.cpp
 pso/misc/TWindowCtrl_80145A28.cpp
@@ -2888,7 +2884,6 @@ pso/ui/TObjDFYutai.cpp
 pso/ui/TObjLiveCameraCtrl.cpp
 pso/ui/TObjLiveMonitor.cpp
 pso/ui/TObjNewFloorWin.cpp
-pso/ui/TWindowCtrlSub.cpp
 pso/ui/TWindowRoom.cpp
 pso/ui/TWindowSubTradeMessage.cpp
 pso/unk/text_8000F740.cpp
