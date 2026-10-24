@@ -41,7 +41,7 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
     virtual s8 m31();
 };
 
-int set_position_from__14TBoss4DarkFalzFPv(void*);
+int set_position_from__14TBoss4DarkFalzFPv(void *, void *);
 s32 advance_item_id_counter();
 void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
 void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
@@ -101,7 +101,7 @@ s32 rotate_matrix_y(int, int);
 void TObjPlayer__sub_801D877C(u8 *arg0);
 void TObjPlayer__sub_801D8864(void);
 
-int TObjPlayer::query_darkfalz_state() { return set_position_from__14TBoss4DarkFalzFPv(this); }
+int TObjPlayer::set_position_from(void *pos) { return set_position_from__14TBoss4DarkFalzFPv(this, pos); }
 int TObjPlayer::set_animation_default() { return set_animation__10TObjMotionFs(this); }
 
 struct Player_801D88C8;

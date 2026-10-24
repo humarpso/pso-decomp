@@ -5,6 +5,7 @@
 
 class TUnk_80480938 : public TObject {
 public:
+    TUnk_80480938(TObject *parent);
     virtual ~TUnk_80480938();
     virtual void render();
     virtual void run_task();
