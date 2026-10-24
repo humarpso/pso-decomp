@@ -213,6 +213,9 @@ struct Req_803EEF2C {
     s16 len;
     u8 pad6;
     u8 x7;
+    u8 x8;
+    u8 pad9[3];
+    u8 *text;
 };
 
 struct File_803F09FC {
@@ -419,6 +422,8 @@ char *strncpy(char *, const char *, u32);
 s32 TQuestVmDownLoadServer__sub_803E8DA0(char *, Req_803EEF2C *, s32);
 extern s32 lbl_805D7900;
 s32 TQuestVmDownLoadServer__sub_803EEF2C(Req_803EEF2C *arg0);
+void TQuestVmDownLoadServer__sub_803E8924(s32 id);
+void TQuestVmDownLoadServer__sub_803EF8E0(u8 *p);
 extern u32 lbl_805D7910;
 extern File_803F09FC lbl_805D7914;
 extern u8 lbl_80591AC4[];
@@ -447,6 +452,7 @@ s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len,
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *req, u32 owner, u32 type, u32 prio, u32 src, u32 dst, u32 len, void (*cb)(u8 *));
 u32 OSGetTick(void);
+u32 __OSBusClock : 0x800000F8;
 void *memcpy(void *, const void *, u32);
 void OSReport(const char *, ...);
 void ARQRemoveRequest(void *);
@@ -967,6 +973,13 @@ u32 TQuestVmDownLoadServer::acquire_slot_entry(s32 arg0, s32 arg1, s32 arg2, s32
     return free_idx;
 }
 
+void TQuestVmDownLoadServer__sub_803E79AC(void) {
+    int i;
+    for (i = 0; i < 0x80; i++) {
+        quest_download_slot_table[i].cnt = 0;
+    }
+}
+
 struct Page_803E7B9C {
     s32 page;
     s32 dirty;
@@ -1172,6 +1185,31 @@ s32 TQuestVmDownLoadServer::find_name_index() {
         return lo - 1;
     }
     return lo;
+}
+
+void TQuestVmDownLoadServer__sub_803E7F9C(u8 *text, s16 mode) {
+    u8 c = *text;
+    s32 col;
+    s32 row;
+    u8 *p;
+    s32 index;
+    if (c < 0xA1) {
+        return;
+    }
+    p = text + 1;
+    row = c - 0xA1;
+    if (mode == 1) {
+        col = 0;
+    } else {
+        u8 d = *p;
+        if (d < 0xA1) {
+            return;
+        }
+        col = d - 0xA0;
+    }
+    index = row * 11 + (col >> 3);
+    lbl_805D7824[index] |= 1 << (col & 7);
+    lbl_805D7820 = 1;
 }
 
 s32 TQuestVmDownLoadServer::is_char_allowed(s16 arg1) {
@@ -2193,6 +2231,67 @@ s32 TQuestVmDownLoadServer__sub_803EB0D8(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline Node_803EB794 *advance_entry_groups(Node_803EB794 *p, s32 n) {
+    while (n-- != 0) {
+        while (p->flags & 1) {
+            p = p->next;
+        }
+        p = p->next;
+    }
+    return p;
+}
+inline s32 count_fitting_groups(Node_803EB794 *head) {
+    Node_803EB794 *p;
+    s32 n;
+    s32 total;
+    s32 limit;
+    if (head == NULL) {
+        return 0;
+    }
+    p = head;
+    n = total = 0;
+    limit = lbl_805D78A4 - 9;
+    while (n < 9 && p != NULL) {
+        total += TQuestVmDownLoadServer__sub_803EB7C0((Node_803EB7C0 *)p) + 3;
+        if (total > limit) {
+            break;
+        }
+        n++;
+        while (p->flags & 1) {
+            p = p->next;
+        }
+        p = p->next;
+    }
+    if (n == 0) {
+        return 1;
+    }
+    return n;
+}
+s32 TQuestVmDownLoadServer__sub_803EB208(s32 mode, s32 force) {
+    Node_803EB794 *save = lbl_805D78A0;
+    s32 count;
+    lbl_805D78A0 = advance_entry_groups(save, lbl_805D789C);
+    count = count_fitting_groups(lbl_805D78A0);
+    if (count == 0) {
+        if (force == 0) {
+            lbl_805D78A0 = save;
+            return 0;
+        }
+        TQuestVmDownLoadServer__sub_803EC284(0, 0);
+    } else {
+        lbl_805D789C = count;
+    }
+    lbl_805D7898 = 0;
+    if (mode == 1) {
+        TQuestVmDownLoadServer__sub_803EB4D4();
+    }
+    return 1;
+}
+#pragma pop
+
 s32 count_fitting_entries__22TQuestVmDownLoadServerFPv(Node_803EB328 *arg0) {
     s32 n;
     s32 total;
@@ -2412,6 +2511,27 @@ void TQuestVmDownLoadServer__sub_803EBA98(s32 start, Node_803EBA98 *arg1) {
         quest_download_text_write_ptr += len;
         arg1 = Next_803EBA98(arg1);
     }
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline Node_803ECD54 *build_entry_text(s32 idx, s32 len, s32 mode) {
+    void *first;
+    void *tail;
+    Src_803EBD38 *src = (Src_803EBD38 *)quest_download_text_buffer;
+    src->x0 = 0xFFFF;
+    src->x2 = 0;
+    src->x4 = 0;
+    TQuestVmDownLoadServer__sub_803E6B70(src->text, idx, len, mode);
+    return (Node_803ECD54 *)TQuestVmDownLoadServer::build_text_node_chain(src, NULL, len, &first, &tail);
+}
+
+void TQuestVmDownLoadServer__sub_803EBC88(s32 mode) {
+    Obj_803EADD4 *e = &((Obj_803EADD4 *)quest_download_slot_chain_table)[lbl_805D78F0];
+    ((TQuestVmDownLoadServer *)e->xc)->free_node_list();
+    e->xc = build_entry_text(lbl_805D78F0, lbl_805D78EC, mode);
 }
 #pragma pop
 
@@ -2907,6 +3027,21 @@ s32 TQuestVmDownLoadServer__sub_803EC8D8(u16 arg0) {
     default:
         return TQuestVmDownLoadServer::lookup_value_by_key(arg0);
     }
+}
+
+s32 TQuestVmDownLoadServer__sub_803EC95C(u16 *out, u8 *text, int attr) {
+    u16 *dst = out;
+    u8 c;
+    while ((c = *text) != 0) {
+        if (c < 0x80 || (c >= 0xA0 && c < 0xE0)) {
+            dst += TQuestVmDownLoadServer::encode_char_with_attr(dst, *text++, attr);
+        } else {
+            u16 ch = (c << 8) | text[1];
+            dst += TQuestVmDownLoadServer::encode_char_with_attr(dst, ch, attr);
+            text += 2;
+        }
+    }
+    return dst - out;
 }
 
 void TQuestVmDownLoadServer__sub_803ECA1C(u16 *arg0, s32 arg1, s32 arg2) {
@@ -3760,6 +3895,61 @@ s32 TQuestVmDownLoadServer__sub_803EED9C(u32 arg0) {
     return 3;
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline void release_index_entries(s32 *ids, s32 n) {
+    s32 i;
+    s32 a;
+    s32 b;
+    s32 c;
+    for (i = 0; i < n; i++) {
+        s32 page = TQuestVmDownLoadServer__sub_803E779C(ids[i], &a, &b, &c);
+        if (page != -1) {
+            if (a != -1) {
+                TQuestVmDownLoadServer__sub_803EF8E0(get_cached_page__22TQuestVmDownLoadServerFi(page) + a);
+                TQuestVmDownLoadServer::set_active();
+            }
+            if (b != -1) {
+                TQuestVmDownLoadServer__sub_803EF8E0(TQuestVmDownLoadServer::get_buffer_ptr(b));
+                TQuestVmDownLoadServer__sub_803E8918();
+            }
+        }
+    }
+}
+inline s32 is_digit_string(u8 *s) {
+    for (; *s != 0; s++) {
+        if (*s < 0x30 || *s > 0x39) {
+            return 0;
+        }
+    }
+    return 1;
+}
+s32 TQuestVmDownLoadServer__sub_803EEDC0(Req_803EEF2C *req, s32 *ids, s32 n) {
+    char buf[0x50];
+    s32 v;
+    if (lbl_805D7900 == 0) {
+        return 3;
+    }
+    if (lbl_805D7904 == -1) {
+        return -3;
+    }
+    strncpy(buf, req->name, req->len);
+    buf[req->len] = 0;
+    if (is_digit_string((u8 *)buf)) {
+        req->x7 = 0x1F;
+    }
+    v = ((TQuestVmDownLoadServer *)ids)->get_max_size_of_indices(n) + 1;
+    if (v == 0xFF) {
+        release_index_entries(ids, n);
+        v = 1;
+    }
+    TQuestVmDownLoadServer__sub_803E8DA0(buf, req, v);
+    TQuestVmDownLoadServer::set_slot_values_for_indices(ids, n, v);
+    return 3;
+}
+#pragma pop
+
 s32 TQuestVmDownLoadServer__sub_803EEF2C(Req_803EEF2C *arg0) {
     char buf[0x50];
     if (lbl_805D7900 == 0) {
@@ -3776,6 +3966,156 @@ s32 TQuestVmDownLoadServer__sub_803EEF2C(Req_803EEF2C *arg0) {
     TQuestVmDownLoadServer__sub_803E8DA0(buf, arg0, 1);
     return 3;
 }
+
+inline u8 *skip_entry_text(u8 *p, u8 *end) {
+    for (; p < end; p += 2) {
+        if (*p <= 0x38) {
+            break;
+        }
+    }
+    return p;
+}
+
+inline void shift_bytes(u8 *p, u8 *end, s32 delta) {
+    u8 *s;
+    if (delta > 0) {
+        for (s = end - 1; p <= s; s--) {
+            s[delta] = *s;
+        }
+    } else if (delta < 0) {
+        for (; p < end; p++) {
+            p[delta] = *p;
+        }
+    }
+}
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+s32 TQuestVmDownLoadServer__sub_803EEFC8(u8 *rec, Req_803EEF2C *msg) {
+    s32 len;
+    s32 size;
+    u8 *data;
+    u8 *end;
+    u8 *start;
+    u8 *text;
+    s32 d;
+    s32 n;
+    u8 buf[0x80];
+    TQuestVmDownLoadServer::copy_sjis_string(msg->text, buf);
+    len = TQuestVmDownLoadServer::calc_sjis_string_width(msg->text);
+    buf[len] = 0;
+    data = rec;
+    size = (u16)(rec[0] + (rec[1] << 8));
+    end = rec + size;
+    rec = rec + 3 + rec[2];
+    while ((start = rec) < end) {
+        rec += 2;
+        if (*rec <= 0xB) {
+            rec++;
+        }
+        text = rec;
+        rec = skip_entry_text(rec, end);
+        n = rec - text;
+        if (start[0] == msg->x7 && n == len && strncmp((char *)text, (char *)buf, n) == 0) {
+            break;
+        }
+    }
+    d = rec - start;
+    if (d > 0) {
+        if (start == data + 3 + data[2] && rec == end) {
+            return -1;
+        }
+        shift_bytes(rec, end, -d);
+        data[0] = (size - d) % 256;
+        data[1] = (size - d) / 256;
+    }
+    return d;
+}
+#pragma pop
+
+void TQuestVmDownLoadServer__sub_803EF8E0(u8 *p) {
+    u8 *end = p + (u16)(p[0] + (p[1] << 8));
+    p = p + 3 + p[2];
+    while (p < end) {
+        p[1] = 0;
+        p += 2;
+        if (*p <= 0xB) {
+            p++;
+        }
+        for (; p < end; p += 2) {
+            if (*p <= 0x38) {
+                break;
+            }
+        }
+    }
+}
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+s32 TQuestVmDownLoadServer__sub_803EF958(u32 id, u16 key, s32 *ids, s32 n) {
+    s32 page;
+    u8 *base;
+    u8 *p;
+    u16 off;
+    if (lbl_805D7900 == 0) {
+        return 3;
+    }
+    if (lbl_805D7904 == -1) {
+        return -3;
+    }
+    if (id == 0xFFFFFFFF && key <= 3) {
+        lbl_805D78FC = key;
+        release_index_entries(ids, n);
+        TQuestVmDownLoadServer::set_slot_values_for_indices(ids, n, 0);
+        return 3;
+    }
+    {
+        s32 a;
+        s32 b;
+        s32 v;
+        page = TQuestVmDownLoadServer__sub_803E779C(id, &a, &b, &v);
+        if (page == -1) {
+            return 0;
+        }
+        off = key;
+        if (key & 0x8000) {
+            if (b == -1) {
+                return 0;
+            }
+            base = TQuestVmDownLoadServer::get_buffer_ptr(b);
+        } else {
+            if (a == -1) {
+                return 0;
+            }
+            base = get_cached_page__22TQuestVmDownLoadServerFi(page) + a;
+        }
+        v = ((TQuestVmDownLoadServer *)ids)->get_max_size_of_indices(n);
+        p = base + (off & ~0x8000) + 1;
+        if (*p != 0 && *p == v) {
+            if (key & 0x8000) {
+                TQuestVmDownLoadServer__sub_803E8924(b);
+                TQuestVmDownLoadServer__sub_803E8918();
+            }
+            return 3;
+        }
+        if (++v == 0xFF) {
+            release_index_entries(ids, n);
+            v = 1;
+        }
+        *p = v;
+        if (key & 0x8000) {
+            TQuestVmDownLoadServer__sub_803E8924(b);
+            TQuestVmDownLoadServer__sub_803E8918();
+        } else {
+            TQuestVmDownLoadServer::set_active();
+        }
+        TQuestVmDownLoadServer::set_slot_values_for_indices(ids, n, v);
+        return 3;
+    }
+}
+#pragma pop
 
 u8 *TQuestVmDownLoadServer::find_insert_position(s32 key, s32 n, s32 len) {
     u8 *p = (u8 *)this;
@@ -3800,6 +4140,53 @@ u8 *TQuestVmDownLoadServer::find_insert_position(s32 key, s32 n, s32 len) {
     }
     return p;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+void TQuestVmDownLoadServer__sub_803EFCB4(u8 *data, s32 key, s32 sub_key, s32 *cnt, s32 *total, u8 *buf, s32 flags) {
+    u8 *p;
+    u8 *end;
+    u8 *rec;
+    s32 size;
+    u8 *text;
+    Src_803EBD38 *out;
+    s32 sub;
+    s32 value;
+    u8 unused[8];
+    end = data + (u16)(data[0] + (data[1] << 8));
+    p = data + 3 + data[2];
+    while (p < end) {
+        rec = p;
+        value = p[1];
+        p += 2;
+        if (*p <= 0xB) {
+            sub = *p;
+            p++;
+        } else {
+            sub = 0;
+        }
+        if (key == rec[0] && sub_key == sub) {
+            size = TQuestVmDownLoadServer::count_entries_until_terminator(p, end) + 6;
+            if (size & 1) {
+                size++;
+            }
+            out = (Src_803EBD38 *)((TQuestVmDownLoadServer *)buf)->find_insert_position(value, size, *total);
+            out->x0 = flags | (rec - data);
+            text = rec + 2;
+            out->x2 = rec[1];
+            out->x4 = 0;
+            if (rec[2] <= 0xB) {
+                text++;
+            }
+            TQuestVmDownLoadServer::unescape_copy_string(out->text, text, end);
+            *total += size;
+            (*cnt)++;
+        }
+        p = skip_entry_text(p, end);
+    }
+}
+#pragma pop
 
 s32 TQuestVmDownLoadServer::read_quest_chunk(u32 id, u8 a1, u8 a2, u8 *buf, s32 *out) {
     s32 a;
@@ -3829,6 +4216,53 @@ s32 TQuestVmDownLoadServer::read_quest_chunk(u32 id, u8 a1, u8 a2, u8 *buf, s32 
         return 0;
     }
     return 1;
+}
+
+void TQuestVmDownLoadServer__sub_803EFF20(u8 *data, s32 key, s32 sub_key, s32 *best, u8 *dst, s32 flags) {
+    u8 *p;
+    u8 *rec;
+    u8 *end;
+    u8 *found;
+    u8 *text;
+    Src_803EBD38 *out;
+    u8 unused[8];
+    s32 start_best;
+    s32 sub;
+    s32 value;
+    start_best = *best;
+    end = data + (u16)(data[0] + (data[1] << 8));
+    p = data + 3 + data[2];
+    while (p < end) {
+        rec = p;
+        value = p[1];
+        p += 2;
+        if (*p <= 0xB) {
+            sub = *p;
+            p++;
+        } else {
+            sub = 0;
+        }
+        if (key == rec[0] && sub_key == sub && value > *best) {
+            found = rec;
+            *best = value;
+        }
+        for (; p < end; p += 2) {
+            if (*p <= 0x38) {
+                break;
+            }
+        }
+    }
+    if (*best > start_best) {
+        out = (Src_803EBD38 *)dst;
+        out->x0 = flags | (found - data);
+        text = found + 2;
+        out->x2 = found[1];
+        out->x4 = 0;
+        if (found[2] <= 0xB) {
+            text++;
+        }
+        TQuestVmDownLoadServer::unescape_copy_string(out->text, text, end);
+    }
 }
 
 s32 TQuestVmDownLoadServer__sub_803F0048(s32 id, u8 a1, u8 a2, void *dst) {
@@ -3926,6 +4360,122 @@ s32 TQuestVmDownLoadServer__sub_803F0268(const char *name, s16 len, Out_803F0268
         out->count = TQuestVmDownLoadServer__sub_803F03B4(i2.p, out->ents, out->count, &max);
     }
     out->x4 = r = TQuestVmDownLoadServer::acquire_slot_entry(i1.id, i1.off, i2.off, max);
+    if (r == 0xFFFFFFFF) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 TQuestVmDownLoadServer__sub_803F0500(u8 *name, s16 len, Out_803E8C2C *out) {
+    s16 blen;
+    s16 cnt;
+    s16 pre;
+    s32 idx;
+    s32 first;
+    u8 *page;
+    u8 *p;
+    u8 *found;
+    u8 n;
+    first = 1;
+    out->pre = 0;
+    out->len = 0;
+    idx = ((TQuestVmDownLoadServer *)name)->find_name_index();
+    if (((TQuestVmDownLoadServer *)idx)->has_name_mismatch(name) == 0) {
+        return 2;
+    }
+    pre = 0;
+    for (;;) {
+        page = get_cached_page__22TQuestVmDownLoadServerFi(idx);
+        p = page;
+        cnt = TQuestVmDownLoadServer::count_matching_name_prefix(idx, name);
+        blen = 0;
+        for (; (u16)(p[0] + (p[1] << 8)) != 0; p += (u16)(p[0] + (p[1] << 8))) {
+            s16 m;
+            s32 r;
+            Ent_803E8C2C *e = (Ent_803E8C2C *)p;
+            n = e->len;
+            m = TQuestVmDownLoadServer::match_prefix_length((u8 *)e->name, name, (s16)n);
+            if (m >= pre) {
+                pre = m + 1;
+            }
+            r = strncmp(e->name, (char *)name, (s16)n);
+            if (r == 0) {
+                if ((s16)n == len && first) {
+                    return 2;
+                }
+                blen = n;
+                found = p;
+            } else if (r > 0) {
+                if (strncmp(e->name, (char *)name, len) == 0 && first) {
+                    return 2;
+                }
+                break;
+            }
+        }
+        if (blen > 0) {
+            break;
+        }
+        if (cnt <= 1) {
+            out->id = -1;
+            return 0;
+        }
+        len = cnt - 1;
+        name[len] = 0;
+        idx = ((TQuestVmDownLoadServer *)name)->find_name_index();
+        first = 0;
+    }
+    out->a = idx;
+    out->id = found - page;
+    out->len = blen;
+    out->pre = pre;
+    out->ent = (Ent_803E8C2C *)found;
+    return 1;
+}
+
+s32 TQuestVmDownLoadServer__sub_803F06B8(const char *name, s16 len, Out_803F0268 *out) {
+    char buf[0x50];
+    Out_803E8C2C o1;
+    Out_803E8C2C o2;
+    s32 max;
+    s32 r1;
+    s32 r2;
+    s32 n;
+    u32 r;
+    if (lbl_805D7904 == -1) {
+        return -3;
+    }
+    strncpy(buf, name, len);
+    buf[len] = 0;
+    r1 = TQuestVmDownLoadServer__sub_803F0500((u8 *)buf, len, &o1);
+    if (r1 == 2) {
+        return 2;
+    }
+    strncpy(buf, name, len);
+    buf[len] = 0;
+    r2 = TQuestVmDownLoadServer__sub_803E8C2C(buf, len, &o2);
+    if (r2 == 2) {
+        return 2;
+    }
+    if (r1 == 0 && r2 == 0) {
+        return 0;
+    }
+    out->xa = 1;
+    max = 0;
+    out->len2 = o1.pre > o2.pre ? o1.pre : o2.pre;
+    if (o1.len > o2.len) {
+        out->len = o1.len;
+        out->count = TQuestVmDownLoadServer__sub_803F03B4((u8 *)o1.ent, out->ents, 0, &max);
+        o2.id = -1;
+    } else if (o1.len < o2.len) {
+        out->len = o2.len;
+        out->count = TQuestVmDownLoadServer__sub_803F03B4((u8 *)o2.ent, out->ents, 0, &max);
+        o1.id = -1;
+    } else {
+        out->len = o1.len;
+        n = TQuestVmDownLoadServer__sub_803F03B4((u8 *)o1.ent, out->ents, 0, &max);
+        out->count = TQuestVmDownLoadServer__sub_803F03B4((u8 *)o2.ent, out->ents, n, &max);
+    }
+    out->x4 = r = TQuestVmDownLoadServer::acquire_slot_entry(o1.a, o1.id, o2.id, max);
     if (r == 0xFFFFFFFF) {
         return 0;
     }
@@ -4072,6 +4622,16 @@ void TQuestVmDownLoadServer__sub_803F0BE8(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 4) == (u32) lbl_805D7924) {
         quest_download_aram_dma_pending = 0;
     }
+}
+
+void TQuestVmDownLoadServer__sub_803F0C04(u32 aram_addr, s32 size, u32 owner, u32 priority, u32 timeout_ms) {
+    lbl_805D792C = aram_addr;
+    lbl_805D7914.remain = size;
+    lbl_805D7914.pos = 0;
+    lbl_805D7924 = owner;
+    lbl_805D7910 = lbl_805D7914.remain;
+    lbl_805D7920 = priority;
+    lbl_805D791C = timeout_ms * (__OSBusClock / 4 / 1000);
 }
 
 }
