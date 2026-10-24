@@ -203,7 +203,7 @@ public:
     s16 m_2c8;
     u8 unk_2CA[0x2];
     short m_2cc;
-    u8 unk_2CE[0x2];
+    s16 m_2ce;
     s16 m_2d0;
     u8 unk_2D2[0x2];
     u16 m_2d4;

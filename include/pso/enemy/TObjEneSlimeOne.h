@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "pso/enemy/TObjEnemy.h"
+#include "dolphin/mtx.h"
 
 struct TObjEneSlimeOne : public TObjEnemy {
     virtual ~TObjEneSlimeOne();
@@ -36,8 +37,7 @@ struct TObjEneSlimeOne : public TObjEnemy {
     s32 m_3c8;
     s32 m_3cc;
     u8 unk_3D0[0xC];
-    void* m_3dc;
-    u8 unk_3E0[0x8];
+    Vec m_3dc;
     void * m_3e8;
     u32 m_3ec;
     u32 m_3f0;

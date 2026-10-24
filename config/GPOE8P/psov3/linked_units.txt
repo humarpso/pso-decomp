@@ -359,6 +359,7 @@ pso/enemy/BringerEffects.cpp
 pso/enemy/CanadinEffects.cpp
 pso/enemy/EnemyFactoryTables.cpp
 pso/enemy/TEnemyTaskList.cpp
+pso/enemy/TObjEneBalClaw.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp

@@ -3,6 +3,9 @@
 
 #include "types.h"
 #include "pso/enemy/TObjEneDD_ST.h"
+#include "dolphin/mtx.h"
+
+struct TObjPlayer;
 
 struct TObjEneBm5GibonU : public TObjEneDD_ST {
     virtual ~TObjEneBm5GibonU();
@@ -20,10 +23,13 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     u8 unk_374[0x14];
     s32 m_388;
     u8 unk_38C[0x4];
-    u32 m_390;
-    u8 unk_394[0x8];
+    TObjPlayer *m_390;
+    f32 m_394;
+    u8 unk_398[0x4];
     f32 m_39c;
-    u8 unk_3A0[0x4];
+    u8 unk_3A0[0xC];
+    f32 m_3ac;
+    u8 unk_3B0[0x10];
     void* m_3c0;
     u8 _pad3C4[0x8];
     void* m_3cc;
@@ -39,8 +45,10 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     u32 m_478;
     void* m_47c;
     u8 _pad480[0x8];
-    void* m_488;
-    u8 _pad48C[0x20];
+    Vec m_488;
+    f32 m_494;
+    f32 m_498;
+    u8 _pad49C[0x10];
     u32 m_4ac;
     void* m_4b0;
     u8 _pad4B4[0x58];
@@ -48,14 +56,15 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     u32 m_510;
     u16 m_514;
     u8 _pad516[0x2];
-    u32 m_518;
-    u32 m_51c;
-    u32 m_520;
+    s32 m_518;
+    s32 m_51c;
+    s32 m_520;
     u32 m_524;
     u32 m_528;
     u32 m_52c;
-    u8 _pad530[0x34];
-    u32 m_564;
+    f32 m_530;
+    u8 _pad534[0x30];
+    s32 m_564;
     void forward_hit_to_node_list();
     void init_child_node();
     static void release_static_resource();
@@ -73,7 +82,6 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     void clear_flag_and_update();
     s32 check_and_update();
     s32 try_activate();
-    u8 unk_54C[0x1C];
     s32 get_clamped_level();
     int get_attack_state(void * _w1);
     static void advance_anim_frame();
@@ -89,11 +97,15 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     void select_attack_by_range();
     void approach_target(f32 farg0);
     s32 face_target();
+    static void pick_wander_destination(void *actor);
+    static void turn_toward_angle(void *actor, int angle);
     void forward_hit_to_enemy_list();
     void init_child_from_list();
 };
 
 typedef char TObjEneBm5GibonU_size[sizeof(TObjEneBm5GibonU) == 0x568 ? 1 : -1];
+typedef char TObjEneBm5GibonU_m_3c0[offsetof(TObjEneBm5GibonU, m_3c0) == 0x3C0 ? 1 : -1];
+typedef char TObjEneBm5GibonU_m_564[offsetof(TObjEneBm5GibonU, m_564) == 0x564 ? 1 : -1];
 
 extern "C" {
 u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
