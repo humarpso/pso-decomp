@@ -82,7 +82,7 @@ s32 play_sound_effect(int, void *, int, int);
 f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 TBoss4Type2__sub_80057048(void *, int);
-s32 TBoss4Type2__sub_80057128(void *);
+void TBoss4Type2__sub_80057128(void *arg0);
 s32 angle_diff_s16(int, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
@@ -1525,6 +1525,50 @@ void TBoss4Type2::sub_80056FEC(s32 arg1) {
         ((TBoss4DarkFalz *)(((Obj_80056FEC *)this)->target))->send_code_25_4((arg1 & 0xF) | (((((Obj_80056FEC *)this)->f3a0 >> 12) & 0xF) << 4) | (((((Obj_80056FEC *)this)->f3a0 >> 12) & 0xF) << 8) | ((((Obj_80056FEC *)this)->f3ac & 0xF) << 12) | ((((Obj_80056FEC *)this)->f3b0 & 0xF) << 16) | ((((Obj_80056FEC *)this)->f3c4 & 0xF) << 20));
     }
 }
+
+struct Obj_80057128 {
+    u8 pad0[0x38];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad44[0x60 - 0x44];
+    s32 rot_y;
+    u8 pad64[0x39C - 0x64];
+    f32 turn_rate;
+    s32 angle;
+    s32 base_angle;
+    s32 target_angle;
+    u8 pad3AC[0x3E8 - 0x3AC];
+    f32 wave;
+};
+
+extern "C" {
+extern const f32 lbl_805D8C04;
+extern const f32 lbl_805D8C08;
+extern const f32 lbl_805D8C10;
+}
+
+#pragma push
+#pragma fp_contract on
+void TBoss4Type2__sub_80057128(void *arg0) {
+    Obj_80057128 *self = (Obj_80057128 *)arg0;
+    f32 radius;
+    f32 height;
+
+    self->angle = self->base_angle + (s32)(self->turn_rate * (f32)angle_diff_s16(self->base_angle, self->target_angle));
+    radius = lbl_805D8C04;
+    height = lbl_805D8C08;
+    if (self->wave > TBoss4Type2__data_805D8BAC) {
+        f32 w = TBoss4Type3::compute_wave_offset(self->wave);
+        radius = lbl_805D8C0C * w + lbl_805D8C04;
+        height = lbl_805D8C10 * w + lbl_805D8C08;
+    }
+    self->x = radius * sin_table_lookup(self->angle);
+    self->y = height;
+    self->z = -radius * cos_table_lookup(self->angle);
+    self->rot_y = -self->angle;
+}
+#pragma pop
 
 s32 TBoss4Type2::sub_80057224() {
     return (s32)(lbl_805D8BF0 * calc_boss4_scale__10TObjPlayerFi(((Obj_80057224 *)this))) + 0x2000 + ((Obj_80057224 *)this)->f3a0;

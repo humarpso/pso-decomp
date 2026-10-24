@@ -3,6 +3,13 @@
 #include "pso/item/TItemReverseTech_8011A1E8.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/TItemReverseTechCtrl.h"
+#include "pso/misc/TKeyBoardControl.h"
+
+struct ReverseTechCode {
+    s8 *keys;
+    s32 length;
+    void (*activate)(void);
+};
 
 extern "C" {
 
@@ -22,6 +29,39 @@ void *__ct__20TItemReverseTechCtrlFv(void *item_reverse_tech_ctrl) {
     return item_reverse_tech_ctrl;
 }
 
+extern ReverseTechCode lbl_804A0468[3];
+
+void TItemReverseTechCtrl::run_task() {
+    s32 letter;
+    ReverseTechCode *code;
+    s32 *progress;
+    s32 key;
+    s32 i;
+    key = TKeyBoardControl::get_ascii_key();
+    if (key >= 'a' && key <= 'z') {
+        letter = key - 'a';
+    } else if (key >= 'A' && key <= 'Z') {
+        letter = key - 'A';
+    } else {
+        letter = -1;
+    }
+    if (letter != -1) {
+        progress = (s32 *)((u8 *)this + 0x1C);
+        code = lbl_804A0468;
+        for (i = 0; i != 3; i++, progress++, code++) {
+            if (letter == code->keys[*progress]) {
+                *progress = *progress + 1;
+            } else {
+                *progress = 0;
+            }
+            if (*progress == code->length) {
+                code->activate();
+                *progress = 0;
+            }
+        }
+    }
+}
+
 #define __ct__20TItemReverseTechCtrlFv (*(void * (*)(void *, void *))&__ct__20TItemReverseTechCtrlFv)
 
 void *__nw__7TObjectFUl(int);
@@ -38,10 +78,10 @@ void *lbl_804A044C[3] = {
 void *lbl_804A0458[4] = {
     (void *)0xa0e1412, (void *)0xe0a140a, (void *)0x81304, (void *)0xd000000,
 };
-void *lbl_804A0468[9] = {
-    (void *)&lbl_804A0440, (void *)0x9, (void *)&TItemReverseTech__sub_8011A5A4, (void *)&lbl_804A044C,
-    (void *)0xb, (void *)&TItemReverseTech__sub_8011A580, (void *)&lbl_804A0458, (void *)0xd,
-    (void *)&TItemReverseTech__sub_8011A55C,
+ReverseTechCode lbl_804A0468[3] = {
+    { (s8 *)lbl_804A0440, 9, TItemReverseTech__sub_8011A5A4 },
+    { (s8 *)lbl_804A044C, 11, (void (*)(void))TItemReverseTech__sub_8011A580 },
+    { (s8 *)lbl_804A0458, 13, (void (*)(void))TItemReverseTech__sub_8011A55C },
 };
 
 void *TItemReverseTechCtrl::create(void *item_reverse_tech_ctrl) {

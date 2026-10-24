@@ -450,7 +450,7 @@ void TBoss4Type3__sub_800599F4(void*, int, int);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 
-void TBoss4Type3__sub_8005A150(void);
+void TBoss4Type3__sub_8005A150(TBoss4Type3 *self);
 void TBoss4Type3__sub_80059DCC(TBoss4Type3 *self, u32 packed);
 void TBoss4Type3__sub_8005A86C(void* p);
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
@@ -1579,6 +1579,15 @@ void TBoss4Type3::update_radar_markers() {
     (*(s32 *)((s8 *)arg0 + 0x3C0))++;
 }
 
+
+extern const f32 lbl_805D8C78;
+
+void TBoss4Type3__sub_800599F4(void *p, int lo, int hi) {
+    s32 sector = ((TBoss4Type3 *)p)->choose_attack_heading_sector();
+    s32 n = (s64)(s32)(lbl_805D8C78 * (f32)(hi - lo + 1) * calc_boss4_scale__10TObjPlayerFi(p));
+    n += lo;
+    ((TBoss4Type3 *)p)->send_packed_action(n + 4, sector, sector);
+}
 void TBoss4Type3::calc_grid_index() {
     this->m_3ac = (s32) (((u32) -(this->rotation_y + 0x800) >> 0xCU) & 0xF);
     this->m_3a8 = (s32) (((u32) -(this->rotation_y + 0x800) >> 0xCU) & 0xF);
@@ -1776,6 +1785,17 @@ void TBoss4Type3::update_scale_sound() {
 }
 #pragma pop
 
+void TBoss4Type3__sub_8005A150(TBoss4Type3 *self) {
+    s32 i;
+    for (i = 8; i < 13; i++) {
+        u32 *slot = &((Obj_8005A300 *)self)->f404[i];
+        if (*slot != 0) {
+            TBoss4Type2::request_destroy(*slot);
+            *slot = 0;
+        }
+    }
+}
+
 void TBoss4Type3::copy_positions_to_parts() {
     Vec_8005A1AC *pos[8] = {
         &((Obj_8005A1AC *)this)->f48c, &((Obj_8005A1AC *)this)->f498, &((Obj_8005A1AC *)this)->f4d4, &((Obj_8005A1AC *)this)->f4e0,
@@ -1822,7 +1842,7 @@ void TBoss4Type3::create_particle_emitters() {
 
 void TBoss4Type3::set_action_from_table(s32 arg1) {
     Type3Handler m;
-    TBoss4Type3__sub_8005A150();
+    TBoss4Type3__sub_8005A150(this);
     this->m_374 = arg1;
     set_anim_state(boss4_type3_states[this->m_374].animation);
     m = boss4_type3_states[this->m_374].enter;

@@ -921,6 +921,30 @@ void TUnk_804CE018::update_fade() {
     (*(u32 *)((u8 *)this + 0x50)) = (u32) ((*(u32 *)((u8 *)this + 0x50)) - 1);
 }
 
+extern "C" {
+s32 rand(void);
+
+void TWindowSubComCard__sub_8024634C(void) {
+    switch (window_ui_theme_index) {
+    case 0:
+        lbl_805D63F6 = 60.0f * ((1.0f / 32768.0f) * rand()) + 60.0f;
+        window_ui_theme_index = 1;
+    case 1:
+        if (lbl_805D63F6-- < 0) {
+            lbl_805D63F6 = 0;
+            window_ui_theme_index = 2;
+        }
+        break;
+    case 2:
+        lbl_805D63F6++;
+        if (5.0f * ((f32)lbl_805D63F6 - 0.2f * TWindowSubComCard::trunc_float(120.0f)) >= 840.0f) {
+            window_ui_theme_index = 0;
+        }
+        break;
+    }
+}
+}
+
 void TWindowSubComCard::update_open_close() {
     u8 *arg0 = (u8 *)this;
     s32 card_window_flags;

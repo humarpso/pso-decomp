@@ -28,6 +28,8 @@
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/npc/TObjNpcEnemy.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/ui/MenuText.h"
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjLuker.h"
@@ -454,6 +456,7 @@ extern const f32 lbl_805DBFD8;
 extern const f32 lbl_805DBFDC;
 extern const f32 lbl_805DBFE0;
 extern const f32 lbl_805DBFE4;
+extern const f32 lbl_805DBFE8;
 extern const f32 lbl_805DBFEC;
 extern const f32 lbl_805DBFF0;
 extern char lbl_805DBFF4[4];
@@ -583,6 +586,45 @@ s64 fn_8019B480(void *arg0, void *camera_ctrl) {
     }
     return *p;
 }
+
+#pragma push
+#pragma opt_common_subs off
+union WarpStringPos {
+    s64 packed;
+    struct {
+        f32 x;
+        f32 y;
+    } xy;
+};
+
+void TObjWarpString::render() {
+    f32 xr;
+    f32 y;
+    f32 yt;
+    f32 yb;
+    WarpStringPos pos;
+    u32 color;
+    u32 width;
+
+    pos.packed = fn_8019B480(this, (void *)*(u16 *)((s8 *)this + 0x48));
+    width = calc_text_width((char *)this + 0x1C) >> 1;
+    pos.xy.x -= (f32)width;
+    y = pos.xy.y;
+    color = (u8)*(f32 *)((s8 *)this + 0x44) << 24;
+    draw_menu_text(pos.xy.x - lbl_805DBFE8, yt = y - lbl_805DBFE8, (char *)this + 0x1C, color);
+    draw_menu_text(pos.xy.x, yt, (char *)this + 0x1C, color);
+    draw_menu_text(xr = lbl_805DBFE8 + pos.xy.x, yt, (char *)this + 0x1C, color);
+    draw_menu_text(pos.xy.x - lbl_805DBFE8, y, (char *)this + 0x1C, color);
+    draw_menu_text(xr, y, (char *)this + 0x1C, color);
+    draw_menu_text(pos.xy.x - lbl_805DBFE8, yb = lbl_805DBFE8 + y, (char *)this + 0x1C, color);
+    draw_menu_text(pos.xy.x, yb, (char *)this + 0x1C, color);
+    draw_menu_text(xr, yb, (char *)this + 0x1C, color);
+    color = ((u8)*(f32 *)((s8 *)this + 0x44) << 24) | 0xFFFFFF;
+    TParticleCtrl::begin_effect_render();
+    draw_menu_text(pos.xy.x, y, (char *)this + 0x1C, color);
+    TParticleCtrl::end_effect_render();
+}
+#pragma pop
 
 void fade_and_destroy__14TObjWarpStringFPv(u8 *object) {
   const f32 *new_var;

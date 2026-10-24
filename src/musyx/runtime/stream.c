@@ -435,8 +435,7 @@ static inline u32 GeneratePublicID_803AB6F0(void) {
 
     do {
         if ((id = nextPublicID++) == -1) {
-            id = nextPublicID;
-            nextPublicID = id + 1;
+            id = nextPublicID++;
         }
         for (i = 0; i < 64; ++i) {
             if (streamInfo[i].state != 0 && id == streamInfo[i].stid) {

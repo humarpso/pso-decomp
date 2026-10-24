@@ -156,6 +156,62 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     return 0;
 }
 
+struct StreamSlot_803CD99C {
+    s8 active;
+    s8 phase;
+    s8 nch;
+    s8 paused;
+    u8 pad4[4];
+    s32 consumed;
+    u8 padC[0x10];
+    Stream_803CDB0C *src;
+    u8 pad20[0x80];
+    Out_803CDEC8 aix;
+    u8 pad4C0[0x18];
+};
+
+extern StreamSlot_803CD99C lbl_8057FFD0[4];
+void TLobby__sub_803CD99C(void);
+
+void TLobby__sub_803CD99C(void) {
+    StreamSlot_803CD99C *slot;
+    s32 i;
+    s32 size;
+    Stream_803CDB0C *src;
+    Chunk_803CDB0C rest;
+    s32 active;
+    Chunk_803CDB0C chunk;
+
+    for (i = 0; i < 4; i++) {
+        slot = &lbl_8057FFD0[i];
+        active = slot->active;
+        if (active == 1) {
+            if (slot->phase == 1) {
+                src = slot->src;
+                src->vt->get(src, 1, 0x1800, &chunk);
+                size = parse_aix_header__6TLobbyFPviPv(chunk.data, chunk.len, &slot->aix);
+                if (size == 0) {
+                    src->vt->release(src, 1, &chunk);
+                } else {
+                    if (size != chunk.len) {
+                        while (1) {
+                        }
+                    }
+                    TLobby__sub_803D3130(&chunk, size, &chunk, &rest);
+                    src->vt->commit(src, 0, &chunk);
+                    src->vt->release(src, 1, &rest);
+                    slot->consumed += size;
+                    slot->phase = 2;
+                }
+            } else if (slot->phase == 2 && slot->paused == 0) {
+                if (((TLobby *)slot)->demux_stream_chunks() == -1) {
+                    ((TLobby *)slot)->demux_stream_chunks();
+                }
+            }
+        }
+    }
+}
+
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)

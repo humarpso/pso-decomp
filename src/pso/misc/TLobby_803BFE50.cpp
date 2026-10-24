@@ -132,7 +132,7 @@ s32 TLobby__sub_803C1A00(int);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void TLobby__sub_803C406C(void);
-s32 TLobby__sub_803C133C(void *);
+void TLobby__sub_803C133C(Snd_803C0BE8 *arg0);
 void TLobby__sub_803C0B3C(u8 *arg0);
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);
@@ -408,7 +408,7 @@ void TLobby__sub_803C0B3C(u8 *lobby) {
         return;
     }
     if (temp_r0 == 0) {
-        TLobby__sub_803C133C(lobby);
+        TLobby__sub_803C133C((Snd_803C0BE8 *)(lobby));
     }
 }
 s32 TLobby::is_riff_wave() {
@@ -486,6 +486,43 @@ void TLobby::convert_pcm_u8_to_s16() {
         }
         arg0->count = n;
         arg0->bytes = n * arg0->channels;
+        arg0->state = 2;
+    }
+    if (arg0->state == 2) {
+        arg0->put(arg0->putCtx, arg0->bytes, arg0->count);
+        arg0->state = 3;
+    }
+}
+
+void TLobby__sub_803C133C(Snd_803C0BE8 *arg0) {
+    u16 *src = (u16 *)arg0->src;
+    s16 *l;
+    s16 *r;
+    s32 i;
+    s32 n;
+    if (arg0->state == 1 && ((TLobby *)(arg0->lobby))->get_client_count() == 0) {
+        arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
+        n = arg0->size - arg0->pos;
+        if (n > arg0->avail) {
+            n = arg0->avail;
+        }
+        if (n > arg0->max) {
+            n = arg0->max;
+        }
+        l = arg0->dst + arg0->pos;
+        if (arg0->channels == 2) {
+            r = arg0->dst + (arg0->rofs + arg0->pos);
+            for (i = 0; i < n; i++) {
+                l[i] = (((src[i * 2]) & 0xFF) << 8) | (((src[i * 2]) >> 8) & 0xFF);
+                r[i] = (((src[i * 2 + 1]) & 0xFF) << 8) | (((src[i * 2 + 1]) >> 8) & 0xFF);
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                l[i] = (((src[i]) & 0xFF) << 8) | (((src[i]) >> 8) & 0xFF);
+            }
+        }
+        arg0->count = n;
+        arg0->bytes = arg0->channels * (n * 2);
         arg0->state = 2;
     }
     if (arg0->state == 2) {

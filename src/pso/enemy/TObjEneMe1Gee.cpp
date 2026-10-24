@@ -2708,10 +2708,10 @@ void TObjEneMe1Gee__sub_800C9DF8(void *o_, s32 arg1) {
                 } else {
                     o->toggle = 1;
                 }
-                z = o->f3A8;
                 x = o->f3A0;
-                o->f3A0 = x * c + z * s;
-                o->f3A8 = z * c - x * s;
+                z = o->f3A8 * c - x * s;
+                o->f3A0 = x * c + o->f3A8 * s;
+                o->f3A8 = z;
                 o->f448 = lbl_805DA114 * k;
                 o->f44C = lbl_805DA114 * (o->f3EC - o->f3F4);
             }

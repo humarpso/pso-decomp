@@ -430,6 +430,31 @@ void TWindowSubSymbolChat::open(s32 arg1) {
     *(s8 *)((s8 *)this + 0x71) = 1;
 }
 
+struct Win_80285A28 {
+    u8 pad0[0x71];
+    s8 mode;
+    u8 pad72[0x76 - 0x72];
+    s16 height;
+    u8 pad78[0x84 - 0x78];
+    s32 *help;
+};
+
+extern "C" void fn_80285A28(Win_80285A28 *self, s32 *help) {
+    Part_80285314 *e2;
+    Part_80285314 *e0;
+    self->help = help;
+    *self->help = 0;
+    e2 = (Part_80285314 *)((TUnk_804CE018 *)self)->get_array_entry(2);
+    e0 = (Part_80285314 *)((TUnk_804CE018 *)self)->get_array_entry(0);
+    *(u16 *)e2 |= 2;
+    set_sprite_dimensions(e0, 32.0f, 32.0f);
+    set_sprite_uv_from_pixels((u8 *)e0, 185.0f, 22.0f);
+    e0->f34 = 0;
+    self->height = 0x44;
+    fn_80284C04((u8 *)self);
+    self->mode = 0;
+}
+
 void render__25TWindowSubSymbolChatPartsFv(u8 *window_sub_symbol_chat_parts) {
     s32 temp_r3;
 

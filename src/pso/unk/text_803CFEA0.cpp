@@ -181,6 +181,137 @@ s32 TLobby::get_handle_field_1c() {
     }
     return *(s32 *)((s8 *)arg0 + 0x1c);
 }
+extern s32 dvd_synchronous_read_enabled;
+void DCInvalidateRange(void *, u32);
+s32 DVDGetTransferredSize(void *);
+s32 DVDReadAsyncPrio(void *, void *, s32, s32, void (*)(void), s32);
+s32 Dolphin_DVDReadPrio(void *, void *, s32, s32, s32);
+void TLobby__sub_803CFE9C(void);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(8)
+inline s32 dvd_request_ready(GcciRequest *r) {
+    s32 ready = 0;
+    if (*(s8 *)&r->state == 1 || *(s8 *)&r->state == 0) {
+        ready = 1;
+    }
+    return ready;
+}
+
+inline s32 dvd_any_request_busy(void) {
+    s32 i;
+    for (i = 0; i < 40; i++) {
+        if (*(s8 *)&dvd_request_table[i].active == 1 && *(s8 *)&dvd_request_table[i].state == 2) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+inline void dvd_poll_requests(void) {
+    GcciRequest *r;
+    s32 i;
+    s32 n;
+    for (i = 0; i < 40; i++) {
+        r = &dvd_request_table[i];
+        if ((s32)r->active == 1 && (s32)r->state == 2) {
+            r->status = DVDGetCommandBlockStatus(r->block);
+            dvd_active_request.status = r->status;
+            switch (r->status) {
+            case -1:
+            case 11:
+                r->state = 3;
+                dvd_active_request.state = 3;
+                break;
+            case 0:
+                n = r->count * r->unit;
+                DCInvalidateRange(r->buf, n);
+                r->done = n;
+                r->pos += r->count;
+                r->state = dvd_active_request.state = 1;
+                break;
+            case 10:
+                n = DVDGetTransferredSize(r->block);
+                DCInvalidateRange(r->buf, n);
+                r->done = r->unit * (n / r->unit);
+                r->pos += n / r->unit;
+                r->state = dvd_active_request.state = 0;
+                break;
+            }
+        }
+    }
+}
+
+s32 TLobby__sub_803D0214(void *arg, s32 count, void *buf) {
+    GcciRequest *r = (GcciRequest *)arg;
+    char *msg = lbl_8047DAB8;
+    s32 offset;
+    s32 len;
+    s32 result;
+
+    if (r == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x2C), 0);
+        }
+        return 0;
+    }
+    if (count < 0) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0xCC), (s32)r);
+        }
+        return 0;
+    }
+    if (buf == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0xEC), (s32)r);
+        }
+        return 0;
+    }
+    if (!dvd_request_ready(r)) {
+        return 0;
+    }
+    if (!dvd_request_idle(r)) {
+        return 0;
+    }
+    if (dvd_any_request_busy()) {
+        return 0;
+    }
+    if (count == 0) {
+        r->state = 1;
+        dvd_active_request.state = 1;
+        return 0;
+    }
+    r->done = 0;
+    r->buf = buf;
+    r->count = count;
+    dvd_poll_requests();
+    offset = r->pos * r->unit;
+    len = r->count * r->unit;
+    if (offset + len > *(s32 *)&r->unknown14[0]) {
+        len = *(s32 *)&r->unknown14[0] - offset;
+        if (len < 0) {
+            r->state = 1;
+            dvd_active_request.state = 1;
+            return count;
+        }
+    }
+    len = (len + 31) & ~31;
+    DCInvalidateRange(buf, len);
+    if (dvd_synchronous_read_enabled == 0) {
+        result = DVDReadAsyncPrio(r->block, buf, len, offset, TLobby__sub_803CFE9C, 2);
+    } else {
+        result = Dolphin_DVDReadPrio(r->block, buf, len, offset, 2);
+    }
+    if (result == 0) {
+        return 0;
+    }
+    r->state = 2;
+    dvd_active_request.state = 2;
+    return r->count;
+}
+#pragma pop
+
 s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2) {
     if (arg0 == NULL) {
         if (lbl_805D760C != NULL) {
