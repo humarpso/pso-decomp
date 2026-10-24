@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubQuestBoard_8027D148.h"
 #include "pso/misc/TWindowSubQuestBoard_8027D1E8.h"
-#include "pso/unk/text_8027DA14.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
 

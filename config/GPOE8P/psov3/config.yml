@@ -1133,6 +1133,7 @@ force_active:
   - TWindowSubStatusDisp__sub_80338B88
   - TWindowSubStatusDisp__sub_8036D994
   - TWindowSubStatusDisp__window_layout
+  - TWindowSubSymbolChatFaceType__sub_80283F38
   - TWindowSubSymbolChat__sub_80281840
   - TWindowSubTechnique__sub_8028753C
   - TWindowSubTradeMessage__name
@@ -2442,6 +2443,7 @@ force_active:
   - calc_clamp_offset__11TLoadingCurFlPUcPUc
   - calc_damage__11TTecRaZondeFv
   - calc_death_slide_speed__14TObjEneBm5WolfFPvf
+  - calc_digit_count__18TWindowInputNumberFv
   - calc_digit_transform__17TDuelEffectNumberFlPfPfl
   - calc_dir_angles__11TBoss6Type2FPvPvPvPv
   - calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf
@@ -3061,6 +3063,7 @@ force_active:
   - draw_agreement_text__18TAdAgreementBaseGCFv
   - draw_animated_beam__18TObjLazerFenceNormFv
   - draw_area_chunk_objects__10TObjPlayerFv
+  - draw_arrows__18TWindowInputNumberFv
   - draw_background__13TWindowStatusFPUc
   - draw_background__17TAdGameStartSubGCFPv
   - draw_background__18TWindowPartyStatusFPUc
@@ -3657,6 +3660,7 @@ force_active:
   - handle_grid_navigation__22TWindowSubCustomSelectFv
   - handle_input__11TWindowChatFv
   - handle_input__23TShopJudgmentItemWindowFv
+  - handle_input__28TWindowSubSymbolChatFaceTypeFv
   - handle_input_window_result__24TShopEquipmentSellWindowFv
   - handle_judge_confirm__23TShopJudgmentItemWindowFv
   - handle_loss_sequence__18TObjChallengeRetryFv
@@ -3672,6 +3676,7 @@ force_active:
   - handle_open__13TUnk_804D0618Fv
   - handle_pad_transfer_done__16TKeyBoardControlFiUiPv
   - handle_page_input__24TWindowSubSymbolChatHelpFv
+  - handle_page_input__26TWindowSubQuestBoardSelectFv
   - handle_pay_confirm__23TShopJudgmentItemWindowFv
   - handle_player_buttons__12TAdMultiOkGCFi
   - handle_result_code__18TChallenge4PResultFv
@@ -3924,6 +3929,7 @@ force_active:
   - is_local_player__10TObjPlayerFv
   - is_lockable_target__13TWindowLockOnFi
   - is_locked__11TWindowMenuFl
+  - is_locked__18TWindowInputNumberFl
   - is_logo_exit_requested__Fi
   - is_mag_full__FPUc
   - is_mode_bit6__11TWindowChatFv
@@ -11010,6 +11016,7 @@ force_active:
   - test_flag_256__12TObjEneLappyFv
   - test_flag_8__10TObjPlayerFPv
   - test_immunity_flags__13TUnk_804806E8Fl
+  - test_input_flag__18TWindowInputNumberFv
   - test_menu_flag__11TWindowMenuFv
   - test_rock_bit__15TBoss6SwordWaveFiUc
   - texture_f512_multiplay_descriptor
@@ -11259,6 +11266,7 @@ force_active:
   - update_particle_emitters__12TBoss6ThanksFv
   - update_particles__13TObjLobbyMainFv
   - update_particles__15TObjBoss2TunnelFv
+  - update_parts_entries__28TWindowSubSymbolChatFaceTypeFv
   - update_password_input__17TAdEnterPPPPassGCFPv
   - update_password_input__18TAdEnterPasswordGCFPv
   - update_path_follow_rotation__13TUnk_804E094CFPvf

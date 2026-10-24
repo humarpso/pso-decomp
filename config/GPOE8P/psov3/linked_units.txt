@@ -1734,6 +1734,7 @@ pso/misc/TWindowHelpItem_8025A12C.cpp
 pso/misc/TWindowHelpItem_8025A60C.cpp
 pso/misc/TWindowInputNumber.cpp
 pso/misc/TWindowInputNumber_80211608.cpp
+pso/misc/TWindowInputNumber_80256170.cpp
 pso/misc/TWindowKeyBoardBase.cpp
 pso/misc/TWindowKeyBoardBase_8008102C.cpp
 pso/misc/TWindowKeyBoardHard.cpp
@@ -1879,8 +1880,6 @@ pso/misc/TWindowSubMag_802627D8.cpp
 pso/misc/TWindowSubMag_80278760.cpp
 pso/misc/TWindowSubQuestBoard.cpp
 pso/misc/TWindowSubQuestBoardSelect.cpp
-pso/misc/TWindowSubQuestBoardSelect_8027D3BC.cpp
-pso/misc/TWindowSubQuestBoardSelect_8027D9AC.cpp
 pso/misc/TWindowSubQuestBoard_8027D148.cpp
 pso/misc/TWindowSubQuestBoard_8027D1E8.cpp
 pso/misc/TWindowSubShortCut.cpp
@@ -1934,6 +1933,7 @@ pso/misc/TWindowSubStatusDisp_8036D774.cpp
 pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
 pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
+pso/misc/TWindowSubSymbolChatFaceType_80283A70.cpp
 pso/misc/TWindowSubSymbolChatHelp.cpp
 pso/misc/TWindowSubSymbolChatPartsSet.cpp
 pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.cpp
@@ -3538,8 +3538,6 @@ pso/unk/text_80278BD8.cpp
 pso/unk/text_80278E48.cpp
 pso/unk/text_8027ACF8.cpp
 pso/unk/text_8027C13C.cpp
-pso/unk/text_8027D230.cpp
-pso/unk/text_8027DA14.cpp
 pso/unk/text_8027FCE4.cpp
 pso/unk/text_802841FC.cpp
 pso/unk/text_80286AA8.cpp

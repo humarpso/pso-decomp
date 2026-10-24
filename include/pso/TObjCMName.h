@@ -1,6 +1,7 @@
 #ifndef PSO_TOBJCMNAME_H
 #define PSO_TOBJCMNAME_H
 #include "pso/TObject.h"
+#include "pso/misc/CharacterAppearance.h"
 #include "types.h"
 #include "pso/TMath.h"
 
@@ -8,11 +9,13 @@ extern "C" vec2f creation_name_panel_position[];
 
 struct CharacterAppearanceFields;
 
+struct TKeyBoardControl;
+
 class TObjCMName : public TObject {
 public:
     CharacterAppearanceFields *appearance;
     s32 initialized;
-    void *keyboard;
+    TKeyBoardControl *keyboard;
     s32 ticks;
     s32 active;
     f32 fade;

@@ -2,6 +2,7 @@
 #define PSO_MISC_TWINDOWKEYBOARDSOFT_H
 
 #include "types.h"
+#include <stddef.h>
 
 struct TWindowKeyBoardSoft
 {
@@ -14,7 +15,20 @@ struct TWindowKeyBoardSoft
     int get_flag_bit6();
     int is_cursor_locked();
     void render();
-    u8 _pad1C[0x44];
+    f32 x;
+    f32 y;
+    f32 w;
+    f32 h;
+    f32 inner_x;
+    f32 inner_y;
+    f32 inner_w;
+    f32 inner_h;
+    f32 pivot[2];
+    f32 scale[2];
+    s32 open_tick;
+    u32 color;
+    f32 depth;
+    u8 _pad3C[0x8];
     u16 m_60;
     u16 m_62;
     u8 m_64;
@@ -94,5 +108,8 @@ struct TWindowKeyBoardSoft
     static void free_instance();
     static void free_resources();
 };
+
+typedef char TWindowKeyBoardSoft_depth_offset[offsetof(TWindowKeyBoardSoft, depth) == 0x38 ? 1 : -1];
+typedef char TWindowKeyBoardSoft_m_60_offset[offsetof(TWindowKeyBoardSoft, m_60) == 0x44 ? 1 : -1];
 
 #endif

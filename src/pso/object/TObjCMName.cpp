@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/ui/MenuText.h"
 #include "pso/menu/CreationInput.h"
 #include "types.h"
@@ -19,6 +20,10 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TWindowMakeTeam.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/unk/text_80131ADC.h"
 
 struct Menu_80296D68
 {
@@ -361,7 +366,10 @@ s32 TObjCMMainMenu__sub_8028D9B4(void *);
 u8 calc_section_id_from_name();
 s32 get_creation_sprite_id__14TObjCMMainMenuFl(int);
 void fn_802947A8(void);
-int TObjCMName__sub_802948F4(void);
+int TObjCMName__sub_802948F4(TObjCMName *, char *);
+TKeyBoardControl *TKeyBoardControl__ct(void *, TObject *, s32, s32, s32, s32);
+int get_keyboard_field_6c__15TWindowMakeTeamFv(TKeyBoardControl *, char *);
+void mem_free(void *p);
 void * create__10TObjCMNameFPv(void *arg0);
 void * __ct__10TObjCMNameFv(void *arg0);
 void * create__16TObjCMProportionFPv(void *arg0);
@@ -512,7 +520,68 @@ CreationMenuModeList creation_menu_mode_lists[6] = {
 };
 #define TObjCMMainMenu__data_804DB9C8 (*(RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 *)TObjCMMainMenu__data_804DB9C8)
 
-int TObjCMName__sub_802948F4(void) { return 0; }
+int TObjCMName__sub_802948F4(TObjCMName *, char *) { return 0; }
+
+void TObjCMName::run_task() {
+    f32 pos[2];
+    char name[13];
+    TKeyBoardControl *kb;
+    char *buf;
+    s32 sound;
+    f32 scale;
+
+    ticks++;
+    if (initialized == 0) {
+        if (ticks > 1) {
+            kb = (TKeyBoardControl *)TObject::operator new(sizeof(TKeyBoardControl));
+            if (kb != NULL) {
+                kb = TKeyBoardControl__ct(kb, this, 12, 0, 0, TChCrEffCtrlPl::get_clamped_player_index());
+            }
+            keyboard = kb;
+            get_keyboard_field_6c__15TWindowMakeTeamFv(keyboard, (char *)appearance->name);
+            scale = TObjCMMainMenu::get_scale();
+            pos[0] = 148.0f;
+            pos[1] = 137.0f * scale;
+            ((TWindowMakeTeam *)keyboard)->set_sub_position((u8 *)pos);
+            pos[0] = 53.0f;
+            pos[1] = 178.0f * scale;
+            fn_80131ADC((u8 *)keyboard, (u8 *)pos);
+            initialized = 1;
+        }
+    } else if (active == 0) {
+        if ((fade += -0.083333336f) <= 0.0f) {
+            fade = 0.0f;
+            queue_destruction();
+        }
+    } else {
+        if ((fade += 0.16666667f) > 1.0f) {
+            fade = 1.0f;
+        }
+        if (((TWindowSubComCard *)keyboard)->update_keyboard() != 0) {
+            buf = (char *)((TWindowSubComCard *)keyboard)->realloc_buffer();
+            sound = 0x53704;
+            strncpy(name, buf, 12);
+            name[12] = 0;
+            if (TObjCMMainMenu::validate_character_name((s8 *)name) == 0) {
+                sound = 0x5280D;
+            }
+            if (TObjCMName__sub_802948F4(this, name) != 0) {
+                sound = 0x52608;
+                strncpy(name, (char *)appearance->name, 12);
+                name[12] = 0;
+            }
+            ((TObjCMMainMenu *)name)->copy_char_name();
+            strncpy((char *)appearance->name, name, 12);
+            appearance->name[12] = 0;
+            mem_free(buf);
+            play_sound_effect(sound, 0, 0, 0);
+            TObjCMMainMenu::clear_task_state();
+            keyboard->queue_destruction();
+            keyboard = NULL;
+            active = 0;
+        }
+    }
+}
 
 void *create__10TObjCMNameFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x34);
@@ -572,6 +641,58 @@ void *__ct__10TObjCMNameFv(void *obj_cm_name) {
     TChCrEffTag::set_eff_tag(10);
     return obj_cm_name;
 }
+
+struct Vec2_80294D6C { f32 x, y; };
+
+extern u8 lbl_804DBD08[];
+extern u8 lbl_804DBD18[];
+u32 lbl_80540988[4];
+Vec2_80294D6C lbl_80540998[4];
+u32 lbl_805409B8[4];
+
+#pragma push
+#pragma fp_contract on
+void TObjCMProportion::render() {
+    f32 alpha;
+    u32 color;
+    f32 x;
+    f32 y;
+
+    alpha = fade * fade;
+    color = ((s32)(32.0f * alpha) << 24) | 0xFF0000 | 0xFFFF;
+    lbl_80540988[3] = color;
+    lbl_80540988[2] = color;
+    lbl_80540988[1] = color;
+    lbl_80540988[0] = color;
+    ((TWindowCtrlMain *)lbl_804DBD08)->draw_strip_swap_color(4, 5, -2.0f);
+    color = ((s32)(64.0f * alpha) << 24) | 0xFF0000 | 0xFFFF;
+    lbl_805409B8[3] = color;
+    lbl_805409B8[2] = color;
+    lbl_805409B8[1] = color;
+    lbl_805409B8[0] = color;
+    x = 75.0f * (2.0f * (appearance->width - 0.5f)) + 320.0f;
+    y = 75.0f * (2.0f * (appearance->height - 0.5f)) + 240.0f;
+    lbl_80540998[1].y = 150.0f;
+    lbl_80540998[0].y = 150.0f;
+    lbl_80540998[3].y = 330.0f;
+    lbl_80540998[2].y = 330.0f;
+    lbl_80540998[0].x = x - 2.0f;
+    lbl_80540998[1].x = 2.0f + x;
+    lbl_80540998[2].x = 2.0f + x;
+    lbl_80540998[3].x = x - 2.0f;
+    ((TWindowCtrlMain *)lbl_804DBD18)->draw_strip_swap_color(4, 6, -2.0f);
+    lbl_80540998[0].y = y - 2.0f;
+    lbl_80540998[1].x = 230.0f;
+    lbl_80540998[1].y = 2.0f + y;
+    lbl_80540998[0].x = 230.0f;
+    lbl_80540998[2].y = 2.0f + y;
+    lbl_80540998[3].y = y - 2.0f;
+    lbl_80540998[3].x = 410.0f;
+    lbl_80540998[2].x = 410.0f;
+    ((TWindowCtrlMain *)lbl_804DBD18)->draw_strip_swap_color(4, 6, -2.0f);
+    draw_creation_ruler_lines(fade);
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
