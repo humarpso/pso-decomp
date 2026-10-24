@@ -1122,6 +1122,7 @@ force_active:
   - TWindowSubItem__sub_8027AB10
   - TWindowSubMag__sub_8027C0B0
   - TWindowSubMag__sub_8027C0E8
+  - TWindowSubQuestBoardSelect__sub_8027D444
   - TWindowSubShortCutList__ct
   - TWindowSubShortMail__sub_8027E620
   - TWindowSubShortMail__sub_8027FAD0
@@ -1539,6 +1540,7 @@ force_active:
   - __dt__20TPlayerLevelFeedbackFv
   - __dt__20TPlayerParticleOwnerFv
   - __dt__20TPlayerReadyCallbackFv
+  - __dt__20TQuadSpriteSclColRotFv
   - __dt__20TWindowMessageScrollFv
   - __dt__20TWindowSubQuestBoardFv
   - __dt__21TAdMultiChgGameModeGCFv
@@ -3585,6 +3587,7 @@ force_active:
   - get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv
   - get_serial_result__22TAdEnterSerialAccessGCFv
   - get_serial_text__22TAdEnterSerialAccessGCFii
+  - get_slot_flag__26TWindowSubQuestBoardSelectFic
   - get_sock_status_name__Fs
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_split_screen_battle_timer_limit__FPUc
@@ -3635,6 +3638,7 @@ force_active:
   - handle_cancel__19TWindowSubMagPhotonFv
   - handle_cancel__21TWindowSubCustomEquipFv
   - handle_cancel__22TWindowSubCustomSelectFv
+  - handle_cancel__26TWindowSubQuestBoardSelectFv
   - handle_cancel__28TWindowSubSymbolChatPartsSetFv
   - handle_challenge_retry_confirm__18TObjChallengeRetryFv
   - handle_chat_input__11TWindowChatFv
@@ -3657,6 +3661,7 @@ force_active:
   - handle_death_state__18TObjEneRe4SorcererFl
   - handle_decide__21TWindowSubCustomEquipFv
   - handle_decide__22TWindowSubCustomSelectFv
+  - handle_decide__26TWindowSubQuestBoardSelectFv
   - handle_decide__28TWindowSubSymbolChatPartsSetFv
   - handle_dpad_shortcuts__11TWindowChatFv
   - handle_equip_offer__20TShopArmorListWindowFv
@@ -9833,6 +9838,7 @@ force_active:
   - render__20TContainerAncient01RFv
   - render__20TObjEneDarkGunCenterFv
   - render__20TObjLiveMonitorSmallFv
+  - render__20TQuadSpriteSclColRotFv
   - render__20TWindowSubQuestBoardFv
   - render__21TAdMultiChgGameModeGCFv
   - render__21TBoss1DragonEffBreathFv
@@ -10326,6 +10332,7 @@ force_active:
   - select_attack_target__18TObjEneRe4SorcererFiff
   - select_death_direction__14TObjEneBm5WolfFPvPv
   - select_lobby_pigeon_model__13TUnk_804E0898Fv
+  - select_next__26TWindowSubQuestBoardSelectFv
   - select_next_item__11TWindowMenuFv
   - select_rare_box_item__9TItemDropFiiPv
   - select_subtype__14TObjEneBm5WolfFv
@@ -10960,6 +10967,7 @@ force_active:
   - sub_802721D8__17TWindowSubComCardFv
   - sub_802730E0__17TWindowSubComCardFv
   - sub_80275F08__21TWindowSubCustomEquipFPv
+  - sub_8027D230__26TWindowSubQuestBoardSelectFv
   - sub_80288BE4__19TQuestListChallengeFv
   - sub_8028B940__12TChCrLoadAfsFv
   - sub_8028B944__12TChCrLoadAfsFv
@@ -11329,6 +11337,7 @@ force_active:
   - update_shutter_state__17TObjVoloptShutterFv
   - update_sink_state__10TBoss4ZakoFv
   - update_slide_in__12TChCrTagNameFPv
+  - update_slot_display_flags__26TWindowSubQuestBoardSelectFv
   - update_slot_icon__20TWindowActionPaletteFPviii
   - update_slot_sprites__20TWindowActionPaletteFiiUs
   - update_slot_state__16TAdChrSelBSlotGCFPv
