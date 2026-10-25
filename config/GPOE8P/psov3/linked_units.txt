@@ -1275,7 +1275,6 @@ pso/misc/TODoorAncient09.cpp
 pso/misc/TODoorCave01.cpp
 pso/misc/TODoorCave01_80161A30.cpp
 pso/misc/TODoorCave02.cpp
-pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
 pso/misc/TODoorFourLightBase.cpp
 pso/misc/TODoorFourLightSpace.cpp
@@ -1421,7 +1420,6 @@ pso/misc/TParticleCtrl_80327D30.cpp
 pso/misc/TParticleCtrl_803E29FC.cpp
 pso/misc/TPhotonConcentrate.cpp
 pso/misc/TPhotonEstlla.cpp
-pso/misc/TPhotonEstlla_801AA710.cpp
 pso/misc/TPhotonFarlla.cpp
 pso/misc/TPhotonGolla.cpp
 pso/misc/TPhotonLaser.cpp
@@ -1810,7 +1808,6 @@ pso/misc/TWindowSoundBalance_802708B8.cpp
 pso/misc/TWindowStatus.cpp
 pso/misc/TWindowSubAreaMap.cpp
 pso/misc/TWindowSubAreaMapDisp.cpp
-pso/misc/TWindowSubAreaMapDisp_802717B8.cpp
 pso/misc/TWindowSubComCard.cpp
 pso/misc/TWindowSubComCardList.cpp
 pso/misc/TWindowSubComCard_8007341C.cpp
@@ -2112,7 +2109,6 @@ pso/object/TObjDoor_8018E358.cpp
 pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
 pso/object/TObjEZBoneRotPlayer.cpp
-pso/object/TObjEZBoneRotPlayer_800FE834.cpp
 pso/object/TObjEZRopeBase.cpp
 pso/object/TObjEnvSound.cpp
 pso/object/TObjEnvSoundGlobal.cpp
@@ -2126,7 +2122,6 @@ pso/object/TObjGbAdvance.cpp
 pso/object/TObjGbAdvance_80187D90.cpp
 pso/object/TObjGbAdvance_80187E18.cpp
 pso/object/TObjGoalWarpAncient.cpp
-pso/object/TObjGoalWarpAncient_8017CB60.cpp
 pso/object/TObjGrass.cpp
 pso/object/TObjGrassWeb.cpp
 pso/object/TObjGyaranzoMissile.cpp
@@ -2158,7 +2153,7 @@ pso/object/TObjLuker_8001A438.cpp
 pso/object/TObjLuker_801329B0.cpp
 pso/object/TObjMapCsn.cpp
 pso/object/TObjMapCsn_8007A720.cpp
-pso/object/TObjMapWarpAncient_8017D0DC.cpp
+pso/object/TObjMapWarpAncient.cpp
 pso/object/TObjMapWarpForest.cpp
 pso/object/TObjMapWarp_80141C68.cpp
 pso/object/TObjMesBase.cpp
@@ -2479,8 +2474,6 @@ pso/player/TObjPlayer_801A9BAC.cpp
 pso/player/TObjPlayer_801AA220.cpp
 pso/player/TObjPlayer_801AA508.cpp
 pso/player/TObjPlayer_801AA5C0.cpp
-pso/player/TObjPlayer_801AA664.cpp
-pso/player/TObjPlayer_801AADE8.cpp
 pso/player/TObjPlayer_801AB608.cpp
 pso/player/TObjPlayer_801AC0D8.cpp
 pso/player/TObjPlayer_801ACA6C.cpp
@@ -2842,7 +2835,6 @@ pso/unk/text_80019EB8.cpp
 pso/unk/text_8001A3BC.cpp
 pso/unk/text_8001B424.cpp
 pso/unk/text_8001C388.cpp
-pso/unk/text_8001CAD4.cpp
 pso/unk/text_8002B094.cpp
 pso/unk/text_8002B164.cpp
 pso/unk/text_8002C190.cpp
@@ -2966,8 +2958,6 @@ pso/unk/text_800FA7E0.cpp
 pso/unk/text_800FCC78.cpp
 pso/unk/text_800FD8A0.cpp
 pso/unk/text_800FD930.cpp
-pso/unk/text_800FEA34.cpp
-pso/unk/text_800FEDA4.cpp
 pso/unk/text_800FFC6C.cpp
 pso/unk/text_80100BB0.cpp
 pso/unk/text_80103674.cpp
@@ -3253,9 +3243,6 @@ pso/unk/text_801A6A28.cpp
 pso/unk/text_801A6A5C.cpp
 pso/unk/text_801A6F84.cpp
 pso/unk/text_801AA3B4.cpp
-pso/unk/text_801AAB74.cpp
-pso/unk/text_801AB018.cpp
-pso/unk/text_801AB370.cpp
 pso/unk/text_801ABE14.cpp
 pso/unk/text_801AC808.cpp
 pso/unk/text_801AE1F8.cpp

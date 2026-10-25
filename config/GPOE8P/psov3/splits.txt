@@ -129,13 +129,11 @@ pso/ui/TAdSinglePlyChrSelectGC_8001C5E8.cpp:
 pso/misc/TLoadCtrl.cpp:
 	.text       start:0x8001C60C end:0x8001CAD4
 
-pso/unk/text_8001CAD4.cpp:
-	.text       start:0x8001CAD4 end:0x8001CC28
-
 pso/misc/TLoadingCur.cpp:
-	.text       start:0x8001CC28 end:0x8001D198
+	.text       start:0x8001CAD4 end:0x8001D198
 	.rodata     start:0x80434A08 end:0x80434A10
 	.data       start:0x80480C80 end:0x80480C98
+	.sdata2     start:0x805D7E90 end:0x805D7EC0
 
 pso/misc/TNowLoading.cpp:
 	.text       start:0x8001D198 end:0x8001D6A0
@@ -2346,19 +2344,11 @@ pso/object/TObjWaitEntryHairMoveSim.cpp:
 	.text       start:0x800FE300 end:0x800FE834
 	.data       start:0x8049CBA8 end:0x8049DCBC
 
-pso/object/TObjEZBoneRotPlayer_800FE834.cpp:
-	.text       start:0x800FE834 end:0x800FEA34
-
-pso/unk/text_800FEA34.cpp:
-	.text       start:0x800FEA34 end:0x800FED4C
-	.rodata     start:0x8043DF10 end:0x8043DF18
-
 pso/object/TObjEZBoneRotBase.cpp:
-	.text       start:0x800FED4C end:0x800FEDA4
+	.text       start:0x800FE834 end:0x800FEE2C
+	.rodata     start:0x8043DF10 end:0x8043DF18
 	.data       start:0x8049DCD8 end:0x8049DCF0
-
-pso/unk/text_800FEDA4.cpp:
-	.text       start:0x800FEDA4 end:0x800FEE2C
+	.sdata2     start:0x805DAA40 end:0x805DAA54
 
 pso/object/TObjEZBoneRotPlayer.cpp:
 	.text       start:0x800FEE2C end:0x800FEFCC
@@ -5104,12 +5094,10 @@ pso/misc/TODoorCave01_80161A30.cpp:
 	.data       start:0x804B1388 end:0x804B13C8
 
 pso/misc/TODoorCave02.cpp:
-	.text       start:0x80161D38 end:0x8016206C
-
-pso/misc/TODoorCave02_8016206C.cpp:
-	.text       start:0x8016206C end:0x80162384
+	.text       start:0x80161D38 end:0x80162384
 	.rodata     start:0x80440E58 end:0x80440E60
 	.data       start:0x804B1448 end:0x804B1488
+	.sdata2     start:0x805DB4B0 end:0x805DB4CC
 
 pso/misc/TODoorCave03.cpp:
 	.text       start:0x80162384 end:0x80162914
@@ -5575,12 +5563,10 @@ pso/misc/TOVS2Wreck01.cpp:
 pso/misc/TOVS2Wall01_8017C7A4.cpp:
 	.text       start:0x8017C7A4 end:0x8017CB60
 
-pso/object/TObjGoalWarpAncient_8017CB60.cpp:
-	.text       start:0x8017CB60 end:0x8017D0DC
+pso/object/TObjMapWarpAncient.cpp:
+	.text       start:0x8017CB60 end:0x8017D21C
 	.rodata     start:0x804432C0 end:0x804432C8
-
-pso/object/TObjMapWarpAncient_8017D0DC.cpp:
-	.text       start:0x8017D0DC end:0x8017D21C
+	.sdata2     start:0x805DBAB8 end:0x805DBACC
 
 pso/object/TObjGoalWarpAncient.cpp:
 	.text       start:0x8017D21C end:0x8017D2FC
@@ -6389,32 +6375,16 @@ pso/player/TObjPlayer_801AA508.cpp:
 pso/player/TObjPlayer_801AA5C0.cpp:
 	.text       start:0x801AA584 end:0x801AA664
 
-pso/player/TObjPlayer_801AA664.cpp:
-	.text       start:0x801AA664 end:0x801AA710
-
-pso/misc/TPhotonEstlla_801AA710.cpp:
-	.text       start:0x801AA710 end:0x801AAB00
-	.rodata     start:0x80446D08 end:0x80446D10
-
 pso/misc/TPhotonEstlla.cpp:
-	.text       start:0x801AAB00 end:0x801AAB74
-
-pso/unk/text_801AAB74.cpp:
-	.text       start:0x801AAB74 end:0x801AADE8
-
-pso/player/TObjPlayer_801AADE8.cpp:
-	.text       start:0x801AADE8 end:0x801AB018
-
-pso/unk/text_801AB018.cpp:
-	.text       start:0x801AB018 end:0x801AB2EC
-	.rodata     start:0x80446D38 end:0x80446D40
+	.text       start:0x801AA664 end:0x801AADE8
+	.rodata     start:0x80446D08 end:0x80446D10
+	.sdata2     start:0x805DC138 end:0x805DC154
 
 pso/misc/TPhotonFarlla.cpp:
-	.text       start:0x801AB2EC end:0x801AB370
-
-pso/unk/text_801AB370.cpp:
-	.text       start:0x801AB370 end:0x801AB608
+	.text       start:0x801AADE8 end:0x801AB608
+	.rodata     start:0x80446D38 end:0x80446D40
 	.data       start:0x804C3518 end:0x804C35A8
+	.sdata2     start:0x805DC158 end:0x805DC184
 
 pso/player/TObjPlayer_801AB608.cpp:
 	.text       start:0x801AB608 end:0x801ABD90
@@ -9099,12 +9069,10 @@ pso/misc/TWindowSubAreaMap.cpp:
 	.text       start:0x8027147C end:0x802717B8
 	.data       start:0x804D0FA8 end:0x804D0FC0
 
-pso/misc/TWindowSubAreaMapDisp_802717B8.cpp:
-	.text       start:0x802717B8 end:0x80271848
-
 pso/misc/TWindowSubAreaMapDisp.cpp:
-	.text       start:0x80271848 end:0x80271DFC
+	.text       start:0x802717B8 end:0x80271DFC
 	.rodata     start:0x8044F690 end:0x8044F698
+	.sdata2     start:0x805DD480 end:0x805DD4F4
 
 pso/misc/TWindowCtrl_80271DFC.cpp:
 	.text       start:0x80271DFC end:0x80271E48

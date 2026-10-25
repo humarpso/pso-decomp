@@ -1,3 +1,39 @@
+// ---- pso/misc/TWindowSubAreaMapDisp_802717B8
+#include "types.h"
+#include "pso/misc/TWindowSubAreaMapDisp.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowCtrl.h"
+
+extern "C" {
+
+s32 sub_80246948__13TUnk_804CE018Fv();
+
+
+
+void TWindowSubAreaMapDisp::update_visibility() {
+    if ((s32) this->m_6c != 0) {
+        if (sub_80246948__13TUnk_804CE018Fv() != 0) {
+            this->m_6c = 0;
+            TWindowCtrl::clear_active_flag();
+            TRaderMapCore::clear();
+        }
+    } else if (!(this->m_2c & 2) && (sub_80246948__13TUnk_804CE018Fv() == 0)) {
+        this->m_6c = 1;
+        TRaderMapCore::open_free_map_view();
+        TRaderMapCore::show_radar();
+        TWindowCtrl::set_flag_bit0();
+        {
+            f32 c = 0.0f;
+            *(f32 *)&this->unk_60 = c;
+            this->m_64 = c;
+            *(f32 *)&this->unk_68 = c;
+        }
+    }
+}
+
+}
+
+// ---- pso/misc/TWindowSubAreaMapDisp
 #include "types.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby_8001D6A0.h"
@@ -27,7 +63,7 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
     u8 remaining[0x18];
 };
 
-extern const f32 lbl_805DD4F0;
+
 extern "C" {
 void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
@@ -49,116 +85,93 @@ extern s32 TWindowSubAreaMapDisp__name;
 extern s32 local_client_id;
 void apply_context_transform_to_rect(void *, void *);
 extern s32 lbl_805D63F0;
-extern const f32 lbl_805DD480;
-extern const f32 lbl_805DD484;
-extern const f32 lbl_805DD488;
-extern const f32 lbl_805DD48C;
-extern const f32 lbl_805DD490;
-extern const f32 lbl_805DD494;
-extern const f32 lbl_805DD498;
-extern const f32 lbl_805DD49C;
-extern const f32 lbl_805DD4A0;
-extern const f32 lbl_805DD4A4;
-extern const f32 lbl_805DD4A8;
-extern const f32 lbl_805DD4AC;
-extern const f32 lbl_805DD4B0;
-extern const f32 lbl_805DD4B4;
-extern const f32 lbl_805DD4B8;
-extern const f32 lbl_805DD4BC;
-extern const f32 lbl_805DD4C0;
-extern const f32 lbl_805DD4C4;
-extern const f32 lbl_805DD4C8;
-extern const f32 lbl_805DD4CC;
-extern const f32 lbl_805DD4D0;
-extern const f32 lbl_805DD4D4;
-extern const f32 lbl_805DD4D8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 struct Vec2_80271A6C {
     f32 x;
     f32 y;
 };
-extern const f32 lbl_805DD4DC;
-extern const f32 lbl_805DD4E0;
-extern const f32 lbl_805DD4E4;
-extern const f32 lbl_805DD4E8;
-extern const f32 lbl_805DD4EC;
+
+
+
+
+
 s32 draw_default_entry__9TWindowDDFl();
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 struct Rect_80271848 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
+
 
 void fn_80271848(s32 arg0, u8 *arg1) {
     Rect_80271848 r;
     s32 color;
     f32 scale;
 
-    scale = lbl_805DD484 / (lbl_805DD488 + *(f32 *)(arg1 + 0x38));
+    scale = (-1.0f) / (0.1794f + *(f32 *)(arg1 + 0x38));
     if (*(s32 *)(arg1 + 0x30) < 6) {
-        color = ((s32)(lbl_805DD48C * (f32)(*(s32 *)(arg1 + 0x30) * 0xFF)) << 24) | 0xFFFFFF;
+        color = ((s32)(0.16666667f * (f32)(*(s32 *)(arg1 + 0x30) * 0xFF)) << 24) | 0xFFFFFF;
     } else {
         color = -1;
     }
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(0, color);
-    {
-        f32 y;
-        f32 x;
-        x = lbl_805DD490;
-        y = lbl_805DD494;
-        r.x0 = x;
-        r.y0 = y;
-        r.x1 = lbl_805DD498 + x;
-        r.y1 = lbl_805DD49C + y;
-    }
-    r.u0 = lbl_805DD4A0;
-    r.v0 = lbl_805DD4A4;
-    r.u1 = lbl_805DD4A8;
-    r.v1 = lbl_805DD4AC;
+    r.x0 = 16.0f;
+    r.y0 = 346.0f;
+    r.x1 = 12.0f + r.x0;
+    r.y1 = 14.0f + r.y0;
+    r.u0 = 0.87109375f;
+    r.v0 = 0.1640625f;
+    r.u1 = 0.91796875f;
+    r.v1 = 0.21875f;
     apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth((f32 *)&r, scale);
-    {
-        f32 y;
-        f32 x;
-        x = lbl_805DD4B0;
-        y = lbl_805DD494;
-        r.x0 = x;
-        r.y0 = y;
-        r.x1 = lbl_805DD498 + x;
-        r.y1 = lbl_805DD49C + y;
-    }
-    r.u0 = lbl_805DD4B4;
-    r.u1 = lbl_805DD4B8;
+    r.x0 = 484.0f;
+    r.y0 = 346.0f;
+    r.x1 = 12.0f + r.x0;
+    r.y1 = 14.0f + r.y0;
+    r.u0 = 0.9296875f;
+    r.u1 = 0.9765625f;
     apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth((f32 *)&r, scale);
-    {
-        f32 y;
-        f32 x;
-        x = lbl_805DD4BC;
-        y = lbl_805DD4C0;
-        r.x0 = x;
-        r.y0 = y;
-        r.x1 = lbl_805DD49C + x;
-        r.y1 = lbl_805DD498 + y;
-    }
-    r.u0 = lbl_805DD4C4;
-    r.v0 = lbl_805DD480;
-    r.u1 = lbl_805DD4C8;
-    r.v1 = lbl_805DD4CC;
+    r.x0 = 249.0f;
+    r.y0 = 272.0f;
+    r.x1 = 14.0f + r.x0;
+    r.y1 = 12.0f + r.y0;
+    r.u0 = 0.9375f;
+    r.v0 = 0.0f;
+    r.u1 = 0.9921875f;
+    r.v1 = 0.046875f;
     apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth((f32 *)&r, scale);
-    {
-        f32 y;
-        f32 x;
-        x = lbl_805DD4BC;
-        y = lbl_805DD4D0;
-        r.x0 = x;
-        r.y0 = y;
-        r.x1 = lbl_805DD49C + x;
-        r.y1 = lbl_805DD498 + y;
-    }
-    r.v0 = lbl_805DD4D4;
-    r.v1 = lbl_805DD4D8;
+    r.x0 = 249.0f;
+    r.y0 = 4.2e+02f;
+    r.x1 = 14.0f + r.x0;
+    r.y1 = 12.0f + r.y0;
+    r.v0 = 0.109375f;
+    r.v1 = 0.15625f;
     apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth((f32 *)&r, scale);
     TWindowSubStatusDisp::get_player();
@@ -169,18 +182,18 @@ void TWindowSubStatusDisp__sub_80271A6C(s32 arg0, u8 *arg1) {
     s32 color;
     f32 scale;
 
-    scale = lbl_805DD484 / (lbl_805DD488 + *(f32 *)(arg1 + 0x38));
+    scale = (-1.0f) / (0.1794f + *(f32 *)(arg1 + 0x38));
     if (*(s32 *)(arg1 + 0x30) < 6) {
-        color = ((s32)(lbl_805DD48C * (f32)(*(s32 *)(arg1 + 0x30) * 0xFF)) << 24) | 0xFFFFFF;
+        color = ((s32)(0.16666667f * (f32)(*(s32 *)(arg1 + 0x30) * 0xFF)) << 24) | 0xFFFFFF;
     } else {
         color = -1;
     }
-    set_text_draw_params((s32)arg1, 0, 0, (f32)scale, (f32)lbl_805DD4DC);
-    pos.x = lbl_805DD4E0 + *(f32 *)(arg1 + 0x3C);
-    pos.y = lbl_805DD4E4 + *(f32 *)(arg1 + 0x40);
-    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11B)), color, 0, (f32)lbl_805DD4E8);
-    pos.y = lbl_805DD4EC + *(f32 *)(arg1 + 0x40);
-    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11C)), color, 0, (f32)lbl_805DD4E8);
+    set_text_draw_params((s32)arg1, 0, 0, (f32)scale, (f32)1e+05f);
+    pos.x = 487.0f + *(f32 *)(arg1 + 0x3C);
+    pos.y = 41.0f + *(f32 *)(arg1 + 0x40);
+    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11B)), color, 0, (f32)1e+06f);
+    pos.y = 97.0f + *(f32 *)(arg1 + 0x40);
+    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11C)), color, 0, (f32)1e+06f);
 }
 
 void TWindowSubAreaMapDisp::render() {
@@ -200,7 +213,7 @@ void TWindowSubAreaMapDisp::run_task() {
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowSubAreaMapDisp *)arg0)->update_visibility();
     ((TWindowSubAreaMapDisp *)arg0)->update_manual_scroll();
-    if ((f32) *(s32 *)&this->m_5c >= lbl_805DD4F0) {
+    if ((f32) *(s32 *)&this->m_5c >= 7.5f) {
         ((TWindowSubStatusDisp *)(*(u8 * *)&this->m_70))->update_subwindow();
     }
 }
