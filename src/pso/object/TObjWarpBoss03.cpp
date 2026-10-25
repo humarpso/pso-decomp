@@ -1,6 +1,6 @@
-// ---- pso/unk/text_8019F9E4
 #include "types.h"
 #include "pso/object/TObjWarpBoss03.h"
+#include "pso/object/TObjAreaWarp.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -25,8 +25,6 @@ extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_8019F9E4_lbl_804A7438 lbl_804A7438;
 
-
-
 typedef char RecoveredGlobal_8019F9E4_lbl_804A7438_size[sizeof(RecoveredGlobal_8019F9E4_lbl_804A7438) == 0x10 ? 1 : -1];
 void TObjWarpBoss03::sub_8019F9E4() {
     u8 *arg0 = (u8 *)this;
@@ -36,11 +34,6 @@ void TObjWarpBoss03::sub_8019F9E4() {
 }
 
 }
-
-// ---- pso/object/TObjWarpBoss03
-#include "types.h"
-#include "pso/object/TObjWarpBoss03.h"
-#include "pso/object/TObjAreaWarp.h"
 
 extern "C" {
 
@@ -68,7 +61,6 @@ void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 
 extern void *TObjWarpBoss03__name;
 

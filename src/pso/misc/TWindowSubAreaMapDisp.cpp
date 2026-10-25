@@ -1,14 +1,22 @@
-// ---- pso/misc/TWindowSubAreaMapDisp_802717B8
 #include "types.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TUnk_804CE018.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowCtrl_80271DFC.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 s32 sub_80246948__13TUnk_804CE018Fv();
-
-
 
 void TWindowSubAreaMapDisp::update_visibility() {
     if ((s32) this->m_6c != 0) {
@@ -33,23 +41,6 @@ void TWindowSubAreaMapDisp::update_visibility() {
 
 }
 
-// ---- pso/misc/TWindowSubAreaMapDisp
-#include "types.h"
-#include "pso/misc/TUnk_804CE018.h"
-#include "pso/misc/TLobby_8001D6A0.h"
-#include "pso/misc/TWindowCtrl_80271DFC.h"
-#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
-#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
-#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
-#include "pso/misc/TWindowSubAreaMapDisp.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/misc/TWindowCtrl.h"
-#include "pso/misc/TWindowDD.h"
-#include "pso/misc/TWindowSubStatusDisp.h"
-#include "pso/object/TObjFish.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 struct RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp { s32 value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp_size[sizeof(RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp) == 0x1C ? 1 : -1];
 
@@ -62,7 +53,6 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
     s32 value;
     u8 remaining[0x18];
 };
-
 
 extern "C" {
 void mem_free(void *p);
@@ -86,43 +76,15 @@ extern s32 local_client_id;
 void apply_context_transform_to_rect(void *, void *);
 extern s32 lbl_805D63F0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 struct Vec2_80271A6C {
     f32 x;
     f32 y;
 };
 
-
-
-
-
 s32 draw_default_entry__9TWindowDDFl();
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 struct Rect_80271848 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
-
 
 void fn_80271848(s32 arg0, u8 *arg1) {
     Rect_80271848 r;

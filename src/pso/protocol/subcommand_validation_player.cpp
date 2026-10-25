@@ -1,10 +1,12 @@
-// ---- pso/protocol/subcommand_validation_player
 #include "pso/protocol/subcommand_validation.h"
+#include "types.h"
+#include "pso/protocol/subcmd_6x.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 is_in_view__17TObjEneHoldEffectFv(s32);
 s32 is_camera_visible__17TObjEneHoldEffectFv(s32);
-
 
 u16 TObjRoomId__sub_801A1DB8(u16);
 void *find_entity_by_id(u16 id);
@@ -313,11 +315,6 @@ s32 validate_6x22_set_player_invisible(G_ClientIDHeader *packet) {
     return validate_subcommand_client(packet) ? 1 : 0;
 }
 
-// ---- pso/unk/text_8036C9D8
-#include "types.h"
-#include "pso/protocol/subcmd_6x.h"
-#include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 struct LobbyAnimationState { G_ClientIDHeader header; s16 animation_number; u16 unused; u32 player_flags; f32 animation_timer; };
 
 extern "C" {

@@ -1,4 +1,3 @@
-// ---- pso/object/TObjBigTuitate
 #include "types.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_800D7BFC.h"
@@ -10,6 +9,9 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjMapCsn.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/unk/text_8019AD50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/object/TObjTuitate.h"
 
 struct FadeBase_8019AA18 { char pad[0x14]; };
 
@@ -57,15 +59,11 @@ void set_global_param__8TObjFishFl(void);
 void draw_ginja_object(void);
 extern u32 TObjBigTuitate__bml_resource;
 
-
-
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern s32 big_tuitate_collision_body[];
 extern s32 __vt__14TObjBigTuitate[];
 extern s32 lbl_805D3454;
-
-
 
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
@@ -169,11 +167,6 @@ void TObjBigTuitate::free_instance() {
 
 }
 
-// ---- pso/unk/text_8019AD50
-#include "types.h"
-#include "pso/unk/text_8019AD50.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 struct RecoveredGlobal_8019AD50_lbl_804B8FF8 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8019AD50_lbl_804B8FF8_size[sizeof(RecoveredGlobal_8019AD50_lbl_804B8FF8) == 0x10 ? 1 : -1];
 
@@ -193,19 +186,6 @@ void fn_8019AD50(void) {
 }
 
 }
-
-// ---- pso/object/TObjTuitate
-#include "types.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/player/TObjPlayer_800D7BFC.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/object/TObjFish.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/object/TObjTuitate.h"
-#include "pso/misc/RenderFadeState.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/object/TObjMapCsn.h"
-#include "pso/player/TObjPlayer.h"
 
 struct FadeBase_8019ADA0 { char pad[0x14]; };
 
@@ -240,7 +220,6 @@ struct Vec_8019ADA0 { f32 x, y, z; };
 #pragma auto_inline off
 #pragma dont_inline off
 
-
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -253,14 +232,11 @@ void set_global_param__8TObjFishFl(void);
 void draw_ginja_object(void);
 extern u32 TObjTuitate__bml_resource;
 
-
-
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern s32 TObjTuitate__collision_parts[];
 extern s32 __vt__11TObjTuitate[];
 extern s32 TObjTuitate__class_name;
-
 
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);

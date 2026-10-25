@@ -1,12 +1,14 @@
-// ---- pso/item/TItemReverseTechBG
 #include "pso/TItemReverseTechBG.h"
 #include "pso/item/TItemReverseTechBG.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/object/TObject_80019A50.h"
-
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemReverseTechPart2_801198F8.h"
+#include "pso/TItemReverseTechPart2.h"
+#include "pso/item/TItemReverseTechPart2.h"
+#include "pso/item/TItemReverseTech_8011A1E8.h"
 
 struct TItemReverseTechBG_80119658 {
     u8 pad0[0x1C];
@@ -25,69 +27,26 @@ extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void reset_transform_state__10TObjPlayerFv(void *);
 
-
 extern void *__vt__18TItemReverseTechBG[];
 extern s32 lbl_805D2C54;
 
-
-
-
 }
-
-// ---- pso/item/TItemReverseTechPart2_801198F8
-#include "types.h"
-#include "pso/item/TItemReverseTechBG.h"
-#include "pso/item/TItemReverseTechPart2_801198F8.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/TItemReverseTechPart2.h"
 
 extern "C" {
 
 u32 __nw__7TObjectFUl(s32);
 
-
-
 }
-
-// ---- pso/item/TItemReverseTechPart2
-#include "pso/TItemReverseTechPart2.h"
-#include "pso/item/TItemReverseTechBG.h"
-#include "pso/item/TItemReverseTechPart2.h"
-#include "pso/item/TItemReverseTech_8011A1E8.h"
-
-
-#include "types.h"
 
 struct RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2_size[sizeof(RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2) == 0x18 ? 1 : -1];
 
 extern "C" {
 
-
 extern RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2 __vt__21TItemReverseTechPart2;
 extern s32 lbl_805D2C50;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 extern void *TItemReverseTechPart1__instance;
-
-
 
 }
 
@@ -343,4 +302,3 @@ void TItemReverseTechBG::render() {
     draw_textured_quad_at_depth((f32 *)((char *)this + 56), *(f32 *)((s8 *)this + 0x58));
     TWindowSubStatusDisp::get_player();
 }
-

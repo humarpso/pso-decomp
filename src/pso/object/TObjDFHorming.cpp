@@ -1,4 +1,3 @@
-// ---- pso/unk/text_8004AB90
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -19,9 +18,6 @@ extern E_8004AB90 dark_falz_push_zone_table[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-
-
-
 
 void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
     Vec_8004AB90 v;
@@ -74,7 +70,6 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
 
 }
 
-// ---- pso/object/TObjDFHorming
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
@@ -90,10 +85,8 @@ s32 TBoss4Type3__sub_8005254C(s16);
 s32 rand(void);
 extern s32 lbl_805D586C;
 
-
 void play_sound_effect(s32, s32, s32, s32);
 s32 rand();
-
 
 int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
@@ -276,7 +269,6 @@ extern s32 local_client_id;
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 void fn_803594B4(void *, s32, f32);
 
-
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
 void release_all_players_control_lock(void);
@@ -291,8 +283,6 @@ f32 cos_table_lookup(s32);
 extern u8 dark_falz_zako_ring_origin_vec[];
 extern Desc_8004BD58 TBoss4DarkFalz__data_804FF1E8;
 extern s32 game_difficulty_selection;
-
-
 
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
@@ -728,7 +718,6 @@ void TBoss4DarkFalz::update_roar_sound_timer() {
 
 #pragma pop
 
-// ---- pso/boss/DarkFalzController
 // back to the unit's -inline off defaults after TObjDFHorming's inline pragmas
 #pragma dont_inline on
 #pragma auto_inline off
@@ -754,7 +743,6 @@ typedef struct Msg_8004BFA4 {
     u8 pad6[2];
     s32 arg;
 } Msg_8004BFA4;
-
 
 extern "C" {
 s32 query_teammate_state__9TObjEneDDFv();

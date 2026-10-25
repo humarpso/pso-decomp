@@ -1,4 +1,3 @@
-// ---- pso/misc/TWindowSubSymbolChat_80281814
 #include "types.h"
 #include "pso/misc/TWindowSubComCard_802A5748.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
@@ -19,6 +18,15 @@
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/misc/TWindowSubSymbolChatParts.h"
+#include "pso/misc/TWindowChatSymbol_802486A8.h"
+#include "pso/misc/TWindowSubSymbolChatHelp.h"
+#include "pso/misc/TWindowSubSymbolChat_802838C4.h"
+#include "pso/misc/TWindowSubSymbolChat_80283954.h"
+#include "pso/unk/text_802841FC.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowMessageYesNo.h"
+#include "pso/misc/TWindowSubSymbolChatFaceType.h"
+#include "pso/misc/TLobby.h"
 
 struct Win_80281EA8 { u8 pad[0x24]; s32 f24; };
 
@@ -53,15 +61,6 @@ Data_80281B18 *get_data_ptr__20TWindowSubSymbolChatFv();
 extern s8 TWindowSubSymbolChat__data_805D6494;
 f32 get_scale__15TWindowCtrlMainFv(s32);
 extern s32 lbl_805D63F0;
-
-
-
-
-
-
-
-
-
 
 void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0);
 s32 TKeyBoardControl__ct(s32, void *, s32, s32, s32, s32);
@@ -266,9 +265,6 @@ s32 TWindowSubSymbolChat::create_confirm_window() {
     return temp_r31;
 }
 
-
-
-
 s32 TWindowSubSymbolChat::open_confirm_prompt() {
     Win_80281EA8 *arg0 = (Win_80281EA8 *)this;
     s32 r = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->f24, 0, 0);
@@ -338,8 +334,6 @@ s32 TWindowSubSymbolChat::create_parts() {
     return var_r31;
 }
 
-
-
 void TWindowSubSymbolChat::open_menu(s32 arg0, s32 arg1) {
     ((TWindowSubComCardList *)arg1)->reset_entries();
     if (refresh_parts__20TWindowSubSymbolChatFv() > 0) {
@@ -357,28 +351,6 @@ s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0) {
     TWindowSubSymbolChat::open_menu(arg0, r);
     return r;
 }
-
-// ---- pso/misc/TWindowSubSymbolChat_8028239C
-#include "types.h"
-#include "pso/misc/TWindowChatSymbol_802486A8.h"
-#include "pso/misc/TWindowSubSymbolChatHelp.h"
-#include "pso/misc/TWindowSubSymbolChat_80076F88.h"
-#include "pso/misc/TWindowSubSymbolChat_80281814.h"
-#include "pso/misc/TWindowSubSymbolChat_8028239C.h"
-#include "pso/misc/TWindowSubSymbolChat_802838C4.h"
-#include "pso/misc/TWindowSubSymbolChat_80283954.h"
-#include "pso/unk/text_802841FC.h"
-#include "pso/misc/TWindowSubSymbolChatParts.h"
-#include "pso/misc/TWindowMenu.h"
-#include "pso/misc/TWindowSubComCardList.h"
-#include "pso/misc/TWindowMessageYesNo.h"
-#include "pso/misc/TWindowSubSymbolChatFaceType.h"
-#include "pso/misc/TWindowSubSymbolChat.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TWindowOptionCtrl.h"
-#include "pso/misc/TWindowSubComCard.h"
-#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
-#include "pso/object/TObjCityMainWarp.h"
 
 struct RecoveredGlobal_8028379C_lbl_804FF968 {
     s32 value;
@@ -421,7 +393,6 @@ s32 align_menu_entry_positions(s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
 
-
 s32 refresh_parts__20TWindowSubSymbolChatFv();
 s32 play_symbol_sound__20TWindowSubSymbolChatFl();
 void mem_free(void *p);
@@ -438,9 +409,6 @@ void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
 s32 __ct__7TObjectFP7TObject();
 s8 get_global_4e54__20TWindowSubSymbolChatFv();
 s32 update_display__20TWindowSubSymbolChatFl(s32 *);
-
-
-
 
 s32 TWindowSubSymbolChat::open_edit_menu() {
     s32 temp_r31;

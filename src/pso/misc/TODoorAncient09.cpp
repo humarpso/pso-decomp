@@ -1,4 +1,3 @@
-// ---- pso/misc/TODoorAncient09
 #include "types.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjMotion.h"
@@ -54,7 +53,6 @@ extern void *TODoorAncient09__texture_lists;
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 
-
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -100,9 +98,6 @@ s32 TODoorAncient09::init_door_switch_binding() {
     }
     return *(s32 *)&this->unk_C8;
 }
-
-
-
 
 #define VCALL_m8(obj) (((TODoor9VObj_801608B4*)(obj))->m8((*(f32 *)(obj + 0xC0)), (*(f32 *)(obj + 0xC4))))
 
@@ -385,7 +380,6 @@ void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1) {
 
 }
 
-// ---- pso/unk/text_801611CC
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"

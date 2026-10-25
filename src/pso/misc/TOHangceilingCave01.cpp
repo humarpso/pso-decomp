@@ -1,4 +1,3 @@
-// ---- pso/misc/TOHangceilingCave01
 #include "types.h"
 #include "pso/object/obj_band.h"
 #include "pso/object/TObjMotion.h"
@@ -14,6 +13,7 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 
 struct RecoveredGlobal_80167878_lbl_804B1F80 {
     s32 value;
@@ -213,20 +213,6 @@ extern s32 game_difficulty_selection;
 extern s32 TOHangceilingCave01__model_archive;
 extern s32 *turiten_singo_texture_lists;
 extern s32 hanging_ceiling_motion_index;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 extern void *tl_05;
 
@@ -640,11 +626,6 @@ f32 xz_distance_squared(void *, void *);
 s32 transform_point_by_current_matrix(void *, void *);
 extern s32 camera_ctrl_instance;
 
-
-
-
-
-
 void TUnk_804B2578::init_geometry() {
     f32 temp_f2;
     VObj_80168588 *self = (VObj_80168588 *)this;
@@ -673,8 +654,6 @@ f32 TUnk_804B2578::receive_direct_attack(void *, void *, void *, s32, s32) {
 
 void TUnk_804B2578::vfunc_80() {  }
 void TUnk_804B2578::vfunc_79() {  }
-
-
 
 void TUnk_804B2578::render() {
     u8 *arg0 = (u8 *)this;
@@ -868,15 +847,6 @@ void load_turiten_singo_resources(void) {
     }
 }
 
-// ---- pso/misc/TOHangceilingCave01KeyQuick_80168C04
-#include "types.h"
-#include "pso/misc/TOHangceilingCave01.h"
-#include "pso/misc/TOHangceilingCave01KeyQuick.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/misc/TUnk_804B2578.h"
-
 struct RecoveredGlobal_80168C6C_lbl_804B2174 {
     s32 value;
     u8 remaining[0x28];
@@ -929,8 +899,6 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
 }
 
 s32 TUnk_804B2578::select_melee_contact_body(void *, f32) { return 1; }
-
-
 
 f32 TUnk_804B2578::receive_physical_attack(void *, f32) {
     return 0.0f;

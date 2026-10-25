@@ -1,4 +1,3 @@
-// ---- pso/item/TItemEffectWeapon_803631A0
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -8,6 +7,9 @@
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TUnk_804F28E0.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemEffectWeapon_803632B4.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/item/TItemEffectWeapon.h"
 
 struct Obj_803631E8 {
     u8 pad0[0x10]; s32 i10; u8 pad14[0x2C]; u32 flags; s32 i44; u8 pad48[4]; f32 f4C; u8 pad50[0x10]; u8 v60[0x10]; void *fn70;
@@ -20,8 +22,6 @@ void get_weapon_color__11TItemWeaponFPv(void *, void *);
 
 void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1);
 }
-
-
 
 void s_rank_launcher_slide_node(void *arg0) {
     if (TObjPlayer::get_player_list() == 1) {
@@ -50,37 +50,15 @@ void TUnk_804F28E0::emit_marker_effects() {
     ((TItemWeapon *)arg0)->fire_shot_at_target(&sp8, 0, 0);
 }
 
-// ---- pso/item/TItemEffectWeapon_803632B4
-#include "types.h"
-#include "pso/item/TUnk_804F28E0.h"
-#include "pso/item/TItemEffectWeapon_803632B4.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
-
-
-
 void TUnk_804F28E0::update_idle() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)0.5f, (f32)4.0f);
 }
 
-// ---- pso/item/TItemEffectWeapon_803632E0
-#include "types.h"
-#include "pso/item/TUnk_804F28E0.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
-
-
-
 void TUnk_804F28E0::update_attack() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)(-1.0f), (f32)0.0f);
 }
-
-// ---- pso/item/TItemEffectWeapon_8036330C
-#include "types.h"
-#include "pso/item/TUnk_804F28E0.h"
-#include "pso/item/TItemEffectWeapon.h"
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);

@@ -1,14 +1,13 @@
-// ---- pso/object/TObjGyaranzoMissile_800D40D8
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/object/TUnk_8049442C.h"
-
 #include <dolphin/mtx.h>
 #include <stddef.h>
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjMotion.h"
 
 struct D_800D40FC { u8 pad[0x18]; s32 arr[1]; };
 
@@ -86,7 +85,6 @@ void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
 extern u8 identity_matrix[];
 
-
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void draw_chunk_object(void *child);
@@ -97,7 +95,6 @@ void TObjEneGyaranzo::vfunc_59() {  }
 s32 TObjEneGyaranzo::is_target_in_attack_range() { return 0; }
 void TObjEneGyaranzo::vfunc_58() {  }
 }
-
 
 extern s32 gyaranzo_missile_param_table;
 f32 get_gyaranzo_missile_float_parameter(s32 arg0);
@@ -244,14 +241,6 @@ void TUnk_8049442C::run_task() {
     }
 }
 
-// ---- pso/object/TObjGyaranzoMissile
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/object/TUnk_8049442C.h"
-#include "pso/object/TObjGyaranzoMissile.h"
-#include "pso/player/TObjPlayer.h"
-
 struct RecoveredGlobal_800D4668_lbl_80494400 {
     s32 value;
     u8 remaining[0x28];
@@ -262,12 +251,10 @@ struct RecoveredGlobal_800D4668_lbl_8049442C {
     u8 remaining[0x38];
 };
 
-
 extern "C" {
 u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
-
 
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -277,9 +264,7 @@ extern s32 lbl_8049442C[];
 extern s32 gyaranzo_bml_resource;
 extern s32 tl_04;
 
-
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
-
 
 void queue_destruction__7TObjectFv(void *);
 

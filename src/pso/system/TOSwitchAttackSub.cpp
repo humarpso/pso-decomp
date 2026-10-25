@@ -1,7 +1,13 @@
-// ---- pso/system/TOSwitchAttackSub
 #include "pso/TOSwitchAttackSub.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TParticleCtrl.h"
+#include "types.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_800870BC.h"
+#include "pso/unk/text_80177608.h"
+#include "pso/system/vector.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/misc/TOSwitchAttack.h"
 
 extern "C" {
 f32 horizontal_distance_squared(const f32*, const f32*);
@@ -37,13 +43,6 @@ TOSwitchAttackSub::~TOSwitchAttackSub() {
     if (particle != nullptr) queue_destruction__7TObjectFv(particle);
 }
 
-// ---- pso/unk/text_80177608
-#include "types.h"
-#include "pso/object/TObject_8001A448.h"
-#include "pso/unk/text_800870BC.h"
-#include "pso/unk/text_80177608.h"
-#include "pso/system/vector.h"
-#include "pso/player/TObjPlayer.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -90,12 +89,7 @@ u8 *TOSwitchAttackSub__ct(u8 *object, u8 *arg1, s32 arg2, s32 arg3, u32 arg4, f3
 
 }
 
-// ---- pso/misc/TOSwitchAttack
-#include "types.h"
-#include "pso/misc/TOSwitchAttack.h"
-
 extern "C" {
-
 
 u32 __nw__7TObjectFUl(s32);
 
@@ -108,7 +102,6 @@ void TOSwitchAttack::create_sub(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg
 }
 
 extern s32 game_difficulty_selection;
-
 
 void TOSwitchAttack::init_params() {
     f32 temp_f0;

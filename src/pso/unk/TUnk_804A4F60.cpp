@@ -1,7 +1,9 @@
-// ---- pso/player/TObjPlayer_8012BAA4
 #include "types.h"
 #include "pso/unk/TUnk_804A4F60.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_8012BC28.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/unk/text_8012BCD4.h"
 
 void psycho_wand_node_callback(void *arg0);
 extern "C" {
@@ -45,9 +47,6 @@ void TUnk_804A4F60::emit_marker_effects() {
 }
 }
 
-
-
-
 void psycho_wand_node_callback(void *arg0) {
     s32 player_list;
 
@@ -70,16 +69,6 @@ void psycho_wand_node_callback(void *arg0) {
     }
 }
 
-// ---- pso/player/TObjPlayer_8012BC28
-#include "types.h"
-#include "pso/player/TObjPlayer_8012BC28.h"
-#include "pso/unk/TUnk_804A4F60.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-#include "pso/player/TObjPlayer.h"
-
-
-
-
 void TUnk_804A4F60::update_idle() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), 0x38E, 0x2AAA);
@@ -88,9 +77,6 @@ void TUnk_804A4F60::update_idle() {
     }
 }
 
-
-
-
 void TUnk_804A4F60::update_attack() {
     u8 *arg0 = (u8 *)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x274), (f32)(-2.0f), (f32)0.0f);
@@ -98,12 +84,6 @@ void TUnk_804A4F60::update_attack() {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), -0x71C, 0);
     }
 }
-
-// ---- pso/unk/text_8012BCD4
-#include "types.h"
-#include "pso/unk/text_8012BCD4.h"
-#include "pso/unk/TUnk_804A4F60.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8012BCD4_lbl_804A4F60 { s32 value; u8 remaining[0xF4]; };
 typedef char RecoveredGlobal_8012BCD4_lbl_804A4F60_size[sizeof(RecoveredGlobal_8012BCD4_lbl_804A4F60) == 0xF8 ? 1 : -1];
@@ -114,7 +94,6 @@ extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
 }
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 psycho_wand_weapon_vtable;
-
 
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);

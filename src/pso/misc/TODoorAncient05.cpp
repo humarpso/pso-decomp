@@ -1,4 +1,3 @@
-// ---- pso/misc/TODoorAncient05
 #include "types.h"
 #include "pso/misc/TODoorAncient05_8015EE50.h"
 #include "pso/unk/text_80158360.h"
@@ -8,6 +7,8 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/unk/TUnk_804B0BB8.h"
+#include "pso/misc/TODoorAncient01.h"
 
 struct Base1 { char pad[0x18]; };
 
@@ -26,15 +27,10 @@ void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern u8 *door_ancient05_static_model_nodes;
 
-
-
-
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient05__switch_texture_lists;
 
 void *__nw__7TObjectFUl(int);
-
-
 
 void TODoorAncient05::render() {
     u8 *arg0 = (u8 *)this;
@@ -100,15 +96,6 @@ void *TODoorAncient05::create(void *arg0) {
 
 }
 
-// ---- pso/misc/TODoorAncient05_8015EE50
-#include "types.h"
-#include "pso/misc/TODoorAncient05_8015EE50.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/unk/TUnk_804B0BB8.h"
-#include "pso/misc/TODoorAncient05.h"
-#include "pso/misc/TODoorAncient01.h"
-#include "pso/player/TObjPlayer.h"
-
 struct RecoveredGlobal_8015F048_lbl_804B0F28 {
     s32 value;
     u8 remaining[0x28];
@@ -126,8 +113,6 @@ extern RecoveredGlobal_8015F048_lbl_804B0F28 TODoorAncient05__collision_body;
 extern s32 __vt__15TODoorAncient05[];
 extern s32 lbl_805D2F38;
 extern void *door_ancient05_bml_resource;
-
-
 
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void copy_model_node(u8 *arg0, u8 *arg1);

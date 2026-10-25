@@ -1,4 +1,3 @@
-// ---- pso/ui/TAdRayGC_8029C030
 #include "types.h"
 #include "pso/object/TObjFish.h"
 #include "pso/misc/TORockJungleL01.h"
@@ -77,7 +76,6 @@ void TORockJungleL01::vfunc_14() {
 
 }
 
-// ---- pso/misc/TORockJungleL01
 #include "types.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_800D7BFC.h"
@@ -119,7 +117,6 @@ void *TORockJungleL01::destroy(s16 arg1) {
 
 }
 
-// ---- pso/unk/text_8029C214
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/misc/TORockCave.h"
@@ -219,7 +216,6 @@ u8 *TORockJungleL01__ct(u8 *rock_cave, s32 arg1) {
 
 }
 
-// ---- pso/misc/TORockJungleM01
 #include "types.h"
 #include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
@@ -455,7 +451,6 @@ void TORockJungleM01::vfunc_14() {
 
 }
 
-// ---- pso/misc/TORockJungleS01
 #include "types.h"
 #include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
@@ -528,7 +523,6 @@ u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
-
 
 void *__nw__7TObjectFUl(int);
 extern Offs_8029C7DC lbl_8046581C;

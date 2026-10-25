@@ -1,38 +1,27 @@
-// ---- pso/misc/TCameraCtrl_8006BA68
 #include "types.h"
 #include "pso/misc/TCameraCtrl_80067FC0.h"
 #include "pso/misc/TCameraCtrl_8006C254.h"
 #include "pso/misc/TUnk_80488B38.h"
 #include "pso/misc/TUnk_80488B68.h"
-
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
-
+#include "pso/misc/CameraHelpers.h"
+#include <stddef.h>
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TCameraCtrl_8006C580.h"
+#include "pso/system/memory.h"
+#include "pso/misc/TUnk_80488D70.h"
+#include "pso/misc/TScene.h"
 
 extern "C" {
 void __dl__7TObjectFPv(void *);
-
 
 #pragma push
 #pragma fp_contract on
 #pragma pop
 
-
 }
-
-#include "pso/misc/CameraHelpers.h"
-#include <stddef.h>
-
-#include <stddef.h>
-#include "pso/misc/TOKeyMachine01.h"
-
-
-
-
-
-
-
 
 extern void* camera_controller_registry[];
 void* camera_controller_registry[];
@@ -40,11 +29,9 @@ void* camera_controller_registry[];
 struct CameraMotionData;
 extern "C" {
 
-
 void *TCameraCtrl__vt5(void);
 
 }
-
 
 extern s32 TCameraCtrl__saved_projection_angle;
 extern s32 scripted_camera_projection_angle;
@@ -52,9 +39,6 @@ extern s32 scripted_camera_projection_angle;
 #pragma push
 #pragma opt_common_subs off
 #pragma pop
-
-
-
 
 void *TCameraCtrl__vt5(void) {
     void *o = (void *)new TUnk_80488B68();
@@ -104,7 +88,6 @@ void rotate_matrix_y(int, s32);
 void matrix_mult_vec(int, Vec_8006C28C *, Vec_8006C28C *);
 s32 pop_matrices(s32 arg0);
 extern u8 identity_matrix[];
-
 
 void TUnk_80488B68::run_task() {
     Cam_8006C28C *s = (Cam_8006C28C *)this;
@@ -178,12 +161,6 @@ void TUnk_80488B68::run_task() {
 }
 #pragma pop
 
-// ---- pso/misc/TCameraCtrl_8006C580
-
-#include "pso/misc/TCameraCtrl_80067FC0.h"
-#include "pso/misc/TCameraCtrl_8006C580.h"
-
-
 extern s32 __vt__13TUnk_80488B68[];
 
 void *__dt__13TUnk_80488B68Fv(void *arg0, s16 arg1) {
@@ -197,22 +174,10 @@ void *__dt__13TUnk_80488B68Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-
-// ---- pso/misc/TCameraCtrl_8006C5D8
-
-
-#include "pso/system/memory.h"
-#include "pso/misc/TUnk_80488D70.h"
-
-
-#include "pso/misc/TScene.h"
-
 extern "C" {
 
 s32 load_relocatable_file(s32 arg0, s32 arg1);
 
-
-    
 }
 TUnk_80488B68::TUnk_80488B68() : TUnk_80488A28() {
     this->m_38 = 0;
@@ -235,7 +200,6 @@ TUnk_80488B68::TUnk_80488B68() : TUnk_80488A28() {
     this->m_90 = 0;
     *(int*)((char*)this + 0x94) = 0;
 }
-
 
 void TCameraCtrl::free_entries() {
     s32 i;
@@ -276,5 +240,3 @@ void TCameraCtrl::load_camera_banks() {
         TCameraCtrl__camera_banks.e[k].a = load_relocatable_file(b->entries[k].id, (s32)TCameraCtrl__camera_banks.e[k].p);
     }
 }
-
-

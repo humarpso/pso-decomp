@@ -1,9 +1,16 @@
-// ---- pso/enemy/TObjEneBm9Mericarol tail (0x802D134C-0x802D14F4: apply_area_attack_hits, Bomb::render); TU .text 0x802D134C-0x802D1AB8, .sdata2 0x805DE758-0x805DE778
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
+#include "pso/system/vector.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/unk/text_800BC4C8.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TObjEneBm9Mericarol.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 struct VBase_18_0ab400 { char pad[0x18]; };
 
@@ -88,13 +95,6 @@ void TObjEneBm9Mericarol_Bomb::render() {
 
 }
 
-// ---- pso/unk/text_802D14F4
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
-#include "pso/misc/TNowLoading.h"
-
 struct VBase_18_64db54 { char pad[0x18]; };
 
 struct VObj_18_64db54 : VBase_18_64db54 {
@@ -129,7 +129,6 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *find_entity_by_id(u16 id);
 void TObjEneBm9Mericarol__sub_802CED40(void *p);
 s32 vec3_add_to(void *, void *);
-
 
 #pragma push
 #pragma opt_common_subs off
@@ -217,44 +216,20 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
 
 }
 
-// ---- pso/enemy/TObjEneBm9Mericarol_802D17F4
-#include "types.h"
-#include "pso/unk/text_800BC4C8.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/system/vector.h"
-#include "pso/player/TUnk_804928CC.h"
-#include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
-
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEneBm9Mericarol.h"
-#include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
-#include "pso/misc/TNowLoading.h"
-
 struct VBase_18_477421
 {
   char pad[0x18];
 };
 
-
-
-
-
-
-
-
-
 struct Vec_802D1880 { f32 x, y, z; };
 
 extern "C" {
-
 
 s16 obj_getField1c(void *);
 f32 vector_length(Vec_802D1880 *);
 s32 normalize_vector(Vec_802D1880 *);
 extern s32 lbl_804E18A8[];
 extern s32 lbl_805D3F30;
-
 
 u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1);
 void __dl__7TObjectFPv(void *);
@@ -271,7 +246,6 @@ void *TObjEneBm9Mericarol_Bomb::dt(s16 arg1) {
     }
     return this;
 }
-
 
 #pragma push
 #pragma fp_contract on
@@ -345,6 +319,5 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *ene_bm9_mericarol_bomb, u8 *ene_bm9_me
 
 typedef struct VBase_18_477421 VBase_18_477421;
 #pragma pop
-
 
 }

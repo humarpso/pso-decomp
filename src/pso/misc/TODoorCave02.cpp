@@ -1,4 +1,3 @@
-// ---- pso/misc/TODoorCave02
 #include "types.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/unk/text_80158360.h"
@@ -8,12 +7,14 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TODoorCave02_8016206C.h"
+#include "pso/unk/TUnk_804B0BB8.h"
+#include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TODoorAncient01.h"
 
 extern "C" {
 s32 play_sound_effect(s32, void *, s32, s32);
-
-
-
 
 s32 push_matrix();
 s32 pop_matrix();
@@ -42,7 +43,6 @@ void TODoorCave02::vfunc_20() {  }
 
 extern u8 *cave_door02_resources;
 
-
 void TODoorCave02::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (this->m_d0 & 1) {
@@ -59,8 +59,6 @@ void TODoorCave02::vfunc_17() {
         play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
     }
 }
-
-
 
 void TODoorCave02::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
@@ -132,17 +130,6 @@ void TODoorCave02::render() {
 
 }
 
-// ---- pso/misc/TODoorCave02_8016206C
-#include "types.h"
-#include "pso/misc/TODoorCave02_8016206C.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/unk/TUnk_804B0BB8.h"
-#include "pso/system/BmlResourceDescriptor.h"
-#include "pso/misc/TODoorCave02.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TODoorAncient01.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 extern char lbl_80440DB8[];
 extern char lbl_80440DCC[];
@@ -173,7 +160,6 @@ extern RecoveredGlobal_8016226C_lbl_804B1488 TODoorCave02__collision_body_parts;
 extern s32 __vt__12TODoorCave02[];
 extern s32 lbl_805D2F68;
 extern u32 cave_door02_model_resource;
-
 
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);

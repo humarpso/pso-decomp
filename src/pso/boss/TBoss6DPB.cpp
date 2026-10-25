@@ -1,4 +1,3 @@
-// ---- pso/boss/TBoss6DPB
 #include "pso/TBoss6DPB.h"
 #include "pso/boss/TBoss6DPB.h"
 #include "pso/effect/TDPBShower.h"
@@ -7,7 +6,6 @@
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
-
 #include "types.h"
 #include "pso/boss/TBoss6Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -20,7 +18,6 @@ struct W_8035D8B0 { u8 pad0[0x20]; V_8035D8B0 v; };
 
 struct RecoveredGlobal_8035DB70___vt__9TBoss6DPB { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035DB70___vt__9TBoss6DPB_size[sizeof(RecoveredGlobal_8035DB70___vt__9TBoss6DPB) == 0x18 ? 1 : -1];
-
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -75,7 +72,6 @@ s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035DB70___vt__9TBoss6DPB __vt__9TBoss6DPB;
 extern s32 TBoss6DPB__class_name;
-
 
 int get_player_data__10TObjPlayerFi(int a0);
 f32 vector_length(void *);

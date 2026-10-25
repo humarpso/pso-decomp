@@ -1,4 +1,3 @@
-// ---- pso/misc/TContainerAncient01 (0x8018C948-0x8018CCFC)
 #include "pso/misc/RenderFadeState.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -11,13 +10,22 @@
 #include "pso/item/TUnk_804B97C0.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TContainerAncient01R.h"
-
 #include "types.h"
-
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/item/TObjContainerJungEx_8018D900.h"
+#include "pso/player/TUnk_804B6C24.h"
+#include "pso/object/TObjChip.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/item/TObjContainerJungEx.h"
+#include "pso/item/TObjContainerItem.h"
+#include "pso/item/TObjContainerJung.h"
 
 extern "C" {
 u32 init_collision_body_parts(void *, s32, s32);
-
 
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -26,7 +34,6 @@ s32 __dl__7TObjectFPv(void *);
 #pragma fp_contract on
 #pragma pop
 
-
 s32 post_translate_matrix(void *);
 void draw_ginja_object(void *);
 s32 rotate_matrix_y(s32, s32);
@@ -34,27 +41,19 @@ s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
-
 #pragma push
 #pragma fp_contract on
 #pragma pop
 
 extern void *tl_05;
 
-
 }
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TLobby.h"
-#include "pso/npc/TObjNpcEnemy.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 
 struct Obj_8018CBF0 { u8 pad0[0x84]; s32 id; };
 
 struct Obj_8018CB44 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; };
 
 struct Pkt_8018CB44 { u16 a; u16 b; s32 c; s32 d; s32 e; };
-
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
@@ -207,14 +206,6 @@ void TObjContainerJungEnemy::vfunc_81() {
     }
 }
 }
-// ---- pso/item/TObjContainerJungEnemy
-#include "types.h"
-#include "pso/item/TObjContainerJungEx_8018D900.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804B6C24.h"
-#include "pso/item/TObjContainerJungEnemy.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8018CEDC_lbl_804B7168 {
     s32 value;
@@ -322,19 +313,6 @@ u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2) {
 }
 
 }
-// ---- pso/item/TObjContainerJungEx
-#include "types.h"
-#include "pso/item/TObjContainerJungEx_8018D900.h"
-#include "pso/object/TObjChip.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804B6C24.h"
-#include "pso/item/TObjContainerJungEx.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/item/TObjContainerItem.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8018D314_lbl_804B7168 {
     s32 value;
@@ -394,7 +372,6 @@ void *TObjContainerJungEx::create(void *arg0) {
     }
     return o;
 }
-
 
 #pragma push
 #pragma opt_propagation off
@@ -516,20 +493,6 @@ u8 *TObjContainerJungEx__ct(u8 *arg0, s32 arg1, s32 _w2) {
     return arg0;
 }
 }
-// ---- pso/item/TObjContainerJung
-#include "types.h"
-#include "pso/object/TObjChip.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/player/TUnk_804B6C24.h"
-#include "pso/item/TObjContainerJung.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8018D47C_lbl_804B7134 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018D47C_lbl_804B7134_size[sizeof(RecoveredGlobal_8018D47C_lbl_804B7134) == 0x10 ? 1 : -1];
@@ -580,7 +543,6 @@ s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
-
 
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 }

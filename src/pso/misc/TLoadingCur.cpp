@@ -1,12 +1,13 @@
-// ---- pso/unk/text_8001CAD4
 #include "types.h"
 #include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLoadingCur.h"
-
 #include <stddef.h>
 #include "pso/misc/TNowLoading.h"
+#include "pso/unk/text_80086FE0.h"
+#include "pso/object/TObject_80019A50.h"
+
 struct Stack_8001CAD4 {
     s32 sp8;
     s32 spC;
@@ -85,17 +86,6 @@ Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o) {
 
 }
 
-// ---- pso/misc/TLoadingCur
-#include "types.h"
-#include "pso/misc/TLoadingCur.h"
-#include "pso/unk/text_80086FE0.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/player/TObjPlayer_80141D1C.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/system/vector.h"
-
-#include <stddef.h>
-
 struct Stack_8001D0A0 {
     s32 sp8;
     s32 spC;
@@ -142,10 +132,6 @@ struct V2_8001CCD4 { f32 x, y; };
 
 extern "C" {
 
-
-
-
-
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__11TLoadingCur[];
 
@@ -157,13 +143,8 @@ s32 is_flag_set__11TLoadingCurFv(void *, s32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern Pad_8001CD90 controller_input_state;
 
-
-
-
 s32 project_world_to_screen(int, void *, void *);
 void push_matrix(void);
-
-
 
 s32 TLoadingCur::calc_clamp_offset(s32 arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f0;

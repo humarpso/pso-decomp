@@ -1,4 +1,3 @@
-// ---- pso/ui/TAdDialingGC_80328210
 #include "types.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TLobby_80132ED0.h"
@@ -292,16 +291,11 @@ void TAdDialingGC::update() {
 
 }
 
-// ---- pso/ui/TAdDialingGC_80328848
-
 struct Obj_80328874 { u8 pad[0x9C]; s32 state; };
 
 extern "C" {
 void refresh_display__12TAdDialingGCFv(void *);
 s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
-
-
-
 
 void TAdDialingGC::update_dialing_display(int _w0) {
     TAdDialingGC__sub_8013ADBC(_w0);
@@ -335,8 +329,6 @@ void TAdDialingGC::update_status_message() {
 }
 
 }
-
-// ---- pso/ui/TAdDialingGC_80328904
 
 struct Obj_80328990 { u8 pad[0x9C]; u32 state; };
 
@@ -414,8 +406,6 @@ void TAdDialingGC::update_status_display() {
 
 }
 
-// ---- pso/ui/TAdDialingGC_80328A4C
-
 extern "C" {
 
 int update_dialing_display__12TAdDialingGCFi(void*);
@@ -424,20 +414,14 @@ int TAdDialingGC::refresh_display() { return update_dialing_display__12TAdDialin
 
 }
 
-// ---- pso/ui/TAdDialingGC_80328A70
-
 extern "C" {
 
 s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
-
-
-
 
 void TAdDialingGC::init_dialog() {
     TAdDialingGC__sub_8013ADBC(0);
     render_status_disp__23TAdSinglePlyChrSelectGCFff(23.0f, 331.0f);
 }
-
 
 s32 fn_80145A44(void *);
 s32 call_146CA0_with_5708__6TLobbyFv();

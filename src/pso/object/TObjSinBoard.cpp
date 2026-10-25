@@ -1,4 +1,3 @@
-// ---- pso/object/TObjSinBoard
 #include "types.h"
 #include "pso/TMainTask.h"
 #include "pso/unk/text_80198A2C.h"
@@ -17,6 +16,22 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/object/TObjFish.h"
+#include "pso/misc/TWindowTimer_80198814.h"
+#include "pso/unk/text_80198960.h"
+#include "pso/unk/TUnk_804B8DE8.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/system/byteswap.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/unk/TUnk_804B8E18.h"
+#include "pso/unk/TUnk_804B8E00.h"
+#include <stddef.h>
 
 struct RecoveredGlobal_801982D4_lbl_804B8DAC { s32 value; u8 remaining[0x20]; };
 typedef char RecoveredGlobal_801982D4_lbl_804B8DAC_size[sizeof(RecoveredGlobal_801982D4_lbl_804B8DAC) == 0x24 ? 1 : -1];
@@ -265,12 +280,6 @@ void TUnk_804B8DD0::update_effects() {
 
 }
 
-// ---- pso/misc/TWindowTimer_80198814
-#include "types.h"
-#include "pso/misc/TWindowTimer_80198814.h"
-#include "pso/misc/TUnk_804B8DD0.h"
-#include "pso/system/vector.h"
-
 struct RecoveredGlobal_8019886C_lbl_804B8DD0 {
     s32 value;
     u8 remaining[0x14];
@@ -328,13 +337,6 @@ u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4)
 
 }
 
-// ---- pso/unk/text_80198960
-#include "types.h"
-#include "pso/unk/text_80198960.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/unk/TUnk_804B8DE8.h"
-#include "pso/object/TObjFish.h"
-
 struct RecoveredGlobal_80198960_lbl_804B8DAC {
     s32 value;
     u8 remaining[0x20];
@@ -370,27 +372,6 @@ void TUnk_804B8DE8::render() {
 }
 
 }
-
-// ---- pso/unk/text_80198A2C
-#include "types.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/unk/TUnk_804B8DE8.h"
-#include "pso/system/byteswap.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TLanguage.h"
-#include "pso/misc/TWindowTimer.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TNowLoading.h"
-#include "pso/misc/TNpcPlayer.h"
-#include "pso/misc/TWindowCtrl.h"
-#include "pso/object/TObjFish.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/unk/TUnk_804B8E18.h"
-#include "pso/unk/TUnk_804B8E00.h"
 
 struct Obj_8019978C;
 struct Pair_80198F14;
@@ -506,7 +487,6 @@ void TUnk_804B8DE8::run_task() {
 
 }
 
-#include <stddef.h>
 struct Stack_80198DCC {
     s32 sp8;
     s32 spC;

@@ -1,6 +1,20 @@
-// ---- 0x801AC43C-0x801AC45C (currently the tail of pso/misc/TPhotonLaser): TU start
 #include "types.h"
 #include "pso/misc/TPhotonLeilla.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/system/vector.h"
+#include "pso/misc/TUnk_804C3248.h"
+#include "pso/object/TObjMotion.h"
+#include <stddef.h>
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/obj_band.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
 void TObjPlayer__sub_801AC43C(void) {  }
@@ -9,22 +23,6 @@ void TObjPlayer__sub_801AC440(void) {  }
 
 void TPhotonLeilla::sub_801AC444() { *(float *)&this->m_180 = 0.0f; *(float*)((char*)this + 0x184) = 0.0f; this->m_188 = 0.0f; *(float *)&this->unk_18C = 0.0f; }
 
-// ---- pso/misc/TPhotonLeilla_801AC45C
-#include "types.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
-
-#include <stddef.h>
-#include "pso/misc/TPhotonLeilla.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_801AC574 {
     s32 sp8;
     f32 spC;
@@ -61,10 +59,6 @@ s32 advance_animation_playback(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern const f64 lbl_80446DE8;
-
-
-
-
 
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
@@ -168,12 +162,6 @@ void TPhotonLeilla::run_task() {
 }
 }
 
-// ---- pso/misc/TPhotonLeilla
-#include "types.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TPhotonLeilla.h"
-#include "pso/misc/TUnk_804C3248.h"
-
 extern "C" {
 
 s32 __dl__7TObjectFPv(void *);
@@ -203,18 +191,6 @@ void *__dt__13TPhotonLeillaFv(void *arg0, s16 arg1) {
 }
 
 }
-
-// ---- pso/unk/text_801AC808
-#include "types.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TLobby_802268F4.h"
-#include "pso/misc/obj_band.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
 
 #define NEW_801AC808(n) (((u8 *(*)(int))__nw__7TObjectFUl)(n))
 #define F_801AC808(o, t, off) (*(t *)((u8 *)(o) + (off)))
@@ -255,7 +231,6 @@ extern u8 photon_blast_leilla_params[];
 extern s32 __vt__13TPhotonLeilla[];
 extern s32 lbl_805D34F8;
 extern Game_801AC808 *photon_blast_shared_resource;
-
 
 void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     Vec_801AC808 v;

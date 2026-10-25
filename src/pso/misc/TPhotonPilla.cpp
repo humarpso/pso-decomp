@@ -1,4 +1,3 @@
-// ---- pso/player/TObjPlayer_801ADC6C
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -78,7 +77,6 @@ void TObjPlayer__sub_801ADC6C(void) { lbl_805D5D50 = 0; }
 
 void TObjPlayer__sub_801ADC78(void) {  }
 
-    
 void TPhotonPilla::sub_801ADC7C() { this->m_180 = 0.0f; *(float*)((char*)this + 0x184) = 0.0f; this->m_188 = 0.0f; *(float*)((char*)this + 0x18c) = 0.0f; }
 
 void TPhotonPilla::apply_photon_blast_effects() {
@@ -96,17 +94,6 @@ void TPhotonPilla::apply_photon_blast_effects() {
         } while (var_r31 < 0x10);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 void TPhotonPilla::spawn_laser() {
     Vec position;
@@ -201,13 +188,6 @@ void TPhotonPilla::run_task() {
 
 }
 
-// ---- pso/misc/TPhotonPilla
-#include "types.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/misc/TPhotonPilla.h"
-
 extern "C" {
 
 s32 free_collision_body_parts(void *);
@@ -232,21 +212,6 @@ void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1) {
 
 }
 
-// ---- pso/unk/text_801AE1F8
-#include "types.h"
-#include "pso/TObject.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TLobby_802268F4.h"
-#include "pso/misc/obj_band.h"
-#include "pso/unk/text_801AE1F8.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/misc/TPhotonPilla.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
-
 struct Vec_801AE1F8 { f32 x, y, z; };
 
 extern "C" {
@@ -260,7 +225,6 @@ extern u8 lbl_80446EE0[];
 extern u8 lbl_80446EEC[];
 extern s32 lbl_805D3518;
 extern u8 *photon_blast_shared_resource;
-
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();

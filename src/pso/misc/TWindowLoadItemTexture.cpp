@@ -1,8 +1,14 @@
-// ---- pso/unk/text_802628C0
 #include "pso/ui/ItemTextureConstants.h"
 #include "types.h"
 #include "pso/misc/TWindowLoadItemTexture.h"
 #include "pso/misc/TWindowSubStatusDisp_8025B050.h"
+#include "pso/item/TItemTexLoad.h"
+#include "pso/misc/TWindowSubMag_802627D8.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TUnk_804CE018.h"
+#include "pso/misc/TWindowDD.h"
+
 #pragma push
 #pragma opt_common_subs off
 
@@ -33,18 +39,6 @@ TWindowLoadItemTexture *fn_802628C0(void *layout, void *table, void *id) {
 
 #pragma pop
 
-// ---- pso/misc/TWindowLoadItemTexture
-#include "pso/ui/ItemTextureConstants.h"
-#include "pso/item/TItemTexLoad.h"
-#include "pso/misc/TWindowSubMag_802627D8.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TUnk_804CE018.h"
-
-#include "types.h"
-#include "pso/misc/TWindowLoadItemTexture.h"
-#include "pso/misc/TWindowDD.h"
-
 extern "C" {
 
 void get_array_entry__13TUnk_804CE018Fi(void *, int);
@@ -53,7 +47,6 @@ extern s32 __vt__22TWindowLoadItemTexture[];
 extern s32 lbl_805D3940;
 extern s32 tl_07;
 
-
 s32 draw_visible_window_entries(void *, void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -61,8 +54,6 @@ void *__nw__7TObjectFUl(int);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 extern s32 lbl_8044F280[];
-
-
 
 void *TWindowLoadItemTexture::create(void *arg1) {
     void *o;

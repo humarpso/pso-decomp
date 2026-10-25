@@ -1,7 +1,15 @@
-// ---- pso/unk/text_8026C664
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/unk/text_8026C664.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
+#include "pso/unk/text_8026C7AC.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/misc/TWindowSubComCardList_8026CB08.h"
+#include "pso/misc/TWindowSubComCardList.h"
 
 struct Stack_8026C708
 {
@@ -56,16 +64,6 @@ void fn_8026C708(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
 }
 
 }
-
-// ---- pso/unk/text_8026C7AC
-#include "types.h"
-#include "pso/misc/TLobby_8001D6A0.h"
-#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
-#include "pso/unk/text_8026C664.h"
-#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
-#include "pso/unk/text_8026C7AC.h"
-#include "pso/misc/TWindowSubStatusDisp.h"
-#include "pso/object/TObjFish.h"
 
 typedef struct Vec2_8026C800 { f32 x, y; } Vec2_8026C800;
 
@@ -138,8 +136,6 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
 }
 #pragma pop
 
-// ---- pso/unk/text_8026C9C8
-#include "types.h"
 struct Ctl_8026C9DC {
     s8 cur;
     s8 count;
@@ -150,7 +146,6 @@ struct Ctl_8026C9DC {
 
 extern "C" {
 
-void decay_page_arrow_offset(Ctl_8026C9DC *o);
 #pragma push
 #pragma fp_contract on
 void decay_page_arrow_offset(Ctl_8026C9DC *o) {
@@ -160,9 +155,6 @@ void decay_page_arrow_offset(Ctl_8026C9DC *o) {
 
 }
 
-// ---- pso/unk/text_8026C9DC
-#include "types.h"
-#include "pso/misc/TWindowCtrl_8024A054.h"
 struct Pad_8026C9DC {
     u8 pad0[0x20];
     u8 buttons[0x30];
@@ -173,7 +165,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, u32);
 void play_sound_effect(s32, s32, s32, s32);
 extern Pad_8026C9DC controller_input_state[];
 
-s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0);
 s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0) {
     void *pad;
     s8 cur;
@@ -209,12 +200,6 @@ s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0) {
 }
 
 }
-
-// ---- pso/misc/TWindowSubComCardList_8026CB08
-#include "types.h"
-#include "pso/misc/TQuestListVM_8007EAF8.h"
-#include "pso/misc/TWindowSubComCardList_8026CB08.h"
-#include "pso/misc/TWindowSubComCardList.h"
 
 s32 delete_if_allocated(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

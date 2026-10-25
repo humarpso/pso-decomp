@@ -1,9 +1,21 @@
-// ---- pso/enemy/TObjEneRe7BeruraPunch_80095E18
 #include "types.h"
 #include "pso/enemy/TObjEneDD_800BA138.h"
 #include "pso/enemy/TObjEneRe7BeruraPunch_80095E18.h"
 #include "pso/enemy/TObjEneRe7BeruraPunch.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/system/vector.h"
+#include <stddef.h>
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804928CC.h"
+#include "pso/player/TUnk_80490470.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/enemy/TObjEneDellBiter.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
@@ -32,13 +44,6 @@ void TObjEneRe7BeruraPunch__vt20(TObjEneRe7BeruraPunch *ene_re7_berura_punch, s3
 
 }
 
-// ---- pso/enemy/TObjEneRe7BeruraPunch_80095EA0
-#include "types.h"
-#include "pso/math/MatrixTransforms.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/system/vector.h"
-#include "pso/enemy/TObjEneRe7BeruraPunch.h"
-
 struct VBase_14_c1c33b { char pad[0x14]; };
 
 struct VObj_14_c1c33b : VBase_14_c1c33b {
@@ -49,11 +54,6 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
     virtual s32 m4();
 };
 
-#include <stddef.h>
-#include "pso/TParticleCtrl.h"
-#include "pso/enemy/TObjEneDD.h"
-#include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_80096030 {
     f32 sp8;
     f32 spC;
@@ -64,16 +64,13 @@ struct Pair_80096150 { s32 a; s32 b; };
 
 extern "C" {
 
-
 u8 * csnVector(s32, s32, s32);
 void *find_entity_by_id(u16 id);
 s32 TObjEneRe7Berura__sub_80094D98();
 
-
 void TObjEneRe7Berura__sub_80094C68(TObjEneRe7Berura *self);
 s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *, void *, f32, f32);
 extern Pair_80096150 lbl_80439F28[];
-
 
 struct VObjHang_80095EA0 {
     char pad[0x14];
@@ -97,8 +94,6 @@ s32 defer_render__7TObjectFv(void *);
 
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-
-
 
 void TObjEneRe7BeruraPunch::render() {
     u8 *arg0 = (u8 *)this;
@@ -131,8 +126,6 @@ void TObjEneRe7BeruraPunch::render() {
         model_render_flags = lbl_805D5660;
     }
 }
-
-
 
 // 10.0f keeps its data symbol: declared here, defined after its first use so it lands in pool order.
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0[1];
@@ -242,19 +235,6 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
 
 }
 
-// ---- pso/enemy/TObjEneRe7BeruraPunch
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/player/TUnk_804928CC.h"
-#include "pso/player/TUnk_80490470.h"
-#include "pso/enemy/TObjEneRe7BeruraPunch.h"
-#include "pso/boss/TBoss4Type2.h"
-#include "pso/enemy/TObjEneDellBiter.h"
-#include "pso/misc/TNowLoading.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 struct Stack_80096300
 {
   s32 sp8;
@@ -278,7 +258,6 @@ struct Ang_8009640C { s32 x, y, z; };
 extern "C" {
 s32 *csnVecterUnder(s32 origin, s32 mask);
 
-
 u16 obj_getField1c(void *);
 extern RecoveredGlobal_80096750_lbl_8048F930 TObjEneRe7BeruraPunch__collision_body_templates;
 extern s32 __vt__21TObjEneRe7BeruraPunch[];
@@ -291,9 +270,6 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
-
-
-
 
 struct BeruraBase_800962F4 { char pad[0x14]; };
 struct BeruraObj_800962F4 : BeruraBase_800962F4 {
@@ -316,9 +292,6 @@ void __dl__7TObjectFPv(void *);
 s32 fill_value_array(s32);
 
 void TObjEneRe7BeruraPunch__sub_800962F4(void* p) { *(s32*)((char*)p + 0xb4) = 0; }
-
-
-
 
 typedef struct Stack_80096300 Stack_80096300;
 void TObjEneRe7BeruraPunch::snap_to_ground() {

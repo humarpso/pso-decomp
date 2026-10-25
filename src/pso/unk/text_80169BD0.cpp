@@ -1,4 +1,3 @@
-// ---- pso/misc/TOHealGeneral (tail: TUnk_804B27D8 methods from 0x801699F4)
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -22,8 +21,6 @@ u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 
 void TUnk_804B27D8::vfunc_16() {  }
-
-
 
 void TUnk_804B27D8::vfunc_6(s16 *arg1, s32) {
     this->m_ac = (s32) *arg1;
@@ -106,13 +103,6 @@ s32 TOHealGeneral::update_heal_gauge_state() {
 
 }
 
-// ---- pso/unk/text_80169BD0
-#include "types.h"
-#include "pso/misc/TUnk_804B27D8.h"
-#include "pso/TObject.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-
 struct Base { char pad[0x18]; };
 
 struct VObj : Base {
@@ -149,8 +139,6 @@ extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 extern s32 tl_00;
-
-
 
 void TUnk_804B27D8::run_task() {
     u8 *arg0 = (u8 *)this;

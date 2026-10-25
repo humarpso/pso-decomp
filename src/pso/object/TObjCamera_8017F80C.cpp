@@ -1,6 +1,12 @@
-// ---- pso/unk/text_8017F624
 #include "types.h"
 #include "pso/object/TObjCamera.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/object/TObjCamera_8017F80C.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/misc/TOKey.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+
 struct V3_8017F624 { s32 x; s32 y; s32 z; };
 
 struct Vec_8017F6C0 { f32 x, y, z; };
@@ -18,7 +24,6 @@ extern s32 TObjCamera__camera_slot_scan_index;
 void matrix_mult_vec(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
 void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
-
 
 void TObjCamera::update_camera_slots() {
     s32 i;
@@ -63,16 +68,6 @@ s16 TObjCamera::update_object_view_visibility(f32 r, f32 d) {
 #pragma pop
 
 }
-
-// ---- pso/object/TObjCamera_8017F80C
-#include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/object/TObjCamera_8017F80C.h"
-#include "pso/object/TObject_8001A448.h"
-#include "pso/misc/TUnk_804AFBF8.h"
-#include "pso/object/TObjCamera.h"
-#include "pso/misc/TOKey.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8017FC78_lbl_804B5888 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017FC78_lbl_804B5888_size[sizeof(RecoveredGlobal_8017FC78_lbl_804B5888) == 0x10 ? 1 : -1];
@@ -152,15 +147,11 @@ void set_global_param__8TObjFishFl();
 void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 
-
-
 void fn_8017F4AC(void *);
 void fn_8017F52C();
 Obj_8017F910 *get_player_by_client_id(s32);
 f32 vec_squared_length(Vec_8017F910 *);
 extern s32 local_client_id;
-
-
 
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
 }

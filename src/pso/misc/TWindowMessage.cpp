@@ -1,10 +1,18 @@
-// ---- pso/unk/text_802694F4
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowMessage.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TLobby_80269C6C.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TUnk_804CE018.h"
+#include "pso/misc/TUnk_804CDFE8.h"
+#include "pso/misc/TWindowAddition.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredFields_802698C4_arg0 {
     u8 unknown_0[0x6C];
@@ -58,7 +66,6 @@ struct Ent_80269664 { u8 pad0[0xC]; f32 y; u8 pad10[4]; f32 h; };
 
 extern "C" {
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-
 
 u32 get_field_20__17TWindowSubComCardFv(void *);
 
@@ -187,7 +194,6 @@ void TWindowMessage::update_scroll() {
 s32 get_shared_text_buffer(void);
 s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 arg3);
 
-
 #pragma readonly_strings on
 s32 TWindowOptionCtrl::add_label_value_line(const char *arg1, const char *arg2, u32 arg3) {
     const char *sep;
@@ -215,11 +221,6 @@ s32 TWindowOptionCtrl::add_label_value_line(const char *arg1, const char *arg2, 
 
 }
 
-// ---- pso/unk/text_80269A0C
-#include "types.h"
-#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
-#include "pso/misc/TWindowMessage.h"
-#include "pso/misc/TWindowSubComCard.h"
 struct Entry_80269A0C {
     u16 flags;
     u8 pad2[6];
@@ -233,10 +234,6 @@ struct Entry_80269A0C {
 
 extern "C" {
 void measure_message_text_width(void *, f32);
-
-
-
-
 
 s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 arg3);
 s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 arg3) {
@@ -316,12 +313,6 @@ s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 ar
 
 }
 
-// ---- pso/misc/TLobby_80269C6C
-#include "types.h"
-#include "pso/misc/TLobby_80269C6C.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TWindowSubStatusDisp.h"
-
 struct RecoveredGlobal_80269CA4_lbl_804D071C {
     s32 value;
     u8 remaining[0x10];
@@ -381,8 +372,6 @@ void TLobby::set_window_mode_4(void *arg0, s32 arg1, s32 arg2) {
     TLobby::create_message_window((s32)arg0, (s32)arg1, (u32)arg2, (s16)(4));
 }
 
-
-
 void TLobby::update_window_mode_from_progress(void *arg1) {
     s32 arg0 = (s32)this;
     TLobby::set_window_mode_4((void *)arg0, (s32)arg1, (s32)((s32)((s32) TWindowSubStatusDisp::round_away_from_zero((*(f32 *)((s8 *)arg1 + 4) - 2e+01f) / 2e+01f) + 2)));
@@ -396,15 +385,6 @@ s32 TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1) {
 }
 
 }
-
-// ---- pso/misc/TWindowMessage
-#include "types.h"
-#include "pso/misc/TUnk_804CE018.h"
-#include "pso/misc/TUnk_804CDFE8.h"
-#include "pso/misc/TWindowMessage.h"
-#include "pso/misc/TWindowAddition.h"
-#include "pso/misc/TWindowDD.h"
-#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();

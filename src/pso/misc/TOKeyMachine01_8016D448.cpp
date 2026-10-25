@@ -1,4 +1,3 @@
-// ---- pso/unk/text_8016CF5C (from 0x8016D0B4; TOKeyGenericSw__ct belongs to TOKeyGenericSw.cpp)
 #include "types.h"
 #include "pso/misc/TOKeyGenericSw.h"
 #include "pso/object/TObjMotion.h"
@@ -6,6 +5,16 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKey.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/misc/TOKeyMachine01_8016D448.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8016D1A8_lbl_80441D84 {
     s32 value;
@@ -22,19 +31,12 @@ struct Pkt_8016D148 { u8 code, words; u16 object, zero, reserved, switchId; u8 a
 extern "C" {
 s32 is_split_screen();
 
-
-
-
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
 
 s32 get_current_floor();
 extern s32 local_client_id;
-
-
-
-
 
 void TOKeyMachine01::vfunc_25() {  }
 s32 TOKeyMachine01::is_confirm_pressed() {
@@ -149,23 +151,6 @@ void TOKeyMachine01::vfunc_16() {
 
 }
 
-// ---- pso/misc/TOKeyMachine01_8016D448
-#include "types.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/misc/TKeyBoardControl_8000F764.h"
-#include "pso/misc/TLanguage_801E4874.h"
-#include "pso/misc/TOKeyMachine01_8016D448.h"
-#include "pso/system/ChunkMaterialState.h"
-#include "pso/system/GinjaMaterial.h"
-#include "pso/unk/text_803D96A8.h"
-
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TOKey.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 struct RecoveredGlobal_8016D714_lbl_80441E24 { char value[0x1A]; };
 typedef char RecoveredGlobal_8016D714_lbl_80441E24_size[sizeof(RecoveredGlobal_8016D714_lbl_80441E24) == 0x1A ? 1 : -1];
 
@@ -190,9 +175,6 @@ u8 * TOKey__ct(void *);
 
 extern s32 __vt__14TOKeyMachine01[];
 extern s32 TOKeyMachine01__name;
-
-
-
 
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();

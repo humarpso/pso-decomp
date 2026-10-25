@@ -1,10 +1,9 @@
-// ---- pso/misc/TChCrEffTag
 #include "pso/TChCrEffTag.h"
 #include "pso/misc/TChCrEffTagStr.h"
-
 #include "types.h"
-
 #include <stddef.h>
+#include "pso/misc/TChCrEffTag_8029AC44.h"
+
 struct Stack_8029AA74 {
     f32 sp8;
     f32 spC;
@@ -19,7 +18,6 @@ extern "C" {
 u32 create_str__11TChCrEffTagFPvPvPv(void *, int, void *);
 extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
 extern s32 TChCrEffTag__selected_heading;
-
 
 int restore_saved_depth_alpha_state(void);
 int draw_chcr_tag_heading_frame(void*);
@@ -99,11 +97,6 @@ void TChCrEffTag::run_task()
 
 TChCrEffTag::~TChCrEffTag() {}
 
-// ---- pso/misc/TChCrEffTag_8029AC44
-#include "types.h"
-#include "pso/misc/TChCrEffTag_8029AC44.h"
-#include "pso/TChCrEffTag.h"
-
 extern "C" {
 
 void __ct__7TObjectFP7TObject(void *);
@@ -111,7 +104,6 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__11TChCrEffTag[];
 
 extern void *TChCrEffTag__name;
-
 
 void *__ct__11TChCrEffTagFv(void *ch_cr_eff_tag) {
     __ct__7TObjectFP7TObject(ch_cr_eff_tag);

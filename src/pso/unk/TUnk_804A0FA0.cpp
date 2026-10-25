@@ -1,9 +1,11 @@
-// ---- pso/unk/text_80122388
 #include "types.h"
 #include "pso/item/TItem.h"
 #include "pso/unk/text_80122388.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/unk/TUnk_804A0FA0.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/unk/text_801224D4.h"
 
 struct Self_801223E0 { u8 pad[0x1f8]; f32 f1f8; };
 
@@ -41,18 +43,9 @@ void apply_blade_dance_model_scale(Self_801223E0 *self) {
     }
 }
 
-// ---- pso/player/TObjPlayer_80122444
-#include "types.h"
-#include "pso/unk/TUnk_804A0FA0.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
 extern "C" {
 
 u8 get_slot_count__5TItemFv();
-
-
-
 
 void TUnk_804A0FA0::update_idle() {
     s32 arg0 = (s32)this;
@@ -60,9 +53,6 @@ void TUnk_804A0FA0::update_idle() {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)0.2f, (f32)0.0f);
     }
 }
-
-
-
 
 void TUnk_804A0FA0::update_attack() {
     s32 arg0 = (s32)this;
@@ -72,11 +62,6 @@ void TUnk_804A0FA0::update_attack() {
 }
 
 }
-
-// ---- pso/unk/text_801224D4
-#include "types.h"
-#include "pso/unk/text_801224D4.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801224D4_lbl_804A0FA0 {
     s32 value;
@@ -89,7 +74,6 @@ extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
 }
 extern RecoveredGlobal_801224D4_lbl_804A0FA0 lbl_804A0FA0;
-
 
 typedef char RecoveredGlobal_801224D4_lbl_804A0FA0_size[sizeof(RecoveredGlobal_801224D4_lbl_804A0FA0) == 0xF8 ? 1 : -1];
 u8 *construct_dagger_weapon(u8 *player, u8 *arg1, u8 *arg2) {

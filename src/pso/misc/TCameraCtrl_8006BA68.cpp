@@ -1,13 +1,17 @@
-// ---- pso/misc/TCameraCtrl_8006BA68
 #include "types.h"
 #include "pso/misc/TCameraCtrl_80067FC0.h"
 #include "pso/misc/TUnk_80488B38.h"
 #include "pso/misc/TUnk_80488B68.h"
-
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
-
+#include "pso/misc/CameraHelpers.h"
+#include <stddef.h>
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TCameraCtrl_8006C580.h"
+#include "pso/system/memory.h"
+#include "pso/misc/TUnk_80488D70.h"
+#include "pso/misc/TScene.h"
 
 struct E_8006BAC8 { f32 x; f32 y; f32 z; };
 
@@ -116,21 +120,7 @@ void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1) {
 
 }
 
-#include "pso/misc/CameraHelpers.h"
-#include <stddef.h>
-
-#include <stddef.h>
-#include "pso/misc/TOKeyMachine01.h"
-
-
-
-
-
-
-
-
 extern void* camera_controller_registry[];
-
 
 void* camera_controller_registry[];
 
@@ -140,35 +130,11 @@ TUnk_80488B38::TUnk_80488B38() : TUnk_80488A28() {
     this->m_38 = 0;
 }
 
-
 #pragma push
 #pragma opt_common_subs off
 #pragma pop
-
-
-
 
 #pragma push
 #pragma fp_contract on
 
 #pragma pop
-
-// ---- pso/misc/TCameraCtrl_8006C580
-
-#include "pso/misc/TCameraCtrl_80067FC0.h"
-#include "pso/misc/TCameraCtrl_8006C580.h"
-
-
-// ---- pso/misc/TCameraCtrl_8006C5D8
-
-
-#include "pso/system/memory.h"
-#include "pso/misc/TUnk_80488D70.h"
-
-
-#include "pso/misc/TScene.h"
-
-
-    
-
-

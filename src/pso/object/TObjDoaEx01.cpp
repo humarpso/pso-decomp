@@ -1,4 +1,3 @@
-// ---- pso/item/TObjContainerJungEx_8018D900
 #include "types.h"
 #include "pso/item/TObjContainerJungEx_8018D900.h"
 #include "pso/unk/text_80158360.h"
@@ -8,6 +7,16 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/object/TObjDoorJung.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjDoaEx01_8018DFFC.h"
+#include "pso/unk/TUnk_804B0BB8.h"
+#include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TODoorAncient01.h"
 
 struct RecoveredGlobal_8018D9B0_lbl_804B7158 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018D9B0_lbl_804B7158_size[sizeof(RecoveredGlobal_8018D9B0_lbl_804B7158) == 0x10 ? 1 : -1];
@@ -41,10 +50,7 @@ u8 * get_bml_model(void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;
 
-
 void play_sound_effect(s32, void *, s32, s32);
-
-
 
 void TLobby__sub_8001FE7C(void*, int);
 
@@ -172,16 +178,6 @@ void TObjDoaEx01::play_proximity_sound() {
 
 }
 
-// ---- pso/object/TObjDoaEx01_8018DD0C
-#include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/system/ChunkMaterialState.h"
-#include "pso/system/GinjaMaterial.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/object/TObjDoorJung.h"
-#include "pso/object/TObjDoaEx01.h"
-#include "pso/TParticleCtrl.h"
-
 struct NjObj_8018DD0C {
     u32 evalflags;
     u32 model;
@@ -218,13 +214,10 @@ extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern s32 model_render_flags;
 s32 get_bml_motion(s32, s32);
 
-
 s32 rotate_matrix_y(s32, s32);
 s32 set_global_param__8TObjFishFl();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 TObjDoaEx01__resource_bundle;
-
-
 
 struct TObjDoaEx01_base { char pad[0x18]; };
 struct TObjDoaEx01_VObj : TObjDoaEx01_base {
@@ -317,10 +310,6 @@ void TObjDoaEx01::draw_model() {
 
 }
 
-// ---- pso/object/TObjDoaEx01
-#include "types.h"
-#include "pso/object/TObjDoaEx01.h"
-
 extern "C" {
 
 s32 try_open__11TObjDoaEx01Fv();
@@ -335,17 +324,6 @@ void TObjDoaEx01::render() {
 }
 
 }
-
-// ---- pso/object/TObjDoaEx01_8018DFFC
-#include "types.h"
-#include "pso/object/TObjDoaEx01_8018DFFC.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/unk/TUnk_804B0BB8.h"
-#include "pso/system/BmlResourceDescriptor.h"
-#include "pso/object/TObjDoaEx01.h"
-#include "pso/misc/TODoorAncient01.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern char lbl_80445450[];
 extern char lbl_80445464[];
@@ -374,8 +352,6 @@ void *init_door_base(void *a0);
 extern RecoveredGlobal_8018E064_lbl_804B7598 TObjDoaEx01__collision_body_parts;
 extern s32 __vt__11TObjDoaEx01[];
 extern s32 TObjDoaEx01__name;
-
-
 
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);

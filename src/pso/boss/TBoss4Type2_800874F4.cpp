@@ -1,9 +1,17 @@
-// ---- pso/boss/TBoss4Type2_800874F4
 #include "types.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TObject.h"
+#include "pso/misc/TUnk_8048E728.h"
+#include "pso/misc/TUnk_8048E778.h"
+#include "pso/misc/TUnk_8048E790.h"
+#include "pso/misc/TUnk_8048E7A8.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct O_80087638 { u8 pad[0x2e]; u16 x2e; };
 
@@ -14,8 +22,6 @@ extern s32 particle_pool_limit;
 extern s32 particle_global_entry_table;
 extern s32 particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
-
-
 
 void *create_particle_emitter(void *pos, s32 id) {
     void *p;
@@ -66,22 +72,8 @@ void TParticleCtrl::set_tint_color(s32 arg1) {
 
 }
 
-// ---- pso/misc/TNowLoading_80087660
-#include "types.h"
-#include "pso/misc/TNowLoading.h"
-#include "pso/boss/TBoss4Type2.h"
-
 void TNowLoading::copy_pos(void* q) { *(f32*)((char*)this + 0x60) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x64) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x68) = *(f32*)((char*)q + 0x8); }
 
-// ---- pso/misc/TParticleCtrl_8008767C
-#include "pso/TParticleCtrl.h"
-#include "pso/TObject.h"
-#include "pso/misc/TUnk_8048E728.h"
-#include "pso/misc/TUnk_8048E778.h"
-#include "pso/misc/TUnk_8048E790.h"
-#include "pso/misc/TUnk_8048E7A8.h"
-
-#include "types.h"
 #pragma readonly_strings on
 
 const char *TParticleCtrl__class_name_descriptor[2] = {"TParticleCtrl", 0};
@@ -218,10 +210,6 @@ extern char lbl_80439494[];
 extern char lbl_804394A4[];
 extern char lbl_804394BC[];
 extern char lbl_804394D4[];
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/object/TObjFish.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 

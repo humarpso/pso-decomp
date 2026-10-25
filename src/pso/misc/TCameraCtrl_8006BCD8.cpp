@@ -1,24 +1,23 @@
-// ---- pso/misc/TCameraCtrl_8006BA68
 #include "types.h"
 #include "pso/misc/TCameraCtrl_8006C254.h"
 #include "pso/misc/TUnk_80488B38.h"
 #include "pso/misc/TUnk_80488B68.h"
-
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
-
+#include "pso/misc/CameraHelpers.h"
+#include <stddef.h>
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TCameraCtrl_80067FC0.h"
+#include "pso/misc/TCameraCtrl_8006C580.h"
+#include "pso/system/memory.h"
+#include "pso/misc/TUnk_80488D70.h"
+#include "pso/misc/TScene.h"
 
 #pragma push
 #pragma fp_contract on
 #pragma pop
 
-
-#include "pso/misc/CameraHelpers.h"
-#include <stddef.h>
-
-#include <stddef.h>
-#include "pso/misc/TOKeyMachine01.h"
 struct Stack_8006C03C {
     s32 sp8;
     s32 spC;
@@ -61,9 +60,6 @@ struct RecoveredFields_8006C03C_lbl_805D4DF0 {
     f32 field_18C;
 };
 
-
-
-
 extern "C" {
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 }
@@ -95,7 +91,6 @@ f32 vector_length(const Vec*);
 void approach_vector_fixed_distance(const Vec*, const Vec*, Vec*, f32);
 extern const f64 lbl_804383D8;
 
-
 u16 TCameraCtrl__sub_8006A5DC();
 f32 fabs_float(f32);
 f32 atan2_float(f32 y, f32 x);
@@ -105,7 +100,6 @@ s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 
 }
-
 
 s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
 s32 approach_camera_scalar(f32 *arg0, f32 *target, f32 farg0) {
@@ -274,28 +268,7 @@ CameraPlayback* get_scripted_camera_playback() {
     return NULL;
 }
 
-
 #pragma push
 #pragma fp_contract on
 
 #pragma pop
-
-// ---- pso/misc/TCameraCtrl_8006C580
-
-#include "pso/misc/TCameraCtrl_80067FC0.h"
-#include "pso/misc/TCameraCtrl_8006C580.h"
-
-
-// ---- pso/misc/TCameraCtrl_8006C5D8
-
-
-#include "pso/system/memory.h"
-#include "pso/misc/TUnk_80488D70.h"
-
-
-#include "pso/misc/TScene.h"
-
-
-    
-
-

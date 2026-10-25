@@ -1,4 +1,3 @@
-// ---- pso/player/TObjPlayer_800A7764
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/math/MatrixVector.h"
@@ -16,6 +15,14 @@
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
+#include "pso/enemy/TUnk_80493450.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
+#include "pso/misc/obj_band.h"
+#include "pso/player/TUnk_80490470.h"
+#include "pso/misc/TLobby.h"
+#include "pso/enemy/TObjEneBeast.h"
+#include "pso/enemy/TObjEnePanarms.h"
 
 struct VBase_14_800A7BEC { char pad[0x14]; };
 
@@ -130,11 +137,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 
-
-
-
-
-
 void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self);
 struct A7B00Base_800a7b00_800A7764 { char pad[0x14]; };
 struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
@@ -176,8 +178,6 @@ void TObjEneDimedian::vfunc_97() {
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A83E)))), arg0 + 0x38, 0, 0);
     TObjPlayer::play_effect_if_v2(-0x100);
 }
-
-
 
 void TObjEneDimedian::vfunc_96() {
     s32 arg0 = (s32)this;
@@ -414,29 +414,10 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
 
 }
 
-// ---- pso/enemy/TObjEneDimedian
-#include "types.h"
-#include "pso/enemy/TUnk_80493450.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/boss/TBoss3VoloptHiraisin.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEneDimedian.h"
-#include "pso/misc/obj_band.h"
-#include "pso/object/TObject_80019A50.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
-#include "pso/enemy/TUnk_80493450.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/player/TUnk_80490470.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
-#include "pso/misc/TLobby.h"
-#include "pso/enemy/TObjEneBeast.h"
-#include "pso/enemy/TObjEneDD.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" const u8 dimedian_sl_body_model_filename[20] = "df3_sl_wala_body.nj";
 extern "C" const u8 dimedian_ssl_body_model_filename[24] = "df3_ssl_wala_body.nj";
@@ -510,10 +491,6 @@ extern u8 lbl_8043AAA4[];
 extern s32 dimedian_resource_handles[];
 extern s32 dimedian_last_draw_tick[];
 
-
-
-
-
 void init_enemy_base__13TUnk_80493450Fv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 }
@@ -523,8 +500,6 @@ void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv();
 extern s32 TObjEneDimedian_name_ref;
-
-
 
 void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
@@ -732,8 +707,6 @@ extern u32 lbl_805D5074;
 extern u32 TObjEneDimedian__boss_objects;
 extern u32 dimedian_buffer_ptr;
 extern u32 dimedian_resource_ptr;
-
-
 
 void TObjEneDimedian::free_boss_objects() {
     if ((u32) dimedian_boss_object_buf != 0U) {

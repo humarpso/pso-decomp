@@ -1,10 +1,11 @@
-// ---- pso/misc/TKeyBoardControl_803DE9C4
 #include "types.h"
 #include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/unk/text_803E2070.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/player/TUnk_80494AE0.h"
 
 struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
     s32 value;
@@ -235,10 +236,6 @@ void init_light_globals(s32, s32) {
 void set_model_render_flags(u32 flags) {
     model_render_flags = flags;
 }
-
-// ---- pso/system/ChunkMaterialState
-#include "pso/system/ChunkMaterialState.h"
-#include "pso/player/TUnk_80494AE0.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off

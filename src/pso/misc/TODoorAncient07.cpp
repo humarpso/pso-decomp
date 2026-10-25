@@ -1,4 +1,3 @@
-// ---- pso/misc/TODoorAncient07
 #include "types.h"
 #include "pso/misc/TODoorAncient07_8015F930.h"
 #include "pso/unk/text_80158360.h"
@@ -28,15 +27,10 @@ void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern u8 *TODoorAncient07__render_nodes;
 
-
-
-
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient07__texture_lists;
 
 void *__nw__7TObjectFUl(int);
-
-
 
 void TODoorAncient07::render() {
     u8 *arg0 = (u8 *)this;
@@ -102,8 +96,6 @@ void *TODoorAncient07::create(void *arg0) {
 
 }
 
-// ---- pso/misc/TODoorAncient07_8015F930
-
 struct RecoveredGlobal_8015FB38_lbl_804B1048 {
     s32 value;
     u8 remaining[0x28];
@@ -121,8 +113,6 @@ extern RecoveredGlobal_8015FB38_lbl_804B1048 door_ancient07_collision_parts;
 extern s32 __vt__15TODoorAncient07[];
 extern s32 lbl_805D2F48;
 extern void *TODoorAncient07__bml_resource;
-
-
 
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void copy_model_node(u8 *arg0, u8 *arg1);

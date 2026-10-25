@@ -1,4 +1,3 @@
-// ---- pso/ui/TObjLiveMonitor
 #include "types.h"
 #include "pso/boss/TBoss8Dragon_802F3638.h"
 #include "pso/object/TObjControl.h"
@@ -9,6 +8,8 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TObjLiveCameraCtrl.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct O_8030B370 { u8 pad[0x24]; u32 a; s32 t; };
 
@@ -16,10 +17,6 @@ extern "C" {
 
 s32 is_split_screen();
 s32 rand();
-
-
-
-
 
 #pragma push
 #pragma fp_contract on
@@ -172,8 +169,6 @@ int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8Dr
 
 }
 
-#include "pso/boss/TBoss8Dragon.h"
-
 extern "C" {
 s32 angle_diff_s16(int);
 
@@ -183,27 +178,7 @@ s32 TBoss8Dragon__sub_802FCCBC(int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 
-
-
-
-
-
-
-
-
-
 f32 calc_random_ratio__10TObjPlayerFv(void *);
-
-
-
-
-
-
-
-
-
-
-
 
 void TObjPlayer__sub_80082CBC(void *effect);
 void TObjPlayer__sub_80082CCC(void *effect);
@@ -371,12 +346,6 @@ void TBoss8Dragon::update_toggle_state() {
 
 }
 
-// ---- pso/ui/TObjLiveCameraCtrl
-#include "pso/TObjLiveCameraCtrl.h"
-
-#include "types.h"
-#include "pso/misc/TCameraCtrl.h"
-
 struct Cam_8030BED4 {
     s32 f0;
     u8 pad4[0x18 - 4];
@@ -410,12 +379,6 @@ extern s32 TObjLiveCameraCtrl__class_name;
 extern s32 tl_particlemodel;
 extern s32 live_camera_controller_next_slot;
 extern s32 TObjLiveCameraCtrl__instances;
-
-
-
-
-
-
 
 void fn_8030C058(void);
 s32 memset(s32 *, s32, s32);

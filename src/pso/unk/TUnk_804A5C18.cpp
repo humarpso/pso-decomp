@@ -1,16 +1,21 @@
-// ---- pso/unk/TUnk_804A5C18
-// ---- pso/player/TObjPlayer_8012DD44
 #include "types.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/TUnk_804A5C18.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/player/TObjPlayer_80109344.h"
+#include "pso/unk/text_8011B620.h"
+#include "pso/unk/text_80120D50.h"
+#include "pso/unk/text_8012DF60.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_8012E190.h"
 
 extern "C" {
 
 u8 get_slot_count__5TItemFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-
-
 
 void TObjPlayer::apply_frame_camera_shake() {
     s32 player_list;
@@ -38,10 +43,6 @@ void TObjPlayer::apply_frame_camera_shake() {
 
 }
 
-// ---- pso/unk/text_8012DE24
-#include "types.h"
-#include "pso/unk/text_80087278.h"
-#include "pso/unk/TUnk_804A5C18.h"
 struct VBase_8012DE24 { char pad[0x18]; };
 
 struct VObj_8012DE24 : VBase_8012DE24 {
@@ -119,15 +120,6 @@ void TUnk_804A5C18::emit_marker_effects() {
 
 }
 
-// ---- pso/player/TObjPlayer_8012DEB8
-#include "types.h"
-#include "pso/unk/TUnk_804A5C18.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
-
-
-
 void TObjPlayer::update_approach_value() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)&this->unk_220 < 0x2000) {
@@ -135,9 +127,6 @@ void TObjPlayer::update_approach_value() {
     }
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x224), (f32)(-0.4f), (f32)(-1.2f));
 }
-
-
-
 
 void TUnk_804A5C18::update_attack() {
     u8 *arg0 = (u8 *)this;
@@ -147,22 +136,11 @@ void TUnk_804A5C18::update_attack() {
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x224), (f32)0.6f, (f32)0.0f);
 }
 
-// ---- pso/unk/text_8012DF60
-#include "types.h"
-#include "pso/player/TObjPlayer_80109344.h"
-#include "pso/unk/text_8011B620.h"
-#include "pso/unk/text_80120D50.h"
-#include "pso/unk/text_8012DF60.h"
-#include "pso/unk/TUnk_804A5C18.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 }
 extern s32 tl_05;
 extern u8 lbl_804A5C18[];
-
-
 
 void *construct_shot_weapon(void *arg0, s32 parent, void *item) {
     TItemWeapon__ct((TItemWeapon *)((u8 *)arg0), (void *)parent, (u8 *)item);
@@ -237,14 +215,6 @@ u8 *create_shot_weapon(u8 *item) {
     }
     return NULL;
 }
-
-// ---- pso/item/TItemEquipVariant_8012E190
-#include "types.h"
-#include "pso/item/TItemEquipVariant_80120CF8.h"
-#include "pso/item/TItemEquipVariant_8012E190.h"
-#include "pso/player/TObjPlayer.h"
-
-
 
 void *__dt__13TUnk_804A5C18Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

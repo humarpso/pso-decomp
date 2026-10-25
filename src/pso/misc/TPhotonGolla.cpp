@@ -1,4 +1,3 @@
-// ---- pso/player/TObjPlayer_801AB608
 #include "pso/misc/PhotonBlastSummon.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -121,8 +120,6 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u32 __nw__7TObjectFUl(int);
 
-
-
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -150,10 +147,6 @@ s32 push_matrix_from(void *src);
 s32 pop_matrices(s32 arg0);
 extern const Packet_801AB6A0 photon_golla_concentrate_packet;
 extern u8 identity_matrix[];
-
-
-
-
 
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 f32 vec_squared_length(u8 *arg0);
@@ -382,7 +375,6 @@ void TPhotonGolla::run_task() {
     }
 }
 
-// ---- pso/misc/TPhotonGolla
 #include "types.h"
 #include "pso/misc/PhotonBlastSummon.h"
 #include "pso/misc/TUnk_804C3248.h"
@@ -413,7 +405,6 @@ void *destroy__12TPhotonGollaFPvs(void *arg0, s16 arg1) {
 
 }
 
-// ---- pso/unk/text_801ABE14
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/misc/PhotonBlastSummon.h"
@@ -441,7 +432,6 @@ extern u8 lbl_80446DA8[];
 extern u8 lbl_80446DB4[];
 extern s32 lbl_805D34E8;
 extern u8 *photon_blast_shared_resource;
-
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();

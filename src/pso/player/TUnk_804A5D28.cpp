@@ -1,8 +1,16 @@
-// ---- pso/unk/text_8012E1E8
 #include "types.h"
 #include "pso/player/TObjPlayer_8012E760.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemAttacker.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/TUnk_804A5D10.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/vector.h"
+#include "pso/item/TItem.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/player/TUnk_804A5D28.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
@@ -31,13 +39,6 @@ void TObjPlayer::launch_weapon_casing(s32 arg0, u32 arg1, s32 arg2, u32 arg3, u3
 }
 
 }
-
-// ---- pso/player/TObjPlayer_8012E32C
-#include "types.h"
-#include "pso/system/GinjaMaterial.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/unk/TUnk_804A5D10.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -74,18 +75,9 @@ void TUnk_804A5D10::render() {
 
 }
 
-// ---- pso/player/TObjPlayer_8012E3B4
-#include "types.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/unk/TUnk_804A5D10.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 
 s32 vec3_add_to(void *, void *);
-
-
-
 
 void TUnk_804A5D10::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -99,12 +91,6 @@ void TUnk_804A5D10::run_task() {
 
 }
 
-// ---- pso/unk/text_8012E414
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/item/TItem.h"
-#include "pso/player/TObjPlayer.h"
-
 struct RecoveredGlobal_8012E414_lbl_804A5D10 {
     s32 value;
     u8 remaining[0x14];
@@ -114,7 +100,6 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_8012E414_lbl_804A5D10 __vt__13TUnk_804A5D10;
-
 
 #pragma push
 #pragma opt_common_subs off
@@ -136,26 +121,12 @@ u8 *TObjPlayer::construct_weapon_casing(u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, 
 
 }
 
-// ---- pso/player/TUnk_804A5D28
-// ---- pso/player/TObjPlayer_8012E550
-#include "types.h"
-#include "pso/math/MatrixTransforms.h"
-#include "pso/player/TObjPlayer.h"
-
-
-
-
 void TObjPlayer::apply_scale_effect() {
     if (TObjPlayer::get_player_list() == 1) {
         translate_matrix(0, 0.0f, (-1.0f) * *(f32 *)((s8 *)this + 0x1F8), 0.0f);
     }
 }
 
-// ---- pso/unk/text_8012E5A0
-#include "types.h"
-#include "pso/player/TUnk_804A5D28.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-#include "pso/player/TObjPlayer.h"
 struct Owner_8012E5A0 { u8 pad[0x60]; s32 f60; };
 
 struct Self_8012E5A0 {
@@ -174,9 +145,6 @@ extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
-
-
-
 
 void TUnk_804A5D28::update_weapon() {
     s32 ang;
@@ -206,11 +174,6 @@ void TUnk_804A5D28::update_weapon() {
 
 }
 
-// ---- pso/player/TObjPlayer_8012E690
-#include "types.h"
-#include "pso/player/TUnk_804A5D28.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 
 int TItemWeapon__ct(void);
@@ -219,7 +182,6 @@ int TItemWeapon__ct(void);
     extern unsigned char play_target_impact_effect[];
     extern unsigned char create_shoot_model_with_particles[];
     extern unsigned char lbl_804A5D28[];
-    
     
 void*TUnk_804A5D28::setup_flame_effect() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A5D28; *(float*)((char*)this + 0x1f8) = 0.0f; *(int *)&(*(s32 * *)((u8 *)this + 0x1EC)) = (int)play_effect__13TItemEffFlameFllll; *(int *)&(this->m_1fc) = 0; *(int *)&(*(s32 * *)((u8 *)this + 0x1F4)) = (int)play_target_impact_effect; *(int*)((char*)this + 0x1f0) = (int)create_shoot_model_with_particles; (*(float *)((u8 *)this + 0x1E4)) = 15.0f; return this; }
 

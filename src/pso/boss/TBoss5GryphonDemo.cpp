@@ -1,9 +1,7 @@
-// ---- pso/boss/TBoss5GryphonDemo
 #include "pso/TBoss5GryphonDemo.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss5GryphonColli_C.h"
-
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -19,11 +17,9 @@ void set_camera_capture_overlay_alpha(int a0);
 s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
 
-
 int TBoss8Dragon__sub_8005D700(void);
 s32 activate_camera_mode(s32 arg0);
 extern s32 lbl_805D2810;
-
 
 void TBoss5GryphonDemo::render() {  }
 

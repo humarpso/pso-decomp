@@ -1,10 +1,21 @@
-// ---- pso/unk/text_8016916C
 #include "types.h"
 #include "pso/misc/TOHealGeneral.h"
 #include "pso/misc/TOHangerMachine01.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/system/vector.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/misc/TUnk_804B27D8.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/TObject.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TOKey.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-
 
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
@@ -14,7 +25,6 @@ s32 get_player_by_client_id(u32);
 
 s16 obj_getS16_32C(void *);
 void send_6x2F_change_player_hp(u16, u16, s16);
-
 
 #pragma push
 #pragma opt_common_subs off
@@ -68,12 +78,6 @@ void TOHealGeneral::apply_heal_to_target() {
 
 }
 
-// ---- pso/unk/text_80169334
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/item/TItemProShield.h"
-#include "pso/misc/TOHangerMachine01.h"
 struct VBase_80169334 { char pad[0x18]; };
 
 struct Actor_80169334 : VBase_80169334 {
@@ -132,7 +136,6 @@ extern "C" {
 int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *obj);
 f32 get_collision_body_radius(void *, s32);
-
 
 s16 obj_getS16_2BA(u8 *p);
 s16 obj_getS16_32E(u8 *p);
@@ -195,22 +198,6 @@ void find_heal_target__13TOHealGeneralFPv(TOHealGeneral *self) {
 #pragma pop
 
 }
-
-// ---- pso/misc/TOHealGeneral
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/misc/TUnk_804B27D8.h"
-#include "pso/misc/TUnk_804AFBF8.h"
-#include "pso/misc/TOHealGeneral.h"
-#include "pso/TObject.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/boss/TBoss4Type2.h"
-#include "pso/misc/TOKey.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_801695a8_80169520 { char pad[0x18]; };
 struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
@@ -282,9 +269,6 @@ void init_map_object_base(void *, s32);
 extern u8 heal_general_collision_body_part[];
 extern s32 TOHealGeneral__class_name;
 extern s32 tl_05;
-
-
-
 
 void *TOHealGeneral__ct(void *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);

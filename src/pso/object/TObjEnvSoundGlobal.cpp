@@ -1,4 +1,3 @@
-// ---- pso/object/TObjEnvSoundGlobal
 #include "types.h"
 #include "pso/object/TObjEnvSoundEx.h"
 #include "pso/object/TObjEnvSoundGlobal.h"
@@ -33,7 +32,6 @@ u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 extern RecoveredGlobal_801902D8_lbl_804B7A70 environment_sound_tables_by_area;
-
 
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 f32 xz_distance_squared(void *, void *);
@@ -228,7 +226,6 @@ u8 *TObjEnvSoundEx__ct(u8 *env_sound_ex, s32 arg1, s32 arg2) {
 
 }
 
-// ---- pso/unk/text_80190884
 #include "types.h"
 #include "pso/unk/text_80190884.h"
 #include "pso/object/TObjEnvSound.h"
@@ -237,7 +234,6 @@ u8 *TObjEnvSoundEx__ct(u8 *env_sound_ex, s32 arg1, s32 arg2) {
 
 extern "C" {
 f32 xyz_distance_squared(void *, void *, void *);
-
 
 s32 TObjEnvSound::is_sound_enabled(void *self, s32 cue) {
     if (TRaderMapCore::is_not_split_screen() == 1 && TOKeyMachine01::get_global_state() == 2) {
@@ -256,7 +252,6 @@ s32 fn_801908F8(s32 arg0, f32 farg0) {
 
 }
 
-// ---- pso/unk/text_80190940
 #include "types.h"
 #include "pso/unk/text_80190940.h"
 
@@ -299,7 +294,6 @@ void * TObjEnvSound__create(void *rader_map_core) {
 
 }
 
-// ---- pso/object/TObjEnvSound
 #include "types.h"
 #include "pso/object/TObjEnvSound.h"
 #include "pso/TParticleCtrl.h"
@@ -321,11 +315,8 @@ void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(TObject *);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void *p, void *q);
 
-
 extern s32 __vt__12TObjEnvSound[];
 extern s32 TObjEnvSound__class_name;
-
-
 
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);

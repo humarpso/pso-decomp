@@ -1,8 +1,23 @@
-// ---- pso/player/TObjPlayer_801AA664
 #include "types.h"
 #include "pso/player/TObjPlayer_801AA664.h"
 #include "pso/misc/TPhotonEstlla.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/TUnk_804C3248.h"
+#include "pso/object/TObjMotion.h"
+#include <stddef.h>
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/object/TObjFish.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/TPhotonRainbow_801AE640.h"
+#include "pso/misc/obj_band.h"
+#include "pso/unk/text_801AAB74.h"
+#include "pso/system/vector.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 u16 TObjPlayer::get_entity_type() { return *(u16*)((char*)this + 0x0); }
 void* TObjPlayer__sub_801AA66C(void* p, void* a1) { *(short*)(p) = *(unsigned short*)(a1); *(short*)((char*)p + 0x2) = *(short*)((char*)a1 + 0x2); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); TObjPlayer__sub_801AA6E4((u8 *)((char*)p + 0x8), (u8 *)((char*)a1 + 0x8)); TObjPlayer__sub_801AA6E4((u8 *)((char*)p + 0xc), (u8 *)((char*)a1 + 0xc)); TObjPlayer__sub_801AA6E4((u8 *)((char*)p + 0x10), (u8 *)((char*)a1 + 0x10)); TObjPlayer__sub_801AA6E4((u8 *)((char*)p + 0x14), (u8 *)((char*)a1 + 0x14)); return p; }
@@ -12,23 +27,8 @@ void TObjPlayer__sub_801AA6E4(u8 *arg0, u8 *arg1) {
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
 }
 
-    
 void TPhotonEstlla::sub_801AA6F8() { *(float *)&this->m_180 = 0.0f; *(float*)((char*)this + 0x184) = 0.0f; this->m_188 = 0.0f; *(float *)&this->unk_18C = 0.0f; }
 
-// ---- pso/misc/TPhotonEstlla_801AA710
-#include "types.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
-
-#include <stddef.h>
-#include "pso/misc/TPhotonEstlla.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_801AA930 {
     f32 sp8;
     f32 spC;
@@ -82,10 +82,6 @@ extern "C" {
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u32 __nw__7TObjectFUl(int);
 
-
-
-
-
 s32 TPhotonLine__ct(void *, void *, void *, u16);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -93,7 +89,6 @@ s32 push_matrix_from(void *);
 s32 pop_matrices(s32 arg0);
 extern const Packet_801AA710 photon_estlla_line_packet_init;
 extern u8 identity_matrix[];
-
 
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
@@ -219,12 +214,6 @@ void TPhotonEstlla::run_task() {
 }
 }
 
-// ---- pso/misc/TPhotonEstlla
-#include "types.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TPhotonEstlla.h"
-#include "pso/misc/TUnk_804C3248.h"
-
 extern "C" {
 
 s32 __dl__7TObjectFPv(void *);
@@ -254,21 +243,6 @@ void *__dt__13TPhotonEstllaFv(void *arg0, s16 arg1) {
 }
 
 }
-
-// ---- pso/unk/text_801AAB74
-#include "types.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TLobby_802268F4.h"
-#include "pso/misc/TPhotonRainbow_801AE640.h"
-#include "pso/misc/obj_band.h"
-#include "pso/unk/text_801AAB74.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/misc/TPhotonEstlla.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Stack_801AAB74 { f32 x, y, z; };
 

@@ -48,7 +48,6 @@ extern RecoveredGlobal_8012B524_lbl_804A4D70 partisan_weapon_vtable;
 }
 void advance_angle_wrap(s32 *arg0, s32 arg1);
 
-// ---- 0x8012B200 (was pso/item/TItemEquipVariant_8012B200)
 void *__dt__13TUnk_804A4D70Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &partisan_weapon_vtable.value;
@@ -60,7 +59,6 @@ void *__dt__13TUnk_804A4D70Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-// ---- 0x8012B258 (was pso/unk/text_8012B258)
 void TUnk_804A4D70::emit_marker_effects() {
     switch (((TItem *)this)->get_slot_count()) {
     case 6:
@@ -80,7 +78,6 @@ void TUnk_804A4D70::emit_marker_effects() {
     }
 }
 
-// ---- 0x8012B318 (was pso/player/TObjPlayer_8012B318)
 extern "C" {
 
 void TObjPlayer::update_area_effect_objects() {
@@ -109,7 +106,6 @@ void TObjPlayer::update_area_effect_objects() {
     }
 }
 
-// ---- 0x8012B3C4 (was pso/unk/text_8012B3C4)
 void TUnk_804A4D70::update_idle() {
     if (get_slot_count__5TItemFv() == 5) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(((u8 *)this) + 0x204), (f32)0.2f, (f32)0.0f);
@@ -130,7 +126,6 @@ void TUnk_804A4D70::update_attack() {
     }
 }
 
-// ---- 0x8012B4BC (was pso/player/TObjPlayer_8012B4BC)
 void TUnk_804A4D70::update_weapon() {
     s32 var_r4;
 
@@ -144,7 +139,6 @@ void TUnk_804A4D70::update_weapon() {
     }
 }
 
-// ---- 0x8012B524 (was pso/unk/text_8012B524)
 u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &partisan_weapon_vtable.value;

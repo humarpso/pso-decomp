@@ -1,4 +1,3 @@
-// ---- pso/ui/TAdPlayerLoadGC_802D6348
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/ui/TUnk_804E24F0.h"
@@ -8,6 +7,7 @@
 #include "pso/items/TItemWeapon.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
 
 typedef struct A_802D6390 { u8 pad0[0x188]; s32 f188; } A_802D6390;
 
@@ -29,8 +29,6 @@ void get_weapon_color__11TItemWeaponFPv(void *, void *);
 extern u8 forward_item_effect_callback__10TObjPlayerFll[];
 
 void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1);
-
-
 
 void TAdPlayerLoadGC::play_load_sound() {
     if (TObjPlayer::get_player_list() == 1) {
@@ -61,37 +59,15 @@ void TUnk_804E24F0::emit_marker_effects() {
 
 }
 
-// ---- pso/ui/TAdPlayerLoadGC_802D645C
-#include "types.h"
-#include "pso/ui/TUnk_804E24F0.h"
-#include "pso/TAdPlayerLoadGC.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
-
-
-
 void TUnk_804E24F0::update_idle() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)0.5f, (f32)4.0f);
 }
 
-// ---- pso/ui/TAdPlayerLoadGC_802D6488
-#include "types.h"
-#include "pso/ui/TUnk_804E24F0.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
-
-
-
 void TUnk_804E24F0::update_attack() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)(-1.0f), (f32)0.0f);
 }
-
-// ---- pso/ui/TAdPlayerLoadGC_802D64B4
-#include "types.h"
-#include "pso/ui/TUnk_804E24F0.h"
-#include "pso/TAdPlayerLoadGC.h"
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);

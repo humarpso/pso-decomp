@@ -1,4 +1,3 @@
-// ---- pso/misc/TPlyPhotonChair_80142524
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -37,7 +36,6 @@ extern s32 model_render_flags;
     extern int chunk_polygon_flags_and_mask;
 extern "C" {
 s32 activate__15TPlyPhotonChairFv();
-
 
 int draw_chunk_object(void);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
@@ -163,7 +161,6 @@ void TPlyPhotonChair::update_bob_motion() {
 void TUnk_804A7488::vfunc_3() { ((TPlyPhotonChair *)this)->get_id(); draw_chunk_object(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 
-// ---- pso/misc/obj_band
 #include "types.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -286,7 +283,6 @@ extern s32 player_joint_matrix_write_ptr;
 extern u8 *lbl_805D5684;
 extern s32 model_node_callback;
 extern s32 chunk_model_node_callback;
-
 
 typedef struct Actor_80142950 Actor_80142950;
 typedef struct Joint_80142950 Joint_80142950;
@@ -700,11 +696,8 @@ void advance_animation_playback(Anim_80143504 *a) {
     }
 }
 
-// ---- pso/player/TObjPlayer_801433E8
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
-    
-    
 void TObjMotion::reset_motion_fields() { *(int *)&this->animationFlags = 0; *(int *)&this->m_b4 = 0; this->m_ba = 0; *(short *)&this->m_b8 = 0; *(short *)&this->m_bc = 0; *(float *)&this->unk_C4 = 0.0f; *(float *)&this->m_c8 = 0.0f; *(float *)&this->m_c0 = 0.0f; *(float *)&this->unk_CC = 0.2f; *(float *)&this->m_d0 = 0.0f; *(float *)&this->unk_D4 = 0.0f; *(int*)((char*)this + 0xe4) = 0; *(int *)&this->unk_E8 = 0; *(float *)&this->m_ec = 0.0f; *(float *)&this->unk_F0 = 0.0f; *(short*)((char*)this + 0xf6) = 0; *(short *)&this->m_f4 = 0; }

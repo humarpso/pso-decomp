@@ -1,4 +1,3 @@
-// ---- pso/unk/text_801611CC (0x8016131C-0x80161804: TODoorCave01 head)
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
@@ -8,6 +7,15 @@
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/misc/TODoorCave01_80161A30.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TODoorAncient01.h"
 
 struct State_80161320 { s16 a; s16 b; };
 
@@ -84,8 +92,6 @@ s32 TODoorCave01::init_door_switch_binding() {
     }
     return *(s32 *)&this->unk_C8;
 }
-
-
 
 void TODoorCave01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
@@ -178,17 +184,6 @@ void TODoorCave01::update_door_switch_state() {
 
 }
 
-// ---- pso/misc/TODoorCave01
-#include "types.h"
-#include "pso/math/MatrixTransforms.h"
-#include "pso/misc/TODoorCave01_80161A30.h"
-#include "pso/system/GinjaMaterial.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/misc/TUnk_804AFBF8.h"
-#include "pso/misc/TODoorCave01.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/object/TObjFish.h"
-
 struct VBase_801618fc { char pad[0x18]; };
 struct VObj_801618fc : VBase_801618fc {
     virtual s32 m0();
@@ -213,8 +208,6 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 s32 rotate_matrix_y(int, int);
 void *__nw__7TObjectFUl(int);
-
-
 
 s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     s32 temp_r4;
@@ -285,17 +278,6 @@ void *TODoorCave01::create(void *arg0) {
 
 }
 
-// ---- pso/misc/TODoorCave01_80161A30
-#include "types.h"
-#include "pso/misc/TODoorCave01_80161A30.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/unk/TUnk_804B0BB8.h"
-#include "pso/system/BmlResourceDescriptor.h"
-#include "pso/misc/TODoorCave01.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TODoorAncient01.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 extern char lbl_80440D10[];
 extern char lbl_80440D24[];
@@ -326,7 +308,6 @@ extern RecoveredGlobal_80161BE4_lbl_804B13C8 TODoorCave01__collision_body_templa
 extern s32 __vt__12TODoorCave01[];
 extern s32 lbl_805D2F60;
 extern u32 door_cave_shared_bml_archive;
-
 
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);

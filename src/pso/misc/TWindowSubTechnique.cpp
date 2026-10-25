@@ -1,11 +1,16 @@
-// ---- pso/misc/TWindowSubTechnique_80286BD4
 #include "types.h"
-extern "C" f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 #include "pso/misc/TWindowSubTechnique_80286BD4.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubTechnique.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/object/TObjCityMainWarp.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdChrSelASlotGC.h"
+
+extern "C" f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 
 extern "C" {
 int get_selection__19TWindowSubTechniqueFPsPll(void*, void* a1);
@@ -96,18 +101,6 @@ s32 TWindowSubTechnique::create_title_window() {
 }
 }
 
-// ---- pso/misc/TWindowSubTechnique
-#include "types.h"
-#include "pso/misc/TWindowMenu.h"
-#include "pso/misc/TWindowSubComCardList.h"
-#include "pso/misc/TWindowSubTechnique.h"
-#include "pso/misc/TWindowSubTradeMain.h"
-#include "pso/misc/TWindowOptionCtrl.h"
-#include "pso/misc/TWindowSubComCard.h"
-#include "pso/object/TObjCityMainWarp.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdChrSelASlotGC.h"
-
 struct Base_802870C4 { char pad[0x18]; };
 
 struct VObj_802870C4 : Base_802870C4 {
@@ -172,8 +165,6 @@ void text_builder_reset(void);
 void toggle_help_window_on_button(u32 arg0, s32 arg1);
 s32 create_titled_window_menu(s32, s32, s32, s32);
 extern "C" {
-
-
 
 s32 TWindowSubTechnique::open_menu() {
     s32 titled_window_menu;

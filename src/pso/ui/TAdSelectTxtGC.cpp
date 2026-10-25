@@ -1,5 +1,11 @@
-// ---- pso/unk/text_802A15BC
 #include "types.h"
+#include "pso/TAdSelectTxtGC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/ui/TAdSelectTxtGC.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+
 struct O_802A15BC {
     u8 a[0x10];
     u8 b[8];
@@ -45,16 +51,6 @@ void clear_player_data_block(O_802A15BC *arg0) {
 
 }
 
-// ---- pso/ui/TAdSelectTxtGC
-#include "pso/TAdSelectTxtGC.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/player/TObjPlayer_8023E480.h"
-#include "pso/ui/TAdSelectTxtGC.h"
-
-#include "types.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
-
 struct Sel_802A16CC {
     u8 pad0[0xC0];
     void *slots[7];
@@ -99,7 +95,6 @@ extern const s32 current_language;
 extern u32 ad_select_text_texture_handle;
 void TLobby__sub_803DA16C(void*);
 
-    
 void TAdSelectTxtGC::reset_state() { *(short *)&this->m_prev = 0; *(short *)&this->m_id = 0; *(short *)&this->m_flags = 0; *(short*)((char*)this + 0x2) = 0; *(short *)&this->m_name = 0; *(short*)((char*)this + 0xe) = 0; *(short *)&this->m_next = 0; *(short*)((char*)this + 0xa) = 0; *(float *)&this->m_up = 0.0f; *(float *)&this->m_down = 0.0f; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
 
 void TAdSelectTxtGC__sub_802A16A8(void* p) { *(u8*)((char*)p + 0x0) = 0; *(u8*)((char*)p + 0x1) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; }

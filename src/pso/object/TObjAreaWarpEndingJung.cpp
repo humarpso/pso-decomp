@@ -377,7 +377,7 @@ u8 * TObjMapWarpForest__ct(u8 *arg0, void *parent, void *set);
 s32 can_warp__11TObjMapWarpFlUs(void *, u16);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 s32 vfunc_16__12TObjWarpBaseFv(s32);
-u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0);
+void *find_warp_player_in_range(void *self, u16 client_id, f32 range);
 void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 int TAdStorySelectGC__sub_8019DC14(void);
 s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
@@ -629,10 +629,10 @@ void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
+void *find_warp_player_in_range(void *self, u16 client_id, f32 range) {
   u8 *player;
-  player = (u8 *) ((u8 *)((u32 (*)(u16))get_player_by_client_id)(arg1));
-  if ((player != 0) && (xz_distance_squared((void *)(arg0 + 0x38), (void *)(player + 0x38)) < (farg0 * farg0)))
+  player = (u8 *)get_player_by_client_id(client_id);
+  if ((player != 0) && (xz_distance_squared((u8 *)self + 0x38, player + 0x38) < (range * range)))
   {
     if (check_flag_100__10TObjPlayerFPv(player) == 1)
     {
@@ -806,7 +806,7 @@ void TObjMapWarp::process_player_warps() {
                     ((TQuestVmDownLoadServer *)(d->win[i]))->clear_flag4_bit4();
                     allow_rendering__7TObjectFv((TObject *)d->win[i]);
                 }
-                t = ((void *(*)(void *, u16, f32))find_warp_player_in_range)(this, i, d->fAC);
+                t = find_warp_player_in_range(this, i, d->fAC);
                 if (t != NULL) {
                     ((VObj_8019D250 *)this)->m13(obj_getField1c(t));
                     if (((TObjPlayer *)t)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t)->get_map_id()) != 0) {
@@ -835,7 +835,7 @@ void TObjMapWarp::process_player_warps() {
             ((TQuestVmDownLoadServer *)(this->m_b0))->clear_flag4_bit4();
             allow_rendering__7TObjectFv((TObject *)this->m_b0);
         }
-        t2 = ((void *(*)(void *, u16, f32))find_warp_player_in_range)(((VObj_8019D250 *)this), local_client_id, d->fAC);
+        t2 = find_warp_player_in_range(((VObj_8019D250 *)this), local_client_id, d->fAC);
         if (t2 != NULL) {
             ((VObj_8019D250 *)this)->m13(local_client_id);
             if (((TObjPlayer *)t2)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {
@@ -963,7 +963,7 @@ void TObjAreaWarp::open_confirm_window(u16 arg1) {
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag_40();
         *(u16 *)((s8 *)this + 0xB8) = arg1;
-        temp_r3 = ((u32 (*)(s32))get_player_by_client_id)((s32)(*(u16 *)((s8 *)this + 0xB8)));
+        temp_r3 = (u32)get_player_by_client_id(*(u16 *)((s8 *)this + 0xB8));
         if (temp_r3 != 0U) {
             mask_action_buttons((void *)(temp_r3 + 0x550), 4);
         }
@@ -1015,7 +1015,7 @@ void TObjAreaWarp::handle_area_selection() {
                 }
             }
             for (i = 0; i < 4; i++) {
-                t = ((void *(*)(void *, u16, f32))find_warp_player_in_range)(((VObj_8019CAB0 *)this), i, d->fAC);
+                t = find_warp_player_in_range(((VObj_8019CAB0 *)this), i, d->fAC);
                 if (t != NULL) {
                     found = 1;
                     if (d->fC0 != NULL) {
@@ -1033,7 +1033,7 @@ void TObjAreaWarp::handle_area_selection() {
                 this->vfunc_14();
             }
         } else {
-            void *t2 = ((void *(*)(void *, u16, f32))find_warp_player_in_range)(((VObj_8019CAB0 *)this), local_client_id, d->fAC);
+            void *t2 = find_warp_player_in_range(((VObj_8019CAB0 *)this), local_client_id, d->fAC);
             if (t2 != NULL) {
                 ((VObj_8019CAB0 *)this)->m13(local_client_id);
                 if (((VObj_8019CAB0 *)this)->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {

@@ -1,4 +1,3 @@
-// ---- pso/unk/text_801925F8
 #include "types.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/TParticleCtrl.h"
@@ -52,9 +51,6 @@ void TObjLazerFenceExtra::render_lazer_fence_model() {
     pop_matrix();
 }
 
-
-
-
 void render__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *lazer_fence_extra) {
 
     if ((((LazerFenceExtraVObj_801925F8*)lazer_fence_extra)->m8(3e+02f, 4e+01f) != 0) && ((s32) *(s32 *)((s8 *)lazer_fence_extra + 0xD8) != 0)) {
@@ -68,9 +64,6 @@ void render__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *lazer_fence_extra) {
         }
     }
 }
-
-
-
 
 void TObjLazerFenceExtra::update_wait_switch() {
     ((TObjLazerFenceExtra_801926D0 *)this)->frame += 0.9f;
@@ -309,8 +302,6 @@ void TObjLazerFenceNorm::reset_by_door() {
     }
 }
 
-// ---- pso/object/TObjLazerFenceNorm
-
 struct RecoveredGlobal_80192E70_lbl_804B7FB0 {
     s32 value;
     u8 remaining[0x104];
@@ -322,7 +313,6 @@ struct RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm {
 };
 
 extern "C" {
-
 
 extern s32 __vt__18TObjLazerFenceNorm[];
 extern s32 obj_lazer_fence_norm_class_name;
@@ -398,7 +388,6 @@ void *TObjLazerFenceNorm__create(void *arg0) {
     }
     return o;
 }
-
 
 void TObjLazerFenceNorm::free_resources() {
     if ((u32) lazer_fence_norm_bml_resource != 0U) {

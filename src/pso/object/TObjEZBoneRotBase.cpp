@@ -1,4 +1,3 @@
-// ---- pso/object/TObjEZBoneRotPlayer_800FE834
 #include "types.h"
 #include "pso/object/TObjEZBoneRotPlayer_800FE834.h"
 #include "pso/TObjEZBoneRotPlayer.h"
@@ -90,11 +89,6 @@ void TObjEZBoneRotPlayer::advance_bone_rotation() {
 
 }
 
-// ---- pso/unk/text_800FEA34
-#include "types.h"
-#include "pso/TObjEZBoneRotBase.h"
-#include "pso/TObjEZBoneRotPlayer.h"
-
 extern "C" {
 f32 sin_table_lookup(s32);
 
@@ -174,20 +168,12 @@ void TObjEZBoneRotBase::sub_800FED0C() {
 
 }
 
-// ---- pso/object/TObjEZBoneRotBase
-#include "pso/TObjEZBoneRotBase.h"
-
 TObjEZBoneRotBase::~TObjEZBoneRotBase() {}
-
-// ---- pso/unk/text_800FEDA4
-#include "types.h"
-#include "pso/TObjEZBoneRotBase.h"
 
 extern "C" {
 void __ct__7TObjectFP7TObject(TObject *self, TObject *parent);
 extern void *__vt__17TObjEZBoneRotBase[];
 extern const char *lbl_805D2B48;
-
 
 TObjEZBoneRotBase *TObjEZBoneRotBase__ct(TObjEZBoneRotBase *self, TObject *parent, void *root, EZBoneRotDesc *desc) {
     EZBoneRotState *state = (EZBoneRotState *)self;
@@ -210,4 +196,3 @@ TObjEZBoneRotBase *TObjEZBoneRotBase__ct(TObjEZBoneRotBase *self, TObject *paren
     return self;
 }
 }
-

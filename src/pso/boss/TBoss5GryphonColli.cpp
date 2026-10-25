@@ -1,4 +1,3 @@
-// ---- pso/boss/TBoss5GryphonColli
 #include "types.h"
 #include "pso/boss/TBoss5GryphonColli.h"
 #include "pso/boss/TBoss5GryphonDemo.h"
@@ -6,12 +5,18 @@
 #include "pso/TBoss5GryphonDemo.h"
 #include "pso/TBoss5GryphonColli.h"
 #include "pso/boss/TBoss5GryphonColli_C.h"
+#include <stddef.h>
+#include "pso/system/vector.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
+
 extern "C" {
 s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
 
 int TBoss5GryphonDemo::get_state() { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)this + 0x1c)); }
 void TBoss5GryphonDemo::draw_linked_model(void* position, s32 yaw) { ((TBoss5GryphonDemo *)(((TBoss5GryphonColli*)this)->objects[0]))->draw_model(position, yaw); }
-
 
 TBoss5GryphonColli_C *TBoss5GryphonDemo__sub_800663DC(TBoss5GryphonColli_C *self, s32 arg1, s32 arg2, void *arg3, f32 len);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -26,7 +31,6 @@ TBoss5GryphonColli::~TBoss5GryphonColli() {
     }
 }
 
-#include <stddef.h>
 struct Stack_800661E4 {
     f32 sp8;
     f32 spC;
@@ -42,7 +46,6 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 extern RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli __vt__18TBoss5GryphonColli;
 extern s32 lbl_805D280C;
-
 
 typedef char RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli_size[sizeof(RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli) == 0x18 ? 1 : -1];
 u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1) {
@@ -69,17 +72,6 @@ u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1) {
 
 }
 
-// ---- pso/boss/TBoss5GryphonDemo
-#include "pso/TBoss5GryphonDemo.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/boss/TBoss5GryphonColli_C.h"
-
-#include "types.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
-
 struct E_8006633C { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct O_8006633C { u8 pad[0xa4]; E_8006633C *entries; s32 count; };
@@ -105,7 +97,6 @@ struct Obj_800663DC {
     u8 posbuf[0xC];
 };
 
-
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 void fn_8002B630(u8 *arg0, u8 *arg1);
@@ -115,7 +106,6 @@ int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 extern s32 gryphon_demo_collision_body_desc[];
 extern s32 lbl_804886AC[];
 extern s32 lbl_805D2808;
-
 
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);

@@ -1,11 +1,10 @@
-// ---- pso/misc/TTecGiZonde_8023A4CC
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804CCC68.h"
-
-#include <stddef.h>
 #include <stddef.h>
 #include "pso/misc/TTecGiZonde.h"
+#include "pso/player/TObjPlayer.h"
+
 struct Stack_8023A510 {
     s32 sp8;
     s32 spC;
@@ -67,8 +66,6 @@ s32 angle_difference_abs(int, int);
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
 }
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
-
-
 
 void move_ground_technique_projectile(void* p);
 
@@ -176,11 +173,6 @@ void TUnk_804CCC68::move_technique_projectile() {
 
 void TUnk_804CCC68::run_task() { move_technique_projectile(); this->advance_lifetime_or_destroy(); }
 
-// ---- pso/player/TObjPlayer_8023A740
-#include "types.h"
-#include "pso/player/TUnk_804CCC68.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(void *p);
@@ -193,12 +185,6 @@ f32 vector_length(void *);
 s32 normalize_vector(void *);
 extern const f64 lbl_8044DC00;
 extern s32 __vt__13TUnk_804CCC68[];
-
-
-
-
-
-
 
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);

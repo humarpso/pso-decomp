@@ -1,13 +1,13 @@
-// ---- pso/unk/text_8012F0F8
 #include "types.h"
 #include "pso/item/TUnk_804A6200.h"
 #include "pso/unk/text_8012F0F8.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_8012F1F4.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 play_sound_effect(int, int, int, int);
-
-
 
 void TUnk_804A6200::update_idle() {
     f32 temp_f2;
@@ -30,28 +30,12 @@ void TUnk_804A6200::update_idle() {
 
 }
 
-// ---- pso/player/TObjPlayer_8012F19C
-#include "types.h"
-#include "pso/item/TUnk_804A6200.h"
-#include "pso/item/TItemEffOrgaFlowShot.h"
-
-
-
-
-
-
 void TUnk_804A6200::update_attack() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)(-0.14f), (f32)0.3f);
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)0.04000001f, (f32)1.2f);
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x200), (f32)(-0.14f), (f32)0.3f);
 }
-
-// ---- pso/item/TItemEquipVariant_8012F1F4
-#include "types.h"
-#include "pso/item/TItemEquipVariant_80120CF8.h"
-#include "pso/item/TItemEquipVariant_8012F1F4.h"
-#include "pso/player/TObjPlayer.h"
 
 extern s32 lbl_804A6200[];
 
@@ -66,17 +50,10 @@ void *__dt__13TUnk_804A6200Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-// ---- pso/player/TObjPlayer_8012F24C
-#include "types.h"
-#include "pso/item/TUnk_804A6200.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 
 int TItemWeapon__ct(void);
 
-
-    
 void*TUnk_804A6200::set_mode_vector() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A6200; *(float *)&this->unk_200 = 1.0f; *(float *)&(this->m_1fc) = 1.0f; *(float*)((char*)this + 0x1f8) = 1.0f; return this; }
 
 }

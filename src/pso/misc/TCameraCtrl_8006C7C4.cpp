@@ -1,41 +1,30 @@
-// ---- pso/misc/TCameraCtrl_8006BA68
 #include "types.h"
 #include "pso/misc/TUnk_80488B38.h"
 #include "pso/misc/TUnk_80488B68.h"
-
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
-
+#include "pso/misc/CameraHelpers.h"
+#include <stddef.h>
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TCameraCtrl_80067FC0.h"
+#include "pso/misc/TCameraCtrl_8006C580.h"
+#include "pso/system/memory.h"
+#include "pso/misc/TUnk_80488D70.h"
+#include "pso/misc/TScene.h"
 
 extern "C" {
 void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
-
 #pragma push
 #pragma fp_contract on
 #pragma pop
 
-
 }
-
-#include "pso/misc/CameraHelpers.h"
-#include <stddef.h>
-
-#include <stddef.h>
-#include "pso/misc/TOKeyMachine01.h"
-
-
-
-
-
-
-
 
 extern void *camera_ctrl_instance;
 extern void* camera_controller_registry[];
-
 
 void* camera_controller_registry[];
 
@@ -44,41 +33,19 @@ struct CameraMotionData;
 #pragma opt_common_subs off
 #pragma pop
 
-
-
-
 #pragma push
 #pragma fp_contract on
 
 #pragma pop
 
-// ---- pso/misc/TCameraCtrl_8006C580
-
-#include "pso/misc/TCameraCtrl_80067FC0.h"
-#include "pso/misc/TCameraCtrl_8006C580.h"
-
-
-// ---- pso/misc/TCameraCtrl_8006C5D8
-
-
-#include "pso/system/memory.h"
-#include "pso/misc/TUnk_80488D70.h"
-
-
-#include "pso/misc/TScene.h"
-
 extern "C" {
-
 
 void *TCameraCtrl__vt10(void);
 void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
 void *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(int);
 
-
-    
 }
-
 
 void *TCameraCtrl__vt10(void) {
     void *o = __nw__7TObjectFUl(0x6C);
@@ -87,7 +54,6 @@ void *TCameraCtrl__vt10(void) {
     }
     return o;
 }
-
 
 void TUnk_80488D70::vfunc_6() {
     void *temp_r31;

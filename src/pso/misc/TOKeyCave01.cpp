@@ -1,8 +1,6 @@
-// ---- pso/misc/TOKeyAncient03
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
-
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -11,6 +9,9 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/TOKeyCol.h"
+#include "pso/misc/TContainerAncient01.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct RecoveredGlobal_8016BF68_lbl_80441B4C {
     s32 value;
@@ -22,13 +23,10 @@ struct RecoveredGlobal_8016C010_lbl_80441B4C {
     u8 remaining[0x8C];
 };
 
-
 struct Pkt_8016BF08 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
-
 
 extern "C" {
 s32 is_split_screen();
-
 
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
@@ -38,7 +36,6 @@ void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
 s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
-
 
 s32 get_current_floor();
 extern s32 local_client_id;
@@ -155,22 +152,6 @@ void TOKeyCave01::vfunc_17() {
     }
 }
 
-// ---- pso/misc/TOKeyCave01
-#include "types.h"
-#include "pso/misc/TOKeyCave01.h"
-#include "pso/player/TUnk_80494AE0.h"
-
-#include "pso/misc/TOKeyCol.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TContainerAncient01.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TOKey.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 struct RecoveredGlobal_8016C474_lbl_80441BE8 { char value[0x1A]; };
 typedef char RecoveredGlobal_8016C474_lbl_80441BE8_size[sizeof(RecoveredGlobal_8016C474_lbl_80441BE8) == 0x1A ? 1 : -1];
 
@@ -218,7 +199,6 @@ s32 get_main_phase(void);
 extern s32 __vt__11TOKeyCave01[];
 extern s32 TOKeyCave01__class_name;
 
-
 u8 *TOKeyCave01__ct(TOKeyCave01 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 extern s32 local_client_id;
@@ -233,7 +213,6 @@ extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
-
 
 void TOKeyCave01::vfunc_16() {
     s32 temp_r4;
@@ -375,7 +354,6 @@ void TOKeyCave01::load_resources() {
 TOKeyCave01::~TOKeyCave01() {
 
 }
-
 
 u8 *TOKeyCave01__ct(TOKeyCave01 *key_cave01, s32 arg1, s32 arg2) {
     TOKey__ct(key_cave01);

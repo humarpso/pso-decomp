@@ -1,4 +1,3 @@
-// ---- pso/player/TObjPlayer_801AADE8
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -18,6 +17,16 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/PhotonBlastSummon.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/system/vector.h"
+#include <stddef.h>
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/TObject.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/TPhotonRainbow_801AE640.h"
+#include "pso/misc/obj_band.h"
+#include "pso/unk/text_801AB370.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Color_801AAF00 { f32 a, r, g, b; };
 
@@ -63,7 +72,6 @@ void TObjPlayer::destroy_global_buffer() {
     estlla_photon_blast_model = 0U;
 }
 }
-
 
 void create_estlla_photon_blast_model(void) {
     s32 temp_r3;
@@ -123,17 +131,6 @@ void TPhotonFarlla::render() {
     }
 }
 
-// ---- pso/unk/text_801AB018
-#include "types.h"
-#include "pso/unk/text_80087278.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/misc/TPhotonFarlla.h"
-
-#include <stddef.h>
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_801AB018 {
     s32 sp8;
     f32 spC;
@@ -155,15 +152,6 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
 extern "C" {
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u32 __nw__7TObjectFUl(int);
-
-
-
-
-
-
-
-
-
 
 #pragma push
 #pragma opt_common_subs off
@@ -242,21 +230,12 @@ void TPhotonFarlla::run_task() {
 }
 #pragma pop
 
-// ---- pso/misc/TPhotonFarlla
-#include "types.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/misc/TPhotonFarlla.h"
-
 extern "C" {
 
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
 extern void *lbl_804C3564[];
-
-
 
 void *destroy__13TPhotonFarllaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -274,22 +253,6 @@ void *destroy__13TPhotonFarllaFPvs(void *arg0, s16 arg1) {
 }
 
 }
-
-// ---- pso/unk/text_801AB370
-#include "types.h"
-#include "pso/TObject.h"
-#include "pso/misc/PhotonBlastSummon.h"
-#include "pso/misc/TLobby_802268F4.h"
-#include "pso/misc/TPhotonRainbow_801AE640.h"
-#include "pso/misc/obj_band.h"
-#include "pso/unk/text_801AB370.h"
-#include "pso/system/vector.h"
-#include "pso/misc/TUnk_804C3248.h"
-#include "pso/misc/TPhotonFarlla.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Stack_801AB370 { f32 x, y, z; };
 

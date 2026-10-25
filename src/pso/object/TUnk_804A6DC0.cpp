@@ -1,4 +1,3 @@
-// ---- pso/object/TObjGyaranzoMissile_80131100
 #include "types.h"
 #include "pso/item/TItemEquipVariant_80120CF8.h"
 #include "pso/object/TObjGyaranzoMissile_80131100.h"
@@ -6,9 +5,9 @@
 #include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TUnk_804A6DC0.h"
+#include "pso/object/TObjGyaranzoMissile.h"
 
 struct Obj_80131334 { u8 pad[0x1f8]; s32 state; };
-
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -17,17 +16,12 @@ extern s32 lbl_804A6DC0[];
 int TItemWeapon__ct(void);
 extern unsigned char spawn_weapon_impact_effect[];
     
-    
-
-
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-
 
 int post_translate_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 }
-#include "pso/object/TObjGyaranzoMissile.h"
 
 void yasminkov_7000v_node_callback(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { post_translate_matrix((char*)p + 0x1fc); } }
 

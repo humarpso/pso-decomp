@@ -1,7 +1,6 @@
 #include "types.h"
 static const f32 TContainerAncient01__data_805DBD10[1] = {1.0f};
 static const f32 TContainerAncient01__data_805DBD14[1] = {0.0f};
-// ---- pso/misc/TContainerAncient01_8018A584
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
@@ -205,7 +204,6 @@ s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__bml_resource;
 
-
 void run_task__20TContainerAncient01RFv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *, void *);
 
@@ -213,21 +211,17 @@ s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1);
 void advance_animation_playback(void *);
 unsigned int __cvt_fp2unsigned(f32);
 
-
 f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
-
 
 extern s32 TContainerAncient01__open_effect_table[];
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 get_current_floor();
 f32 horizontal_distance_squared(void *, void *);
 
-
 void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range);
 
 void *get_player_by_client_id(s32 i);
 s32 play_sound_effect(int, void *, int, int);
-
 
 extern s32 lbl_805D586C;
 
@@ -578,7 +572,6 @@ f32 TContainerAncient01R::receive_direct_attack(void *arg1, void *arg2_arg, void
 
 int TContainerAncient01R::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
     return xyz_distance_squared((void *)(arg1 + 0x38), (void *)(arg0 + 0x38), (void *)arg0) < 4e+02f;
 }
@@ -864,7 +857,6 @@ void TContainerAncient01::sub_8018B700() {
 }
 
 }
-// ---- pso/misc/TContainerAncient01_8018B79C
 #include "types.h"
 #include "pso/misc/TContainerAncient01_8018B79C.h"
 #include "pso/object/TObject_80019A50.h"
@@ -913,7 +905,6 @@ s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
 
-
 f32 xyz_distance_squared(void *, void *, void *);
 
 s32 scale_current_matrix(void *);
@@ -922,7 +913,6 @@ s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 reset_state__19TContainerAncient01Fv();
-
 
 f32 TContainerAncient01::receive_physical_attack(void *, f32) {
     s16 sp8;
@@ -951,7 +941,6 @@ f32 TContainerAncient01::receive_direct_attack(void *arg1, void *arg2_arg, void 
 }
 
 int TContainerAncient01::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
-
 
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
     return xyz_distance_squared((void *)(arg1 + 0x38), (void *)(arg0 + 0x38), (void *)arg0) < 4e+02f;
@@ -1023,7 +1012,6 @@ void TContainerAncient01::run_task() {
 }
 
 }
-// ---- pso/misc/TContainerAncient01_8018BAE0
 #include "types.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
@@ -1034,14 +1022,11 @@ struct Res_8018BB64 { u8 pad[0x430]; s32 x430; };
 
 extern "C" {
 
-
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern Param_8018BB64 container_ancient_anim_binding[];
 
-
 extern s32 TContainerAncient01__effect_id_table[];
-
 
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001FE7C(void*, int);
@@ -1089,7 +1074,6 @@ void TContainerAncient01::load_resources() {
 }
 
 }
-// ---- pso/misc/TContainerAncient01 (0x8018BC98-0x8018BEE4)
 #include "pso/misc/RenderFadeState.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -1142,7 +1126,6 @@ struct V_8018BE98 : B_8018BE98 {
     virtual void m20(s32 a, f32 b);
 };
 
-
 extern "C" {
 
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -1153,7 +1136,6 @@ extern s32 TContainerAncient01__name;
 extern s32 TContainerAncient01__bml_resource;
 
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-
 
 s32 TContainerAncient01__sub_8018BE90(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
@@ -1212,7 +1194,6 @@ f32 TContainerAncient01R::receive_weapon_special_attack(void *, void *) {
 void TContainerAncient01R::apply_knockback_from_attacker(u8 *) {  }
 s32 TContainerAncient01R::try_start_action(s32, s32) { return 1; }
 s32 TContainerAncient01R::roll_physical_accuracy(void *, s32, f32) { return 1; }
-
 
 int TContainerAncient01::get_table_entry(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
 

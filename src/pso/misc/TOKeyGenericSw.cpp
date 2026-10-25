@@ -222,7 +222,6 @@ void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-// ---- pso/unk/text_8016CF5C (0x8016CF5C-0x8016D0B4)
 void *TOKeyGenericSw__ct(TOKeyGenericSw *key_generic_sw, void *parent, void *source) {
     TOKey__ct(key_generic_sw, parent);
     *(void **)((s8 *)key_generic_sw + 0x18) = __vt__14TOKeyGenericSw;

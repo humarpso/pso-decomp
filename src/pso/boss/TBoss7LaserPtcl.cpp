@@ -45,8 +45,6 @@ u8 TBoss7LaserPtcl::is_state_2() {
     return (u8) (this->state == 2);
 }
 
-// ---- pso/boss/TBoss7LaserPtcl_8035A9B8
-
 extern "C" {
 
 s32 subtract_vector(void *, void *);
@@ -79,8 +77,6 @@ void TBoss7LaserPtcl::calc_position(u8 *arg1, u8 *arg2) {
 
 }
 
-// ---- pso/boss/TBoss7LaserPtcl_8035AA98
-
 void TBoss7LaserPtcl::destroy_particles() {
     s32 arg0 = (s32)this;
   void **var_r30;
@@ -102,7 +98,6 @@ void TBoss7LaserPtcl::destroy_particles() {
   while (var_r29 != 0);
 }
 
-// ---- pso/boss/TBoss7LaserPtcl_8035AAE8
 typedef char Laser_state_offset[offsetof(TBoss7LaserPtcl, state) == 0x1C ? 1 : -1];
 typedef char Laser_position_offset[offsetof(TBoss7LaserPtcl, position) == 0x20 ? 1 : -1];
 typedef char Laser_direction_offset[offsetof(TBoss7LaserPtcl, direction) == 0x2C ? 1 : -1];

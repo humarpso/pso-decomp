@@ -1,7 +1,21 @@
-// ---- pso/unk/text_80107C9C
 #include "types.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_8049EFB8.h"
+#include "pso/unk/text_80107D4C.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/item/TItemEffArmor_80107DA4.h"
+#include "pso/object/TObjLight_80133568.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/system/vector.h"
+#include "pso/item/TItemEffArmor.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/TItemLoad.h"
 
 extern "C" {
 u16 obj_getField1c(void *);
@@ -11,28 +25,6 @@ void *get_player_by_client_id(s32 i);
 s32 is_item_area_enabled();
 
 }
-
-// ---- pso/unk/text_80107D4C
-#include "types.h"
-#include "pso/unk/TUnk_8049EFB8.h"
-#include "pso/unk/text_80107D4C.h"
-
-
-// ---- pso/item/TItemEffArmor_80107DA4
-#include "types.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/boss/TBoss2DeRolLe.h"
-#include "pso/item/TItemEffArmor_80107DA4.h"
-#include "pso/object/TObjLight_80133568.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/system/ChunkMaterialState.h"
-#include "pso/unk/text_803D96A8.h"
-#include "pso/unk/TUnk_8049EFB8.h"
-#include "pso/system/vector.h"
-#include "pso/item/TItemEffArmor.h"
-#include "pso/misc/TNowLoading.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80107DA4_lbl_8049EFB8 {
     s32 value;
@@ -52,8 +44,6 @@ struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
 extern "C" {
 u16 obj_getField1c(void *);
 
-
-
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80107DA4_lbl_8049EFB8 __vt__13TUnk_8049EFB8;
 s32 scale_matrix(int, f32, f32, f32);
@@ -71,22 +61,8 @@ typedef char RecoveredGlobal_80107DA4_lbl_8049EFB8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80107DF0_lbl_8050BEC0_size[sizeof(RecoveredGlobal_80107DF0_lbl_8050BEC0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80107DF0_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80107DF0_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
-
 }
 
-// ---- pso/item/TItemEffArmor
-#include "types.h"
-#include "pso/item/TItemEffArmor.h"
-
-#include "pso/boss/TBoss4Type2.h"
-
-
-// ---- pso/unk/text_80108020
-#include "types.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/boss/TBoss2DeRolLe.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/TItemLoad.h"
 struct Vec_80108164 { f32 x, y, z; };
 
 struct Base_80108164 { u8 pad[0x18]; };
@@ -191,7 +167,6 @@ f32 xyz_distance(Vec_80108164 *, Vec_80108164 *);
 void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFv(Player_80108164 *);
 
-
 void *create_particle_emitter(void *pos, s32 id);
 
 void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);
@@ -202,15 +177,9 @@ extern Parm_80108020 default_scene_light_config;
 extern s32 TItemEffArmor__class_name;
 extern s32 tl_07;
 
-
-
-
 Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b);
 
-
-
 }
-
 
 #pragma defer_codegen on
 

@@ -1,4 +1,3 @@
-// ---- pso/misc/TOTrap
 #include "types.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
@@ -63,8 +62,6 @@ f32 TOTrap::scale_by_table_value(f32 farg0) {
 }
 
 void TOTrap::vfunc_89() {  }
-
-
 
 s32 TOTrap::is_any_player_matching_stat() {
     s32 i;
@@ -222,7 +219,6 @@ void TOTrap::run_task() {
 
 }
 
-// ---- pso/misc/TOTrap_80179140
 #include "types.h"
 #include "pso/player/TObjPlayer_803E4954.h"
 #include "pso/unk/text_803D96A8.h"
@@ -236,9 +232,6 @@ extern "C" {
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-
-
-
 
 struct TOTrapBase { char pad[0x18]; };
 struct TOTrapVObj : TOTrapBase {
@@ -274,7 +267,6 @@ void TOTrap::render() {
 
 }
 
-// ---- pso/misc/TOTrap_801791EC
 #include "types.h"
 #include "pso/misc/TOTrap_801791EC.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -315,7 +307,6 @@ void TOTrap::vfunc_84() {  }
 
 }
 
-// ---- pso/misc/TOTrap_801792AC
 #include "types.h"
 #include "pso/misc/TOTrap_801792AC.h"
 #include "pso/misc/TOTrap.h"
@@ -383,9 +374,6 @@ u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1) {
 u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1) {
     return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));
 }
-
-
-
 
 u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1) {
     return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));

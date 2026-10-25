@@ -1,10 +1,17 @@
-// ---- pso/object/TObjLight_80235C44
 #include "types.h"
 #include "pso/object/TUnk_804CCAA8.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/system/vector.h"
-
 #include "pso/object/TObjLight.h"
+#include "pso/unk/text_8023601C.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804CCC68.h"
+#include "pso/unk/TUnk_804CC148.h"
+#include "pso/technique/TechniqueContact.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 static const f32 lbl_805DC888[1] = {1.0f};
 static const f32 lbl_805DC88C[1] = {0.0f};
@@ -59,8 +66,6 @@ void publish_light_direction_color(u32 id, void *dir, void *color);
 s32 approach_vector_fixed_distance(void *, void *, void *, f32);
 void *get_player_by_client_id(s32 i);
 extern Base_80235C44 TObjLight__scene_light_state;
-
-
 
 #pragma push
 #pragma fp_contract on
@@ -147,10 +152,6 @@ u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4,
     return arg0;
 }
 
-// ---- pso/unk/text_8023601C
-#include "types.h"
-#include "pso/unk/text_8023601C.h"
-
 struct Stack_8023601C {
     f32 sp8;
     f32 spC;
@@ -183,10 +184,6 @@ void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0) {
 }
 #pragma pop
 
-// ---- pso/misc/TTecLuker_802360E4
-#include "types.h"
-#include "pso/misc/TTecLuker.h"
-
 extern "C" {
 
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -203,13 +200,6 @@ s32 TTecLuker::is_parents_unqueued(u32 arg0) {
 
 }
 
-// ---- pso/player/TObjPlayer_8023611C
-#include "types.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/system/vector.h"
-#include "pso/player/TUnk_804CCC68.h"
-#include "pso/unk/TUnk_804CC148.h"
-
 struct Stack_80236290 {
     s32 sp8;
     u8 trailing_storage[0x8];
@@ -219,11 +209,6 @@ struct RecoveredGlobal_80236290_lbl_80516150 {
     s32 value;
     u8 remaining[0x84];
 };
-
-#include "pso/technique/TechniqueContact.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 
 struct Vec_80236154 { f32 x, y, z; };
 

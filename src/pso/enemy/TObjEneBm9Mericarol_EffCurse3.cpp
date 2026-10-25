@@ -1,4 +1,3 @@
-// ---- pso/enemy/TObjEneBm9Mericarol_EffCurse3 (0x802D1AB8-0x802D1C84; .sdata2 0x805DE778-0x805DE780)
 #include "types.h"
 #include "pso/unk/text_800BC4C8.h"
 #include "pso/object/TObject_80019A50.h"
@@ -6,7 +5,6 @@
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/enemy/TObjEneBm9Mericarol_EffCurse3.h"
-
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -17,10 +15,6 @@ struct VBase_18_477421
 {
   char pad[0x18];
 };
-
-
-
-
 
 typedef struct Vec_800C4B78 {
     f32 x, y, z;
@@ -38,25 +32,20 @@ typedef struct Obj_800C4B78 {
     s32 effect;
 } Obj_800C4B78;
 
-
-
 extern "C" {
 s32 subtract_vector(void *, void *);
 s32 is_alive__9TObjEneDDFv(s32);
 extern u8 *camera_ctrl_instance;
-
 
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-
 extern s32 lbl_804E1908[];
 
 #pragma push
 #pragma fp_contract on
-
 
 void TObjEneBm9Mericarol_EffCurse3::run_task() {
     Obj_800C4B78 *o = (Obj_800C4B78 *)this;

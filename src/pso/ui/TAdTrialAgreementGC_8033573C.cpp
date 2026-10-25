@@ -1,4 +1,3 @@
-// ---- pso/ui/TAdTrialAgreementGC_8033573C
 #include "types.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
@@ -6,9 +5,24 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/ui/TAdTrialAgreementGC_8033573C.h"
-
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/misc/TLobby_80335E08.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/ui/TAdTrialAgreementGC_80335958.h"
+#include "pso/ui/TUnk_804EE458.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/TMainTask.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/misc/TUnk_804EE470.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Base_803357EC_8033573C { char pad[0x18]; };
 struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
@@ -70,7 +84,6 @@ TAdTrialAgreementGC::~TAdTrialAgreementGC() {
 
 }
 
-
 typedef char RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC_size[sizeof(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC) == 0x38 ? 1 : -1];
 u8 *TAdTrialAgreementGC__ct(u8 *ad_trial_agreement_gc) {
     s32 ad_scroll_win_gc;
@@ -96,24 +109,6 @@ u8 *TAdTrialAgreementGC__ct(u8 *ad_trial_agreement_gc) {
 void TAdTrialAgreementGC::draw_record_with_camera(s32 arg0, s32 arg1, s32 arg2) {
     TLobby::draw_with_camera((s32)((void *) (TLobby::get_record(arg1))), arg2, 0x20, (-1e+01f));
 }
-
-// ---- pso/ui/TAdTrialAgreementGC_80335958
-#include "types.h"
-#include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
-#include "pso/boss/TBoss2DeRolLe.h"
-#include "pso/misc/TLobby_80335E08.h"
-#include "pso/system/ChunkMaterialState.h"
-#include "pso/ui/TAdTrialAgreementGC_80335958.h"
-#include "pso/ui/TUnk_804EE458.h"
-#include "pso/misc/TWindowChoiceSetting.h"
-#include "pso/ui/TAdMultiPlyChrSelectGC.h"
-#include "pso/ui/TAdTrialAgreementGC.h"
-#include "pso/TMainTask.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80335BD4_lbl_8050BEC0 { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_80335BD4_lbl_8050BEC0_size[sizeof(RecoveredGlobal_80335BD4_lbl_8050BEC0) == 0x20 ? 1 : -1];
@@ -158,7 +153,6 @@ extern RecoveredGlobal_80335A58_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80335A58_lbl_8050E3B8 controller_physical_port_bank;
 
 f32 sin_table_lookup(s32);
-
 
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -285,21 +279,6 @@ void *__dt__13TUnk_804EE458Fv(void *arg0, s16 arg1) {
 
 }
 
-// ---- pso/misc/TLobby_80335E08 [0x80335E08-0x80335E7C): TUnk_804EE458 ctor + callbacks
-#include "types.h"
-#include "pso/misc/TUnk_804EE470.h"
-#include "pso/ui/TUnk_804EE458.h"
-#include "pso/misc/TLobby_80335E08.h"
-#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
-#include "pso/ui/TAdTrialAgreementGC_80335958.h"
-
-
-#include "pso/misc/TLobby.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TWindowSubStatusDisp.h"
-#include "pso/player/TObjPlayer.h"
-
 TUnk_804EE458::TUnk_804EE458(int a1) : TObject((TObject *)a1) {
     *(int*)((char*)this + 0x1c) = a1;
     this->m_20 = 0;
@@ -310,7 +289,6 @@ TUnk_804EE458::TUnk_804EE458(int a1) : TObject((TObject *)a1) {
     *(float*)((char*)this + 0x34) = 1.0f;
     this->m_38 = 0;
 }
-
 
 void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }

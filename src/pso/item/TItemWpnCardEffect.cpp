@@ -1,4 +1,3 @@
-// ---- pso/player/TObjPlayer_8032DA84
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -9,6 +8,8 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemWpnCardEffect.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/system/vector.h"
+#include "pso/item/TItemAttackCol.h"
 
 struct RecoveredGlobal_8032DC94_lbl_8050BEC0
 {
@@ -27,8 +28,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 }
 extern s32 tl_05;
 u8 *create_guardianna(u8 *arg0);
-
-
 
 extern "C" {
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
@@ -201,9 +200,6 @@ void TUnk_804EDD20::start_card_effect_trail() {
 
 void TUnk_804EDD20::start_card_effect_flash() { *(u32*)((char*)this + 0x70) |= 0x1; }
 
-    
-    
-    
 void TUnk_804EDD20::init_offset_vectors() { (*(int *)&(*(u32 *)((u8 *)this + 0x70))) = 0; *(float *)&(this->m_74) = 4.0f; (*(float *)&(*(u32 *)((u8 *)this + 0x78))) = 4.0f; *(float *)&(this->m_7c) = 4.0f; (this->m_80) = (-1.0f); *(float *)&(*(s32 *)((u8 *)this + 0x84)) = 0.0f; (*(float *)&(this->m_88)) = 0.0f; *(float*)((char*)this + 0x8c) = 0.0f; }
 
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
@@ -220,7 +216,6 @@ struct Ref_8032E400 { Owner_8032E400 *owner; s32 idx; };
 struct Obj_8032E400 { u8 pad[0x18]; void *vt; u8 pad1[0xC]; u8 col[0xC]; s16 f34; u8 pad2[2]; Vec_8032E400 pos; u8 pad3[0xC]; s32 f50; u8 pad4[4]; s32 f58; u8 pad5[4]; s32 f60; Vec_8032E400 rpos; };
 
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5);
-
 
 void *TUnk_804EDD20::init_offsets_object() {
     __ct__13TUnk_804EDD44FP7TObjectPfPfll(this);
@@ -358,11 +353,6 @@ void TUnk_804EDD44::run_task() {
 
 }
 
-// ---- pso/item/TItemWpnCardEffect
-#include "types.h"
-#include "pso/item/TUnk_804EDD44.h"
-#include "pso/item/TItemWpnCardEffect.h"
-
 extern "C" {
 
 void __dl__7TObjectFPv(void *);
@@ -384,11 +374,6 @@ void *TUnk_804EDD44::destroy(s16 arg1) {
 }
 
 }
-
-// ---- pso/unk/text_8032E294
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/item/TUnk_804EDD44.h"
 
 struct Eff_8032E34C {
     u8 pad0[0x18];
@@ -473,18 +458,11 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
     this->sub_8032E294();
 }
 
-// ---- pso/unk/text_8032E400
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/item/TUnk_804EDD44.h"
-#include "pso/item/TItemAttackCol.h"
-
 extern "C" {
 s16 obj_getField1c(void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const f64 lbl_804773A8[];
-
 
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5) {
     __ct__7TObjectFP7TObject(arg0, arg1);

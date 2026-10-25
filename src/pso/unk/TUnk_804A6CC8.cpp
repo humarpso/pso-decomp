@@ -1,19 +1,20 @@
-// ---- pso/unk/text_80130EF8
 #include "types.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_80130EF8.h"
 #include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/unk/text_801310A8.h"
+#include "pso/object/TObjGyaranzoMissile_80131100.h"
+#include "pso/object/TUnk_804A6DC0.h"
 
 struct Obj_80131070 { u8 pad[0x208]; s32 state; };
 
 extern "C" {
 
-
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
-
 
 void TUnk_804A6CC8::update_idle() {
     s32 temp_r0;
@@ -84,12 +85,6 @@ void TUnk_804A6CC8::emit_marker_effects() {
 
 }
 
-// ---- pso/unk/text_801310A8
-#include "types.h"
-#include "pso/item/TItemEquipVariant_80120CF8.h"
-#include "pso/unk/text_801310A8.h"
-#include "pso/player/TObjPlayer.h"
-
 extern s32 lbl_804A6CC8[];
 
 void *__dt__13TUnk_804A6CC8Fv(void *arg0, s16 arg1) {
@@ -103,34 +98,18 @@ void *__dt__13TUnk_804A6CC8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-// ---- pso/object/TObjGyaranzoMissile_80131100
-#include "types.h"
-#include "pso/item/TItemEquipVariant_80120CF8.h"
-#include "pso/object/TObjGyaranzoMissile_80131100.h"
-#include "pso/unk/text_80087278.h"
-#include "pso/unk/TUnk_804A6CC8.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/object/TUnk_804A6DC0.h"
-
-
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 int TItemWeapon__ct(void);
 extern unsigned char spawn_weapon_impact_effect[];
     
-    
-
-
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-
 
 }
 
     // lbl_804A6CC8 declared above (s32[])
-    
-    
     
 void* yasminkov_2000h_ct(void* a0, s32 _w1, s32 _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6CC8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = 2e+01f; *(int*)((char*)a0 + 0x1f8) = 0; ((TUnk_804A6CC8 *)a0)->m_204 = 1e-05f; *(float*)((char*)a0 + 0x200) = 1e-05f; ((TUnk_804A6CC8 *)a0)->m_1fc = 1e-05f; *(int*)((char*)a0 + 0x208) = 0; *(float*)((char*)a0 + 0x214) = 0.0f; ((TUnk_804A6CC8 *)a0)->m_210 = 0.0f; ((TUnk_804A6CC8 *)a0)->m_20c = 0.0f; return a0; }
 

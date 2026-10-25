@@ -1,4 +1,3 @@
-// ---- pso/enemy/TObjEneEpsilonGuard_8035DD68
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -408,8 +407,6 @@ extern s32 epsilon_guard_camera_ctrl_ptr;
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, int, int);
 
-
-
 void render__19TObjEneEpsilonGuardFv(u8 *);
 s32 advance_animation_playback(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *, s32);
@@ -444,9 +441,6 @@ VObj_8035EA90 *get_battle_param__10TObjPlayerFi(s32);
 void *create_particle_emitter(void *pos, s32 id);
 void *find_entity_by_id(u16 id);
 extern void *TObjEneEpsilonGuard__model_desc[];
-
-
-
 
 struct Base_8035E3B8_8035DD68 { char pad[0x18]; };
 struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
@@ -717,10 +711,6 @@ void TObjEneEpsilonGuard::handle_message(s32 arg1) {
         return;
     }
 }
-
-
-
-
 
 #pragma push
 #pragma opt_common_subs off

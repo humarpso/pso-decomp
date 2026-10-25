@@ -1,8 +1,10 @@
-// ---- pso/unk/text_80293D84
 #include "types.h"
 #include "pso/unk/text_80293D84.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include <stddef.h>
+#include "pso/TChCrEffFade.h"
+
 struct V2_80293D84 {
     f32 x;
     f32 y;
@@ -24,12 +26,8 @@ extern "C" {
 u32 __cvt_fp2unsigned(f32);
 extern V2_80293D84 lbl_80464ED8[6];
 
-
 extern const f32 lbl_80464F10[];
 extern const f32 lbl_80464F18[];
-
-
-
 
 #pragma push
 #pragma fp_contract on
@@ -75,12 +73,6 @@ void fn_80293E58(void *arg0, f32 scale) {
 
 }
 
-// ---- pso/unk/text_80293F98
-#include "types.h"
-#include "pso/misc/TWindowCtrlMain.h"
-
-#include <stddef.h>
-#include "pso/TChCrEffFade.h"
 struct Stack_80293F98 {
     s32 * sp8;
     s32 * spC;
@@ -100,7 +92,6 @@ struct RecoveredGlobal_80293F98_lbl_804DB900 {
 extern "C" {
 
 extern RecoveredGlobal_80293F98_lbl_804DB900 chcr_eff_fade_strip_rect;
-
 
 typedef char RecoveredGlobal_80293F98_lbl_804DB900_size[sizeof(RecoveredGlobal_80293F98_lbl_804DB900) == 0x20 ? 1 : -1];
 void TChCrEffFade::draw_fade_strip(f32 farg0) {

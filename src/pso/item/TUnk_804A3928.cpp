@@ -1,7 +1,9 @@
-// ---- pso/unk/text_801280D0
 #include "types.h"
 #include "pso/item/TUnk_804A3928.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80128158.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_801281C4.h"
 
 struct Obj_80128128 { u8 pad[0x200]; f32 c; };
 
@@ -9,7 +11,6 @@ extern "C" {
 u8 * construct_state_variant__13TUnk_804A3830Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-
 
 u8 *TObjPlayer::create_state_variant(u8 *arg0) {
     u8 *temp_r3;
@@ -36,19 +37,10 @@ void TUnk_804A3928::update_idle() {
 
 }
 
-// ---- pso/player/TObjPlayer_80128158
-#include "types.h"
-#include "pso/player/TObjPlayer_80128158.h"
-#include "pso/item/TUnk_804A3928.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
-
-
-
 
 void TUnk_804A3928::update_attack() {
     f32 temp_f2;
@@ -66,12 +58,6 @@ void TObjPlayer__sub_80128188(void* p) { if (get_player_list__10TObjPlayerFv(p) 
 
 }
 
-// ---- pso/item/TItemEquipVariant_801281C4
-#include "types.h"
-#include "pso/item/TItemEquipVariant_80120CF8.h"
-#include "pso/item/TItemEquipVariant_801281C4.h"
-#include "pso/player/TObjPlayer.h"
-
 extern s32 lbl_804A3928[];
 
 void *__dt__13TUnk_804A3928Fv(void *arg0, s16 arg1) {
@@ -85,17 +71,10 @@ void *__dt__13TUnk_804A3928Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-// ---- pso/player/TObjPlayer_8012821C
-#include "types.h"
-#include "pso/item/TUnk_804A3928.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 
 int TItemWeapon__ct(void);
 
-
-    
 void*TUnk_804A3928::init_shot_params() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A3928; *(float *)&this->unk_200 = 1.0f; *(float *)&(this->m_1fc) = 1.0f; *(float*)((char*)this + 0x1f8) = 1.0f; return this; }
 
 }

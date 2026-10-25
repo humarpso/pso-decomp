@@ -1,4 +1,3 @@
-// ---- pso/misc/TContainerAncient01 (0x8018BEE4-0x8018C948)
 #include "pso/misc/RenderFadeState.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -11,9 +10,11 @@
 #include "pso/item/TUnk_804B97C0.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TContainerAncient01R.h"
-
 #include "types.h"
-
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Vec_8018BEE4 { f32 x, y, z; };
 
@@ -21,13 +22,11 @@ extern "C" {
 s32 get_bml_model(int, int);
 s32 init_collision_body_parts(void *, void *, int);
 
-
 f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
 extern Vec_8018BEE4 lbl_804FF610;
 extern u8 *camera_ctrl_instance;
-
 
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -105,7 +104,6 @@ void *__nw__7TObjectFUl(int);
 
 extern u32 TObjContainerIdo__model_resource;
 
-
 void render__16TObjContainerIdoFv(u8 *container_ido) {
     s32 var_r31;
 
@@ -177,7 +175,6 @@ int update_obstruction_fade(void*);
 extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
 extern u8 identity_matrix[];
-
 
 #pragma push
 #pragma fp_contract on
@@ -282,11 +279,6 @@ void *TObjContainerIdo::create(void *arg0) {
 
 }
 
-#include "pso/TParticleCtrl.h"
-#include "pso/misc/TLobby.h"
-#include "pso/npc/TObjNpcEnemy.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
     s32 value;
     u8 remaining[0xC];
@@ -306,7 +298,6 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
     s32 value;
     u8 remaining[0x38];
 };
-
 
 struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
@@ -366,7 +357,6 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 
 u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 i;

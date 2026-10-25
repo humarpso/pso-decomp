@@ -1,8 +1,6 @@
-// ---- pso/misc/TOKeyAncient03
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
-
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -13,9 +11,7 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-
 struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { s32 value; u8 remaining[0x6C]; };
-
 
 struct VBase_18_8016BABC { char pad[0x18]; };
 
@@ -34,7 +30,6 @@ struct VObj_18_8016BABC : VBase_18_8016BABC {
 extern "C" {
 s32 is_split_screen();
 
-
 s32 play_sound_effect(s32, s32, s32, s32);
 u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
 void *mem_alloc(u32 size);
@@ -47,7 +42,6 @@ s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
 extern s32 __vt__14TOKeyAncient03[];
 extern s32 TOKeyAncient03__class_name;
-
 
 u8 *TOKeyAncient03__ct(TOKeyAncient03 *arg0, s32 arg1, s32 arg2);
 
@@ -204,7 +198,6 @@ void TOKeyAncient03::load_resources() {
 TOKeyAncient03::~TOKeyAncient03() {
 
 }
-
 
 u8 *TOKeyAncient03__ct(TOKeyAncient03 *key_ancient03, s32 arg1, s32 arg2) {
     TOKey__ct(key_ancient03);

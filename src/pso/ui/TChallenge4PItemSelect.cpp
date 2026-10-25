@@ -1,4 +1,3 @@
-// ---- pso/ui/TChallenge4PItemSelect
 #include "pso/ui/TChallenge4PItemSelect.h"
 #include "pso/item/TItemData_8010EDA8.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
@@ -7,10 +6,17 @@
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
-
 #include "types.h"
-
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/TChallenge4PResult.h"
+#include "pso/misc/TLobby_80291D94.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/misc/TWindowMessagePage.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TWindowCtrl.h"
+
 struct Stack_8034B158 {
     s8 sp8;
     s8 sp9;
@@ -29,10 +35,6 @@ s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 TChallenge4PItemSelect__item_table;
 }
 
-#include "pso/misc/TLobby.h"
-#include "pso/misc/TWindowSubComCard.h"
-#include "pso/ui/TChallenge4PResult.h"
-
 extern "C" {
 
 u32 create_window_menu(s32, s32, s32);
@@ -45,18 +47,8 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 extern s32 challenge4p_item_select_text_ids[];
 typedef char RecoveredGlobal_8034B158_lbl_804F00C8_size[sizeof(RecoveredGlobal_8034B158_lbl_804F00C8) == 0x60 ? 1 : -1];
 extern void *lbl_805D433C;
-// ---- pso/ui/TChallenge4PResult
-#include "pso/ui/TChallenge4PResult.h"
-#include "pso/misc/TLobby_80291D94.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/misc/TUnk_804CDFE8.h"
-#include "pso/misc/TWindowMessagePage.h"
 
-#include "types.h"
 extern "C" { s32 TChallenge4PResult__slot_entries[4]; }
-#include "pso/ui/TChallenge4PItemSelect.h"
 
 struct E_8034B694 { u8 b[0x14]; };
 struct Q_8034B694 { s32 v; };
@@ -67,14 +59,11 @@ struct RecoveredGlobal_8034BA68_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
-#include <stddef.h>
 struct Stack_8034B720 {
     s32 sp8;
     s32 spC;
 };
 
-#include "pso/misc/TOKeyMachine01.h"
-#include "pso/misc/TWindowCtrl.h"
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
 s32 is_active__11TBoss4Type2Fv();
@@ -84,7 +73,6 @@ s32 get_map_id__13TRaderMapCoreFv();
 u32 get_player_by_client_id(int);
 extern u8 controller_input_state[];
 extern s32 TChallenge4PResult__slot_entries[];
-
 
 extern s32 lbl_80478BCC[];
 
@@ -505,4 +493,3 @@ void TChallenge4PItemSelect::close_with_callback() {
     }
     queue_destruction__7TObjectFv(this);
 }
-

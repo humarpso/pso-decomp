@@ -1,4 +1,3 @@
-// ---- pso/object/TObjGyaranzoMissile_80131100
 #include "types.h"
 #include "pso/item/TItemEquipVariant_80120CF8.h"
 #include "pso/object/TObjGyaranzoMissile_80131100.h"
@@ -6,7 +5,7 @@
 #include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TUnk_804A6DC0.h"
-
+#include "pso/object/TObjGyaranzoMissile.h"
 
 struct Ent_80131488 { void *p; s32 a; s32 b; };
 
@@ -14,15 +13,12 @@ struct Obj_80131488 { Ent_80131488 *ents; u32 count; };
 
 extern "C" {
     
-    
 f32 vec_squared_length();
 f32 newton_sqrtf();
-
 
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
 }
-#include "pso/object/TObjGyaranzoMissile.h"
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self) {
     u32 i;
     for (i = 0; i < self->count; i++) {
