@@ -17,11 +17,11 @@
 ###
 
 import argparse
+import bisect
 import re
 import sys
 from pathlib import Path
-from typing import Any, List
-from tools.compiler_profiles import load_profiles, object_options
+from typing import Any, Dict, List, Tuple
 from tools.pso_assets import add_build_steps as add_data_build_steps
 
 from tools.project import (
@@ -53,27 +53,34 @@ def Unit(name: str, **kwargs: Any) -> Object:
     return Object(name in _LINKED_UNITS, name, **kwargs)
 
 
-def _psov3_units_from_splits(prefix: str = "pso/") -> List[str]:
-    """Unit names (== source paths) of every `prefix` unit in splits.txt."""
+def _units_from_splits(prefix: str) -> List[Tuple[str, int]]:
+    """(unit, link address) of every `prefix` unit in splits.txt, in link order.
+    A unit without .text takes the address of the last .text before it."""
     path = Path(__file__).resolve().parent / "config" / "GPOE8P" / "psov3" / "splits.txt"
-    out: List[str] = []
-    if path.exists():
-        for line in path.read_text().splitlines():
-            if line.startswith(prefix) and line.rstrip().endswith(":"):
-                out.append(line.rstrip()[:-1])
+    out: List[Tuple[str, int]] = []
+    unit, addr = None, 0
+    for line in path.read_text().splitlines() if path.exists() else []:
+        if line and not line[0].isspace() and line.rstrip().endswith(":"):
+            unit = line.rstrip()[:-1]
+            if unit.startswith(prefix):
+                out.append((unit, addr))
+        m = re.match(r"\s+\.text\s+start:0x([0-9A-Fa-f]+)", line)
+        if m:
+            addr = int(m.group(1), 16)
+            if out and out[-1][0] == unit:
+                out[-1] = (unit, addr)
     return out
 
 
-def _musyx_options(unit: str, profiles: dict) -> dict:
-    # PSO's MusyX objects carry extab/extabindex for every non-leaf function;
-    # C++ with exceptions on reproduces those tables byte for byte and leaves
-    # .text unchanged.
-    options = object_options(unit, cflags_pso, profiles)
-    options["cflags"] = [
-        "-Cpp_exceptions on" if f == "-Cpp_exceptions off" else f
-        for f in options["cflags"]
-    ] + ["-lang=c++"]
-    return options
+def _switch(flags: List[str], *switches: str, drop: Tuple[str, ...] = ()) -> List[str]:
+    """`flags` with each of `switches` replacing the switch of the same name
+    in place (`-O4,p` replaces `-O4,s`, `-inline auto` replaces `-inline off`)
+    or appended, and the switches named in `drop` removed."""
+    def name(f: str) -> str:
+        return "-O" if re.match(r"-O\d", f) else f.split(" ", 1)[0]
+    new = {name(s): s for s in switches}
+    out = [new.pop(name(f), f) for f in flags if name(f) not in drop]
+    return out + list(new.values())
 
 
 # ===================================================================
@@ -411,6 +418,113 @@ cflags_native_recovered_auto = [
 ]
 
 # ===================================================================
+# Compilers
+# ===================================================================
+# Sega built the game code with CodeWarrior GC/2.6 (GC/2.5 and GC/2.7 give the
+# same code here; GC/2.0 does not) and cflags_pso. Everything else in
+# PsoV3.dol is libraries linked prebuilt, each built with its own compiler:
+# the Dolphin SDK, runtime and MetroTRK (helpers below), MusyX and the
+# middleware after it (MIDDLEWARE).
+GAME_COMPILER = "GC/2.6"
+
+# Game files whose objects came from another compiler (an incremental build
+# keeps an object until its source changes) or with other switches. Every
+# entry is here because a function or data section matches only this way.
+GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
+    # GC/2.0: compiler-expanded struct copies take 2.0's registers.
+    "pso/boss/Boss5GryphonBehavior.cpp": {"mw_version": "GC/2.0"},
+    "pso/enemy/TObjEneGyaranzo.cpp": {"mw_version": "GC/2.0"},
+    "pso/boss/TBoss8Dragon.cpp": {"mw_version": "GC/2.0"},
+    # GC/1.3.2: the container files 0x8018807C-0x8018D900, the CRC-32 pair
+    # (`xoris/xori 0xFFFF`; 2.x always emits `li -1; xor`), and four others.
+    "pso/object/TObjComputer.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/item/TObjContainerJung.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/misc/TQuestVmDownLoadServer.cpp": {"mw_version": "GC/1.3.2", "cflags": _switch(cflags_pso, "-inline deferred")},
+    "pso/misc/TCameraCtrl.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/player/TObjPlayer_80141D1C.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/misc/TKeyBoardControl_8025EC04.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/menu/TAdMultiOkGC.cpp": {"mw_version": "GC/1.3.2"},
+    # GC/1.3: the compiler-generated TMenuList<> copy constructor.
+    "pso/misc/TRegister.cpp": {"mw_version": "GC/1.3"},
+    "pso/misc/TPlyGuildCardTag_801E0284.cpp": {"mw_version": "GC/1.3"},
+    "pso/misc/TPlyStartGame.cpp": {"mw_version": "GC/1.3"},
+    "pso/misc/TWindowShortListCtrl_8026E7DC.cpp": {"mw_version": "GC/1.3"},
+    # Deferred inlining: functions come out in reverse source order and the
+    # vtables before the switch tables in .data.
+    "pso/misc/TMedicalCenterSequence.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    "pso/boss/TBoss7LaserLight.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    # The character appearance tables keep eight-byte descriptors in .data
+    # but four-byte pointer lists in .sdata.
+    "pso/misc/CharacterAppearanceTables.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
+    # Metrowerks' GCN_Mem_Alloc.c (runtime library code at -O4,p); belongs
+    # in the runtime lib under its own name.
+    "pso/unk/text_8039739C.cpp": {"cflags": _switch(cflags_pso, "-O4,p")},
+}
+
+# MusyX (Factor 5). Its objects carry extab/extabindex for every non-leaf
+# function: C++ with exceptions on reproduces them and leaves .text alone.
+cflags_musyx = _switch(cflags_pso, "-O4,p", "-sdata2 8", "-Cpp_exceptions on") + ["-lang=c++"]
+
+# Prebuilt middleware after MusyX, in link order: (name, first .text address,
+# compiler, flags, per-file exceptions). Each library runs to the next one's
+# address; the version strings in their data name them.
+cflags_middleware = _switch(cflags_pso, "-O4,p", drop=("-sdata2",))
+MIDDLEWARE: List[Tuple[str, int, str, List[str], Dict[str, Dict[str, Any]]]] = [
+    # MusyX's synthesizer core, then its service, hardware and effect files.
+    ("musyx", 0x803A3858, "GC/1.2.5n", _switch(cflags_musyx, "-opt nocse"), {}),
+    ("musyx_hw", 0x803BAC70, "GC/1.2.5n", _switch(cflags_musyx, "-inline auto"), {}),
+    # CRI ADX, LSC, SJ, MFCI and GCRNA ("Build:Jun 13 2002").
+    ("cri", 0x803BFE50, "GC/2.6", cflags_middleware, {}),
+    # Sega's Ginja model library.
+    ("ginja", 0x803D6538, "GC/2.6", _switch(cflags_middleware, "-O3,p", "-opt nopeephole"), {}),
+    # mcFsGc ("Ver 1.10.00 Build:Sep 17 2002") with ACCESS's file transfer.
+    ("mcfs", 0x803E5668, "GC/1.2.5", cflags_middleware, {
+        # Epilogue order (mtlr before the restores) only 1.2.5n produces.
+        "pso/misc/TKeyBoardControl_803F0C50.cpp": {"mw_version": "GC/1.2.5n"},
+        "pso/unk/text_803F1804.cpp": {"mw_version": "GC/1.2.5n"},
+    }),
+    # ntInf ("Ver 1.17.00 Build:Jul 9 2002").
+    ("ntinf", 0x803F3CF4, "GC/2.6", cflags_middleware, {
+        "pso/unk/text_803F4D84.cpp": {"cflags": _switch(cflags_middleware, "-O2", "-use_lmw_stmw off")},
+    }),
+    # ACCESS AVE-TCP ("avetcp.a Ver.1.16.1 Oct 23 2002"); its PPP files were
+    # built without common subexpression elimination.
+    ("avetcp", 0x803F7678, "GC/1.2.5n", cflags_middleware, {
+        "pso/protocol/NetworkRuntime.cpp": {"cflags": _switch(cflags_middleware, "-opt nocse")},
+        "pso/misc/TLobby_803FAEA0.cpp": {"cflags": _switch(cflags_middleware, "-opt nocse")},
+        "pso/misc/TLobby_803FC178.cpp": {"cflags": _switch(cflags_middleware, "-opt nocse")},
+        "pso/misc/TLobby_804048E8.cpp": {"cflags": _switch(cflags_middleware, "-opt nocse")},
+        "pso/misc/TLobby_804050DC.cpp": {"cflags": _switch(cflags_middleware, "-opt nocse")},
+    }),
+    # The modem driver (AT command strings).
+    ("modem", 0x8042BF48, "GC/1.2.5", cflags_middleware, {}),
+    # ntUtl ("Ver 1.16.00 Build:Jul 8 2002"); the SDK's EXI library follows.
+    ("ntutl", 0x8042E8C4, "GC/2.6", cflags_middleware, {}),
+]
+MIDDLEWARE_END = 0x8042F13C
+
+
+def _game_and_middleware_libs() -> List[Dict[str, Any]]:
+    """The pso/ and musyx/ units of splits.txt, sorted into the game lib and
+    the MIDDLEWARE libs by link address."""
+    game: List[Object] = []
+    libs = [{"lib": name, "mw_version": mw, "cflags": flags, "progress_category": "game",
+             "src_dir": "src", "objects": []} for name, _, mw, flags, _ in MIDDLEWARE]
+    starts = [start for _, start, _, _, _ in MIDDLEWARE]
+    for unit, addr in _units_from_splits(""):
+        if not unit.startswith(("pso/", "musyx/")):
+            continue
+        i = bisect.bisect_right(starts, addr) - 1
+        if i < 0 or addr >= MIDDLEWARE_END:
+            game.append(Unit(unit, **GAME_EXCEPTIONS.get(unit, {})))
+        else:
+            libs[i]["objects"].append(Unit(unit, **MIDDLEWARE[i][4].get(unit, {})))
+    return [{"lib": "psov3_main", "mw_version": GAME_COMPILER, "cflags": cflags_pso,
+             "progress_category": "game", "src_dir": "src", "objects": game}, *libs]
+
+
+# ===================================================================
 # Library Helpers
 # ===================================================================
 
@@ -475,45 +589,12 @@ def TRKLib(lib_name: str, objects: list) -> dict:
 # ===================================================================
 
 if args.target == "psov3":
-    _pso_profiles = load_profiles()
     config.reconfig_deps = [
         Path("config/GPOE8P/psov3/splits.txt"),
         _LINKED_UNITS_FILE.relative_to(Path(__file__).resolve().parent),
-        Path("config/GPOE8P/psov3/compiler_profiles.json"),
-        Path("tools/compiler_profiles.py"),
     ]
     config.libs = [
-        {
-            "lib": "psov3_main",
-            "mw_version": "GC/2.6",
-            "cflags": cflags_pso,
-            "progress_category": "game",
-            "src_dir": "src",
-            "objects": [
-                # Generated from config/GPOE8P/psov3/splits.txt: every `pso/`
-                # unit is an Object (dtk requires unit name == source path), and
-                # it is LINKED iff linked_units.txt lists it. Add a unit by
-                # adding its splits.txt block; never edit this list by hand.
-                *[Unit(_u, **object_options(_u, cflags_pso, _pso_profiles))
-                  for _u in _psov3_units_from_splits()],
-            ],
-        },
-        {
-            # MusyX runtime (Factor 5), one unit per original
-            # musyx/runtime/*.c file (evidence for every boundary:
-            # the original object layout). Profiles come from
-            # compiler_profiles.json. The bodies are compiled as C++ with C
-            # linkage and exceptions on (see _musyx_options).
-            "lib": "musyx",
-            "mw_version": "GC/1.2.5n",
-            "cflags": cflags_pso,
-            "progress_category": "game",
-            "src_dir": "src",
-            "objects": [
-                *[Unit(_u, **_musyx_options(_u, _pso_profiles))
-                  for _u in _psov3_units_from_splits("musyx/")],
-            ],
-        },
+        *_game_and_middleware_libs(),
         DolphinLib(
             "recovered_sdk",
             [

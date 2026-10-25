@@ -48,8 +48,9 @@ the order of the object file.
 
 A unit is linked when every function and data section in it matches; the build then takes its bytes from the
 compiled object instead of the original. [`linked_units.txt`](../config/GPOE8P/psov3/linked_units.txt) lists
-those units. Units compiled with a different CodeWarrior version or different flags from the rest of their library
-are listed in [`compiler_profiles.json`](../config/GPOE8P/psov3/compiler_profiles.json).
+those units. [`configure.py`](../configure.py) declares the compilers: the game code is built with one
+(`GAME_COMPILER`, CodeWarrior GC/2.6), each prebuilt library with its own (the SDK, runtime, MetroTRK, MusyX and the
+middleware in `MIDDLEWARE`), and the few files built differently are listed with their evidence (`GAME_EXCEPTIONS`).
 
 Unit boundaries come from evidence in the executable: compiler and flag changes, literal pools, static initializers,
 alignment. Many are still provisional and move as units are folded together or split apart.

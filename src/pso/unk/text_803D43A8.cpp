@@ -5,7 +5,7 @@ extern const char *const volatile lbl_805E0DC0;
 extern char mfci_callback_table[];
 void TLobby__sub_803D43A8(void) {
     s32 i;
-    for (i = 0; i < 0x28; i++) {
+    for (i = 0x28; i != 0; i--) {
     }
 }
 char *TLobby__sub_803D43B8(void) {
