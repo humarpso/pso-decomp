@@ -1441,6 +1441,7 @@ pso/misc/TPlyInventoryItem.cpp
 pso/misc/TPlyInventoryItem_800721D4.cpp
 pso/misc/TPlyJoinGame.cpp
 pso/misc/TPlyJoinLobby.cpp
+pso/misc/TPlyJoinLobbyEntry.cpp
 pso/misc/TPlyJoinLobbyEntry_801DFA18.cpp
 pso/misc/TPlyJoinLobby_801DF9C8.cpp
 pso/misc/TPlyMeetUserExtension.cpp
