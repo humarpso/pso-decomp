@@ -4219,6 +4219,73 @@ struct Icmp6MessageHeader {
 };
 struct Ipv6SendOptions;
 
+struct Icmp6ErrorInfo {
+    u8 type;
+    u8 code;
+    u16 checksum;
+    s32 pointer;
+};
+s16 TLobby__sub_8040D510(Icmp6ErrorInfo *err, u8 *hdr, s16 len, s16 idx) {
+    s16 NetIPv6IsMulticast(u8 *addr);
+    s16 NetIPv6IsUnspecified(u8 *addr);
+    s16 TLobby__sub_80411F1C(u8 *, u8 *, s16);
+    s16 TLobby__sub_80413D78(u8 *addr, s16 idx);
+    s16 TLobby__sub_80410A98(NetPacket *, u8 *, u8 *, Ipv6SendOptions *, s32);
+    u8 *src;
+    NetPacket *pkt;
+    u8 source[16];
+    s32 excess;
+    s16 over;
+    s16 r;
+
+    if (NetIPv6IsUnspecified(hdr + 8) || NetIPv6IsMulticast(hdr + 8) || TLobby__sub_80413D78(hdr + 8, idx)) {
+        return -1;
+    }
+    if (NetIPv6IsMulticast(hdr + 0x18)) {
+        switch (err->type) {
+        case 3:
+        default:
+            return -1;
+        case 2:
+        case 4:
+            r = TLobby__sub_80411F1C(source, hdr + 8, idx);
+            if (r < 0) {
+                return r;
+            }
+            break;
+        }
+    } else {
+        NetMemcpy(source, hdr + 0x18, 0x10);
+    }
+    src = hdr + 8;
+    pkt = (NetPacket *)TLobby::alloc_free_entry();
+    if (pkt == NULL) {
+        return -1;
+    }
+    pkt->fragment_count = 0;
+    pkt->total_bytes = len;
+    pkt->fragments[pkt->fragment_count].length = len;
+    ((TLobby *)&pkt->fragments[pkt->fragment_count].buffer)->set_value_and_enable((s32)hdr);
+    pkt->fragment_count++;
+    pkt->total_bytes += sizeof(Icmp6ErrorInfo);
+    pkt->fragments[pkt->fragment_count].length = sizeof(Icmp6ErrorInfo);
+    ((TLobby *)&pkt->fragments[pkt->fragment_count].buffer)->set_value_and_enable((s32)err);
+    pkt->fragment_count++;
+    if (pkt->total_bytes + 0x28 > 0x500) {
+        over = excess = pkt->total_bytes - 0x4D8;
+        if (over > pkt->fragments[0].length) {
+            return -1;
+        }
+        pkt->total_bytes -= over;
+        pkt->fragments[0].length -= over;
+    }
+    err->checksum = 0;
+    err->checksum = TLobby__sub_80411040((const IPv6Address *)source, (const IPv6Address *)src, 0x3A, pkt, 1);
+    r = TLobby__sub_80410A98(pkt, src, source, NULL, 0x3A);
+    ((TUdpSocket *)pkt)->release_entry();
+    return r;
+}
+
 s16 TLobby__sub_8040D718(u8 type, u8 code, u8 *src, u8 *dst, NetPacket *pkt, s16 idx) {
     s16 NetIPv6IsMulticast(u8 *arg0);
     s16 NetIPv6IsUnspecified(u8 *arg0);
@@ -5111,14 +5178,7 @@ s32 NetIPv6Init(void) {
     return 0;
 }
 
-struct Icmp6ErrorInfo {
-    u8 type;
-    u8 code;
-    u8 pad2[2];
-    s32 pointer;
-};
-
-s32 TLobby__sub_8040D510(Icmp6ErrorInfo *err, u8 *hdr, s16 len, s16 idx);
+s16 TLobby__sub_8040D510(Icmp6ErrorInfo *err, u8 *hdr, s16 len, s16 idx);
 
 s32 TLobby__sub_80410958(u8 *opt, s16 len, u8 *hdr, s16 pktlen, s16 idx) {
     s16 NetIPv6IsMulticast(u8 *arg0);
@@ -8444,6 +8504,68 @@ Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0) {
     return best;
 }
 
+typedef struct Ra_80418734 { u8 pad0[6]; s16 router_lifetime; u32 reachable_time; u32 retrans_timer; } Ra_80418734;
+typedef struct Rtr_80418734 { u8 pad0[3]; u8 state; s16 id; s16 f6; s16 lifetime; u8 padA[2]; s32 reachable_time; s32 retrans_timer; u8 addr[0x10]; } Rtr_80418734;
+typedef struct G_80418734 { u8 pad0[4]; s16 nrtr; u8 pad6[0xA]; Rtr_80418734 *rtrs; u8 pad14[0x10]; s16 maxage; s16 reachable_time; s16 retrans_timer; s16 f2A; } G_80418734;
+
+s32 TLobby__sub_80418734(u8 *addr, Ra_80418734 *ra, s16 id) {
+    G_80418734 *g = (G_80418734 *)&ipv6_neighbor_discovery_state;
+    s16 n;
+    Rtr_80418734 *e;
+    Rtr_80418734 *r;
+    Rtr_80418734 *oldest;
+    Rtr_80418734 *slot;
+    s16 min;
+
+    slot = NULL;
+    min = g->maxage;
+    n = g->nrtr;
+    r = g->rtrs;
+    while (n > 0) {
+        if (r->state != 1) {
+            if (slot == NULL) {
+                slot = r;
+            }
+        } else if (NetMemcmp(r->addr, addr, 0x10) == 0) {
+            r->id = id;
+            r->lifetime = ra->router_lifetime;
+            if (ra->reachable_time != 0) {
+                r->reachable_time = ra->reachable_time;
+            }
+            if (ra->retrans_timer != 0) {
+                r->retrans_timer = ra->retrans_timer;
+            }
+            return 0;
+        } else if (r->lifetime < min) {
+            oldest = r;
+            min = r->lifetime;
+        }
+        n--;
+        r++;
+    }
+    if (slot != NULL) {
+        slot->state = 1;
+        e = slot;
+    } else if (oldest != NULL) {
+        e = oldest;
+    } else {
+        return -0x10E;
+    }
+    NetMemcpy(e->addr, addr, 0x10);
+    e->id = id;
+    e->lifetime = ra->router_lifetime;
+    if (ra->reachable_time != 0) {
+        e->reachable_time = ra->reachable_time;
+        g->reachable_time = e->reachable_time / 1000;
+    }
+    if (ra->retrans_timer != 0) {
+        e->retrans_timer = ra->retrans_timer;
+        g->retrans_timer = e->retrans_timer / 1000;
+        g->f2A = e->retrans_timer / 1000 + 1;
+    }
+    return 0;
+}
+
 struct Ent_804188E4 { u8 pad0[3]; u8 f3; s16 f4; u8 pad6[0x32]; };
 struct Rec_804188E4 { u8 pad0[3]; u8 f3; u8 pad4[0xC]; Ent_804188E4 *f10; u8 pad14[0x34]; };
 struct G_804188E4 { s16 n0; s16 n2; u8 pad4[4]; Ent_804188E4 *e8; Rec_804188E4 *rC; u8 pad10[0x14]; s16 f24; };
@@ -9325,14 +9447,44 @@ s32 TLobby__sub_8041A1D8(void) {
 struct Tcb_8041A3CC {
     u8 pad0[4];
     u16 state;
-    u8 pad6[5];
+    s16 t_state;
+    u8 pad8[3];
     u8 flags;
-    u8 padC[0x238];
+    u8 force;
+    u8 padD[0x1FB];
+    u32 snd_una;
+    u32 snd_nxt;
+    u8 pad210[0x10];
+    u32 snd_wnd;
+    u8 pad224[4];
+    u32 rcv_nxt;
+    u8 pad22C[0x10];
+    u32 snd_cwnd;
+    u32 snd_ssthresh;
     s16 idle;
     s16 rtt;
-    u8 pad248[0x14];
+    u8 pad248[4];
+    s16 srtt;
+    s16 rttvar;
+    u8 pad250[4];
+    u16 rxtcur;
+    u8 pad256[2];
+    u32 rxtshift;
     s16 timers[4];
-    u8 pad264[0x2D4];
+    u16 maxseg;
+    u8 pad266[2];
+    u16 f268;
+    u16 f26A;
+    u8 pad26C[0x10];
+    u8 remote[0x14];
+    u8 local[0x14];
+    u8 pad2A4[0x30];
+    s16 f2D4;
+    u8 pad2D6[0x16];
+    s32 f2EC;
+    s32 f2F0;
+    u32 f2F4;
+    u8 pad2F8[0x240];
     s16 ack_delay;
     u8 pad53A[0xA];
 };
@@ -9343,9 +9495,11 @@ struct G_8041A3CC {
     s32 iss;
     u8 pad1C[4];
     s16 keepintvl;
-    u8 pad22[2];
+    s16 keepidle;
     s16 maxidle;
-    u8 pad26[0x7A];
+    u8 pad26[0x36];
+    s16 backoff[13];
+    u8 pad76[0x2A];
     s16 ack_ticks;
 };
 
@@ -9367,7 +9521,7 @@ void TLobby__sub_8041A3CC(void) {
     }
 }
 
-void TLobby__sub_8041A6A4(Tcb_8041A3CC *tcb, s16 timer);
+s32 TLobby__sub_8041A6A4(Tcb_8041A3CC *tcb, s16 timer);
 
 void TLobby__sub_8041A5B4(void) {
     G_8041A3CC *g = (G_8041A3CC *)&tcp_protocol_state;
@@ -9484,6 +9638,98 @@ s32 TLobby__sub_8041B3D4(u8 *dst, u8 *src, u16 src_port, u16 dst_port, s32 seq, 
         return -1;
     }
     ((TUdpSocket *)pkt)->release_entry();
+    return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+s32 TLobby__sub_8041A6A4(Tcb_8041A3CC *tcb, s16 timer) {
+    void TLobby__sub_8041B3D4(u8 *, u8 *, u16, u16, u32, u32, s32);
+    G_8041A3CC *g = (G_8041A3CC *)&tcp_protocol_state;
+    s16 keep;
+    s32 win;
+    s32 rexmt;
+    s32 t;
+
+    switch (timer) {
+    case 3:
+        if (tcb->t_state != 10 && tcb->idle <= g->maxidle) {
+            tcb->timers[3] = g->keepintvl;
+        } else {
+            TLobby__sub_8041B5C0(tcb);
+        }
+        break;
+    case 0:
+        tcb->rxtshift++;
+        if (tcb->rxtshift > 12) {
+            tcb->rxtshift = 12;
+            TLobby__sub_8041A498((E_8041A498 *)tcb, 4);
+            break;
+        }
+        rexmt = (tcb->srtt >> 3) + tcb->rttvar;
+        rexmt *= g->backoff[tcb->rxtshift];
+        tcb->rxtcur = rexmt;
+        if (tcb->rxtcur < 2) {
+            tcb->rxtcur = 2;
+        } else if (tcb->rxtcur > 128) {
+            tcb->rxtcur = 128;
+        }
+        tcb->timers[0] = tcb->rxtcur;
+        if (tcb->rxtshift > 3) {
+            tcb->rttvar += tcb->srtt >> 3;
+            tcb->srtt = 0;
+        }
+        ((TLobby *)tcb)->reset_slot_index();
+        tcb->f2EC = 0;
+        tcb->f2F0 = 0;
+        tcb->f2F4 = tcb->snd_una;
+        tcb->snd_nxt = tcb->snd_una;
+        tcb->rtt = 0;
+        win = ((tcb->snd_wnd < tcb->snd_cwnd) ? tcb->snd_wnd : tcb->snd_cwnd) / 2 / tcb->maxseg;
+        if (win < 2) {
+            win = 2;
+        }
+        tcb->snd_cwnd = tcb->maxseg;
+        tcb->snd_ssthresh = win * tcb->maxseg;
+        TLobby__sub_8041A9AC((int)tcb);
+        break;
+    case 1:
+        t = ((tcb->srtt >> 2) + tcb->rttvar) >> 1;
+        tcb->timers[1] = t * g->backoff[tcb->rxtshift];
+        if (tcb->timers[1] < 10) {
+            tcb->timers[1] = 10;
+        } else if (tcb->timers[1] > 120) {
+            tcb->timers[1] = 120;
+        }
+        if (tcb->rxtshift < 12) {
+            tcb->rxtshift++;
+        }
+        tcb->force = 1;
+        TLobby__sub_8041A9AC((int)tcb);
+        tcb->force = 0;
+        break;
+    case 2:
+        if (tcb->t_state < 4) {
+            goto drop;
+        }
+        keep = tcb->f2D4;
+        if (keep != 0 && tcb->t_state <= 5) {
+            if (tcb->idle >= keep + ((g->maxidle < keep * 8) ? g->maxidle : keep * 8)) {
+                goto drop;
+            }
+            TLobby__sub_8041B3D4(tcb->remote, tcb->local, tcb->f268, tcb->f26A, tcb->snd_una - 1, tcb->rcv_nxt, 16);
+            tcb->timers[2] = (g->keepintvl < tcb->f2D4) ? g->keepintvl : tcb->f2D4;
+        } else if (keep != 0) {
+            tcb->timers[2] = keep;
+        } else {
+            tcb->timers[2] = g->keepidle;
+        }
+        break;
+    drop:
+        TLobby__sub_8041A498((E_8041A498 *)tcb, 4);
+        break;
+    }
     return 0;
 }
 #pragma pop
