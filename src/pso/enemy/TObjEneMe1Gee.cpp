@@ -273,11 +273,11 @@ void *me1_gee_dispatch_table[118] = {
     (void *)vfunc_112__13TUnk_8049387CFl, (void *)vfunc_113__13TUnk_8049387CFv, (void *)vfunc_114__13TObjEneMe1GeeFv, (void *)vfunc_115__13TObjEneMe1GeeFv,
     (void *)vfunc_116__13TUnk_8049387CFv, (void *)vfunc_117__13TUnk_8049387CFUl,
 };
-s32 gee_boss_stat_handle_table[3];
-s32 lbl_80500E44[3];
-s32 lbl_80500E50[3];
-s32 lbl_80500E5C[3];
-f32 gee_camera_ctrl_vec[4];
+static s32 gee_boss_stat_handle_table[3];
+static s32 gee_shared_handler_b_table[3];
+static s32 gee_object_handle_table[3];
+static s32 gee_shared_handler_a_table[3];
+static f32 gee_camera_ctrl_vec[4];
 #undef vfunc_117__13TUnk_8049387CFUl
 #undef vfunc_108__13TUnk_8049387CFv
 #undef vfunc_107__13TUnk_8049387CFv
@@ -847,7 +847,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
 extern const f32 TObjEneMe1Gee__data_805DA0C8;
 extern const f32 TObjEneMe1Gee__data_805DA0D4;
-extern const f32 lbl_805DA0E0;
 extern const f32 TObjEneMe1Gee__data_805DA0E8;
 void TObjEneMe1Gee__sub_800C96B4(Gee_800C96B4 *o, s32 mode);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
@@ -2367,7 +2366,7 @@ void TObjEneMe1Gee__sub_800C96B4(Gee_800C96B4 *o, s32 mode) {
                 o->f448 = -4.0f;
             }
             o->f3F8 += o->f448;
-            if (o->f3F8 < lbl_805DA0E0 + (o->f3C + o->f3EC)) {
+            if (o->f3F8 < 12.0f + (o->f3C + o->f3EC)) {
                 o->f438 = 1;
                 if (o->f448 > -2.0f) {
                     o->f448 = -2.0f;
@@ -3803,7 +3802,7 @@ void TObjEneMe1Gee::init_state() {
     *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
     set_animation((*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     this->set_field_b8((int) (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
-    reset_hp__9TObjEneDDFv(this, gee_boss_stat_handle_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E44[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E50[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)]);
+    reset_hp__9TObjEneDDFv(this, gee_boss_stat_handle_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], gee_shared_handler_b_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], gee_object_handle_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)]);
     this->check_state_flag_1();
     *(s32 **)((s8 *)((u8 *)this) + 0x350) = me1_gee_init_params;
     initialize_enemy_state__9TObjEneDDFv(this, 0x36);
@@ -3812,8 +3811,8 @@ void TObjEneMe1Gee::init_state() {
     this->enemy_init_validate_period(0x2D);
     this->set_active();
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) | 0x01000000);
-    *(s32 *)((s8 *)((u8 *)this) + 0x42C) = lbl_80500E5C[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)];
-    ((VObj_14_559b06 *)(((u8 *)this) + (972)))->m2(lbl_80500E5C);
+    *(s32 *)((s8 *)((u8 *)this) + 0x42C) = gee_shared_handler_a_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)];
+    ((VObj_14_559b06 *)(((u8 *)this) + (972)))->m2(gee_shared_handler_a_table);
     *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) lbl_805DA148;
     *(f32 *)((s8 *)((u8 *)this) + 0x3EC) = (f32) TObjEneMe1Gee__data_805DA0C0;
     *(f32 *)((s8 *)((u8 *)this) + 0x3F0) = (f32) ((TObjEneMe1Gee__data_805DA0C8 * (lbl_805DA14C * (f32) rand(lbl_805DA148))) + TObjEneMe1Gee__data_805DA0C0);
@@ -4027,9 +4026,9 @@ void TObjEneMe1Gee::load_resources() {
     lbl_805D51B4 = collect_and_count__12TBoss3VoloptFUll(TObjEneMe1Gee__resource_bundle->f42c->f8, 7);
     for (i = 0; i < 3; i++) {
         gee_boss_stat_handle_table[i] = register_boss__6TLobbyFl(lbl_8043BCD8[i]);
-        lbl_80500E44[i] = dispatch_shared_handler_b__6TLobbyFl(lbl_8043BCE4[i]);
-        lbl_80500E50[i] = register_object__6TLobbyFl(lbl_8043BCF0[i]);
-        lbl_80500E5C[i] = dispatch_shared_handler_a__6TLobbyFl(lbl_8043BCFC[i]);
+        gee_shared_handler_b_table[i] = dispatch_shared_handler_b__6TLobbyFl(lbl_8043BCE4[i]);
+        gee_object_handle_table[i] = register_object__6TLobbyFl(lbl_8043BCF0[i]);
+        gee_shared_handler_a_table[i] = dispatch_shared_handler_a__6TLobbyFl(lbl_8043BCFC[i]);
     }
     TObjEneMe1Gee__render_node_index = 0;
     p = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
