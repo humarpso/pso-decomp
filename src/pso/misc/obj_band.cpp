@@ -1,3 +1,169 @@
+// ---- pso/misc/TPlyPhotonChair_80142524
+#include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/misc/TPlyPhotonChair_80142524.h"
+#include "pso/misc/TPlyPhotonChair_80143888.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/misc/TUnk_804A7488.h"
+#include "pso/misc/TPlyPhotonChair.h"
+
+struct RecoveredGlobal_801426DC_lbl_8050BFF0 {
+    s32 value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_801426DC_lbl_8058D4C0 {
+    s32 value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80142734_lbl_8050BFF0 {
+    s32 value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80142734_lbl_8058D4C0 {
+    s32 value;
+    u8 remaining[0xC];
+};
+
+extern s32 model_render_flags;
+    extern int lbl_805D566C;
+    extern int lbl_805D5670;
+    extern int lbl_805D5674;
+    extern int chunk_polygon_flags_or_mask;
+    extern int chunk_polygon_flags_and_mask;
+extern "C" {
+s32 activate__15TPlyPhotonChairFv();
+
+
+int draw_chunk_object(void);
+extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
+extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
+extern const f64 lbl_8043F298;
+extern const f64 lbl_8043F2A0;
+extern const f64 lbl_8043F2A8;
+extern const f32 __float_nan[];
+extern const f32 __float_huge[];
+
+void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)p, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)a1); }
+
+void TPlyPhotonChair::play_sound() { set_global_draw_flag_bits((s32)this, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)this); }
+
+void TPlyPhotonChair::update_parts(void* p) { TPlyPhotonChair__sub_8014270C((s32)p); TPlyPhotonChair::copy_vec4_forward((s32)p); TPlyPhotonChair::restore_state((s32)p); }
+
+void TPlyPhotonChair::update_parts2(void* p) { TPlyPhotonChair::save_state((s32)p); TPlyPhotonChair::copy_vec4_reverse((s32)p); TPlyPhotonChair__sub_80142720((s32)p); }
+
+#pragma push
+#pragma fp_contract on
+f64 TPlyPhotonChair__sub_80142624(f64 x) {
+    if (x > lbl_8043F298) {
+        f64 g = __frsqrte(x);
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        return x * g;
+    }
+    if (lbl_8043F298 == x) {
+        return lbl_8043F298;
+    }
+    if (x != lbl_8043F298) {
+        return __float_nan[0];
+    }
+    return __float_huge[0];
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void set_global_draw_flag_bits(s32 arg0, s32 arg1) {
+    model_render_flags |= arg1;
+}
+#pragma pop
+
+void TPlyPhotonChair::restore_state(s32 _w0) { (*(int *)&model_render_flags) = lbl_805D566C; }
+
+typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TPlyPhotonChair::copy_vec4_forward(s32 _w0) {
+    ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&photon_chair_color_vec4.value));
+}
+
+int TPlyPhotonChair__sub_8014270C(s32 _w0) { chunk_polygon_flags_and_mask = lbl_805D5670; chunk_polygon_flags_or_mask = lbl_805D5674; return lbl_805D5670; }
+int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = chunk_polygon_flags_and_mask; lbl_805D5674 = chunk_polygon_flags_or_mask; return chunk_polygon_flags_and_mask; }
+
+typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TPlyPhotonChair::copy_vec4_reverse(s32 _w0) {
+    ((TRaderMapCore *)(&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&photon_chair_color_vec4).value))->copy_vec4((&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
+}
+
+void TPlyPhotonChair::save_state(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }
+void restore_actor_draw_lighting(void) {  }
+}
+void setup_actor_draw_lighting(void) {  }
+
+void TPlyPhotonChair::draw_model() {
+    draw_model_motion((void *)((s32)get_id()), (void *)(sub_80143930__13TUnk_804A7478Fv(this)), get_float_c());
+}
+
+void TPlyPhotonChair::update_scale_state() {
+    u8 *arg0 = (u8 *)this;
+    f32 var_f31;
+    s32 temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
+    var_f31 = *(f32 *)&this->m_next - *(f32 *)&this->m_down;
+    switch (temp_r0) {
+    case 0:
+        if (var_f31 < 0.0f) {
+            var_f31 += *(f32 *)&this->m_up;
+        }
+        *(f32 *)&this->m_next = var_f31;
+        return;
+    case 2:
+        if (var_f31 <= 0.0f) {
+            var_f31 = 0.0f;
+            activate__15TPlyPhotonChairFv();
+        }
+        *(f32 *)&this->m_next = var_f31;
+    case 1:
+        return;
+    }
+}
+void TPlyPhotonChair::update_bob_motion() {
+    u8 *arg0 = (u8 *)this;
+    f32 temp_f0;
+    f32 temp_f0_2;
+    f32 var_f31;
+    s32 temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
+    var_f31 = *(f32 *)&this->m_next + *(f32 *)&this->m_down;
+    switch (temp_r0) {
+    case 0:
+        temp_f0 = *(f32 *)&this->m_up;
+        if (var_f31 >= temp_f0) {
+            var_f31 -= temp_f0;
+        }
+        *(f32 *)&this->m_next = var_f31;
+        return;
+    case 2:
+        temp_f0_2 = *(f32 *)&this->m_up - 1.0f;
+        if (var_f31 >= temp_f0_2) {
+            var_f31 = temp_f0_2;
+            activate__15TPlyPhotonChairFv();
+        }
+        *(f32 *)&this->m_next = var_f31;
+    case 1:
+        return;
+    }
+}
+void TUnk_804A7488::vfunc_3() { ((TPlyPhotonChair *)this)->get_id(); draw_chunk_object(); }
+int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
+
+// ---- pso/misc/obj_band
 #include "types.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -43,7 +209,7 @@ typedef struct Actor_80142950
 extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern const f32 lbl_805DB168;
+
 f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z);
 struct E16_80142b8c_80142B08 { u8 a[4]; s32 f4; u8 b[8]; };
 
@@ -96,7 +262,6 @@ struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r
 
 int set_field_d8__10TObjMotionFl(void*);
 f32 get_speed__13TUnk_804806E8Fv();
-s32 restore_actor_draw_lighting(s32);
 s32 get_anim_entry_value__10TObjMotionFs(Obj_80142BB4 *self, s16 i);
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0);
 void apply_animation_transition(void *, s16);
@@ -121,7 +286,7 @@ extern s32 player_joint_matrix_write_ptr;
 extern u8 *lbl_805D5684;
 extern s32 model_node_callback;
 extern s32 chunk_model_node_callback;
-extern const f32 lbl_805DB16C;
+
 
 typedef struct Actor_80142950 Actor_80142950;
 typedef struct Joint_80142950 Joint_80142950;
@@ -154,9 +319,9 @@ f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z) {
   }
   if (i >= n)
   {
-    *x = lbl_805DB168;
-    *z = lbl_805DB168;
-    return lbl_805DB168;
+    *x = 0.0f;
+    *z = 0.0f;
+    return 0.0f;
   }
   t2 = t + a->step;
   span = (f32) (k[1].frame - k->frame);
@@ -289,7 +454,7 @@ s32 TObjEnemy::render_anim_model(f32 farg0) {
 
 f32 TObjEneDD_ST::get_speed_or_default() {
     if (this->animationFlags & 4) {
-        return (*(f32 *)&lbl_805DB168);
+        return 0.0f;
     }
     return get_speed__13TUnk_804806E8Fv();
 }
@@ -363,7 +528,7 @@ void TObjMotion::draw() {
         TObjEneRe7Berura::set_global_state(0);
     }
     TObjPlayer::reset_transform_state();
-    restore_actor_draw_lighting(*(s32 *)&this->m_name);
+    ((s32 (*)(s32))restore_actor_draw_lighting)(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
 
@@ -378,7 +543,7 @@ void TObjEneMe3Stelth::draw_model() {
         set_model_node_callback(0);
     }
     TObjPlayer::reset_transform_state();
-    restore_actor_draw_lighting(*(s32 *)&this->m_name);
+    ((s32 (*)(s32))restore_actor_draw_lighting)(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
 
@@ -408,16 +573,16 @@ void apply_animation_transition(void *arg0, s16 idx) {
             {
                 f32 fr = self->frame;
                 f32 n = self->frameCount;
-                if (lbl_805DB16C + fr >= n) {
+                if (1.0f + fr >= n) {
                     self->frame = fr - n;
                 }
             }
         } else {
-            self->frame = lbl_805DB168;
+            self->frame = 0.0f;
         }
     } else {
-        if (self->frame >= self->frameCount - lbl_805DB16C) {
-            self->frame = self->frame - lbl_805DB16C;
+        if (self->frame >= self->frameCount - 1.0f) {
+            self->frame = self->frame - 1.0f;
         }
         self->mode = 4;
         self->flags |= 6;
@@ -426,9 +591,9 @@ void apply_animation_transition(void *arg0, s16 idx) {
         self->previousAction = self->currentAction;
         ((TObjMotion *)self)->update_animation_frame(idx);
         self->blendTarget = self->motion;
-        self->targetFrame = lbl_805DB168;
+        self->targetFrame = 0.0f;
         self->nextMode = e->mode;
-        self->frame = lbl_805DB168;
+        self->frame = 0.0f;
         self->frameCount = self->motion->frameCount;
         if (sub_80143960__10TObjMotionFl(self, 0x200) != 0) {
             ((TObjMotion *)self)->sub_800E2DE4(0x200);
@@ -460,13 +625,13 @@ void TObjMotion::set_animation(s16 arg1) {
     *(s16 *)((s8 *)arg0 + 0xF4) = (s16) *(s16 *)((s8 *)temp_r3 + 0);
     conv = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
     *(f32 *)((s8 *)arg0 + 0xC4) = conv;
-    ((TObjMotion *)arg0)->m_c0 = (f32) lbl_805DB168;
+    ((TObjMotion *)arg0)->m_c0 = 0.0f;
     ((TObjMotion *)arg0)->animationFlags = (s32) (((TObjMotion *)arg0)->animationFlags & 0xFFFFFFFB);
     ((TObjMotion *)arg0)->m_b4 = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
     *(void **)((s8 *)arg0 + 0xE4) = (void *) *(void **)((s8 *)arg0 + 0xF8);
-    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DB168;
+    *(f32 *)((s8 *)arg0 + 0xEC) = 0.0f;
     *(void **)((s8 *)arg0 + 0xE8) = (void *) *(void **)((s8 *)arg0 + 0xF8);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB168;
+    *(f32 *)((s8 *)arg0 + 0xF0) = 0.0f;
     *(s16 *)((s8 *)arg0 + 0xBC) = (s16) ((TObjMotion *)arg0)->m_b8;
     if (((TObjMotion *)arg0)->m_b4 & 0x20000000) {
         ((TObjMotion *)arg0)->set_motion_interpolation_flag();
@@ -479,7 +644,7 @@ void advance_animation_playback(Anim_80143504 *a) {
         return;
     }
     a->frame += a->speed;
-    last = a->end - lbl_805DB16C;
+    last = a->end - 1.0f;
     a->flags &= ~0x82A;
     if (a->cur != a->req) {
         if (a->frame >= a->end) {
@@ -511,13 +676,13 @@ void advance_animation_playback(Anim_80143504 *a) {
         if (a->frame >= last) {
             a->mode = 5;
             a->frame -= a->speed;
-            a->speed = lbl_805DB168;
+            a->speed = 0.0f;
             a->flags |= 0x30;
         }
         break;
     case 4:
-        if (a->frame >= lbl_805DB16C) {
-            a->frame = lbl_805DB168;
+        if (a->frame >= 1.0f) {
+            a->frame = 0.0f;
             if (sub_80143960__10TObjMotionFl(a, 0x100) != 0) {
                 ((TObjMotion *)a)->sub_800E2DE4(0x100);
                 a->speed = a->xD0;
@@ -534,3 +699,12 @@ void advance_animation_playback(Anim_80143504 *a) {
         break;
     }
 }
+
+// ---- pso/player/TObjPlayer_801433E8
+#include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
+
+    
+    
+void TObjMotion::reset_motion_fields() { *(int *)&this->animationFlags = 0; *(int *)&this->m_b4 = 0; this->m_ba = 0; *(short *)&this->m_b8 = 0; *(short *)&this->m_bc = 0; *(float *)&this->unk_C4 = 0.0f; *(float *)&this->m_c8 = 0.0f; *(float *)&this->m_c0 = 0.0f; *(float *)&this->unk_CC = 0.2f; *(float *)&this->m_d0 = 0.0f; *(float *)&this->unk_D4 = 0.0f; *(int*)((char*)this + 0xe4) = 0; *(int *)&this->unk_E8 = 0; *(float *)&this->m_ec = 0.0f; *(float *)&this->unk_F0 = 0.0f; *(short*)((char*)this + 0xf6) = 0; *(short *)&this->m_f4 = 0; }

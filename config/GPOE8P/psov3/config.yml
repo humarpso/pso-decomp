@@ -1343,6 +1343,7 @@ force_active:
   - __ct__20TObjLiveMonitorSmallFv
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__20TPlayerParticleOwnerFP7TObject
+  - __ct__22TChallenge4PItemSelectFP7TObjectP18TChallenge4PResult
   - __ct__22TQuestVmDownLoadServerFP7TObject
   - __ct__23TObjOnlineEndingHexLineFv
   - __ct__24TObjCity_Season_FireWorkFP7TObjectPvf
@@ -2373,6 +2374,7 @@ force_active:
   - beast_motion_name_table
   - beast_movement_params
   - beast_resource_descriptor
+  - beast_retire_corpse__15TObjEneDimedianFv
   - begin_meseta_deposit__18TCheckRoomSequenceFPv
   - begin_meseta_withdrawal__18TCheckRoomSequenceFPv
   - begin_parse__24TMessageWindowControllerFPCcPc
@@ -3289,6 +3291,7 @@ force_active:
   - draw__15TObjLazerFence4Fv
   - draw__18TWindowPartyStatusFv
   - draw_active_beam__11TObjDoorKeyFv
+  - draw_actor_model__10TObjPlayerFPv
   - draw_agreement_text__18TAdAgreementBaseGCFv
   - draw_animated_beam__18TObjLazerFenceNormFv
   - draw_area_chunk_objects__10TObjPlayerFv
@@ -4039,6 +4042,7 @@ force_active:
   - init_and_reset_forward__10TObjPlayerFPv
   - init_and_set_flag__6TLobbyFv
   - init_armor__10TObjPlayerFPv
+  - init_base__27TOHangceilingCave01KeyQuickFll
   - init_battle_round__17TPlayerBattleCtrlFv
   - init_body_sub__14TObjEneDolmOlmFv
   - init_buffer
@@ -10363,6 +10367,7 @@ force_active:
   - reset_random_enemies_mode__6TLobbyFv
   - reset_request__12TChCrLoadReqFv
   - reset_selection__21TWindowSubCustomEquipFv
+  - reset_state
   - reset_state__13TObjLobbyMainFPv
   - reset_state__13TObjWarnChimeFv
   - reset_state__15TBoss3VoloptP01FPv
@@ -10374,6 +10379,7 @@ force_active:
   - resolve_owner_heading__11TItemMagSubFv
   - resolve_set_row_factory_indices__FPvii
   - resolve_theme_index__13TObjLobbyMainFv
+  - restore_actor_draw_lighting
   - restore_state__15TPlyPhotonChairFl
   - resume_challenge_result_processing__FPv
   - retry_selection_value_table
@@ -10835,6 +10841,7 @@ force_active:
   - set_elem_flags__17TBoss1DragonColliFPv
   - set_enable_count__13TOHealGeneralFl
   - set_enemy_mode_0__22THunterGuildSeqOfflineFv
+  - set_entry_item__18TChallenge4PResultFPvl
   - set_entry_value_clamped__17TObjEneDf2BringerFlf
   - set_field48_clear_global__13TAdVIConfigGCFv
   - set_field8_from_obj__14TObjEneBm5WolfFl
@@ -10899,6 +10906,7 @@ force_active:
   - set_position__15TWindowQuantityFl
   - set_quest_list_mode_19__18TCheckRoomSequenceFPv
   - set_random_enemies_mode__Fv
+  - set_scale__13TUnk_804B2578Ff
   - set_scene_light_diffuse__FPv
   - set_script_entry__13TOHealGeneralFl
   - set_selected_card__17TWindowSubComCardFl
@@ -10921,6 +10929,7 @@ force_active:
   - set_value__6TLobbyFl
   - set_visible_flag__14TBoss6PlotFalzFv
   - set_vtable_mode2_alt__13TUnk_804ECDC0FlPv
+  - setup_actor_draw_lighting__Fv
   - setup_color_channels__10TObjPlayerFi
   - setup_counter_camera__17TJudgmentSequenceFv
   - setup_emitter__17TObjParticleLobbyFv
@@ -11351,6 +11360,7 @@ force_active:
   - sub_8009A11C__13TUnk_8048FE08Fv
   - sub_8009A598__13TUnk_8048FE7CFv
   - sub_8009A640__13TUnk_8048FE7CFv
+  - sub_800A7B54__15TObjEneDimedianFv
   - sub_800AC9DC__12TObjEneSharkFl
   - sub_800B1634__13TObjEneBm3FlyFv
   - sub_800BCE44__9TObjGrassFv
@@ -11932,6 +11942,7 @@ force_active:
   - vfunc_100__14TObjEneDolmOlmFv
   - vfunc_101__12TObjEneSharkFv
   - vfunc_101__14TObjEneDolmOlmFv
+  - vfunc_101__15TObjEneDimedianFv
   - vfunc_101__18TObjEneRe4SorcererFPUc
   - vfunc_102__18TObjEneRe4SorcererFv
   - vfunc_106__18TObjEneRe4SorcererFv
@@ -12080,6 +12091,7 @@ force_active:
   - vfunc_82__16TOTrapAncient02RFv
   - vfunc_83__12TObjEneSharkFv
   - vfunc_83__14TObjEneDolmOlmFv
+  - vfunc_83__15TObjEneDimedianFv
   - vfunc_83__16TObjEneBm5GibonUFv
   - vfunc_83__18TObjEneRe4SorcererFv
   - vfunc_84__12TOMineIcon04Fv
@@ -12102,16 +12114,23 @@ force_active:
   - vfunc_8__18TAdAgreementBaseGCFv
   - vfunc_93__12TObjEneSharkFv
   - vfunc_93__14TObjEneDolmOlmFv
+  - vfunc_93__15TObjEneDimedianFv
   - vfunc_94__12TObjEneSharkFv
   - vfunc_94__14TObjEneDolmOlmFv
+  - vfunc_94__15TObjEneDimedianFv
   - vfunc_95__12TObjEneSharkFv
   - vfunc_95__14TObjEneDolmOlmFv
+  - vfunc_95__15TObjEneDimedianFv
   - vfunc_96__12TObjEneSharkFv
   - vfunc_96__14TObjEneDolmOlmFv
+  - vfunc_96__15TObjEneDimedianFv
   - vfunc_97__12TObjEneSharkFv
   - vfunc_97__14TObjEneDolmOlmFv
+  - vfunc_97__15TObjEneDimedianFv
   - vfunc_98__12TObjEneSharkFv
   - vfunc_98__14TObjEneDolmOlmFv
+  - vfunc_98__15TObjEneDimedianFv
+  - vfunc_99__15TObjEneDimedianFv
   - vfunc_9__12TNeedleShootFPv
   - vfunc_9__13TUnk_8049F038Fv
   - vfunc_9__17TAdLicAgreementGCFv
