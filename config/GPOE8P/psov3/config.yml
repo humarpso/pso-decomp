@@ -461,6 +461,8 @@ force_active:
   - TODoorAncient06__ct
   - TODoorAncient07__ct
   - TODoorAncient08__ct
+  - TODoorAncient09__ct
+  - TODoorCave01__ct
   - TODoorCave01__resource_descriptor
   - TODoorCave02__ct
   - TODoorCave02__resource_descriptor

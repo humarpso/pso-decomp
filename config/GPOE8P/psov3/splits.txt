@@ -5053,20 +5053,16 @@ pso/unk/text_80160838.cpp:
 	.text       start:0x80160838 end:0x801608B4
 
 pso/misc/TODoorAncient09.cpp:
-	.text       start:0x801608B4 end:0x801611CC
-	.data       start:0x804B12C8 end:0x804B1388
-
-pso/unk/text_801611CC.cpp:
-	.text       start:0x801611CC end:0x80161804
+	.text       start:0x801608B4 end:0x8016131C
 	.rodata     start:0x80440D08 end:0x80440D10
+	.data       start:0x804B12C8 end:0x804B1388
+	.sdata2     start:0x805DB480 end:0x805DB490
 
 pso/misc/TODoorCave01.cpp:
-	.text       start:0x80161804 end:0x80161A30
-
-pso/misc/TODoorCave01_80161A30.cpp:
-	.text       start:0x80161A30 end:0x80161D38
+	.text       start:0x8016131C end:0x80161D38
 	.rodata     start:0x80440DB0 end:0x80440DB8
 	.data       start:0x804B1388 end:0x804B13C8
+	.sdata2     start:0x805DB490 end:0x805DB4AC
 
 pso/misc/TODoorCave02.cpp:
 	.text       start:0x80161D38 end:0x80162384

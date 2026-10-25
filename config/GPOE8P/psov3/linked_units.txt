@@ -1264,7 +1264,6 @@ pso/misc/TODoorAncient07.cpp
 pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
 pso/misc/TODoorCave01.cpp
-pso/misc/TODoorCave01_80161A30.cpp
 pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave03.cpp
 pso/misc/TODoorFourLightBase.cpp
@@ -3116,7 +3115,6 @@ pso/unk/text_8015D6D0.cpp
 pso/unk/text_8015DAE4.cpp
 pso/unk/text_8015FC40.cpp
 pso/unk/text_80160838.cpp
-pso/unk/text_801611CC.cpp
 pso/unk/text_80165940.cpp
 pso/unk/text_80166B6C.cpp
 pso/unk/text_80169BD0.cpp
