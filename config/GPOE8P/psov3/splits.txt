@@ -4341,19 +4341,9 @@ pso/misc/TMainCursor_8013B4B8.cpp:
 pso/misc/TMainCursor_8013B524.cpp:
 	.text       start:0x8013B524 end:0x8013B690
 
-pso/misc/TMainCursor_8013B690.cpp:
-	.text       start:0x8013B690 end:0x8013BBCC
-	.data       start:0x804A7130 end:0x804A71FC
-
 pso/misc/TMainCursor.cpp:
-	.text       start:0x8013BBCC end:0x8013BEB8
-
-pso/misc/TMainCursor_8013BEB8.cpp:
-	.text       start:0x8013BEB8 end:0x8013CADC
-
-pso/misc/TMainCursor_8013CADC.cpp:
-	.text       start:0x8013CADC end:0x8013D91C
-	.data       start:0x804A71FC end:0x804A7248
+	.text       start:0x8013B690 end:0x8013D91C
+	.data       start:0x804A7130 end:0x804A7248
 
 pso/misc/TLockOnCursor_8013D91C.cpp:
 	.text       start:0x8013D91C end:0x8013DEF8

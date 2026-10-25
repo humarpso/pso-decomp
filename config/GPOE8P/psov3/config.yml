@@ -438,6 +438,7 @@ force_active:
   - TLogo__sub_8013F7E8
   - TLogo__sub_8013F800
   - TLogo__sub_8013F808
+  - TMainCursor__ct
   - TMainCursor__sub_8013B398
   - TMainCursor__sub_8013E17C
   - TMainCursor__sub_8013E184
@@ -2908,6 +2909,7 @@ force_active:
   - check_body_collision_at__18TObjEneMe3SinowZoaFlf
   - check_can_attack__13TObjEneMe1GeeFv
   - check_can_open__16TObjBagWarnWin4PFPv
+  - check_can_pickup__11TMainCursorFv
   - check_cancel_input__22TQuestVmDownLoadServerFv
   - check_capacity__23TAdSinglePlyChrSelectGCFv
   - check_card_file__19TAdTrialAgreementGCFl
@@ -2948,6 +2950,7 @@ force_active:
   - check_team_balance__6TLobbyFPvi
   - check_timeout__6TLobbyFPv
   - check_trigger_flag__15TOTrapAncient01Fll
+  - check_type_and_enabled__11TMainCursorFPvPv
   - check_valid_state__6TLobbyFi
   - check_vector_bit__15TObjEneMe1GiGueFl
   - choose_attack__13TObjEneBm3FlyFPv
@@ -3308,6 +3311,7 @@ force_active:
   - creation_stick_zero
   - ct_init_placement_ring__9TItemListFPUclPUcPUcSc
   - ct_shoot_model__10TObjPlayerFPv
+  - cursor_action_priority_table
   - curvecmp
   - damage_hp__10TObjPlayerFii
   - damage_linked_entity__16TObjEneBm5GibonUFv
@@ -3923,6 +3927,7 @@ force_active:
   - generate_shop_inventory__6TLobbyFl
   - generate_shop_weapon_stock__Fl
   - generate_tool_drop__9TItemDropFiiPv
+  - get_action_cursor_priority__11TMainCursorFPvll
   - get_anim_entry_value__10TObjMotionFs
   - get_anim_frame__13TUnk_804B5E48Fv
   - get_area_event_data__Fl
@@ -10209,6 +10214,7 @@ force_active:
   - queue_destruction__20TObjEneMe1Gee_NEEDLEFv
   - queue_destruction__23TAdSinglePlyChrSelectGCFPv
   - queue_thread_main__6TLobbyFv
+  - quick_sort__11TMainCursorFllll
   - quick_sort_partition__11TMainCursorFiPvii
   - rabarta_band_emitter_table
   - rafoie_burst_table
@@ -10306,6 +10312,7 @@ force_active:
   - refresh_quest_list__6TLobbyFi
   - refresh_split_screen_battle_alive_flags__FPv
   - refresh_submenu__15TWindowMainMenuFPv
+  - refresh_target_marker__11TMainCursorFv
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - register_global_objects__14TObjEneBm5WolfFv
   - register_global_objects__16TObjEneBm5GibonUFv
@@ -11101,6 +11108,7 @@ force_active:
   - set_child_windows_enabled__19TWindowSubTradeMainFl
   - set_code_43_6__10TObjPlayerFv
   - set_com_param__17TWindowSubComCardFl
+  - set_cursor_color__11TMainCursorFlll
   - set_cursor_index_1__17TAdMultiConfirmGCFPv
   - set_cursor_index_2__17TAdMultiConfirmGCFPv
   - set_cursor_index__13TUnk_804E3008Fl
@@ -11108,6 +11116,7 @@ force_active:
   - set_data_and_draw_node_tree__16TObjEneRe7BeruraFii
   - set_destroy_event__6TLobbyFi
   - set_difficulty__6TLobbyFi
+  - set_display_flags__11TMainCursorFlll
   - set_display_page__17TWindowSubComCardFv
   - set_displayed_item__14TWindowSubItemFl
   - set_displayed_item__19TWindowSubTradeMainFl
@@ -11214,10 +11223,12 @@ force_active:
   - set_value__6TLobbyFl
   - set_visible_flag__14TBoss6PlotFalzFv
   - set_vtable_mode2_alt__13TUnk_804ECDC0FlPv
+  - setup_action_channel__11TMainCursorFiPviii
   - setup_actor_draw_lighting__Fv
   - setup_color_channels__10TObjPlayerFi
   - setup_counter_camera__17TJudgmentSequenceFv
   - setup_emitter__17TObjParticleLobbyFv
+  - setup_flags__11TMainCursorFlll
   - setup_indirect_tev_alternate__Fllll
   - setup_indirect_tev_ordinary__Fllll
   - setup_list__13TWindowSubMagFv
@@ -11861,6 +11872,7 @@ force_active:
   - synthMasterFader
   - synthMasterFaderActiveFlags
   - synthMasterFaderPauseActiveFlags
+  - target_cursor_color_table
   - target_in_vertical_cone
   - target_in_xz_cone
   - tcp_socket_table
@@ -12202,6 +12214,7 @@ force_active:
   - update_player_battle_ctrl_state
   - update_player_hp_ratios__13TObjWarnChimeFv
   - update_position__11TAdRicoRingFv
+  - update_position__11TMainCursorFv
   - update_position__15TBoss7LaserPtclFv
   - update_position_flag__13TObjEneRe4BitFv
   - update_position_from_velocity__20TItemEffOrgaFlowShotFv

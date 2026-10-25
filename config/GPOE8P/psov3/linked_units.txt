@@ -1165,8 +1165,6 @@ pso/misc/TMainCursor_8013B1CC.cpp
 pso/misc/TMainCursor_8013B260.cpp
 pso/misc/TMainCursor_8013B4B8.cpp
 pso/misc/TMainCursor_8013B524.cpp
-pso/misc/TMainCursor_8013B690.cpp
-pso/misc/TMainCursor_8013BEB8.cpp
 pso/misc/TMainCursor_8013DEF8.cpp
 pso/misc/TMainCursor_8013DF5C.cpp
 pso/misc/TMainCursor_8013E17C.cpp
