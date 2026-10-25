@@ -1549,6 +1549,7 @@ force_active:
   - __dt__13TUnk_804E3BD8Fv
   - __dt__13TUnk_804E4788Fv
   - __dt__13TUnk_804E71A0Fv
+  - __dt__13TUnk_804EEF80Fv
   - __dt__13TUnk_804EFA88Fv
   - __dt__13TUnk_804F0BF0Fv
   - __dt__13TUnk_804F0D1CFv
@@ -3535,7 +3536,9 @@ force_active:
   - draw_tag_sprite__12TChCrTagNameFPv
   - draw_tag_sprites__12TChCrTagNameFPv
   - draw_tiled_background__20TWindowSubStatusDispFv
+  - draw_title_background_pulse
   - draw_title_layer__10TAdTitleGCFll
+  - draw_title_rings
   - draw_value__13TWindowMesetaFl
   - draw_window__17TWindowDuelResultFPv
   - draw_window_uv_sprite_part
@@ -10361,6 +10364,7 @@ force_active:
   - render__13TUnk_804CC870Fv
   - render__13TUnk_804CE964Fv
   - render__13TUnk_804E71A0Fv
+  - render__13TUnk_804EEF80Fv
   - render__13TUnk_804F0BF0Fv
   - render__13TWindowSubLogFv
   - render__14TAdFloorLoadGCFv
@@ -10641,6 +10645,7 @@ force_active:
   - roll_technique_level__9TItemDropFv
   - roll_weapon_special__9TItemDropFiPvi
   - rotate_heading_by_stick__11TCameraCtrlFv
+  - rotate_title_background_quad__FlPUcPUclf
   - run_active_state__18TObjEneBalClawClawFv
   - run_and_return_arg__10TObjPlayerFl
   - run_attack_phase__14TObjEneIllGillFv
@@ -10756,6 +10761,7 @@ force_active:
   - run_task__13TUnk_804CE964Fv
   - run_task__13TUnk_804E4788Fv
   - run_task__13TUnk_804E71A0Fv
+  - run_task__13TUnk_804EEF80Fv
   - run_task__13TUnk_804F0BF0Fv
   - run_task__13TUnk_804F0D1CFv
   - run_task__13TUnk_804F0EA8Fv

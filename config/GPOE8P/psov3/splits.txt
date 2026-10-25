@@ -11464,13 +11464,14 @@ pso/misc/TLobby_803360CC.cpp:
 	.text       start:0x803360CC end:0x803367F4
 
 pso/unk/text_803367F4.cpp:
-	.text       start:0x803367F4 end:0x803369C8
+	.text       start:0x803367F4 end:0x80336874
 	.ctors      start:0x80433FEC end:0x80433FF0
-	.rodata     start:0x80477850 end:0x80477858
-	.sdata2     start:0x805DF930 end:0x805DF934
 
 pso/unk/text_803369C8.cpp:
-	.text       start:0x803369C8 end:0x80336E00
+	.text       start:0x80336874 end:0x80336E00
+	.rodata     start:0x80477830 end:0x80477858
+	.data       start:0x804EEF80 end:0x804EEF98
+	.sdata2     start:0x805DF910 end:0x805DF978
 
 pso/misc/TLobby_80336E00.cpp:
 	.text       start:0x80336E00 end:0x80336E6C
