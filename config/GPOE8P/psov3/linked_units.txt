@@ -459,8 +459,6 @@ pso/enemy/TObjEneRe4Sorcerer_800EDB98.cpp
 pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
 pso/enemy/TObjEneRe7Berura.cpp
 pso/enemy/TObjEneRe7BeruraPunch.cpp
-pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
-pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp
 pso/enemy/TObjEneRe7Berura_80092CCC.cpp
 pso/enemy/TObjEneRe7Berura_8009358C.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
@@ -711,8 +709,6 @@ pso/item/TItemProUnit.cpp
 pso/item/TItemReverseTech.cpp
 pso/item/TItemReverseTechBG.cpp
 pso/item/TItemReverseTechPart1.cpp
-pso/item/TItemReverseTechPart2.cpp
-pso/item/TItemReverseTechPart2_801198F8.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp
 pso/item/TItemShoot.cpp
 pso/item/TItemShootGun.cpp
@@ -753,7 +749,6 @@ pso/item/TObjContainerItem.cpp
 pso/item/TObjContainerJung.cpp
 pso/item/TObjContainerJungEnemy.cpp
 pso/item/TObjContainerJungEx.cpp
-pso/item/TObjContainerJungEx_8018D900.cpp
 pso/item/TObjContainerNoItem.cpp
 pso/item/TObjItemLight.cpp
 pso/item/TObjItemNameSelect.cpp
@@ -1934,7 +1929,6 @@ pso/misc/TWindowSubSymbolChat_802ACF5C.cpp
 pso/misc/TWindowSubTechnique.cpp
 pso/misc/TWindowSubTechnique_80286B0C.cpp
 pso/misc/TWindowSubTechnique_80286B64.cpp
-pso/misc/TWindowSubTechnique_80286BD4.cpp
 pso/misc/TWindowSubTrade.cpp
 pso/misc/TWindowSubTradeMain.cpp
 pso/misc/TWindowSubTradeMain_80187C98.cpp
@@ -2095,8 +2089,6 @@ pso/object/TObjDFHorming.cpp
 pso/object/TObjDFUsoTower.cpp
 pso/object/TObjDeadListWin.cpp
 pso/object/TObjDoaEx01.cpp
-pso/object/TObjDoaEx01_8018DD0C.cpp
-pso/object/TObjDoaEx01_8018DFFC.cpp
 pso/object/TObjDoor.cpp
 pso/object/TObjDoorJung.cpp
 pso/object/TObjDoorJung_8023DBEC.cpp
@@ -2567,7 +2559,6 @@ pso/player/TObjPlayer_803083B0.cpp
 pso/player/TObjPlayer_80309D80.cpp
 pso/player/TObjPlayer_803130BC.cpp
 pso/player/TObjPlayer_80326578.cpp
-pso/player/TObjPlayer_8032DA84.cpp
 pso/player/TObjPlayer_8032E4C8.cpp
 pso/player/TObjPlayer_80337348.cpp
 pso/player/TObjPlayer_8033E910.cpp
@@ -3196,7 +3187,6 @@ pso/unk/text_8018E258.cpp
 pso/unk/text_8018FA6C.cpp
 pso/unk/text_80191D14.cpp
 pso/unk/text_80192554.cpp
-pso/unk/text_801925F8.cpp
 pso/unk/text_80193018.cpp
 pso/unk/text_801930E8.cpp
 pso/unk/text_80193524.cpp
@@ -3552,8 +3542,6 @@ pso/unk/text_803281B8.cpp
 pso/unk/text_8032AACC.cpp
 pso/unk/text_8032AC9C.cpp
 pso/unk/text_8032DA60.cpp
-pso/unk/text_8032E294.cpp
-pso/unk/text_8032E400.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp
 pso/unk/text_8033BAB4.cpp
