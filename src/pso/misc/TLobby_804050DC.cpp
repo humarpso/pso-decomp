@@ -653,7 +653,7 @@ s32 TLobby__sub_80420BD0(void *, void *, s32);
 s32 tcp_start_send(s16 arg0, u8 *arg1, void (*completion)(s16, s16), u8 arg3);
 void TLobby__sub_80406EB8(NetBufferRef *ref, s32 n);
 void TLobby__sub_80406FD8(void *, void *, s32);
-s16 TLobby__sub_80416F58(u8 *, u32, void *, void *);
+s16 TLobby__sub_80416F58(u8 *, s32, void *, void *);
 s16 TLobby__sub_80417028(IPv6NeighborSolicitation *ns, u8 *src, u8 *dst, s16 iface);
 s16 NetIPv6HandleNeighborSolicitation(u8 *arg0, void *arg1, void *arg2, void *arg3);
 s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
@@ -5323,7 +5323,87 @@ void TLobby::tick_entry_timers() {
 }
 
 struct Ent_80411DEC { s16 state; IPv6Address addr; s16 mtu; s16 timer; };
-struct G_80411DEC { u8 pad0[0x14]; s16 count; s16 lifetime; u8 pad18[0xC]; Ent_80411DEC *ents; };
+struct Iface_80411C44 { u8 pad0[0x26]; s16 mtu; u8 pad28[8]; };
+struct G_80411DEC { u8 pad0[0x14]; s16 count; s16 lifetime; u8 pad18[4]; Iface_80411C44 *ifaces; u8 pad20[4]; Ent_80411DEC *ents; };
+
+#pragma push
+#pragma dont_inline off
+inline s16 is_link_local_80411C44(const IPv6Address *a) {
+    u8 b;
+
+    if (a->bytes[0] != 0xFE) {
+        return 0;
+    }
+    b = a->bytes[1];
+    if (!(b & 0x80) || (b & 0x40)) {
+        return 0;
+    }
+    return 1;
+}
+
+inline s16 compare_addr_80411C44(const IPv6Address *a, const IPv6Address *b) {
+    s32 r = NetMemcmp(a, b, sizeof(IPv6Address));
+
+    if (r < 0) {
+        return -1;
+    } else if (r > 0) {
+        return 1;
+    }
+    return 0;
+}
+
+inline Iface_80411C44 *iface_80411C44(G_80411DEC *g, s16 idx) {
+    return &g->ifaces[idx];
+}
+
+s16 TLobby__sub_80411C44(IPv6Address *addr, s16 idx) {
+    G_80411DEC *g = (G_80411DEC *)&ipv6_address_routing_state;
+    Iface_80411C44 *ifc = iface_80411C44(g, idx);
+    Ent_80411DEC *slot = NULL;
+    s16 i;
+    Ent_80411DEC *e;
+    Ent_80411DEC *oldest = NULL;
+
+    if (is_link_local_80411C44(addr)) {
+        return ifc->mtu;
+    }
+    e = g->ents;
+    for (i = 0; i < g->count; i++, e++) {
+        if (e->state != 1) {
+            if (slot == NULL) {
+                slot = e;
+            }
+        } else {
+            if (compare_addr_80411C44(&e->addr, addr) == 0) {
+                if (e->mtu > ifc->mtu) {
+                    if (ifc->mtu < 40) {
+                        return -6;
+                    }
+                    e->mtu = ifc->mtu;
+                }
+                e->timer = g->lifetime;
+                return e->mtu;
+            }
+            if (oldest == NULL) {
+                oldest = e;
+            } else if (e->timer < oldest->timer) {
+                oldest = e;
+            }
+        }
+    }
+    if (slot == NULL) {
+        slot = oldest;
+    }
+    if (ifc->mtu < 40) {
+        return -6;
+    }
+    slot->state = 1;
+    slot->timer = g->lifetime;
+    NetMemcpy(&slot->addr, addr, sizeof(IPv6Address));
+    slot->mtu = ifc->mtu;
+    return slot->mtu;
+}
+#pragma pop
 
 s32 TLobby__sub_80411DEC(IPv6Address *addr, s16 mtu) {
     G_80411DEC *g = (G_80411DEC *)&ipv6_address_routing_state;
@@ -5605,6 +5685,101 @@ s32 TLobby__sub_80413230(u8 *arg0, s32 arg1) {
     }
     return 0;
 }
+
+struct Ipv6PrefixRoute {
+    s16 state;
+    s16 type;
+    u8 pad4[2];
+    s16 iface;
+    u8 prefix[16];
+    u8 gateway[16];
+    s16 prefix_len;
+};
+struct Ipv6RouteTable {
+    s16 count;
+    u8 pad2[0x16];
+    Ipv6PrefixRoute *routes;
+};
+
+#pragma push
+#pragma dont_inline off
+inline s16 is_multicast_80413264(const IPv6Address *a) {
+    if (a->bytes[0] == 0xFF) {
+        return 1;
+    }
+    return 0;
+}
+
+inline Ipv6PrefixRoute *routes_80413264(Ipv6RouteTable *g) {
+    return g->routes;
+}
+
+u8 *TLobby__sub_80413264(void *dst, s32 src) {
+    s16 NetCompareBitPrefix(u8 *a, u8 *b, s16 bits);
+    s16 NetIPv6IsUnspecified(u8 *arg0);
+    s16 TLobby__sub_804137FC(u8 *addr, s16 idx);
+    Ipv6RouteTable *g = (Ipv6RouteTable *)&ipv6_address_routing_state;
+    s16 i;
+    Ipv6PrefixRoute *rt;
+    Ipv6PrefixRoute *host = NULL;
+    Ipv6PrefixRoute *prefix = NULL;
+    Ipv6PrefixRoute *deflt = NULL;
+
+    rt = routes_80413264(g);
+    for (i = 0; i < g->count; i++, rt++) {
+        if (rt->state != 1) {
+            continue;
+        }
+        switch (rt->type) {
+        case 3:
+            if (NetCompareBitPrefix(rt->prefix, (u8 *)dst, rt->prefix_len) == 0) {
+                return (u8 *)rt;
+            }
+            break;
+        case 1:
+            if (is_multicast_80413264((IPv6Address *)dst)) {
+                if (TLobby__sub_804137FC((u8 *)src, rt->iface) != 0) {
+                    host = rt;
+                }
+            } else if (NetCompareBitPrefix(rt->prefix, (u8 *)dst, rt->prefix_len) == 0) {
+                if (is_link_local_80411C44((IPv6Address *)dst)) {
+                    if (TLobby__sub_804137FC((u8 *)src, rt->iface) != 0) {
+                        host = rt;
+                    }
+                } else if (host == NULL) {
+                    host = rt;
+                } else if (rt->prefix_len > host->prefix_len) {
+                    host = rt;
+                }
+            }
+            break;
+        case 2:
+            if (NetIPv6IsUnspecified(rt->prefix)) {
+                if (deflt == NULL) {
+                    deflt = rt;
+                }
+            } else if (NetCompareBitPrefix(rt->prefix, (u8 *)dst, rt->prefix_len) == 0) {
+                if (prefix == NULL) {
+                    prefix = rt;
+                } else if (rt->prefix_len > prefix->prefix_len) {
+                    prefix = rt;
+                }
+            }
+            break;
+        }
+    }
+    if (host != NULL) {
+        return (u8 *)host;
+    }
+    if (prefix != NULL) {
+        return (u8 *)prefix;
+    }
+    if (deflt != NULL) {
+        return (u8 *)deflt;
+    }
+    return NULL;
+}
+#pragma pop
 
 #pragma push
 #pragma dont_inline off
@@ -7639,6 +7814,41 @@ s16 NetIPv6HandleNeighborSolicitation(u8 *arg0, void *arg1, void *arg2, void *ar
     return TLobby__sub_80417028(&sp18, arg1, arg2, arg3);
 }
 
+s16 TLobby__sub_80416F58(u8 *msg, s32 len, void *addr, void *ifindex) {
+    void TLobby__sub_80406EB8(void *, int);
+    u8 *TLobby__sub_80406F0C(void *);
+    s16 NetIPv6IsUnspecified(u8 *arg0);
+    Ent_80416678 *TLobby__sub_804182DC(void *, void *, s16, s32);
+    u8 *opt;
+    s16 size;
+
+    while (len >= 8) {
+        opt = TLobby__sub_80406F0C(msg + 4);
+        if (opt[1] == 0) {
+            return -0x10E;
+        }
+        size = opt[1] << 3;
+        len -= size;
+        if (len < 0) {
+            return -0x10E;
+        }
+        if ((s32)opt[0] != 1) {
+            TLobby__sub_80406EB8(msg + 4, size);
+        } else {
+            if (NetIPv6IsUnspecified((u8 *)addr)) {
+                return -0x10E;
+            }
+            {
+                u8 *p = opt + 2;
+                s16 l = size - 2;
+                TLobby__sub_804182DC(addr, p, l, (s32)ifindex);
+            }
+            TLobby__sub_80406EB8(msg + 4, size);
+        }
+    }
+    return 0;
+}
+
 s16 TLobby__sub_80417028(IPv6NeighborSolicitation *ns, u8 *src, u8 *dst, s16 iface) {
     NetSourceLinkLayerOption opt;
     NetIPv6SendParameters params;
@@ -7728,8 +7938,8 @@ typedef struct Hdr_804177A0 {
     u8 pad[2];
     u8 data[8];
 } Hdr_804177A0;
-s16 TLobby__sub_80417868(void *, u32, s32, s32);
 s16 NetIPv6HandleRouterSolicitation(u8 *o, s32 arg1, s32 arg2, s32 arg3) {
+    s16 TLobby__sub_80417868(void *, u32, s32, s32);
     u8 b[8];
     u8 a[8];
     s32 pad;
@@ -7764,6 +7974,50 @@ s16 TLobby__sub_804137FC(u8 *, s16);
 #pragma opt_propagation off
 #pragma opt_common_subs on
 struct G_80415B38;
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+s16 TLobby__sub_80417868(NetPacketFragment *frag, s32 len, u8 *src, s16 iface) {
+    u8 *lladdr;
+    u8 *h;
+    s16 n;
+    s16 l;
+    Nbr_8041615C *nb;
+    s16 NetIPv6IsUnspecified(u8 *arg0);
+    Ent_80416678 *TLobby__sub_804182DC(void *, void *, s16, s16);
+
+    lladdr = NULL;
+    while (len >= 8) {
+        h = TLobby__sub_80406F0C(&frag->buffer);
+        if (h[1] == 0) {
+            return -0x10E;
+        }
+        n = h[1] << 3;
+        len -= n;
+        if (len < 0) {
+            return -0x10E;
+        }
+        if ((s32)h[0] != 1) {
+            TLobby__sub_80406EB8(&frag->buffer, n);
+        } else {
+            if (NetIPv6IsUnspecified(src) == 0) {
+                lladdr = h + 2;
+                l = n - 2;
+                TLobby__sub_804182DC(src, lladdr, l, iface);
+            }
+            TLobby__sub_80406EB8(&frag->buffer, n);
+        }
+    }
+    if (lladdr != NULL) {
+        nb = (Nbr_8041615C *)find_nbr_8041615C((G_8041615C *)&ipv6_neighbor_discovery_state, src);
+        if (nb != NULL) {
+            nb->flags &= ~0x80;
+        }
+    }
+    return 0;
+}
+#pragma pop
+
 s16 NetIPv6SendNeighborAdvertisement(Pkt_804179A4 *arg0, u8 *address, u8 arg2, Sock_804179A4 *arg3, s16 arg4) {
     Na_804179A4 na;
     Cur_804179A4 cur;
