@@ -1612,10 +1612,16 @@ pso/enemy/TObjEneDarkGunCenter.cpp:
 	.data       start:0x804904A0 end:0x80490608
 
 pso/enemy/DarkGunner.cpp:
-	.text       start:0x800A0EDC end:0x800A36A8
-	.rodata     start:0x8043A6B0 end:0x8043A6F8
+	.text       start:0x800A0EDC end:0x800A3290
+	.rodata     start:0x8043A6B0 end:0x8043A6E8
 	.data       start:0x80490608 end:0x80490998
-	.sdata2     start:0x805D9980 end:0x805D99C4
+	.sdata2     start:0x805D9978 end:0x805D99D0
+
+pso/enemy/TUnk_804909C4.cpp:
+	.text       start:0x800A3290 end:0x800A36A8
+	.rodata     start:0x8043A6E8 end:0x8043A700
+	.data       start:0x80490998 end:0x80490A00
+	.sdata2     start:0x805D99D0 end:0x805D99E0
 
 pso/misc/TEneEffHamon.cpp:
 	.text       start:0x800A36A8 end:0x800A39A8
