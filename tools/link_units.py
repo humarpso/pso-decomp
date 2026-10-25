@@ -353,9 +353,13 @@ def section_size_mismatch(u: dict) -> list[str]:
     if ".text" in b:  # functions mwld will dead-strip (see extra_compiled_symbols)
         in_split = set(elf_function_sizes(split, local=True))
         discarded = discarded_weak_functions(u)
-        b[".text"] -= sum(size for name, size in elf_function_sizes(obj, local=True).items()
-                          if name not in in_split
-                          and (name not in _dol_symbol_names() or name in discarded))
+        stripped = {name: size for name, size in elf_function_sizes(obj, local=True).items()
+                    if name not in in_split and (name not in _dol_symbol_names() or name in discarded)}
+        b[".text"] -= sum(stripped.values())
+        # mwld drops a stripped function's exception-table entries with it
+        for section, size in stripped_exception_bytes(obj, set(stripped)).items():
+            if section in b:
+                b[section] -= size
         # MWCC can emit an implicit member and then a strong body with the
         # same name. Only the latter retains an ELF symbol; .mwcats still
         # records both parts, and MWLD drops the superseded one. Never
@@ -499,6 +503,48 @@ def elf_function_sizes(path: Path, local: bool = False) -> dict[str, int]:
             name_off, st_size, info, shndx = be(o), be(o + 8), b[o + 12], be(o + 14, 2)
             if (info >> 4 in (1, 2) or local) and info & 0xF == 2 and 0 < shndx < 0xFF00:
                 out[strtab[name_off:strtab.index(b"\0", name_off)].decode()] = st_size
+    return out
+
+
+def stripped_exception_bytes(path: Path, names: set[str]) -> dict[str, int]:
+    """Bytes of `extabindex` (one 12-byte entry each) and of the `extab` entries
+    they point at that belong to the functions in `names`, in a BE ELF32 .o."""
+    if not names:
+        return {}
+    b = path.read_bytes()
+    be = lambda o, n=4: int.from_bytes(b[o:o + n], "big")
+    shoff, shentsize, shnum, shstrndx = be(0x20), be(0x2E, 2), be(0x30, 2), be(0x32, 2)
+    hdrs = [tuple(be(shoff + i * shentsize + k) for k in (0, 4, 16, 20, 24, 28)) for i in range(shnum)]
+    shstr = hdrs[shstrndx][2]
+    sec_name = lambda i: b[shstr + hdrs[i][0]:b.index(b"\0", shstr + hdrs[i][0])].decode()
+    index = next((i for i in range(shnum) if sec_name(i) == "extabindex"), None)
+    extab = next((i for i in range(shnum) if sec_name(i) == "extab"), None)
+    rela = next((i for i in range(shnum) if hdrs[i][1] == 4 and hdrs[i][5] == index), None)
+    if index is None or extab is None or rela is None:
+        return {}
+    symtab = hdrs[hdrs[rela][4]]
+    strtab = hdrs[symtab[4]][2]
+
+    def symbol(n):
+        o = symtab[2] + n * 16
+        name = b[strtab + be(o):b.index(b"\0", strtab + be(o))].decode()
+        return name, be(o + 4)
+    func, entry = {}, {}
+    for o in range(hdrs[rela][2], hdrs[rela][2] + hdrs[rela][3], 12):
+        off, info, addend = be(o), be(o + 4), int.from_bytes(b[o + 8:o + 12], "big", signed=True)
+        name, value = symbol(info >> 8)
+        if off % 12 == 0:
+            func[off // 12] = name
+        elif off % 12 == 8:
+            entry[off // 12] = value + addend
+    starts = sorted(set(entry.values())) + [hdrs[extab][3]]
+    out = {"extab": 0, "extabindex": 0}
+    for k, name in func.items():
+        if name in names:
+            out["extabindex"] += 12
+            if k in entry:
+                start = entry[k]
+                out["extab"] += next(x for x in starts if x > start) - start
     return out
 
 
