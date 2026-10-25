@@ -4429,8 +4429,12 @@ pso/unk/text_8013F810.cpp:
 	.text       start:0x8013F810 end:0x8013FFA8
 
 pso/misc/TLobby_8013FFA8.cpp:
-	.text       start:0x8013FFA8 end:0x80140D50
-	.sdata2     start:0x805DB0F0 end:0x805DB150
+	.text       start:0x8013FFA8 end:0x801404CC
+	.sdata2     start:0x805DB0F0 end:0x805DB120
+
+pso/misc/TLobby_801404CC.cpp:
+	.text       start:0x801404CC end:0x80140D50
+	.sdata2     start:0x805DB120 end:0x805DB150
 
 pso/unk/text_80140D50.cpp:
 	.text       start:0x80140D50 end:0x80140F44
