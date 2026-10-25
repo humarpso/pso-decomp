@@ -1378,9 +1378,6 @@ pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSawEdge.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
 pso/misc/TOTrapSeabed01.cpp
-pso/misc/TOTrap_80179140.cpp
-pso/misc/TOTrap_801791EC.cpp
-pso/misc/TOTrap_801792AC.cpp
 pso/misc/TOVS2Wall01.cpp
 pso/misc/TOVS2Wall01_8017BCC8.cpp
 pso/misc/TOVS2Wall01_8017BE08.cpp
@@ -2110,7 +2107,6 @@ pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
 pso/object/TObjEZBoneRotPlayer.cpp
 pso/object/TObjEZRopeBase.cpp
-pso/object/TObjEnvSound.cpp
 pso/object/TObjEnvSoundGlobal.cpp
 pso/object/TObjEvtCollision.cpp
 pso/object/TObjFish_8001ED90.cpp
@@ -2478,7 +2474,6 @@ pso/player/TObjPlayer_801AB608.cpp
 pso/player/TObjPlayer_801AC0D8.cpp
 pso/player/TObjPlayer_801ACA6C.cpp
 pso/player/TObjPlayer_801AD47C.cpp
-pso/player/TObjPlayer_801ADC6C.cpp
 pso/player/TObjPlayer_801AE48C.cpp
 pso/player/TObjPlayer_801AEB84.cpp
 pso/player/TObjPlayer_801AEE10.cpp
@@ -3189,7 +3184,6 @@ pso/unk/text_8017DFB0.cpp
 pso/unk/text_8017E0D0.cpp
 pso/unk/text_8017E900.cpp
 pso/unk/text_8017F45C.cpp
-pso/unk/text_8017F624.cpp
 pso/unk/text_80180D18.cpp
 pso/unk/text_801811FC.cpp
 pso/unk/text_80181278.cpp
@@ -3201,8 +3195,6 @@ pso/unk/text_80189F24.cpp
 pso/unk/text_8018A150.cpp
 pso/unk/text_8018E258.cpp
 pso/unk/text_8018FA6C.cpp
-pso/unk/text_80190884.cpp
-pso/unk/text_80190940.cpp
 pso/unk/text_80191D14.cpp
 pso/unk/text_80192554.cpp
 pso/unk/text_801925F8.cpp
@@ -3245,7 +3237,6 @@ pso/unk/text_801A6F84.cpp
 pso/unk/text_801AA3B4.cpp
 pso/unk/text_801ABE14.cpp
 pso/unk/text_801AC808.cpp
-pso/unk/text_801AE1F8.cpp
 pso/unk/text_801BC194.cpp
 pso/unk/text_801BC688.cpp
 pso/unk/text_801BD0C0.cpp

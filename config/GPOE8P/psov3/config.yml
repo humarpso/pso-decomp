@@ -898,6 +898,7 @@ force_active:
   - TObjEneShark__ct
   - TObjEneSlime__sub_800EB9F0
   - TObjEnvSoundEx__ct
+  - TObjEnvSound__ct
   - TObjEvtCollision__ct
   - TObjFish__sub_800E3188
   - TObjFish__sub_8034029C
@@ -3015,6 +3016,7 @@ force_active:
   - copy_network_info_cipher_block__FPUlPUl
   - copy_network_info_config_string__FPcPcUlUl
   - copy_node_record__10TObjPlayerFl
+  - copy_pair__18TObjEnvSoundGlobalFPvPv
   - copy_pos__13TBoss6MagMineFi
   - copy_pos__13TObjEneRe4BitFv
   - copy_pos__17TObjEneBm3FlyNestFv
@@ -3175,6 +3177,7 @@ force_active:
   - demux_stream_chunks__6TLobbyFv
   - depth_buffer_config_copy
   - despawn_state__14TObjEneBm5WolfFl
+  - destroy__12TPhotonPillaFPvs
   - destroy__12T_OWEHMS_ExpFs
   - destroy__13TPhotonFarllaFPvs
   - destroy__13TUnk_80483A10Fs
@@ -3616,6 +3619,7 @@ force_active:
   - fn_80156C88
   - fn_80157CA8
   - fn_8017F5F0
+  - fn_801908F8
   - fn_8019B480
   - fn_8019F9AC
   - fn_801A3BB8
@@ -4227,6 +4231,7 @@ force_active:
   - is_sega_logo_done__Fi
   - is_signboard_texture_buffer_missing__Fv
   - is_slot_active__14TShopGeneratorFi
+  - is_sound_enabled__12TObjEnvSoundFPvl
   - is_split_screen__10TObjPlayerFv
   - is_stat_over_limit__6TLobbyFl
   - is_target_in_attack_range__13TUnk_80483A10Fv
@@ -4594,6 +4599,7 @@ force_active:
   - lbl_804B94BC
   - lbl_804B94E8
   - lbl_804C3564
+  - lbl_804C3ACC
   - lbl_804C8934
   - lbl_804C8A44
   - lbl_804C9C9C
@@ -5440,6 +5446,7 @@ force_active:
   - photon_blast_resource_descriptor
   - photon_chair_resource_descriptor
   - photon_pilla_action_table
+  - photon_pilla_laser_offset_table
   - pick_random_destination__11TODragonflyFf
   - pick_wander_destination__16TObjEneBm5GibonUFPv
   - place_bank_slot_on_ring__21TWindowSubCustomEquipFll
@@ -10071,6 +10078,7 @@ force_active:
   - render__12TObjComputerFv
   - render__12TObjEneLappyFv
   - render__12TObjEneSharkFv
+  - render__12TPhotonPillaFv
   - render__13TAdMcSelectGCFv
   - render__13TAdTitleTexGCFv
   - render__13TBoss6KakusanFv
@@ -10420,6 +10428,7 @@ force_active:
   - run_task__12TObjEneLappyFv
   - run_task__12TObjEneReconFv
   - run_task__12TObjRainCtrlFv
+  - run_task__12TPhotonPillaFv
   - run_task__12TQuestThreadFv
   - run_task__12T_OWEHMS_ExpFv
   - run_task__13TAdGuideTxtGCFv
@@ -11351,6 +11360,7 @@ force_active:
   - sub_801AA6F8__13TPhotonEstllaFv
   - sub_801AAE6C__13TPhotonFarllaFv
   - sub_801AD4A8__12TPhotonMyllaFv
+  - sub_801ADC7C__12TPhotonPillaFv
   - sub_801F6B00__22TQuestVmDownLoadServerFv
   - sub_801F6C74__22TQuestVmDownLoadServerFv
   - sub_801F6D24__22TQuestVmDownLoadServerFv
@@ -11571,6 +11581,7 @@ force_active:
   - update_buy_sell_choice__26TShopEquipmentGearSequenceFPv
   - update_by_state__9TTecMegidFv
   - update_camera_facing_offset__11TLoadingCurFv
+  - update_camera_slots__10TObjCameraFv
   - update_camera_vec_by_stage__9TObjGrassFv
   - update_card_confirm__16TAdChrSelBSlotGCFPv
   - update_card_select__16TAdChrSelBSlotGCFPv

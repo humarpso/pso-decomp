@@ -1,3 +1,4 @@
+// ---- pso/object/TObjEnvSoundGlobal
 #include "types.h"
 #include "pso/object/TObjEnvSoundEx.h"
 #include "pso/object/TObjEnvSoundGlobal.h"
@@ -32,8 +33,8 @@ u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 extern RecoveredGlobal_801902D8_lbl_804B7A70 environment_sound_tables_by_area;
-extern const f32 lbl_805DBE18;
-extern const f32 lbl_805DBE1C;
+
+
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 f32 xz_distance_squared(void *, void *);
 extern u8 *camera_ctrl_instance;
@@ -146,8 +147,8 @@ s32 TObjEnvSoundEx::init_sound_params() {
     }
     this->m_98 = fabs_float(this->target_scale);
     *(f32 *)&this->unk_A4 = (f32) *(f32 *)&this->m_70;
-    if (*(f32 *)&this->unk_A4 <= lbl_805DBE18) {
-        *(f32 *)&this->unk_A4 = (f32) lbl_805DBE1C;
+    if (*(f32 *)&this->unk_A4 <= 0.0f) {
+        *(f32 *)&this->unk_A4 = (f32) 2e+02f;
     }
     this->m_90 = (s32) this->m_88;
     if ((s32) this->m_90 < -0x7F) {
@@ -225,4 +226,177 @@ u8 *TObjEnvSoundEx__ct(u8 *env_sound_ex, s32 arg1, s32 arg2) {
     return env_sound_ex;
 }
 
+}
+
+// ---- pso/unk/text_80190884
+#include "types.h"
+#include "pso/unk/text_80190884.h"
+#include "pso/object/TObjEnvSound.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+
+extern "C" {
+f32 xyz_distance_squared(void *, void *, void *);
+
+
+s32 TObjEnvSound::is_sound_enabled(void *self, s32 cue) {
+    if (TRaderMapCore::is_not_split_screen() == 1 && TOKeyMachine01::get_global_state() == 2) {
+        switch (cue) {
+        case 0x43704:
+        case 0x4BC05:
+            return 0;
+        }
+    }
+    return 1;
+}
+
+s32 fn_801908F8(s32 arg0, f32 farg0) {
+    return xyz_distance_squared((void *)(camera_ctrl_instance + 0x178), (void *)(arg0 + 0x38), (void *)arg0) < farg0;
+}
+
+}
+
+// ---- pso/unk/text_80190940
+#include "types.h"
+#include "pso/unk/text_80190940.h"
+
+struct Obj_80190AA0;
+
+extern "C" {
+
+void *TObjEnvSound__ct(Obj_80190AA0 *, void *, void *);
+int is_not_split_screen__13TRaderMapCoreFv(void *);
+void *__nw__7TObjectFUl(int);
+
+extern void *tl_05;
+
+void * TObjEnvSound__create(void *rader_map_core) {
+    void *o;
+    if (is_not_split_screen__13TRaderMapCoreFv(rader_map_core) == 1) {
+        return NULL;
+    }
+    o = __nw__7TObjectFUl(0xA0);
+    if (o != NULL) {
+        o = TObjEnvSound__ct((Obj_80190AA0 *)o, tl_05, rader_map_core);
+    }
+    return o;
+}
+
+}
+
+// ---- pso/object/TObjEnvSound
+#include "types.h"
+#include "pso/object/TObjEnvSound.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+
+struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
+
+struct Row_80190AA0 { u32 cue; s32 mode; };
+
+struct Obj_80190AA0 {
+    s32 unk0;
+    u8 pad4[0x18 - 0x4];
+    void *vtbl;
+    u8 pad1C[0x70 - 0x1C];
+    f32 authoredRadius;
+    u8 pad74[0x84 - 0x74];
+    s32 index;
+    s32 authoredAttenuation;
+    s32 unk8C;
+    f32 radius;
+    s32 attenuation;
+    Row_80190AA0 sound;
+};
+
+extern "C" {
+
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
+void byteswap_event_packet__6TLobbyFi(s32 arg0);
+s32 get_current_floor(void);
+}
+s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
+s32 activate_first_floor_event(s32 idx, s32 id);
+extern "C" {
+void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt);
+void queue_destruction__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(TObject *);
+void copy_pair__18TObjEnvSoundGlobalFPvPv(void *p, void *q);
+
+
+extern s32 __vt__12TObjEnvSound[];
+extern s32 TObjEnvSound__class_name;
+
+
+
+void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+
+void TObjEnvSound::render() {  }
+
+void TObjEnvSound::run_task() {
+    u8 *arg0 = (u8 *)this;
+    f32 temp_f0;
+    temp_f0 = *(f32 *)&this->unk_90;
+    if ((((s32 (*)(f32))fn_801908F8)((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled(arg0, this->m_98) != 0)) {
+        switch (this->m_9c) {
+        case 0:
+            break;
+        case 1:
+            play_persistent_sound((s32)this->m_98, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
+            return;
+        case 2:
+            play_persistent_sound((s32)this->m_98, (s32)arg0, (u32)(arg0 + 0x38), (s32)this->m_94, 2);
+            break;
+        }
+    }
+}
+
+void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEnvSound;
+        TParticleCtrl::destroy_particle(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
+    Row_80190AA0 *table;
+    __ct__13TUnk_804B9870FP7TObject(self, parent);
+    self->vtbl = __vt__12TObjEnvSound;
+    self->unk0 = TObjEnvSound__class_name;
+    ((TObjEnvSound *)self)->apply_object_set_data(arg2);
+    table = ((Row_80190AA0 **)&environment_sound_tables_by_area)[TOKeyMachine01::get_global_state()];
+    if (table != NULL) {
+        copy_pair__18TObjEnvSoundGlobalFPvPv(&self->sound, &table[self->index]);
+    } else {
+        queue_destruction__7TObjectFv(self);
+        return self;
+    }
+    self->radius = self->authoredRadius;
+    if (self->radius <= 0.0f) {
+        self->radius = 2e+02f;
+    }
+    self->attenuation = self->authoredAttenuation;
+    if (self->attenuation < -127) {
+        self->attenuation = -127;
+    }
+    if (self->attenuation > 127) {
+        self->attenuation = 127;
+    }
+    disallow_rendering__7TObjectFv((TObject *)self);
+    return self;
+}
+
+void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt) {
+    byteswap_event_packet__6TLobbyFi((s32)pkt);
+    if (pkt->target != get_current_floor()) {
+        set_floor_event_flags(pkt->target, pkt->event, 4);
+    } else {
+        activate_first_floor_event(pkt->target, pkt->event);
+    }
+}
 }

@@ -1,3 +1,209 @@
+// ---- pso/player/TObjPlayer_801ADC6C
+#include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/player/TObjPlayer_801ADC6C.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/system/vector.h"
+#include "pso/misc/TUnk_804C3248.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/misc/TPhotonPilla.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/object/TObjFish.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/TObject.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/obj_band.h"
+#include "pso/unk/text_801AE1F8.h"
+#include "pso/misc/TOKeyMachine01.h"
+
+typedef struct { f32 x; f32 y; f32 z; } Vec3;
+
+struct Color_801ADDDC { f32 a, r, g, b; };
+
+struct Vec_801ADDDC { f32 x, y, z; };
+
+struct Self_801ADDDC {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad1[0x38 - 0x28];
+    Vec_801ADDDC pos;
+    u8 pad2[0x60 - 0x44];
+    s32 f60;
+    u8 pad3[0x14C - 0x64];
+    s16 f14C;
+    u8 pad4[0x180 - 0x14E];
+    Color_801ADDDC color;
+    u8 pad5[0x1A4 - 0x190];
+    s32 started;
+};
+
+typedef struct Vec_801ADD10 { f32 x, y, z; } Vec_801ADD10;
+
+typedef struct Packet_801ADD10 { Vec_801ADD10 pos; u32 w[9]; } Packet_801ADD10;
+
+extern "C" {
+s32 scroll_strip_uvs(void *, s16, int);
+s32 clear_render_context__10TObjPlayerFv(void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+extern Color_801ADDDC saved_model_draw_color;
+extern Color_801ADDDC model_material_color;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern void *pilla_photon_buffer_pair;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
+void TPhotonLaser__ct(void *, void *, void *, u16);
+void *__nw__7TObjectFUl(u32);
+void vec3_add_to(void *, void *);
+extern Packet_801ADD10 photon_pilla_laser_packet;
+extern void *photon_pilla_laser_offset_table[];
+
+s32 advance_animation_playback(void *);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
+s32 spawn_photon_blast_attachment_effects(void *, s32);
+u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void *find_entity_by_id(u16 id);
+u32 obj_getField1c();
+
+    extern int lbl_805D5D50;
+void TObjPlayer__sub_801ADC6C(void) { lbl_805D5D50 = 0; }
+
+void TObjPlayer__sub_801ADC78(void) {  }
+
+    
+void TPhotonPilla::sub_801ADC7C() { this->m_180 = 0.0f; *(float*)((char*)this + 0x184) = 0.0f; this->m_188 = 0.0f; *(float*)((char*)this + 0x18c) = 0.0f; }
+
+void TPhotonPilla::apply_photon_blast_effects() {
+    s32 var_r31;
+
+    TObjPlayer::init_all_slots();
+    mark_enemy_body_contacts();
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
+        var_r31 = 0;
+        do {
+            if (TObjPlayer::get_battle_param(var_r31) != 0U) {
+                ((s32 (*)(u16, s32, s32, f32))queue_photon_blast_hit)((u16) obj_getField1c(), 2, 0, *(f32 *)((s8 *)this + 0x150));
+            }
+            var_r31 += 1;
+        } while (var_r31 < 0x10);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void TPhotonPilla::spawn_laser() {
+    Vec_801ADD10 position;
+    u8 *laser;
+    position.x = *(f32 *)((s8 *)((u8 *)this) + 0x38);
+    position.y = 3e+02f;
+    position.z = *(f32 *)((s8 *)((u8 *)this) + 0x40);
+    vec3_add_to(&position, &((Vec_801ADD10 *)photon_pilla_laser_offset_table)[*(s32 *)((s8 *)((u8 *)this) + 0x194)]);
+    (*(s32 *)((s8 *)((u8 *)this) + 0x194))++;
+    Packet_801ADD10 packet = photon_pilla_laser_packet;
+    packet.pos.x = position.x;
+    packet.pos.y = position.y;
+    packet.pos.z = position.z;
+    laser = (u8 *) __nw__7TObjectFUl(0x380);
+    if (laser != NULL) {
+        TPhotonLaser__ct(laser, &packet, this, this->m_17c);
+    }
+}
+
+void TPhotonPilla::render() {
+    Self_801ADDDC *self = (Self_801ADDDC *)this;
+    if (this->m_1a4 != 0) {
+        scroll_strip_uvs(pilla_photon_buffer_pair, self->f14C, 0);
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param(this->texture_id);
+        push_matrix();
+        translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
+        rotate_matrix_y(0, this->rotation_y);
+        ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
+        lbl_805D5660 = model_render_flags;
+        ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags |= 0x200820;
+        TObjPlayer::set_global_flag();
+        set_chunk_material_override_pair(-1, 0x800);
+        ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
+        ((TObjMotion *)self)->draw();
+        TObjPlayer::clear_global_state();
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
+        model_render_flags = lbl_805D5660;
+        clear_render_context__10TObjPlayerFv(self);
+        pop_matrix();
+        TParticleCtrl::end_effect_render();
+    }
+}
+
+void TPhotonPilla::run_task() {
+    Vec3 sp8;
+    s32 entity;
+    s32 temp_r3_2;
+
+    *(s32 *)((s8 *)this + 0x1A8) = (s32) (*(s32 *)((s8 *)this + 0x1A8) + 1);
+    if (((s32) *(s32 *)((s8 *)this + 0x1A8) == 0x32) && ((s32) this->m_1a4 == 0)) {
+        this->m_1a4 = 1;
+        *(s32 *)((s8 *)this + 0x1A8) = 0;
+        entity = (s32)find_entity_by_id(this->m_17c);
+        if (entity != 0) {
+            VecCopy((Vec *)&sp8, (const Vec *)(entity + 0x38));
+        }
+        sp8.y += 3e+01f;
+        entity = (s32)__nw__7TObjectFUl(0xD0);
+        if (entity != 0U) {
+            TPhotonMagicSquare__ct((u8 *)entity, (s32)this, 3, (s32)&sp8, 0xD2, (f32)0.5f);
+        }
+    }
+    if ((5e+01f == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) this->m_b8 == 1) && ((s32) this->m_1a4 == 1)) {
+        begin_photon_summon_camera(4);
+        *(s32 *)((s8 *)this + 0x1A8) = 0;
+        this->set_field_b8(0);
+        spawn_photon_blast_attachment_effects(this, 3);
+    }
+    this->m_198 = (s16) this->m_b8;
+    update_state();
+    advance_animation_playback(this);
+    update_photon_blast_attachments();
+    *(s16 *)((s8 *)this + 0x14C) = (s16) (*(s16 *)((s8 *)this + 0x14C) + 0xF);
+    *(s16 *)((s8 *)this + 0x14C) = (s16) (u8) *(s16 *)((s8 *)this + 0x14C);
+    temp_r3_2 = *(s32 *)((s8 *)this + 0x1A8);
+    if ((8e+01f == (f32) temp_r3_2) || (82.0f == (f32) temp_r3_2) || (84.0f == (f32) temp_r3_2) || (86.0f == (f32) temp_r3_2) || (88.0f == (f32) temp_r3_2) || (9e+01f == (f32) temp_r3_2)) {
+        spawn_laser();
+    }
+    if (1.1e+02f == (f32) *(s32 *)((s8 *)this + 0x1A8)) {
+        this->apply_photon_blast_effects();
+    }
+    if ((s32) this->m_1a4 != 0) {
+        play_persistent_sound(0x4002462F, (s32)this, 0, 0, 0);
+    }
+}
+
+}
+
+// ---- pso/misc/TPhotonPilla
 #include "types.h"
 #include "pso/misc/PhotonBlastSummon.h"
 #include "pso/misc/TUnk_804C3248.h"
@@ -9,11 +215,11 @@ extern "C" {
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
-extern s32 lbl_804C3ACC[];
+extern void *lbl_804C3ACC[];
 
 void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3ACC;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804C3ACC;
         ((TPhotonPilla *)arg0)->update_if_active();
         ((TUnk_804C3248 *)arg0)->free_photon();
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
@@ -24,6 +230,153 @@ void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+}
+
+// ---- pso/unk/text_801AE1F8
+#include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/obj_band.h"
+#include "pso/unk/text_801AE1F8.h"
+#include "pso/system/vector.h"
+#include "pso/misc/TUnk_804C3248.h"
+#include "pso/misc/TPhotonPilla.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
+
+struct Vec_801AE1F8 { f32 x, y, z; };
+
+extern "C" {
+void *find_entity_by_id(u16 id);
+s32 init_collision_body_parts(void *, void *, int);
+s32 spawn_photon_blast_attachment_effects(void *, s32);
+u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void sub_801ADC7C__12TPhotonPillaFv(void *, u8);
+u8 *TPhotonRainbow__ct(void *, void *, void *, s32);
+extern u8 lbl_80446EE0[];
+extern u8 lbl_80446EEC[];
+extern s32 lbl_805D3518;
+extern u8 *photon_blast_shared_resource;
+
+
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
+extern "C" void vfunc_12__13TUnk_804B9870Fv();
+extern "C" void vfunc_9__13TUnk_804B9870Fv();
+extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
+extern "C" void enter_scene__13TUnk_804C3248Fv();
+extern "C" void render__12TPhotonPillaFv();
+extern "C" void render_shadows__7TObjectFv();
+extern "C" void reset_motion_fields__10TObjMotionFv();
+extern "C" void update_if_active__13TUnk_804C3248Fv();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
+extern "C" void run_task__12TPhotonPillaFv();
+void *photon_pilla_action_table[8] = {
+    (void *)0x30000, (void *)0x3, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x0,
+};
+void *lbl_804C3A58[11] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x42f00000,
+    (void *)0x41f00000, (void *)0x0, (void *)0x8007, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *photon_pilla_laser_offset_table[18] = {
+    (void *)0x0, (void *)0x43960000, (void *)0x42480000, (void *)0x41c80000,
+    (void *)0x43960000, (void *)0x41c80000, (void *)0x41c80000, (void *)0x43960000,
+    (void *)0xc1c80000, (void *)0x0, (void *)0x43960000, (void *)0xc2480000,
+    (void *)0xc1c80000, (void *)0x43960000, (void *)0xc1c80000, (void *)0x41c80000,
+    (void *)0x43960000, (void *)0x41c80000,
+};
+void *lbl_804C3ACC[17] = {
+    (void *)0x0, (void *)0x0, (void *)&destroy__12TPhotonPillaFPvs, (void *)&run_task__12TPhotonPillaFv,
+    (void *)&render__12TPhotonPillaFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&reset_motion_fields__10TObjMotionFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
+    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&enter_scene__13TUnk_804C3248Fv, (void *)&update_if_active__13TUnk_804C3248Fv,
+    (void *)0x0,
+};
+u8 *TPhotonPilla__ct(u8 *photon_rainbow, u8 *arg1) {
+    u8 *temp_r3;
+    s32 state;
+    void *mem;
+    photon_base_ct(photon_rainbow);
+    *(u8 **)((s8 *)photon_rainbow + 0x18) = (u8 *)lbl_804C3ACC;
+    *(s32 *)((s8 *)photon_rainbow + 0) = lbl_805D3518;
+    *(s32 *)((s8 *)photon_rainbow + 0x138) = 3;
+    VecCopy((Vec *)(photon_rainbow + 0x38), (const Vec *)arg1);
+    ((TPhotonPilla *)photon_rainbow)->m_17c = *(u16 *)((s8 *)arg1 + 0xC);
+    init_collision_body_parts(photon_rainbow, (void *)lbl_804C3A58, 1);
+    ((TUnk_804AF8A0 *)photon_rainbow)->refresh_collision_body_centers();
+    ((TObjPlayer *)photon_rainbow)->reset_photon_effect();
+    ((TPhotonPilla *)photon_rainbow)->m_190 = (u8 *)find_entity_by_id(((TPhotonPilla *)photon_rainbow)->m_17c);
+    temp_r3 = ((TPhotonPilla *)photon_rainbow)->m_190;
+    if (temp_r3 != NULL) {
+        ((TPhotonPilla *)photon_rainbow)->rotation_y = *(s32 *)((s8 *)temp_r3 + 0x60);
+    }
+    *(s32 *)((s8 *)photon_rainbow + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x38);
+    ((TPhotonPilla *)photon_rainbow)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x3C);
+    ((TObjMotion *)photon_rainbow)->set_field_d8((s32)photon_pilla_action_table);
+    ((TObjMotion *)photon_rainbow)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    ((TPhotonPilla *)photon_rainbow)->m_b8 = 1;
+    ((TObjMotion *)photon_rainbow)->set_animation(((TPhotonPilla *)photon_rainbow)->m_b8);
+    ((TObjMotion *)photon_rainbow)->set_field_b8(((TPhotonPilla *)photon_rainbow)->m_b8);
+    ((TPhotonPilla *)photon_rainbow)->m_198 = 1;
+    ((TPhotonPilla *)photon_rainbow)->m_19c = *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)photon_rainbow + 0x1A0) = *(s32 *)((s8 *)arg1 + 0x14);
+    ((TPhotonPilla *)photon_rainbow)->m_1a4 = 0;
+    ((TPhotonPilla *)photon_rainbow)->m_134 = 4;
+    ((TPhotonPilla *)photon_rainbow)->enter_scene();
+    *(s32 *)((s8 *)photon_rainbow + 0x1A8) = 0;
+    state = TOKeyMachine01::get_global_state();
+    switch (state) {
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+        mem = __nw__7TObjectFUl(0xAC);
+        if (mem != NULL) {
+            TPhotonRainbow__ct(mem, photon_rainbow, photon_rainbow + 0x38, 1);
+        }
+        break;
+    default:
+        mem = __nw__7TObjectFUl(0xAC);
+        if (mem != NULL) {
+            TPhotonRainbow__ct(mem, photon_rainbow, photon_rainbow + 0x38, 0);
+        }
+        break;
+    }
+    *(s32 *)((s8 *)photon_rainbow + 0x194) = 0;
+    sub_801ADC7C__12TPhotonPillaFv(photon_rainbow, *(u8 *)((s8 *)arg1 + 0x1C));
+    if (*(s32 *)((s8 *)photon_rainbow + 0x1A0) == 1) {
+        *(s32 *)((s8 *)photon_rainbow + 0x154) |= 1;
+    }
+    ((TPhotonPilla *)photon_rainbow)->m_150 = *(f32 *)((s8 *)arg1 + 0x20);
+    if (((TPhotonPilla *)photon_rainbow)->m_19c == 0) {
+        ((TObjMotion *)photon_rainbow)->set_field_b8(0);
+        ((TUnk_804C3248 *)photon_rainbow)->begin_photon_summon_camera(4);
+        ((TPhotonPilla *)photon_rainbow)->m_19c = 1;
+        ((TPhotonPilla *)photon_rainbow)->m_198 = 0;
+        ((TPhotonPilla *)photon_rainbow)->m_1a4 = 1;
+        {
+        Vec_801AE1F8 pos = *(Vec_801AE1F8 *)((s8 *)photon_rainbow + 0x38);
+        pos.y += 4e+01f;
+        mem = __nw__7TObjectFUl(0xD0);
+        if (mem != NULL) {
+            TPhotonMagicSquare__ct((u8 *)mem, (s32)photon_rainbow, 3, (s32)&pos, 0xAA, (f32)0.5f);
+        }
+        }
+        spawn_photon_blast_attachment_effects(photon_rainbow, 3);
+        play_cue_stream_file((s32)lbl_80446EE0);
+    } else {
+        spawn_photon_blast_opening_effects(3, ((TPhotonPilla *)photon_rainbow)->m_17c);
+        play_cue_stream_file((s32)lbl_80446EEC);
+    }
+    return photon_rainbow;
 }
 
 }

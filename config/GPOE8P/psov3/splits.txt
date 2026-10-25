@@ -5504,16 +5504,8 @@ pso/misc/TOSymbolchatColli.cpp:
 	.text       start:0x801786C4 end:0x80178B78
 
 pso/misc/TOTrap.cpp:
-	.text       start:0x80178B78 end:0x80179140
-
-pso/misc/TOTrap_80179140.cpp:
-	.text       start:0x80179140 end:0x801791EC
-
-pso/misc/TOTrap_801791EC.cpp:
-	.text       start:0x801791EC end:0x801792AC
-
-pso/misc/TOTrap_801792AC.cpp:
-	.text       start:0x801792AC end:0x8017939C
+	.text       start:0x80178B78 end:0x8017939C
+	.sdata2     start:0x805DBA38 end:0x805DBA48
 
 pso/misc/TOTrapAncient01.cpp:
 	.text       start:0x8017939C end:0x8017A20C
@@ -5681,12 +5673,10 @@ pso/misc/TButterfly_8017F364.cpp:
 pso/unk/text_8017F45C.cpp:
 	.text       start:0x8017F45C end:0x8017F624
 
-pso/unk/text_8017F624.cpp:
-	.text       start:0x8017F624 end:0x8017F80C
-
 pso/object/TObjCamera_8017F80C.cpp:
-	.text       start:0x8017F80C end:0x8017FE58
+	.text       start:0x8017F624 end:0x8017FE58
 	.rodata     start:0x80443AC8 end:0x80443AD0
+	.sdata2     start:0x805DBB58 end:0x805DBB74
 
 pso/object/TObjChip.cpp:
 	.text       start:0x8017FE58 end:0x80180D18
@@ -5875,18 +5865,9 @@ pso/object/TObjDoorKey.cpp:
 	.sdata      start:0x805D3340 end:0x805D3344
 
 pso/object/TObjEnvSoundGlobal.cpp:
-	.text       start:0x801902D8 end:0x80190884
+	.text       start:0x801902D8 end:0x80190BFC
 	.rodata     start:0x804458F0 end:0x804458F8
-	.sdata2     start:0x805DBE10 end:0x805DBE18
-
-pso/unk/text_80190884.cpp:
-	.text       start:0x80190884 end:0x80190940
-
-pso/unk/text_80190940.cpp:
-	.text       start:0x80190940 end:0x801909A0
-
-pso/object/TObjEnvSound.cpp:
-	.text       start:0x801909A0 end:0x80190BFC
+	.sdata2     start:0x805DBE10 end:0x805DBE20
 
 pso/object/TObjEvtCollision.cpp:
 	.text       start:0x80190BFC end:0x80190E64
@@ -6434,16 +6415,11 @@ pso/misc/TPhotonMylla.cpp:
 	.text       start:0x801AD4A8 end:0x801ADC6C
 	.rodata     start:0x80446E78 end:0x80446E80
 
-pso/player/TObjPlayer_801ADC6C.cpp:
-	.text       start:0x801ADC6C end:0x801AE174
-	.rodata     start:0x80446ED8 end:0x80446EE0
-
 pso/misc/TPhotonPilla.cpp:
-	.text       start:0x801AE174 end:0x801AE1F8
-
-pso/unk/text_801AE1F8.cpp:
-	.text       start:0x801AE1F8 end:0x801AE48C
+	.text       start:0x801ADC6C end:0x801AE48C
+	.rodata     start:0x80446ED8 end:0x80446EE0
 	.data       start:0x804C3A38 end:0x804C3B10
+	.sdata2     start:0x805DC228 end:0x805DC25C
 
 pso/player/TObjPlayer_801AE48C.cpp:
 	.text       start:0x801AE48C end:0x801AE510

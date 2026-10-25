@@ -1,3 +1,4 @@
+// ---- pso/misc/TOTrap
 #include "types.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
@@ -27,7 +28,7 @@ extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
 void *get_player_by_client_id(s32 i);
-extern const f32 TOTrap__data_805DBA3C;
+
 s32 submit_cursor_candidate(void *, s32);
 extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
@@ -63,7 +64,7 @@ f32 TOTrap::scale_by_table_value(f32 farg0) {
 
 void TOTrap::vfunc_89() {  }
 
-extern const f32 TOTrap__data_805DBA38;
+
 
 s32 TOTrap::is_any_player_matching_stat() {
     s32 i;
@@ -86,7 +87,7 @@ void TOTrap::vfunc_82() {
     refresh_collision_body_centers();
     if ((s32) this->m_84 < 0) {
         u32 p;
-        this->receive_physical_attack(this->target, TOTrap__data_805DBA38);
+        this->receive_physical_attack(this->target, 1.0f);
         p = *(u32 *)&this->target;
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);
@@ -189,7 +190,7 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
       }
     }
   }
-  return TOTrap__data_805DBA3C;
+  return 0.0f;
 }
 
 void TOTrap::run_task() {
@@ -219,4 +220,189 @@ void TOTrap::run_task() {
     }
 }
 
+}
+
+// ---- pso/misc/TOTrap_80179140
+#include "types.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
+#include "pso/misc/TOTrap.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+
+extern "C" {
+
+s32 post_translate_matrix(void *);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+
+
+
+
+struct TOTrapBase { char pad[0x18]; };
+struct TOTrapVObj : TOTrapBase {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+#pragma explicit_unused_unused_members on
+void TOTrap::render() {
+    u8 *arg0 = (u8 *)this;
+    if (TObjPlayer::is_any_teammate_in_state() == 0) {
+        this->m_340 = ((TOTrapVObj*)arg0)->m8(4e+02f, 2e+01f);
+        if ((s32) this->m_340 == 1) {
+            push_matrix();
+            post_translate_matrix((u8 *)&this->position);
+            rotate_matrix_y(0, this->rotation_y);
+            TObjFish::set_global_param(this->texture_id);
+            if (TObjPlayer::check_demo_mode() == 1) {
+                draw_chunk_object(this->model);
+            } else {
+                draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
+            }
+            pop_matrix();
+        }
+    }
+}
+
+}
+
+// ---- pso/misc/TOTrap_801791EC
+#include "types.h"
+#include "pso/misc/TOTrap_801791EC.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/misc/TOTrap.h"
+
+struct Self_80179244 { s32 type; u8 pad4[0x18 - 4]; s32 *vt; u8 pad1c[0x334 - 0x1C]; f32 f334; f32 f338; u16 s33c; u8 pad33e[2]; s32 f340; };
+
+extern "C" {
+void *construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
+extern s32 __vt__6TOTrap[];
+extern s32 lbl_805D3198;
+
+Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b);
+void __dl__7TObjectFPv(void *);
+
+void *__dt__6TOTrapFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TOTrap;
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b) {
+    construct_actor_base__10TObjPlayerFPvPv(self, a, b);
+    self->vt = __vt__6TOTrap;
+    self->type = lbl_805D3198;
+    self->f334 = self->f338 = 0.0f;
+    self->s33c = 0xFFFF;
+    self->f340 = 1;
+    return self;
+}
+
+void TOTrap::vfunc_84() {  }
+
+}
+
+// ---- pso/misc/TOTrap_801792AC
+#include "types.h"
+#include "pso/misc/TOTrap_801792AC.h"
+#include "pso/misc/TOTrap.h"
+
+struct Base_80179314_801792AC { char pad[0x18]; };
+struct VObj_80179314_801792AC : Base_80179314_801792AC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20(int, f32);
+};
+struct Base_80179358_801792AC { char pad[0x18]; };
+struct VObj_80179358_801792AC : Base_80179358_801792AC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20(int, f32);
+};
+
+void TOTrap::vfunc_86() {  }
+void TOTrap::vfunc_88() {  }
+
+s32 TOTrap::try_start_action(s32 arg1, s32) {
+    return (u8) (arg1 != *(s32 *)&this->target);
+}
+
+u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));
+}
+
+u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));
+}
+
+
+
+
+u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));
+}
+
+f32 TOTrap::check_trigger_range(u32 arg1) {
+    struct VObj_80179314_801792AC *arg0 = (struct VObj_80179314_801792AC *)this;
+    if (arg1 != *(u32 *)((s8 *)arg0 + 0x2A8)) {
+        arg0->m20(0, 1.0f);
+    }
+    return 0.0f;
+}
+
+f32 TOTrap::get_scale(u32 arg1) {
+    struct VObj_80179358_801792AC *arg0 = (struct VObj_80179358_801792AC *)this;
+    if (arg1 != *(u32 *)((s8 *)arg0 + 0x2A8)) {
+        arg0->m20(0, 1.0f);
+    }
+    return 0.0f;
 }
