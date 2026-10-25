@@ -206,6 +206,8 @@ force_active:
   - TBoss4Zako_collision_body_parts
   - TBoss4Zako_movement_speed_step
   - TBoss4Zako_one_third
+  - TBoss5GryphonDemo__sub_8006626C
+  - TBoss5GryphonDemo__sub_800663DC
   - TBoss6CrushPtcl__ct
   - TBoss6CrushRock__name
   - TBoss6Demo10_TYPE1_APPEAR__class_name
@@ -3321,6 +3323,7 @@ force_active:
   - draw_model__15TObjEneMe1GiGueFPv
   - draw_model__15TObjLazerFence4Fv
   - draw_model__16TObjEneMe3StelthFPv
+  - draw_model__17TBoss5GryphonDemoFPvl
   - draw_model__18TObjLazerFenceNormFv
   - draw_model__23TObjSeabedSuisoBrakableFPv
   - draw_model__8TObjDoorFPv
@@ -3836,6 +3839,7 @@ force_active:
   - grass_origin_vec
   - grass_render_vec
   - gray_out_unusable_entries__14TWindowSubItemFv
+  - gryphon_demo_collision_body_desc
   - gsl_archive_entries
   - gsl_archive_filename
   - gsl_archive_path_buffer_ptr
