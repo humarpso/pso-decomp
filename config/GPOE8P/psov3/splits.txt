@@ -10200,7 +10200,7 @@ pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp:
 pso/enemy/TObjEneBm9Mericarol.cpp:
 	.text       start:0x802D073C end:0x802D134C
 	.data       start:0x804E1548 end:0x804E18A4
-	.bss        start:0x80540B58 end:0x80540B7C
+	.bss        start:0x80540B58 end:0x80540B98
 
 pso/enemy/TObjEneBm9Mericarol_Bomb.cpp:
 	.text       start:0x802D134C end:0x802D1AB8

@@ -618,6 +618,42 @@ void TObjEneBm9Mericarol::run_task() {
 }
 #pragma pop
 
+u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        *(void **)((s8 *)arg0 + 0x18) = TObjEneBm9Mericarol__vtable;
+        for (i = 0; i < 2; i++) {
+            if (((S_802D0C14 *)arg0)->arr[i] != NULL) {
+                queue_destruction__7TObjectFv(((S_802D0C14 *)arg0)->arr[i]);
+                ((S_802D0C14 *)arg0)->arr[i] = NULL;
+            }
+        }
+        if (*(void **)((s8 *)arg0 + 0x488) != NULL) {
+            delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x488)), 1);
+            *(void **)((s8 *)arg0 + 0x488) = NULL;
+        }
+        if (*(void **)((s8 *)arg0 + 0x48C) != NULL) {
+            free_collision_body_parts(*(void **)((s8 *)arg0 + 0x48C));
+            if (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C) != NULL) {
+                (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C))->m0(1);
+            }
+            *(void **)((s8 *)arg0 + 0x48C) = NULL;
+        }
+        if (*(void **)((s8 *)arg0 + 0x4AC) != NULL) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4AC));
+            *(void **)((s8 *)arg0 + 0x4AC) = NULL;
+        }
+        free_collision_body_parts(arg0);
+        __dt__13TUnk_80494938Fv(arg0 + 0x46C, -1);
+        __destroy_arr(arg0 + 0x3C8, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__12TObjEneDD_STFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
 Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2) {
     s32 ph;
     s32 i;
@@ -697,42 +733,6 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
         ((TObjPlayer *)(self->a3C8[i]))->activate_and_dispatch();
     }
     return self;
-}
-
-u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
-    s32 i;
-    if (arg0 != NULL) {
-        *(void **)((s8 *)arg0 + 0x18) = TObjEneBm9Mericarol__vtable;
-        for (i = 0; i < 2; i++) {
-            if (((S_802D0C14 *)arg0)->arr[i] != NULL) {
-                queue_destruction__7TObjectFv(((S_802D0C14 *)arg0)->arr[i]);
-                ((S_802D0C14 *)arg0)->arr[i] = NULL;
-            }
-        }
-        if (*(void **)((s8 *)arg0 + 0x488) != NULL) {
-            delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x488)), 1);
-            *(void **)((s8 *)arg0 + 0x488) = NULL;
-        }
-        if (*(void **)((s8 *)arg0 + 0x48C) != NULL) {
-            free_collision_body_parts(*(void **)((s8 *)arg0 + 0x48C));
-            if (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C) != NULL) {
-                (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C))->m0(1);
-            }
-            *(void **)((s8 *)arg0 + 0x48C) = NULL;
-        }
-        if (*(void **)((s8 *)arg0 + 0x4AC) != NULL) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4AC));
-            *(void **)((s8 *)arg0 + 0x4AC) = NULL;
-        }
-        free_collision_body_parts(arg0);
-        __dt__13TUnk_80494938Fv(arg0 + 0x46C, -1);
-        __destroy_arr(arg0 + 0x3C8, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
-        __dt__12TObjEneDD_STFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
 
 void TObjEneBm9Mericarol::free_shared_instances() {

@@ -785,6 +785,8 @@ force_active:
   - TObjEneBm5Wolf__pack_member_list
   - TObjEneBm5Wolf__stat_params
   - TObjEneBm5Wolf__sub_800B8A24
+  - TObjEneBm9Mericarol__ct
+  - TObjEneBm9Mericarol__vtable
   - TObjEneDarkGunCenter__sub_800A0B18
   - TObjEneDelDepth_motion_file_list
   - TObjEneDelDepth_motion_names
@@ -1704,6 +1706,7 @@ force_active:
   - __dt__19TObjBoss5PillarCtrlFv
   - __dt__19TObjBoss5PillarDemoFv
   - __dt__19TObjBoss7RaftSplashFv
+  - __dt__19TObjEneBm9MericarolFPvs
   - __dt__19TObjEneEpsilonGuardFv
   - __dt__19TQuestListChallengeFv
   - __dt__19TWindowMessageYesNoFv
@@ -2451,6 +2454,7 @@ force_active:
   - bm3_fly_nest_resource_desc
   - bm3_flynest_collider_params
   - bm5_wolf_decision_row
+  - bm9_mericarol_phase_hp_table
   - bm_eff_ice_model_names
   - bm_eff_ice_motion_names
   - bm_ene_bm1_shark_model_names
@@ -3368,6 +3372,7 @@ force_active:
   - dispatch_state__15TObjEnemyCustomFv
   - dispatch_state__17TObjEneBm3FlyNestFiUii
   - dispatch_state__20TBoss3VoloptHiraisinFv
+  - dispatch_state_handler__19TObjEneBm9MericarolFiUii
   - display_exp_gain__FlUlll
   - do_action_447__10TObjPlayerFv
   - do_action_447_from_packet__10TObjPlayerFPvPv
@@ -4256,6 +4261,7 @@ force_active:
   - init_s_rank_knuckle__FPvlPv
   - init_segment_angle_range__11TBoss6Type2Fv
   - init_sin_cos_table__Fv
+  - init_size_tier_and_offsets__19TObjEneBm9MericarolFv
   - init_slot_entries__14TAdSelectTxtGCFPvPv
   - init_sound_params__14TObjEnvSoundExFv
   - init_state_1536__13TUnk_804ED0A8FlPv
@@ -4772,6 +4778,11 @@ force_active:
   - lbl_804DDB8C
   - lbl_804E1210
   - lbl_804E135C
+  - lbl_804E1548
+  - lbl_804E15BC
+  - lbl_804E15C4
+  - lbl_804E15F8
+  - lbl_804E1600
   - lbl_804E2B90
   - lbl_804E3A38
   - lbl_804E3B60
@@ -4846,6 +4857,9 @@ force_active:
   - lbl_805137C8
   - lbl_80513918
   - lbl_80513F70
+  - lbl_80540B64
+  - lbl_80540B70
+  - lbl_80540B88
   - lbl_80540B98
   - lbl_80540BBC
   - lbl_80540BC8
@@ -10786,6 +10800,7 @@ force_active:
   - run_task__19TObjBoss2RaftSplashFv
   - run_task__19TObjBoss5PillarCtrlFv
   - run_task__19TObjBoss7RaftSplashFv
+  - run_task__19TObjEneBm9MericarolFv
   - run_task__19TObjEneEpsilonGuardFv
   - run_task__19TPlayerBattleCtrl4PFv
   - run_task__19TTecPlayerInfluenceFv
@@ -12206,6 +12221,7 @@ force_active:
   - vfunc_28__17TObjEneBm3FlyNestFv
   - vfunc_28__17TObjEneDf2BringerFv
   - vfunc_28__18TObjEneRe4SorcererFv
+  - vfunc_28__19TObjEneBm9MericarolFv
   - vfunc_28__19TObjEneEpsilonGuardFv
   - vfunc_28__20TOTrapChainSawDamageFv
   - vfunc_44__11TItemObjectFv
@@ -12250,6 +12266,7 @@ force_active:
   - vfunc_61__17TObjEneBm3FlyNestFv
   - vfunc_61__17TObjEneDf2BringerFv
   - vfunc_61__18TObjEneRe4SorcererFv
+  - vfunc_61__19TObjEneBm9MericarolFv
   - vfunc_61__19TObjEneEpsilonGuardFv
   - vfunc_62__12TObjEneLappyFv
   - vfunc_62__12TObjEneSaverFv
@@ -12264,6 +12281,7 @@ force_active:
   - vfunc_62__17TObjEneBm3FlyNestFv
   - vfunc_62__17TObjEneDf2BringerFv
   - vfunc_62__18TObjEneRe4SorcererFv
+  - vfunc_62__19TObjEneBm9MericarolFv
   - vfunc_62__19TObjEneEpsilonGuardFv
   - vfunc_63__12TObjEneLappyFv
   - vfunc_63__12TObjEneSaverFv
@@ -12278,6 +12296,7 @@ force_active:
   - vfunc_63__17TObjEneBm3FlyNestFv
   - vfunc_63__17TObjEneDf2BringerFv
   - vfunc_63__18TObjEneRe4SorcererFv
+  - vfunc_63__19TObjEneBm9MericarolFv
   - vfunc_63__19TObjEneEpsilonGuardFv
   - vfunc_63__9TBoss6MagFv
   - vfunc_67__14TOTrapSeabed01Ff
@@ -12325,6 +12344,7 @@ force_active:
   - vfunc_88__17TObjEneBm3FlyNestFv
   - vfunc_88__17TObjEneDf2BringerFv
   - vfunc_88__18TObjEneRe4SorcererFv
+  - vfunc_88__19TObjEneBm9MericarolFv
   - vfunc_88__19TObjEneEpsilonGuardFv
   - vfunc_89__13TObjEneBm3FlyFv
   - vfunc_89__19TObjEneEpsilonGuardFv
