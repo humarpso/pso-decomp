@@ -150,7 +150,6 @@ pso/audio/SoundBankTables.cpp
 pso/boss/Boss6Type1Appearance.cpp
 pso/boss/Boss6Type2Appearance.cpp
 pso/boss/Boss6Type2Death.cpp
-pso/boss/DarkFalzController.cpp
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
@@ -1911,7 +1910,6 @@ pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.cpp
 pso/misc/TWindowSubSymbolChat_80076F88.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
 pso/misc/TWindowSubSymbolChat_80281814.cpp
-pso/misc/TWindowSubSymbolChat_8028239C.cpp
 pso/misc/TWindowSubSymbolChat_802838C4.cpp
 pso/misc/TWindowSubSymbolChat_80283954.cpp
 pso/misc/TWindowSubSymbolChat_802839C0.cpp
@@ -2817,7 +2815,6 @@ pso/unk/text_800480B0.cpp
 pso/unk/text_80048118.cpp
 pso/unk/text_800483F8.cpp
 pso/unk/text_8004AA04.cpp
-pso/unk/text_8004AB90.cpp
 pso/unk/text_8004D9A8.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F2A8.cpp

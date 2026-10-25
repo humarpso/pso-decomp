@@ -473,15 +473,10 @@ pso/boss/TBoss4Type2_8004A978.cpp:
 pso/unk/text_8004AA04.cpp:
 	.text       start:0x8004AA04 end:0x8004AB90
 
-pso/unk/text_8004AB90.cpp:
-	.text       start:0x8004AB90 end:0x8004AD4C
-
 pso/object/TObjDFHorming.cpp:
-	.text       start:0x8004AD4C end:0x8004BBC4
+	.text       start:0x8004AB90 end:0x8004C19C
 	.rodata     start:0x804371D8 end:0x804371E0
-
-pso/boss/DarkFalzController.cpp:
-	.text       start:0x8004BBC4 end:0x8004C19C
+	.sdata2     start:0x805D8908 end:0x805D8938
 
 pso/boss/TBoss4Uro.cpp:
 	.text       start:0x8004C19C end:0x8004C1AC
@@ -9181,12 +9176,10 @@ pso/misc/TWindowSubStatusDisp_80281198.cpp:
 	.sbss       start:0x805D6488 end:0x805D6490
 
 pso/misc/TWindowSubSymbolChat_80281814.cpp:
-	.text       start:0x80281814 end:0x8028239C
+	.text       start:0x80281814 end:0x802837A8
 	.rodata     start:0x8044FB28 end:0x8044FB30
-
-pso/misc/TWindowSubSymbolChat_8028239C.cpp:
-	.text       start:0x8028239C end:0x802837A8
 	.data       start:0x804D2B68 end:0x804D2C14
+	.sdata2     start:0x805DD710 end:0x805DD750
 
 pso/misc/TWindowSubSymbolChat.cpp:
 	.text       start:0x802837A8 end:0x802838C4

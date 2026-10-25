@@ -1258,6 +1258,8 @@ force_active:
   - TWindowSubStatusDisp__window_layout
   - TWindowSubSymbolChatFaceType__sub_80283F38
   - TWindowSubSymbolChat__sub_80281840
+  - TWindowSubSymbolChat__sub_8028233C
+  - TWindowSubSymbolChat__sub_8028379C
   - TWindowSubTechnique__sub_8028753C
   - TWindowSubTradeMessage__name
   - TWindowTimer__ct
@@ -2917,6 +2919,7 @@ force_active:
   - close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv
   - close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv
   - close_and_play_effect__6TLobbyFii
+  - close_child__20TWindowSubSymbolChatFv
   - close_download__22TQuestVmDownLoadServerFv
   - close_giveup_window__6TLobbyFPv
   - close_if_done__20TShopItemTecSequenceFv
@@ -3061,6 +3064,7 @@ force_active:
   - copy_vec4_forward__15TPlyPhotonChairFl
   - copy_vec4_reverse__15TPlyPhotonChairFl
   - copy_with_guild_card_tag__13TPlyRecvLoginFPl
+  - count_active_players__14TBoss4DarkFalzFv
   - count_balloon_slots__11TWindowCtrlFv
   - count_card_layout_entries__6TLobbyFv
   - count_empty_slots__20TWindowSubSymbolChatFv
@@ -3103,8 +3107,10 @@ force_active:
   - create_card_action_window__17TWindowSubComCardFv
   - create_ch_cr_tag_occ_header__FPv
   - create_challenge4p__6TLobbyFv
+  - create_chat_symbol_window__20TWindowSubSymbolChatFll
   - create_chr_warp__23TAdSinglePlyChrSelectGCFll
   - create_confirm_menu_window__19TWindowSubShortMailFv
+  - create_confirm_window__20TWindowSubSymbolChatFv
   - create_count_input__14TWindowSubItemFl
   - create_dead_spot__10TObjPlayerFiiif
   - create_draw_callback__22TAdEnterSerialAccessGCFv
@@ -3120,6 +3126,7 @@ force_active:
   - create_judgment_item_window__15TShopWindowBaseFPv
   - create_keyboard__17TWindowSubComCardFi
   - create_keyboard__17TWindowSubComCardFii
+  - create_keyboard_control__20TWindowSubSymbolChatFv
   - create_learned_blast_toast__13TWindowSubMagFv
   - create_left_hand_ptcl__10TObjPlayerFPv
   - create_list__13TWindowSubMagFv
@@ -3127,6 +3134,8 @@ force_active:
   - create_list_item__19TWindowSubShortMailFv
   - create_menu__17TWindowSubComCardFv
   - create_menu__19TWindowSubShortMailFv
+  - create_menu__20TWindowSubSymbolChatFPv
+  - create_menu__20TWindowSubSymbolChatFv
   - create_menu_window__14TAdYesNoBaseGCFv
   - create_menu_window__14TWindowSubItemFv
   - create_menu_window__17TWindowSubComCardFv
@@ -3134,6 +3143,8 @@ force_active:
   - create_option_list_window__17TWindowSubComCardFll
   - create_particle_emitters__9TTecBartaFv
   - create_particles__11TTecGiBartaFv
+  - create_parts__20TWindowSubSymbolChatFv
+  - create_parts_set__20TWindowSubSymbolChatFv
   - create_player_select_window__17TWindowSubComCardFv
   - create_quest_bgm_object__FP7TObjectUl
   - create_quest_list_window__19TQuestListChallengeFv
@@ -3372,6 +3383,7 @@ force_active:
   - draw_ray_quads__8TAdRayGCFlPUcPvl
   - draw_screen__22TAdEnterSerialAccessGCFPvPv
   - draw_selected_bar__11TWindowMenuFPUc
+  - draw_selected_entry__20TWindowSubSymbolChatFv
   - draw_selected_part_cursor__28TWindowSubSymbolChatPartsSetFi
   - draw_serial_chars__22TAdEnterSerialAccessGCFl
   - draw_serial_plates__22TAdEnterSerialAccessGCFv
@@ -5396,6 +5408,7 @@ force_active:
   - open_confirm_message__18TWindowSubShortCutFv
   - open_confirm_prompt__18TWindowSubShortCutFv
   - open_confirm_prompt__19TWindowSubTradeMainFv
+  - open_confirm_prompt__20TWindowSubSymbolChatFv
   - open_confirm_window__12TQuestListVMFv
   - open_confirm_yes_no__19TWindowSubTradeMainFv
   - open_container__20TContainerAncient01RFv
@@ -5426,6 +5439,7 @@ force_active:
   - open_menu__18TWindowSubShortCutFv
   - open_menu__19TWindowSubShortMailFv
   - open_menu__19TWindowSubTechniqueFv
+  - open_menu__20TWindowSubSymbolChatFll
   - open_menu__22TChallenge4PItemSelectFv
   - open_menu_window__20TShopArmorListWindowFv
   - open_menu_window__24TShopEquipmentListWindowFv
@@ -11341,6 +11355,9 @@ force_active:
   - sub_80042944__19TBoss3VoloptMonitorFl
   - sub_80043758__15TBoss3VoloptP01Fv
   - sub_800495F8__13TUnk_80484A94Fv
+  - sub_8004AFB8__14TBoss4DarkFalzFv
+  - sub_8004B084__14TBoss4DarkFalzFv
+  - sub_8004B0F8__14TBoss4DarkFalzFv
   - sub_8004F2A8__11TObjDFDemo4Fv
   - sub_8005D698__10TBoss4ZakoFv
   - sub_8005D6B0__10TBoss4ZakoFv
@@ -11436,6 +11453,8 @@ force_active:
   - sub_802730E0__17TWindowSubComCardFv
   - sub_80275F08__21TWindowSubCustomEquipFPv
   - sub_8027D230__26TWindowSubQuestBoardSelectFv
+  - sub_80281C60__20TWindowSubSymbolChatFv
+  - sub_80281CC4__20TWindowSubSymbolChatFv
   - sub_80288BE4__19TQuestListChallengeFv
   - sub_8028B940__12TChCrLoadAfsFv
   - sub_8028B944__12TChCrLoadAfsFv
@@ -11819,6 +11838,7 @@ force_active:
   - update_results_phase__19TPlayerBattleCtrl4PFv
   - update_return_phase__19TPlayerBattleCtrl4PFv
   - update_rise_state__10TBoss4ZakoFv
+  - update_roar_sound_timer__14TBoss4DarkFalzFv
   - update_rotate_anim__21TWindowSubCustomEquipFv
   - update_rotation_ramp__9TBoss6MagFv
   - update_rush_attack__15TObjEneMe1GiGueFPv
@@ -11869,6 +11889,7 @@ force_active:
   - update_state__19TBoss3VoloptMonitorFv
   - update_state__19TObjStendGlassLobbyFv
   - update_state__20TOTrapChainSawDamageFv
+  - update_state__20TWindowSubSymbolChatFv
   - update_state__25TObjCityMainWarpChallengeFv
   - update_state__8TOKurageFv
   - update_state__8TObjDoorFv
@@ -11887,6 +11908,7 @@ force_active:
   - update_status_message__6TLobbyFPv
   - update_stream__15PSOV3EncryptionFv
   - update_stream_buffers__6TLobbyFv
+  - update_sub_window__20TWindowSubSymbolChatFv
   - update_submenu__15TWindowMainMenuFv
   - update_surround_player_state__10TBoss4ZakoFv
   - update_sweep__14TOTrapChainSawFv
@@ -11917,6 +11939,7 @@ force_active:
   - update_unlock_flags__16TObjCityMainWarpFv
   - update_velocity_and_snap__21TObjEneRe7BeruraPunchFv
   - update_visibility__21TWindowSubAreaMapDispFv
+  - update_visible_flag__14TBoss4DarkFalzFv
   - update_wait_input__18TChallenge4PResultFv
   - update_wait_switch__19TObjLazerFenceExtraFv
   - update_warp_boss_visibility__12TObjWarpBossFv
