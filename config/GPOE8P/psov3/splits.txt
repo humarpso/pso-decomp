@@ -8551,9 +8551,17 @@ pso/misc/TWindowSubStatusDisp_80257784.cpp:
 	.rodata     start:0x8044EFF8 end:0x8044F000
 
 pso/misc/TWindowSubStatusDisp_802598E4.cpp:
-	.text       start:0x802598E4 end:0x8025A12C
-	.rodata     start:0x8044F000 end:0x8044F018
-	.sdata2     start:0x805DCF3C end:0x805DCF68
+	.text       start:0x802598E4 end:0x8025995C
+
+pso/misc/TWindowSubStatusDisp_8025995C.cpp:
+	.text       start:0x8025995C end:0x80259DB0
+	.rodata     start:0x8044F000 end:0x8044F010
+	.sdata2     start:0x805DCF30 end:0x805DCF54
+
+pso/misc/TWindowSubStatusDisp_80259DB0.cpp:
+	.text       start:0x80259DB0 end:0x8025A12C
+	.rodata     start:0x8044F010 end:0x8044F018
+	.sdata2     start:0x805DCF58 end:0x805DCF68
 
 pso/misc/TWindowHelpItem_8025A12C.cpp:
 	.text       start:0x8025A12C end:0x8025A60C
