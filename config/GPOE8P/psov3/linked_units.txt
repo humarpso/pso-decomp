@@ -1805,6 +1805,7 @@ pso/misc/TWindowSubComCard_8007BF08.cpp
 pso/misc/TWindowSubComCard_8007BF48.cpp
 pso/misc/TWindowSubComCard_80131BC4.cpp
 pso/misc/TWindowSubComCard_80225E0C.cpp
+pso/misc/TWindowSubComCard_80244774.cpp
 pso/misc/TWindowSubComCard_80249120.cpp
 pso/misc/TWindowSubComCard_802495FC.cpp
 pso/misc/TWindowSubComCard_80265410.cpp

@@ -1321,6 +1321,7 @@ force_active:
   - TWindowMessagePage__ct
   - TWindowQuantity__ct
   - TWindowSubComCard__sub_8007AC7C
+  - TWindowSubComCard__sub_80245A10
   - TWindowSubComCard__sub_80249220
   - TWindowSubComCard__sub_80272640
   - TWindowSubComCard__sub_802728CC
@@ -2810,6 +2811,7 @@ force_active:
   - calc_loading_cursor_pos
   - calc_lunge_aim__14TObjEneBm5WolfFPv
   - calc_move_state__12TObjEneSaverFv
+  - calc_offset__17TWindowSubComCardFv
   - calc_orb_positions__18TObjEneRe4SorcererFv
   - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFv
@@ -3565,6 +3567,7 @@ force_active:
   - draw_line_strip__10TObjPlayerFPviif
   - draw_locked__8TObjDoorFPv
   - draw_menu_backdrop_gradients__Fl
+  - draw_message_frame_row__13TUnk_804CE018FPvPv
   - draw_model_12__25TBoss6Demo20_TYPE2_APPEARFv
   - draw_model_13__23TBoss6Demo21_TYPE2_DEADFv
   - draw_model__11TObjDoaEx01Fv
@@ -3622,6 +3625,8 @@ force_active:
   - draw_title_rings
   - draw_value__13TWindowMesetaFl
   - draw_window__17TWindowDuelResultFPv
+  - draw_window_frame_strips__13TUnk_804CE018FPvPv
+  - draw_window_scanlines__FPUcPUc
   - draw_window_uv_sprite_part
   - drill_launcher_create_shot__Flllf
   - drill_launcher_ct__FPvlPv
@@ -4494,6 +4499,7 @@ force_active:
   - is_angle_in_range__16TObjEneMe3StelthFv
   - is_any_player_in_range__16TObjEvtCollisionFf
   - is_any_player_near__Fl
+  - is_balloon_overlapping__FPUcPUcPUc
   - is_buffer_blank_checked__19TWindowKeyBoardSoftFv
   - is_card_confirmed__20TWindowSubSymbolChatFv
   - is_card_file_absent_a__23TAdSinglePlyChrSelectGCFv
