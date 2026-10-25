@@ -490,7 +490,6 @@ s32 TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
-s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 rand();
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);

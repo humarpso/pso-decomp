@@ -85,4 +85,8 @@ struct TBoss6PlotFalz : public TObjEnemy {
     static void warp_nearby_players();
 };
 
+extern "C" {
+void TBoss6PlotFalz__sub_802AC008(f32 a, f32 b);
+}
+
 #endif

@@ -30,7 +30,7 @@ struct TBoss6Type1 : public TObjEnemy {
     void* effect_point_receiver;
     u8 unk_408[0x4];
     s32 m_40c;
-    u8 unk_410[0x4];
+    s32 action_timer;
     s32 m_414;
     u8 unk_418[0x4];
     u8 m_41c;
@@ -48,7 +48,7 @@ struct TBoss6Type1 : public TObjEnemy {
     s32 m_494;
     u8 unk_498[0x4];
     s32 m_49c;
-    u8 unk_4A0[0x4];
+    s32 laser_fire_time;
     s32 m_4a4;
     u8 unk_4A8[0x4];
     s32 m_4ac;
@@ -63,10 +63,13 @@ struct TBoss6Type1 : public TObjEnemy {
     f32 m_4e8;
     u8 unk_4EC[0x1C];
     s32 m_508;
-    u8 unk_50C[0xCC];
+    u8 unk_50C[0xC0];
+    f32 sound_pos[3];
     Boss6EffectPoint trail_points[3];
     u8 unknown_5FC[0x3C];
     Boss6EffectPoint effect_points[2];
+    u8 pad_650[0x30];
+    TObject *map_csn;
     static u8 *create_kakusan(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
     void clear_slot_array();
     void release_effect_slot(s32 arg1);
@@ -160,8 +163,23 @@ struct TBoss6Type1 : public TObjEnemy {
     void choose_next_action();
     void init_attack_timers();
     void init_effect_slot_1();
+    void sub_802B245C();
+    void sub_802B24B4();
+    void sub_802B2724();
+    void sub_802B2A94();
+    void sub_802B2CB4();
+    void sub_802B2D68();
+    void sub_802B2F00();
+    void sub_802B3178();
+    void sub_802B31E4();
+    void sub_802B3320();
+    void sub_802B343C();
+    void sub_802B3564();
+    void sub_802B381C();
+    void sub_802B3B94();
     void draw_model();
     void render();
+    void release_object(void *);
     void spawn_map_csn();
     static void *create_zanzo(void *arg0, void *arg1, void *arg2);
     static void *create_grav_ball(void *arg0, void *arg1);
@@ -177,9 +195,14 @@ struct TBoss6Type1 : public TObjEnemy {
     void tick_trap_countdown();
     void init_work();
 };
+extern "C" {
+void TBoss6Type1__sub_802B626C(TBoss6Type1 *boss);
+}
+
 typedef char Boss6EffectPoint_size[(sizeof(Boss6EffectPoint)==0xC)?1:-1];
 typedef char TBoss6Type1_receiver_offset[(offsetof(TBoss6Type1,effect_point_receiver)==0x404)?1:-1];
 typedef char TBoss6Type1_points_offset[(offsetof(TBoss6Type1,effect_points)==0x638)?1:-1];
 typedef char TBoss6Type1_trail_receiver_offset[(offsetof(TBoss6Type1,trail_point_receiver)==0x400)?1:-1];
+typedef char TBoss6Type1_map_csn_offset[(offsetof(TBoss6Type1,map_csn)==0x680)?1:-1];
 typedef char TBoss6Type1_trail_points_offset[(offsetof(TBoss6Type1,trail_points)==0x5D8)?1:-1];
 #endif

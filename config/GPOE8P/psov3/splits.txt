@@ -10015,12 +10015,14 @@ pso/misc/TWindowSubTrade.cpp:
 	.data       start:0x804DE8E0 end:0x804DE900
 
 pso/boss/TBoss6Type1_802B20C0.cpp:
-	.text       start:0x802B20C0 end:0x802B4A70
+	.text       start:0x802B20C0 end:0x802B4898
 	.ctors      start:0x80433FC8 end:0x80433FCC
-	.rodata     start:0x80470CC0 end:0x80470CC8
+	.rodata     start:0x80470AB0 end:0x80470CC8
+	.data       start:0x804DE900 end:0x804DF4E0
+	.sdata2     start:0x805DE2A8 end:0x805DE2C8
 
 pso/boss/TBoss6Type1.cpp:
-	.text       start:0x802B4A70 end:0x802B97E0
+	.text       start:0x802B4898 end:0x802B97E0
 	.rodata     start:0x80471040 end:0x80471050
 	.data       start:0x804DF8B8 end:0x804DF950
 	.sdata2     start:0x805DE2D0 end:0x805DE3C4
