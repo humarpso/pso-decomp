@@ -492,6 +492,7 @@ force_active:
   - TOKeyAncient03__ct
   - TOKeyCave01__ct
   - TOKeyCol__ct
+  - TOKeyGenericSw__ct
   - TOKeyMachine01__ct
   - TOKey__sub_80169FB0
   - TOKurage__ct
@@ -4187,6 +4188,7 @@ force_active:
   - is_card_file_missing_b__23TAdSinglePlyChrSelectGCFv
   - is_challenge_lobby__6TLobbyFv
   - is_channel_active_at__20TWindowActionPaletteFlll
+  - is_confirm_pressed__14TOKeyMachine01Fv
   - is_controller_animated__8TFogCtrlFll
   - is_downloadable_new_entry__12TQuestListVMFPvPv
   - is_duplicate_shop_weapon
@@ -10770,6 +10772,7 @@ force_active:
   - send_state_if_dirty__17TWindowSubComCardFv
   - send_subordinate_actions__11TBoss6Type2Flllll
   - send_swapped_telepipe_packet__9TTecLukerFv
+  - send_switch_changed__14TOKeyMachine01Fl
   - send_trade_busy_reply__Fl
   - send_type2_event__6TLobbyFlll
   - seqCrossFade
@@ -11526,6 +11529,7 @@ force_active:
   - trap_ancient02_torabasami_resources
   - traverse_animated_node_tree__FPv
   - trigger_activate_sound__14TOKeyAncient03Fv
+  - trigger_activate_sound__14TOKeyMachine01Fv
   - trigger_activate_sound__8TOKeyColFv
   - trigger_by_id__14TOTrapSeabed01FUl
   - try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv
@@ -11916,16 +11920,20 @@ force_active:
   - vfunc_16__12TItemProUnitFv
   - vfunc_16__13TItemProArmorFv
   - vfunc_16__14TOKeyAncient03Fv
+  - vfunc_16__14TOKeyMachine01Fv
   - vfunc_16__17TOTrapChainSawKeyFv
   - vfunc_16__18TOTrapChainSawEdgeFv
   - vfunc_16__8TOKeyColFv
   - vfunc_17__14TOKeyAncient03Fv
+  - vfunc_17__14TOKeyMachine01Fv
   - vfunc_17__8TOKeyColFv
   - vfunc_18__17TOTrapChainSawKeyFv
   - vfunc_19__14TOKeyAncient03Fv
+  - vfunc_19__14TOKeyMachine01Fv
   - vfunc_19__8TOKeyColFv
   - vfunc_20__17TOBarrierEnergy01Fv
   - vfunc_22__13TUnk_804B5BA8Fv
+  - vfunc_25__14TOKeyMachine01Fv
   - vfunc_25__17TOTrapChainSawKeyFv
   - vfunc_25__18TOTrapChainSawEdgeFv
   - vfunc_25__20TOTrapChainSawDamageFv

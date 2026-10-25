@@ -5228,17 +5228,16 @@ pso/misc/TOKeyCol.cpp:
 	.data       start:0x804B2C50 end:0x804B2CC0
 
 pso/misc/TOKeyGenericSw.cpp:
-	.text       start:0x8016CA60 end:0x8016CF5C
+	.text       start:0x8016CA60 end:0x8016D0B4
+	.rodata     start:0x80441D48 end:0x80441D50
 	.data       start:0x804B2CC0 end:0x804B2D30
 	.sdata      start:0x805D3048 end:0x805D3050
-
-pso/unk/text_8016CF5C.cpp:
-	.text       start:0x8016CF5C end:0x8016D448
-	.rodata     start:0x80441D48 end:0x80441D50
+	.sdata2     start:0x805DB768 end:0x805DB77C
 
 pso/misc/TOKeyMachine01_8016D448.cpp:
-	.text       start:0x8016D448 end:0x8016D8F8
+	.text       start:0x8016D0B4 end:0x8016D8F8
 	.data       start:0x804B2DE8 end:0x804B2E58
+	.sdata2     start:0x805DB780 end:0x805DB79C
 
 pso/unk/text_8016D8F8.cpp:
 	.text       start:0x8016D8F8 end:0x8016D99C
