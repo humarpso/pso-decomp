@@ -370,7 +370,8 @@ pso/enemy/TObjEneBm5Wolf.cpp
 pso/enemy/TObjEneBm9Mericarol_802CECE0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp
-pso/enemy/TObjEneBm9Mericarol_802D17F4.cpp
+pso/enemy/TObjEneBm9Mericarol_Bomb.cpp
+pso/enemy/TObjEneBm9Mericarol_EffCurse3.cpp
 pso/enemy/TObjEneDD.cpp
 pso/enemy/TObjEneDD_800B99B4.cpp
 pso/enemy/TObjEneDD_800B99D8.cpp
@@ -3455,7 +3456,6 @@ pso/unk/text_802C9A58.cpp
 pso/unk/text_802C9C18.cpp
 pso/unk/text_802CE510.cpp
 pso/unk/text_802CE68C.cpp
-pso/unk/text_802D14F4.cpp
 pso/unk/text_802D1C84.cpp
 pso/unk/text_802D1D48.cpp
 pso/unk/text_802D23E0.cpp

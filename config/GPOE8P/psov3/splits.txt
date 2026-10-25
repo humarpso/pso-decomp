@@ -10235,16 +10235,18 @@ pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp:
 	.text       start:0x802D05BC end:0x802D073C
 
 pso/enemy/TObjEneBm9Mericarol.cpp:
-	.text       start:0x802D073C end:0x802D14F4
+	.text       start:0x802D073C end:0x802D134C
 	.data       start:0x804E1548 end:0x804E18A4
 	.bss        start:0x80540B58 end:0x80540B7C
 
-pso/unk/text_802D14F4.cpp:
-	.text       start:0x802D14F4 end:0x802D17F4
+pso/enemy/TObjEneBm9Mericarol_Bomb.cpp:
+	.text       start:0x802D134C end:0x802D1AB8
 	.rodata     start:0x804724E8 end:0x804724F0
+	.sdata2     start:0x805DE758 end:0x805DE778
 
-pso/enemy/TObjEneBm9Mericarol_802D17F4.cpp:
-	.text       start:0x802D17F4 end:0x802D1C84
+pso/enemy/TObjEneBm9Mericarol_EffCurse3.cpp:
+	.text       start:0x802D1AB8 end:0x802D1C84
+	.sdata2     start:0x805DE778 end:0x805DE780
 
 pso/unk/text_802D1C84.cpp:
 	.text       start:0x802D1C84 end:0x802D1D48

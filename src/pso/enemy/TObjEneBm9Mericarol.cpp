@@ -857,54 +857,5 @@ void TBoss4Type3__sub_802D1130(void) {
     }
 }
 
-s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range) {
-    s32 hit;
-    u32 mask;
-    s32 obj;
-    s32 i;
-    s32 ok;
-    hit = 0;
-    mask = 0;
-    if (this->unknownAC == 0) {
-        return 0;
-    }
-    TObjPlayer::init_all_slots();
-    if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(range);
-        mask |= 0x80000;
-    }
-    if (*(s32 *)((s8 *)arg1 + 4) & 2) {
-        this->mark_enemy_body_contacts();
-        mask |= 0x100000;
-    }
-    if (*(u32 *)((s8 *)this->m_a4 + 0x18) & mask) {
-        for (i = 0; i < 0x10; i++) {
-            obj = TObjPlayer::get_battle_param(i);
-            if (obj == 0) {
-                break;
-            }
-            if (obj_is_hit_receivable(obj) != 0 && (u32)obj != this->unknownAC &&
-                is_area_attack_target_eligible(this, *(u32 *)((s8 *)obj + 0x30)) != 0 &&
-                !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)obj + 0x300)) > lbl_805DE758)) {
-                ok = 1;
-                if (object != 0 && attack_target_history_add(object, obj) == 0) {
-                    ok = 0;
-                }
-                if (ok != 0) {
-                    ((VObj_18_0ab400 *)(this))->m19(obj, arg1, arg2);
-                    hit = 1;
-                }
-            }
-        }
-    }
-    return hit;
-}
-
-void TObjEneBm9Mericarol_Bomb::render() {
-    u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x10C) != 0) {
-        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), 0, (u32)0);
-    }
-}
 
 }
