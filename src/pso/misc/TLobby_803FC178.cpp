@@ -442,10 +442,10 @@ s32 TLobby__sub_803F778C(void *);
 extern RecoveredGlobal_80402B60_lbl_805C0620 lbl_805C0620;
 s32 TLobby__sub_803F811C(s16 *arg0);
 s32 TLobby__sub_804036FC(u8 *arg0);
-s32 TLobby__sub_80403DA8(void *, void *, void *, void *, void *, void *, void *);
+s32 TLobby__sub_80403DA8(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, char *name, s16 pppoe);
 s32 TLobby__sub_804062A0(s16);
 extern RecoveredGlobal_80403D28_lbl_805C0638 lbl_805C0638;
-s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
+s32 TLobby__sub_80403D28(s32 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5, char *arg6, s16 arg7);
 extern s32 lobby_timer_list_head;
 s16 reset_network_timer_list(void);
 void TLobby__sub_803F8A08(void *);
@@ -2081,6 +2081,42 @@ inline void add_lcp_options(B_803FADA0 **pbuf, LcpVals_8040172C *vals, s16 mask)
 }
 
 #pragma push
+s32 TLobby__sub_80400C4C(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    s16 last = 0;
+    LcpOpts_8040172C *o = (LcpOpts_8040172C *)fsm->p30;
+    s32 left = msg->h2;
+    u8 opt[12];
+    s16 n;
+    u8 len;
+    u8 type;
+
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (left > 0 && (s16)((TLobby *)opt)->read_2_bytes(&src) != -1) {
+        len = opt[1];
+        left -= len;
+        if (left < 0) {
+            return -1;
+        }
+        if (opt[0] <= 8 && (opt[0] < last || !(o->vals.mask & (1 << opt[0])))) {
+            return -1;
+        }
+        for (n = len - 2; n-- > 0;) {
+            if ((TLobby__sub_80401BCC(&src, lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0]) == -1) {
+                return -1;
+            }
+        }
+        last = type = opt[0];
+        if (type <= 8 && (type != 3 || !(o->vals.mask & (1 << type)))) {
+            o->vals.mask &= ~(1 << type);
+        }
+    }
+    return 0;
+}
+#pragma pop
+
+#pragma push
 #pragma opt_common_subs on
 s32 TLobby__sub_80400DA8(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
     St_80400BA8 *opts = (St_80400BA8 *)fsm->p30;
@@ -2120,6 +2156,53 @@ s32 TLobby__sub_80400DA8(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
 }
 #pragma pop
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline u32 first_lcp_options(Obj_803FA664 *fsm) {
+    LcpOpts_8040172C *o = (LcpOpts_8040172C *)fsm->p30;
+    B_803FADA0 *t = NULL;
+    t = init_net_buffer_entry__6TLobbyFUs(0);
+    if (t == NULL) {
+        return 0;
+    }
+    add_lcp_options(&t, &o->vals, o->vals.mask);
+    return (u32)t;
+}
+
+inline s32 read_lcp_byte(u32 *p) {
+    if (TLobby__sub_80401BCC(p, lobby_read_byte_buffer, 1) != 1) {
+        return -1;
+    }
+    return (s16)lobby_read_byte_buffer[0];
+}
+
+s32 TLobby__sub_80400F1C(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    s16 err;
+    s16 a;
+    s16 b;
+    err = 0;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    u32 cur = first_lcp_options(fsm);
+    if (msg->h2 != ((TLobby *)cur)->get_field_4()) {
+        err = 1;
+    } else {
+        while ((a = read_lcp_byte(&cur)) != -1) {
+            b = read_lcp_byte(&src);
+            if (b == -1 || b != a) {
+                err = 1;
+                break;
+            }
+        }
+    }
+    if (err != 0) {
+        return -1;
+    }
+    return 0;
+}
+#pragma pop
 #pragma push
 #pragma opt_common_subs on
 #pragma bool off
@@ -3135,19 +3218,54 @@ s32 TLobby__sub_80403C60(u8 *arg0) {
     return 0;
 }
 
-s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7) {
+s32 TLobby__sub_80403D28(s32 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5, char *arg6, s16 arg7) {
     s32 temp_r31;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x14) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x28) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x3C) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x50) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x64) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x78) = 0;
-    *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x8C) = 0;
-    temp_r31 = TLobby__sub_80403DA8((void *) (arg1), (void *) (arg2), (void *) (arg3), (void *) (arg4), (void *) (arg5), (void *) (arg6), (void *) (arg7));
+    s16 i;
+    for (i = 0; i < 8; i++) {
+        *(s8 *)((s8 *)(&lbl_805C0638.value) + i * 0x14) = 0;
+    }
+    temp_r31 = TLobby__sub_80403DA8(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
     TLobby__sub_804062A0(0x82);
     return temp_r31;
+}
+
+struct Cfg_80403DA8 {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    s32 f10;
+    s32 f14;
+    s16 f18;
+    s16 pppoe;
+    char *name;
+};
+
+extern "C" {
+s32 TLobby__sub_803F8314(Cfg_80403DA8 *cfg);
+extern s16 lbl_805D7A7E;
+}
+
+s32 TLobby__sub_80403DA8(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, char *name, s16 pppoe) {
+    Cfg_80403DA8 cfg;
+    cfg.f0 = (a0 == 0) ? 0 : (a0 == 1) ? 1 : 0;
+    cfg.f4 = (a1 == 0) ? 2 : (a1 == 1) ? 1 : (a1 == 2) ? 0 : 2;
+    cfg.f8 = (a2 == 0) ? 0 : (a2 == 1) ? 2 : 0;
+    cfg.fC = 1;
+    cfg.f10 = (a3 == 0) ? 0 : (a3 == 1) ? 1 : (a3 == 2) ? 2 : (a3 == 3) ? 3 : (a3 == 4) ? 4 : (a3 == 5) ? 5 : (a3 == 6) ? 6 : 2;
+    cfg.f14 = (a4 == 2) ? 0 : (a4 == 3) ? 1 : 1;
+    cfg.f18 = 0;
+    cfg.name = name;
+    if (pppoe != 0) {
+        cfg.pppoe = 1;
+    } else {
+        cfg.pppoe = 0;
+    }
+    if (TLobby__sub_803F8314(&cfg) != 0) {
+        return -1;
+    }
+    lbl_805D7A7E = 1;
+    return 0;
 }
 
 typedef struct B_80403F4C {

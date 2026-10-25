@@ -1683,6 +1683,62 @@ s32 TLobby__sub_80407C60(s16 idx, s32 addr) {
     return -1;
 }
 
+inline Node_80407C60 *AllocNode_80407D98(Tbl_8040799C *t, s16 *count) {
+    Node_80407C60 *p = t->nodes;
+    s16 n = *count;
+    for (; n > 0; n--, p++) {
+        if (p->used == 0) {
+            p->used = 1;
+            p->next = NULL;
+            NetMemset(p->addr, 0, 4);
+            return p;
+        }
+    }
+    return NULL;
+}
+
+s32 TLobby__sub_80407D98(s16 idx, s32 addr) {
+    s16 lim;
+    Node_80407C60 *next;
+    Node_80407C60 *p;
+    Ent_8040799C *e;
+    Node_80407C60 *node;
+    s16 *max;
+    Tbl_8040799C *t = TBL;
+    s16 k;
+
+    e = Lookup_8040799C(t, idx);
+    if (e == NULL) {
+        return -1;
+    }
+    if (e->f0 == 0) {
+        return -1;
+    }
+    node = AllocNode_80407D98(t, max = &t->h8);
+    if (node == NULL) {
+        return -1;
+    }
+    NetMemcpy(node->addr, (void *)addr, 4);
+    node->used = 1;
+    node->next = NULL;
+    if (e->head == NULL) {
+        e->head = node;
+    } else {
+        lim = *max;
+        p = e->head;
+        k = 0;
+        while ((next = p->next) != NULL) {
+            k++;
+            if (lim <= k) {
+                return -1;
+            }
+            p = next;
+        }
+        p->next = node;
+    }
+    return 0;
+}
+
 void TLobby__sub_80408060(Peer_8040799C *peer, NetPacket *pkt) {
     Conn_8040799C *slot;
     s16 total;
@@ -2639,7 +2695,7 @@ s32 TLobby__sub_80409AA8(void) {
     return 0;
 }
 
-struct Rec_8040B33C { u32 f0; u8 pad[0x10]; };
+struct Rec_8040B33C { u32 f0; u8 addr[0x10]; };
 struct A_8040B33C { u8 pad[0x10]; s16 idx; u8 pad2[2]; s16 off; };
 struct A_8040A45C { s16 f0; s16 f2; s32 f4; };
 struct D_8040A45C;
@@ -3257,6 +3313,74 @@ s32 TLobby::clear_all_used_records() {
     TLobby__sub_804217E4();
     return cnt;
 }
+
+#pragma push
+#pragma dont_inline off
+inline s32 compare_family_addr(u32 family, Rec_8040B33C *a, Rec_8040B33C *b) {
+    switch (family) {
+    case 4:
+        if (b->f0 != 4) {
+            return -1;
+        }
+        return NetMemcmp(a->addr, b->addr, 4);
+    case 6:
+        if (b->f0 != 6) {
+            return -1;
+        }
+        return NetMemcmp(a->addr, b->addr, 0x10);
+    default:
+    case 0:
+        return -1;
+    }
+}
+
+s16 TLobby__sub_8040ADE8(Rec_8040B33C *addr) {
+    G_8040A45C *g;
+    s16 ret;
+    s16 i;
+    Rec_8040B33C *p;
+    Rec_8040B33C *slot;
+    u32 family;
+
+    switch (addr->f0) {
+    case 4:
+    case 6:
+        break;
+    default:
+    case 0:
+        return -2;
+    }
+    TLobby__sub_80421814();
+    g = &dns_resolver_state;
+    p = g->b;
+    slot = NULL;
+    for (i = 0; i < g->nb; i++, p++) {
+        if (p->f0 == 0) {
+            if (slot == NULL) {
+                ret = i;
+                slot = p;
+            }
+            continue;
+        }
+        family = addr->f0;
+        if (family != p->f0) {
+            continue;
+        }
+        if (compare_family_addr(family, addr, p) == 0) {
+            ret = -2;
+            slot = NULL;
+            break;
+        }
+    }
+    if (slot != NULL) {
+        NetMemcpy(slot, addr, sizeof(Rec_8040B33C));
+    } else {
+        ret = -2;
+    }
+    TLobby__sub_804217E4();
+    return ret;
+}
+#pragma pop
 
 typedef struct Conn_8040AF48 {
     s16 state;
@@ -4421,18 +4545,18 @@ s32 TLobby__sub_8040ED70(void) {
 
 struct Ipv4Route {
     u16 flags;
-    u8 pad2[2];
+    s16 iface;
     u32 dst;
     u32 mask;
     u32 gateway;
-    u8 pad10[2];
+    s16 f10;
     s16 type;
 };
 struct Ipv4Alias {
     u8 pad0[4];
     u32 addr;
     u32 broadcast;
-    u8 padC[4];
+    u32 network;
     u32 mask;
     Ipv4Alias *next;
 };
@@ -4442,7 +4566,7 @@ struct Ipv4Iface {
     u8 pad4[4];
     u32 addr;
     u32 broadcast;
-    u8 pad10[4];
+    u32 network;
     u32 mask;
     Ipv4Alias *aliases;
 };
@@ -4628,7 +4752,7 @@ Ipv4Route *TLobby__sub_8040F76C(u32 dst, u32 gateway) {
     return NULL;
 }
 
-s16 TRKValidMemory32(u32, u32, u32, s16, s16, u16);
+s16 TRKValidMemory32(u32, u32, u32, s16, u8, u16);
 
 #pragma push
 #pragma opt_common_subs on
@@ -4698,6 +4822,136 @@ s32 TLobby__sub_8040F9CC(u32 dst, u32 mask, u32 gateway, s16 flags) {
     }
     return -2;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+inline s16 find_iface_by_addr_8040FA48(Ipv4Iface *ifaces, s16 n, s16 m, u32 addr) {
+    s16 i;
+    s16 j;
+    Ipv4Iface *ifc;
+    Ipv4Alias *a;
+
+    ifc = ifaces;
+
+    for (i = 0; i < n; i++, ifc++) {
+        if (ifc->state == 1) {
+            if (ifc->addr == addr) {
+                return i;
+            }
+            for (a = ifc->aliases, j = 0; a != NULL && j < m; j++) {
+                if (a->addr == addr) {
+                    return i;
+                }
+                a = a->next;
+            }
+        }
+    }
+    return -1;
+}
+
+inline s16 find_iface_by_network_8040FA48(Ipv4Iface *ifaces, s16 n, s16 m, u32 addr) {
+    s16 i;
+    s16 j;
+    Ipv4Iface *ifc;
+    Ipv4Alias *a;
+
+    ifc = ifaces;
+
+    for (i = 0; i < n; i++, ifc++) {
+        if (ifc->state == 1) {
+            if (ifc->network == (ifc->mask & addr)) {
+                return i;
+            }
+            for (a = ifc->aliases, j = 0; a != NULL && j < m; j++) {
+                if (a->network == (a->mask & addr)) {
+                    return i;
+                }
+                a = a->next;
+            }
+        }
+    }
+    return -1;
+}
+
+inline Ipv4Iface *get_ifaces_8040FA48(Ipv4RoutingState *g) {
+    return g->ifaces;
+}
+
+s16 TRKValidMemory32(u32 dst, u32 mask, u32 gateway, s16 f10, u8 type, u16 flags) {
+    Ipv4RoutingState *g = (Ipv4RoutingState *)&ipv4_address_routing_state;
+    Ipv4Iface *ifaces;
+    s16 m;
+    s16 n;
+    s16 idx;
+    s16 i;
+    Ipv4Route *e;
+    Ipv4Route *slot;
+
+    ifaces = get_ifaces_8040FA48(g);
+    m = g->max_aliases;
+    n = g->nifaces;
+    idx = find_iface_by_addr_8040FA48(ifaces, n, m, gateway);
+    if (idx < 0) {
+        idx = find_iface_by_network_8040FA48(ifaces, n, m, gateway);
+        if (idx < 0) {
+            return -2;
+        }
+    }
+    e = g->routes;
+    slot = NULL;
+    for (i = 0; i < g->nroutes; i++, e++) {
+        if (e->flags & 1) {
+            if (e->dst == dst && (dst != 0 || mask != 0 || gateway != 0 || type != 1)) {
+                return -2;
+            }
+        } else {
+            slot = e;
+            break;
+        }
+    }
+    if (slot == NULL) {
+        return -0x107;
+    }
+    slot->dst = dst;
+    slot->gateway = gateway;
+    slot->type = type;
+    slot->f10 = f10;
+    slot->iface = idx;
+    switch (type) {
+    case 1:
+        if (mask == 0xFFFFFFFF) {
+            slot->flags = 0xD;
+        } else {
+            slot->flags = 9;
+        }
+        slot->mask = mask;
+        break;
+    case 2:
+        slot->flags = flags | 1;
+        if (flags & 4) {
+            slot->mask = 0xFFFFFFFF;
+        } else {
+            slot->mask = mask;
+        }
+        break;
+    case 3:
+        slot->flags = 0xB;
+        slot->mask = mask;
+        break;
+    default:
+        if (mask == 0xFFFFFFFF) {
+            slot->flags = 0xF;
+        } else {
+            slot->flags = 0xB;
+        }
+        slot->mask = mask;
+        break;
+    }
+    return 0;
+}
+#pragma pop
 
 struct A_RT { u8 pad0[4]; u32 addr; u8 pad8[8]; u32 mask; A_RT *next; };
 struct E_RT { s16 state; u8 pad2[6]; u32 addr; u8 padC[8]; u32 mask; A_RT *alias; };
@@ -5198,7 +5452,8 @@ s32 TLobby__sub_80411F1C(u8 *out, u8 *dst, s16 idx) {
 
 struct Ent_80412210 {
     s16 f0;
-    u8 p2[4];
+    s16 f2;
+    s16 f4;
     s16 f6;
     u8 f8[16];
     u8 f18[16];
@@ -5230,7 +5485,7 @@ struct G_80412210 {
     If_80412210 *ifs;
 };
 
-void TLobby__sub_80414B98(void *, s32, void *);
+void TLobby__sub_80414B98(u8 *, s16, u8 *);
 
 #define G ((G_80412210 *)&ipv6_address_routing_state)
 
@@ -5350,6 +5605,69 @@ s32 TLobby__sub_80413230(u8 *arg0, s32 arg1) {
     }
     return 0;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s16 is_link_local_8041347C(u8 *a) {
+    if (a[0] != 0xFE) {
+        return 0;
+    }
+    if (!(a[1] & 0x80) || (a[1] & 0x40)) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 TLobby__sub_8041347C(u8 *prefix, s16 bits, u8 *addr, s16 idx, s16 kind, s16 mode) {
+    s16 len;
+    G_80412210 *g = (G_80412210 *)&ipv6_address_routing_state;
+    s16 i;
+    Ent_80412210 *e;
+    Ent_80412210 *sel;
+    u8 key[16];
+
+    if (bits < 0 || bits > 0x80) {
+        return -2;
+    }
+    if (idx < 0 || idx >= g->f2) {
+        return -2;
+    }
+    if (kind != 1 && kind != 2 && kind != 3 && kind != 0) {
+        return -2;
+    }
+    if (mode != 1 && mode != 2 && mode != 3 && mode != 4) {
+        return -2;
+    }
+    TLobby__sub_80414B98(key, bits, prefix);
+    e = g->table;
+    len = bits;
+    sel = NULL;
+    for (i = 0; i < g->f0; i++, e++) {
+        if (e->f0 == 1) {
+            if (e->f28 == len && cmp_80412210(e->f8, key) == 0) {
+                if (!is_link_local_8041347C(key) || cmp_80412210(e->f18, addr) == 0) {
+                    return -2;
+                }
+            }
+        } else {
+            sel = e;
+            break;
+        }
+    }
+    if (sel == NULL) {
+        return -0x108;
+    }
+    sel->f0 = 1;
+    NetMemcpy(sel->f8, key, 16);
+    NetMemcpy(sel->f18, addr, 16);
+    sel->f2 = kind;
+    sel->f4 = mode;
+    sel->f28 = bits;
+    sel->f6 = idx;
+    return 0;
+}
+#pragma pop
 
 void TLobby__sub_804136AC(s16 i) {
     TLobby::is_slot_flag_0x20_set(i);
@@ -5637,6 +5955,68 @@ s16 TLobby__sub_80414090(u8 *addr, s16 idx) {
     return 0;
 }
 #pragma pop
+
+s16 TLobby__sub_80414218(u8 *a, u8 *b) {
+    s16 i;
+    s16 bit;
+    s16 count = 0;
+
+    for (i = 0; i < 16; i++, a++, b++) {
+        for (bit = 0; bit < 8; bit++) {
+            switch (bit) {
+            case 0:
+                if ((*a & 0x80) != (*b & 0x80)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 1:
+                if ((*a & 0x40) != (*b & 0x40)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 2:
+                if ((*a & 0x20) != (*b & 0x20)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 3:
+                if ((*a & 0x10) != (*b & 0x10)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 4:
+                if ((*a & 0x08) != (*b & 0x08)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 5:
+                if ((*a & 0x04) != (*b & 0x04)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 6:
+                if ((*a & 0x02) != (*b & 0x02)) {
+                    return count;
+                }
+                count++;
+                break;
+            case 7:
+                if ((*a & 0x01) != (*b & 0x01)) {
+                    return count;
+                }
+                count++;
+                break;
+            }
+        }
+    }
+    return count;
+}
 
 typedef char RecoveredGlobal_8041471C_lbl_805C1BB8_size[sizeof(RecoveredGlobal_8041471C_lbl_805C1BB8) == 0x28 ? 1 : -1];
 
@@ -6019,6 +6399,55 @@ s16 NetIPv6CompareAddresses(s32 arg0, s32 arg1) {
         return 1;
     }
     return 0;
+}
+
+void TLobby__sub_80414B98(u8 *dst, s16 bits, u8 *src) {
+    s16 len;
+    s16 i;
+    s16 rem;
+    s16 bytes;
+
+    if (bits < 0 || bits > 0x80) {
+        return;
+    }
+    bytes = (len = bits) / 8;
+    rem = len % 8;
+    for (i = 0; i < bytes; i++) {
+        *dst++ = *src++;
+    }
+    switch (rem) {
+    case 7:
+        *dst++ = *src & 0xFE;
+        bytes++;
+        break;
+    case 6:
+        *dst++ = *src & 0xFC;
+        bytes++;
+        break;
+    case 5:
+        *dst++ = *src & 0xF8;
+        bytes++;
+        break;
+    case 4:
+        *dst++ = *src & 0xF0;
+        bytes++;
+        break;
+    case 3:
+        *dst++ = *src & 0xE0;
+        bytes++;
+        break;
+    case 2:
+        *dst++ = *src & 0xC0;
+        bytes++;
+        break;
+    case 1:
+        *dst++ = *src & 0x80;
+        bytes++;
+        break;
+    }
+    for (; bytes < 16; bytes++) {
+        *dst++ = 0;
+    }
 }
 
 s32 NetCompareBitsBackward(u8 *arg0, u8 *arg1, s16 arg2) {
