@@ -1064,6 +1064,8 @@ force_active:
   - TObjPlayer__sub_8001951C
   - TObjPlayer__sub_8001A4CC
   - TObjPlayer__sub_8001A77C
+  - TObjPlayer__sub_8002ECC4
+  - TObjPlayer__sub_8002ED48
   - TObjPlayer__sub_8003F81C
   - TObjPlayer__sub_8003F9D4
   - TObjPlayer__sub_8003FCD0
@@ -5186,6 +5188,7 @@ force_active:
   - lbl_805D4630
   - lbl_805D4638
   - lbl_805D4640
+  - lbl_805D4B90
   - lbl_805D4C70
   - lbl_805D4C7C
   - lbl_805D6270
@@ -11474,6 +11477,7 @@ force_active:
   - setup_tex_gen__10TObjPlayerFv
   - setup_vertex_format__10TObjPlayerFv
   - setup_vtx_desc__10TObjPlayerFv
+  - shared_breakup_model
   - shift_queue_push_next__15TObjBoss2TunnelFPv
   - shop_tool_stock_table
   - shop_weapon_stock_buffers

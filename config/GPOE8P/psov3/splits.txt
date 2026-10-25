@@ -250,7 +250,8 @@ pso/unk/text_8002E174.cpp:
 pso/player/TObjPlayer_8002E784.cpp:
 	.text       start:0x8002E784 end:0x8002EFE8
 	.ctors      start:0x80433F28 end:0x80433F2C
-	.rodata     start:0x80435620 end:0x804359F0
+	.rodata     start:0x80435620 end:0x80435628
+	.sbss       start:0x805D4B88 end:0x805D4B98
 
 pso/boss/TBoss2DeRolLe.cpp:
 	.text       start:0x8002EFE8 end:0x800363B4
