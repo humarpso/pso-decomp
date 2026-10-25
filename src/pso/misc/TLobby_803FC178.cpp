@@ -730,6 +730,7 @@ void TLobby::dispatch_received_packet(s32 arg1) {
 
 struct Buf_803FC684 { char a[0x80]; char b[0x80]; u8 rest[0x50]; };
 Buf_803FC684 lbl_805C0180;
+RecoveredGlobal_803FC178_lbl_805C02D0 lbl_805C02D0;
 s32 TLobby__sub_803FC684(u8 *arg0, u8 *arg1, u8 *arg2) {
     char **p = *(char ***)(arg2 + 0x30);
 
