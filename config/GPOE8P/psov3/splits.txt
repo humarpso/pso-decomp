@@ -5871,18 +5871,17 @@ pso/unk/text_80193018.cpp:
 	.text       start:0x80193018 end:0x801930E8
 	.data       start:0x804B7F20 end:0x804B7FB0
 
-pso/unk/text_801930E8.cpp:
-	.text       start:0x801930E8 end:0x801934E0
-	.rodata     start:0x80445BF8 end:0x80445C00
-
 pso/object/TObjLazerFence4.cpp:
-	.text       start:0x801934E0 end:0x80193524
+	.text       start:0x801930E8 end:0x801936E0
+	.rodata     start:0x80445BF8 end:0x80445C00
+	.sdata2     start:0x805DBE68 end:0x805DBE78
 
-pso/unk/text_80193524.cpp:
-	.text       start:0x80193524 end:0x80193FE4
+pso/object/TLazerFenceSw.cpp:
+	.text       start:0x801936E0 end:0x80193FE4
 	.rodata     start:0x80445CD0 end:0x80445CF0
 	.data       start:0x804B8318 end:0x804B8344
 	.bss        start:0x8050DCE8 end:0x8050DD08
+	.sdata2     start:0x805DBE78 end:0x805DBE94
 
 pso/object/TObjLight.cpp:
 	.text       start:0x80193FE4 end:0x80194670

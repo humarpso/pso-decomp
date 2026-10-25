@@ -4144,6 +4144,7 @@ force_active:
   - init_map_light__9TObjLightFi
   - init_model_and_state__19TObjEneEpsilonGuardFv
   - init_model_by_type__10TODoorLaboFv
+  - init_models__15TObjLazerFence4Fv
   - init_move__15TObjEneMe1GiGueFv
   - init_network_config_defaults__Fv
   - init_object__12TFogCtrl_EORFv
@@ -10405,6 +10406,7 @@ force_active:
   - reset_gstream_buffer
   - reset_hp__20TContainerAncient01RFv
   - reset_id_array__10TObjPlayerFPv
+  - reset_if_door_closed__15TObjLazerFence4Fv
   - reset_leader_selection__FPv
   - reset_leader_selection_static__6TLobbyFv
   - reset_oscillation__11TItemMagSubFv
@@ -11457,6 +11459,7 @@ force_active:
   - sub_8018B284__19TContainerAncient01Fv
   - sub_8018B48C__19TContainerAncient01Fv
   - sub_8018B700__19TContainerAncient01Fv
+  - sub_801933C8__15TObjLazerFence4Fv
   - sub_8019A44C__13TUnk_804B8E18Fl
   - sub_8019B77C__14TObjWarpStringFv
   - sub_8019E418__12TObjWarpBossFv

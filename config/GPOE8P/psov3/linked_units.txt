@@ -2027,6 +2027,7 @@ pso/object/CityVerticalModel.cpp
 pso/object/LobbyPigeonPath.cpp
 pso/object/LobbyPigeonTheme.cpp
 pso/object/ObjectFactoryTables.cpp
+pso/object/TLazerFenceSw.cpp
 pso/object/TObjAreaWarpEndingJung.cpp
 pso/object/TObjAreaWarpQuest.cpp
 pso/object/TObjAreaWarp_80307B70.cpp
@@ -3157,8 +3158,6 @@ pso/unk/text_8018FA6C.cpp
 pso/unk/text_80191D14.cpp
 pso/unk/text_80192554.cpp
 pso/unk/text_80193018.cpp
-pso/unk/text_801930E8.cpp
-pso/unk/text_80193524.cpp
 pso/unk/text_8019608C.cpp
 pso/unk/text_80196214.cpp
 pso/unk/text_801963A8.cpp

@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/TMainTask.h"
-extern s32 model_render_flags;
 #include "pso/system/GinjaMaterial.h"
 #include "pso/system/MaterialAlphaCompare.h"
 #include "pso/unk/text_80141550.h"
@@ -23,6 +22,9 @@ extern s32 model_render_flags;
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+
+extern "C" { void rotate_matrix_y(int, void *); s32 pop_matrix(void); void draw_ginja_object(void *); s32 get_bml_motion(s32, s32); s32 get_bml_model(s32, s32); }
+extern s32 model_render_flags;
 
 extern char lbl_80445C00[];
 extern char lbl_80445C18[];
@@ -73,40 +75,6 @@ struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
 
 struct Sw_80193978 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x58]; u16 fE8; };
 
-#define CAT2(a, b) a##b
-#define CAT(a, b) CAT2(a, b)
-#define PADV virtual void CAT(pv, __LINE__)();
-struct Base_801935D8 { char pad[0x18]; };
-
-struct V_801935D8 : Base_801935D8 {
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual void init(void *);
-};
-
-struct Fence_801935D8 {
-    s32 id;
-    u8 pad4[0x18 - 0x4];
-    void *vt;
-    u8 pad1C[0x30 - 0x1C];
-    u32 flags;
-    u8 pad34[0x68 - 0x34];
-    f32 f68;
-    u8 pad6C[0x84 - 0x6C];
-    s32 f84;
-    u8 pad88[0x8C - 0x88];
-    s32 f8C;
-    u8 pad90[0xAC - 0x90];
-    s32 fAC;
-    f32 fB0;
-    u8 padB4[0xB8 - 0xB4];
-    u16 fB8;
-    s16 fBA;
-};
-
 struct Node_80193CA4 {
     u8 pad0[4];
     u32 f4;
@@ -116,9 +84,7 @@ struct Node_80193CA4 {
 
 extern "C" {
 s32 fn_80156BBC(void *, void *);
-extern const f32 lbl_805DBE7C;
-extern const f32 lbl_805DBE80;
-extern const f32 TLazerFenceSw__data_805DBE84;
+
 void debug_draw_key_id__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u16 lbl_80445CB8[];
@@ -130,19 +96,11 @@ void *TOKey__ct(TOKey *arg0);
 extern u8 lazer_fence_sw_collision_body_part[];
 extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
-extern const f32 lbl_805DBE8C;
-extern const f32 lbl_805DBE90;
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *);
-extern u16 lbl_80445BE0[];
-extern u8 laser_fence4_collision_body_sets[];
-extern s32 __vt__15TObjLazerFence4[];
-extern s32 lazer_fence4_class_name;
-extern const f32 lbl_805DBE6C;
+
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *load_gvm_texture_file(s32 arg0);
-s32 get_bml_model(void *, s32);
-s32 get_bml_motion(void *, s32);
+
 u8 *count_linked_switches__23TObjSeabedSuisoBrakableFl(u32, int);
 extern void *lazer_fence_switch_bml_resource;
 extern s32 TLazerFenceSw__texture_list;
@@ -154,63 +112,13 @@ extern u8 lbl_80445D08[];
 extern u8 lbl_80445D20[];
 s32 TLobby__sub_8001FE7C(void *, s32);
 void free_collision_body_parts(void *);
-void __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
-void *__nw__7TObjectFUl(int);
 s32 step_laser_fence_fade(void *);
 
 __declspec(section ".data") u32 lazer_fence_sw_ginja_model_table[2];
 __declspec(section ".data") u32 lazer_fence_beam_motions[2];
 __declspec(section ".data") u32 lazer_fence_beam_node_table[3];
 #define lazer_fence_beam_motions (*(RecoveredGlobal_80193A84_lbl_8050DCF0 *)lazer_fence_beam_motions)
-
-void *TObjLazerFence4::create() {
-    void *o = __nw__7TObjectFUl(0xF8);
-    if (o != NULL) {
-        o = TObjLazerFence4__ct(o, tl_05, this);
-    }
-    return o;
-}
-
-void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-#define self ((Fence_801935D8 *)arg0)
-void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
-    s32 i;
-    ((void (*)(void *, void *, void *))construct_collider_proxy__13TUnk_804AF8A0Fv)(self, arg1, arg2);
-    self->vt = (void *)__vt__15TObjLazerFence4;
-    self->id = lazer_fence4_class_name;
-    ((V_801935D8 *)self)->init(arg2);
-    self->fAC = 0;
-    self->fB0 = lbl_805DBE6C;
-    self->fBA = self->f84;
-    i = self->f68;
-    if (i < 0) {
-        i = 0;
-    }
-    if (i > 3) {
-        i = 3;
-    }
-    self->fB8 = lbl_80445BE0[i];
-    ((TObjLazerFence4 *)self)->init_models();
-    init_collision_body_parts(self, laser_fence4_collision_body_sets + (self->f8C % 2) * 0xDC, 5);
-    self->flags |= 0x40000000;
-    ((TObjPlayer *)self)->reset_photon_effect();
-    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
-    return self;
-}
-#undef self
 
 #pragma push
 #pragma opt_common_subs off
@@ -234,10 +142,10 @@ void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
 void PPCSync(void);
 void push_matrix(void);
 void post_translate_matrix(void *);
-s32 rotate_matrix_y(int, int);
+
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern u32 actor_frame_tick;
-extern const f32 lbl_805DBE78;
+
 void TLazerFenceSw::draw_laser_beam() {
     Sw_801936E0 *self = (Sw_801936E0 *)this;
     s32 i;
@@ -246,7 +154,7 @@ void TLazerFenceSw::draw_laser_beam() {
         ((TObjDoorJung *)(lazer_fence_beam_node_table[i]))->free_children((void *)self->fE8);
     }
     TObjFish::set_global_param(TLazerFenceSw__texture_list);
-    if (actor_frame_tick != self->f114 && self->f110 >= lbl_805DBE78) {
+    if (actor_frame_tick != self->f114 && self->f110 >= 1.0f) {
         self->f114 = actor_frame_tick;
         scroll_ginja_mesh_uvs(*(u32 *)(lazer_fence_switch_scroll_node + 4), 0, (s32)self->f110, 5, 1);
         PPCSync();
@@ -256,7 +164,7 @@ void TLazerFenceSw::draw_laser_beam() {
     case 0:
         push_matrix();
         post_translate_matrix(self->pos);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, (void *)self->f60);
         draw_ginja_object((void *)lazer_fence_sw_ginja_model_table[1]);
         TParticleCtrl::begin_effect_render();
         model_render_flags |= 0x01000000;
@@ -268,7 +176,7 @@ void TLazerFenceSw::draw_laser_beam() {
     case 1:
         push_matrix();
         post_translate_matrix(self->pos);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, (void *)self->f60);
         draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[1], ((u32 *)&lazer_fence_beam_motions)[1], self->fEC);
         TParticleCtrl::begin_effect_render();
         model_render_flags |= 0x01000000;
@@ -281,7 +189,7 @@ void TLazerFenceSw::draw_laser_beam() {
 }
 void TLazerFenceSw::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(4e+02f, 2e+01f) != 0) {
         if (TMainTask::get_render_pass() != 1) {
             set_depth_buffer_settings_id(3);
             set_material_alpha_compare_reference(0x80);
@@ -315,17 +223,15 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
 
 void TLazerFenceSw__vt16(void *lazer_fence_sw) {
     ((TOKey *)lazer_fence_sw)->TOKey::trigger_activate_sound();
-    ((TLazerFenceSw *)lazer_fence_sw)->m_b0 = TLazerFenceSw__data_805DBE84;
-    *(f32 *)((s8 *)lazer_fence_sw + 0xEC) = TLazerFenceSw__data_805DBE84;
+    ((TLazerFenceSw *)lazer_fence_sw)->m_b0 = 0.0f;
+    *(f32 *)((s8 *)lazer_fence_sw + 0xEC) = 0.0f;
 }
 
 void TLazerFenceSw__vt17(void *arg0) {
     ((TBoss3Volopt *)arg0)->call_vt21();
-    ((TLazerFenceSw *)arg0)->m_b0 = TLazerFenceSw__data_805DBE84;
-    *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
+    ((TLazerFenceSw *)arg0)->m_b0 = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0xEC) = 0.0f;
 }
-
-extern const f32 lbl_805DBE88;
 
 typedef char RecoveredGlobal_80193A84_lbl_8050DCF0_size[sizeof(RecoveredGlobal_80193A84_lbl_8050DCF0) == 0x18 ? 1 : -1];
 void TLazerFenceSw::vfunc_16() {
@@ -347,7 +253,7 @@ typedef char RecoveredGlobal_80193B4C_lbl_8050DCF0_size[sizeof(RecoveredGlobal_8
 void TLazerFenceSw::vfunc_17() {
     this->m_b0 = (f32) (this->m_b0 + this->m_b8);
     if (this->m_b0 > (f32) (u32) (*(s32 *)((s8 *)((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value) + 4) - 1)) {
-        this->m_b0 = (f32) TLazerFenceSw__data_805DBE84;
+        this->m_b0 = (f32) 0.0f;
     }
     this->submit_cursor_target();
 }
@@ -356,11 +262,11 @@ void TLazerFenceSw::run_task() {
     u8 *arg0 = (u8 *)this;
     step_laser_fence_fade(arg0 + 0xF0);
     ((TOKey *)arg0)->reset_and_notify();
-    *(f32 *)((s8 *)arg0 + 0x110) = (f32) (*(f32 *)((s8 *)arg0 + 0x110) + lbl_805DBE88);
+    *(f32 *)((s8 *)arg0 + 0x110) += 0.2f;
 }
 
 void *TLazerFenceSw::create() {
-    void *o = __nw__7TObjectFUl(0x118);
+    void *o = TObject::operator new(0x118);
     if (o != NULL) {
         o = TLazerFenceSw__ct(o, tl_05, this);
     }
@@ -405,10 +311,10 @@ void TLazerFenceSw::load_resources() {
             TLazerFenceSw__texture_list = (s32)load_gvm_texture_file((s32)lbl_80445D20);
         }
     }
-    lazer_fence_sw_ginja_model_table[0] = get_bml_model(lazer_fence_switch_bml_resource, 0);
-    lazer_fence_sw_ginja_model_table[1] = get_bml_model(lazer_fence_switch_bml_resource, 1);
-    ((u32 *)&lazer_fence_beam_motions)[0] = get_bml_motion(lazer_fence_switch_bml_resource, 0);
-    ((u32 *)&lazer_fence_beam_motions)[1] = get_bml_motion(lazer_fence_switch_bml_resource, 1);
+    lazer_fence_sw_ginja_model_table[0] = (s32)get_bml_model((s32)lazer_fence_switch_bml_resource, 0);
+    lazer_fence_sw_ginja_model_table[1] = (s32)get_bml_model((s32)lazer_fence_switch_bml_resource, 1);
+    ((u32 *)&lazer_fence_beam_motions)[0] = get_bml_motion((s32)lazer_fence_switch_bml_resource, 0);
+    ((u32 *)&lazer_fence_beam_motions)[1] = get_bml_motion((s32)lazer_fence_switch_bml_resource, 1);
     for (j = 0; j < 3; j++) {
         lazer_fence_beam_node_table[j] = 0;
     }
@@ -436,7 +342,7 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
         ((TUnk_804AF8D8 *)((s8 *)arg0 + 0xF0))->destroy(-1);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            TObject::operator delete(arg0);
         }
     }
     return arg0;
@@ -453,14 +359,14 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
         *(s32 *)((s8 *)arg0 + 0x8C) = 0;
     }
     *(u16 *)((s8 *)arg0 + 0xE8) = lbl_80445CB8[*(s32 *)((s8 *)arg0 + 0x8C) % 4];
-    *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DBE8C;
-    *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)arg0 + 0xB8) = 2.0f;
+    *(f32 *)((s8 *)arg0 + 0xEC) = 0.0f;
     init_collision_body_parts(arg0, lazer_fence_sw_collision_body_part, 1);
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804AF8D8 *)((u8 *)arg0 + 0xF0))->sub_80156CEC();
-    TLazerFenceSw__sub_8018A554((u8 *)arg0 + 0xF0, lbl_805DBE90);
-    *(f32 *)((s8 *)arg0 + 0x110) = TLazerFenceSw__data_805DBE84;
+    TLazerFenceSw__sub_8018A554((u8 *)arg0 + 0xF0, 2.9e+02f);
+    *(f32 *)((s8 *)arg0 + 0x110) = 0.0f;
     *(s32 *)((s8 *)arg0 + 0x114) = 0;
     return arg0;
 }
