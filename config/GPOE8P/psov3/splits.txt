@@ -11469,11 +11469,10 @@ pso/misc/TLobby_80336E00.cpp:
 	.text       start:0x80336E00 end:0x80336E6C
 
 pso/boss/TBoss6Type2_80336E6C.cpp:
-	.text       start:0x80336E6C end:0x803371C0
-
-pso/unk/text_803371C0.cpp:
-	.text       start:0x803371C0 end:0x80337348
+	.text       start:0x80336E6C end:0x80337348
 	.ctors      start:0x80433FF0 end:0x80433FF4
+	.rodata     start:0x80477858 end:0x80477890
+	.data       start:0x804EEF98 end:0x804EF100
 
 pso/player/TObjPlayer_80337348.cpp:
 	.text       start:0x80337348 end:0x803374F0

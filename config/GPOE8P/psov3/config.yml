@@ -2203,6 +2203,7 @@ force_active:
   - advance_motion_frame__13TObjLobbyMainFv
   - advance_motion_state__12TObjEneSaverFv
   - advance_past_disabled_menu_rows__11TWindowMenuFv
+  - advance_phase_counter__11TBoss6Type2Fv
   - advance_plot_to_state2__11TBoss6Type1Fv
   - advance_pose_turn__14TObjEneBm5WolfFPvi
   - advance_position__10TTecSlicerFv
@@ -11480,6 +11481,7 @@ force_active:
   - start_entry_timer__6TLobbyFUsl
   - start_fade__9TAdFadeGCFPv
   - start_get_type_async__16TKeyBoardControlFllll
+  - start_mag_mines_state__11TBoss6Type2Fv
   - start_match__19TPlayerBattleCtrl4PFv
   - start_preview_loads__23TAdSinglePlyChrSelectGCFPv
   - start_quest_mission__Fv
@@ -11704,6 +11706,11 @@ force_active:
   - sub_8032E8DC__9TBoss6MagFv
   - sub_8033040C__9TBoss6MagFv
   - sub_8033645C__13TUnk_804EEF64Fv
+  - sub_80336F00__11TBoss6Type2Fv
+  - sub_80336FB8__11TBoss6Type2Fv
+  - sub_80337108__11TBoss6Type2Fv
+  - sub_80337160__11TBoss6Type2Fv
+  - sub_803371B4__11TBoss6Type2Fv
   - sub_8033AA64__23TAdSinglePlyChrSelectGCFv
   - sub_8033ACF4__23TAdSinglePlyChrSelectGCFv
   - sub_8033AFC8__23TAdSinglePlyChrSelectGCFv
@@ -11758,6 +11765,7 @@ force_active:
   - texture_f512_multiplay_descriptor
   - throw_gogo_ball__12TWindowTimerFll
   - tick_attack_sequence__11TBoss6Type1Fv
+  - tick_attack_timer__11TBoss6Type2Fv
   - tick_battle_music_timer
   - tick_countdown__11TBoss6Type1Fv
   - tick_display_timer__15TWindowHelpItemFPv
@@ -11869,6 +11877,7 @@ force_active:
   - update_attack_distance_state__18TObjEneBalClawClawFv
   - update_attack_jump__11TObjEneMojaFv
   - update_attack_state__11TBoss6Type1Fv
+  - update_attack_state__11TBoss6Type2Fv
   - update_attack_timer2__11TBoss6Type1Fv
   - update_attack_timer__11TBoss6Type1Fv
   - update_attacking__12TObjEneLappyFv
@@ -11953,6 +11962,7 @@ force_active:
   - update_effect_params__10TTecDebandFv
   - update_effect_params__9TTecSiftaFv
   - update_effect_positions__9TBoss6MagFv
+  - update_effect_subsystems__11TBoss6Type2Fv
   - update_effects__13TUnk_804B8DD0Fv
   - update_elapsed_time__23TAdSinglePlyChrSelectGCFPv
   - update_emitter_positions__13TObjLobbyMainFv
@@ -12084,9 +12094,11 @@ force_active:
   - update_pulse_state__10TBoss2MineFv
   - update_pulse_value__17TOSensorAncient01Fv
   - update_punch_attack__11TObjEneMojaFPv
+  - update_ramp_timer__11TBoss6Type2Fv
   - update_random_shake__14TBoss6PlotFalzFPv
   - update_reaction_animation__10TObjPlayerFv
   - update_recoil_state__13TObjEneBm3FlyFl
+  - update_recover_timer__11TBoss6Type2Fv
   - update_reload_phase__19TPlayerBattleCtrl4PFv
   - update_replenish__17TObjEneBm3FlyNestFv
   - update_requirements__15TWindowHelpItemFv
