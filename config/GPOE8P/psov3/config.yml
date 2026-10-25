@@ -354,6 +354,12 @@ force_active:
   - TLobby__disk_error_msg_last
   - TLobby__disk_error_msg_table
   - TLobby__pppoe_message_queue
+  - TLobby__sub_8001D9E8
+  - TLobby__sub_8001DBD8
+  - TLobby__sub_8001DF58
+  - TLobby__sub_8001E270
+  - TLobby__sub_8001E2A8
+  - TLobby__sub_8001E75C
   - TLobby__sub_8006F38C
   - TLobby__sub_8006F48C
   - TLobby__sub_8006F5B0
@@ -2591,6 +2597,7 @@ force_active:
   - bringer_init_params
   - bringer_render_node_callback__Fv
   - broadcast_state__15TOAttackableColFv
+  - broadcast_to_players__6TLobbyFii
   - bsearch_record__6TLobbyFPvii
   - bswap32_in_place__6TLobbyFPUl
   - bswap_6x79_gogo_ball__12TWindowTimerFi
@@ -2638,6 +2645,7 @@ force_active:
   - byteswap_header__10TNpcPlayerFv
   - byteswap_telepipe_packet__9TTecLukerFv
   - cached_blend_factor_table
+  - calc_alpha_shifted__6TLobbyFf
   - calc_angle_to_target__19TObjEneEpsilonGuardFv
   - calc_anim_speed__16TObjEneBm5GibonUFPvf
   - calc_area_parameters__10TTecRaFoieFv
@@ -2684,6 +2692,7 @@ force_active:
   - calc_small_font_scale__Fv
   - calc_spin_value__10TObjPlayerFv
   - calc_text_pos__10TAdTitleGCFlPUcl
+  - calc_time_from_hms__6TLobbyFv
   - calc_trap_count__16TOTrapAncient02RFv
   - calc_tube_progress__10TBoss6TubeFl
   - calc_xz_direction_to__16TObjEneBm5GibonUFPvPvPv
@@ -2874,6 +2883,7 @@ force_active:
   - claim_ownership__5TItemFii
   - clamp_axes__16TKeyBoardControlFv
   - clamp_destination_index__15TObjCityMapWarpFv
+  - clamp_difficulty__6TLobbyFl
   - clamp_flight_height__13TObjEneBm3FlyFv
   - clamp_hp_value__10TObjPlayerFPs
   - clamp_item_list_scroll__13TUnk_804D0618Fv
@@ -2945,6 +2955,7 @@ force_active:
   - close_if_done__20TShopItemTecSequenceFv
   - close_if_done__22TShopEquipmentSequenceFv
   - close_message__22TQuestVmDownLoadServerFv
+  - close_result_windows__6TLobbyFv
   - close_shop_subwindows__17TQuestListOfflineFs
   - close_sub_windows__7TWindowFv
   - close_window_2c__18TObjChallengeRetryFv
@@ -3035,6 +3046,8 @@ force_active:
   - copy__11TBreakUpMdlFPv
   - copy__12TChCrLoadReqFPv
   - copy__16TPlyGuildCardTagFPv
+  - copy_all_data__6TLobbyFii
+  - copy_all_entries__6TLobbyFii
   - copy_bank_from_card_window__Fl
   - copy_challenge_result_record__FP21ChallengeResultRecordPC21ChallengeResultRecord
   - copy_char_slot_data__23TAdSinglePlyChrSelectGCFPvPv
@@ -3056,6 +3069,7 @@ force_active:
   - copy_network_info_config_string__FPcPcUlUl
   - copy_node_record__10TObjPlayerFl
   - copy_pair__18TObjEnvSoundGlobalFPvPv
+  - copy_pair__6TLobbyFPvPv
   - copy_pos__13TBoss6MagMineFi
   - copy_pos__13TObjEneRe4BitFv
   - copy_pos__17TObjEneBm3FlyNestFv
@@ -3569,6 +3583,7 @@ force_active:
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_free_chat_log_slot__6TLobbyFv
   - find_free_file_names__22TQuestVmDownLoadServerFv
+  - find_free_pool_entry__6TLobbyFPv
   - find_free_slot__6TLobbyFv
   - find_gsl_entry__FPv
   - find_heal_target__13TOHealGeneralFPv
@@ -3813,6 +3828,7 @@ force_active:
   - get_drop_table_mode_flags
   - get_ending_ab_wall_texture_list__Fv
   - get_entity_distance_or_default__11TWindowCtrlFiPvUs
+  - get_entry__6TLobbyFii
   - get_entry__8TFogCtrlFi
   - get_entry_by_index__12TObjNpcEnemyFs
   - get_event_theme_index__17TObjParticleLobbyFv
@@ -3864,6 +3880,7 @@ force_active:
   - get_particle__20TPlayerParticleOwnerFv
   - get_pipe_interaction_latch__FPv
   - get_player__11TPlayerSoulFv
+  - get_player_entry__6TLobbyFii
   - get_player_load_state__Fv
   - get_pos_ptr__10TObjPlayerFv
   - get_quest_thread_id__10TObjPlayerFPv
@@ -4304,6 +4321,7 @@ force_active:
   - is_target_in_attack_range__13TUnk_80483A10Fv
   - is_target_in_front_range__9TBoss6MagFv
   - is_target_in_range__11TObjInfoColFf
+  - is_valid_player_index__6TLobbyFi
   - is_valid_state__6TLobbyFPvi
   - is_value_out_of_range__6TLobbyFl
   - is_visible__14TBoss7CrawfishFv
@@ -5276,6 +5294,7 @@ force_active:
   - me3_stelth_bml_resource_desc
   - megid_projectile_weapon_vtable
   - menu_font_render_rects
+  - merge_adjacent_free_blocks__6TLobbyFv
   - message_tag_error
   - message_thread_loop__6TLobbyFv
   - message_window_position
@@ -10887,6 +10906,7 @@ force_active:
   - set_cursor_row_for_mode__14TWindowSubItemFl
   - set_data_and_draw_node_tree__16TObjEneRe7BeruraFii
   - set_destroy_event__6TLobbyFi
+  - set_difficulty__6TLobbyFi
   - set_display_page__17TWindowSubComCardFv
   - set_displayed_item__14TWindowSubItemFl
   - set_displayed_item__19TWindowSubTradeMainFl

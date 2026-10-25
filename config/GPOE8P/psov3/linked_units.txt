@@ -926,6 +926,7 @@ pso/misc/TLoadingCur.cpp
 pso/misc/TLoadingCur_801A6DE0.cpp
 pso/misc/TLobby.cpp
 pso/misc/TLobby_80019E24.cpp
+pso/misc/TLobby_8001D6A0.cpp
 pso/misc/TLobby_8002ADC8.cpp
 pso/misc/TLobby_8002B058.cpp
 pso/misc/TLobby_8002C140.cpp

@@ -11,6 +11,10 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubStatusDisp_800FBD74.h"
+#include "pso/misc/TLobby_801E2F94.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma readonly_strings on
@@ -699,8 +703,6 @@ s32 TLobby::calc_alpha_shifted(f32 farg0) {
     return __cvt_fp2unsigned(255.0f * farg0) << 0x18;
 }
 
-u32 get_name_text_width();
-
 extern s32 TLobby__data_8050AAAC[];
 extern s32 TLobby__data_805D55AC;
 extern s32 TLobby__lobby_number;
@@ -721,15 +723,12 @@ f32 TLobby::calc_result_offset() {
     var_f31 = 0.0f;
     if (get_main_phase() == 0xF) {
         TLobby::close_result_windows();
-        ((s32 (*)(void))get_shared_text_buffer)();
-        var_f31 -= (f32) get_name_text_width();
+        var_f31 -= (f32)(u32)get_name_text_width(get_shared_text_buffer());
     }
     return var_f31;
 }
 
-extern f32 lbl_805D4AC0;
-
-void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
+static f32 clock_bar_pulse;
 
 
 f32 TLobby::calc_phase_offset() {
@@ -807,8 +806,86 @@ void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     }
 }
 
+#pragma fp_contract on
+void TLobby__sub_8001EA5C(f32 x, f32 y, f32 size, f32 alpha) {
+    s32 frames;
+    s32 text_color;
+    s32 color;
+    s32 beat;
+    f32 scale;
+    u32 elapsed;
+    DateStamp date;
+    ColorLineList lines;
+    u32 colors[3];
+    ColorLineVertex verts[3];
+    s32 pulse;
+    f32 progress;
+    f32 bar_end;
+    f32 bar_y;
+
+    if (!(alpha <= 0.0f)) {
+        if (alpha > 1.0f) {
+            alpha = 1.0f;
+        }
+        frames = TLobby::get_clock_frames();
+        beat = frames / 2592;
+        beat %= 1000;
+        scale = -1.0f / size;
+        color = TLobby::calc_alpha_shifted(alpha);
+        if (get_main_phase() == 0xF) {
+            getDateStamp(&date);
+            DateToSeconds(&date, (int *)&elapsed);
+            elapsed -= TLobby__date_seconds;
+            text_builder_reset();
+            if (elapsed / 3600 > 99) {
+                text_builder_append((u8 *)"99:59");
+            } else {
+                append_padded_number(elapsed / 3600, 2);
+                text_builder_append((u8 *)":");
+                append_padded_number((elapsed / 60) % 60, 2);
+                text_builder_append((u8 *)"/");
+            }
+            draw_small_font_text((void *)(color | 0xFF0000 | 0xFFFF), (const char *)get_shared_text_buffer(), x,
+                                 -1.0f + y, scale);
+            x += 57.0f;
+        }
+        text_color = color | 0xFF0000 | 0xFFFF;
+        TWindowSubStatusDisp__sub_800FBD74(text_color, x, y, scale);
+        TWindowSubStatusDisp::draw_number_digits((void *)text_color, beat, 3, 163.0f + x, -1.0f + y, scale);
+        clock_bar_pulse += 0.01f;
+        if (clock_bar_pulse >= 1.0f) {
+            clock_bar_pulse -= 1.0f;
+        }
+        progress = 163.0f * (frames % 2592);
+        progress /= 2592.0f;
+        lines.verts = verts;
+        lines.colors = colors;
+        lines.unk_8 = 0;
+        lines.count = 3;
+        lines.colors[0] = color | 0xFF00;
+        lines.colors[1] = color | 0xFF00;
+        lines.colors[2] = color | 0xFF00;
+        if (clock_bar_pulse > 0.5f) {
+            pulse = 2.0f * (255.0f * (1.0f - clock_bar_pulse));
+        } else {
+            pulse = 255.0f * (2.0f * clock_bar_pulse);
+        }
+        lines.colors[1] |= (pulse & 0xFF) | ((pulse << 16) & 0xFF0000);
+        bar_end = x + progress;
+        bar_y = 18.0f + y;
+        verts[0].x = bar_end;
+        verts[2].x = x;
+        verts[1].x = clock_bar_pulse * (verts[0].x - verts[2].x) + verts[2].x;
+        verts[0].y = bar_y;
+        verts[1].y = bar_y;
+        verts[2].y = bar_y;
+        draw_color_lines(&lines, 3, 20, size);
+    }
+}
+#pragma fp_contract reset
+
 void TLobby__sub_8001ED70(void) {  }
 void TLobby__sub_8001ED74(void) {
-    lbl_805D4AC0 = 0.0f;
+    clock_bar_pulse = 0.0f;
 }
 }

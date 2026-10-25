@@ -4,6 +4,7 @@
 #include "types.h"
 
 extern "C" {
+extern s32 TLobby__date_seconds;
 u8 *TLobby__ct(u8 *arg0, void *arg1);
 u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void TLobby__sub_80135FFC(void);
