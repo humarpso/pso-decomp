@@ -1,3 +1,4 @@
+// ---- pso/misc/TOKeyAncient03
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -51,14 +52,14 @@ struct VObj_18_8016BABC : VBase_18_8016BABC {
 
 extern "C" {
 s32 is_split_screen();
-extern const f32 lbl_805DB718;
-extern const f32 lbl_805DB71C;
-extern const f32 lbl_805DB720;
-extern const f32 lbl_805DB724;
-extern const f32 lbl_805DB738;
-extern const f32 lbl_805DB73C;
-extern const f32 lbl_805DB740;
-extern const f32 lbl_805DB744;
+
+
+
+
+
+
+
+
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
@@ -73,10 +74,10 @@ s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
 extern s32 __vt__14TOKeyAncient03[];
 extern s32 TOKeyAncient03__class_name;
-extern const f32 lbl_805DB72C;
-extern const f32 lbl_805DB730;
+
+
 u8 *TOKeyAncient03__ct(TOKeyAncient03 *arg0, s32 arg1, s32 arg2);
-extern const f32 lbl_805DB728;
+
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 rotate_matrix_y(int, int);
@@ -106,26 +107,26 @@ extern void *tl_05;
 void TOKeyAncient03::vfunc_17() {
     f32 temp_f1;
     if ((s32) this->m_f8 == 1) {
-        this->m_ec = (f32) (this->m_ec + lbl_805DB718);
-        if (lbl_805DB71C <= this->m_ec) {
+        this->m_ec += 0.1f;
+        if (1.0f <= this->m_ec) {
             this->m_f8 = 0;
         }
     } else {
-        this->m_ec = (f32) (this->m_ec - lbl_805DB718);
-        if (this->m_ec <= lbl_805DB720) {
+        this->m_ec = (f32) (this->m_ec - 0.1f);
+        if (this->m_ec <= 0.0f) {
             this->m_f8 = 1;
         }
     }
     temp_f1 = this->target_scale;
-    if (temp_f1 < lbl_805DB720) {
-        this->target_scale = (f32) (temp_f1 - lbl_805DB724);
+    if (temp_f1 < 0.0f) {
+        this->target_scale = (f32) (temp_f1 - (-0.023333333f));
     }
 }
 
 void TOKeyAncient03::vfunc_16() {
     TOKeyAncient03 *self = this;
-    if (lbl_805DB728 < self->target_scale) {
-        self->target_scale += lbl_805DB724;
+    if ((-0.7f) < self->target_scale) {
+        self->target_scale += (-0.023333333f);
     }
 }
 
@@ -244,9 +245,9 @@ u8 *TOKeyAncient03__ct(TOKeyAncient03 *key_ancient03, s32 arg1, s32 arg2) {
     ((TOKey *)key_ancient03)->init_switch_id();
     key_ancient03->texture_id = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
     key_ancient03->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));
-    key_ancient03->m_c0 = (f32) lbl_805DB72C;
+    key_ancient03->m_c0 = (f32) 4e+02f;
     *(f32 *)((s8 *)key_ancient03 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)key_ancient03->model + 4)) + 0x14);
-    *(f32 *)((s8 *)key_ancient03 + 0xCC) = (f32) lbl_805DB730;
+    *(f32 *)((s8 *)key_ancient03 + 0xCC) = (f32) 1e+01f;
     if (get_main_phase() != 0xF) {
         if (is_split_screen() == 1) {
             goto block_2;
@@ -264,112 +265,13 @@ block_5:
             key_ancient03->m_d0 = 0;
         }
     }
-    key_ancient03->m_e8 = (f32) lbl_805DB71C;
-    key_ancient03->m_ec = (f32) lbl_805DB71C;
-    *(f32 *)((s8 *)key_ancient03 + 0xF0) = (f32) lbl_805DB71C;
-    key_ancient03->m_f4 = (f32) lbl_805DB71C;
+    key_ancient03->m_e8 = (f32) 1.0f;
+    key_ancient03->m_ec = (f32) 1.0f;
+    *(f32 *)((s8 *)key_ancient03 + 0xF0) = (f32) 1.0f;
+    key_ancient03->m_f4 = (f32) 1.0f;
     key_ancient03->m_f8 = 0;
-    *(f32 *)((s8 *)key_ancient03 + 0x70) = (f32) lbl_805DB720;
-    key_ancient03->target_scale = (f32) lbl_805DB720;
-    key_ancient03->scale = (f32) lbl_805DB720;
+    *(f32 *)((s8 *)key_ancient03 + 0x70) = (f32) 0.0f;
+    key_ancient03->target_scale = (f32) 0.0f;
+    key_ancient03->scale = (f32) 0.0f;
     return (u8 *)key_ancient03;
 }
-
-void TOKeyCave01::vfunc_25() {  }
-s32 TOKeyCave01::is_confirm_pressed() {
-    s32 temp_r0;
-    s32 var_r31;
-    s32 var_r3;
-    var_r31 = 0;
-    temp_r0 = this->m_d0;
-    switch (temp_r0) {
-    case 0:
-        if (is_split_screen() == 1) {
-            var_r3 = this->is_any_player_in_range();
-        } else {
-            var_r3 = this->is_local_player_in_range();
-        }
-        if (((s32) this->m_d4 == 1) || (var_r3 == 1)) {
-            var_r31 = 1;
-        }
-        break;
-    case 1:
-        var_r31 = this->is_any_player_in_range();
-        break;
-    }
-    return var_r31;
-}
-
-typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
-
-void TOKeyCave01::send_switch_changed(s32 flags) {
-    TOKeyCave01 *self = this;
-    Pkt_8016BF08 pkt;
-    ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->m_1c;
-    pkt.zero = local_client_id;
-    pkt.switchId = self->m_e4;
-    pkt.area = get_current_floor();
-    pkt.flags = flags;
-    ((TLobby *)(&pkt))->finalize_and_send_60();
-}
-
-void TOKeyCave01::vfunc_19() {
-    s32 arg0 = (s32)this;
-    s32 temp_r3;
-    s32 temp_r3_2;
-    if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
-        temp_r3 = *(s32 *)((s8 *)&lbl_80441B4C.value + (TOKeyMachine01::get_global_state() * 4));
-        if (temp_r3 >= 0) {
-            play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
-        }
-    } else {
-        temp_r3_2 = *(s32 *)((s8 *)&lbl_80441B4C.value + (TOKeyMachine01::get_global_state() * 4));
-        if (temp_r3_2 >= 0) {
-            play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
-        }
-    }
-}
-
-typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];
-void TOKeyCave01::trigger_activate_sound() {
-    s32 temp_r3;
-    s32 temp_r3_2;
-    s32 arg0 = (s32)this;
-    if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
-        temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
-        if (temp_r3 >= 0) {
-            play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
-        }
-    } else {
-        temp_r3_2 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
-        if (temp_r3_2 >= 0) {
-            play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
-        }
-    }
-}
-
-void TOKeyCave01::vfunc_17() {
-    f32 temp_f1;
-    s32 temp_r4;
-    if ((s32) this->m_f8 == 1) {
-        this->m_ec = (f32) (this->m_ec + lbl_805DB738);
-        if (lbl_805DB73C <= this->m_ec) {
-            this->m_f8 = 0;
-        }
-    } else {
-        this->m_ec = (f32) (this->m_ec - lbl_805DB738);
-        if (this->m_ec <= lbl_805DB740) {
-            this->m_f8 = 1;
-        }
-    }
-    temp_f1 = this->target_scale;
-    if (temp_f1 < lbl_805DB740) {
-        this->target_scale = (f32) (temp_f1 - lbl_805DB744);
-    }
-    temp_r4 = *(s32 *)&this->unk_FC;
-    if (temp_r4 > 0) {
-        *(s32 *)&this->unk_FC = (temp_r4 - 0x333);
-    }
-}
-

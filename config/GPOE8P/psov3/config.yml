@@ -4202,6 +4202,7 @@ force_active:
   - is_card_file_missing_b__23TAdSinglePlyChrSelectGCFv
   - is_challenge_lobby__6TLobbyFv
   - is_channel_active_at__20TWindowActionPaletteFlll
+  - is_confirm_pressed__11TOKeyCave01Fv
   - is_confirm_pressed__14TOKeyMachine01Fv
   - is_controller_animated__8TFogCtrlFll
   - is_downloadable_new_entry__12TQuestListVMFPvPv
@@ -10791,6 +10792,7 @@ force_active:
   - send_state_if_dirty__17TWindowSubComCardFv
   - send_subordinate_actions__11TBoss6Type2Flllll
   - send_swapped_telepipe_packet__9TTecLukerFv
+  - send_switch_changed__11TOKeyCave01Fl
   - send_switch_changed__14TOKeyMachine01Fl
   - send_trade_busy_reply__Fl
   - send_type2_event__6TLobbyFlll
@@ -11548,6 +11550,7 @@ force_active:
   - trap_ancient02_seabed_pillar_resources
   - trap_ancient02_torabasami_resources
   - traverse_animated_node_tree__FPv
+  - trigger_activate_sound__11TOKeyCave01Fv
   - trigger_activate_sound__14TOKeyAncient03Fv
   - trigger_activate_sound__14TOKeyMachine01Fv
   - trigger_activate_sound__8TOKeyColFv
@@ -11950,15 +11953,18 @@ force_active:
   - vfunc_16__17TOTrapChainSawKeyFv
   - vfunc_16__18TOTrapChainSawEdgeFv
   - vfunc_16__8TOKeyColFv
+  - vfunc_17__11TOKeyCave01Fv
   - vfunc_17__14TOKeyAncient03Fv
   - vfunc_17__14TOKeyMachine01Fv
   - vfunc_17__8TOKeyColFv
   - vfunc_18__17TOTrapChainSawKeyFv
+  - vfunc_19__11TOKeyCave01Fv
   - vfunc_19__14TOKeyAncient03Fv
   - vfunc_19__14TOKeyMachine01Fv
   - vfunc_19__8TOKeyColFv
   - vfunc_20__17TOBarrierEnergy01Fv
   - vfunc_22__13TUnk_804B5BA8Fv
+  - vfunc_25__11TOKeyCave01Fv
   - vfunc_25__14TOKeyMachine01Fv
   - vfunc_25__17TOTrapChainSawKeyFv
   - vfunc_25__18TOTrapChainSawEdgeFv

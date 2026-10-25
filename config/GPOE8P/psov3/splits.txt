@@ -5218,12 +5218,14 @@ pso/misc/TOKeyAncient02.cpp:
 	.text       start:0x8016B204 end:0x8016B8AC
 
 pso/misc/TOKeyAncient03.cpp:
-	.text       start:0x8016B8AC end:0x8016C154
+	.text       start:0x8016B8AC end:0x8016BE74
 	.data       start:0x804B2B40 end:0x804B2BB0
+	.sdata2     start:0x805DB718 end:0x805DB734
 
 pso/misc/TOKeyCave01.cpp:
-	.text       start:0x8016C154 end:0x8016C7FC
+	.text       start:0x8016BE74 end:0x8016C7FC
 	.data       start:0x804B2BE0 end:0x804B2C50
+	.sdata2     start:0x805DB738 end:0x805DB758
 
 pso/misc/TOKeyCol.cpp:
 	.text       start:0x8016C7FC end:0x8016CA60
