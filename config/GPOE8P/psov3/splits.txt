@@ -334,18 +334,18 @@ pso/boss/TObjBoss2RaftSplash_8003B0A0.cpp:
 	.text       start:0x8003B0A0 end:0x8003B138
 
 pso/boss/TObjBoss2Tunnel_8003B138.cpp:
-	.text       start:0x8003B138 end:0x8003C7EC
+	.text       start:0x8003B138 end:0x8003C804
+	.ctors      start:0x80433F30 end:0x80433F34
 	.rodata     start:0x80435EC8 end:0x80435ED0
-	.data       start:0x804833B8 end:0x804834BC
+	.data       start:0x804833B8 end:0x804835C0
 	.sdata2     start:0x805D85E0 end:0x805D8658
 
 pso/boss/TBoss3Volopt.cpp:
-	.text       start:0x8003C7EC end:0x8003F3A0
-	.ctors      start:0x80433F30 end:0x80433F34
-	.rodata     start:0x80436310 end:0x80436318
+	.text       start:0x8003C804 end:0x8003F3A0
+	.rodata     start:0x80436310 end:0x80436338
 	.data       start:0x80483938 end:0x80483974
-	.bss        start:0x804FEE68 end:0x804FEE74
-	.sdata2     start:0x805D8670 end:0x805D869C
+	.bss        start:0x804FEE68 end:0x804FEEC0
+	.sdata2     start:0x805D8658 end:0x805D86B0
 
 pso/misc/TCameraCtrl_8003F3A0.cpp:
 	.text       start:0x8003F3A0 end:0x8003F3BC

@@ -7,6 +7,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/boss/TUnk_804835D8.h"
+#include "pso/player/TObjPlayer_8002E784.h"
 
 struct Base_8003B138 { char pad[0x18]; };
 struct VObj_8003B138 : Base_8003B138 {
@@ -76,7 +77,7 @@ struct S_8003C108 {
     u32 ptr[4];
 };
 
-struct Rec_8003C108 { s32 a, b, c; };
+struct Rec_8003C108 { f32 x, y, z; };
 
 struct Vec_8003B2EC { f32 x, y, z; };
 
@@ -152,7 +153,6 @@ typedef struct Vec_8003B6E8 {
 
 extern "C" {
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, s32, s32);
-extern Rec_8003C108 boss2_tunnel_particle_pos_table[];
 extern const f32 lbl_805D85B0;
 struct O_8003C21C;
 u8 * sub_8003C21C__15TObjBoss2TunnelFv(O_8003C21C *self);
@@ -337,6 +337,28 @@ void *lbl_80483480[15] = {
     (void *)0x1, (void *)0x2, (void *)0x2, (void *)0x14,
     (void *)0x2, (void *)0x14, (void *)0x4, (void *)0x5,
     (void *)0x4, (void *)0x2, (void *)0xffffffff,
+};
+static s32 boss2_tunnel_queue_table[6] = {
+    2, 2, 3, 1, 2, 4,
+};
+static s32 boss2_tunnel_ring_queue_table[31] = {
+    1, 3, 3, 1, 2, 2, 4, 3,
+    3, 1, 1, 2, 3, 3, 1, 4,
+    3, 2, 2, 2, 1, 4, 3, 3,
+    1, 3, 1, 2, 1, 2, 4,
+};
+static s32 boss2_tunnel_shift_queue_table[10] = {
+    6, 5, 5, 0, 5, 5, 5, 5, 5, 0,
+};
+static f32 boss2_tunnel_raft_splash_positions[2][3] = {
+    {78.0f, lbl_805D825C, 83.0f},
+    {-78.0f, lbl_805D825C, 83.0f},
+};
+static Rec_8003C108 boss2_tunnel_particle_pos_table[4] = {
+    {26.0f, -19.0f, 62.0f},
+    {-26.0f, -19.0f, 62.0f},
+    {26.0f, -19.0f, 0.0f},
+    {-26.0f, -19.0f, 0.0f},
 };
 #define boss2_tunnel_color_table ((Col_8003B6E8 *)boss2_tunnel_color_table)
 #define boss2_tunnel_color ((Col_8003B6E8 *)boss2_tunnel_color)
@@ -672,9 +694,6 @@ struct S_8003C2E4 {
     s32 t[6];
 };
 
-extern s32 boss2_tunnel_queue_table[];
-extern s32 lbl_804834D4[];
-extern s32 boss2_tunnel_shift_queue_table[];
 
 void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *boss2_tunnel) {
     TFogCtrl::update_all(boss2_tunnel->m_b0, 1);
@@ -704,10 +723,10 @@ void TObjBoss2Tunnel::copy_ring_buffer_window() {
     }
     s32 k = idx;
     for (i = 0; i < n; i++, k++) {
-        ((S_8003C2E4 *)this)->t[i] = lbl_804834D4[k];
+        ((S_8003C2E4 *)this)->t[i] = boss2_tunnel_ring_queue_table[k];
     }
     for (j = 0; i < 6; i++, j++) {
-        ((S_8003C2E4 *)this)->t[i] = lbl_804834D4[j];
+        ((S_8003C2E4 *)this)->t[i] = boss2_tunnel_ring_queue_table[j];
     }
 }
 
@@ -720,7 +739,7 @@ void TObjBoss2Tunnel::init_queue_from_start() {
         ((Obj_8003C374 *)this)->q[i] = boss2_tunnel_queue_table[k++];
     }
     for (j = 0; i < 6; i++, j++) {
-        ((Obj_8003C374 *)this)->q[i] = lbl_804834D4[j];
+        ((Obj_8003C374 *)this)->q[i] = boss2_tunnel_ring_queue_table[j];
     }
 }
 
@@ -769,10 +788,9 @@ extern s32 *lbl_805D4C04;
 extern s32 *lbl_805D4C08;
 void TObjBoss2Tunnel__sub_8003C5F8(void);
 void TObjBoss2Tunnel__sub_8003C610(void);
-u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
+u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, f32 *arg2, u8 *arg3, f32 *arg4);
 void reset_floats__15TObjBoss2TunnelFv(void *a0);
 extern u8 boss2_tunnel_raft_splash_offsets[];
-extern u8 lbl_80483578[];
 extern s32 __vt__15TObjBoss2Tunnel[];
 extern s32 lbl_805D2708;
 void *TObjBoss2Tunnel__ct(void *arg0, void *arg1);
@@ -831,7 +849,7 @@ void *TObjBoss2Tunnel__ct(void *object, void *arg1) {
     for (i = 0; i < 2; i++) {
         u8 *o = (u8 *)__nw__7TObjectFUl(0x40);
         if (o != NULL) {
-            o = TObjBoss2RaftSplash__ct(o, (u8 *)self, lbl_80483578 + i * 0xC, boss2_tunnel_raft_splash_offsets + i * 0xC, &self->f20);
+            o = TObjBoss2RaftSplash__ct(o, (u8 *)self, boss2_tunnel_raft_splash_positions[i], boss2_tunnel_raft_splash_offsets + i * 0xC, &self->f20);
         }
         self->splash[i] = o;
     }
