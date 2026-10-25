@@ -12103,22 +12103,16 @@ pso/misc/TOBoss4Rock_8035A7FC.cpp:
 	.text       start:0x8035A7FC end:0x8035A860
 
 pso/unk/text_8035A860.cpp:
-	.text       start:0x8035A860 end:0x8035A934
-
-pso/boss/TBoss7LaserPtcl_8035A934.cpp:
-	.text       start:0x8035A934 end:0x8035A9A4
+	.text       start:0x8035A860 end:0x8035A8E0
+	.sdata2     start:0x805E00E8 end:0x805E00EC
 
 pso/boss/TBoss7LaserPtcl.cpp:
-	.text       start:0x8035A9A4 end:0x8035A9B8
+	.text       start:0x8035A8E0 end:0x8035AE54
+	.sdata2     start:0x805E00F0 end:0x805E0118
 
-pso/boss/TBoss7LaserPtcl_8035A9B8.cpp:
-	.text       start:0x8035A9B8 end:0x8035AA98
-
-pso/boss/TBoss7LaserPtcl_8035AA98.cpp:
-	.text       start:0x8035AA98 end:0x8035AAE8
-
-pso/boss/TBoss7LaserPtcl_8035AAE8.cpp:
-	.text       start:0x8035AAE8 end:0x8035AF18
+pso/boss/TBoss7LaserPtcl_8035AE54.cpp:
+	.text       start:0x8035AE54 end:0x8035AF18
+	.sdata2     start:0x805E0118 end:0x805E011C
 
 pso/unk/text_8035AF18.cpp:
 	.text       start:0x8035AF18 end:0x8035AFD0

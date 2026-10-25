@@ -11863,6 +11863,7 @@ force_active:
   - update_player_battle_ctrl_state
   - update_player_hp_ratios__13TObjWarnChimeFv
   - update_position__11TAdRicoRingFv
+  - update_position__15TBoss7LaserPtclFv
   - update_position_flag__13TObjEneRe4BitFv
   - update_position_from_velocity__20TItemEffOrgaFlowShotFv
   - update_position_if_changed__19TWindowSubTradeMainFlPUcPUc

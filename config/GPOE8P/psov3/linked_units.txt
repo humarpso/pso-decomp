@@ -256,10 +256,7 @@ pso/boss/TBoss7Joint.cpp
 pso/boss/TBoss7Joint_802EE6E0.cpp
 pso/boss/TBoss7LaserLight.cpp
 pso/boss/TBoss7LaserPtcl.cpp
-pso/boss/TBoss7LaserPtcl_8035A934.cpp
-pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
-pso/boss/TBoss7LaserPtcl_8035AA98.cpp
-pso/boss/TBoss7LaserPtcl_8035AAE8.cpp
+pso/boss/TBoss7LaserPtcl_8035AE54.cpp
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp
 pso/boss/TBoss8DragonColli.cpp
 pso/boss/TBoss8DragonDemo.cpp
