@@ -1483,13 +1483,14 @@ pso/unk/text_80090488.cpp:
 	.text       start:0x80090488 end:0x8009048C
 
 pso/enemy/TObjEneBalClawClaw.cpp:
-	.text       start:0x8009048C end:0x800922E4
+	.text       start:0x8009048C end:0x80091CCC
 	.data       start:0x8048F090 end:0x8048F2C8
 	.sdata2     start:0x805D9688 end:0x805D96D8
 
 pso/enemy/TObjEneBeast.cpp:
-	.text       start:0x800922E4 end:0x80092A7C
+	.text       start:0x80091CCC end:0x80092A7C
 	.data       start:0x8048F2C8 end:0x8048F650
+	.sdata2     start:0x805D96D8 end:0x805D9714
 
 pso/player/TObjPlayer_80092A7C.cpp:
 	.text       start:0x80092A7C end:0x80092AE0
