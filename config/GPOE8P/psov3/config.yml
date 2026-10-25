@@ -920,6 +920,9 @@ force_active:
   - TObjFish__sub_800E3188
   - TObjFish__sub_8034029C
   - TObjFogCollisionPoison__ct
+  - TObjFogCollisionSwitch__ct
+  - TObjFogCollision__sub_80153F68
+  - TObjFogCollision__sub_80153F70
   - TObjGrassWeb__sub_800BC798
   - TObjGrass__ct
   - TObjGrass__sub_800BCA2C
@@ -1703,6 +1706,7 @@ force_active:
   - __dt__22TObjEneMe1GiGueBarrierFv
   - __dt__22TObjEneMe1GiGueMissileFv
   - __dt__22TObjFogCollisionPoisonFv
+  - __dt__22TObjFogCollisionSwitchFv
   - __dt__22TQuestVmDownLoadServerFv
   - __dt__22TWindowSubTradeMessageFv
   - __dt__23TAdDialingMessageWindowFv
@@ -1871,6 +1875,7 @@ force_active:
   - __vt__13TUnk_804C4498
   - __vt__13TUnk_804C57F0
   - __vt__13TUnk_804CC148
+  - __vt__13TUnk_804CC870
   - __vt__13TUnk_804CCAA8
   - __vt__13TUnk_804CCD78
   - __vt__13TUnk_804E4788
@@ -10164,6 +10169,7 @@ force_active:
   - render__13TUnk_80483A10Fv
   - render__13TUnk_804A2148Fv
   - render__13TUnk_804B5C08Fv
+  - render__13TUnk_804CC870Fv
   - render__13TUnk_804CE964Fv
   - render__13TUnk_804E71A0Fv
   - render__13TUnk_804F0BF0Fv
@@ -10548,6 +10554,7 @@ force_active:
   - run_task__13TUnk_804A2660Fv
   - run_task__13TUnk_804B5C08Fv
   - run_task__13TUnk_804CC148Fv
+  - run_task__13TUnk_804CC870Fv
   - run_task__13TUnk_804CC888Fv
   - run_task__13TUnk_804CCA90Fv
   - run_task__13TUnk_804CCAA8Fv
@@ -10728,6 +10735,7 @@ force_active:
   - run_task__22TObjEneMe1GiGueBarrierFv
   - run_task__22TObjEneMe1GiGueMissileFv
   - run_task__22TObjFogCollisionPoisonFv
+  - run_task__22TObjFogCollisionSwitchFv
   - run_task__22TQuestVmDownLoadServerFv
   - run_task__22TWindowSubTradeMessageFv
   - run_task__23TBoss6Demo21_TYPE2_DEADFv
@@ -12009,6 +12017,7 @@ force_active:
   - vfunc_11__17TQuestListOfflineFv
   - vfunc_13__13TUnk_804B5C08Fl
   - vfunc_13__22TObjFogCollisionPoisonFl
+  - vfunc_13__22TObjFogCollisionSwitchFl
   - vfunc_14__12TItemProUnitFv
   - vfunc_14__12TObjComputerFv
   - vfunc_14__14TOTrapChainSawFv

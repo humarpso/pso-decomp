@@ -2794,6 +2794,7 @@ pso/unk/TUnk_804A4F60.cpp
 pso/unk/TUnk_804A5248.cpp
 pso/unk/TUnk_804A5C18.cpp
 pso/unk/TUnk_804A6CC8.cpp
+pso/unk/TUnk_804CC870.cpp
 pso/unk/text_8000F740.cpp
 pso/unk/text_80019B78.cpp
 pso/unk/text_80019EB8.cpp
@@ -3099,8 +3100,6 @@ pso/unk/text_8014AAC4.cpp
 pso/unk/text_8014AB24.cpp
 pso/unk/text_8014B8A4.cpp
 pso/unk/text_8014B904.cpp
-pso/unk/text_80153674.cpp
-pso/unk/text_80153A7C.cpp
 pso/unk/text_80156BBC.cpp
 pso/unk/text_801582C4.cpp
 pso/unk/text_80158360.cpp
@@ -3312,10 +3311,6 @@ pso/unk/text_8022FC94.cpp
 pso/unk/text_80231AF0.cpp
 pso/unk/text_80231BF4.cpp
 pso/unk/text_80232830.cpp
-pso/unk/text_80232934.cpp
-pso/unk/text_80232AA4.cpp
-pso/unk/text_80232B24.cpp
-pso/unk/text_80232B7C.cpp
 pso/unk/text_80232EC0.cpp
 pso/unk/text_802333D4.cpp
 pso/unk/text_80235A20.cpp

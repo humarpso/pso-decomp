@@ -4806,17 +4806,11 @@ pso/object/TObjFogCollisionPoison.cpp:
 	.text       start:0x8015302C end:0x80153674
 	.data       start:0x804AF7B0 end:0x804AF7C8
 
-pso/unk/text_80153674.cpp:
-	.text       start:0x80153674 end:0x80153A28
-	.rodata     start:0x80440088 end:0x80440090
-	.data       start:0x804AF7E0 end:0x804AF820
-
 pso/object/TObjFogCollisionSwitch.cpp:
-	.text       start:0x80153A28 end:0x80153A7C
-
-pso/unk/text_80153A7C.cpp:
-	.text       start:0x80153A7C end:0x80153F78
-	.data       start:0x804AF820 end:0x804AF860
+	.text       start:0x80153674 end:0x80153F78
+	.rodata     start:0x80440088 end:0x80440090
+	.data       start:0x804AF7E0 end:0x804AF860
+	.sdata2     start:0x805DB250 end:0x805DB270
 
 pso/object/TObjFogCollision.cpp:
 	.text       start:0x80153F78 end:0x80154090
@@ -7940,19 +7934,10 @@ pso/unk/text_80232830.cpp:
 	.text       start:0x80232830 end:0x80232934
 	.rodata     start:0x8044D5C8 end:0x8044D5D0
 
-pso/unk/text_80232934.cpp:
-	.text       start:0x80232934 end:0x80232AA4
-
-pso/unk/text_80232AA4.cpp:
-	.text       start:0x80232AA4 end:0x80232B24
-
-pso/unk/text_80232B24.cpp:
-	.text       start:0x80232B24 end:0x80232B7C
-	.data       start:0x804CC870 end:0x804CC888
-
-pso/unk/text_80232B7C.cpp:
-	.text       start:0x80232B7C end:0x80232EC0
-	.data       start:0x804CC888 end:0x804CC8A0
+pso/unk/TUnk_804CC870.cpp:
+	.text       start:0x80232934 end:0x80232EC0
+	.data       start:0x804CC870 end:0x804CC8A0
+	.sdata2     start:0x805DC840 end:0x805DC858
 
 pso/unk/text_80232EC0.cpp:
 	.text       start:0x80232EC0 end:0x80233120
