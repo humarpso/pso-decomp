@@ -4171,6 +4171,8 @@ force_active:
   - init_state_1536__13TUnk_804ED0A8FlPv
   - init_state_34_alt__13TUnk_804F14A8FlPv
   - init_state_513__13TUnk_804E1BB0FlPv
+  - init_state__10TObjPlayerFv
+  - init_state_vector__13TUnk_804A0DB0Fv
   - init_sub__13TLockOnCursorFPv
   - init_sub_object_vectors__10TObjPlayerFl
   - init_subwindow__22TWindowChallengeResultFPv

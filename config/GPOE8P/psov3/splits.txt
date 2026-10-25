@@ -3146,11 +3146,11 @@ pso/unk/text_80121FBC.cpp:
 	.text       start:0x80121FBC end:0x80122014
 
 pso/item/TUnk_804A0DB0.cpp:
-	.text       start:0x80122014 end:0x80122148
+	.text       start:0x80122014 end:0x801221A0
 	.sdata2     start:0x805DACD8 end:0x805DACE0
 
-pso/unk/text_80122148.cpp:
-	.text       start:0x80122148 end:0x8012227C
+pso/unk/text_801221A0.cpp:
+	.text       start:0x801221A0 end:0x8012227C
 
 pso/player/TObjPlayer_8012227C.cpp:
 	.text       start:0x8012227C end:0x801222DC
@@ -3303,11 +3303,11 @@ pso/item/TItemEquipVariant_80123A90.cpp:
 	.text       start:0x80123A90 end:0x80123AE8
 
 pso/item/TUnk_804A1D30.cpp:
-	.text       start:0x80123AE8 end:0x80123C50
+	.text       start:0x80123AE8 end:0x80123CA8
 	.sdata2     start:0x805DAD10 end:0x805DAD1C
 
-pso/unk/text_80123C50.cpp:
-	.text       start:0x80123C50 end:0x80123E2C
+pso/unk/text_80123CA8.cpp:
+	.text       start:0x80123CA8 end:0x80123E2C
 	.rodata     start:0x8043E938 end:0x8043E940
 
 pso/item/TItemEquipVariant_80123E6C.cpp:

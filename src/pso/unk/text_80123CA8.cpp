@@ -16,23 +16,7 @@ extern "C" {
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s16 obj_getS16_32E(u8 *p);
 extern const f32 lbl_805DAD20;
-u8 * init_state__10TObjPlayerFv(void *, s32, s32);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 s32 scale_current_matrix(void *, int);
-u8 *TObjPlayer::create_state(s32 arg0) {
-    u8 *temp_r3;
-    u8 *var_r0;
-    if (arg0 != 0) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
-        var_r0 = temp_r3;
-        if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_state__10TObjPlayerFv(temp_r3, tl_05, arg0));
-        }
-        return var_r0;
-    }
-    return NULL;
-}
 }
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
