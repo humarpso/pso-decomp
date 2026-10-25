@@ -124,6 +124,7 @@ musyx/runtime/snd_math.c
 musyx/runtime/snd_midictrl.c
 musyx/runtime/snd_service.c
 musyx/runtime/snd_synthapi.c
+musyx/runtime/stream.c
 musyx/runtime/synth.c
 musyx/runtime/synth_ac.c
 musyx/runtime/synth_adsr.c

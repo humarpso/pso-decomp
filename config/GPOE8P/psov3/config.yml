@@ -32,6 +32,7 @@ force_active:
   - CARDCheckExAsync
   - CalcEmitter
   - CheckDoorStatus
+  - CheckOutputMode
   - CheckRoomStatus
   - DCEnable
   - DMAErrorHandler
@@ -58,6 +59,7 @@ force_active:
   - GXTexMode1Ids
   - GXTexTlutIds
   - GenerateNextTrackEvent
+  - GetPrivateIndex
   - GetPublicId
   - GetStreamValue
   - HandleDepopVoice
@@ -11542,6 +11544,7 @@ force_active:
   - snap_to_ground__13TObjEneMorfosFll
   - snap_to_ground__21TObjEneRe7BeruraPunchFv
   - snapshot_player_card_status__6TLobbyFv
+  - sndStreamAllocLength
   - snd_handle_irq
   - sock_status_names
   - solo_play_result_window_depth
