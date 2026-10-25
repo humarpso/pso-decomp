@@ -2101,7 +2101,7 @@ pso/object/TObjGrass.cpp
 pso/object/TObjGrassWeb.cpp
 pso/object/TObjGyaranzoMissile.cpp
 pso/object/TObjGyaranzoMissile_800D40D8.cpp
-pso/object/TObjGyaranzoMissile_80131100.cpp
+pso/object/TObjGyaranzoMissile_80131488.cpp
 pso/object/TObjHashi.cpp
 pso/object/TObjHashiBase.cpp
 pso/object/TObjHashiVersus1.cpp
@@ -2203,6 +2203,7 @@ pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
+pso/object/TUnk_804A6DC0.cpp
 pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
@@ -2794,6 +2795,7 @@ pso/unk/TUnk_804A0FA0.cpp
 pso/unk/TUnk_804A4F60.cpp
 pso/unk/TUnk_804A5248.cpp
 pso/unk/TUnk_804A5C18.cpp
+pso/unk/TUnk_804A6CC8.cpp
 pso/unk/text_8000F740.cpp
 pso/unk/text_80019B78.cpp
 pso/unk/text_80019EB8.cpp
@@ -3075,8 +3077,6 @@ pso/unk/text_80130720.cpp
 pso/unk/text_80130B98.cpp
 pso/unk/text_80130E48.cpp
 pso/unk/text_80130EA0.cpp
-pso/unk/text_80130EF8.cpp
-pso/unk/text_801310A8.cpp
 pso/unk/text_8013157C.cpp
 pso/unk/text_8013AAD4.cpp
 pso/unk/text_8013ADD0.cpp

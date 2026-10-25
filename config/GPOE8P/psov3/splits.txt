@@ -4195,14 +4195,17 @@ pso/unk/text_80130E48.cpp:
 pso/unk/text_80130EA0.cpp:
 	.text       start:0x80130EA0 end:0x80130EF8
 
-pso/unk/text_80130EF8.cpp:
-	.text       start:0x80130EF8 end:0x801310A8
+pso/unk/TUnk_804A6CC8.cpp:
+	.text       start:0x80130EF8 end:0x801311D8
+	.sdata2     start:0x805DB038 end:0x805DB050
 
-pso/unk/text_801310A8.cpp:
-	.text       start:0x801310A8 end:0x80131100
+pso/object/TUnk_804A6DC0.cpp:
+	.text       start:0x801311D8 end:0x80131488
+	.sdata2     start:0x805DB050 end:0x805DB064
 
-pso/object/TObjGyaranzoMissile_80131100.cpp:
-	.text       start:0x80131100 end:0x8013157C
+pso/object/TObjGyaranzoMissile_80131488.cpp:
+	.text       start:0x80131488 end:0x8013157C
+	.sdata2     start:0x805DB068 end:0x805DB070
 
 pso/unk/text_8013157C.cpp:
 	.text       start:0x8013157C end:0x801315D4
