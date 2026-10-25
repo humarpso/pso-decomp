@@ -3956,6 +3956,7 @@ force_active:
   - get_gstream_buffered_bytes__Fv
   - get_indexed_offset__6TLobbyFi
   - get_input_mode__11TWindowChatFv
+  - get_input_mode__16TKeyBoardControlFv
   - get_instance__23TObjSeabedSuisoBrakableFv
   - get_instance_count__14TBoss4DarkFalzFv
   - get_jungle_rock_texture_resource
@@ -4438,6 +4439,7 @@ force_active:
   - is_player_in_service_range__14TShopGeneratorFPUcf
   - is_player_near__12TBoss6ThanksFPv
   - is_player_nearby__12TBoss4ThanksFPv
+  - is_printable_key__16TKeyBoardControlFPvUc
   - is_rader_map_active__Fv
   - is_render_deferred__7TObjectFv
   - is_same_slot_entry__23TAdSinglePlyChrSelectGCFPviPvi
@@ -4480,7 +4482,10 @@ force_active:
   - jisin_update__11TBoss4Type2Fv
   - jungle_boss_warp_resource_block
   - jungle_warp_beam_resource_descriptor
+  - keyboard_accent_composed_chars
+  - keyboard_layout_mode_table
   - keyboard_poll_key_codes
+  - keyboard_repeat_key_codes
   - keyboard_task_object_dtor_chain
   - labo_design_entry_table
   - labo_door_resource_descriptor
@@ -5395,6 +5400,8 @@ force_active:
   - logo_load_callback_table
   - lookup_attack_marker__Flssl
   - lookup_item_category__9TWindowDDFl
+  - lookup_key_char__19TWindowKeyBoardHardFUc
+  - lookup_key_repeat_state__19TWindowKeyBoardHardFUcUc
   - lookup_key_value__6TLobbyFc
   - lookup_table_value__6TLobbyFSc
   - lookup_technique__19TWindowSubTechniqueFll
@@ -10116,6 +10123,7 @@ force_active:
   - ply_status_window_points_second
   - pm_mdl_model_names
   - pm_mdl_motion_names
+  - poll_input__19TWindowKeyBoardHardFv
   - poll_key_state__16TKeyBoardControlFv
   - poll_load__12TChCrLoadAfsFv
   - poll_quest_download__12TQuestListVMFPv
@@ -10129,6 +10137,7 @@ force_active:
   - prepare_save_data__23TAdSinglePlyChrSelectGCFv
   - present_frame_and_wait_vsync__Fv
   - process_download_entry__12TQuestListVMFv
+  - process_key_input__19TWindowKeyBoardHardFUc
   - process_keyboard_input__17TWindowSubComCardFv
   - process_lobby_action_14__18TObjCityDoor_LobbyFv
   - process_trade_target__10TObjPlayerFiPv
@@ -11727,6 +11736,8 @@ force_active:
   - sub_8024EF40__17TWindowDuelResultFv
   - sub_8024F090__17TWindowDuelResultFv
   - sub_8024F094__17TWindowDuelResultFv
+  - sub_8025F2F8__19TWindowKeyBoardHardFUc
+  - sub_8025F4A0__19TWindowKeyBoardHardFUc
   - sub_8026556C__21TWindowSubComCardListFv
   - sub_80266BB8__11TWindowMenuFv
   - sub_80271F04__17TWindowSubComCardFPvll
@@ -11884,6 +11895,7 @@ force_active:
   - trade_message_window_dimensions
   - trade_proposal_state_handlers
   - transfer_to_town__9TObjLukerFv
+  - translate_key_char__16TKeyBoardControlFPvUcPUs
   - trap_ancient02_collision_body
   - trap_ancient02_ruins_pillar_resources
   - trap_ancient02_seabed_pillar_resources
