@@ -2,26 +2,25 @@
 #define PSO_OBJECT_TOBJGYARANZOMISSILE_H
 
 #include "types.h"
+#include <dolphin/mtx.h>
 #include "pso/object/TObjMotion.h"
 
 struct TObjGyaranzoMissile : public TUnk_804AF8A0 {
     virtual ~TObjGyaranzoMissile();
     void sub_800D47B4();
-    void* m_ac;
-    u8 unk_B0[0x4];
-    f32 m_b4;
-    u8 unk_B8[0xC];
-    u16 m_c4;
-    u8 _padC6[0x2];
-    u32 m_c8;
-    u32 m_cc;
-    u32 m_d0;
-    u8 _padD4[0x4];
-    u16 m_d8;
+    Vec velocity;
+    u8 pad_B8[0xC];
+    u16 target_id;
+    u8 pad_C6[0x2];
+    s32 timer;
+    s32 wobble_phase;
+    s32 wobble_speed;
+    f32 wobble_height;
+    u16 owner_id;
     virtual void render();
     virtual void run_task();
     f32 scale_velocity(f32 farg0);
-    u8 unk_DA[0x2];
+    u8 pad_DA[0x2];
     void copy_from(void* q);
 };
 
