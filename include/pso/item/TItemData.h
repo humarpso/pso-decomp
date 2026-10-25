@@ -4,6 +4,8 @@
 #include "types.h"
 #include "pso/protocol.h"
 
+struct EquipStats { s16 s0; s16 s2; s16 s4; s16 s6; s16 s8; s16 sA; s16 sC; };
+
 struct TItemData {
     int isValidGroundDrop();
     void init() {
@@ -52,6 +54,7 @@ struct TItemData {
     f32 get_armor_set_multiplier(u8 *arg1);
     f32 get_weapon_set_multiplier(u8 *arg1);
     void apply_equip_effects(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+    void apply_custom_shield_bonus(s32 player, TItemData *a, TItemData *b, EquipStats *stats, s32);
     s32 calc_buy_price();
     void format_item_name(char *buf);
     int calc_display_grade();

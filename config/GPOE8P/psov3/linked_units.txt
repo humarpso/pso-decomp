@@ -532,6 +532,7 @@ pso/item/TItem.cpp
 pso/item/TItemAttackCol_802E4798.cpp
 pso/item/TItemAttacker.cpp
 pso/item/TItemBuff.cpp
+pso/item/TItemData.cpp
 pso/item/TItemData_80104D0C.cpp
 pso/item/TItemData_80105934.cpp
 pso/item/TItemData_8010EDA8.cpp

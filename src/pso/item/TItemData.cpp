@@ -11,7 +11,6 @@ struct Parm_8010C1E0;
 struct Item_8010C498;
 struct Item_8010C52C;
 struct Parm_8010C0A4;
-struct Stats_8010BEC4;
 struct Stats2_8010BEC4;
 struct Bonus_8010BA9C;
 struct Stats_8010BA9C;
@@ -84,7 +83,7 @@ struct Parm_8010C320
 
 extern "C" {
 s32 obj_getArrWord_254(void *, int);
-s32 obj_getField1c(void *);
+u16 obj_getField1c(void *);
 int get_item_field_6__10TObjPlayerFPv(void *);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
@@ -113,7 +112,7 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
 void lookup_item_def__9TItemDataFPv(void *arg0);
 void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out);
 s16 get_field6_bswap__9TItemDataFPv(void *arg0);
-void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
+void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, EquipStats *st, Stats2_8010BEC4 *st2);
 void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st);
 s32 is_usable__9TItemDataFPv(void *arg0);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
@@ -144,8 +143,6 @@ struct Item_8010C52C { u8 kind; u8 pad1[2]; u8 b3; u8 b4; u8 pad5[0xD]; u8 b12; 
 
 struct Parm_8010C0A4 { u8 pad[8]; s16 x8; s16 xa; u8 pad2[5]; s8 x11; s8 x12; s8 x13; s8 x14; s8 x15; };
 
-struct Stats_8010BEC4 { s16 s0; s16 s2; s16 s4; s16 s6; s16 s8; s16 sA; s16 sC; };
-
 struct Stats2_8010BEC4 { s16 s0; s16 s2; };
 
 struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
@@ -158,7 +155,10 @@ struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 
 
 extern s32 lbl_8043E348;
 extern const f32 lbl_805DAB6C;
-extern const f32 lbl_8043E324[];
+struct Tbl_8010C8B4 { s32 w[19]; };
+
+static const Tbl_8010C8B4 item_icon_index_by_category_table = {{1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 3, 2}};
+static const f32 mag_stat_bonus_scale[4] = {2.0f, 0.5f, 1.0f, 2.0f};
 extern "C" {
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
@@ -225,6 +225,49 @@ s32 TItemData::get_type_nibble() {
         return 0;
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TItemData::apply_custom_shield_bonus(s32 player, TItemData *a, TItemData *b, EquipStats *stats, s32) {
+    if (data1.data_u8[0] == 1 && data1.data_u8[1] == 2) {
+        u8 id = data1.data_u8[2];
+        if (id >= 0x53 && id <= 0x82) {
+            s32 count = TObjPlayer::count_nearby_players_with_shield(obj_getField1c((void *)player), data1.data_u8);
+            u8 kind = (data1.data_u8[2] - 0x53) % 8;
+            s16 bonus_per_player[8] = {0, 50, 25, 25, 100, 50, 50, 10};
+            s16 amount = count * bonus_per_player[kind];
+            switch (kind) {
+            case 1:
+                b->add_bonus(amount);
+                break;
+            case 2:
+                TItemData::add_stat_ptr((s16 *)b, amount);
+                break;
+            case 3:
+                stats->sC += amount;
+                break;
+            case 4:
+                a->add_accuracy(amount);
+                break;
+            case 5:
+                TItemData::add_s16((s16 *)a, amount);
+                a->add_stat(amount);
+                break;
+            case 6:
+                stats->s2 += amount;
+                break;
+            case 7:
+                b->adjust_count(amount);
+                TItemData__sub_8010EDD8(b, amount);
+                TItemData__sub_8010EDC8(b, amount);
+                b->add_quantity(amount);
+                TItemData__sub_8010EDA8(b, amount);
+                break;
+            }
+        }
+    }
+}
+#pragma pop
 
 void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
     Bonus_8010BA9C *bn;
@@ -302,20 +345,20 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
     }
 }
 
-void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, Stats_8010BEC4 *st, s32 w5) {
+void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, EquipStats *st, s32 w5) {
     Mag_8010D614 mag;
 
     ((TItemData *)&mag)->initialize_mag_data();
     deserialize_mag__9TItemDataFPvPv((Raw_8010D614 *)item, &mag);
     if (st != NULL && st != NULL) {
-        st->s0 += (s16)(lbl_8043E324[0] * (f32)((TItemData *)&mag)->get_percent());
-        st->sA += (s16)(lbl_8043E324[1] * (f32)(((TItemData *)&mag)->get_level() * 10));
-        st->s8 += (s16)(lbl_8043E324[2] * (f32)((TItemData *)&mag)->get_stat_percent());
-        st->s2 += (s16)(lbl_8043E324[3] * (f32)((TItemData *)&mag)->get_mag_mind_level());
+        st->s0 += (s16)(mag_stat_bonus_scale[0] * (f32)((TItemData *)&mag)->get_percent());
+        st->sA += (s16)(mag_stat_bonus_scale[1] * (f32)(((TItemData *)&mag)->get_level() * 10));
+        st->s8 += (s16)(mag_stat_bonus_scale[2] * (f32)((TItemData *)&mag)->get_stat_percent());
+        st->s2 += (s16)(mag_stat_bonus_scale[3] * (f32)((TItemData *)&mag)->get_mag_mind_level());
     }
 }
 
-void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2) {
+void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, EquipStats *st, Stats2_8010BEC4 *st2) {
     Parm_8010C1E0 *parm;
     s32 kind;
     s16 amount;
@@ -552,11 +595,8 @@ u16 TItemData::get_packed_value() {
 #define serialize_mag__9TItemDataFPvPv ((s32 (*)(void *, s32 *))serialize_mag__9TItemDataFPvPv)
 #define init__9TItemDataFv ((s32 (*)())init__9TItemDataFv)
 
-struct Tbl_8010C8B4 { s32 w[19]; };
-
 extern "C" {
 u8 get_weapon_class_motion_type(u8);
-extern const Tbl_8010C8B4 item_icon_index_by_category_table;
 s32 get_item_icon_index(const u8 *q);
 int TItemData__sub_8010C738(void);
 void TItemData__sub_8010C740(void);
@@ -812,7 +852,7 @@ s32 TItemData::get_item_use_result() {
 
 struct Pair_8010E344 { u8 a; u8 b; };
 
-struct TItemData_8010E344 { u8 data[6]; Pair_8010E344 stats[3]; s32 id; s32 f10; };
+struct TItemData_8010E344 { u8 data[6]; Pair_8010E344 stats[3]; s32 id; s32 data2; };
 
 struct Mag_8010D510 { s16 f0; s16 f2; s16 stat[4]; u8 b0c; u8 b0d; u8 b0e; };
 
@@ -853,7 +893,7 @@ int sprintf(char *, const char *, ...);
 extern s32 lbl_805D2B10;
 s32 format_item_description(u8 *item);
 extern "C" {
-s32 TObjPlayer__sub_80117E50(s32);
+s32 TObjPlayer__sub_80117E50(u16);
 extern const f32 lbl_805DAB7C;
 s32 get_technique_name(s32 arg0);
 s32 get_text_collection(s32 arg0);
@@ -868,8 +908,7 @@ extern char lbl_8043E390[];
 extern s32 current_language;
 extern char lbl_805DAB8C;
 void TItemData__clear_unidentified_flag(void *arg0);
-void apply_custom_shield_bonus__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, Stats_8010BEC4 *st, s32 w5);
-void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, Stats_8010BEC4 *st, s32 w5);
+void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, EquipStats *st, s32 w5);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8);
 
 void lookup_item_def__9TItemDataFPv(void *arg0) {
@@ -990,7 +1029,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
   }
   else
   {
-    id = ((u16 (*)(void *)) obj_getField1c)(player);
+    id = obj_getField1c(player);
   }
   if (player == 0)
   {
@@ -1486,11 +1525,11 @@ void TItemData::apply_equip_effects(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 
             }
             break;
         case 2:
-            add_mag_stat_bonuses__9TItemDataFv((u8 *)this, arg1, (u8 *)arg2, (u8 *)arg3, (Stats_8010BEC4 *)arg4, arg5);
+            add_mag_stat_bonuses__9TItemDataFv((u8 *)this, arg1, (u8 *)arg2, (u8 *)arg3, (EquipStats *)arg4, arg5);
             break;
         }
         apply_bonuses(this, arg1, arg2, arg3, arg4, arg5);
-        apply_custom_shield_bonus__9TItemDataFv((u8 *)this, arg1, (u8 *)arg2, (u8 *)arg3, (Stats_8010BEC4 *)arg4, arg5);
+        apply_custom_shield_bonus(arg1, (TItemData *)arg2, (TItemData *)arg3, (EquipStats *)arg4, arg5);
     }
 }
 
@@ -1658,7 +1697,7 @@ void init__9TItemDataFv(TItemData_8010E344 *self) {
     self->data[3] = 0;
     self->data[4] = 0;
     self->data[5] = 0;
-    self->f10 = 0;
+    self->data2 = 0;
     for (i = 0; i < 3; i++) {
         self->stats[i].a = 0;
         self->stats[i].b = 0;

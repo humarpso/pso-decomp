@@ -309,6 +309,7 @@ force_active:
   - THunterGuildSeqOffline__sub_80213EBC
   - THunterGuildSeqOffline__sub_80213F78
   - THunterGuildSeqOffline__sub_802145F8
+  - TItemData__sub_8010CAB0
   - TItemDrop__ct
   - TItemDrop__data_805D53CC
   - TItemDrop__data_805D53D0
@@ -2192,14 +2193,18 @@ force_active:
   - action__18TObjEneBalClawClawFPv
   - activate_switch_attacks__10TObjPlayerFii
   - ad_game_start_name_ptr
+  - add_armor_stat_contribution__9TItemDataFPviiPv
   - add_gogo_ball_one_point_score__Fl
   - add_gogo_ball_three_point_score__Fl
   - add_id_to_slots__10TObjPlayerFiUs
   - add_instance__16TObjEneMe3StelthFv
   - add_item_purpose_actions__FP14TWindowSubItemll
+  - add_mag_stat_bonuses__9TItemDataFv
   - add_meseta_purpose_actions__14TWindowSubItemFll
+  - add_shield_stat_contribution__9TItemDataFPviiPv
   - add_target_in_cone__15TObjEneMe1GiGueFPvPv
   - add_target_in_front_arc__10TObjPlayerFPv
+  - add_weapon_stat_bonuses__9TItemDataFlPslPsl
   - advance_afterimage__11TBoss4Type2Fv
   - advance_anim_frame__16TObjEneBm5GibonUFv
   - advance_anim_frame__18TObjEneRe4SorcererFv
@@ -2271,9 +2276,11 @@ force_active:
   - apply_attack_stat_status__13TObjEneRe4BitFPv
   - apply_battle_ctrl_effect__Fi
   - apply_blend_mode_1__10TObjPlayerFv
+  - apply_bonuses
   - apply_clamped_mode_param__12TObjEneSharkFv
   - apply_confusion_status__13TObjEneRe4BitFv
   - apply_contact_damage__10TBoss4ZakoFv
+  - apply_custom_shield_bonus__9TItemDataFlP9TItemDataP9TItemDataP10EquipStatsl
   - apply_dakuten_to_last_char__19TWindowKeyBoardSoftFv
   - apply_defense_stat_status__13TObjEneRe4BitFPv
   - apply_direction_sign__11TBoss6Type2Ff
@@ -2321,6 +2328,7 @@ force_active:
   - apply_to_position__14TObjEneBm5WolfFPv
   - apply_unit_effect_flags__12TItemProUnitFv
   - apply_unit_immunity__18TItemLockCountCtrlFi
+  - apply_unit_stat_bonus__9TItemDataFPviiPvPvPv
   - apply_uv_offset__6TSceneFss
   - apply_variant_speeds__12TObjEneLappyFv
   - approach_target__14TObjEneBm5WolfFPvf
@@ -2684,6 +2692,7 @@ force_active:
   - bswap_enemy_set_rows__6TLobbyFUl
   - bswap_fields_0_4__6TLobbyFv
   - bswap_fields_4_8_12__6TLobbyFv
+  - bswap_fields__9TItemDataFv
   - bswap_floor_event_set__Fl
   - bswap_game_list_entry__FPv
   - bswap_guild_card_tag__17TWindowSubComCardFv
@@ -2729,6 +2738,7 @@ force_active:
   - calc_ci4_tile_offset__FUlUl
   - calc_circle_offset__14TObjEneBm5WolfFPvPvPv
   - calc_clamp_offset__11TLoadingCurFlPUcPUc
+  - calc_clock_bonus__9TItemDataFPv
   - calc_damage__11TTecRaZondeFv
   - calc_death_slide_speed__14TObjEneBm5WolfFPvf
   - calc_digit_count__18TWindowInputNumberFv
@@ -2880,6 +2890,7 @@ force_active:
   - change_floor_reload_area__Fv
   - change_motion__9TBoss6MagFl
   - char_select_date_stamp
+  - char_to_letter_index__9TItemDataFPvSc
   - character_select_scene_resource_callbacks
   - chasing_state__14TObjEneBm5WolfFl
   - chat_dispatch_accepted_result__FPl
@@ -3318,6 +3329,7 @@ force_active:
   - decay_glow_and_calc_hp_ratio__9TBoss6MagFv
   - decode_adx_stereo__FPSclPsPsPsPsss
   - decode_adx_stereo_downmix__FPSclPsPsPsPsss
+  - decode_packed_name_chars__9TItemDataFPSc
   - decode_params__14TOTrapChainSawFv
   - decode_params__17TOTrapChainSawKeyFv
   - decode_params__20TOTrapChainSawDamageFv
@@ -3915,8 +3927,10 @@ force_active:
   - get_anim_frame__13TUnk_804B5E48Fv
   - get_area_event_data__Fl
   - get_area_table_value__17TOTrapChainSawKeyFii
+  - get_armor_set_multiplier__9TItemDataFPUc
   - get_attack_state__16TObjEneBm5GibonUFPv
   - get_bank_meseta_capacity__Fl
+  - get_base_rarity__9TItemDataFv
   - get_bml_motion_by_index__23TObjSeabedSuisoBrakableFl
   - get_bool_from_1d6ddc__9TItemDropFPv
   - get_boss_warp_base_model
@@ -4000,6 +4014,8 @@ force_active:
   - get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv
   - get_serial_result__22TAdEnterSerialAccessGCFv
   - get_serial_text__22TAdEnterSerialAccessGCFii
+  - get_set_bonus_multiplier__9TItemDataFPvi
+  - get_shield_set_multiplier__9TItemDataFPUc
   - get_slot_flag__26TWindowSubQuestBoardSelectFic
   - get_sock_status_name__Fs
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
@@ -4019,6 +4035,7 @@ force_active:
   - get_type__23TAdSinglePlyChrSelectGCFPv
   - get_vidlist
   - get_viewport_offset__19TWindowKeyBoardSoftFi
+  - get_weapon_set_multiplier__9TItemDataFPUc
   - get_window_control_state__Fl
   - gi_gue_njm_name_table
   - gibon_collision_body_templates
@@ -5679,6 +5696,7 @@ force_active:
   - open_windows__22TAdMultiPlyChrSelectGCFv
   - open_yesno_dialog__17TWindowSubComCardFv
   - pack_status_flags__20TWindowSubStatusDispFUl
+  - pack_three_colors__9TItemDataFPUc
   - pack_weapon_trail_color__FPv
   - paralysis_curse_timer_ct__FPUcUlllf
   - parse_aix_header__6TLobbyFPviPv
