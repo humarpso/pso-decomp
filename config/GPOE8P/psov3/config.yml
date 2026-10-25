@@ -1876,6 +1876,7 @@ force_active:
   - __vt__12TObjNpcLappy
   - __vt__12TObjRainCtrl
   - __vt__12TQuestThread
+  - __vt__12TTecZondeEff
   - __vt__12T_OWEHMS_Exp
   - __vt__13TAdGuideTxtGC
   - __vt__13TAdMcSelectGC
@@ -2713,6 +2714,7 @@ force_active:
   - calc_digit_transform__17TDuelEffectNumberFlPfPfl
   - calc_dir_angles__11TBoss6Type2FPvPvPvPv
   - calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf
+  - calc_dominant_axis__12TTecZondeEffFv
   - calc_drop_item__9TItemDropFiPvi
   - calc_drop_offset__9TItemDropFl
   - calc_drop_rarity__9TItemDropFiiPv
@@ -2722,6 +2724,7 @@ force_active:
   - calc_gvm_entry_stride__FUs
   - calc_highlight_scale__12TChCrTagNameFPv
   - calc_hit_zone_index__13TUnk_80483A10Fv
+  - calc_lightning_scatter_direction__12TTecZondeEffFlPv
   - calc_loading_cursor_pos
   - calc_lunge_aim__14TObjEneBm5WolfFPv
   - calc_move_state__12TObjEneSaverFv
@@ -4172,6 +4175,7 @@ force_active:
   - init_base__27TOHangceilingCave01KeyQuickFll
   - init_battle_round__17TPlayerBattleCtrlFv
   - init_body_sub__14TObjEneDolmOlmFv
+  - init_bolt_points__12TTecZondeEffFv
   - init_buffer
   - init_buffer__12TBoss8DragonFll
   - init_cast__9TTecRestaFv
@@ -10275,6 +10279,7 @@ force_active:
   - render__12TObjEneSharkFv
   - render__12TPhotonGollaFv
   - render__12TPhotonPillaFv
+  - render__12TTecZondeEffFv
   - render__13TAdMcSelectGCFv
   - render__13TAdTitleTexGCFv
   - render__13TBoss6KakusanFv

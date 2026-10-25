@@ -8057,7 +8057,7 @@ pso/misc/TTecZondeEff.cpp:
 	.text       start:0x8023CED4 end:0x8023DBEC
 	.rodata     start:0x8044DCC8 end:0x8044DCD8
 	.data       start:0x804CCD90 end:0x804CCDA8
-	.sdata2     start:0x805DC994 end:0x805DC9B0
+	.sdata2     start:0x805DC990 end:0x805DC9AC
 
 pso/object/TObjDoorJung_8023DBEC.cpp:
 	.text       start:0x8023DBEC end:0x8023DCB8

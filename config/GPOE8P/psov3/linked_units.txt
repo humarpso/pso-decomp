@@ -1587,6 +1587,7 @@ pso/misc/TTecSlicer.cpp
 pso/misc/TTecSlicer_8023B5C8.cpp
 pso/misc/TTecZarua.cpp
 pso/misc/TTecZonde.cpp
+pso/misc/TTecZondeEff.cpp
 pso/misc/TUdpSocket.cpp
 pso/misc/TUserAns.cpp
 pso/misc/TUserAns_801E0198.cpp
