@@ -3387,6 +3387,7 @@ force_active:
   - draw_quad__16TAdGuideButtonGCFi
   - draw_queued_models__FUl
   - draw_ray_quads__8TAdRayGCFlPUcPvl
+  - draw_record_with_camera__19TAdTrialAgreementGCFlll
   - draw_screen__22TAdEnterSerialAccessGCFPvPv
   - draw_selected_bar__11TWindowMenuFPUc
   - draw_selected_entry__20TWindowSubSymbolChatFv

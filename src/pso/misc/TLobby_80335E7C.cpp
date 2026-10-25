@@ -1,3 +1,4 @@
+// ---- pso/misc/TLobby_80335E08 [0x80335E7C-0x80336054): separate TU (own .sdata2 pool 0x805DF8C8-0x805DF8E8)
 #include "types.h"
 #include "pso/misc/TUnk_804EE470.h"
 #include "pso/ui/TUnk_804EE458.h"
@@ -70,33 +71,19 @@ void __dt__7TObjectFv(void *, int);
 extern s32 __vt__13TUnk_804EE470[];
     extern unsigned char lobby_record_table[];
 s32 TCameraCtrl__sub_80068EF0();
-extern const f32 lbl_805DF8C8;
-extern const f32 lbl_805DF8CC;
-extern const f32 lbl_805DF8D0;
-extern const f32 lbl_805DF8D4;
-extern const f32 lbl_805DF8D8;
-extern const f32 lbl_805DF8DC;
-extern const f32 lbl_805DF8E0;
-extern const f32 lbl_805DF8E4;
+
+
+
+
+
+
+
+
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 
-    extern const float lbl_805DF8B4;
-    extern const float lbl_805DF8C0;
+    
+    
 }
-TUnk_804EE458::TUnk_804EE458(int a1) : TObject((TObject *)a1) {
-    *(int*)((char*)this + 0x1c) = a1;
-    this->m_20 = 0;
-    *(int*)((char*)this + 0x24) = 0;
-    this->m_28 = lbl_805DF8C0;
-    *(float*)((char*)this + 0x2c) = lbl_805DF8B4;
-    this->m_30 = lbl_805DF8B4;
-    *(float*)((char*)this + 0x34) = lbl_805DF8B4;
-    this->m_38 = 0;
-}
-
-
-void TLobby__sub_80335E74(void) {  }
-void TLobby__sub_80335E78(void) {  }
 
 typedef struct Stack_80335E7C Stack_80335E7C;
 void TUnk_804EE470::render() {
@@ -106,19 +93,19 @@ void TUnk_804EE470::render() {
   begin_screen_draw(1);
   bind_title_texture_list();
   set_draw_texture_and_color(1, -1);
-  stack.sp8 = lbl_805DF8C8;
-  stack.spC = lbl_805DF8CC;
-  stack.sp10 = lbl_805DF8D0;
-  stack.sp14 = lbl_805DF8D4;
-  stack.sp1C = (stack.sp18 = lbl_805DF8D8);
-  stack.sp24 = (stack.sp20 = lbl_805DF8DC);
-  draw_textured_quad_at_depth((&stack.sp8), (f32) lbl_805DF8E0);
+  stack.sp8 = 64.0f;
+  stack.spC = 61.0f;
+  stack.sp10 = 3.2e+02f;
+  stack.sp14 = 317.0f;
+  stack.sp1C = (stack.sp18 = 0.0f);
+  stack.sp24 = (stack.sp20 = 1.0f);
+  draw_textured_quad_at_depth((&stack.sp8), (f32) 0.1f);
   set_draw_texture_and_color(2, -1);
-  stack.sp8 = lbl_805DF8D0;
-  stack.spC = lbl_805DF8CC;
-  stack.sp10 = lbl_805DF8E4;
-  stack.sp14 = lbl_805DF8D4;
-  draw_textured_quad_at_depth((&stack.sp8), (f32) lbl_805DF8E0);
+  stack.sp8 = 3.2e+02f;
+  stack.spC = 61.0f;
+  stack.sp10 = 576.0f;
+  stack.sp14 = 317.0f;
+  draw_textured_quad_at_depth((&stack.sp8), (f32) 0.1f);
   TWindowSubStatusDisp::get_player();
   TCameraCtrl__sub_80068EF0();
   TParticleCtrl::end_effect_render();

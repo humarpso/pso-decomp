@@ -1089,7 +1089,7 @@ pso/misc/TLobby_803255F8.cpp
 pso/misc/TLobby_80328F7C.cpp
 pso/misc/TLobby_80329600.cpp
 pso/misc/TLobby_8032BD20.cpp
-pso/misc/TLobby_80335E08.cpp
+pso/misc/TLobby_80335E7C.cpp
 pso/misc/TLobby_803360CC.cpp
 pso/misc/TLobby_80336E00.cpp
 pso/misc/TLobby_803382E4.cpp
@@ -2762,7 +2762,6 @@ pso/ui/TAdTitleGC.cpp
 pso/ui/TAdTitleTexGC.cpp
 pso/ui/TAdTrialAgreementGC.cpp
 pso/ui/TAdTrialAgreementGC_8033573C.cpp
-pso/ui/TAdTrialAgreementGC_80335958.cpp
 pso/ui/TAdTrialModemChkGC.cpp
 pso/ui/TAdVIConfigGC.cpp
 pso/ui/TAdVIConfigGC_80248B8C.cpp
