@@ -1,7 +1,8 @@
-// Implements both TObject and TMainTask. They were one source file in the
-// original: a single static initializer constructs main_task and the two
-// TObject roots, and one .sdata block holds TMainTask's flag next to the
-// TObject/TMainTask/task-layer names.
+// Implements both TObject and TMainTask; they were one source file. The
+// out-of-line copy of the TObject.h inline allow_rendering_shadows(), whose
+// only callers are in TMainTask::render_shadows, follows this file's static
+// initializer together with the copies TObject::defer_render needs. A
+// separate TMainTask.cpp would have emitted it at its own end.
 #pragma readonly_strings on
 #define TOBJECT_CPP
 #define TOBJECT_OUT_OF_LINE_HELPERS
