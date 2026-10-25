@@ -222,6 +222,7 @@ pso/boss/TBoss6GravBall_80323134.cpp
 pso/boss/TBoss6Kakusan.cpp
 pso/boss/TBoss6Mag.cpp
 pso/boss/TBoss6MagMine.cpp
+pso/boss/TBoss6Mine.cpp
 pso/boss/TBoss6PlotFalz.cpp
 pso/boss/TBoss6RockChase.cpp
 pso/boss/TBoss6Rock_8035477C.cpp

@@ -4,6 +4,10 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemy.h"
 
+extern "C" {
+s32 TBoss6PlotFalz__sub_802ABADC(void);
+}
+
 struct TBoss6PlotFalz : public TObjEnemy {
     virtual ~TBoss6PlotFalz();
     void ensure_field384();

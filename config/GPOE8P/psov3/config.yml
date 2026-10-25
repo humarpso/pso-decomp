@@ -226,6 +226,7 @@ force_active:
   - TBoss6MagMine__ct
   - TBoss6MagMine__sub_80368AB8
   - TBoss6Mag__collision_body_parts
+  - TBoss6Mine__ct
   - TBoss6PlotFalz__ct
   - TBoss6PlotFalz__sub_8036964C
   - TBoss6RockChase__ct
@@ -3133,6 +3134,7 @@ force_active:
   - copy_node_record__10TObjPlayerFl
   - copy_pair__18TObjEnvSoundGlobalFPvPv
   - copy_pair__6TLobbyFPvPv
+  - copy_pos__10TBoss6MineFv
   - copy_pos__13TBoss6MagMineFi
   - copy_pos__13TObjEneMe1GeeFv
   - copy_pos__13TObjEneRe4BitFv
@@ -3398,6 +3400,7 @@ force_active:
   - door_resource_descriptor
   - door_resource_handle
   - dragonfly_cave01_resource_descriptor
+  - draw__10TBoss6MineFv
   - draw__12TWindowTimerFll
   - draw__14TOTrapSeabed01Fv
   - draw__15TObjLazerFence4Fv
@@ -3615,6 +3618,7 @@ force_active:
   - expand_message_substitutions
   - explode__13TBoss6MagMineFPv
   - explode__22TObjEneMe1GiGueMissileFPv
+  - explode_damage_players__10TBoss6MineFv
   - export_player_record__10TObjPlayerFPvPv
   - fabs_double__Fd
   - face_target__16TObjEneBm5GibonUFv
@@ -4367,6 +4371,7 @@ force_active:
   - is_entry_table_valid__8TObjFishFv
   - is_entry_valid__23TAdSinglePlyChrSelectGCFPvi
   - is_entry_valid__6TLobbyFl
+  - is_far_from_origin__10TBoss6MineFv
   - is_field88_zero__15TObjCityMapWarpFv
   - is_field88_zero__15TObjLaboMapWarpFv
   - is_flag_set__11TCameraCtrlFv
@@ -11493,6 +11498,14 @@ force_active:
   - start_udp_test_game__6TLobbyFv
   - start_win_timer__15TObjSoloPlayWinFv
   - stat__10TTcpSocketFv
+  - state_0__10TBoss6MineFv
+  - state_1__10TBoss6MineFv
+  - state_2__10TBoss6MineFv
+  - state_3__10TBoss6MineFv
+  - state_4__10TBoss6MineFv
+  - state_5__10TBoss6MineFv
+  - state_6__10TBoss6MineFv
+  - state_7__10TBoss6MineFv
   - state_appear__13TObjEneMorfosFl
   - state_attack__13TObjEneMe1GeeFl
   - state_attack__16TObjEneRe7BeruraFl
@@ -11977,6 +11990,7 @@ force_active:
   - update_exi_status__6TLobbyFv
   - update_extension__14TOTrapChainSawFv
   - update_extension__18TOTrapChainSawEdgeFv
+  - update_facing_angles__10TBoss6MineFv
   - update_fade__12TChCrEffFadeFv
   - update_fade__13TObjLobbyMainFv
   - update_fade__18TObjButterflyLobbyFv
