@@ -14,8 +14,12 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
+  - "@14"
   - "@28@__dt__17TMedicalCenterMesFv"
   - "@28@__dt__22TQuestVmDownLoadServerFv"
+  - "@4"
+  - "@891"
+  - "@990"
   - AIGetDSPSampleRate
   - AIGetStreamPlayState
   - AIGetStreamSampleRate
@@ -27,15 +31,20 @@ force_active:
   - AISetStreamVolRight
   - AddRunningEmitter
   - AddStartingEmitter
+  - AlarmQueue
   - AllocateNote
+  - ArenaEnd
+  - ArenaStart
   - Block_link
   - CARDCheckExAsync
   - CalcEmitter
   - CheckDoorStatus
   - CheckOutputMode
   - CheckRoomStatus
+  - DBVerbose
   - DCEnable
   - DMAErrorHandler
+  - DSPInitCode
   - DVDConvertPathToEntrynum
   - DVDGetCurrentDir
   - DoCrossTalk
@@ -45,11 +54,15 @@ force_active:
   - Dolphin_DVDCancelAsync
   - Dolphin_GXFlush
   - Dolphin_GXLoadTexObjPreLoaded
+  - Down
   - EXIClearInterrupts
   - EmitterShutdown
+  - ErrorTable
   - EventHandler
   - GXInitFifoLimits
   - GXInitFifoPtrs
+  - GXSetTevAlphaIn
+  - GXSetTevAlphaOp
   - GXSetTevIndirect
   - GXTexImage0Ids
   - GXTexImage1Ids
@@ -70,26 +83,38 @@ force_active:
   - HandleNotes
   - HandleReverb
   - HandleTrackEvents
+  - HeapArray
+  - HoldDown
+  - HoldUp
   - ICEnable
   - InitStreamBuffers
   - InitTrackEvents
   - InitTrackEventsSection
   - InsertData
   - InsertGlobalEvent
+  - InterruptHandlerTable
+  - InterruptPrioTable
+  - IsTRKConnected
   - KeyOffNotes
   - L2GlobalInvalidate
+  - LastState
   - LowPrecisionHandler
+  - NumHeaps
   - OSExitThread
   - OSNotifyLink
   - OSNotifyUnlink
   - PADSetSamplingCallback
+  - PPCMthid0
   - PSMTXRotTrig
+  - ResetCallback
+  - ResetFunctionQueue
   - ResetNotes
   - Runtime_TRKValidMemory32
   - ScanIDList
   - ScanIDListReverse
   - SelectSource
   - SetFXParameters
+  - SetInterruptMask
   - SortVoices
   - StartContinousEmitters
   - StartKeymap
@@ -1267,6 +1292,7 @@ force_active:
   - TRKPPCAccessFPRegister
   - TRKPositionFile
   - TRKPostInterruptEvent
+  - TRK_mainError
   - TRecvGenerateID__sub_801DFBC4
   - TSaveChCr__ct
   - TSceneSora__ct
@@ -1408,6 +1434,7 @@ force_active:
   - TypeAndStatusCallback
   - UnYieldMacro
   - UpdateRoomDistances
+  - WaitingQueue
   - ZeroOffsetHandler
   - _GetInputValue
   - _MetroTRK_Has_Framing
@@ -1417,16 +1444,27 @@ force_active:
   - __CARDFormatRegionAsync
   - __CARDSetDiskID
   - __CARDTxHandler
+  - __DBExceptionDestination
+  - __DBExceptionDestinationAux
+  - __DBInterface
   - __DSP_exec_task
   - __DSP_remove_task
   - __DSP_rude_task
   - __DSP_rude_task_pending
   - __DVDLowSetWAType
   - __GXInitGX
+  - __GXSetGenMode
+  - __OSArenaHi
+  - __OSArenaLo
+  - __OSDispatchInterrupt
   - __VIInit
+  - __aborting
   - __as__13GameListEntryFRC13GameListEntry
   - __as__14LobbyListEntryFRC14LobbyListEntry
   - __as__14QuestListEntryFRC14QuestListEntry
+  - __atexit_curr_func
+  - __atexit_funcs
+  - __console_exit
   - __ct__11TBoss4ZanzoFv
   - __ct__11TMessageBoxFRC11TMessageBox
   - __ct__11TPlayerSoulFP7TObjectUs
@@ -1891,6 +1929,7 @@ force_active:
   - __fill_mem
   - __fini_cpp_exceptions
   - __fini_cpp_exceptions_reference
+  - __fwrite
   - __global_destructor_chain
   - __init_cpp_exceptions
   - __init_cpp_exceptions_reference
@@ -2262,6 +2301,7 @@ force_active:
   - __vt__9TTecJelin
   - __vt__9TTecSifta
   - __vt__9TTecZarua
+  - _fseek
   - abeno_fs_obj001_fosuno_model_names
   - abeno_fs_obj001_fosuno_motion_names
   - abort_download__22TQuestVmDownLoadServerFv
@@ -2869,6 +2909,7 @@ force_active:
   - byteswap_entry__20TWindowSubSymbolChatFv
   - byteswap_header__10TNpcPlayerFv
   - byteswap_telepipe_packet__9TTecLukerFv
+  - c2r$433
   - cached_blend_factor_table
   - calc_alpha_shifted__6TLobbyFf
   - calc_angle_to_target__19TObjEneEpsilonGuardFv
@@ -4062,6 +4103,7 @@ force_active:
   - forward_return_arg__17TWindowSubComCardFi
   - forward_to_channel__6TLobbyFPv
   - forward_to_matching_card__17TWindowSubComCardFPvPvi
+  - fragmentinfo
   - free__23TAdSinglePlyChrSelectGCFv
   - free_buffer__12TBoss8DragonFPvs
   - free_buffer__13TUnk_804EF8C0Fv
@@ -4097,6 +4139,10 @@ force_active:
   - gReadBuf
   - gReadCount
   - gReadPos
+  - gTRKDispatchTable
+  - gTRKDispatchTableSize
+  - gTRKEventQueue
+  - gTRKFramingState
   - gTRKMsgBufs
   - gTRKSaveState
   - gWriteBuf
@@ -11928,6 +11974,9 @@ force_active:
   - state_wait__17TObjEneBm3FlyNestFPvi
   - state_wait__18TObjEneRe4SorcererFl
   - status_alphabet_metrics_table
+  - stderr_buff
+  - stdin_buff
+  - stdout_buff
   - stelth_bml_resource_desc
   - step_along_ground__10TObjPlayerFv
   - step_angle_clamped__10TObjPlayerFPvi
@@ -12267,6 +12316,7 @@ force_active:
   - turn_toward_target__12TObjEneSaverFv
   - udp_socket_slots
   - ultimate_area_gsl_filename_table
+  - unicode_to_UTF8
   - unlink_list_node__14TObjEneBm5WolfFPPPvPPv
   - unlink_list_node__16TObjEneBm5GibonUFPPPvPPv
   - unload_floor_resources__Fl
