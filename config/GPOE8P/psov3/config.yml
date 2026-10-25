@@ -1083,6 +1083,9 @@ force_active:
   - TObjPlayer__sub_802C4648
   - TObjPlayer__sub_802E0468
   - TObjPlayer__sub_802E0580
+  - TObjPlayer__sub_802E75B8
+  - TObjPlayer__sub_802E7640
+  - TObjPlayer__sub_802E76C8
   - TObjPlayer__sub_802ED984
   - TObjPlayer__sub_80307784
   - TObjPlayer__sub_8030A9B0
@@ -1535,6 +1538,7 @@ force_active:
   - __dt__13TUnk_804CCA90Fv
   - __dt__13TUnk_804CCAA8Fv
   - __dt__13TUnk_804CCD78Fv
+  - __dt__13TUnk_804E3BD8Fv
   - __dt__13TUnk_804E4788Fv
   - __dt__13TUnk_804E71A0Fv
   - __dt__13TUnk_804EFA88Fv
@@ -1915,6 +1919,7 @@ force_active:
   - __vt__13TUnk_804CC870
   - __vt__13TUnk_804CCAA8
   - __vt__13TUnk_804CCD78
+  - __vt__13TUnk_804E3BD8
   - __vt__13TUnk_804E4788
   - __vt__13TUnk_804EFA88
   - __vt__13TUnk_804F0BF0
@@ -2214,6 +2219,7 @@ force_active:
   - alerted_state__14TObjEneBm5WolfFl
   - alloc_boss4rock_buffer__6TLobbyFv
   - alloc_boss_target_slot__10TObjPlayerFPvi
+  - alloc_breakup_model__13TUnk_804E3BD8Fl
   - alloc_breakup_piece_records
   - alloc_char_records__23TAdSinglePlyChrSelectGCFi
   - alloc_download_buffer__13TUnk_804EF8C0Fv
@@ -4292,6 +4298,7 @@ force_active:
   - init_window__22TShopEquipmentSequenceFPv
   - init_windows__23TAdSinglePlyChrSelectGCFi
   - init_with_global_table__11TBoss6Type2Fv
+  - init_zeroed_object__10TObjPlayerFv
   - initialize__13TUnk_804A05C8FPvPvPvPv
   - initialize__16TItemWeaponRifleFlPUc
   - initialize_battle__19TPlayerBattleCtrl4PFv
@@ -4915,6 +4922,7 @@ force_active:
   - lbl_805D64AC
   - lbl_805D6800
   - lbl_805D6804
+  - lbl_805D6910
   - lbl_805D6AB0
   - lbl_805D6C80
   - lbl_805D6D80

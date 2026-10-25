@@ -4,27 +4,13 @@
 #include "pso/player/TUnk_804E3BD8.h"
 #include "pso/player/TUnk_804E3BC0.h"
 #include "pso/player/TUnk_804E3BA8.h"
-#include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/boss/TBoss4Type2.h"
-#include "pso/misc/TNowLoading.h"
 #include "pso/unk/text_80087278.h"
 
 struct VB_802E74E4 { u8 pad[0xC]; };
 
 struct VObj_802E74E4 : VB_802E74E4 { virtual void m0(int); };
-
-struct Vec_802E7888 { f32 x, y, z; };
-
-struct Ang_802E7888 { s32 x, y, z; };
-
-struct Obj_802E7888 {
-    u8 pad0[0x7B0];
-    u32 f7B0;
-    Vec_802E7888 pos;
-    Vec_802E7888 v7C0;
-};
 
 struct Col_802E6CB0 { f32 a; s32 b; s32 c; s32 d; };
 
@@ -98,10 +84,6 @@ void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__13TUnk_804E3BD8[];
 u8 *__dt__13TUnk_804E3BD8Fv(u8 *arg0, s16 arg1);
-f32 atan2_float(f32 y, f32 x);
-f32 newton_sqrtf(f32);
-f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
-extern const f64 lbl_80473FA8[];
 s32 TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 rotate_matrix_z(int, s32);
@@ -140,7 +122,6 @@ void TObjPlayer__sub_802E7640(void *);
 extern s32 lbl_80472C68[];
 extern s32 lbl_804E3BC0[];
 Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72DC *arg2, s32 arg3);
-void TObjFish__sub_802E787C(void);
 void *__dt__13TUnk_804E3BA8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E7084(void);
 void TObjPlayer__sub_802E7088(void);
@@ -418,8 +399,6 @@ void TObjPlayer__sub_802E7640(void *arg0) {
     pop_matrix();
 }
 
-    extern float lbl_805D6910;
-
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
@@ -477,20 +456,4 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
 }
 #pragma pop
 
-void TObjFish__sub_802E787C(void) { lbl_805D6910 = lbl_805DE9F0; }
-
-void TObjFish::update_attached_orientation() {
-    Obj_802E7888 *o = (Obj_802E7888 *)this;
-    if (o->f7B0 != 0) {
-        Vec_802E7888 d = o->pos;
-        Ang_802E7888 ang;
-        subtract_vector(&d, &o->v7C0);
-        ang.x = -(s32)(lbl_80473FA8[0] * atan2_float(d.y, newton_sqrtf(d.x * d.x + d.z * d.z))) - 0x4000;
-        ang.y = (s32)(lbl_80473FA8[0] * atan2_float(d.x, d.z));
-        ang.z = 0;
-        ((TNowLoading *)(o->f7B0))->copy_pos(&o->pos);
-        ((TBoss4Type2 *)(o->f7B0))->copy_vec3(&ang);
-    }
-}
-
-void TObjFish::destroy_child() { if (*(unsigned int*)((char*)this + 0x7b0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x7b0)); *(int*)((char*)this + 0x7b0) = 0; } }
+f32 lbl_805D6910 = lbl_805DE9F0;
