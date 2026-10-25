@@ -436,7 +436,7 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     "pso/enemy/TObjEneGyaranzo.cpp": {"mw_version": "GC/2.0"},
     "pso/boss/TBoss8Dragon.cpp": {"mw_version": "GC/2.0"},
     # GC/1.3.2: the container files 0x8018807C-0x8018D900, the CRC-32 pair
-    # (`xoris/xori 0xFFFF`; 2.x always emits `li -1; xor`), and four others.
+    # (`xoris/xori 0xFFFF`; 2.x always emits `li -1; xor`), and five others.
     "pso/object/TObjComputer.cpp": {"mw_version": "GC/1.3.2"},
     "pso/item/TObjContainerJung.cpp": {"mw_version": "GC/1.3.2"},
     "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp": {"mw_version": "GC/1.3.2"},
@@ -445,6 +445,7 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     "pso/player/TObjPlayer_80141D1C.cpp": {"mw_version": "GC/1.3.2"},
     "pso/misc/TKeyBoardControl_8025EC04.cpp": {"mw_version": "GC/1.3.2"},
     "pso/menu/TAdMultiOkGC.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/misc/TLobby_802A5120.cpp": {"mw_version": "GC/1.3.2"},
     # GC/1.3: the compiler-generated TMenuList<> copy constructor.
     "pso/misc/TRegister.cpp": {"mw_version": "GC/1.3"},
     "pso/misc/TPlyGuildCardTag_801E0284.cpp": {"mw_version": "GC/1.3"},
