@@ -6384,18 +6384,13 @@ pso/player/TObjPlayer_801AC0D8.cpp:
 	.text       start:0x801AC0D8 end:0x801AC158
 
 pso/misc/TPhotonLaser.cpp:
-	.text       start:0x801AC158 end:0x801AC45C
+	.text       start:0x801AC158 end:0x801AC43C
 	.rodata     start:0x80446DD0 end:0x80446DD8
 
-pso/misc/TPhotonLeilla_801AC45C.cpp:
-	.text       start:0x801AC45C end:0x801AC794
-	.rodata     start:0x80446DF0 end:0x80446DF8
-
 pso/misc/TPhotonLeilla.cpp:
-	.text       start:0x801AC794 end:0x801AC808
-
-pso/unk/text_801AC808.cpp:
-	.text       start:0x801AC808 end:0x801ACA6C
+	.text       start:0x801AC43C end:0x801ACA6C
+	.rodata     start:0x80446DF0 end:0x80446DF8
+	.sdata2     start:0x805DC1C0 end:0x805DC1D8
 
 pso/player/TObjPlayer_801ACA6C.cpp:
 	.text       start:0x801ACA6C end:0x801ACAF0
