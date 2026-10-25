@@ -111,7 +111,7 @@ typedef struct S_803C6138 {
     u8 *f84;
 } S_803C6138;
 
-struct Ent_803C8BAC {
+struct AdxStreamFile {
     s8 used;
     s8 b1;
     s8 b2;
@@ -230,15 +230,15 @@ u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C634[];
 extern s32 adx_stream_request_count_ex;
 extern s32 lbl_805D7550;
-Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg);
+AdxStreamFile *TLobby__sub_803C8BAC(const char *name, s32 arg);
 s32 TLobby__sub_803CE568(void);
 extern s32 adx_stream_fname_slot_count;
 extern s32 adx_stream_request_base_index;
-Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg);
+AdxStreamFile *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg);
 extern char lbl_8047C600[];
-Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
+AdxStreamFile *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
 extern char lbl_8047C660[];
-Ent_803C8BAC *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
+AdxStreamFile *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
 void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_803C610C(u8 *arg0);
 void TLobby__sub_803C6118(u8 *arg0);
@@ -999,11 +999,11 @@ void TLobby__sub_803C8B38(u8 *arg0) {
 
 #pragma dont_inline off
 #pragma inline_depth(4)
-inline Ent_803C8BAC *alloc_803C8BAC(s32 arg, u32 h, s32 size) {
-    Ent_803C8BAC *p = NULL;
+inline AdxStreamFile *alloc_803C8BAC(s32 arg, u32 h, s32 size) {
+    AdxStreamFile *p = NULL;
     s32 i;
     for (i = 0; i < adx_stream_request_count_ex; i++) {
-        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[lbl_805D7550 + i];
+        p = &((AdxStreamFile *)&adx_stream_read_requests)[lbl_805D7550 + i];
         if (p->used == 0) {
             break;
         }
@@ -1023,10 +1023,10 @@ inline Ent_803C8BAC *alloc_803C8BAC(s32 arg, u32 h, s32 size) {
     p->used = 1;
     return p;
 }
-Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg) {
+AdxStreamFile *TLobby__sub_803C8BAC(const char *name, s32 arg) {
     s32 size;
     u32 h;
-    Ent_803C8BAC *p;
+    AdxStreamFile *p;
     size = TLobby__sub_803CEA14();
     h = TLobby__sub_803CF2F4(name, 0, 0);
     if (h == 0) {
@@ -1043,11 +1043,11 @@ Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg) {
 
 #pragma dont_inline off
 #pragma inline_depth(4)
-inline Ent_803C8BAC *alloc_803C8CDC(s32 arg, u32 h, s32 f10, s32 size) {
-    Ent_803C8BAC *p = NULL;
+inline AdxStreamFile *alloc_803C8CDC(s32 arg, u32 h, s32 f10, s32 size) {
+    AdxStreamFile *p = NULL;
     s32 i;
     for (i = 0; i < adx_stream_fname_slot_count; i++) {
-        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[adx_stream_request_base_index + i];
+        p = &((AdxStreamFile *)&adx_stream_read_requests)[adx_stream_request_base_index + i];
         if (p->used == 0) {
             break;
         }
@@ -1067,10 +1067,10 @@ inline Ent_803C8BAC *alloc_803C8CDC(s32 arg, u32 h, s32 f10, s32 size) {
     p->used = 1;
     return p;
 }
-Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
+AdxStreamFile *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
     s32 size;
     u32 h;
-    Ent_803C8BAC *p;
+    AdxStreamFile *p;
     if (mode == 0) {
         size = TLobby__sub_803CEA14();
     } else {
@@ -1091,11 +1091,11 @@ Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
 
 #pragma dont_inline off
 #pragma inline_depth(4)
-inline Ent_803C8BAC *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
-    Ent_803C8BAC *p = NULL;
+inline AdxStreamFile *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
+    AdxStreamFile *p = NULL;
     s32 i;
     for (i = 0; i < adx_stream_request_count_ex; i++) {
-        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[lbl_805D7550 + i];
+        p = &((AdxStreamFile *)&adx_stream_read_requests)[lbl_805D7550 + i];
         if (p->used == 0) {
             break;
         }
@@ -1115,9 +1115,9 @@ inline Ent_803C8BAC *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
     p->used = 1;
     return p;
 }
-Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
+AdxStreamFile *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
     u32 h;
-    Ent_803C8BAC *p;
+    AdxStreamFile *p;
     h = TLobby__sub_803CF2F4((const char *)(name), mode, 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C600, (s32)name);
@@ -1133,11 +1133,11 @@ Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s3
 
 #pragma dont_inline off
 #pragma inline_depth(4)
-inline Ent_803C8BAC *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
-    Ent_803C8BAC *p = NULL;
+inline AdxStreamFile *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
+    AdxStreamFile *p = NULL;
     s32 i;
     for (i = 0; i < adx_stream_fname_slot_count; i++) {
-        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[adx_stream_request_base_index + i];
+        p = &((AdxStreamFile *)&adx_stream_read_requests)[adx_stream_request_base_index + i];
         if (p->used == 0) {
             break;
         }
@@ -1157,9 +1157,9 @@ inline Ent_803C8BAC *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
     p->used = 1;
     return p;
 }
-Ent_803C8BAC *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
+AdxStreamFile *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
     u32 h;
-    Ent_803C8BAC *p;
+    AdxStreamFile *p;
     h = TLobby__sub_803CF2F4((const char *)(name), mode, 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C660, (s32)name);

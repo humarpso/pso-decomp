@@ -86,7 +86,7 @@ void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
+void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate, f32 scale) {
     const f32 *entry;
     s32 duplicate = 0;
     s32 i;

@@ -4,6 +4,11 @@
 #include "types.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 
+struct TWindowMessageLine {
+    s32 flags;
+    s32 timer;
+};
+
 struct TWindowMessage : public TUnk_804CDFE8 {
     virtual ~TWindowMessage();
     virtual void run_task();
@@ -24,19 +29,19 @@ struct TWindowMessage : public TUnk_804CDFE8 {
     u32 m_40;
     u8 unk_44[0x4];
     f32 m_48;
-    void* m_4c;
+    f32 m_4c;
     u8 unk_50[0xC];
     u32 m_5c;
     u8 unk_60[0xC];
     f32 m_6c;
     u32 m_70;
-    u32 m_74;
+    s32 m_74;
     u32 m_78;
-    u32 m_7c;
-    u8 unk_80[0x4];
+    TWindowMessageLine *lines;
+    f32 unk_80;
     f32 m_84;
-    u32 m_88;
-    u32 m_8c;
+    s32 next_line;
+    s32 line_count;
     void complete_reveal();
     void update_line_timers();
 };

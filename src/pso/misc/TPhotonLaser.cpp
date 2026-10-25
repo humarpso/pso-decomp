@@ -72,8 +72,6 @@ extern const f32 lbl_805DC1B4;
 extern const f32 lbl_805DC1B8;
 extern const f32 lbl_805DC1BC;
 void run_task__12TPhotonLaserFv(Laser_801AC17C *o);
-void TObjPlayer__sub_801AC43C(void);
-void TObjPlayer__sub_801AC440(void);
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -153,10 +151,6 @@ Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void 
     return self;
 }
 
-void TObjPlayer__sub_801AC43C(void) {  }
-void TObjPlayer__sub_801AC440(void) {  }
 
-    extern const float lbl_805DC1C0;
-void TPhotonLeilla::sub_801AC444() { *(float *)&this->m_180 = lbl_805DC1C0; *(float*)((char*)this + 0x184) = lbl_805DC1C0; this->m_188 = lbl_805DC1C0; *(float *)&this->unk_18C = lbl_805DC1C0; }
 
 }

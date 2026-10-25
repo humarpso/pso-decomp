@@ -5,6 +5,11 @@
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMerillLia.h"
+#include "pso/misc/TLobby.h"
+#include "pso/system/BmlResource.h"
+#include "pso/system/BmlResourceDescriptor.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/TOBoss4Rock.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -502,7 +507,6 @@ void vfunc_60__16TObjEneMerillLiaFv(Ene_800D52DC *arg0);
 s32 minimap_render_dot(void *, int, int, int);
 s32 create__9TTecKafunFlllllff(void *, void *, int, int, int, f32, f32);
 s32 matrix_mult_vec(int, void *, void *);
-extern Vec_800D57C8 lbl_8043C6D0;
 extern u32 TObjEneMerillLia__rock_param_table;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DA30C;
@@ -537,7 +541,6 @@ s32 approach_angle_limited(s32, s32, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 subtract_vector(void *, void *);
 s32 pop_matrices(int);
-extern const f64 lbl_8043C6E8[];
 extern Vec_800D5BCC lbl_8050BEE0;
 extern Vec_800D5BCC lbl_8050BF00;
 void TObjEneMerillLia__sub_800D5BCC(u8 *arg0);
@@ -554,7 +557,9 @@ void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-void mem_free(void*);
+s32 is_split_screen(void);
+u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
+void TObjEneMerillLia__sub_800D6D64(void);
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void TObjEneMerillLia__sub_800D59E4(u8 *arg0);
@@ -654,28 +659,32 @@ extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
 extern void *lbl_804944D0[3];
-extern void *lbl_804944DC[17];
+extern void *lbl_804944DC[13];
 extern void *lbl_80494520[3];
-extern void *lbl_8049452C[17];
+extern void *lbl_8049452C[13];
 void *lbl_804944D0[3] = {
     (void *)&lbl_8043C478, (void *)&lbl_8043C494, (void *)0x0,
 };
-void *lbl_804944DC[17] = {
+void *lbl_804944DC[13] = {
     (void *)&lbl_8043C4B0, (void *)&lbl_8043C4D4, (void *)&lbl_8043C4F4, (void *)&lbl_8043C514,
     (void *)&lbl_8043C538, (void *)&lbl_8043C558, (void *)&lbl_8043C578, (void *)&lbl_8043C598,
     (void *)&lbl_8043C5BC, (void *)&lbl_8043C5DC, (void *)&lbl_8043C5F4, (void *)&lbl_8043C614,
-    (void *)0x0, (void *)&lbl_8043C634, (void *)&lbl_804944D0, (void *)&lbl_804944DC,
-    (void *)0x2000c,
+    (void *)0x0,
+};
+BmlResourceDescriptor bm_ene_re8_merill_lia_resource_descriptor = {
+    (const char *)lbl_8043C634, (const char *const *)lbl_804944D0, (const char *const *)lbl_804944DC, 2, 12,
 };
 void *lbl_80494520[3] = {
     (void *)&lbl_8043C650, (void *)&lbl_8043C66C, (void *)0x0,
 };
-void *lbl_8049452C[17] = {
+void *lbl_8049452C[13] = {
     (void *)&lbl_8043C4B0, (void *)&lbl_8043C4D4, (void *)&lbl_8043C4F4, (void *)&lbl_8043C514,
     (void *)&lbl_8043C538, (void *)&lbl_8043C558, (void *)&lbl_8043C578, (void *)&lbl_8043C598,
     (void *)&lbl_8043C5BC, (void *)&lbl_8043C5DC, (void *)&lbl_8043C5F4, (void *)&lbl_8043C614,
-    (void *)0x0, (void *)&lbl_8043C68C, (void *)&lbl_80494520, (void *)&lbl_8049452C,
-    (void *)0x2000c,
+    (void *)0x0,
+};
+BmlResourceDescriptor bm_ene_re8_merill_lia_low_resource_descriptor = {
+    (const char *)lbl_8043C68C, (const char *const *)lbl_80494520, (const char *const *)lbl_8049452C, 2, 12,
 };
 void *lbl_80494570[56] = {
     (void *)0x10000, (void *)0x5, (void *)0x3f19999a, (void *)0x1,
@@ -741,6 +750,15 @@ void *lbl_80494728[103] = {
     (void *)&vfunc_100__13TUnk_80493450Fv, (void *)&vfunc_101__16TObjEneMerillLiaFv, (void *)&request_stand_action__13TUnk_80493450Fv,
 };
 #define lbl_80494728 ((s32 *)lbl_80494728)
+
+// The motion set TLobby::spawn_npc_enemy copies for each spawned part.
+struct NpcSpawnMotions { void *motions; void *actions; s32 initial_action; s32 counts; };
+
+// One 0x2C-byte record of the collision body table init_collision_body_parts reads.
+struct CollisionPartRecord { u8 pad_0[0xC]; f32 radius; u8 pad_10[0x1C]; };
+
+__declspec(section ".rodata") static NpcSpawnMotions merill_lia_spawn_motions = {0, lbl_80494570, 2, 0xC0000};
+static const Vec_800D57C8 zero_offset = {0, 0, 0};
 
 void TObjEneMerillLia::vfunc_101() {  }
 
@@ -1103,7 +1121,7 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
             pop_matrix();
             push_matrix_from((void *)(anim_model_matrix_array + 0x450));
             {
-                Vec_800D57C8 sp8 = lbl_8043C6D0;
+                Vec_800D57C8 sp8 = zero_offset;
                 matrix_mult_vec(0, &sp8, &sp14);
             }
             pop_matrix();
@@ -1221,7 +1239,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
         VecCopy((Vec *)&lbl_8050BEE0, (const Vec *)&o->home);
         subtract_vector(&lbl_8050BEE0, &o->pos);
         d = &lbl_8050BEE0;
-        ang = (s32)(lbl_8043C6E8[0] * atan2_float(d->x, d->z));
+        ang = (s32)(10430.38043493439 * atan2_float(d->x, d->z));
         v = &lbl_8050BF00;
         v->x = v->y = TObjEneMerillLia__data_805DA300;
         v->z = o->f394;
@@ -1237,9 +1255,9 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
         } else {
             f32 rr = fabs_float(d->z);
             if (fabs_float(lbl_8050BEE0.x) < rr) {
-                ang = (s32)(lbl_8043C6E8[0] * atan2_float(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
+                ang = (s32)(10430.38043493439 * atan2_float(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
             } else {
-                ang = (s32)(lbl_8043C6E8[0] * atan2_float(TObjEneMerillLia__data_805DA300, d->z));
+                ang = (s32)(10430.38043493439 * atan2_float(TObjEneMerillLia__data_805DA300, d->z));
             }
             v->y = TObjEneMerillLia__data_805DA300;
             lbl_8050BF00.x = TObjEneMerillLia__data_805DA300;
@@ -1257,9 +1275,9 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
                 s32 ang2;
                 rr = fabs_float(d->z);
                 if (fabs_float(lbl_8050BEE0.x) < rr) {
-                    ang2 = (s32)(lbl_8043C6E8[0] * atan2_float(TObjEneMerillLia__data_805DA300, d->z));
+                    ang2 = (s32)(10430.38043493439 * atan2_float(TObjEneMerillLia__data_805DA300, d->z));
                 } else {
-                    ang2 = (s32)(lbl_8043C6E8[0] * atan2_float(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
+                    ang2 = (s32)(10430.38043493439 * atan2_float(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
                 }
                 v->y = TObjEneMerillLia__data_805DA300;
                 lbl_8050BF00.x = TObjEneMerillLia__data_805DA300;
@@ -1663,6 +1681,54 @@ void * TObjEneMerillLia__create(void *arg0) {
 extern u32 TObjEneMerillLia__rock_stats_table;
 extern u32 merill_lia_rock_buffer;
 extern u32 merill_lia_rock_aux_buffer;
+extern const f32 lbl_805DA33C;
+
+#pragma push
+#pragma opt_loop_invariants off
+void TObjEneMerillLia__sub_800D6D64(void) {
+    s32 i;
+    u8 *res;
+
+    if (is_split_screen() != 0) {
+        res = (u8 *)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+        if (res != NULL) {
+            res = load_resource_from_descriptor(res, 1, &bm_ene_re8_merill_lia_low_resource_descriptor, 0, 0, 0);
+        }
+        TObjEneMerillLia__entry_params_resource = (u32)res;
+    } else {
+        res = (u8 *)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+        if (res != NULL) {
+            res = load_resource_from_descriptor(res, 1, &bm_ene_re8_merill_lia_resource_descriptor, 0, 0, 0);
+        }
+        TObjEneMerillLia__entry_params_resource = (u32)res;
+    }
+    ((CollisionPartRecord *)lbl_804946A4)[0].radius = lbl_805DA2F8;
+    ((CollisionPartRecord *)lbl_804946A4)[1].radius = lbl_805DA2F8;
+    ((CollisionPartRecord *)lbl_804946A4)[2].radius = lbl_805DA33C;
+    TObjEneMerillLia__rock_stats_table = (u32)mem_alloc(8);
+    merill_lia_rock_buffer = (u32)mem_alloc(8);
+    merill_lia_rock_aux_buffer = (u32)mem_alloc(8);
+    TObjEneMerillLia__rock_param_table = (u32)mem_alloc(8);
+    ((void **)TObjEneMerillLia__rock_stats_table)[0] = TLobby::register_boss(75);
+    ((void **)TObjEneMerillLia__rock_stats_table)[1] = TLobby::register_boss(76);
+    ((void **)merill_lia_rock_buffer)[0] = TLobby::dispatch_shared_handler_b(78);
+    ((void **)merill_lia_rock_buffer)[1] = TLobby::dispatch_shared_handler_b(79);
+    ((void **)merill_lia_rock_aux_buffer)[0] = TLobby::register_object(74);
+    ((void **)merill_lia_rock_aux_buffer)[1] = TLobby::register_object(75);
+    ((void **)TObjEneMerillLia__rock_param_table)[0] = TLobby::dispatch_shared_handler_a(74);
+    ((void **)TObjEneMerillLia__rock_param_table)[1] = TLobby::dispatch_shared_handler_a(75);
+    {
+        s16 ids[2] = {44, 46};
+        NpcSpawnMotions motions = merill_lia_spawn_motions;
+        motions.motions = ((BmlResource *)TObjEneMerillLia__entry_params_resource)->motions;
+        for (i = 0; i < 2; i++) {
+            TLobby::spawn_npc_enemy(ids[i], ((BmlResource *)TObjEneMerillLia__entry_params_resource)->models[i].model,
+                ((BmlResource *)TObjEneMerillLia__entry_params_resource)->models[i].m_c, (s32)&motions,
+                ((CollisionPartRecord *)lbl_804946A4)[i].radius, TObjEneMerillLia__data_805DA300);
+        }
+    }
+}
+#pragma pop
 
 void TObjEneMerillLia::destroy_rocks() {
     if ((u32) TObjEneMerillLia__rock_stats_table != 0U) {

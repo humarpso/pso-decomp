@@ -57,13 +57,12 @@ void set_matrix_identity(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 f32 vec_squared_length(u8 *arg0) {
-    f32 temp_f0;
-    f32 temp_f1;
-    f32 temp_f2;
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 4);
-    temp_f2 = *(f32 *)((s8 *)arg0 + 8);
-    return (temp_f2 * temp_f2) + ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+    f32 x = *(f32 *)((s8 *)arg0 + 0);
+    f32 y = *(f32 *)((s8 *)arg0 + 4);
+    f32 sum = x * x;
+    f32 z = *(f32 *)((s8 *)arg0 + 8);
+    sum = (y * y) + sum;
+    return (z * z) + sum;
 }
 #pragma pop
 

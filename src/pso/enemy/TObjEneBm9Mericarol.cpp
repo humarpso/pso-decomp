@@ -37,30 +37,6 @@ struct VObj_802D0C14 : VBase_802D0C14 {
 
 struct S_802D0C14 { u8 pad[0x3C0]; void *arr[2]; };
 
-struct VBase_18_0ab400 { char pad[0x18]; };
-
-struct VObj_18_0ab400 : VBase_18_0ab400 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual s32 m19(s32, void *, s32);
-};
 
 struct VBase14_802D0D3C { char pad[0x14]; };
 struct VObj14_802D0D3C : VBase14_802D0D3C {
@@ -195,11 +171,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, u32, u32);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1);
-s32 obj_is_hit_receivable(u32);
-f32 fabs_float(f32);
-s32 is_area_attack_target_eligible(void *, u32);
-s32 attack_target_history_add(s32, s32);
-extern const f32 lbl_805DE758;
 void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
 void vfunc_61__19TObjEneBm9MericarolFv(void);
@@ -647,6 +618,42 @@ void TObjEneBm9Mericarol::run_task() {
 }
 #pragma pop
 
+u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        *(void **)((s8 *)arg0 + 0x18) = TObjEneBm9Mericarol__vtable;
+        for (i = 0; i < 2; i++) {
+            if (((S_802D0C14 *)arg0)->arr[i] != NULL) {
+                queue_destruction__7TObjectFv(((S_802D0C14 *)arg0)->arr[i]);
+                ((S_802D0C14 *)arg0)->arr[i] = NULL;
+            }
+        }
+        if (*(void **)((s8 *)arg0 + 0x488) != NULL) {
+            delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x488)), 1);
+            *(void **)((s8 *)arg0 + 0x488) = NULL;
+        }
+        if (*(void **)((s8 *)arg0 + 0x48C) != NULL) {
+            free_collision_body_parts(*(void **)((s8 *)arg0 + 0x48C));
+            if (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C) != NULL) {
+                (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C))->m0(1);
+            }
+            *(void **)((s8 *)arg0 + 0x48C) = NULL;
+        }
+        if (*(void **)((s8 *)arg0 + 0x4AC) != NULL) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4AC));
+            *(void **)((s8 *)arg0 + 0x4AC) = NULL;
+        }
+        free_collision_body_parts(arg0);
+        __dt__13TUnk_80494938Fv(arg0 + 0x46C, -1);
+        __destroy_arr(arg0 + 0x3C8, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__12TObjEneDD_STFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
 Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2) {
     s32 ph;
     s32 i;
@@ -726,42 +733,6 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
         ((TObjPlayer *)(self->a3C8[i]))->activate_and_dispatch();
     }
     return self;
-}
-
-u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
-    s32 i;
-    if (arg0 != NULL) {
-        *(void **)((s8 *)arg0 + 0x18) = TObjEneBm9Mericarol__vtable;
-        for (i = 0; i < 2; i++) {
-            if (((S_802D0C14 *)arg0)->arr[i] != NULL) {
-                queue_destruction__7TObjectFv(((S_802D0C14 *)arg0)->arr[i]);
-                ((S_802D0C14 *)arg0)->arr[i] = NULL;
-            }
-        }
-        if (*(void **)((s8 *)arg0 + 0x488) != NULL) {
-            delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x488)), 1);
-            *(void **)((s8 *)arg0 + 0x488) = NULL;
-        }
-        if (*(void **)((s8 *)arg0 + 0x48C) != NULL) {
-            free_collision_body_parts(*(void **)((s8 *)arg0 + 0x48C));
-            if (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C) != NULL) {
-                (*(VObj_802D0C14 **)((s8 *)arg0 + 0x48C))->m0(1);
-            }
-            *(void **)((s8 *)arg0 + 0x48C) = NULL;
-        }
-        if (*(void **)((s8 *)arg0 + 0x4AC) != NULL) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4AC));
-            *(void **)((s8 *)arg0 + 0x4AC) = NULL;
-        }
-        free_collision_body_parts(arg0);
-        __dt__13TUnk_80494938Fv(arg0 + 0x46C, -1);
-        __destroy_arr(arg0 + 0x3C8, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
-        __dt__12TObjEneDD_STFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
 
 void TObjEneBm9Mericarol::free_shared_instances() {
@@ -857,54 +828,5 @@ void TBoss4Type3__sub_802D1130(void) {
     }
 }
 
-s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range) {
-    s32 hit;
-    u32 mask;
-    s32 obj;
-    s32 i;
-    s32 ok;
-    hit = 0;
-    mask = 0;
-    if (this->unknownAC == 0) {
-        return 0;
-    }
-    TObjPlayer::init_all_slots();
-    if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(range);
-        mask |= 0x80000;
-    }
-    if (*(s32 *)((s8 *)arg1 + 4) & 2) {
-        this->mark_enemy_body_contacts();
-        mask |= 0x100000;
-    }
-    if (*(u32 *)((s8 *)this->m_a4 + 0x18) & mask) {
-        for (i = 0; i < 0x10; i++) {
-            obj = TObjPlayer::get_battle_param(i);
-            if (obj == 0) {
-                break;
-            }
-            if (obj_is_hit_receivable(obj) != 0 && (u32)obj != this->unknownAC &&
-                is_area_attack_target_eligible(this, *(u32 *)((s8 *)obj + 0x30)) != 0 &&
-                !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)obj + 0x300)) > lbl_805DE758)) {
-                ok = 1;
-                if (object != 0 && attack_target_history_add(object, obj) == 0) {
-                    ok = 0;
-                }
-                if (ok != 0) {
-                    ((VObj_18_0ab400 *)(this))->m19(obj, arg1, arg2);
-                    hit = 1;
-                }
-            }
-        }
-    }
-    return hit;
-}
-
-void TObjEneBm9Mericarol_Bomb::render() {
-    u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x10C) != 0) {
-        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), 0, (u32)0);
-    }
-}
 
 }

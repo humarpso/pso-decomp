@@ -168,12 +168,12 @@ void fn_80284C04(u8 *arg0) {
 }
 #pragma pop
 
-void select_symbol_chat_slot(void) {
+void select_symbol_chat_slot(TWindowSubSymbolChatParts *parts) {
     s32 j;
     s32 i;
     s32 temp_r3;
     struct TWSC *temp_r29;
-    i = ((s32 (*)(void))calc_symbol_index__25TWindowSubSymbolChatPartsFv)();
+    i = parts->calc_symbol_index();
     temp_r29 = get_instance__20TWindowSubSymbolChatFv();
     temp_r3 = TWindowSubSymbolChat::calc_remaining_slots();
     if (temp_r3 > i) {

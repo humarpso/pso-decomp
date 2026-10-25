@@ -1,7 +1,7 @@
 #pragma readonly_strings on
 #define TOBJECT_OUT_OF_LINE_HELPERS
 
-// Built with -inline deferred (compiler_profiles.json), which emits functions
+// Built with -inline deferred (GAME_EXCEPTIONS in configure.py), which emits functions
 // in reverse source order: bodies here run from the highest address down.
 
 #include "types.h"

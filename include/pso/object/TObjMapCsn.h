@@ -3,6 +3,18 @@
 
 #include "types.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/system/vector.h"
+
+// object set data passed (as an address) to TObjMapCsn::create
+struct MapCsnSetData {
+    u8 pad_0[0xC];
+    Vec position;
+    s32 rotation_x;
+    s32 rotation_y;
+    s32 rotation_z;
+    Vec scale;
+    s32 params[2];
+};
 
 struct TObjMapCsn : public TUnk_804AF8A0 {
     virtual ~TObjMapCsn();

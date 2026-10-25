@@ -19,7 +19,7 @@ typedef char TObjContainerJung_size[sizeof(TObjContainerJung) == 0x368 ? 1 : -1]
 
 extern "C" {
 u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
-s32 TObjContainerJung__sub_8018D3B8(void);
+s32 TObjContainerJung__sub_8018D3B8(s32);
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 }
 

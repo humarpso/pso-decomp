@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -7,6 +8,15 @@
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss6Type1.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjMapCsn.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/math/AngleLookup.h"
+#include "pso/unk/text_802AA8FC.h"
+#include "pso/unk/text_803D96A8.h"
+
+extern const Vec boss6_map_csn_offset;
+extern const Vec boss6_map_csn_scale;
 
 struct RecoveredGlobal_802B5938_lbl_80470FFC {
     s32 value;
@@ -350,8 +360,6 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 is_active__14TBoss6PlotFalzFv();
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 f32 vec3_add_to(void *, void *);
 void vec3_cross(void *, void *, void *);
 void normalize_vector(void *);
@@ -431,9 +439,11 @@ s32 matrix_mult_vec(int, void *, void *);
 void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
+void post_translate_matrix(Vec *pos);
+void rotate_matrix_x(int matrix, int angle);
+void rotate_vector_by_matrix(int matrix, const Vec *in, Vec *out);
 extern Tbl_802B79DC TBoss6Type1__part_position_sources[];
-extern Entry_802B865C lbl_804DED14[];
+extern Entry_802B865C boss6_type1_action_table[];
 s32 play_sound_effect(int, void *, int, int, void *);
 
 u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -456,17 +466,64 @@ extern const s32 lbl_805DE3AC;
 extern const s32 lbl_805DE3B4;
 extern const f32 lbl_805DE3B8;
 int TBoss6Type1__sub_802B4A70(void* p);
-void TBoss6Type1__sub_802B4A90(void* p);
+void TBoss6Type1__sub_802B4A90(void *p);
 void TBoss6Type1__sub_802B4B14(void* p);
-s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
 void TBoss6Type1__sub_802B4A9C(void*);
 struct Boss_802B5AD4;
 void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *, f32);
 
 int release_object__11TBoss6Type1FPv(void*);
 
+void TBoss6Type1::draw_model() {
+    TObjPlayer::toggle_particle_effect();
+    push_matrix();
+    Vec pos = *(Vec *)position;
+    pos.y = pos.y + m_4e8;
+    post_translate_matrix(&pos);
+    rotate_matrix_y(0, rotation_y);
+    rotate_matrix_x(0, m_5c);
+    TBoss6PlotFalz__sub_802AC008(m_4d4, m_4d8);
+    draw_part_motions();
+    TBoss6PlotFalz::update_camera_target();
+    pop_matrix();
+    TParticleCtrl::end_effect_render();
+}
+
+void TBoss6Type1::render() {
+    draw_model();
+    TBoss6Type1__sub_802B626C(this);
+}
+
+void TBoss6Type1::release_object(void *) {
+    if (map_csn != 0) {
+        map_csn->queue_destruction();
+        map_csn = 0;
+    }
+}
+
+void TBoss6Type1::spawn_map_csn() {
+    MapCsnSetData data;
+    Vec offset;
+    VecCopy(&data.position, (const Vec *)position);
+    push_matrix();
+    set_matrix_identity(0);
+    rotate_matrix_y(0, rotation_y);
+    rotate_vector_by_matrix(0, &boss6_map_csn_offset, &offset);
+    data.position.x += offset.x;
+    data.position.y = TBoss6Type1__data_805DE2D0;
+    data.position.z += offset.z;
+    pop_matrix();
+    data.rotation_x = 0;
+    data.rotation_y = rotation_y;
+    data.rotation_z = 0;
+    VecCopy(&data.scale, &boss6_map_csn_scale);
+    data.params[0] = 2;
+    data.params[1] = 0;
+    map_csn = (TObject *)TObjMapCsn::create((s32)&data);
+}
+
 int TBoss6Type1__sub_802B4A70(void* p) { return release_object__11TBoss6Type1FPv(p); }
-void TBoss6Type1__sub_802B4A90(void* p) { *(s32*)((char*)p + 0x680) = 0; }
+void TBoss6Type1__sub_802B4A90(void *p) { ((TBoss6Type1 *)p)->map_csn = 0; }
 
 void TBoss6Type1__sub_802B4A9C(void *p) {
     TBoss6Type1 *boss = (TBoss6Type1 *)p;
@@ -967,7 +1024,7 @@ void TBoss6Type1::sub_802B5CB4() {
         this->request_default_jittered_camera();
         break;
     case 37:
-        if ((s32) *(s32 *)&this->unk_410 > (s32) ((f32) this->m_40c - lbl_805DE348)) {
+        if (this->action_timer > (s32) ((f32) this->m_40c - lbl_805DE348)) {
             this->request_default_jittered_camera();
             break;
         }
@@ -1777,9 +1834,9 @@ void TBoss6Type1::load_params_from_table() {
     if ((s32) this->m_49c <= 0) {
         this->m_49c = (s32) *(s32 *)((s8 *)&TBoss6Type1__param_table.value + 0x20);
     }
-    *(s32 *)&this->unk_4A0 = (s32) *(s32 *)((s8 *)temp_r3 + 0x2C);
-    if ((s32) *(s32 *)&this->unk_4A0 <= 0) {
-        *(s32 *)&this->unk_4A0 = (s32) *(s32 *)((s8 *)&TBoss6Type1__param_table.value + 0x24);
+    this->laser_fire_time = (s32) *(s32 *)((s8 *)temp_r3 + 0x2C);
+    if (this->laser_fire_time <= 0) {
+        this->laser_fire_time = (s32) *(s32 *)((s8 *)&TBoss6Type1__param_table.value + 0x24);
     }
     *(s32 *)&this->unk_4A8 = (s32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x14);
     if ((f32) *(s32 *)&this->unk_4A8 <= TBoss6Type1__data_805DE2D0) {
@@ -1940,7 +1997,7 @@ void TBoss6Type1::set_action_state(s32 arg1) {
         ((Boss_802B865C *)this)->f4C4++;
         break;
     }
-    e = &lbl_804DED14[((Boss_802B865C *)this)->state];
+    e = &boss6_type1_action_table[((Boss_802B865C *)this)->state];
     ((TBoss6Type1 *)((Boss_802B865C *)this))->set_motion_set(e->anim);
     ((Boss_802B865C *)this)->f418 = e->f8;
     a.words[0] = e->act[0];
@@ -1957,16 +2014,16 @@ extern const f32 lbl_805DE3CC;
 
 void TBoss6Type1::run_task() {
     Action_802B865C a;
-    a.words[0] = lbl_804DED14[this->m_374].update[0];
-    a.words[1] = lbl_804DED14[this->m_374].update[1];
-    a.words[2] = lbl_804DED14[this->m_374].update[2];
+    a.words[0] = boss6_type1_action_table[this->m_374].update[0];
+    a.words[1] = boss6_type1_action_table[this->m_374].update[1];
+    a.words[2] = boss6_type1_action_table[this->m_374].update[2];
     if (a.action != 0) {
         (((Boss_802B865C *)this)->*a.action)();
     }
     if (((TBoss6Type1 *)this->m_3f8)->is_idle() != 0) {
-        a.words[0] = lbl_804DED14[this->m_374].idle[0];
-        a.words[1] = lbl_804DED14[this->m_374].idle[1];
-        a.words[2] = lbl_804DED14[this->m_374].idle[2];
+        a.words[0] = boss6_type1_action_table[this->m_374].idle[0];
+        a.words[1] = boss6_type1_action_table[this->m_374].idle[1];
+        a.words[2] = boss6_type1_action_table[this->m_374].idle[2];
         if (a.action != 0) {
             (((Boss_802B865C *)this)->*a.action)();
         }

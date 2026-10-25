@@ -68,11 +68,12 @@ struct BreakupNode_8002E818 {
 };
 
 extern "C" {
-extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
-extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
-extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
+struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
+void *lbl_805D4B8C;
+f32 lbl_805D4B90;
+void __sinit_TObjPlayer_8002E784_cpp(void);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 f32 vec3_add_to(void *, void *);
@@ -361,9 +362,11 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8002EF80(void) {
+void __sinit_TObjPlayer_8002E784_cpp(void) {
     lbl_805D4B90 = lbl_805D8258;
 }
+
+__declspec(section ".ctors") static void *const __sinit_TObjPlayer_8002E784_cpp_ref = (void *)__sinit_TObjPlayer_8002E784_cpp;
 
 s32 TObjPlayer::calc_random_scaled() {
     return (s32) (lbl_805D8248 * (lbl_805D8244 * (f32) rand()));

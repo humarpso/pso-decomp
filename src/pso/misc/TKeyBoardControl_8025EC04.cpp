@@ -37,34 +37,7 @@ struct Ctl_8025F21C { u8 p0[0x60]; u32 f60; };
 struct TWindowKeyBoardSoft_8025F4A0 {
     u8 pad0[0xB4];
     u32 fB4;
-    void vt0();
-    void vt21();
-    void vt3();
-    void vt4();
-    void vt5();
-    void vt6();
-    void vt7();
-    void vt8();
-    void vt9();
-    void vt10();
-    void vt11();
-    void vt12();
-    void vt13();
-    void vt14();
-    void sub_8025B928();
-    void sub_8025BA44();
-    void sub_8025BA28();
-    void sub_8025B92C();
-    void update_input_state();
-    void vt1();
-    void vt20();
-    void vt15();
-    void vt16();
-    void vt17();
-    void vt18();
-    void vt19();
 };
-typedef void (TWindowKeyBoardSoft_8025F4A0::*KeyFn_8025F4A0)();
 
 struct Ctl_8025F4A0 {
     u8 pad0[0x20];
@@ -298,7 +271,7 @@ u8 keyboard_layout_mode_table[7][7] = {
     { 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00 },
     { 0x00, 0x07, 0x00, 0x00, 0x07, 0x00, 0x00 },
 };
-u8 lbl_804CFB20[7][7] = {
+u8 keyboard_accent_composed_chars[7][7] = {
     { 0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0x00 },
     { 0xC8, 0xC9, 0xCA, 0x00, 0xCB, 0x00, 0x00 },
     { 0xCC, 0xCD, 0xCE, 0x00, 0xCF, 0x00, 0x00 },
@@ -329,7 +302,7 @@ u8 TWindowKeyBoardHard::sub_8025F2F8(u8 arg1) {
             if (!(modes & (1 << bit))) {
                 return arg1;
             }
-            c = lbl_804CFB20[i >> 1][idx];
+            c = keyboard_accent_composed_chars[i >> 1][idx];
             if (i & 1) {
                 return c + 0x20;
             }
@@ -373,7 +346,34 @@ extern u8 keyboard_de_unshifted_map[];
 extern u8 keyboard_es_unshifted_map[];
 
 s32 TWindowKeyBoardHard::sub_8025F4A0(u8 arg1) {
-    static KeyFn_8025F4A0 tbl[26] = { &TWindowKeyBoardSoft_8025F4A0::vt0, &TWindowKeyBoardSoft_8025F4A0::vt21, &TWindowKeyBoardSoft_8025F4A0::vt3, &TWindowKeyBoardSoft_8025F4A0::vt4, &TWindowKeyBoardSoft_8025F4A0::vt5, &TWindowKeyBoardSoft_8025F4A0::vt6, &TWindowKeyBoardSoft_8025F4A0::vt7, &TWindowKeyBoardSoft_8025F4A0::vt8, &TWindowKeyBoardSoft_8025F4A0::vt9, &TWindowKeyBoardSoft_8025F4A0::vt10, &TWindowKeyBoardSoft_8025F4A0::vt11, &TWindowKeyBoardSoft_8025F4A0::vt12, &TWindowKeyBoardSoft_8025F4A0::vt13, &TWindowKeyBoardSoft_8025F4A0::vt14, &TWindowKeyBoardSoft_8025F4A0::sub_8025B928, &TWindowKeyBoardSoft_8025F4A0::sub_8025BA44, &TWindowKeyBoardSoft_8025F4A0::sub_8025BA28, &TWindowKeyBoardSoft_8025F4A0::sub_8025B92C, &TWindowKeyBoardSoft_8025F4A0::update_input_state, &TWindowKeyBoardSoft_8025F4A0::vt1, &TWindowKeyBoardSoft_8025F4A0::vt20, &TWindowKeyBoardSoft_8025F4A0::vt15, &TWindowKeyBoardSoft_8025F4A0::vt16, &TWindowKeyBoardSoft_8025F4A0::vt17, &TWindowKeyBoardSoft_8025F4A0::vt18, &TWindowKeyBoardSoft_8025F4A0::vt19 };
+    static void (TWindowKeyBoardSoft::*control_key_handlers[26])() = {
+        &TWindowKeyBoardSoft::vt0,
+        &TWindowKeyBoardSoft::vt21,
+        &TWindowKeyBoardSoft::vt3,
+        &TWindowKeyBoardSoft::vt4,
+        &TWindowKeyBoardSoft::vt5,
+        &TWindowKeyBoardSoft::vt6,
+        &TWindowKeyBoardSoft::vt7,
+        &TWindowKeyBoardSoft::vt8,
+        &TWindowKeyBoardSoft::vt9,
+        &TWindowKeyBoardSoft::vt10,
+        &TWindowKeyBoardSoft::vt11,
+        &TWindowKeyBoardSoft::vt12,
+        &TWindowKeyBoardSoft::vt13,
+        &TWindowKeyBoardSoft::vt14,
+        &TWindowKeyBoardSoft::sub_8025B928,
+        &TWindowKeyBoardSoft::sub_8025BA44,
+        &TWindowKeyBoardSoft::sub_8025BA28,
+        &TWindowKeyBoardSoft::sub_8025B92C,
+        &TWindowKeyBoardSoft::update_input_state,
+        &TWindowKeyBoardSoft::vt1,
+        &TWindowKeyBoardSoft::vt20,
+        &TWindowKeyBoardSoft::vt15,
+        &TWindowKeyBoardSoft::vt16,
+        &TWindowKeyBoardSoft::vt17,
+        &TWindowKeyBoardSoft::vt18,
+        &TWindowKeyBoardSoft::vt19,
+    };
     s32 busy;
     u32 t;
     TWindowKeyBoardSoft_8025F4A0 *w;
@@ -400,7 +400,7 @@ s32 TWindowKeyBoardHard::sub_8025F4A0(u8 arg1) {
         return 0;
     }
     if (arg1 < 26) {
-        (((Ctl_8025F4A0 *)this)->f70->*tbl[arg1])();
+        (((TWindowKeyBoardSoft *)((Ctl_8025F4A0 *)this)->f70)->*control_key_handlers[arg1])();
         return 1;
     }
     switch (arg1) {

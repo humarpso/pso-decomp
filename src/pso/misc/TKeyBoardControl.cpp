@@ -292,7 +292,7 @@ struct KeyCursor_80260E30 {
     u8 cursor_x;
     u8 cursor_y;
     u8 pad67[0x6C - 0x67];
-    void *child;
+    TWindowKeyBoardSoft *child;
 };
 
 void TWindowKeyBoardSoft__sub_80260E30(void *self, s32 port) {
@@ -338,14 +338,14 @@ void TWindowKeyBoardSoft__sub_80260E30(void *self, s32 port) {
     play_sound_effect(0x54100, 0, 0, 0);
     if (kb->flags & 0x10) {
         if (dx > 0) {
-            TWindowKeyBoardSoft__vt15((u8 *)kb->child);
+            kb->child->vt15();
         } else if (dx < 0) {
-            TWindowKeyBoardSoft__vt16((TWindowKeyBoardSoft *)kb->child);
+            kb->child->vt16();
         }
         if (dy > 0) {
-            TWindowKeyBoardSoft__vt18((u8 *)kb->child);
+            kb->child->vt18();
         } else if (dy < 0) {
-            TWindowKeyBoardSoft__vt17((TWindowKeyBoardSoft *)kb->child);
+            kb->child->vt17();
         }
         return;
     }

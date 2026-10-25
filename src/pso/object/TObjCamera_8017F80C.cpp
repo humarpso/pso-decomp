@@ -1,11 +1,73 @@
 #include "types.h"
+#include "pso/object/TObjCamera.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/object/TObjCamera_8017F80C.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/misc/TUnk_804AFBF8.h"
-#include "pso/object/TObjCamera.h"
 #include "pso/misc/TOKey.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+
+struct V3_8017F624 { s32 x; s32 y; s32 z; };
+
+struct Vec_8017F6C0 { f32 x, y, z; };
+
+struct Obj_8017F6C0 { u8 pad[0x38]; Vec_8017F6C0 pos; };
+
+struct Out_8017F6C0 { f32 x, y; };
+
+extern "C" {
+void get_camera_ctrl__9TObjEneDDFv(void *, void *);
+extern s32 camera_slot_id_table[];
+extern V3_8017F624 camera_slot_zero_vec_table[];
+extern V3_8017F624 camera_slot_positions[];
+extern s32 TObjCamera__camera_slot_scan_index;
+void matrix_mult_vec(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
+void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
+extern Vec_8017F6C0 lbl_804FF610;
+
+void TObjCamera::update_camera_slots() {
+    s32 i;
+    for (i = 0; i < 8; i++) {
+        if (TObjCamera__camera_slot_scan_index == camera_slot_id_table[i]) {
+            V3_8017F624 v = camera_slot_zero_vec_table[0];
+            get_camera_ctrl__9TObjEneDDFv(&v, &camera_slot_positions[i]);
+        }
+    }
+    TObjCamera__camera_slot_scan_index += 1;
+}
+#pragma push
+#pragma fp_contract on
+#pragma fp_contract on
+s16 TObjCamera::update_object_view_visibility(f32 r, f32 d) {
+    Obj_8017F6C0 *o = (Obj_8017F6C0 *)this;
+    Vec_8017F6C0 v;
+    Out_8017F6C0 out;
+    matrix_mult_vec(0, &o->pos, &v);
+    if (v.z < -r) {
+        return 0;
+    }
+    if (v.x < 0.0f) {
+        v.x = o->pos.x - lbl_804FF610.x * d;
+        v.y = lbl_804FF610.y * d + o->pos.y;
+        v.z = lbl_804FF610.z * d + o->pos.z;
+        project_world_to_screen(0, &v, &out);
+        if (out.x < 0.0f) {
+            return 0;
+        }
+    } else {
+        v.x = lbl_804FF610.x * d + o->pos.x;
+        v.y = o->pos.y - lbl_804FF610.y * d;
+        v.z = o->pos.z - lbl_804FF610.z * d;
+        project_world_to_screen(0, &v, &out);
+        if (out.x > 6.4e+02f) {
+            return 0;
+        }
+    }
+    return 1;
+}
+#pragma pop
+
+}
 
 struct RecoveredGlobal_8017FC78_lbl_804B5888 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017FC78_lbl_804B5888_size[sizeof(RecoveredGlobal_8017FC78_lbl_804B5888) == 0x10 ? 1 : -1];
@@ -76,7 +138,7 @@ extern s32 TObjCamera__camera_slot_scan_index;
 s32 get_bml_motion(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
-void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
+void copy_position__15TEffStarLight2DFPv(void *, void *);
 void rotate_matrix_y(int, s32);
 void push_matrix();
 void pop_matrix();
@@ -84,17 +146,13 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFl();
 void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
-extern Vec_8017F80C camera_slot_positions[];
-extern const f32 lbl_805DBB60;
-extern const f32 lbl_805DBB64;
+
 void fn_8017F4AC(void *);
 void fn_8017F52C();
 Obj_8017F910 *get_player_by_client_id(s32);
 f32 vec_squared_length(Vec_8017F910 *);
 extern s32 local_client_id;
-extern const f32 TObjCamera__data_805DBB58;
-extern const f32 lbl_805DBB68;
-extern const f32 lbl_805DBB6C;
+
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
 }
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
@@ -118,14 +176,14 @@ void *__nw__7TObjectFUl(int);
 extern Copy_8017FA9C camera_object_init_params;
 extern s32 __vt__10TObjCamera[];
 extern s32 TObjCamera__name;
-extern const f32 lbl_805DBB70;
+
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 
 void TObjCamera::render() {
     Obj_8017F80C *self = (Obj_8017F80C *)this;
     s32 i;
-    if (self->m8(lbl_805DBB60, lbl_805DBB64) != 0) {
+    if (self->m8(4e+02f, 2e+01f) != 0) {
         TObjFish__sub_8001EDB0(TObjCamera__bml_resource, 0);
         set_global_param__8TObjFishFl();
         push_matrix();
@@ -153,8 +211,8 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
     s32 i;
     s32 j;
     self->time += self->speed;
-    if (self->time > self->period - lbl_805DBB68) {
-        self->time = TObjCamera__data_805DBB58;
+    if (self->time > self->period - 1.0f) {
+        self->time = 0.0f;
         fn_8017F52C();
     }
     if (self->visible != 0) {
@@ -164,8 +222,8 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
     if (pl != NULL) {
         d.x = pl->pos.x - self->pos.x;
         d.z = pl->pos.z - self->pos.z;
-        d.y = TObjCamera__data_805DBB58;
-        if (vec_squared_length(&d) <= lbl_805DBB6C) {
+        d.y = 0.0f;
+        if (vec_squared_length(&d) <= 1.44e+04f) {
             for (i = 0; i < 8; i++) {
                 if (self->lights[i] != NULL) {
                     allow_rendering__7TObjectFv((TObject *)self->lights[i]);
@@ -205,8 +263,8 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = TObjCamera__name;
     Copy_8017FA9C c = camera_object_init_params;
     ((TObjCamera *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjCamera *)arg0)->m_b0 = TObjCamera__data_805DBB58;
-    ((TObjCamera *)arg0)->m_b8 = lbl_805DBB70;
+    ((TObjCamera *)arg0)->m_b0 = 0.0f;
+    ((TObjCamera *)arg0)->m_b8 = 0.8f;
     *(f32 *)((s8 *)arg0 + 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__bml_resource, 0) + 4);
     if (is_split_screen() != 0) {
         for (i = 0; i < 8; i++) {

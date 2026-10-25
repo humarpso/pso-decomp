@@ -1,4 +1,5 @@
 #include "pso/render/DebugFont.h"
+#include "pso/misc/TLobby_801E2F94.h"
 #include "pso/player/TObjPlayer_803E21B8.h"
 #include "pso/enemy/TObjEneRe4Sorcerer_801E3F14.h"
 #include "pso/unk/text_801E3F24.h"
@@ -149,25 +150,11 @@ struct Ctrl_801E352C {
     u32 *data;
 };
 
-struct Vec2_801E3330 { f32 x, y; };
-
-struct Lines_801E3330 {
-    Vec2_801E3330 *verts;
-    u32 *colors;
-};
-
 struct Vec3_801E341C { f32 x, y, z; };
 
 struct Lines_801E341C {
     Vec3_801E341C *positions;
     u32 *colors;
-};
-
-struct Strip_801E35C4 {
-    Vec2_801E3330 *verts;
-    u32 *colors;
-    s32 f8;
-    s32 count;
 };
 
 struct Vec3_801E3784 { f32 x, y, z; };
@@ -183,7 +170,6 @@ struct Tris_801E3784 {
 extern "C" {
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
-void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
 extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
@@ -194,7 +180,7 @@ void load_context_texture_obj(void);
 extern "C" {
 void set_line_width(int a0);
 
-void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
+void draw_color_lines(ColorLineList *l, s32 n, s32 flags, f32 scale) {
     u32 c;
     TObjPlayer::load_screen_space_matrix();
     if (flags & 4) {
@@ -280,25 +266,25 @@ void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 scale) {
     }
 }
 void TObjCMHairMenu::draw_tri_fan_2d(s32 count, s32 flags, f32 scale) {
-    Strip_801E35C4 *self = (Strip_801E35C4 *)this;
-    Strip_801E35C4 tmp;
-    Vec2_801E3330 v[2];
+    ColorLineList *self = (ColorLineList *)this;
+    ColorLineList tmp;
+    ColorLineVertex v[2];
     u32 c[2];
     u32 tex;
-    Vec2_801E3330 *pts;
+    ColorLineVertex *pts;
     s32 i;
     s16 *cols;
     if (!(flags & 2)) {
         tmp.verts = v;
         tmp.colors = c;
-        tmp.f8 = self->f8;
+        tmp.unk_8 = self->unk_8;
         tmp.count = 2;
-        draw_color_lines((Lines_801E3330 *)self, count, flags | 0x10, scale);
+        draw_color_lines(self, count, flags | 0x10, scale);
         ((TWindowSubSymbolChatPartsSet *)(&v[0]))->copy_vec2(&self->verts[0]);
         ((TWindowSubSymbolChatPartsSet *)(&v[1]))->copy_vec2(&self->verts[self->count - 1]);
         TObjCMHairMenu__sub_801E3F54(&c[0], &self->colors[0]);
         TObjCMHairMenu__sub_801E3F54(&c[1], &self->colors[self->count - 1]);
-        draw_color_lines((Lines_801E3330 *)&tmp, 2, flags, scale);
+        draw_color_lines(&tmp, 2, flags, scale);
         return;
     }
     TObjPlayer::load_screen_space_matrix();

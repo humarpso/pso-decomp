@@ -3,6 +3,10 @@
 
 #include "types.h"
 
-void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
+void rotate_title_background_quad(s32 owner, u8 *quad, u8 *center, s32 angle, f32 radius);
+extern "C" {
+void draw_title_background_pulse(s32 owner, f32 depth, s32 frame);
+void draw_title_rings(s32 owner, f32 depth, s32 frame);
+}
 
 #endif

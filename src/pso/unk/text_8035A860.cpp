@@ -12,16 +12,13 @@ extern "C" {
 void *mem_alloc(u32 size);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035A860_lbl_804F1C58 lbl_804F1C58;
-extern const f32 lbl_805E00E8;
-extern const f32 lbl_805DE9F0;
-extern const f32 lbl_805E00F0;
 typedef char RecoveredGlobal_8035A860_lbl_804F1C58_size[sizeof(RecoveredGlobal_8035A860_lbl_804F1C58) == 0x18 ? 1 : -1];
 u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804F1C58.value;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
     ((TUnk_804F1C58 *)arg0)->m_20 = 0;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E00E8;
+    *(f32 *)((s8 *)arg0 + 0x24) = 0.0f;
     ((TUnk_804F1C58 *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = ((TObjBoss2Tunnel *)arg2)->count_tree_nodes();
     *(s32 *)((s8 *)arg0 + 0x28) = (s32)mem_alloc((*(s32 *)((s8 *)arg0 + 0x2C) * 0x30));
@@ -30,17 +27,3 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 }
-#pragma push
-#pragma fp_contract on
-void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1) {
-    f32 temp_f2;
-    f32 temp_f2_2;
-    if (arg1 != NULL) {
-        temp_f2 = *(f32 *)((s8 *)arg0 + 0x24);
-        temp_f2_2 = (lbl_805E00F0 - temp_f2) / (lbl_805DE9F0 - temp_f2);
-        *(f32 *)((s8 *)arg1 + 0) = (f32) ((*(f32 *)((s8 *)arg0 + 0x38) * temp_f2_2) + *(f32 *)((s8 *)arg0 + 0x20));
-        *(f32 *)((s8 *)arg1 + 4) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3C) * temp_f2_2) + *(f32 *)((s8 *)arg0 + 0x24));
-        *(f32 *)((s8 *)arg1 + 8) = (f32) ((*(f32 *)((s8 *)arg0 + 0x40) * temp_f2_2) + *(f32 *)((s8 *)arg0 + 0x28));
-    }
-}
-#pragma pop
