@@ -16,6 +16,8 @@ struct TBoss6GravBall : public TUnk_804AF8A0 {
     void* m_c8;
     static void clear_player_grav_flags();
     s32 clamp_to_ground();
+    void update_state(void *);
+    void update_charge_effects(void *);
     void update_lifetime(void *);
     void destroy_part(s32 arg1);
     void create_emitter(s32 arg1);

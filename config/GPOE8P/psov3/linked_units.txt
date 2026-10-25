@@ -220,7 +220,6 @@ pso/boss/TBoss6EffHyoui.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C.cpp
 pso/boss/TBoss6GravBall.cpp
 pso/boss/TBoss6GravBall_80323134.cpp
-pso/boss/TBoss6GravBall_80323878.cpp
 pso/boss/TBoss6Kakusan.cpp
 pso/boss/TBoss6Mag.cpp
 pso/boss/TBoss6MagMine.cpp
@@ -1064,7 +1063,6 @@ pso/misc/TLobby_80228C84.cpp
 pso/misc/TLobby_80242910.cpp
 pso/misc/TLobby_80243370.cpp
 pso/misc/TLobby_8024A148.cpp
-pso/misc/TLobby_80269C6C.cpp
 pso/misc/TLobby_8026B06C.cpp
 pso/misc/TLobby_8026DE30.cpp
 pso/misc/TLobby_80271E48.cpp
@@ -1352,8 +1350,6 @@ pso/misc/TORockCaveSM02.cpp
 pso/misc/TORockCaveSS02.cpp
 pso/misc/TORockCaveSimple.cpp
 pso/misc/TORockJungleL01.cpp
-pso/misc/TORockJungleM01.cpp
-pso/misc/TORockJungleS01.cpp
 pso/misc/TOSensor.cpp
 pso/misc/TOSensorGeneral01.cpp
 pso/misc/TOSignCave01.cpp
@@ -2461,7 +2457,6 @@ pso/player/TObjPlayer_801A9BAC.cpp
 pso/player/TObjPlayer_801AA220.cpp
 pso/player/TObjPlayer_801AA508.cpp
 pso/player/TObjPlayer_801AA5C0.cpp
-pso/player/TObjPlayer_801AB608.cpp
 pso/player/TObjPlayer_801AC0D8.cpp
 pso/player/TObjPlayer_801ACA6C.cpp
 pso/player/TObjPlayer_801AD47C.cpp
@@ -2727,7 +2722,6 @@ pso/ui/TAdPsoPassSaveGC.cpp
 pso/ui/TAdRayGC.cpp
 pso/ui/TAdRayGC_8029BFC8.cpp
 pso/ui/TAdRayGC_8029BFFC.cpp
-pso/ui/TAdRayGC_8029C030.cpp
 pso/ui/TAdRicoRingCtrl.cpp
 pso/ui/TAdSEGAlogo.cpp
 pso/ui/TAdSEGAlogo_8001BF4C.cpp
@@ -2804,7 +2798,6 @@ pso/ui/TObjDFTenchuFuru_80051B98.cpp
 pso/ui/TObjDFTenchuFuru_80051D5C.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
 pso/ui/TObjDFYutai.cpp
-pso/ui/TObjLiveCameraCtrl.cpp
 pso/ui/TObjLiveMonitor.cpp
 pso/ui/TObjNewFloorWin.cpp
 pso/ui/TUnk_804E24F0.cpp
@@ -3223,7 +3216,6 @@ pso/unk/text_801A6A28.cpp
 pso/unk/text_801A6A5C.cpp
 pso/unk/text_801A6F84.cpp
 pso/unk/text_801AA3B4.cpp
-pso/unk/text_801ABE14.cpp
 pso/unk/text_801BC194.cpp
 pso/unk/text_801BC688.cpp
 pso/unk/text_801BD0C0.cpp
@@ -3396,8 +3388,6 @@ pso/unk/text_80268384.cpp
 pso/unk/text_80269004.cpp
 pso/unk/text_8026934C.cpp
 pso/unk/text_802693B4.cpp
-pso/unk/text_802694F4.cpp
-pso/unk/text_80269A0C.cpp
 pso/unk/text_80269FE8.cpp
 pso/unk/text_8026A14C.cpp
 pso/unk/text_8026A328.cpp
@@ -3455,7 +3445,6 @@ pso/unk/text_8029945C.cpp
 pso/unk/text_8029A6EC.cpp
 pso/unk/text_8029A97C.cpp
 pso/unk/text_8029BA3C.cpp
-pso/unk/text_8029C214.cpp
 pso/unk/text_8029E7BC.cpp
 pso/unk/text_8029EC3C.cpp
 pso/unk/text_8029EE2C.cpp

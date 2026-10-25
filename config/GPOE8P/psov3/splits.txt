@@ -6347,16 +6347,11 @@ pso/misc/TPhotonFarlla.cpp:
 	.data       start:0x804C3518 end:0x804C35A8
 	.sdata2     start:0x805DC158 end:0x805DC184
 
-pso/player/TObjPlayer_801AB608.cpp:
-	.text       start:0x801AB608 end:0x801ABD90
-	.rodata     start:0x80446DA0 end:0x80446DA8
-
 pso/misc/TPhotonGolla.cpp:
-	.text       start:0x801ABD90 end:0x801ABE14
-
-pso/unk/text_801ABE14.cpp:
-	.text       start:0x801ABE14 end:0x801AC0D8
+	.text       start:0x801AB608 end:0x801AC0D8
+	.rodata     start:0x80446DA0 end:0x80446DA8
 	.data       start:0x804C35A8 end:0x804C3638
+	.sdata2     start:0x805DC188 end:0x805DC1AC
 
 pso/player/TObjPlayer_801AC0D8.cpp:
 	.text       start:0x801AC0D8 end:0x801AC158
@@ -8803,19 +8798,10 @@ pso/unk/text_8026934C.cpp:
 pso/unk/text_802693B4.cpp:
 	.text       start:0x802693B4 end:0x802694F4
 
-pso/unk/text_802694F4.cpp:
-	.text       start:0x802694F4 end:0x80269A0C
-	.rodata     start:0x8044F3F0 end:0x8044F3F8
-	.sdata2     start:0x805DD220 end:0x805DD234
-
-pso/unk/text_80269A0C.cpp:
-	.text       start:0x80269A0C end:0x80269C6C
-
-pso/misc/TLobby_80269C6C.cpp:
-	.text       start:0x80269C6C end:0x80269DC8
-
 pso/misc/TWindowMessage.cpp:
-	.text       start:0x80269DC8 end:0x80269FB0
+	.text       start:0x802694F4 end:0x80269FB0
+	.rodata     start:0x8044F3F0 end:0x8044F3F8
+	.sdata2     start:0x805DD218 end:0x805DD240
 
 pso/misc/TWindowCtrl_80269FB0.cpp:
 	.text       start:0x80269FB0 end:0x80269FE8
@@ -9687,21 +9673,10 @@ pso/ui/TAdRayGC_8029BFC8.cpp:
 pso/ui/TAdRayGC_8029BFFC.cpp:
 	.text       start:0x8029BFFC end:0x8029C030
 
-pso/ui/TAdRayGC_8029C030.cpp:
-	.text       start:0x8029C030 end:0x8029C13C
-
 pso/misc/TORockJungleL01.cpp:
-	.text       start:0x8029C13C end:0x8029C214
-
-pso/unk/text_8029C214.cpp:
-	.text       start:0x8029C214 end:0x8029C320
+	.text       start:0x8029C030 end:0x8029CC68
 	.data       start:0x804DC378 end:0x804DC488
-
-pso/misc/TORockJungleM01.cpp:
-	.text       start:0x8029C320 end:0x8029C7A4
-
-pso/misc/TORockJungleS01.cpp:
-	.text       start:0x8029C7A4 end:0x8029CC68
+	.sdata2     start:0x805DDD18 end:0x805DDD28
 
 pso/misc/TOGrassJungle.cpp:
 	.text       start:0x8029CC68 end:0x8029CD90
@@ -10962,13 +10937,10 @@ pso/object/TObjLiveMonitorSmall.cpp:
 	.data       start:0x804E76D0 end:0x804E76E8
 
 pso/ui/TObjLiveMonitor.cpp:
-	.text       start:0x8030B370 end:0x8030BE00
+	.text       start:0x8030B370 end:0x8030C090
 	.rodata     start:0x804757E8 end:0x804757F0
 	.data       start:0x804E76E8 end:0x804E7700
-	.sdata2     start:0x805DF168 end:0x805DF17C
-
-pso/ui/TObjLiveCameraCtrl.cpp:
-	.text       start:0x8030BE00 end:0x8030C090
+	.sdata2     start:0x805DF168 end:0x805DF1E4
 
 pso/misc/TWindowPartyStatus.cpp:
 	.text       start:0x8030C090 end:0x8030C340
@@ -11251,12 +11223,10 @@ pso/boss/TBoss6GravBall_80323134.cpp:
 	.text       start:0x80323134 end:0x80323348
 
 pso/boss/TBoss6GravBall.cpp:
-	.text       start:0x80323348 end:0x80323878
-
-pso/boss/TBoss6GravBall_80323878.cpp:
-	.text       start:0x80323878 end:0x80323DCC
+	.text       start:0x80323348 end:0x80323DCC
 	.data       start:0x804ECA40 end:0x804ECA88
 	.sbss       start:0x805D6C40 end:0x805D6C48
+	.sdata2     start:0x805DF550 end:0x805DF57C
 
 pso/boss/TBoss6Type1_80323DCC.cpp:
 	.text       start:0x80323DCC end:0x80323E1C
