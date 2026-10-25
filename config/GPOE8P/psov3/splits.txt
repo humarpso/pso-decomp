@@ -5772,30 +5772,20 @@ pso/unk/text_8018A3E0.cpp:
 pso/misc/TLazerFenceSw.cpp:
 	.text       start:0x8018A548 end:0x8018A584
 
-pso/misc/TContainerAncient01_8018A584.cpp:
-	.text       start:0x8018A584 end:0x8018B79C
+pso/misc/TContainerAncient01.cpp:
+	.text       start:0x8018A584 end:0x8018BEE4
 	.rodata     start:0x804450B0 end:0x804450B8
 	.data       start:0x804B6D70 end:0x804B6F58
+	.sdata2     start:0x805DBD10 end:0x805DBD60
 
-pso/misc/TContainerAncient01_8018B79C.cpp:
-	.text       start:0x8018B79C end:0x8018BAE0
-
-pso/misc/TContainerAncient01_8018BAE0.cpp:
-	.text       start:0x8018BAE0 end:0x8018BC98
-
-pso/misc/TContainerAncient01.cpp:
-	.text       start:0x8018BC98 end:0x8018CCFC
+pso/item/TObjContainerIdo_8018BEE4.cpp:
+	.text       start:0x8018BEE4 end:0x8018C948
 	.rodata     start:0x80445128 end:0x80445130
-	.sdata2     start:0x805DBD64 end:0x805DBD68
-
-pso/item/TObjContainerJungEnemy.cpp:
-	.text       start:0x8018CCFC end:0x8018CF88
-
-pso/item/TObjContainerJungEx.cpp:
-	.text       start:0x8018CF88 end:0x8018D3B8
+	.sdata2     start:0x805DBD60 end:0x805DBD94
 
 pso/item/TObjContainerJung.cpp:
-	.text       start:0x8018D3B8 end:0x8018D900
+	.text       start:0x8018C948 end:0x8018D900
+	.sdata2     start:0x805DBD98 end:0x805DBDA0
 
 pso/object/TObjDoaEx01.cpp:
 	.text       start:0x8018D900 end:0x8018E258

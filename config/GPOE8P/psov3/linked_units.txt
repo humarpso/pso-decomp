@@ -743,11 +743,10 @@ pso/item/TObjContainerAbeEnemy.cpp
 pso/item/TObjContainerBase.cpp
 pso/item/TObjContainerEnemy.cpp
 pso/item/TObjContainerIdo.cpp
+pso/item/TObjContainerIdo_8018BEE4.cpp
 pso/item/TObjContainerIdo_801A0B94.cpp
 pso/item/TObjContainerItem.cpp
 pso/item/TObjContainerJung.cpp
-pso/item/TObjContainerJungEnemy.cpp
-pso/item/TObjContainerJungEx.cpp
 pso/item/TObjContainerNoItem.cpp
 pso/item/TObjItemLight.cpp
 pso/item/TObjItemNameSelect.cpp
@@ -864,9 +863,7 @@ pso/misc/TCheckRoomSequence_80211614.cpp
 pso/misc/TCheckRoomSequence_8021E464.cpp
 pso/misc/TCheckRoomSequence_80222FC0.cpp
 pso/misc/TCineCtrl.cpp
-pso/misc/TContainerAncient01_8018A584.cpp
-pso/misc/TContainerAncient01_8018B79C.cpp
-pso/misc/TContainerAncient01_8018BAE0.cpp
+pso/misc/TContainerAncient01.cpp
 pso/misc/TDLGraph.cpp
 pso/misc/TDLGraph_8007F7DC.cpp
 pso/misc/TDLGraph_8007F85C.cpp

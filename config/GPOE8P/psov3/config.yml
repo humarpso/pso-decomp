@@ -273,8 +273,13 @@ force_active:
   - TCharaMaking__ct
   - TCheckRoomSequence__sub_80210B34
   - TContainerAncient01R__ct
+  - TContainerAncient01__collision_body_parts
+  - TContainerAncient01__ct
+  - TContainerAncient01__resource_descriptor
+  - TContainerAncient01__resource_descriptor_2
   - TContainerAncient01__sub_8018A584
   - TContainerAncient01__sub_8018B180
+  - TContainerAncient01__sub_8018BE90
   - TDPBShower__ct
   - TEffGuard__class_name
   - TEffHit__class_name
@@ -632,10 +637,12 @@ force_active:
   - TObjComputer__ct
   - TObjContainerEnemy__ct
   - TObjContainerEnemy__name
+  - TObjContainerIdo__ct
   - TObjContainerItem__ct
   - TObjContainerJungEnemy__ct
   - TObjContainerJungEx__ct
   - TObjContainerJung__ct
+  - TObjContainerJung__sub_8018D3B8
   - TObjContainerNoItem__ct
   - TObjCurtainLobby__ct
   - TObjCurtainLobby__sub_8035B8B4
@@ -2211,6 +2218,7 @@ force_active:
   - apply_hit__15TOAttackableColFl
   - apply_hit_to_target__14TBoss7CrawfishFPvPv
   - apply_item_data__9TItemDropFPvPv
+  - apply_knockback_from_attacker__20TContainerAncient01RFPUc
   - apply_lightning_effect__26TBoss5GryphonLightningWingFv
   - apply_loaded_character__23TAdSinglePlyChrSelectGCFi
   - apply_mourning_jellen__14TObjEneBm5WolfFv
@@ -3838,6 +3846,7 @@ force_active:
   - get_message_10__17TWindowSubComCardFPvPv
   - get_model__15TORockJungleS01Fl
   - get_model__23TObjSeabedSuisoBrakableFi
+  - get_model_by_index__17TObjContainerJungFl
   - get_move_done_result__24TObjWaitEntryHairMoveSimFPv
   - get_network_config_card_channel__Fv
   - get_network_info_card_key__FiPUc
@@ -3869,6 +3878,7 @@ force_active:
   - get_stats_atp_max__13TUnk_804806E8Fv
   - get_subcard_field1c__11TWindowChatFv
   - get_surface_contact_point__FPv
+  - get_table_entry__19TContainerAncient01Fi
   - get_table_entry_by_clamped_index__10TObjPlayerFv
   - get_table_value__19TAdPlyPltAnimCtrlGCFi
   - get_target_position__11TCameraCtrlFv
@@ -4173,6 +4183,7 @@ force_active:
   - init_state_513__13TUnk_804E1BB0FlPv
   - init_state__10TObjPlayerFv
   - init_state_vector__13TUnk_804A0DB0Fv
+  - init_state_vectors__19TContainerAncient01Fv
   - init_sub__13TLockOnCursorFPv
   - init_sub_object_vectors__10TObjPlayerFl
   - init_subwindow__22TWindowChallengeResultFPv
@@ -5173,6 +5184,7 @@ force_active:
   - load_floor_resources__Fl
   - load_item_pmt__Fv
   - load_map_texture_archive__6TSceneFl
+  - load_models__22TObjContainerJungEnemyFv
   - load_object_set_file__Fll
   - load_params__15TObjEneMe1GiGueFv
   - load_params_from_table__14TObjEneDolmOlmFl
@@ -10020,6 +10032,7 @@ force_active:
   - receive_physical_attack__9TBoss6MagFPvf
   - receive_weapon_special_attack__15TObjEneMe1GiGueFPvPv
   - receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPv
+  - receive_weapon_special_attack__20TContainerAncient01RFPvPv
   - recobox_motion_name_table
   - recoil_weapon_shoot_model_vtable
   - recoiling_projectile_weapon_vtable
@@ -10399,6 +10412,7 @@ force_active:
   - reset_state__13TObjWarnChimeFv
   - reset_state__15TBoss3VoloptP01FPv
   - reset_state__15TFontSmallLobbyFv
+  - reset_state__19TContainerAncient01Fv
   - reset_state_fields__9TObjEneDDFv
   - reset_telepipe_record
   - reset_windows__16TAdChrSelBSlotGCFPv
@@ -10419,6 +10433,7 @@ force_active:
   - roll_armor_bonuses__9TItemDropFv
   - roll_item_channel_below__FUll
   - roll_meseta_range__9TItemDropFPviiii
+  - roll_physical_accuracy__20TContainerAncient01RFPvlf
   - roll_rare_weapon_attributes__9TItemDropFiPvi
   - roll_shop_technique_level
   - roll_shop_weapon_first_bonus
@@ -11430,6 +11445,8 @@ force_active:
   - sub_8018355C__28TObjCity_Season_FireWorkCtrlFv
   - sub_80183C38__25TObjCity_Season_SonicAdv2Fv
   - sub_8018A688__20TContainerAncient01RFv
+  - sub_8018B284__19TContainerAncient01Fv
+  - sub_8018B48C__19TContainerAncient01Fv
   - sub_8018B700__19TContainerAncient01Fv
   - sub_8019A44C__13TUnk_804B8E18Fl
   - sub_8019B77C__14TObjWarpStringFv
@@ -11608,6 +11625,7 @@ force_active:
   - try_hit_target__13TUnk_80491460Fi
   - try_open__11TObjDoaEx01Fv
   - try_spawn_ground_effect__16TObjEneMe3StelthFl
+  - try_start_action__20TContainerAncient01RFll
   - turn_pose_to_target__14TObjEneBm5WolfFv
   - turn_to_target__18TObjEneRe4SorcererFv
   - turn_toward_angle__16TObjEneBm5GibonUFPvi
@@ -11956,6 +11974,7 @@ force_active:
   - update_velocity_and_snap__21TObjEneRe7BeruraPunchFv
   - update_visibility__21TWindowSubAreaMapDispFv
   - update_visible_flag__14TBoss4DarkFalzFv
+  - update_wait_for_player__19TContainerAncient01Fv
   - update_wait_input__18TChallenge4PResultFv
   - update_wait_switch__19TObjLazerFenceExtraFv
   - update_warp_boss_visibility__12TObjWarpBossFv

@@ -1135,5 +1135,11 @@
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/item/TObjContainerIdo_8018BEE4.cpp": {
+    "mw_version": "GC/1.3.2",
+    "optimization": "-O4,s",
+    "inline": "off",
+    "use_lmw_stmw": "on"
   }
 }
