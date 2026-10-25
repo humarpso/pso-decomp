@@ -206,9 +206,6 @@ s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__bml_resource;
 
 
-
-
-
 void run_task__20TContainerAncient01RFv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *, void *);
 
@@ -218,7 +215,6 @@ unsigned int __cvt_fp2unsigned(f32);
 
 
 f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
-
 
 
 extern s32 TContainerAncient01__open_effect_table[];
@@ -231,9 +227,6 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range);
 
 void *get_player_by_client_id(s32 i);
 s32 play_sound_effect(int, void *, int, int);
-
-
-
 
 
 extern s32 lbl_805D586C;
@@ -586,7 +579,6 @@ f32 TContainerAncient01R::receive_direct_attack(void *arg1, void *arg2_arg, void
 int TContainerAncient01R::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
 
-
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
     return xyz_distance_squared((void *)(arg1 + 0x38), (void *)(arg0 + 0x38), (void *)arg0) < 4e+02f;
 }
@@ -922,9 +914,6 @@ s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
 
 
-
-
-
 f32 xyz_distance_squared(void *, void *, void *);
 
 s32 scale_current_matrix(void *);
@@ -933,7 +922,6 @@ s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 reset_state__19TContainerAncient01Fv();
-
 
 
 f32 TContainerAncient01::receive_physical_attack(void *, f32) {
@@ -963,8 +951,6 @@ f32 TContainerAncient01::receive_direct_attack(void *arg1, void *arg2_arg, void 
 }
 
 int TContainerAncient01::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
-
-
 
 
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
@@ -1055,7 +1041,6 @@ extern Param_8018BB64 container_ancient_anim_binding[];
 
 
 extern s32 TContainerAncient01__effect_id_table[];
-
 
 
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -1157,7 +1142,6 @@ struct V_8018BE98 : B_8018BE98 {
     virtual void m20(s32 a, f32 b);
 };
 
-struct Vec_8018BEE4 { f32 x, y, z; };
 
 extern "C" {
 
@@ -1169,13 +1153,6 @@ extern s32 TContainerAncient01__name;
 extern s32 TContainerAncient01__bml_resource;
 
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-
-
-
-void matrix_mult_vec(int, void *, void *);
-void project_world_to_screen(int, void *, void *, void *);
-extern Vec_8018BEE4 lbl_804FF610;
-extern u8 *camera_ctrl_instance;
 
 
 s32 TContainerAncient01__sub_8018BE90(void);

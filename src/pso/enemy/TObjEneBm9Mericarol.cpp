@@ -37,30 +37,6 @@ struct VObj_802D0C14 : VBase_802D0C14 {
 
 struct S_802D0C14 { u8 pad[0x3C0]; void *arr[2]; };
 
-struct VBase_18_0ab400 { char pad[0x18]; };
-
-struct VObj_18_0ab400 : VBase_18_0ab400 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual s32 m19(s32, void *, s32);
-};
 
 struct VBase14_802D0D3C { char pad[0x14]; };
 struct VObj14_802D0D3C : VBase14_802D0D3C {
@@ -195,11 +171,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, u32, u32);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1);
-s32 obj_is_hit_receivable(u32);
-f32 fabs_float(f32);
-s32 is_area_attack_target_eligible(void *, u32);
-s32 attack_target_history_add(s32, s32);
-extern const f32 lbl_805DE758;
 void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
 void vfunc_61__19TObjEneBm9MericarolFv(void);

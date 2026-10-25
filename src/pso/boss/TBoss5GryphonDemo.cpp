@@ -13,31 +13,9 @@ struct E_80066304 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct O_80066304 { u8 pad[0xa4]; E_80066304 *entries; s32 count; };
 
-struct E_8006633C { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
-
-struct O_8006633C { u8 pad[0xa4]; E_8006633C *entries; s32 count; };
 
 struct O_80066304;
-struct Seg_800663DC {
-    f32 f0;
-    f32 f4;
-    f32 f8;
-    f32 fc;
-    u8 pad10[8];
-    s32 f18;
-    u8 pad1c[0x10];
-};
 
-struct Obj_800663DC {
-    s32 f0;
-    u8 pad4[0x14];
-    void *vt;
-    s16 f1c;
-    u8 pad1e[0xA4 - 0x1E];
-    Seg_800663DC *segs;
-    s32 count;
-    u8 posbuf[0xC];
-};
 
 struct Obj_800665FC { s32 f0; u8 pad4[0x14]; void *f18; f32 f1c; f32 f20; s32 f24; };
 
@@ -48,29 +26,12 @@ void queue_destruction__7TObjectFv(void *arg0);
 void set_camera_capture_overlay_alpha(int a0);
 s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
-void fn_8002B630(u8 *arg0, u8 *arg1);
-void *mem_alloc(u32 size);
-u16 register_entity_by_id(void *ov);
-int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
-extern s32 gryphon_demo_collision_body_desc[];
-extern s32 lbl_804886AC[];
-extern s32 lbl_805D2808;
-
 
 
 int TBoss8Dragon__sub_8005D700(void);
 s32 activate_camera_mode(s32 arg0);
 extern s32 lbl_805D2810;
 
-void TBoss5GryphonDemo__sub_8006626C(void* p);
-int matrix_mult_vec(void*, void*, void*);
-int post_translate_matrix(void*);
-s32 free_collision_body_parts(void *);
-int set_matrix_identity(void*);
-int rotate_matrix_y(void*, s32);
-int push_matrix(void*);
-int pop_matrix(void);
-s32 __dl__7TObjectFPv(void *);
 
 void TBoss5GryphonDemo::render() {  }
 

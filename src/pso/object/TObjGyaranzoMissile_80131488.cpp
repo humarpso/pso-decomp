@@ -7,33 +7,20 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TUnk_804A6DC0.h"
 
-struct Obj_80131334 { u8 pad[0x1f8]; s32 state; };
 
 struct Ent_80131488 { void *p; s32 a; s32 b; };
 
 struct Obj_80131488 { Ent_80131488 *ents; u32 count; };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
-extern s32 lbl_804A6DC0[];
-int TItemWeapon__ct(void);
-extern unsigned char spawn_weapon_impact_effect[];
     
     
 f32 vec_squared_length();
 f32 newton_sqrtf();
 
 
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-
-
-
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
-int post_translate_matrix(void*);
-int get_player_list__10TObjPlayerFv(void*);
 }
 #include "pso/object/TObjGyaranzoMissile.h"
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self) {

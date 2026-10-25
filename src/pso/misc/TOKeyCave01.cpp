@@ -32,32 +32,12 @@ struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
     u8 remaining[0xC];
 };
 
-struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { s32 value; u8 remaining[0x6C]; };
 
 struct Pkt_8016BF08 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
 
-struct VBase_18_8016BABC { char pad[0x18]; };
-
-struct VObj_18_8016BABC : VBase_18_8016BABC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
 
 extern "C" {
 s32 is_split_screen();
-
-
-
-
-
-
 
 
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -66,17 +46,9 @@ extern s32 enable_v2_features;
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
-extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
-extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fs_obj_o_doorpanel_resource_descriptor;
-extern u32 TOKeyAncient03__model_archive;
-extern void *TOKeyAncient03__texture_variants;
 s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
-extern s32 __vt__14TOKeyAncient03[];
-extern s32 TOKeyAncient03__class_name;
 
-
-u8 *TOKeyAncient03__ct(TOKeyAncient03 *arg0, s32 arg1, s32 arg2);
 
 s32 get_current_floor();
 extern s32 local_client_id;
@@ -259,9 +231,6 @@ extern s32 __vt__11TOKeyCave01[];
 extern s32 TOKeyCave01__class_name;
 
 
-
-
-
 u8 *TOKeyCave01__ct(TOKeyCave01 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 extern s32 local_client_id;
@@ -276,8 +245,6 @@ extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
-
-
 
 
 void TOKeyCave01::vfunc_16() {

@@ -43,7 +43,6 @@ extern RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli __vt__18TBoss5Gryphon
 extern s32 lbl_805D280C;
 
 
-
 typedef char RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli_size[sizeof(RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli) == 0x18 ? 1 : -1];
 u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800661E4, sp8) == 0x0) ? 1 : -1];
@@ -110,15 +109,9 @@ struct Obj_800663DC {
     u8 posbuf[0xC];
 };
 
-struct Obj_800665FC { s32 f0; u8 pad4[0x14]; void *f18; f32 f1c; f32 f20; s32 f24; };
-
-struct Cam_800665FC { s8 f8; s8 f9; s16 fa; f32 fc; f32 f10; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-void set_camera_capture_overlay_alpha(int a0);
-s32 restore_player_cameras();
-u8 *get_scripted_camera_playback();
 void fn_8002B630(u8 *arg0, u8 *arg1);
 void *mem_alloc(u32 size);
 u16 register_entity_by_id(void *ov);
@@ -127,11 +120,6 @@ extern s32 gryphon_demo_collision_body_desc[];
 extern s32 lbl_804886AC[];
 extern s32 lbl_805D2808;
 
-
-
-int TBoss8Dragon__sub_8005D700(void);
-s32 activate_camera_mode(s32 arg0);
-extern s32 lbl_805D2810;
 
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);

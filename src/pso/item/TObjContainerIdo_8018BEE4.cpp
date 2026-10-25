@@ -14,57 +14,12 @@
 
 #include "types.h"
 
-struct RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_8018BD00_lbl_804B6DEC {
-    s32 value;
-    u8 remaining[0x2C];
-};
-
-struct RecoveredGlobal_8018BD00___vt__19TContainerAncient01 {
-    s32 value;
-    u8 remaining[0x13C];
-};
-
-struct B_8018BE30 { u8 pad[0x18]; };
-
-struct V_8018BE30 : B_8018BE30 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(s32 a, f32 b);
-};
-
-struct B_8018BE98 { u8 pad[0x18]; };
-
-struct V_8018BE98 : B_8018BE98 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(s32 a, f32 b);
-};
 
 struct Vec_8018BEE4 { f32 x, y, z; };
 
 extern "C" {
-s32 construct_actor_base__10TObjPlayerFPvPv(void *);
-s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 init_collision_body_parts(void *, void *, int);
-extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__collision_body_parts;
-extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
-extern s32 __vt__19TContainerAncient01[];
-extern s32 TContainerAncient01__name;
-extern s32 TContainerAncient01__bml_resource;
-
-u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 
 f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
@@ -74,8 +29,6 @@ extern Vec_8018BEE4 lbl_804FF610;
 extern u8 *camera_ctrl_instance;
 
 
-s32 TContainerAncient01__sub_8018BE90(void);
-void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
@@ -153,7 +106,6 @@ void *__nw__7TObjectFUl(int);
 extern u32 TObjContainerIdo__model_resource;
 
 
-
 void render__16TObjContainerIdoFv(u8 *container_ido) {
     s32 var_r31;
 
@@ -225,14 +177,6 @@ int update_obstruction_fade(void*);
 extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
 extern u8 identity_matrix[];
-
-
-
-
-
-
-
-
 
 
 #pragma push
@@ -363,26 +307,15 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
     u8 remaining[0x38];
 };
 
-struct Obj_8018CBF0 { u8 pad0[0x84]; s32 id; };
-
-struct Obj_8018CB44 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; };
-
-struct Pkt_8018CB44 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
 struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 extern u32 container_ido_texture_gvm_handle;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80445130;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 container_ido_resource_descriptor;
-void debug_printf_at(s32 id, const char *fmt, ...);
-extern char lbl_80445430[];
-extern char lbl_8044543C[];
-s32 get_current_floor();
-extern s32 local_client_id;
 
 extern u8 container_ido_collision_parts[];
 extern s32 __vt__16TObjContainerIdo[];
@@ -390,7 +323,6 @@ extern s32 obj_container_ido_class_name;
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
-s32 scale_matrix(s32, f32, f32, f32);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 
 void TObjContainerIdo::free_resources() {
@@ -434,7 +366,6 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 
 
 u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {

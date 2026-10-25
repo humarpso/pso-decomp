@@ -14,66 +14,11 @@
 
 #include "types.h"
 
-struct RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_8018BD00_lbl_804B6DEC {
-    s32 value;
-    u8 remaining[0x2C];
-};
-
-struct RecoveredGlobal_8018BD00___vt__19TContainerAncient01 {
-    s32 value;
-    u8 remaining[0x13C];
-};
-
-struct B_8018BE30 { u8 pad[0x18]; };
-
-struct V_8018BE30 : B_8018BE30 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(s32 a, f32 b);
-};
-
-struct B_8018BE98 { u8 pad[0x18]; };
-
-struct V_8018BE98 : B_8018BE98 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(s32 a, f32 b);
-};
-
-struct Vec_8018BEE4 { f32 x, y, z; };
 
 extern "C" {
-s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 u32 init_collision_body_parts(void *, s32, s32);
-extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__collision_body_parts;
-extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
-extern s32 __vt__19TContainerAncient01[];
-extern s32 TContainerAncient01__name;
-extern s32 TContainerAncient01__bml_resource;
-
-u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
-void matrix_mult_vec(int, void *, void *);
-void project_world_to_screen(int, void *, void *, void *);
-extern Vec_8018BEE4 lbl_804FF610;
-extern u8 *camera_ctrl_instance;
-
-
-s32 TContainerAncient01__sub_8018BE90(void);
-void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
@@ -81,88 +26,13 @@ s32 __dl__7TObjectFPv(void *);
 #pragma fp_contract on
 #pragma pop
 
-struct VOuter_8018C06C {
-    char pad[0x18];
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-struct VMem_8018C06C {
-    char pad[0x14];
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-};
 
-u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2);
-void render__16TObjContainerIdoFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 void draw_ginja_object(void *);
-s32 rotate_matrix_x(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
-
-extern u32 TObjContainerIdo__model_resource;
-
-
-
-
-struct Vec3_8018C18C { f32 x, y, z; };
-struct VObj_8018C18C {
-    char pad[0x18];
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-struct Ido_8018C18C {
-    u8 pad0[0x38];
-    Vec3_8018C18C pos;
-    u8 pad44[0x5C - 0x44];
-    s32 f5c;
-    s32 f60;
-    u8 pad64[0xC0 - 0x64];
-    Vec3_8018C18C c0;
-    s32 ids[4];
-    s32 dc;
-    u32 e0;
-    f32 e4;
-    f32 e8;
-    f32 ec;
-    u8 f0[4];
-};
-u8 is_current_floor_switch_set(u16);
-f32 xyz_distance(void *, void *);
-s32 push_matrix_from(void *);
-void rotate_vector_by_matrix(int, void *, void *);
-s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
-void play_sound_effect(s32, void *, s32, s32);
-s32 rand();
-void *spawn_particle_effect(void *pos, s32 id);
-int update_obstruction_fade(void*);
-extern const Vec3_8018C18C lbl_80445110;
-extern const Vec3_8018C18C lbl_8044511C;
-extern u8 identity_matrix[];
-
-
-
-
-
-
-
-
 
 
 #pragma push
@@ -178,25 +48,6 @@ extern void *tl_05;
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct RecoveredGlobal_8019A9B8_lbl_80446184 {
-    s32 value;
-    u8 remaining[0xC];
-};
-
-struct RecoveredGlobal_8019A9B8_lbl_804B8F60 {
-    s32 value;
-    u8 remaining[0xC];
-};
-
-struct RecoveredGlobal_8019A880_lbl_804B8F70 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_8019A880___vt__8TObjTank {
-    s32 value;
-    u8 remaining[0x38];
-};
 
 struct Obj_8018CBF0 { u8 pad0[0x84]; s32 id; };
 
@@ -204,27 +55,17 @@ struct Obj_8018CB44 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; }
 
 struct Pkt_8018CB44 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
-struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-extern u32 container_ido_texture_gvm_handle;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-u8 * load_gvm_texture_file(s32);
-extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80445130;
-extern RecoveredGlobal_8019A9B8_lbl_804B8F60 container_ido_resource_descriptor;
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80445430[];
 extern char lbl_8044543C[];
 s32 get_current_floor();
 extern s32 local_client_id;
 
-extern u8 container_ido_collision_parts[];
-extern s32 __vt__16TObjContainerIdo[];
-extern s32 obj_container_ido_class_name;
-void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 s32 scale_matrix(s32, f32, f32, f32);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 
 void TObjContainerJungEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
@@ -553,7 +394,6 @@ void *TObjContainerJungEx::create(void *arg0) {
     }
     return o;
 }
-
 
 
 #pragma push

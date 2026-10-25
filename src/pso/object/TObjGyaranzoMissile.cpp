@@ -5,15 +5,6 @@
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/player/TObjPlayer.h"
 
-struct RecoveredGlobal_800D4668_lbl_80494400 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_800D4668_lbl_8049442C {
-    s32 value;
-    u8 remaining[0x38];
-};
 
 struct RecoveredGlobal_800D4668_lbl_8058D490 {
     s32 value;
@@ -97,16 +88,12 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
-s32 rotate_vector_by_matrix(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern RecoveredGlobal_800D4668_lbl_80494400 gyaranzo_missile_collision_body;
-extern s32 lbl_8049442C[];
 extern RecoveredGlobal_800D4668_lbl_8058D490 identity_matrix;
 extern s32 gyaranzo_bml_resource;
 extern s32 tl_04;
-u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 rand();
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_x(int, int);

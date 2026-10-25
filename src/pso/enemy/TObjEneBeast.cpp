@@ -9,7 +9,6 @@
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
-extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"

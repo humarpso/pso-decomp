@@ -12,15 +12,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct RecoveredGlobal_8016BF68_lbl_80441B4C {
-    s32 value;
-    u8 remaining[0x8C];
-};
-
-struct RecoveredGlobal_8016C010_lbl_80441B4C {
-    s32 value;
-    u8 remaining[0x8C];
-};
 
 struct RecoveredGlobal_8016BC84_lbl_80441ACC {
     s32 value;
@@ -34,7 +25,6 @@ struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
 
 struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { s32 value; u8 remaining[0x6C]; };
 
-struct Pkt_8016BF08 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
 
 struct VBase_18_8016BABC { char pad[0x18]; };
 
@@ -54,15 +44,7 @@ extern "C" {
 s32 is_split_screen();
 
 
-
-
-
-
-
-
 s32 play_sound_effect(s32, s32, s32, s32);
-extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
-extern s32 enable_v2_features;
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
@@ -78,8 +60,6 @@ extern s32 TOKeyAncient03__class_name;
 
 u8 *TOKeyAncient03__ct(TOKeyAncient03 *arg0, s32 arg1, s32 arg2);
 
-s32 get_current_floor();
-extern s32 local_client_id;
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
