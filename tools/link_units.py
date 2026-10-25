@@ -708,8 +708,6 @@ def scan(write: bool) -> int:
         if not source.startswith(("src/pso/", "src/musyx/", "libs/", "build/GPOE8P/orig_asm/")):
             continue
         n = unit_name(u)
-        if source.startswith("libs/") and meta.get("complete") and n not in linked:
-            continue  # Retain established, explicit Matching() library entries.
         exact[n] = unit_is_exact(u)
     add = sorted(n for n, ok in exact.items() if ok and n not in linked and n not in skip)
     blocked = {}

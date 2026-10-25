@@ -20,7 +20,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, List
 from tools.compiler_profiles import load_profiles, object_options
 from tools.pso_assets import add_build_steps as add_data_build_steps
 
@@ -34,15 +34,11 @@ from tools.project import (
 )
 
 # ===================================================================
-# Helper: Matching / NonMatching constructors
+# Units
 # ===================================================================
-def Matching(name: str, **kwargs: Any) -> Object:
-    """An object that byte-matches the original binary."""
-    return Object(True, name, **kwargs)
-
-# Units whose compiled object is LINKED into the DOL: every function and data
-# section in them matches. A listed unit is treated as Matching even though it
-# is registered below with NonMatching(...); the list is the authority.
+# A unit is LINKED into the DOL from its compiled object when every function
+# and data section in it matches. linked_units.txt is the only authority for
+# that; tools/link_units.py maintains it.
 _LINKED_UNITS_FILE = Path(__file__).resolve().parent / "config" / "GPOE8P" / "psov3" / "linked_units.txt"
 _LINKED_UNITS = set()
 if _LINKED_UNITS_FILE.exists():
@@ -50,6 +46,12 @@ if _LINKED_UNITS_FILE.exists():
         _line = _line.split("#", 1)[0].strip()
         if _line:
             _LINKED_UNITS.add(_line)
+
+
+def Unit(name: str, **kwargs: Any) -> Object:
+    """A translation unit (name == its splits.txt unit == its source path)."""
+    return Object(name in _LINKED_UNITS, name, **kwargs)
+
 
 def _psov3_units_from_splits(prefix: str = "pso/") -> List[str]:
     """Unit names (== source paths) of every `prefix` unit in splits.txt."""
@@ -73,12 +75,6 @@ def _musyx_options(unit: str, profiles: dict) -> dict:
     ] + ["-lang=c++"]
     return options
 
-def NonMatching(name: str, **kwargs: Any) -> Object:
-    """An object that does not yet match (work in progress) — unless
-    linked_units.txt lists it as verified exact."""
-    return Object(name in _LINKED_UNITS, name, **kwargs)
-
-Equivalent = NonMatching
 
 # ===================================================================
 # Version Configuration
@@ -255,9 +251,6 @@ if args.map:
 
 # Linker version
 config.linker_version = "GC/2.6"
-
-# Re-configure when these files change
-config.reconfig_deps = []
 
 # Shift JIS: disabled by default, enable per-object if needed
 config.shift_jis = False
@@ -476,27 +469,20 @@ def TRKLib(lib_name: str, objects: list) -> dict:
 # ===================================================================
 # Library / Object Definitions
 # ===================================================================
-# Object names MUST match the TU names in splits.txt.
-# When you break a new source file out of the monolithic split,
-# add the corresponding split in config/GPOE8P/psov3/splits.txt first,
-# then add the Object here.
-#
-# End state: one object per real TU — the
-# auto_* placeholder units shrink to zero as TUs are broken out.
-# SDK TU boundaries can be transferred from tp and ac-decomp
-# instead of discovered. See WORKFLOW.md's SDK/runtime loop for the process.
+# PsoV3.dol's pso/ and musyx/ units are read from splits.txt: adding a unit
+# there is all it takes. The SDK and runtime units are listed by hand so
+# each one's compiler settings sit next to it.
 # ===================================================================
 
 if args.target == "psov3":
     _pso_profiles = load_profiles()
-    config.reconfig_deps = [Path('config/GPOE8P/psov3/compiler_profiles.json'), Path('tools/compiler_profiles.py')]
+    config.reconfig_deps = [
+        Path("config/GPOE8P/psov3/splits.txt"),
+        _LINKED_UNITS_FILE.relative_to(Path(__file__).resolve().parent),
+        Path("config/GPOE8P/psov3/compiler_profiles.json"),
+        Path("tools/compiler_profiles.py"),
+    ]
     config.libs = [
-        # ------------------------------------------------------------------
-        # PsoV3.dol — Game code.
-        # Each object here MUST have a matching split in
-        # config/GPOE8P/psov3/splits.txt (unit name == object path).
-        # Objects without a split are silently ignored by the build.
-        # ------------------------------------------------------------------
         {
             "lib": "psov3_main",
             "mw_version": "GC/2.6",
@@ -508,7 +494,7 @@ if args.target == "psov3":
                 # unit is an Object (dtk requires unit name == source path), and
                 # it is LINKED iff linked_units.txt lists it. Add a unit by
                 # adding its splits.txt block; never edit this list by hand.
-                *[NonMatching(_u, **object_options(_u, cflags_pso, _pso_profiles))
+                *[Unit(_u, **object_options(_u, cflags_pso, _pso_profiles))
                   for _u in _psov3_units_from_splits()],
             ],
         },
@@ -524,115 +510,115 @@ if args.target == "psov3":
             "progress_category": "game",
             "src_dir": "src",
             "objects": [
-                *[NonMatching(_u, **_musyx_options(_u, _pso_profiles))
+                *[Unit(_u, **_musyx_options(_u, _pso_profiles))
                   for _u in _psov3_units_from_splits("musyx/")],
             ],
         },
         DolphinLib(
             "recovered_sdk",
             [
-                NonMatching('mtx/mtx.c', mw_version="GC/1.2.5"),
-                NonMatching('mtx/mtxvec.c'),
-                NonMatching('mtx/mtx44.c'),
-                NonMatching('mtx/vec.c'),
-                NonMatching('dvd/dvdlow.c'),
-                NonMatching('dvd/dvdfs.c'),
-                NonMatching('dvd/dvd.c'),
-                NonMatching('vi/vi.c'),
-                NonMatching('pad/Pad.c'),
-                NonMatching('ai/ai.c'),
-                NonMatching('ar/ar.c'),
-                NonMatching('ar/arq.c'),
-                NonMatching('dsp/dsp.c'),
-                NonMatching('dsp/dsp_debug.c'),
-                NonMatching('dsp/dsp_task.c'),
-                NonMatching('card/CARDBios.c'),
-                NonMatching('card/CARDUnlock.c'),
-                NonMatching('card/CARDRdwr.c'),
-                NonMatching('card/CARDBlock.c'),
-                NonMatching('card/CARDDir.c'),
-                NonMatching('card/CARDCheck.c'),
-                NonMatching('card/CARDMount.c'),
-                NonMatching('card/CARDFormat.c'),
-                NonMatching('card/CARDOpen.c'),
-                NonMatching('card/CARDCreate.c'),
-                NonMatching('card/CARDRead.c'),
-                NonMatching('card/CARDWrite.c'),
-                NonMatching('card/CARDDelete.c'),
-                NonMatching('card/CARDStat.c'),
-                NonMatching('card/CARDRename.c'),
-                NonMatching('card/CARDStatEx.c'),
-                NonMatching('card/CARDNet.c'),
-                NonMatching('gx/GXFifo.c'),
-                NonMatching('gx/GXAttr.c'),
-                NonMatching('gx/GXMisc.c'),
-                NonMatching('gx/GXFrameBuf.c'),
-                NonMatching('gx/GXLight.c'),
-                NonMatching('gx/GXTexture.c'),
-                NonMatching('gx/GXBump.c'),
-                NonMatching('gx/GXPixel.c'),
-                NonMatching("gx/GXStubs.c"),
-                NonMatching('gx/GXDisplayList.c'),
-                NonMatching('gx/GXTransform.c'),
-                NonMatching('gx/GXPerf.c'),
+                Unit('mtx/mtx.c', mw_version="GC/1.2.5"),
+                Unit('mtx/mtxvec.c'),
+                Unit('mtx/mtx44.c'),
+                Unit('mtx/vec.c'),
+                Unit('dvd/dvdlow.c'),
+                Unit('dvd/dvdfs.c'),
+                Unit('dvd/dvd.c'),
+                Unit('vi/vi.c'),
+                Unit('pad/Pad.c'),
+                Unit('ai/ai.c'),
+                Unit('ar/ar.c'),
+                Unit('ar/arq.c'),
+                Unit('dsp/dsp.c'),
+                Unit('dsp/dsp_debug.c'),
+                Unit('dsp/dsp_task.c'),
+                Unit('card/CARDBios.c'),
+                Unit('card/CARDUnlock.c'),
+                Unit('card/CARDRdwr.c'),
+                Unit('card/CARDBlock.c'),
+                Unit('card/CARDDir.c'),
+                Unit('card/CARDCheck.c'),
+                Unit('card/CARDMount.c'),
+                Unit('card/CARDFormat.c'),
+                Unit('card/CARDOpen.c'),
+                Unit('card/CARDCreate.c'),
+                Unit('card/CARDRead.c'),
+                Unit('card/CARDWrite.c'),
+                Unit('card/CARDDelete.c'),
+                Unit('card/CARDStat.c'),
+                Unit('card/CARDRename.c'),
+                Unit('card/CARDStatEx.c'),
+                Unit('card/CARDNet.c'),
+                Unit('gx/GXFifo.c'),
+                Unit('gx/GXAttr.c'),
+                Unit('gx/GXMisc.c'),
+                Unit('gx/GXFrameBuf.c'),
+                Unit('gx/GXLight.c'),
+                Unit('gx/GXTexture.c'),
+                Unit('gx/GXBump.c'),
+                Unit('gx/GXPixel.c'),
+                Unit("gx/GXStubs.c"),
+                Unit('gx/GXDisplayList.c'),
+                Unit('gx/GXTransform.c'),
+                Unit('gx/GXPerf.c'),
             ],
         ) | {"cflags": cflags_dolphin_recovered},
         TRKLib(
             "recovered_trk",
             [
-                NonMatching("TRK_MINNOW_DOLPHIN/support.c",
+                Unit("TRK_MINNOW_DOLPHIN/support.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("TRK_MINNOW_DOLPHIN/notify.c",
+                Unit("TRK_MINNOW_DOLPHIN/notify.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("TRK_MINNOW_DOLPHIN/flush_cache.c",
+                Unit("TRK_MINNOW_DOLPHIN/flush_cache.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("TRK_MINNOW_DOLPHIN/mem_TRK.c",
+                Unit("TRK_MINNOW_DOLPHIN/mem_TRK.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
-                NonMatching("TRK_MINNOW_DOLPHIN/targimpl.c",
+                Unit("TRK_MINNOW_DOLPHIN/targimpl.c",
                             mw_version="GC/2.6", cflags=[*cflags_native_recovered, "-sdata 0", "-sdata2 0"]),
-                NonMatching("TRK_MINNOW_DOLPHIN/targsupp.s", src_dir=f"build/{config.version}/orig_asm"),
-                NonMatching("TRK_MINNOW_DOLPHIN/exception.s", src_dir=f"build/{config.version}/orig_asm"),
-                NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk.c",
+                Unit("TRK_MINNOW_DOLPHIN/targsupp.s", src_dir=f"build/{config.version}/orig_asm"),
+                Unit("TRK_MINNOW_DOLPHIN/exception.s", src_dir=f"build/{config.version}/orig_asm"),
+                Unit("TRK_MINNOW_DOLPHIN/dolphin_trk.c",
                             mw_version="GC/2.6", cflags=[*cflags_native_recovered, "-sdata 0", "-sdata2 0"]),
             ],
         ),
         RuntimeLib(
             "recovered_runtime",
             [
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp",
+                Unit("PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/NMWException.cp",
+                Unit("PowerPC_EABI_Support/Runtime/Src/NMWException.cp",
                             mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/ptmf.c",
+                Unit("PowerPC_EABI_Support/Runtime/Src/ptmf.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/runtime.c",
+                Unit("PowerPC_EABI_Support/Runtime/Src/runtime.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp",
+                Unit("PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/__mem.c",
+                Unit("PowerPC_EABI_Support/Runtime/Src/__mem.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/rand.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/rand.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
             ],
         ),
         DolphinLib(
             "recovered_sdk_io",
             [
-                NonMatching('exi/EXIBios.c', cflags=cflags_dolphin_recovered),
-                NonMatching('exi/EXIUart.c', cflags=cflags_dolphin_recovered),
-                NonMatching('si/SIBios.c', cflags=cflags_dolphin_recovered),
+                Unit('exi/EXIBios.c', cflags=cflags_dolphin_recovered),
+                Unit('exi/EXIUart.c', cflags=cflags_dolphin_recovered),
+                Unit('si/SIBios.c', cflags=cflags_dolphin_recovered),
             ],
         ),
         # ------------------------------------------------------------------
@@ -643,152 +629,152 @@ if args.target == "psov3":
         DolphinLib(
             "base",
             [
-                Matching("base/PPCArch.c"),
+                Unit("base/PPCArch.c"),
             ],
         ),
         DolphinLib(
             "db",
             [
-                Matching("db/db.c"),
+                Unit("db/db.c"),
             ],
         ),
         DolphinLib(
             "os",
             [
-                NonMatching("os/OS.c", cflags=cflags_dolphin_recovered),
-                NonMatching("os/__start.c", cflags=cflags_dolphin_recovered),
-                Matching("os/OSAlarm.c"),
-                Matching("os/OSAlloc.c"),
-                Matching("os/OSArena.c"),
-                Matching("os/OSAudioSystem.c"),
-                NonMatching("os/OSCache.c", cflags=cflags_dolphin_recovered),
-                NonMatching("os/OSContext.c", cflags=cflags_dolphin_recovered),
-                NonMatching("os/OSError.c", cflags=cflags_dolphin_recovered),
-                NonMatching("os/OSFont.c"),
-                Matching("os/OSInterrupt.c"),
-                NonMatching("os/OSLink.c"),
-                Matching("os/OSMessage.c"),
-                NonMatching("os/OSMemory.c"),
-                Matching("os/OSMutex.c"),
-                NonMatching("os/OSReboot.c"),
-                Matching("os/OSReset.c"),
-                Matching("os/OSResetSW.c"),
-                NonMatching("os/OSRtc.c"),
-                Matching("os/OSSync.c"),
-                NonMatching("os/OSThread.c"),
-                NonMatching("os/OSTime.c"),
-                Matching("os/__ppc_eabi_init.cpp"),
+                Unit("os/OS.c", cflags=cflags_dolphin_recovered),
+                Unit("os/__start.c", cflags=cflags_dolphin_recovered),
+                Unit("os/OSAlarm.c"),
+                Unit("os/OSAlloc.c"),
+                Unit("os/OSArena.c"),
+                Unit("os/OSAudioSystem.c"),
+                Unit("os/OSCache.c", cflags=cflags_dolphin_recovered),
+                Unit("os/OSContext.c", cflags=cflags_dolphin_recovered),
+                Unit("os/OSError.c", cflags=cflags_dolphin_recovered),
+                Unit("os/OSFont.c"),
+                Unit("os/OSInterrupt.c"),
+                Unit("os/OSLink.c"),
+                Unit("os/OSMessage.c"),
+                Unit("os/OSMemory.c"),
+                Unit("os/OSMutex.c"),
+                Unit("os/OSReboot.c"),
+                Unit("os/OSReset.c"),
+                Unit("os/OSResetSW.c"),
+                Unit("os/OSRtc.c"),
+                Unit("os/OSSync.c"),
+                Unit("os/OSThread.c"),
+                Unit("os/OSTime.c"),
+                Unit("os/__ppc_eabi_init.cpp"),
             ],
         ),
         DolphinLib(
             "dvd",
             [
-                Matching("dvd/dvdqueue.c"),
-                Matching("dvd/dvderror.c"),
-                NonMatching("dvd/fstload.c", cflags=cflags_dolphin_recovered),
+                Unit("dvd/dvdqueue.c"),
+                Unit("dvd/dvderror.c"),
+                Unit("dvd/fstload.c", cflags=cflags_dolphin_recovered),
             ],
         ),
         DolphinLib(
             "gx",
             [
-                NonMatching("gx/GXInit.c", cflags=cflags_dolphin_recovered),
-                Matching("gx/GXGeometry.c"),
-                Matching("gx/GXTev.c"),
+                Unit("gx/GXInit.c", cflags=cflags_dolphin_recovered),
+                Unit("gx/GXGeometry.c"),
+                Unit("gx/GXTev.c"),
             ],
         ),
         DolphinLib(
             "si",
             [
-                NonMatching("si/SISamplingRate.c", cflags=cflags_dolphin_recovered),
+                Unit("si/SISamplingRate.c", cflags=cflags_dolphin_recovered),
             ],
         ),
         DolphinLib(
             "gba",
             [
-                NonMatching("gba/GBA.c", cflags=cflags_dolphin_recovered),
-                NonMatching("gba/GBAGetProcessStatus.c", cflags=cflags_dolphin_recovered),
-                NonMatching("gba/GBAJoyBoot.c", cflags=cflags_dolphin_recovered),
-                NonMatching("gba/GBARead.c", cflags=cflags_dolphin_recovered),
-                NonMatching("gba/GBAWrite.c", cflags=cflags_dolphin_recovered),
-                NonMatching("gba/GBAXfer.c", cflags=cflags_dolphin_recovered),
-                NonMatching("gba/GBAKey.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBA.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBAGetProcessStatus.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBAJoyBoot.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBARead.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBAWrite.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBAXfer.c", cflags=cflags_dolphin_recovered),
+                Unit("gba/GBAKey.c", cflags=cflags_dolphin_recovered),
             ],
         ),
         DolphinLib(
             "amcstubs",
             [
-                Matching("amcstubs/AmcExi2Stubs.c"),
+                Unit("amcstubs/AmcExi2Stubs.c"),
             ],
         ),
         DolphinLib(
             "odenotstub",
             [
-                Matching("odenotstub/odenotstub.c"),
+                Unit("odenotstub/odenotstub.c"),
             ],
         ),
         DolphinLib(
             "odemuexi2",
             [
-                NonMatching("odemuexi2/DebuggerDriver.c", cflags=cflags_dolphin_deferred),
+                Unit("odemuexi2/DebuggerDriver.c", cflags=cflags_dolphin_deferred),
             ],
         ),
         TRKLib(
             "TRK_MINNOW_DOLPHIN",
             [
-                Matching("TRK_MINNOW_DOLPHIN/mainloop.c"),
-                Matching("TRK_MINNOW_DOLPHIN/nubevent.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/nubinit.c"),
-                Matching("TRK_MINNOW_DOLPHIN/msg.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/msgbuf.c"),
-                Matching("TRK_MINNOW_DOLPHIN/msghndlr.c"),
-                Matching("TRK_MINNOW_DOLPHIN/serpoll.c"),
-                Matching("TRK_MINNOW_DOLPHIN/usr_put.c"),
-                Matching("TRK_MINNOW_DOLPHIN/dispatch.c"),
-                Matching("TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c"),
-                Matching("TRK_MINNOW_DOLPHIN/main_TRK.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c"),
-                Matching("TRK_MINNOW_DOLPHIN/targcont.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/target_options.c"),
-                Matching("TRK_MINNOW_DOLPHIN/mutex_TRK.c"),
-                Matching("TRK_MINNOW_DOLPHIN/mslsupp.c"),
+                Unit("TRK_MINNOW_DOLPHIN/mainloop.c"),
+                Unit("TRK_MINNOW_DOLPHIN/nubevent.c"),
+                Unit("TRK_MINNOW_DOLPHIN/nubinit.c"),
+                Unit("TRK_MINNOW_DOLPHIN/msg.c"),
+                Unit("TRK_MINNOW_DOLPHIN/msgbuf.c"),
+                Unit("TRK_MINNOW_DOLPHIN/msghndlr.c"),
+                Unit("TRK_MINNOW_DOLPHIN/serpoll.c"),
+                Unit("TRK_MINNOW_DOLPHIN/usr_put.c"),
+                Unit("TRK_MINNOW_DOLPHIN/dispatch.c"),
+                Unit("TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c"),
+                Unit("TRK_MINNOW_DOLPHIN/main_TRK.c"),
+                Unit("TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c"),
+                Unit("TRK_MINNOW_DOLPHIN/targcont.c"),
+                Unit("TRK_MINNOW_DOLPHIN/target_options.c"),
+                Unit("TRK_MINNOW_DOLPHIN/mutex_TRK.c"),
+                Unit("TRK_MINNOW_DOLPHIN/mslsupp.c"),
             ],
         ),
         RuntimeLib(
             "Runtime.PPCEABI.H",
             [
-                Matching("PowerPC_EABI_Support/Runtime/Src/__va_arg.c"),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c"),
-                Matching("PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp"),
+                Unit("PowerPC_EABI_Support/Runtime/Src/__va_arg.c"),
+                Unit("PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c"),
+                Unit("PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp"),
             ],
         ),
         RuntimeLib(
             "MSL_C.PPCEABI.bare.H",
             [
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"),
                 # alloc.c: only GC/1.3 emits `li -5; and` where 1.3.2+ use rlwinm
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/alloc.c",
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/alloc.c",
                             mw_version="GC/1.3"),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c"),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c"),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c"),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c"),
                 # file_io.c: PSO's fclose keeps a real `bl fflush`; -inline
                 # deferred would fold fflush into fclose and reverse the
                 # emission order, so this TU drops deferred. extra_cflags
                 # can't cancel it (deferred is sticky), hence full override.
-                Matching(
+                Unit(
                     "PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/file_io.c",
                     cflags=[
                         f if f != "-inline deferred,auto" else "-inline auto"
                         for f in cflags_runtime
                     ],
                 ),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c"),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c"),
                 # mem_funcs.c: PSO's copy of these MSL copy loops predates the
                 # rest of the runtime — GC/2.6 emits clrlwi/pipelined loops
                 # that can't match; GC/1.3 with plain -inline auto is exact.
-                Matching(
+                Unit(
                     "PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem_funcs.c",
                     mw_version="GC/1.3",
                     cflags=[
@@ -796,8 +782,8 @@ if args.target == "psov3":
                         for f in cflags_runtime
                     ],
                 ),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c"),
-                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c"),
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c"),
             ],
         ),
         # fdlibm + math_ppc (0x8039F7FC-0x803A2DA0): built like ac's MSL math,
@@ -806,33 +792,14 @@ if args.target == "psov3":
         RuntimeLib(
             "MSL_C.PPCEABI.bare.H.math",
             [
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_acos.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_asin.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_atan2.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_log.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_pow.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_rem_pio2.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_cos.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_rem_pio2.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_sin.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_tan.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_atan.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_ceil.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_copysign.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_cos.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_floor.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_frexp.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_ldexp.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_modf.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_nextafter.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_sin.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_tan.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_acos.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_asin.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_atan2.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_log.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_pow.c", **_msl_math),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c", **_msl_math),
+                *[Unit(f"PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/{_n}.c", **_msl_math)
+                  for _n in (
+                      "e_acos", "e_asin", "e_atan2", "e_log", "e_pow", "e_rem_pio2", "k_cos",
+                      "k_rem_pio2", "k_sin", "k_tan", "s_atan", "s_ceil", "s_copysign", "s_cos",
+                      "s_floor", "s_frexp", "s_ldexp", "s_modf", "s_nextafter", "s_sin", "s_tan",
+                      "w_acos", "w_asin", "w_atan2", "w_log", "w_pow",
+                  )],
+                Unit("PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c", **_msl_math),
             ],
         ),
     ]
