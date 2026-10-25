@@ -3551,6 +3551,7 @@ force_active:
   - find_free_file_names__22TQuestVmDownLoadServerFv
   - find_free_slot__6TLobbyFv
   - find_gsl_entry__FPv
+  - find_heal_target__13TOHealGeneralFPv
   - find_nearest_enemy__15TObjEnemyCustomFPvf
   - find_open_direction__10TObjPlayerFPvPv
   - find_open_direction__15TObjEneMe1GiGueFPvPv
@@ -11681,6 +11682,7 @@ force_active:
   - update_close_shop__22THunterGuildSeqOfflineFPv
   - update_close_timer__15TObjSoloPlayWinFv
   - update_closed__18TObjLazerFenceNormFv
+  - update_closing__13TOHealGeneralFv
   - update_collide_flag__13TObjEneBm3FlyFv
   - update_collision_center__14TObjEneBm5WolfFv
   - update_collision_center__16TObjEneRe7BeruraFv
@@ -11801,6 +11803,7 @@ force_active:
   - update_movement_status__12TObjEneLappyFv
   - update_moving__12TObjEneLappyFv
   - update_node_oscillation__11TItemMagSubFPv
+  - update_opening__13TOHealGeneralFv
   - update_opening_glow__8TObjDoorFPv
   - update_or_dispatch__14TBoss7DeRolLeCFv
   - update_orbit_velocity__10TBoss4ZakoFv

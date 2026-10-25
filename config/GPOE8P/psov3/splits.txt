@@ -5162,17 +5162,13 @@ pso/misc/TOHangceilingCave01.cpp:
 pso/misc/TOHangerMachine01.cpp:
 	.text       start:0x80168D3C end:0x8016916C
 
-pso/unk/text_8016916C.cpp:
-	.text       start:0x8016916C end:0x80169334
-
-pso/unk/text_80169334.cpp:
-	.text       start:0x80169334 end:0x80169520
-
 pso/misc/TOHealGeneral.cpp:
-	.text       start:0x80169520 end:0x80169BD0
+	.text       start:0x8016916C end:0x801699F4
+	.sdata2     start:0x805DB6B8 end:0x805DB6D4
 
 pso/unk/text_80169BD0.cpp:
-	.text       start:0x80169BD0 end:0x80169EE4
+	.text       start:0x801699F4 end:0x80169EE4
+	.sdata2     start:0x805DB6D8 end:0x805DB6E0
 
 pso/misc/TOKey_80169EE4.cpp:
 	.text       start:0x80169EE4 end:0x8016A408

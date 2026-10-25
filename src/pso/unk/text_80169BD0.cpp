@@ -1,3 +1,112 @@
+// ---- pso/misc/TOHealGeneral (tail: TUnk_804B27D8 methods from 0x801699F4)
+#include "types.h"
+#include "pso/system/vector.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/misc/TUnk_804B27D8.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/misc/TOHealGeneral.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TOKey.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+
+extern "C" {
+void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
+void *get_player_by_client_id(s32);
+extern s32 local_client_id;
+u8 is_current_floor_switch_set(u16);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
+
+void TUnk_804B27D8::vfunc_16() {  }
+
+
+
+void TUnk_804B27D8::vfunc_6(s16 *arg1, s32) {
+    this->m_ac = (s32) *arg1;
+}
+
+void TOHealGeneral::accept_player(u16 arg1) {
+    void *p;
+    if (*(s32 *)((s8 *)this + 0xD8) > 0) {
+        if (arg1 == local_client_id) {
+            p = get_player_by_client_id(arg1);
+            if (p == NULL || *(s32 *)&this->m_ac != 1) {
+                return;
+            }
+            *(s32 *)&this->m_ac = 2;
+            this->m_94 = arg1;
+            play_effect_default__10TObjPlayerFii((s32)p, -1);
+        } else {
+            this->m_94 = 0xFFFF;
+        }
+    }
+}
+
+s32 TOHealGeneral::update_active_state() {
+
+    switch (*(s32 *)&this->unk_C8) {
+    case 1:
+        if (((s32 (*)(f32))is_any_player_within_radius_xz)(4.9e+03f) != 0) {
+            *(s32 *)&this->m_cc = 1;
+        } else {
+            *(s32 *)&this->m_cc = 0;
+        }
+        break;
+    case 2:
+        if (is_current_floor_switch_set((u16) *(s32 *)&this->_padD0) == 1) {
+            *(s32 *)&this->m_cc = 1;
+        } else {
+            *(s32 *)&this->m_cc = 0;
+        }
+        break;
+    }
+    return *(s32 *)&this->m_cc;
+}
+
+void TOHealGeneral::set_enable_count(s32 arg1) {
+    s32 var_r4;
+
+    var_r4 = arg1;
+    if (var_r4 < 0) {
+        var_r4 = 0;
+    }
+    *(s32 *)((s8 *)this + 0xD8) = var_r4;
+}
+
+void TOHealGeneral::set_script_entry(s32 arg1) {
+    s32 var_r4;
+
+    var_r4 = arg1;
+    if (var_r4 < 0) {
+        var_r4 = 0;
+    }
+    *(s32 *)&this->m_d4 = var_r4;
+}
+
+s32 TOHealGeneral::update_heal_gauge_state() {
+    s32 temp_r0;
+
+    *(s32 *)&this->_padD0 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->_padD0;
+    if (temp_r0 > 0xFF) {
+        *(s32 *)&this->unk_C8 = 0;
+    } else if (temp_r0 < 0) {
+        *(s32 *)&this->unk_C8 = 1;
+    } else {
+        *(s32 *)&this->unk_C8 = 2;
+    }
+    set_script_entry((s32)this->m_88);
+    set_enable_count(this->m_8c);
+    return *(s32 *)&this->_padD0;
+}
+
+}
+
+// ---- pso/unk/text_80169BD0
 #include "types.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/TObject.h"
@@ -40,8 +149,8 @@ extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 extern s32 tl_00;
-extern const f32 lbl_805DB6D8;
-extern const f32 lbl_805DB6DC;
+
+
 
 void TUnk_804B27D8::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -62,7 +171,7 @@ void TUnk_804B27D8::run_task() {
     }
     switch (*(s32 *)&this->m_ac) {
     case 0:
-        if ((this->update_active_state() != 0) && (is_any_player_within_radius_xz((arg0), lbl_805DB6D8) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
+        if ((this->update_active_state() != 0) && (is_any_player_within_radius_xz((arg0), 4.9e+03f) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
             *(s32 *)&this->m_ac = 1;
         }
         break;
@@ -117,7 +226,7 @@ void TUnk_804B27D8::run_task() {
         }
         break;
     }
-    this->m_b0 = (f32) (this->m_b0 + lbl_805DB6DC);
+    this->m_b0 += 1.0f;
     temp_f1 = *(f32 *)&this->m_b4;
     temp_f0 = this->m_b0;
     if (temp_f1 < temp_f0) {
