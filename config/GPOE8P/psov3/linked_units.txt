@@ -188,6 +188,7 @@ pso/boss/TBoss4Type2_80086C44.cpp
 pso/boss/TBoss4Type2_800874F4.cpp
 pso/boss/TBoss4Type2_8033FEEC.cpp
 pso/boss/TBoss4Type2_80340160.cpp
+pso/boss/TBoss4Type3.cpp
 pso/boss/TBoss4Type3_800505A8.cpp
 pso/boss/TBoss4Type3_800524E8.cpp
 pso/boss/TBoss4Type3_800D7A20.cpp
