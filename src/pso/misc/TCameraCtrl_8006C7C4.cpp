@@ -1,0 +1,122 @@
+// ---- pso/misc/TCameraCtrl_8006BA68
+#include "types.h"
+#include "pso/misc/TUnk_80488B38.h"
+#include "pso/misc/TUnk_80488B68.h"
+
+#include "pso/misc/TUnk_80488B08.h"
+#include "pso/system/vector.h"
+#include "pso/misc/TCameraCtrl.h"
+
+
+extern "C" {
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+
+
+#pragma push
+#pragma fp_contract on
+#pragma pop
+
+
+}
+
+#include "pso/misc/CameraHelpers.h"
+#include <stddef.h>
+
+#include <stddef.h>
+#include "pso/misc/TOKeyMachine01.h"
+
+
+
+
+
+
+
+
+extern void *camera_ctrl_instance;
+extern void* camera_controller_registry[];
+
+
+void* camera_controller_registry[];
+
+struct CameraMotionData;
+#pragma push
+#pragma opt_common_subs off
+#pragma pop
+
+
+
+
+#pragma push
+#pragma fp_contract on
+
+#pragma pop
+
+// ---- pso/misc/TCameraCtrl_8006C580
+
+#include "pso/misc/TCameraCtrl_80067FC0.h"
+#include "pso/misc/TCameraCtrl_8006C580.h"
+
+
+// ---- pso/misc/TCameraCtrl_8006C5D8
+
+
+#include "pso/system/memory.h"
+#include "pso/misc/TUnk_80488D70.h"
+
+
+#include "pso/misc/TScene.h"
+
+extern "C" {
+
+
+void *TCameraCtrl__vt10(void);
+void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
+void *get_player_by_client_id(s32);
+void *__nw__7TObjectFUl(int);
+
+
+    
+}
+
+
+void *TCameraCtrl__vt10(void) {
+    void *o = __nw__7TObjectFUl(0x6C);
+    if (o != NULL) {
+        o = ((TUnk_80488D70 *)o)->init_subobject();
+    }
+    return o;
+}
+
+
+void TUnk_80488D70::vfunc_6() {
+    void *temp_r31;
+    void *player;
+
+    if ((u32) camera_ctrl_instance != 0U) {
+        temp_r31 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
+        player = get_player_by_client_id(0);
+        if (player != NULL) {
+            *(f32 *)&this->unk_48 = (f32) *(f32 *)((s8 *)player + 0x38);
+            this->m_4c = (f32) (19.8f + *(f32 *)((s8 *)player + 0x3C));
+            *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)player + 0x40);
+            this->m_3c = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
+            *(f32 *)&this->unk_40 = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
+            this->m_44 = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
+            this->m_58 = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
+        }
+    }
+}
+
+extern s32 lbl_80488D70[];
+
+void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488D70;
+        __dt__13TUnk_80488A28Fv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
