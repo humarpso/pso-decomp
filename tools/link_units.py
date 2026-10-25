@@ -339,6 +339,15 @@ def global_data_layout_mismatch(u: dict) -> list[str]:
             if original[name] != compiled[name]]
 
 
+def stripped_functions(u: dict, split: Path, obj: Path) -> dict[str, int]:
+    """Compiled functions the original split lacks and mwld dead-strips
+    (unreferenced, not a DOL symbol, or a discarded weak copy): name -> size."""
+    in_split = set(elf_function_sizes(split, local=True))
+    discarded = discarded_weak_functions(u)
+    return {name: size for name, size in elf_function_sizes(obj, local=True).items()
+            if name not in in_split and (name not in _dol_symbol_names() or name in discarded)}
+
+
 def section_size_mismatch(u: dict) -> list[str]:
     """Allocated sections whose byte size differs between the original split
     object and the compiled object. objdiff scores functions, not trailing
@@ -351,10 +360,7 @@ def section_size_mismatch(u: dict) -> list[str]:
         return []
     a, b = elf_alloc_sections(split), elf_alloc_sections(obj)
     if ".text" in b:  # functions mwld will dead-strip (see extra_compiled_symbols)
-        in_split = set(elf_function_sizes(split, local=True))
-        discarded = discarded_weak_functions(u)
-        stripped = {name: size for name, size in elf_function_sizes(obj, local=True).items()
-                    if name not in in_split and (name not in _dol_symbol_names() or name in discarded)}
+        stripped = stripped_functions(u, split, obj)
         b[".text"] -= sum(stripped.values())
         # mwld drops a stripped function's exception-table entries with it
         for section, size in stripped_exception_bytes(obj, set(stripped)).items():
@@ -653,9 +659,24 @@ def report_scores_exact(u: dict) -> bool:
     if any(f.get("fuzzy_match_percent", 0) != 100 for f in fns):
         return False
     for s in sections:
-        if s.get("fuzzy_match_percent", 0) != 100:
+        if s.get("fuzzy_match_percent", 0) != 100 and not _stripped_exception_entries(u, s.get("name")):
             return False
     return True
+
+
+def _stripped_exception_entries(u: dict, section: str) -> bool:
+    """True when `section` (extab/extabindex) holds entries of functions mwld
+    dead-strips: objdiff scores them as extra bytes, the linker drops them.
+    section_size_mismatch then requires the rest to have the original size."""
+    if section not in ("extab", "extabindex"):
+        return False
+    n = unit_name(u)
+    split = SPLIT_OBJ_DIR / (n[:-len(Path(n).suffix)] + ".o")
+    obj = _obj_path(u)
+    if not split.exists() or not obj.exists():
+        return False
+    stripped = stripped_functions(u, split, obj)
+    return stripped_exception_bytes(obj, set(stripped)).get(section, 0) > 0
 
 
 def unit_is_exact(u: dict) -> bool:
