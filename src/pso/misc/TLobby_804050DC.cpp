@@ -1457,8 +1457,8 @@ s32 TLobby::forward_net_op(s16 arg0, u8 *arg1, u8 *arg2) {
     return TLobby__sub_8040799C(arg0, arg1, arg2);
 }
 
-void TLobby::forward_net_op_5args(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5, s8 arg6, s32 arg7) {
-    TLobby__sub_80407F20(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+s16 TLobby::forward_net_op_5args(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5, s8 arg6, s32 arg7) {
+    return TLobby__sub_80407F20(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 struct Node_80407C60 { Node_80407C60 *next; s16 used; u8 addr[4]; };
