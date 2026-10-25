@@ -7,16 +7,14 @@ TBoss2Tentacle::~TBoss2Tentacle() {}
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss1Dragon.h"
+#include "pso/system/BmlResource.h"
 
 struct V3_80039DE0 { f32 x, y, z; };
 
 struct Obj_80039DE0 { u8 pad[0x30]; V3_80039DE0 pts[14]; s32 vals[14]; };
 
-struct G_80039C44 { u8 pad[4]; u32 count; };
-
 struct Obj_80039C44 { u8 pad[0x114]; f32 pos; f32 speed; };
-
-struct Node_8003933C { char pad0[8]; f32 x, y, z; char pad14[8]; s32 v; char pad20[0x18]; };
 
 struct Vec_8003933C { f32 x, y, z; };
 
@@ -71,7 +69,8 @@ u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
 void TBoss2Tentacle__sub_80039DB0(void* p);
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern s32 TBoss2Tentacle__segment_point_defaults[];
-extern G_80039C44 *TBoss2Tentacle__motion_data;
+void TBoss2Tentacle__sub_8003A0AC(void);
+extern DragonMotion *TBoss2Tentacle__motion_data;
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
@@ -81,7 +80,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void draw_chunk_object(void *child);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
-extern Node_8003933C lbl_804FE5D8[];
+extern DragonModelNode tentacle_model_nodes[];
 extern s32 *lbl_805D4BD0;
 extern s32 lbl_805D4BD8;
 extern const f32 lbl_805D8528;
@@ -108,8 +107,6 @@ extern const f32 lbl_805D852C;
 extern const float TBoss2Tentacle__data_805D8530;
 extern const float TBoss2Tentacle__data_805D8534;
 extern const f32 lbl_805D8538;
-extern const f32 lbl_805D853C;
-extern const f32 lbl_805D8540;
 void run_task__14TBoss2TentacleFv(u8 *arg0);
 s32 rand();
 extern s32 TBoss2Tentacle__name;
@@ -128,7 +125,7 @@ void TBoss2Tentacle__sub_80039E54(void* a0);
 void TBoss2Tentacle__sub_80039E68(void* p);
 void TBoss2Tentacle__sub_8003A0A8(void);
 
-struct G_80039C44;
+struct DragonMotion;
 void render__14TBoss2TentacleFv(u8 *arg0) {
     s32 temp_r0_2;
     s32 i;
@@ -166,12 +163,12 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         for (i = 0; i < 14; i++) {
-            lbl_804FE5D8[i].x = ((Ten_8003933C *)arg0)->pos[i].x;
-            lbl_804FE5D8[i].y = ((Ten_8003933C *)arg0)->pos[i].y;
-            lbl_804FE5D8[i].z = ((Ten_8003933C *)arg0)->pos[i].z;
-            lbl_804FE5D8[i].v = ((Ten_8003933C *)arg0)->vals[i];
+            tentacle_model_nodes[i].position.x = ((Ten_8003933C *)arg0)->pos[i].x;
+            tentacle_model_nodes[i].position.y = ((Ten_8003933C *)arg0)->pos[i].y;
+            tentacle_model_nodes[i].position.z = ((Ten_8003933C *)arg0)->pos[i].z;
+            tentacle_model_nodes[i].rotation.z = ((Ten_8003933C *)arg0)->vals[i];
         }
-        draw_chunk_object((lbl_804FE5D8));
+        draw_chunk_object((tentacle_model_nodes));
         break;
     }
     pop_matrix();
@@ -255,7 +252,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
             break;
         }
         case 1:
-            F(f32, 0x138) += lbl_805D853C;
+            F(f32, 0x138) += 8.0f;
             if (F(f32, 0x138) > len) {
                 void *inst;
                 F(f32, 0x138) = len;
@@ -267,10 +264,10 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
                 }
                 play_sound_effect(0x4003A507, &pos, 0, 0);
             }
-            if (F(f32, 0x138) >= lbl_805D8540 * len) {
+            if (F(f32, 0x138) >= 0.4f * len) {
                 F(f32, 0x13C) = (*(const f32 *)&TBoss2Tentacle__data_805D8530);
             } else {
-                F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
+                F(f32, 0x13C) = F(f32, 0x138) / (0.4f * len);
             }
             F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), boss2_tentacle_angle_limit_table[F(s32, 0x2C)], 0x100);
             TBoss2Tentacle__sub_80039994((Obj_80039994 *)(arg0), len);
@@ -291,10 +288,10 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
                 F(s32, 0x24) = 2;
                 TBoss2Tentacle__sub_80039DBC(arg0);
             }
-            if (F(f32, 0x138) >= lbl_805D8540 * len) {
+            if (F(f32, 0x138) >= 0.4f * len) {
                 F(f32, 0x13C) = (*(const f32 *)&TBoss2Tentacle__data_805D8530);
             } else {
-                F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
+                F(f32, 0x13C) = F(f32, 0x138) / (0.4f * len);
             }
             F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0, 0x100);
             TBoss2Tentacle__sub_80039994((Obj_80039994 *)(arg0), len);
@@ -380,7 +377,7 @@ void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len) {
 
 void TBoss2Tentacle::advance_motion_position() {
     Obj_80039C44 *self = (Obj_80039C44 *)this;
-    f32 n = (TBoss2Tentacle__motion_data->count - 1);
+    f32 n = (TBoss2Tentacle__motion_data->frameCount - 1);
     self->pos += self->speed;
     if (self->pos >= n) {
         self->pos -= n;
@@ -452,7 +449,7 @@ TBoss2Tentacle::TBoss2Tentacle(TObject *parent, s32 arg2, s32 arg3) : TObject(pa
         VecCopy((Vec *)&((Obj_80039F50 *)this)->pts[i], (const Vec *)&TBoss2Tentacle__segment_points[i]);
         ((Obj_80039F50 *)this)->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
     }
-    ((Obj_80039F50 *)this)->f114 = (TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());
+    ((Obj_80039F50 *)this)->f114 = (TBoss2Tentacle__motion_data->frameCount - 1) * (lbl_805D855C * (f32)rand());
     ((Obj_80039F50 *)this)->f118 = lbl_805D8560;
     ((Obj_80039F50 *)this)->f11C = 0;
     ((Obj_80039F50 *)this)->f120 = 0;
@@ -470,3 +467,35 @@ TBoss2Tentacle::TBoss2Tentacle(TObject *parent, s32 arg2, s32 arg3) : TObject(pa
 
 void TBoss2Tentacle__sub_8003A0A8(void) {  }
 
+extern BmlResource *lbl_805D4BA4;
+
+DragonModelNode tentacle_model_nodes[14];
+V3_80039DE0 TBoss2Tentacle__segment_points[14];
+s32 TBoss2Tentacle__segment_point_defaults[14];
+
+void TBoss2Tentacle__sub_8003A0AC(void) {
+    DragonModelNode *src;
+    DragonModelNode *dst;
+    s32 i;
+    dst = tentacle_model_nodes;
+    lbl_805D4BD0 = (s32 *)lbl_805D4BA4->models[4].model;
+    src = (DragonModelNode *)lbl_805D4BD0;
+    TBoss2Tentacle__motion_data = ((DragonMotionEntry *)lbl_805D4BA4->motions)[17].motion;
+    lbl_805D4BD8 = lbl_805D4BA4->models[2].m_c;
+    for (i = 0; i < 12; i++) {
+        copy_model_node((u8 *)dst, (u8 *)src);
+        dst->child = dst + 1;
+        dst++;
+        src = src->child;
+    }
+    copy_model_node((u8 *)dst, (u8 *)src);
+    dst->sibling = dst + 1;
+    copy_model_node((u8 *)&dst[1], (u8 *)src->sibling);
+    for (i = 0; i < 14; i++) {
+        tentacle_model_nodes[i].flags &= ~3;
+        TBoss2Tentacle__segment_points[i].x = (f64)tentacle_model_nodes[i].position.x;
+        TBoss2Tentacle__segment_points[i].y = tentacle_model_nodes[i].position.y;
+        TBoss2Tentacle__segment_points[i].z = tentacle_model_nodes[i].position.z;
+        TBoss2Tentacle__segment_point_defaults[i] = tentacle_model_nodes[i].rotation.z;
+    }
+}
