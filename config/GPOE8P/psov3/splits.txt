@@ -4245,6 +4245,7 @@ pso/misc/TWindowSubComCard_80131BC4.cpp:
 
 pso/misc/TKeyBoardControl_80131C58.cpp:
 	.text       start:0x80131C58 end:0x8013292C
+	.data       start:0x804A6EB8 end:0x804A6ED0
 
 pso/misc/TLobby_8013292C.cpp:
 	.text       start:0x8013292C end:0x801329B0

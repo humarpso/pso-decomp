@@ -349,6 +349,8 @@ force_active:
   - TJudgmentSequence__sub_80215BF8
   - TKeyBoardControl__sub_8000F764
   - TKeyBoardControl__sub_8000F9E4
+  - TKeyBoardControl__sub_80132598
+  - TKeyBoardControl__sub_801327DC
   - TKeyBoardControl__sub_80290D10
   - TKeyBoardControl__sub_803F0E8C
   - TKeyBoardControl__sub_803F107C
@@ -1664,6 +1666,7 @@ force_active:
   - __dt__16TChCrLoadGmNjReqFv
   - __dt__16TCheckMemoryCardFv
   - __dt__16TItemReverseTechFv
+  - __dt__16TKeyBoardControlFv
   - __dt__16TOTrapAncient02RFv
   - __dt__16TOWreckAncient02Fv
   - __dt__16TOWreckAncient03Fv
@@ -2041,6 +2044,7 @@ force_active:
   - __vt__16TChCrLoadGmNjReq
   - __vt__16TCheckMemoryCard
   - __vt__16TItemReverseTech
+  - __vt__16TKeyBoardControl
   - __vt__16TOTrapAncient02R
   - __vt__16TObjBagWarnWin4P
   - __vt__16TObjCityDoor_Med
@@ -2298,11 +2302,14 @@ force_active:
   - appearing_state__14TObjEneBm5WolfFPvi
   - append_block_space__24TMessageWindowControllerFv
   - append_byte__24TMessageWindowControllerFUc
+  - append_char__16TKeyBoardControlFSc
   - append_color_code__6TLobbyFl
   - append_file_number__24TMessageWindowControllerFv
   - append_float_value__6TLobbyFi
   - append_int_param__6TLobbyFi
   - append_inventory_item__23TAdSinglePlyChrSelectGCFl
+  - append_next_char__16TKeyBoardControlFv
+  - append_next_char_global__16TKeyBoardControlFv
   - append_quest_name__24TMessageWindowControllerFv
   - append_quest_title__24TMessageWindowControllerFv
   - append_string
@@ -3066,6 +3073,7 @@ force_active:
   - clear_four_slots__6TLobbyFv
   - clear_harmful_statuses__13TObjEneRe4BitFv
   - clear_item_if_player_picked_up__9TItemDropFPvPv
+  - clear_key_state__16TKeyBoardControlFv
   - clear_load_buffers__23TAdSinglePlyChrSelectGCFv
   - clear_network_info_cipher_pool__Fv
   - clear_photon_blast_slots__10TObjPlayerFv
@@ -10274,6 +10282,7 @@ force_active:
   - psycho_wand_ct__FPUcPUcl
   - publish_light_color__10TObjPlayerFPv
   - push_attack_target_entry__FPUcl
+  - push_key_to_buffer__16TKeyBoardControlFUc
   - push_list_node__14TObjEneBm5WolfFPPvPPv
   - push_list_node__16TObjEneBm5GibonUFPPvPPv
   - push_model_fade_color__10TObjPlayerFv
@@ -10538,6 +10547,7 @@ force_active:
   - render__16TBoss7LaserLightFv
   - render__16TBoss8DragonDemoFv
   - render__16TCheckMemoryCardFv
+  - render__16TKeyBoardControlFv
   - render__16TObjCityDoor_MedFv
   - render__16TObjEneBm5GibonUFv
   - render__16TObjEneMorfosArmFv
@@ -10729,6 +10739,8 @@ force_active:
   - reset_hp__20TContainerAncient01RFv
   - reset_id_array__10TObjPlayerFPv
   - reset_if_door_closed__15TObjLazerFence4Fv
+  - reset_inactive_keys__16TKeyBoardControlFv
+  - reset_keys__16TKeyBoardControlFv
   - reset_leader_selection__FPv
   - reset_leader_selection_static__6TLobbyFv
   - reset_oscillation__11TItemMagSubFv
@@ -10743,6 +10755,7 @@ force_active:
   - reset_state__13TObjWarnChimeFv
   - reset_state__15TBoss3VoloptP01FPv
   - reset_state__15TFontSmallLobbyFv
+  - reset_state__16TKeyBoardControlFi
   - reset_state__19TContainerAncient01Fv
   - reset_state__6TLobbyFv
   - reset_state_fields__9TObjEneDDFv
@@ -10959,6 +10972,7 @@ force_active:
   - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TCheckMemoryCardFv
   - run_task__16TItemReverseTechFv
+  - run_task__16TKeyBoardControlFv
   - run_task__16TObjBagWarnWin4PFv
   - run_task__16TObjCityDoor_MedFv
   - run_task__16TObjDFBeamCursorFv
@@ -11260,6 +11274,7 @@ force_active:
   - set_flag3c8_bit8__13TObjEneMe1GeeFv
   - set_flag4c_bit8__13TWindowSubLogFv
   - set_flag60_bit8__13TWindowSubMagFv
+  - set_flag62_bit8__16TKeyBoardControlFv
   - set_flag_10__17TWindowSubComCardFv
   - set_flag_270__6TLobbyFPv
   - set_flag__16TObjEneBm5GibonUFv
@@ -12018,6 +12033,7 @@ force_active:
   - tick_display_timer__15TWindowHelpItemFPv
   - tick_fade_counter__6TLobbyFv
   - tick_flee_countdown__11TBoss6Type1Fv
+  - tick_key_repeat_timer__16TKeyBoardControlFUc
   - tick_persistent_sound__15TObjIllGillKageFv
   - tick_state_410_timer__11TBoss6Type1Fv
   - tick_trap_countdown__11TBoss6Type1Fv
