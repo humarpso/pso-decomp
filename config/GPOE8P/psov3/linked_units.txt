@@ -1191,12 +1191,6 @@ pso/misc/TMovie_80143CC8.cpp
 pso/misc/TMovie_80143CE8.cpp
 pso/misc/TMovie_80143DF0.cpp
 pso/misc/TMovie_80143E90.cpp
-pso/misc/TMovie_80143ECC.cpp
-pso/misc/TMovie_80143EFC.cpp
-pso/misc/TMovie_80143F38.cpp
-pso/misc/TMovie_80143F6C.cpp
-pso/misc/TMovie_80143FB0.cpp
-pso/misc/TMovie_80144250.cpp
 pso/misc/TMovie_801443C0.cpp
 pso/misc/TMovie_80144484.cpp
 pso/misc/TMovie_801444C0.cpp

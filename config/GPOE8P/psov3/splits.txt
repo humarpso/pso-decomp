@@ -4527,29 +4527,8 @@ pso/misc/TMovie_80143DF0.cpp:
 	.text       start:0x80143DF0 end:0x80143E90
 
 pso/misc/TMovie_80143E90.cpp:
-	.text       start:0x80143E90 end:0x80143ECC
-
-pso/misc/TMovie_80143ECC.cpp:
-	.text       start:0x80143ECC end:0x80143EFC
-
-pso/misc/TMovie_80143EFC.cpp:
-	.text       start:0x80143EFC end:0x80143F38
-
-pso/misc/TMovie_80143F38.cpp:
-	.text       start:0x80143F38 end:0x80143F6C
-
-pso/misc/TMovie_80143F6C.cpp:
-	.text       start:0x80143F6C end:0x80143FB0
-
-pso/misc/TMovie_80143FB0.cpp:
-	.text       start:0x80143FB0 end:0x80144250
-
-pso/misc/TMovie_80144250.cpp:
-	.text       start:0x80144250 end:0x80144324
-
-pso/misc/TMovie_80144324.cpp:
-	.text       start:0x80144324 end:0x801443C0
-	.sdata2     start:0x805DB17C end:0x805DB180
+	.text       start:0x80143E90 end:0x801443C0
+	.sdata2     start:0x805DB178 end:0x805DB180
 
 pso/misc/TMovie_801443C0.cpp:
 	.text       start:0x801443C0 end:0x80144484

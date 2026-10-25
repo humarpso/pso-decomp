@@ -2852,6 +2852,7 @@ force_active:
   - check_death_trigger__13TObjEneMe1GeeFv
   - check_destruction_by_phase__6TLobbyFv
   - check_door_trigger__15TOAttackableColFv
+  - check_finished__6TMovieFv
   - check_flag_or_state__15TObjBoss2TunnelFi
   - check_floor_contact__18TObjEneMe3SinowZoaFPv
   - check_ground_or_fall__13TUnk_804B5BA8Fv
@@ -3077,6 +3078,7 @@ force_active:
   - copy__11TBreakUpMdlFPv
   - copy__12TChCrLoadReqFPv
   - copy__16TPlyGuildCardTagFPv
+  - copy__6TMovieFPv
   - copy_all_data__6TLobbyFii
   - copy_all_entries__6TLobbyFii
   - copy_bank_from_card_window__Fl
@@ -11452,6 +11454,7 @@ force_active:
   - step_ground_technique_projectile
   - step_line__23TObjOnlineEndingHexLineFv
   - step_placement_search__13TUnk_804C4498Fv
+  - stop_if_advanced__6TMovieFv
   - store_challenge_seeds__6TLobbyFl
   - store_encoded_value__11TItemObjectFl
   - store_position__11TBoss7JointFv
