@@ -1931,7 +1931,6 @@ pso/misc/TWindowSubTradeMain_80330A84.cpp
 pso/misc/TWindowSubTradeMain_80332148.cpp
 pso/misc/TWindowSubTradeMain_803322B8.cpp
 pso/misc/TWindowTimer.cpp
-pso/misc/TWindowTimer_80198814.cpp
 pso/misc/TWindowTradeRequest.cpp
 pso/misc/TWindowTradeRequest_802E0170.cpp
 pso/misc/TWindowUserSort.cpp
@@ -3180,8 +3179,6 @@ pso/unk/text_80197998.cpp
 pso/unk/text_80197E54.cpp
 pso/unk/text_80197F74.cpp
 pso/unk/text_80197FD0.cpp
-pso/unk/text_80198960.cpp
-pso/unk/text_80198A2C.cpp
 pso/unk/text_8019B0D4.cpp
 pso/unk/text_8019DBB4.cpp
 pso/unk/text_801A0520.cpp

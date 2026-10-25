@@ -1266,6 +1266,9 @@ force_active:
   - TWindowSubTechnique__sub_8028753C
   - TWindowSubTradeMessage__name
   - TWindowTimer__ct
+  - TWindowTimer__sub_8019886C
+  - TWindowTimer__sub_801988E8
+  - TWindowTimer__sub_80198CF8
   - TWindowTimer__sub_80199410
   - TWindowTimer__sub_8019A098
   - TWindowTimer__sub_8019A574
