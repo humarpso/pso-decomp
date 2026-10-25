@@ -354,6 +354,7 @@ pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/BringerEffects.cpp
 pso/enemy/CanadinEffects.cpp
 pso/enemy/EnemyFactoryTables.cpp
+pso/enemy/SaverLifecycle.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClaw.cpp
 pso/enemy/TObjEneBalClawBody.cpp
