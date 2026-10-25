@@ -12235,14 +12235,16 @@ pso/effect/TDPBShower.cpp:
 	.data       start:0x804F1FD8 end:0x804F1FF0
 
 pso/boss/TBoss6DPB.cpp:
-	.text       start:0x8035D8B0 end:0x8035DD68
+	.text       start:0x8035D8B0 end:0x8035DCC0
 	.rodata     start:0x80479C48 end:0x80479C50
 	.data       start:0x804F1FF0 end:0x804F2008
+	.sdata2     start:0x805E01C8 end:0x805E01D8
 
 pso/enemy/TObjEneEpsilonGuard_8035DD68.cpp:
-	.text       start:0x8035DD68 end:0x8035F5B8
+	.text       start:0x8035DCC0 end:0x8035F5B8
 	.rodata     start:0x80479C80 end:0x80479C88
 	.data       start:0x804F2008 end:0x804F2230
+	.sdata2     start:0x805E01D8 end:0x805E0204
 
 pso/enemy/TObjEneEpsilon.cpp:
 	.text       start:0x8035F5B8 end:0x8035F5C8

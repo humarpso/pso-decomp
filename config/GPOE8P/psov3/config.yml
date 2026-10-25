@@ -798,6 +798,7 @@ force_active:
   - TObjEneEpsilonGuard__resource_descriptor
   - TObjEneEpsilonGuard__sub_8035E578
   - TObjEneEpsilonGuard__sub_8035E8C0
+  - TObjEneEpsilonGuard__vt21
   - TObjEneEpsilonGuard__vt85
   - TObjEneIllGill__camera_vec_table
   - TObjEneIllGill__ct
@@ -10005,9 +10006,11 @@ force_active:
   - receive_direct_attack__20TContainerAncient01RFPvPvPvll
   - receive_physical_attack__15TObjEneMe1GiGueFPvf
   - receive_physical_attack__16TOTrapAncient02RFPvf
+  - receive_physical_attack__19TObjEneEpsilonGuardFPvf
   - receive_physical_attack__20TContainerAncient01RFPvf
   - receive_physical_attack__9TBoss6MagFPvf
   - receive_weapon_special_attack__15TObjEneMe1GiGueFPvPv
+  - receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPv
   - recobox_motion_name_table
   - recoil_weapon_shoot_model_vtable
   - recoiling_projectile_weapon_vtable
