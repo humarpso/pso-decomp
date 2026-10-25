@@ -708,7 +708,7 @@ def scan(write: bool) -> int:
         if not source.startswith(("src/pso/", "src/musyx/", "libs/", "build/GPOE8P/orig_asm/")):
             continue
         n = unit_name(u)
-        exact[n] = unit_is_exact(u)
+        exact[n] = unit_is_exact(u) or (n in linked and _proven_by_dol(u))
     add = sorted(n for n, ok in exact.items() if ok and n not in linked and n not in skip)
     blocked = {}
     for u in units:
@@ -912,9 +912,20 @@ def force_active(write: bool) -> int:
     return 0
 
 
+def _proven_by_dol(u: dict) -> bool:
+    """A linked SDK/runtime unit (libs/) whose object the checks above reject
+    only for what mwld resolves at link time: the SDK headers' inline-math
+    local statics, statics the compiler renames, literals it pools apart.
+    The DOL hash, which every build checks, is the proof for these."""
+    source = (u.get("metadata") or {}).get("source_path") or ""
+    return source.startswith("libs/") and report_scores_exact(u)
+
+
 def check() -> int:
     units = load_report()
-    exact = {unit_name(u): unit_is_exact(u) for u in units}
+    linked = set(_read_list(LINKED))
+    exact = {unit_name(u): unit_is_exact(u) or (unit_name(u) in linked and _proven_by_dol(u))
+             for u in units}
     bad = [n for n in _read_list(LINKED) if not exact.get(n, False)]
     if bad:
         print(f"link_units check: {len(bad)} linked unit(s) no longer exact:")
