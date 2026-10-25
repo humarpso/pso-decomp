@@ -464,7 +464,6 @@ force_active:
   - TLobby__sub_803C4698
   - TLobby__sub_803CBE40
   - TLobby__sub_803CE2A0
-  - TLobby__sub_803D0F1C
   - TLobby__sub_803D346C
   - TLobby__sub_803DDD20
   - TLobby__sub_803DDD2C
@@ -5642,6 +5641,14 @@ force_active:
   - lookup_key_value__6TLobbyFc
   - lookup_table_value__6TLobbyFSc
   - lookup_technique__19TWindowSubTechniqueFll
+  - lsc_enqueue_file
+  - lsc_get_min_buffer_bytes
+  - lsc_get_queued_stream_id
+  - lsc_get_stream_filename
+  - lsc_get_stream_progress
+  - lsc_get_stream_status
+  - lsc_set_repeat
+  - lsc_slot_table
   - macHandleActive
   - macMakeActive
   - maccmp

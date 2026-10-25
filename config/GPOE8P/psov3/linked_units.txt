@@ -1135,7 +1135,6 @@ pso/misc/TLobby_803CE478.cpp
 pso/misc/TLobby_803CFE68.cpp
 pso/misc/TLobby_803D0C28.cpp
 pso/misc/TLobby_803D0EB8.cpp
-pso/misc/TLobby_803D0F58.cpp
 pso/misc/TLobby_803D3194.cpp
 pso/misc/TLobby_803D3988.cpp
 pso/misc/TLobby_803D3B84.cpp
@@ -2595,6 +2594,7 @@ pso/system/ChunkTextureStripCollector.cpp
 pso/system/CityTraffic.cpp
 pso/system/GinjaModelQueue.cpp
 pso/system/ItemEffects.cpp
+pso/system/LscStream.cpp
 pso/system/MaterialAlphaCompare.cpp
 pso/system/Mfci.cpp
 pso/system/MiddlewareInterruptLock.cpp
@@ -3588,7 +3588,6 @@ pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
 pso/unk/text_803CE240.cpp
 pso/unk/text_803D0C34.cpp
-pso/unk/text_803D0F1C.cpp
 pso/unk/text_803D2F1C.cpp
 pso/unk/text_803D31A4.cpp
 pso/unk/text_803D39F8.cpp

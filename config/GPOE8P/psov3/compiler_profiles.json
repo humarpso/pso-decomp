@@ -1141,5 +1141,11 @@
     "optimization": "-O4,s",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/system/LscServer.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
   }
 }

@@ -13413,15 +13413,15 @@ pso/unk/text_803D0C34.cpp:
 pso/misc/TLobby_803D0EB8.cpp:
 	.text       start:0x803D0EB8 end:0x803D0F1C
 
-pso/unk/text_803D0F1C.cpp:
-	.text       start:0x803D0F1C end:0x803D0F58
-
-pso/misc/TLobby_803D0F58.cpp:
-	.text       start:0x803D0F58 end:0x803D0F90
-
 pso/system/LscStream.cpp:
-	.text       start:0x803D0F90 end:0x803D1FD4
+	.text       start:0x803D0F1C end:0x803D1D28
+	.rodata     start:0x8047DCF0 end:0x8047DE10
 	.bss        start:0x80583058 end:0x805873D8
+
+pso/system/LscServer.cpp:
+	.text       start:0x803D1D28 end:0x803D1FD4
+	.rodata     start:0x8047DE40 end:0x8047DEA0
+	.bss        start:0x805873D8 end:0x80587400
 
 pso/system/MiddlewareInterruptLock.cpp:
 	.text       start:0x803D1FD4 end:0x803D204C
