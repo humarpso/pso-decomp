@@ -6,11 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 
 
-struct RecoveredGlobal_800D4668_lbl_8058D490 {
-    s32 value;
-    u8 remaining[0x2C];
-};
-
 struct RecoveredGlobal_800D4BD0_lbl_80494468 {
     s32 value;
     u8 remaining[0x28];
@@ -19,11 +14,6 @@ struct RecoveredGlobal_800D4BD0_lbl_80494468 {
 struct RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile {
     s32 value;
     u8 remaining[0x38];
-};
-
-struct RecoveredGlobal_800D4BD0_lbl_8058D490 {
-    s32 value;
-    u8 remaining[0x2C];
 };
 
 typedef struct Parm_800D47B4 {
@@ -40,23 +30,6 @@ struct Obj_800D47B4 : Base_800D47B4 {
     virtual void v21(void *, Parm_800D47B4, s32, s32, s32);
 };
 
-typedef struct Col_800D47B4 {
-    u8 pad0[0xC];
-    f32 fC;
-    u8 pad10[0x18 - 0x10];
-    u32 flags;
-} Col_800D47B4;
-
-typedef struct Missile_800D47B4 {
-    u8 pad0[0x38];
-    f32 pos[3];
-    u8 pad44[0xA4 - 0x44];
-    Col_800D47B4 *col;
-    u8 padA8[0xD8 - 0xA8];
-    u16 ownerIdx;
-} Missile_800D47B4;
-
-struct Missile_800D47B4;
 struct Vec_800D4990 { f32 x, y, z; };
 
 struct Target_800D4990 {
@@ -64,7 +37,7 @@ struct Target_800D4990 {
     Vec_800D4990 pos;
 };
 
-struct Col_800D4990 { u8 pad[0x18]; u32 flags; };
+struct Col_800D4990 { u8 pad[0xC]; f32 radius; u8 pad10[0x18 - 0x10]; u32 flags; };
 
 struct Gyr_800D4990 {
     u8 pad0[0x38];
@@ -82,6 +55,8 @@ struct Gyr_800D4990 {
     s32 timer;
     s32 xCC;
     s32 xD0;
+    u8 padD4[0xD8 - 0xD4];
+    u16 owner;
 };
 
 extern "C" {
@@ -91,7 +66,7 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern RecoveredGlobal_800D4668_lbl_8058D490 identity_matrix;
+extern f32 identity_matrix[12];
 extern s32 gyaranzo_bml_resource;
 extern s32 tl_04;
 s32 rand();
@@ -138,12 +113,12 @@ s32 set_global_param__8TObjFishFl();
 extern s32 model_render_flags;
 
 void TObjGyaranzoMissile::sub_800D47B4() {
-    Missile_800D47B4 *arg0 = (Missile_800D47B4 *)this;
+    Gyr_800D4990 *arg0 = (Gyr_800D4990 *)this;
     void *owner;
     s32 i;
     Obj_800D47B4 *q;
-    owner = find_entity_by_id(arg0->ownerIdx);
-    arg0->col->fC = 6.0f;
+    owner = find_entity_by_id(arg0->owner);
+    arg0->col->radius = 6.0f;
     init_all_slots__10TObjPlayerFv(owner);
     ((TObjPlayer *)arg0)->check_object_collisions();
     check_enemy_body_collisions(arg0);
@@ -160,8 +135,8 @@ void TObjGyaranzoMissile::sub_800D47B4() {
             }
         }
     }
-    spawn_particle_effect(arg0->pos, 0xFB);
-    play_sound_effect((void *)remap_area_sound_id(0x4003A80C, 0x19), arg0->pos, 0, 0);
+    spawn_particle_effect(&arg0->pos, 0xFB);
+    play_sound_effect((void *)remap_area_sound_id(0x4003A80C, 0x19), &arg0->pos, 0, 0);
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -241,7 +216,6 @@ void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_800D4BD0_lbl_80494468_size[sizeof(RecoveredGlobal_800D4BD0_lbl_80494468) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile_size[sizeof(RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile) == 0x3C ? 1 : -1];
-typedef char RecoveredGlobal_800D4BD0_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4BD0_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__ct(u8 *gyaranzo_missile, u8 *arg1, u8 *arg2, s16 arg3) {
     u8 *temp_r4;
     construct_collider_proxy__13TUnk_804AF8A0Fv(gyaranzo_missile, tl_04);
@@ -261,7 +235,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *gyaranzo_missile, u8 *arg1, u8 *arg2, s16 arg3) 
     *(f32 *)((s8 *)gyaranzo_missile + 0xAC) = (f32) 0.0f;
     *(f32 *)((s8 *)gyaranzo_missile + 0xB0) = (f32) 0.0f;
     ((TObjGyaranzoMissile *)gyaranzo_missile)->m_b4 = (f32) TObjGyaranzoMissile__speed_scale;
-    push_matrix_from((void *) (&(*(RecoveredGlobal_800D4BD0_lbl_8058D490 *)&identity_matrix).value));
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, (int) (((TObjGyaranzoMissile *)gyaranzo_missile)->rotation_y));
     rotate_matrix_x(0, (int) (*(s32 *)((s8 *)gyaranzo_missile + 0x5C)));
     temp_r4 = (gyaranzo_missile + 0xAC);

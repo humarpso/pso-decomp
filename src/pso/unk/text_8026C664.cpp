@@ -140,15 +140,21 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
 
 // ---- pso/unk/text_8026C9C8
 #include "types.h"
-struct Obj_8026C9C8 { u8 pad[8]; f32 f8; };
+struct Ctl_8026C9DC {
+    s8 cur;
+    s8 count;
+    u8 pad2[2];
+    s32 port;
+    f32 speed;
+};
 
 extern "C" {
 
-void decay_page_arrow_offset(Obj_8026C9C8 *o);
+void decay_page_arrow_offset(Ctl_8026C9DC *o);
 #pragma push
 #pragma fp_contract on
-void decay_page_arrow_offset(Obj_8026C9C8 *o) {
-    o->f8 -= 0.15f * o->f8;
+void decay_page_arrow_offset(Ctl_8026C9DC *o) {
+    o->speed -= 0.15f * o->speed;
 }
 #pragma pop
 
@@ -162,14 +168,6 @@ struct Pad_8026C9DC {
     u8 buttons[0x30];
 };
 
-struct Ctl_8026C9DC {
-    s8 cur;
-    s8 count;
-    u8 pad2[2];
-    s32 port;
-    f32 speed;
-};
-
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, u32);
 void play_sound_effect(s32, s32, s32, s32);
@@ -179,7 +177,7 @@ s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0);
 s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0) {
     void *pad;
     s8 cur;
-    decay_page_arrow_offset((Obj_8026C9C8 *)arg0);
+    decay_page_arrow_offset(arg0);
     cur = arg0->cur;
     pad = controller_input_state[is_player_input_active(arg0->port)].buttons;
     if (TWindowShortListCtrl__check_controller_button(pad, 0x30000) == 0) {

@@ -297,7 +297,7 @@ void TPhotonGolla::collect_hit_targets(void *arg0) {
         }
     }
     if (self->f1a8 != NULL) {
-        ((void (*)(u32, int, int, f32)) queue_photon_blast_hit)(obj_getField1c(self->f1a8), 2, 0, self->f150);
+        queue_photon_blast_hit(obj_getField1c(self->f1a8), 2, 0, self->f150);
     }
     self->f19c = self->f1a8;
 }

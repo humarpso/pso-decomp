@@ -395,8 +395,6 @@ void TUnk_804B8DE8::render() {
 struct Obj_8019978C;
 struct Pair_80198F14;
 struct RecoveredGlobal_80198DCC_lbl_8050E208;
-struct Sys_80198A2C;
-struct Vec_80198E84;
 struct Vec_80199674;
 struct Vec_8019978C;
 extern "C" {

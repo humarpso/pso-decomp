@@ -50,7 +50,7 @@ s32 TOHealGeneral::update_active_state() {
 
     switch (*(s32 *)&this->unk_C8) {
     case 1:
-        if (((s32 (*)(f32))is_any_player_within_radius_xz)(4.9e+03f) != 0) {
+        if (is_any_player_within_radius_xz((u8 *)this, 4.9e+03f) != 0) {
             *(s32 *)&this->m_cc = 1;
         } else {
             *(s32 *)&this->m_cc = 0;

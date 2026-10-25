@@ -44,7 +44,6 @@ extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 identity_matrix;
 extern u32 camera_ctrl_instance;
 
-Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o);
 typedef char RecoveredGlobal_8001CAD4_lbl_804349FC_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804349FC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001CAD4_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804FF5E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_8001CAD4_lbl_8058D490_size[sizeof(RecoveredGlobal_8001CAD4_lbl_8058D490) == 0x30 ? 1 : -1];
@@ -220,7 +219,6 @@ void TLoadingCur::render() { { (void)(sub_8001CCD4()); return; } }
 #pragma opt_propagation off
 void TLoadingCur::run_task() {
     Self_8001CD90 *self = (Self_8001CD90 *)this;
-    u8 sp8[0xC];
     f32 x;
     f32 y;
     u32 flags;
@@ -267,8 +265,7 @@ void TLoadingCur::run_task() {
     self->f38 *= 0.9f;
     this->m_3c *= 0.9f;
     self->f40 *= 0.9f;
-    ((void (*)(void *, void *))calc_loading_cursor_pos)(sp8, this);
-    VecCopy((Vec *)self->f44, (const Vec *)sp8);
+    VecCopy((Vec *)self->f44, (const Vec *)&calc_loading_cursor_pos((Obj_8001CBC4 *)this));
     update_camera_facing_offset();
     if (0.0f != x || 0.0f != y) {
         if (is_split_screen() != 0) {

@@ -9,7 +9,7 @@ public:
     virtual void run_task();
     virtual void render();
 public:
-    static void destroy_and_flag();
+    void destroy_and_flag();
     static void render();
 };
 

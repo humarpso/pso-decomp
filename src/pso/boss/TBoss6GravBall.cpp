@@ -9,10 +9,6 @@
 
 struct P_80323348 { u8 pad[0x30]; u32 flags; };
 
-struct Vec_803236F8 { f32 x, y, z; };
-
-struct Obj_803236F8 { u8 pad[0xC8]; Vec_803236F8 pos; };
-
 struct Vec_803237A0 { f32 x, y, z; };
 
 struct Obj_803237A0 { u8 pad[0xC8]; Vec_803237A0 pos; };
@@ -34,7 +30,7 @@ void normalize_vector(void *);
 extern u8 lbl_80476684[];
 
 
-void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0);
+void TBoss6GravBall__sub_803236F8(TBoss6GravBall *arg0);
 s32 project_actor_to_ground(void *, void *, int);
 
 
@@ -167,18 +163,18 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
 }
 #pragma pop
 
-void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
-    Vec_803236F8 v = arg0->pos;
+void TBoss6GravBall__sub_803236F8(TBoss6GravBall *arg0) {
+    Vec v = arg0->ball_position;
     v.y = 0.0f;
     if (vector_length(&v) > 0.6666667f) {
         normalize_vector(&v);
         v.x *= 0.6666667f;
         v.z *= 0.6666667f;
-        subtract_vector(&arg0->pos, &v);
+        subtract_vector(&arg0->ball_position, &v);
     } else {
-        VecCopy((Vec *)&arg0->pos, (const Vec *)lbl_80476684);
+        VecCopy(&arg0->ball_position, (const Vec *)lbl_80476684);
     }
-    ((TBoss6GravBall *)arg0)->clamp_to_ground();
+    arg0->clamp_to_ground();
 }
 
 s32 TBoss6GravBall::clamp_to_ground() {
@@ -254,65 +250,65 @@ void clear_player_grav_flags__14TBoss6GravBallFv(void *);
 void __dl__7TObjectFPv(void *);
 void init_parts__14TBoss6GravBallFv(void *);
 
-void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
+void update_charge_effects__14TBoss6GravBallFPv(u8 *self) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;
 
-    ((s32 (*)())TBoss6GravBall__sub_803233AC)();
-    play_persistent_sound(0x4003C418, arg0, arg0 + 0xC8, 0, 0);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
+    TBoss6GravBall__sub_803233AC(self);
+    play_persistent_sound(0x4003C418, self, self + 0xC8, 0, 0);
+    temp_r0 = *(s32 *)((s8 *)self + 0xB8);
     if (temp_r0 >= 0x96) {
         if (temp_r0 == 0x96) {
-            create_emitter__14TBoss6GravBallFl(arg0, 3);
+            create_emitter__14TBoss6GravBallFl(self, 3);
         }
     } else if (temp_r0 > 0x4B) {
         temp_r0_2 = temp_r0 & 0xF;
         if (temp_r0_2 == 0) {
-            create_emitter__14TBoss6GravBallFl(arg0, 3);
+            create_emitter__14TBoss6GravBallFl(self, 3);
         } else if (temp_r0_2 == 0xE) {
-            destroy_part__14TBoss6GravBallFl(arg0, 3);
+            destroy_part__14TBoss6GravBallFl(self, 3);
         }
     } else {
         temp_r0_3 = temp_r0 & 0xF;
         if (temp_r0_3 == 0) {
-            create_emitter__14TBoss6GravBallFl(arg0, 3);
+            create_emitter__14TBoss6GravBallFl(self, 3);
         } else if (temp_r0_3 == 0xA) {
-            destroy_part__14TBoss6GravBallFl(arg0, 3);
+            destroy_part__14TBoss6GravBallFl(self, 3);
         }
     }
-    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) (*(s32 *)((s8 *)arg0 + 0xB8) + 1);
-    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) (*(s32 *)((s8 *)arg0 + 0xB4) + 1);
-    switch (get_state__14TBoss6GravBallFv((int) (*(s32 *)((s8 *)arg0 + 0xAC)))) {
+    *(s32 *)((s8 *)self + 0xB8) = (s32) (*(s32 *)((s8 *)self + 0xB8) + 1);
+    *(s32 *)((s8 *)self + 0xB4) = (s32) (*(s32 *)((s8 *)self + 0xB4) + 1);
+    switch (get_state__14TBoss6GravBallFv((int) (*(s32 *)((s8 *)self + 0xAC)))) {
     case 29:
     case 30:
     case 39:
         return;
     case 31:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xC4) == 0) {
-            spawn_particle_effect((arg0 + 0xC8), 0x21C);
-            spawn_particle_effect((arg0 + 0xC8), 0x21D);
-            *(s32 *)((s8 *)arg0 + 0xC4) = 1;
+        if ((s32) *(s32 *)((s8 *)self + 0xC4) == 0) {
+            spawn_particle_effect((self + 0xC8), 0x21C);
+            spawn_particle_effect((self + 0xC8), 0x21D);
+            *(s32 *)((s8 *)self + 0xC4) = 1;
         }
-        destroy_part__14TBoss6GravBallFl(arg0, 5);
-        destroy_part__14TBoss6GravBallFl(arg0, 6);
-        destroy_part__14TBoss6GravBallFl(arg0, 7);
-        destroy_part__14TBoss6GravBallFl(arg0, 8);
+        destroy_part__14TBoss6GravBallFl(self, 5);
+        destroy_part__14TBoss6GravBallFl(self, 6);
+        destroy_part__14TBoss6GravBallFl(self, 7);
+        destroy_part__14TBoss6GravBallFl(self, 8);
         return;
     case 32:
-        destroy_part__14TBoss6GravBallFl(arg0, 4);
-        destroy_part__14TBoss6GravBallFl(arg0, 3);
-        destroy_part__14TBoss6GravBallFl(arg0, 5);
-        destroy_part__14TBoss6GravBallFl(arg0, 6);
-        destroy_part__14TBoss6GravBallFl(arg0, 7);
-        destroy_part__14TBoss6GravBallFl(arg0, 8);
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-        clear_player_grav_flags__14TBoss6GravBallFv(arg0);
-        *(s32 *)((s8 *)arg0 + 0xB0) = 2;
-        play_sound_effect(0x4003C417, arg0 + 0xC8, 0, 0);
+        destroy_part__14TBoss6GravBallFl(self, 4);
+        destroy_part__14TBoss6GravBallFl(self, 3);
+        destroy_part__14TBoss6GravBallFl(self, 5);
+        destroy_part__14TBoss6GravBallFl(self, 6);
+        destroy_part__14TBoss6GravBallFl(self, 7);
+        destroy_part__14TBoss6GravBallFl(self, 8);
+        *(s32 *)((s8 *)self + 0xB4) = 0;
+        clear_player_grav_flags__14TBoss6GravBallFv(self);
+        *(s32 *)((s8 *)self + 0xB0) = 2;
+        play_sound_effect(0x4003C417, self + 0xC8, 0, 0);
         return;
     default:
-        queue_destruction__7TObjectFv((arg0));
+        queue_destruction__7TObjectFv((self));
         return;
     }
 }
@@ -323,7 +319,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r3_2;
     temp_r3 = clamp_to_ground__14TBoss6GravBallFv();
     if (temp_r3 != 0) {
-        TBoss6GravBall__sub_803236F8((Obj_803236F8 *)arg0);
+        TBoss6GravBall__sub_803236F8((TBoss6GravBall *)arg0);
     }
     fn_80323134(arg0);
     if (temp_r3 != 0) {

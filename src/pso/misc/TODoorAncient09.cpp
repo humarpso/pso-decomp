@@ -10,6 +10,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/system/BmlResourceDescriptor.h"
 
 struct RecoveredGlobal_8016BF68_lbl_80441B4C {
     s32 value;
@@ -19,16 +20,6 @@ struct RecoveredGlobal_8016BF68_lbl_80441B4C {
 struct RecoveredGlobal_8016C010_lbl_80441B4C {
     s32 value;
     u8 remaining[0x8C];
-};
-
-struct RecoveredGlobal_8016BC84_lbl_80441ACC {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
-    s32 value;
-    u8 remaining[0xC];
 };
 
 struct Node_80160BA8 {
@@ -53,11 +44,11 @@ struct Door_80160BA8 {
 
 extern "C" {
 u8 is_current_floor_switch_set(int);
-u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
-extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440CEC;
-extern RecoveredGlobal_8016BC84_lbl_804B2B30 ancient_door09_resource_descriptor;
+extern const char lbl_80440CEC[];
+extern BmlResourceDescriptor ancient_door09_resource_descriptor;
 extern u32 door_ancient09_bml_resource;
 extern void *TODoorAncient09__texture_lists;
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -361,8 +352,6 @@ void TODoorAncient09::free_rocks() {
 
 extern s32 __vt__15TODoorAncient09[];
 
-typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
 void TODoorAncient09::load_resources() {
     s32 *temp_r3_2;
     u8 *temp_r3;
@@ -370,13 +359,13 @@ void TODoorAncient09::load_resources() {
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &ancient_door09_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &ancient_door09_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&door_ancient09_bml_resource) = var_r0;
     temp_r3_2 = (s32 *)(mem_alloc(8));
     (*(s32 * *)&TODoorAncient09__texture_lists) = temp_r3_2;
     *temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_ancient09_bml_resource) + 0x42C)) + 0xC);
-    *(s32 *)((s8 *)(*(s32 * *)&TODoorAncient09__texture_lists) + 4) = (s32)load_gvm_texture_file((s32)(&lbl_80440CEC.value));
+    *(s32 *)((s8 *)(*(s32 * *)&TODoorAncient09__texture_lists) + 4) = (s32)load_gvm_texture_file((s32)lbl_80440CEC);
 }
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];
@@ -412,11 +401,6 @@ struct RecoveredGlobal_801611CC_lbl_804B1248 {
     u8 remaining[0x28];
 };
 
-struct RecoveredGlobal_801611CC___vt__15TODoorAncient09 {
-    s32 value;
-    u8 remaining[0x50];
-};
-
 extern "C" {
 
 s32 init_collision_body_parts(void *, void *, int);
@@ -425,11 +409,10 @@ extern RecoveredGlobal_801611CC_lbl_804B1248 TODoorAncient09__collision_body_tem
 extern s32 lbl_805D2F58;
 
 typedef char RecoveredGlobal_801611CC_lbl_804B1248_size[sizeof(RecoveredGlobal_801611CC_lbl_804B1248) == 0x2C ? 1 : -1];
-typedef char RecoveredGlobal_801611CC___vt__15TODoorAncient09_size[sizeof(RecoveredGlobal_801611CC___vt__15TODoorAncient09) == 0x54 ? 1 : -1];
 u8 *TODoorAncient09__ct(TODoorAncient09 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     init_door_base((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801611CC___vt__15TODoorAncient09 *)&__vt__15TODoorAncient09).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient09;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F58;
     ((TODoorAncient09 *)(arg0))->apply_object_set_data((void *)arg2);
     arg0->texture_id = (s32) *(*(s32 **)&TODoorAncient09__texture_lists);

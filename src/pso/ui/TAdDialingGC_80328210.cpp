@@ -304,7 +304,7 @@ s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
 
 
 void TAdDialingGC::update_dialing_display(int _w0) {
-    ((s32 (*)())TAdDialingGC__sub_8013ADBC)();
+    TAdDialingGC__sub_8013ADBC(_w0);
     render_status_disp__23TAdSinglePlyChrSelectGCFff(23.0f, 331.0f);
 }
 void TAdDialingGC::update_status_message() {

@@ -36,7 +36,7 @@ public:
     void init_timer();
     void init_result_state();
     void init();
-    int queue_destruction();
+    void queue_destruction();
     void update_wait_input();
     void handle_result_code();
     void update_input();

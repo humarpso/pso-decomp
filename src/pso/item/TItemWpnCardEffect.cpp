@@ -209,7 +209,16 @@ void TUnk_804EDD20::init_offset_vectors() { (*(int *)&(*(u32 *)((u8 *)this + 0x7
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
 void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);
 void __ct__13TUnk_804EDD44FP7TObjectPfPfll(void *);
-struct Obj_8032E400; struct Ref_8032E400; struct Vec_8032E400;
+struct Vec_8032E400 { f32 x, y, z; };
+
+struct Rec_8032E400 { u8 pad[0x1C]; Vec_8032E400 pos; u8 pad2[4]; };
+
+struct Owner_8032E400 { u8 pad[0xA4]; Rec_8032E400 *recs; };
+
+struct Ref_8032E400 { Owner_8032E400 *owner; s32 idx; };
+
+struct Obj_8032E400 { u8 pad[0x18]; void *vt; u8 pad1[0xC]; u8 col[0xC]; s16 f34; u8 pad2[2]; Vec_8032E400 pos; u8 pad3[0xC]; s32 f50; u8 pad4[4]; s32 f58; u8 pad5[4]; s32 f60; Vec_8032E400 rpos; };
+
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5);
 
 
@@ -469,15 +478,6 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
 #include "pso/system/vector.h"
 #include "pso/item/TUnk_804EDD44.h"
 #include "pso/item/TItemAttackCol.h"
-struct Vec_8032E400 { f32 x, y, z; };
-
-struct Rec_8032E400 { u8 pad[0x1C]; Vec_8032E400 pos; u8 pad2[4]; };
-
-struct Owner_8032E400 { u8 pad[0xA4]; Rec_8032E400 *recs; };
-
-struct Ref_8032E400 { Owner_8032E400 *owner; s32 idx; };
-
-struct Obj_8032E400 { u8 pad[0x18]; void *vt; u8 pad1[0xC]; u8 col[0xC]; s16 f34; u8 pad2[2]; Vec_8032E400 pos; u8 pad3[0xC]; s32 f50; u8 pad4[4]; s32 f58; u8 pad5[4]; s32 f60; Vec_8032E400 rpos; };
 
 extern "C" {
 s16 obj_getField1c(void *);

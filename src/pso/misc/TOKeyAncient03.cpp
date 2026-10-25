@@ -11,17 +11,8 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/system/BmlResourceDescriptor.h"
 
-
-struct RecoveredGlobal_8016BC84_lbl_80441ACC {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
-    s32 value;
-    u8 remaining[0xC];
-};
 
 struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { s32 value; u8 remaining[0x6C]; };
 
@@ -45,11 +36,11 @@ s32 is_split_screen();
 
 
 s32 play_sound_effect(s32, s32, s32, s32);
-u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
-extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
-extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fs_obj_o_doorpanel_resource_descriptor;
+extern const char lbl_80441ACC[];
+extern BmlResourceDescriptor bm_fs_obj_o_doorpanel_resource_descriptor;
 extern u32 TOKeyAncient03__model_archive;
 extern void *TOKeyAncient03__texture_variants;
 s32 get_main_phase(void);
@@ -193,8 +184,6 @@ void TOKeyAncient03::cleanup_refs() {
     }
 }
 
-typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
 void TOKeyAncient03::load_resources() {
     s32 *temp_r3_2;
     u8 *temp_r3;
@@ -202,13 +191,13 @@ void TOKeyAncient03::load_resources() {
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_fs_obj_o_doorpanel_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_fs_obj_o_doorpanel_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyAncient03__model_archive) = var_r0;
     temp_r3_2 = (s32 *)(mem_alloc(8));
     (*(s32 * *)&TOKeyAncient03__texture_variants) = temp_r3_2;
     *temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 0xC);
-    *(s32 *)((s8 *)(*(s32 * *)&TOKeyAncient03__texture_variants) + 4) = (s32)load_gvm_texture_file((s32)&lbl_80441ACC.value);
+    *(s32 *)((s8 *)(*(s32 * *)&TOKeyAncient03__texture_variants) + 4) = (s32)load_gvm_texture_file((s32)lbl_80441ACC);
 }
 
 }

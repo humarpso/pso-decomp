@@ -6,8 +6,6 @@
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowMessage.h"
 
-struct Msg_80269A0C;
-
 struct RecoveredFields_802698C4_arg0 {
     u8 unknown_0[0x6C];
     f32 field_6C;
@@ -73,7 +71,7 @@ void TWindowMessage::scroll_up_line(u8 *arg1) {
     this->m_84 -= d;
     this->m_6c -= d;
     *(f32 *)(((u8 *)this) + 0x80) -= d;
-    for (; i < *(s32 *)&this->m_8c; i++) {
+    for (; i < this->line_count; i++) {
         e = get_array_entry__13TUnk_804CE018Fi(this, i);
         *(f32 *)(e + 0xC) -= d;
     }
@@ -187,7 +185,7 @@ void TWindowMessage::update_scroll() {
 #pragma push
 #pragma fp_contract on
 s32 get_shared_text_buffer(void);
-s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3);
+s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 arg3);
 
 
 #pragma readonly_strings on
@@ -203,7 +201,7 @@ s32 TWindowOptionCtrl::add_label_value_line(const char *arg1, const char *arg2, 
     text_builder_append((u8 *)sep);
     text_builder_append((u8 *)arg2);
     e = get_array_entry__13TUnk_804CE018Fi(this, *(s32 *)(((u8 *)this) + 0x88));
-    r = append_message_window_line((Msg_80269A0C *)this, get_shared_text_buffer(), arg3 | 2, -1);
+    r = append_message_window_line((TWindowMessage *)this, get_shared_text_buffer(), arg3 | 2, -1);
     if (r != 0) {
         x = (0.5f) * (*(f32 *)(((u8 *)this) + 0x38) - 8.0f);
         x -= (f32)calc_text_width((char *)arg1);
@@ -233,29 +231,6 @@ struct Entry_80269A0C {
     s32 f24;
 };
 
-struct Rec_80269A0C {
-    s32 flags;
-    s32 f4;
-};
-
-struct Msg_80269A0C {
-    u8 pad0[0x2C];
-    s32 f2C;
-    u8 pad30[0x48 - 0x30];
-    f32 f48;
-    f32 f4C;
-    u8 pad50[0x6C - 0x50];
-    f32 f6C;
-    u8 pad70[4];
-    s32 f74;
-    s32 f78;
-    Rec_80269A0C *recs;
-    f32 f80;
-    f32 f84;
-    s32 idx;
-    s32 count;
-};
-
 extern "C" {
 void measure_message_text_width(void *, f32);
 
@@ -263,37 +238,37 @@ void measure_message_text_width(void *, f32);
 
 
 
-s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3);
-s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3) {
+s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 arg3);
+s32 append_message_window_line(TWindowMessage *self, s32 text, s32 flags, s32 arg3) {
     Entry_80269A0C *e;
-    Rec_80269A0C *rec;
+    TWindowMessageLine *rec;
     f32 y;
     f32 lim;
     if (text == 0) {
         return 0;
     }
-    e = (Entry_80269A0C *)get_array_entry__13TUnk_804CE018Fi(self, self->idx);
-    rec = &self->recs[self->idx];
+    e = (Entry_80269A0C *)get_array_entry__13TUnk_804CE018Fi(self, self->next_line);
+    rec = &self->lines[self->next_line];
     if (((TWindowSubComCard *)e)->get_field_20() != 0U) {
-        ((TWindowMessage *)self)->scroll_up_line((u8 *)e);
+        self->scroll_up_line((u8 *)e);
     }
     if (flags & 0x80) {
-        self->f80 = self->f6C;
+        self->unk_80 = self->m_6c;
     }
     if (flags & 0x10) {
-        lim = (self->f6C + self->f4C) - 2e+01f;
-        if (self->f80 < lim) {
-            self->f80 = lim;
+        lim = (self->m_6c + self->m_4c) - 2e+01f;
+        if (self->unk_80 < lim) {
+            self->unk_80 = lim;
         }
     }
     if (flags & 8) {
-        if (self->f74 == self->idx) {
+        if (self->m_74 == self->next_line) {
             flags &= ~8;
         } else {
             e->flags |= 8;
         }
     }
-    e->fC = self->f80;
+    e->fC = self->unk_80;
     e->f24 = arg3;
     if (flags & 2) {
         set_text_entry_string((u8 *)e, text, 0x20);
@@ -312,8 +287,8 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
     if (flags & 0x400) {
         e->flags |= 0x200;
     }
-    y = self->f48 - 8.0f;
-    if (self->f2C & 0x80) {
+    y = self->m_48 - 8.0f;
+    if (self->m_2c & 0x80) {
         y -= 5.0f;
     }
     measure_message_text_width(e, y);
@@ -323,17 +298,17 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
         e->f8 = 0.0f;
     }
     rec->flags = flags;
-    rec->f4 = self->f78;
-    if (++self->idx >= self->count) {
-        self->idx = 0;
+    rec->timer = self->m_78;
+    if (++self->next_line >= self->line_count) {
+        self->next_line = 0;
     }
-    self->f80 += 2.0f + e->f14;
+    self->unk_80 += 2.0f + e->f14;
     if (flags & 1) {
-        self->f84 = (self->f80 - e->f14) - 2.0f;
-    } else if (self->f80 > (self->f6C + self->f4C) - 2e+01f) {
-        lim = self->f80 - (self->f4C - 2e+01f);
-        if (self->f84 < lim) {
-            self->f84 = lim;
+        self->m_84 = (self->unk_80 - e->f14) - 2.0f;
+    } else if (self->unk_80 > (self->m_6c + self->m_4c) - 2e+01f) {
+        lim = self->unk_80 - (self->m_4c - 2e+01f);
+        if (self->m_84 < lim) {
+            self->m_84 = lim;
         }
     }
     return 1;
@@ -368,11 +343,11 @@ struct G_80269DA4 { s32 a; s32 b; };
 extern "C" {
 s32 TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1);
 extern G_80269DA4 lbl_804D06F8[];
-u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
+u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s16 arg3);
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 
-int TLobby::send_and_handle(int a1, int a2) { return append_message_window_line((Msg_80269A0C *)this, a1, a2, -1); }
+int TLobby::send_and_handle(int a1, int a2) { return append_message_window_line((TWindowMessage *)this, a1, a2, -1); }
 
 typedef char RecoveredGlobal_80269CA4_lbl_804D071C_size[sizeof(RecoveredGlobal_80269CA4_lbl_804D071C) == 0x14 ? 1 : -1];
 
@@ -397,7 +372,7 @@ u8 *TLobby::create_message_window(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((u8 *(*)(void *, s32, u32, s16))TWindowMessage__ct)(temp_r3, arg0, arg2, arg3));
+        var_r0 = (u8 *)(TWindowMessage__ct(temp_r3, arg0, arg2, arg3));
     }
     return var_r0;
 }
@@ -435,11 +410,11 @@ extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, int);
 void *mem_alloc(u32 size);
-void *construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
+void *construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s32, s32);
 extern s32 __vt__14TWindowMessage[];
 extern s32 lbl_805D3980;
 
-u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
+u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s16 arg3);
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void mem_free(void *);
@@ -477,7 +452,7 @@ void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3) {
+u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s16 arg3) {
     u32 i;
     u8 *p;
     construct_with_parent__13TUnk_804CDFE8FPv(arg0, (u8 *)&message_window_settings, arg3, arg1);

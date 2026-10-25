@@ -5,6 +5,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TBoss5GryphonDemo.h"
 #include "pso/TBoss5GryphonColli.h"
+#include "pso/boss/TBoss5GryphonColli_C.h"
 extern "C" {
 s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
 
@@ -12,7 +13,7 @@ int TBoss5GryphonDemo::get_state() { return ((int (*)(void*))TBoss5GryphonDemo__
 void TBoss5GryphonDemo::draw_linked_model(void* position, s32 yaw) { ((TBoss5GryphonDemo *)(((TBoss5GryphonColli*)this)->objects[0]))->draw_model(position, yaw); }
 
 
-struct Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(struct Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len);
+TBoss5GryphonColli_C *TBoss5GryphonDemo__sub_800663DC(TBoss5GryphonColli_C *self, s32 arg1, s32 arg2, void *arg3, f32 len);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 }
 
@@ -60,7 +61,7 @@ u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)TBoss5GryphonDemo__sub_800663DC((struct Obj_800663DC *)temp_r3, (s32)object, 1, &stack.sp8, 35.0f);
+        var_r0 = (s32)TBoss5GryphonDemo__sub_800663DC((TBoss5GryphonColli_C *)temp_r3, (s32)object, 1, &stack.sp8, 35.0f);
     }
     *(s32 *)((s8 *)object + 0x1C) = var_r0;
     return object;
@@ -79,22 +80,17 @@ u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1) {
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
-struct E_80066304 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
-
-struct O_80066304 { u8 pad[0xa4]; E_80066304 *entries; s32 count; };
-
 struct E_8006633C { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct O_8006633C { u8 pad[0xa4]; E_8006633C *entries; s32 count; };
 
-struct O_80066304;
 struct Seg_800663DC {
     f32 f0;
     f32 f4;
     f32 f8;
     f32 fc;
     u8 pad10[8];
-    s32 f18;
+    s32 flags;
     u8 pad1c[0x10];
 };
 
@@ -136,10 +132,10 @@ void TBoss5GryphonDemo__sub_8006626C(void* p) { ((TBoss5GryphonColli_C *)p)->cle
 void TBoss5GryphonDemo::draw_model(void* a1, s32 a2) { push_matrix(this); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)this + 0xac, (char*)this + 0x38); pop_matrix(); *(s32*)((char*)this + 0x60) = a2; refresh_collision_body_centers__13TUnk_804AF8A0Fv(this); set_all_entry_flags(); }
 
 void TBoss5GryphonColli_C::clear_entry_flags() {
-    O_80066304 *self = (O_80066304 *)this;
+    Obj_800663DC *self = (Obj_800663DC *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
-        self->entries[i].flags &= ~1;
+        self->segs[i].flags &= ~1;
     }
 }
 
@@ -164,38 +160,39 @@ void *TBoss5GryphonColli_C::destroy(s16 arg1) {
     return this;
 }
 
-Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len) {
+TBoss5GryphonColli_C *TBoss5GryphonDemo__sub_800663DC(TBoss5GryphonColli_C *self, s32 arg1, s32 arg2, void *arg3, f32 len) {
+    Obj_800663DC *obj = (Obj_800663DC *)self;
     f32 zero;
     f32 step;
     f32 z;
     Seg_800663DC *s;
     s32 i;
-    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
-    arg0->vt = lbl_804886AC;
-    arg0->f0 = lbl_805D2808;
-    arg0->f1c = TLobby::alloc_actor_ids(0);
-    VecCopy((Vec *)arg0->posbuf, (const Vec *)arg3);
-    arg0->count = arg2;
-    arg0->segs = (Seg_800663DC *)mem_alloc(arg0->count * 0x2C);
+    self->construct_collider_proxy();
+    obj->vt = lbl_804886AC;
+    obj->f0 = lbl_805D2808;
+    obj->f1c = TLobby::alloc_actor_ids(0);
+    VecCopy((Vec *)obj->posbuf, (const Vec *)arg3);
+    obj->count = arg2;
+    obj->segs = (Seg_800663DC *)mem_alloc(obj->count * 0x2C);
     step = 2.0f * len;
-    s = arg0->segs;
+    s = obj->segs;
     zero = 0.0f;
     i = 0;
-    z = len * (arg0->count - 1);
-    for (; i < arg0->count; i++) {
+    z = len * (obj->count - 1);
+    for (; i < obj->count; i++) {
         fn_8002B630((u8 *)s, (u8 *)gryphon_demo_collision_body_desc);
         s->f0 = zero;
         s->f4 = zero;
         s->f8 = z;
         z -= step;
         s->fc = len;
-        s->f18 = 0x10003;
+        s->flags = 0x10003;
         s++;
     }
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
-    register_entity_by_id(arg0);
-    ((TBoss5GryphonColli_C *)arg0)->clear_entry_flags();
-    return arg0;
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(obj);
+    register_entity_by_id(obj);
+    self->clear_entry_flags();
+    return self;
 }
 
 }

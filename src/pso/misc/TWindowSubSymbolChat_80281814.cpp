@@ -164,7 +164,7 @@ void TWindowSubSymbolChat::update_state() {
         *(s8 *)((s8 *)this + 0x1C) = 0x18;
         return;
     case 26:
-        ((s32 (*)(s32))select_symbol_chat_slot)(*(s32 *)((s8 *)this + 0x4C));
+        select_symbol_chat_slot((TWindowSubSymbolChatParts *)*(s32 *)((s8 *)this + 0x4C));
         ((TWindowSubSymbolChatPartsSet *)(*(s32 *)((s8 *)this + 0x30)))->update_visibility();
         if (TWindowSubSymbolChat::compute_total_height() <= 0) {
             *(s8 *)((s8 *)this + 0x1C) = 4;

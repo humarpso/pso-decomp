@@ -48,7 +48,7 @@ s32 draw_ginja_object(int);
 void render__15TObjLiveMonitorFv(TObjLiveMonitor *live_monitor) {
     s32 table_entry;
     table_entry = TObjLiveCameraCtrl::get_table_entry(0);
-    if ((table_entry != 0) && (((s32 (*)(void))TObjLiveMonitor__sub_8030C050)() != 0)) {
+    if ((table_entry != 0) && (TObjLiveMonitor__sub_8030C050((void *)table_entry) != 0)) {
         ((TObjLiveMonitor *)table_entry)->update_camera();
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();

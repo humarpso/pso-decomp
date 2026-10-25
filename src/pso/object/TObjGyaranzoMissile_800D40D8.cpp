@@ -262,32 +262,6 @@ struct RecoveredGlobal_800D4668_lbl_8049442C {
     u8 remaining[0x38];
 };
 
-struct RecoveredGlobal_800D4668_lbl_8058D490 {
-    s32 value;
-    u8 remaining[0x2C];
-};
-
-
-
-
-typedef struct Col_800D47B4 {
-    u8 pad0[0xC];
-    f32 fC;
-    u8 pad10[0x18 - 0x10];
-    u32 flags;
-} Col_800D47B4;
-
-typedef struct Missile_800D47B4 {
-    u8 pad0[0x38];
-    f32 pos[3];
-    u8 pad44[0xA4 - 0x44];
-    Col_800D47B4 *col;
-    u8 padA8[0xD8 - 0xA8];
-    u16 ownerIdx;
-} Missile_800D47B4;
-
-struct Missile_800D47B4;
-
 
 extern "C" {
 u16 obj_getField1c(void *);
@@ -344,7 +318,6 @@ extern s32 model_render_flags;
 
 typedef char RecoveredGlobal_800D4668_lbl_80494400_size[sizeof(RecoveredGlobal_800D4668_lbl_80494400) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_800D4668_lbl_8049442C) == 0x3C ? 1 : -1];
-typedef char RecoveredGlobal_800D4668_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4668_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);

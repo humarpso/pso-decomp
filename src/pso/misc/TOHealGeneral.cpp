@@ -128,16 +128,6 @@ struct Actor_80169334 : VBase_80169334 {
     virtual void m48();
 };
 
-typedef struct Ring_80169334 {
-    u8 pad0[0x38];
-    u8 pos[0xAC - 0x38];
-    s32 fAC;
-    u8 padB0[0xCC - 0xB0];
-    u32 fCC;
-    u8 padD0[0xF4 - 0xD0];
-    u16 fF4;
-} Ring_80169334;
-
 extern "C" {
 int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *obj);
@@ -152,16 +142,16 @@ void *spawn_particle_effect_with_flags(void *, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D586C;
 
-void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self);
+void find_heal_target__13TOHealGeneralFPv(TOHealGeneral *self);
 #pragma push
 #pragma opt_common_subs off
-void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
+void find_heal_target__13TOHealGeneralFPv(TOHealGeneral *self) {
     Actor_80169334 *actor;
     s32 i;
     s32 id;
     f32 r;
-    self->fCC += 0x147;
-    self->fF4 = 0xFFFF;
+    self->m_cc += 0x147;
+    self->m_f4 = 0xFFFF;
     for (i = 0; i < lbl_805D586C; i++) {
         actor = (Actor_80169334 *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(actor);
@@ -172,18 +162,18 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
             continue;
         }
         r = 1e+01f - get_collision_body_radius(actor, 0);
-        if (!(horizontal_distance_squared((s32)((u8 *)actor + 0x38), self->pos) < r * r)) {
+        if (!(horizontal_distance_squared((s32)((u8 *)actor + 0x38), self->position) < r * r)) {
             continue;
         }
-        self->fF4 = id;
+        self->m_f4 = id;
         if (obj_getS16_32C((u8 *)actor) < ((TItemProShield *)actor)->get_field_2b8() ||
             obj_getS16_32E((u8 *)actor) < obj_getS16_2BA((u8 *)actor) ||
             get_recovery_need_flags__10TObjPlayerFv(actor) != 0 ||
             (((TObjPlayer *)actor)->is_alive_and_ready() != 0 && ((TObjPlayer *)actor)->are_traps_full() == 0)) {
             void *e;
-            self->fAC = 1;
-            if (TOHangerMachine01::is_valid_slot((int)self, self->fF4) != 0) {
-                send_6x2C_impose_hold(actor, self->pos, 0x3C, 0, r);
+            self->m_ac = 1;
+            if (TOHangerMachine01::is_valid_slot((int)self, self->m_f4) != 0) {
+                send_6x2C_impose_hold(actor, self->position, 0x3C, 0, r);
                 actor->m48();
             }
             if (((TObjPlayer *)actor)->is_alive_and_ready() != 0) {
@@ -191,13 +181,13 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
             }
             e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F6, 0x10);
             if (e != 0) {
-                ((TParticleCtrl *)e)->set_owner_id(self->fF4);
+                ((TParticleCtrl *)e)->set_owner_id(self->m_f4);
             }
             e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F7, 0x10);
             if (e != 0) {
-                ((TParticleCtrl *)e)->set_owner_id(self->fF4);
+                ((TParticleCtrl *)e)->set_owner_id(self->m_f4);
             }
-            play_sound_effect(0x4002AB0E, self->pos, 0, 0);
+            play_sound_effect(0x4002AB0E, self->position, 0, 0);
             break;
         }
     }
@@ -309,12 +299,12 @@ void *__nw__7TObjectFUl(int);
 void TOHealGeneral::run_task() {
 
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((s32 (*)(void *))TOHangerMachine01__sub_80169168)(this);
+        TOHangerMachine01__sub_80169168(this);
         return;
     }
     switch (this->m_ac) {
     case 0:
-        find_heal_target__13TOHealGeneralFPv((Ring_80169334 *)this);
+        find_heal_target__13TOHealGeneralFPv(this);
         return;
     case 1:
         update_opening();

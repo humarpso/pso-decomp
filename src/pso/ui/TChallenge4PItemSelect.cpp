@@ -230,7 +230,7 @@ void TChallenge4PResult::update_wait_input() {
 }
 
 extern "C" {
-int TChallenge4PResult::queue_destruction() { return ((int (*)(void *))queue_destruction__7TObjectFv)(this); }
+void TChallenge4PResult::queue_destruction() { queue_destruction__7TObjectFv(this); }
 }
 
 extern "C" {
@@ -312,7 +312,7 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window == NULL) {
         stack.sp8 = *(s32 *)((s8 *)lbl_80478BCC + 0);
         stack.spC = *(s32 *)((s8 *)lbl_80478BCC + 4);
-        message_window = (TWindowMessagePage *)TWindowMessagePage::create(((s32 (*)(int, int, void *))get_window_layout_position)(0x40, (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), lbl_80478BCC), (s32)&stack.sp8, 1, slot_index);
+        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position(0x40), (s32)&stack.sp8, 1, slot_index);
     }
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);

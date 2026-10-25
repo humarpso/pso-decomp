@@ -197,7 +197,7 @@ u8 *TObjGoalWarpAncient__ct(TObjGoalWarpAncient *goal_warp_ancient, s32 arg1, s3
 void *TObjMapWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x11C);
     if (o != NULL) {
-        o = ((void *(*)(void *, void *, void *))TObjMapWarpAncient__ct)(o, tl_05, arg0);
+        o = TObjMapWarpAncient__ct((TObjMapWarpAncient *)o, tl_05, arg0);
     }
     return o;
 }
@@ -284,7 +284,7 @@ void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1) {
 extern s32 TObjMapWarpAncient__class_name;
 
 
-u8 *TObjMapWarpAncient__ct(TObjMapWarpAncient *map_warp_ancient) {
+u8 *TObjMapWarpAncient__ct(TObjMapWarpAncient *map_warp_ancient, void *parent, void *set) {
     TObjMapWarp__ct();
     *(s32 **)((s8 *)map_warp_ancient + 0x18) = __vt__18TObjMapWarpAncient;
     *(s32 *)((s8 *)map_warp_ancient + 0) = (s32) TObjMapWarpAncient__class_name;

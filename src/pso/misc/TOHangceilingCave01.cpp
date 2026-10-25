@@ -917,8 +917,8 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     construct_actor_base__10TObjPlayerFPvPv(this);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     this->apply_object_set_data((void *)arg2);
-    *(s32 *)&this->model = ((s32 (*)(void *, void *))get_bml_model)((void *)TOHangceilingCave01__model_archive, (void *)turiten_singo_key_model_index);
-    this->unknownF8 = ((s32 (*)(void *, void *))get_bml_motion)((void *)TOHangceilingCave01__model_archive, (void *)hanging_ceiling_motion_index);
+    *(s32 *)&this->model = get_bml_model((void *)TOHangceilingCave01__model_archive, turiten_singo_key_model_index);
+    this->unknownF8 = (u32)get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
     init_collision_body_parts(this, &lbl_804B2174.value, 1);
     this->refresh_collision_body_centers();
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();

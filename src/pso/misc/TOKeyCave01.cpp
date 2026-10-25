@@ -22,16 +22,6 @@ struct RecoveredGlobal_8016C010_lbl_80441B4C {
     u8 remaining[0x8C];
 };
 
-struct RecoveredGlobal_8016BC84_lbl_80441ACC {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
-    s32 value;
-    u8 remaining[0xC];
-};
-
 
 struct Pkt_8016BF08 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
 
@@ -65,8 +55,6 @@ void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
 
 extern void *tl_05;
-typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
 }
 
 void TOKeyCave01::vfunc_25() {  }

@@ -102,7 +102,7 @@ void TPlyPhotonChair::copy_vec4_reverse(s32 _w0) {
 }
 
 void TPlyPhotonChair::save_state(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }
-void restore_actor_draw_lighting(void) {  }
+void restore_actor_draw_lighting(s32) {  }
 }
 void setup_actor_draw_lighting(void) {  }
 
@@ -528,7 +528,7 @@ void TObjMotion::draw() {
         TObjEneRe7Berura::set_global_state(0);
     }
     TObjPlayer::reset_transform_state();
-    ((s32 (*)(s32))restore_actor_draw_lighting)(*(s32 *)&this->m_name);
+    restore_actor_draw_lighting(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
 
@@ -543,7 +543,7 @@ void TObjEneMe3Stelth::draw_model() {
         set_model_node_callback(0);
     }
     TObjPlayer::reset_transform_state();
-    ((s32 (*)(s32))restore_actor_draw_lighting)(*(s32 *)&this->m_name);
+    restore_actor_draw_lighting(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
 

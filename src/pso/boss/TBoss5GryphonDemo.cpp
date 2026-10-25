@@ -9,14 +9,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
-struct E_80066304 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
-
-struct O_80066304 { u8 pad[0xa4]; E_80066304 *entries; s32 count; };
-
-
-struct O_80066304;
-
-
 struct Obj_800665FC { s32 f0; u8 pad4[0x14]; void *f18; f32 f1c; f32 f20; s32 f24; };
 
 struct Cam_800665FC { s8 f8; s8 f9; s16 fa; f32 fc; f32 f10; };

@@ -3,13 +3,11 @@
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_8049EFB8.h"
 
-struct Player_80108164;
-
 extern "C" {
 u16 obj_getField1c(void *);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 TObjPlayer__sub_80117E50();
-Player_80108164 *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s32 is_item_area_enabled();
 
 }
@@ -190,7 +188,6 @@ struct Self_80108020 {
 extern "C" {
 void play_sound_effect(u32, void *, s32, s32);
 f32 xyz_distance(Vec_80108164 *, Vec_80108164 *);
-Player_80108164 *get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFv(Player_80108164 *);
 
@@ -218,7 +215,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b);
 #pragma defer_codegen on
 
 void TObjPlayer::spawn_appearance_effect(s32 idx) {
-    Player_80108164 *p = get_player_by_client_id(idx);
+    Player_80108164 *p = (Player_80108164 *)get_player_by_client_id((u16)idx);
     if (p != 0) {
         Quest_80108164 *q = get_quest_id__12TQuestListVMFv(p);
         if (q != 0) {

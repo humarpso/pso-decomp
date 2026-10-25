@@ -153,7 +153,7 @@ void TPhotonLeilla::run_task() {
     if (1.3e+02f == (f32) *(s32 *)&this->m_1ac) {
         temp_r3_3 = (u8 *)(find_entity_by_id(this->m_17c));
         if (temp_r3_3 != NULL) {
-            ((s32 (*)(int, int, int, f32))queue_photon_blast_hit)((int) (obj_getField1c(temp_r3_3)), 4, 0, this->m_150);
+            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_3)), 4, 0, this->m_150);
         }
     }
     if ((f32) *(s32 *)&this->m_1ac > 109.0f) {

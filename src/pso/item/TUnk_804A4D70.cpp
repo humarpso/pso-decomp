@@ -62,7 +62,7 @@ void *__dt__13TUnk_804A4D70Fv(void *arg0, s16 arg1) {
 
 // ---- 0x8012B258 (was pso/unk/text_8012B258)
 void TUnk_804A4D70::emit_marker_effects() {
-    switch (((u8 (*)(TItemWeapon *))get_slot_count__5TItemFv)(this)) {
+    switch (((TItem *)this)->get_slot_count()) {
     case 6:
         if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20((u8 *)player) >= 10000) {
             try_spend_actor_meseta((u8 *)player, 10000);

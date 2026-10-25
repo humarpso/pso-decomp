@@ -58,7 +58,7 @@ extern Tbl_80177608 switch_attack_sub_init_table;
 extern s32 __vt__17TOSwitchAttackSub[];
 extern s32 lbl_805D317C;
 
-u8 *TOSwitchAttackSub__ct(u8 *object, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 farg0) {
+u8 *TOSwitchAttackSub__ct(u8 *object, u8 *arg1, s32 arg2, s32 arg3, u32 arg4, f32 farg0) {
     Parm_80177608 p;
     Tbl_80177608 a;
     Tbl_80177608 b;
@@ -103,7 +103,7 @@ void TOSwitchAttack::create_sub(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg
     void *object;
     object = (void *)__nw__7TObjectFUl(0x30);
     if (object != (void *)0U) {
-        ((s32 (*)(void *, s32, s32, s32, s32, f32))TOSwitchAttackSub__ct)(object, arg0, arg1, arg2, arg3, farg0);
+        TOSwitchAttackSub__ct((u8 *)object, (u8 *)arg0, arg1, arg2, (u32)arg3, farg0);
     }
 }
 

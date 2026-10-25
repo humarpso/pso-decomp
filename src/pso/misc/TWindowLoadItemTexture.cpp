@@ -70,8 +70,7 @@ void *TWindowLoadItemTexture::create(void *arg1) {
     if (o != NULL) {
         o = TWindowLoadItemTexture__ct((TWindowLoadItemTexture *)o, (void *)this, (void *)lbl_8044F280, (void *)arg1);
     }
-    get_array_entry__13TUnk_804CE018Fi(o, 0);
-    ((void (*)(f32, f32, f32, f32))set_sprite_uv_bounds)(0.0f, 0.0f, 0.625f, 0.46875f);
+    set_sprite_uv_bounds((void *)((TWindowLoadItemTexture *)o)->get_array_entry(0), 0.0f, 0.0f, 0.625f, 0.46875f);
     return o;
 }
 

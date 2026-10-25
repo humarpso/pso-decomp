@@ -44,9 +44,7 @@ struct Self_801ADDDC {
     s32 started;
 };
 
-typedef struct Vec_801ADD10 { f32 x, y, z; } Vec_801ADD10;
-
-typedef struct Packet_801ADD10 { Vec_801ADD10 pos; u32 w[9]; } Packet_801ADD10;
+typedef struct Packet_801ADD10 { Vec pos; u32 w[9]; } Packet_801ADD10;
 
 extern "C" {
 s32 scroll_strip_uvs(void *, s16, int);
@@ -92,7 +90,7 @@ void TPhotonPilla::apply_photon_blast_effects() {
         var_r31 = 0;
         do {
             if (TObjPlayer::get_battle_param(var_r31) != 0U) {
-                ((s32 (*)(u16, s32, s32, f32))queue_photon_blast_hit)((u16) obj_getField1c(), 2, 0, *(f32 *)((s8 *)this + 0x150));
+                queue_photon_blast_hit((u16) obj_getField1c(), 2, 0, *(f32 *)((s8 *)this + 0x150));
             }
             var_r31 += 1;
         } while (var_r31 < 0x10);
@@ -111,12 +109,12 @@ void TPhotonPilla::apply_photon_blast_effects() {
 
 
 void TPhotonPilla::spawn_laser() {
-    Vec_801ADD10 position;
+    Vec position;
     u8 *laser;
     position.x = *(f32 *)((s8 *)((u8 *)this) + 0x38);
     position.y = 3e+02f;
     position.z = *(f32 *)((s8 *)((u8 *)this) + 0x40);
-    vec3_add_to(&position, &((Vec_801ADD10 *)photon_pilla_laser_offset_table)[*(s32 *)((s8 *)((u8 *)this) + 0x194)]);
+    vec3_add_to(&position, &((Vec *)photon_pilla_laser_offset_table)[*(s32 *)((s8 *)((u8 *)this) + 0x194)]);
     (*(s32 *)((s8 *)((u8 *)this) + 0x194))++;
     Packet_801ADD10 packet = photon_pilla_laser_packet;
     packet.pos.x = position.x;

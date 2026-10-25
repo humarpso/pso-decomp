@@ -143,7 +143,7 @@ extern s32 TObjCamera__camera_slot_scan_index;
 s32 get_bml_motion(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
-void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
+void copy_position__15TEffStarLight2DFPv(void *, void *);
 void rotate_matrix_y(int, s32);
 void push_matrix();
 void pop_matrix();
@@ -207,7 +207,7 @@ void TObjCamera::render() {
         if (self->count != 0) {
             for (i = 0; i < 8; i++) {
                 if (self->lights[i] != NULL) {
-                    copy_position__15TEffStarLight2DFPv(self->lights[i], (Vec_8017F80C *)&camera_slot_positions[i]);
+                    copy_position__15TEffStarLight2DFPv(self->lights[i], &camera_slot_positions[i]);
                 }
             }
         }

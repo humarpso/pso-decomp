@@ -97,7 +97,7 @@ static const f32 lbl_805DAC0C[1] = {480.0f};
 #pragma defer_codegen on
 
 void TItemReverseTechPart2::destroy_and_flag() {
-    ((s32 (*)())queue_destruction__7TObjectFv)();
+    queue_destruction__7TObjectFv(this);
     if ((void *) TItemReverseTechPart1__instance != NULL) {
         *(s32 *)((s8 *)TItemReverseTechPart1__instance + 0x1C) = 1;
     }
@@ -254,10 +254,10 @@ block_26:
 void TItemReverseTechPart2::render() {  }
 
 extern "C" {
-void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3) {
+void *__ct__18TItemReverseTechBGFv(void *arg0, void *parent, void *arg3) {
     s32 temp_r3;
 
-    ((s32 (*)())__ct__7TObjectFP7TObject)();
+    __ct__7TObjectFP7TObject(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = __vt__18TItemReverseTechBG;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C54;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg3 + 0);

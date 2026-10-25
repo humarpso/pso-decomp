@@ -117,7 +117,7 @@ void * TObjEnvSoundEx__create(void *rader_map_core) {
     }
     o = __nw__7TObjectFUl(0xA8);
     if (o != NULL) {
-        o = ((void *(*)(void *, void *, void *))TObjEnvSoundEx__ct)(o, tl_05, rader_map_core);
+        o = TObjEnvSoundEx__ct((u8 *)o, (s32)tl_05, (s32)rader_map_core);
     }
     return o;
 }
@@ -260,7 +260,22 @@ s32 fn_801908F8(s32 arg0, f32 farg0) {
 #include "types.h"
 #include "pso/unk/text_80190940.h"
 
-struct Obj_80190AA0;
+struct Row_80190AA0 { u32 cue; s32 mode; };
+
+struct Obj_80190AA0 {
+    s32 unk0;
+    u8 pad4[0x18 - 0x4];
+    void *vtbl;
+    u8 pad1C[0x70 - 0x1C];
+    f32 authoredRadius;
+    u8 pad74[0x84 - 0x74];
+    s32 index;
+    s32 authoredAttenuation;
+    s32 unk8C;
+    f32 radius;
+    s32 attenuation;
+    Row_80190AA0 sound;
+};
 
 extern "C" {
 
@@ -292,23 +307,6 @@ void * TObjEnvSound__create(void *rader_map_core) {
 
 struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
 
-struct Row_80190AA0 { u32 cue; s32 mode; };
-
-struct Obj_80190AA0 {
-    s32 unk0;
-    u8 pad4[0x18 - 0x4];
-    void *vtbl;
-    u8 pad1C[0x70 - 0x1C];
-    f32 authoredRadius;
-    u8 pad74[0x84 - 0x74];
-    s32 index;
-    s32 authoredAttenuation;
-    s32 unk8C;
-    f32 radius;
-    s32 attenuation;
-    Row_80190AA0 sound;
-};
-
 extern "C" {
 
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
@@ -338,7 +336,7 @@ void TObjEnvSound::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     temp_f0 = *(f32 *)&this->unk_90;
-    if ((((s32 (*)(f32))fn_801908F8)((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled(arg0, this->m_98) != 0)) {
+    if ((fn_801908F8((s32)this, (f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled(arg0, this->m_98) != 0)) {
         switch (this->m_9c) {
         case 0:
             break;

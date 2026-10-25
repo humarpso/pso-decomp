@@ -66,7 +66,7 @@ void TObjEZBoneRotPlayer::run_task() {
 }
 typedef char RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer_size[sizeof(RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer) == 0x18 ? 1 : -1];
 u8 *__ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void * _w3) {
-    ((u8 *(*)(void *, s32, void *))TObjEZBoneRotBase__ct)(arg0, arg1, arg2);
+    TObjEZBoneRotBase__ct((TObjEZBoneRotBase *)arg0, (TObject *)arg1, arg2, (EZBoneRotDesc *)_w3);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__19TObjEZBoneRotPlayer.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEZBoneRotPlayer__name;
     *(s32 *)((s8 *)arg0 + 0x98) = arg1;

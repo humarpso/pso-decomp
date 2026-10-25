@@ -146,7 +146,6 @@ struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
 };
 
 int VecCopy__FP3VecPC3Vec(void*);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
 
 s16 TObjPlayer::get_field_2c8() { return this->m_2c8; }
 s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }
@@ -189,7 +188,7 @@ void TObjEneDimedian::vfunc_96() {
 void TObjEneDimedian::vfunc_95() {
     s32 arg0 = (s32)this;
     s32 temp_r3;
-    if (((f32 (*)())calc_boss4_scale__10TObjPlayerFi)() < 0.5f) {
+    if (TObjPlayer::calc_boss4_scale((s32)this) < 0.5f) {
         temp_r3 = copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B23B);
         play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
     } else {
@@ -893,7 +892,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     initialize_enemy_photon_effect(arg0);
-    *(s32 *)((s8 *)arg0 + 0x2AC) = (s32)(182.04445f * (3.6e+02f * calc_boss4_scale__10TObjPlayerFi(arg0)));
+    *(s32 *)((s8 *)arg0 + 0x2AC) = (s32)(182.04445f * (3.6e+02f * TObjPlayer::calc_boss4_scale((s32)arg0)));
     *(s16 *)((s8 *)arg0 + 0x33A) = 0xF;
     *(s16 *)((s8 *)arg0 + 0x33C) = *(s16 *)((s8 *)arg0 + 0x33A);
     *(s16 *)((s8 *)arg0 + 0x328) = 0;
