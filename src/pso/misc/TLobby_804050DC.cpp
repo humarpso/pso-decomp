@@ -3279,6 +3279,110 @@ s32 TLobby::close_connection_by_index(s16 i) {
 }
 #pragma pop
 
+struct Req_8040A698 {
+    u8 pad0[4];
+    void *f4;
+    s16 f8;
+    u8 padA[2];
+    void *fC;
+    s16 f10;
+    u8 pad12[2];
+    u32 f14;
+};
+
+struct Ent_8040A698 {
+    s16 f0;
+    u8 pad2[6];
+    s16 f8;
+    u8 padA[2];
+    u32 fC;
+    s16 f10;
+    s16 f12;
+    u8 pad14[0xC];
+    Req_8040A698 req;
+};
+
+void TLobby__sub_8040C74C(void *);
+
+#pragma push
+#pragma opt_propagation off
+s16 TLobby__sub_8040A698(s16 idx, void *buf, s16 *len, void *buf2, s16 *len2, u32 mode) {
+    G_8040A45C *g = &dns_resolver_state;
+    F_8040A45C *f;
+    Ent_8040A698 *e;
+    Req_8040A698 *req;
+    s16 st;
+
+    if (idx < 0 || idx >= g->nf) {
+        return -2;
+    }
+    f = &g->f[idx];
+    e = (Ent_8040A698 *)f;
+    if (f->f0 == 0) {
+        return -2;
+    }
+    if (e->f8 != 1) {
+        return -2;
+    }
+    if (len == NULL) {
+        return -2;
+    }
+    if (buf != NULL && *len <= 0) {
+        return -2;
+    }
+    if (buf2 != NULL && (len2 == NULL || *len2 < 0)) {
+        return -2;
+    }
+    req = &e->req;
+    req->f4 = buf;
+    req->f8 = *len;
+    req->fC = buf2;
+    if (len2 != NULL) {
+        req->f10 = *len2;
+    } else {
+        req->f10 = 0;
+    }
+    req->f14 = mode;
+    if (mode == 0) {
+        TLobby__sub_80421814();
+        if (e->f10 > 0 || e->f12 > 0) {
+            if (e->fC != 0xFFFFFFFF) {
+                TLobby__sub_804217E4();
+                return -2;
+            }
+            NetStoreCurrentThread((s32 *)&e->fC);
+            TLobby__sub_804217E4();
+            NetSuspendCurrentThread();
+        } else {
+            TLobby__sub_804217E4();
+        }
+        st = e->f10;
+        if (st < 0) {
+            return st;
+        }
+    } else if (mode == 0xFFFFFFFF) {
+        st = e->f10;
+        if (st > 0 || e->f12 > 0) {
+            return -1;
+        }
+        if (st < 0) {
+            return st;
+        }
+    } else {
+        if (e->f10 <= 0 && e->f12 <= 0) {
+            ((TLobby *)e)->dispatch_request_callback(1);
+        }
+        return -1;
+    }
+    TLobby__sub_8040C74C(req);
+    if (len2 != NULL) {
+        *len2 = req->f10;
+    }
+    *len = req->f8;
+    return 0;
+}
+#pragma pop
+
 typedef struct Rec_8040AD64 {
     u32 used;
     u8 pad[0x10];
