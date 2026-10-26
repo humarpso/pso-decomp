@@ -199,6 +199,8 @@ force_active:
   - TBGLightning__name
   - TBoss1DragonColli_C__ct
   - TBoss1DragonColli_sphere_chain_desc
+  - TBoss2Joint__param_table
+  - TBoss2Joint__sub_80036940
   - TBoss2PhotonBullet__ct
   - TBoss2PhotonBullet__name
   - TBoss2PhotonPad__name
@@ -459,6 +461,7 @@ force_active:
   - TLobby__sub_8013A16C
   - TLobby__sub_8013A2DC
   - TLobby__sub_8013A578
+  - TLobby__sub_8013FF64
   - TLobby__sub_80182E60
   - TLobby__sub_801A20C8
   - TLobby__sub_801A3CF8
@@ -4545,6 +4548,7 @@ force_active:
   - init_item_entry__18TCheckRoomSequenceFPv
   - init_item_object__13TUnk_8049F8E0FPvPv
   - init_item_object__13TUnk_8049FF88FPvPv
+  - init_joint_offset__11TBoss2JointFl
   - init_kind_params__18TObjSeabedSuiso_CHFv
   - init_launch_angles__10TTecSlicerFPlPll
   - init_layout__17TWindowSubComCardFv
@@ -4553,6 +4557,7 @@ force_active:
   - init_light_params__15TORainbowCave01Fiff
   - init_light_tables__9TObjLightFv
   - init_link_points__9TBoss2FinFv
+  - init_lookup_tables__6TLobbyFv
   - init_map_light__9TObjLightFi
   - init_model_and_state__19TObjEneEpsilonGuardFv
   - init_model_by_type__10TODoorLaboFv
@@ -4573,6 +4578,7 @@ force_active:
   - init_parameters__9TTecZondeFv
   - init_params__10TBoss2MineFlf
   - init_params__10TTecDebandFv
+  - init_params__11TBoss2JointFv
   - init_params__11TBoss6Type1Fv
   - init_params__11TBoss7JointFv
   - init_params__15TBoss3VoloptP01Fv
@@ -4675,6 +4681,8 @@ force_active:
   - is_confirm_pressed__14TOKeyMachine01Fv
   - is_controller_animated__8TFogCtrlFll
   - is_downloadable_new_entry__12TQuestListVMFPvPv
+  - is_duplicate_shop_armor
+  - is_duplicate_shop_shield_or_unit
   - is_duplicate_shop_weapon
   - is_enabled__9TItemDropFv
   - is_end__12TCharaMakingFv
@@ -5713,6 +5721,10 @@ force_active:
   - lsc_get_stream_status
   - lsc_set_repeat
   - lsc_slot_table
+  - lzss_input_exhausted__FPUc
+  - lzss_insert_ring_node
+  - lzss_read_byte__FPUc
+  - lzss_remove_ring_node
   - macHandleActive
   - macMakeActive
   - maccmp
@@ -12602,6 +12614,7 @@ force_active:
   - update_position__15TBoss7LaserPtclFv
   - update_position_flag__13TObjEneRe4BitFv
   - update_position_from_velocity__20TItemEffOrgaFlowShotFv
+  - update_position_history__11TBoss2JointFv
   - update_position_if_changed__19TWindowSubTradeMainFlPUcPUc
   - update_pressed_keys__16TKeyBoardControlFv
   - update_pulse_scale__15TBoss3VoloptP01FPv
