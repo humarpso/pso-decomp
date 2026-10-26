@@ -2960,6 +2960,11 @@ struct C_8040A45C { s16 f0; u8 pad2[0x1A]; s32 f1C; C_8040A45C *f20; D_8040A45C 
 struct D_8040A45C { s16 f0; u8 pad2[0x102]; u8 f104; u8 pad105[0xFF]; s16 f204; u8 pad206[2]; C_8040A45C *f208; };
 struct E_8040A45C { s16 f0; u8 pad2[0x16]; s32 f18; u8 f1C; u8 pad1D[0xFF]; };
 struct Query_8040C09C;
+struct Buf_8040AFE0 {
+    u8 pad0[2];
+    s16 len;
+    u8 *data;
+};
 struct F_8040A45C {
     s16 f0;
     s16 f2;
@@ -2970,10 +2975,12 @@ struct F_8040A45C {
     s32 fC;
     s16 f10;
     s16 f12;
-    u8 pad14[4];
-    s32 f18;
+    s16 f14;
+    u8 pad16[2];
+    Buf_8040AFE0 *f18;
     A_8040A45C *f1C;
-    u8 pad20[8];
+    u32 f20;
+    u8 pad24[4];
     s32 f28;
     E_8040A45C *f2C;
     u8 pad30[4];
@@ -2983,11 +2990,12 @@ struct F_8040A45C {
 
 struct G_8040A45C {
     s16 h0;
-    u8 pad2[0xE];
+    u8 pad2[0xA];
+    s16 *fC;
     s16 nb;
     u8 pad12[2];
     Rec_8040B33C *b;
-    u8 pad18[2];
+    s16 f18;
     s16 lim;
     s16 step;
     u8 pad1E[2];
@@ -3781,6 +3789,81 @@ void TLobby::tick_connection_timeouts() {
     }
     TLobby__sub_8040AFE0();
 }
+
+struct UdpBuf_8040AFE0 {
+    s16 len;
+    u8 pad2[2];
+    u8 *data;
+};
+
+Rec_8040B33C *find_next_active_record__6TLobbyFPv(A_8040B33C *a);
+void TLobby__sub_8040BE40(F_8040A45C *req, s16 err, s16 arg);
+void TLobby__sub_8040B1C4(F_8040A45C *req);
+s16 TUdpSocket__sub_80421BAC(s32 h, u32 *src, u32 *dst, u16 port, u32 *opt, s8 n, UdpBuf_8040AFE0 *bufs);
+
+#pragma push
+#pragma dont_inline off
+inline void put_tag_8040AFE0(F_8040A45C *req, s16 tag) {
+    NetMemcpy(req->f18->data + req->f18->len - 4, &tag, 2);
+}
+
+inline s16 send_8040AFE0(F_8040A45C *req, Rec_8040B33C *rec) {
+    UdpBuf_8040AFE0 buf;
+    s16 r;
+    u32 *dst = (u32 *)rec;
+
+    buf.len = req->f18->len;
+    buf.data = req->f18->data;
+    r = TUdpSocket__sub_80421BAC(req->f4, NULL, dst, 0, NULL, 1, &buf);
+    put_tag_8040AFE0(req, 0x1C);
+    return r;
+}
+
+void TLobby__sub_8040AFE0(void) {
+    G_8040A45C *g;
+    Rec_8040B33C *rec;
+    s16 *nb;
+    s16 i;
+    F_8040A45C *req;
+    s16 r;
+    s16 *fc;
+
+    g = &dns_resolver_state;
+    nb = &g->nb;
+    i = 0;
+    req = g->f;
+    while (i < g->nf) {
+        if (req->f0 == 1 && req->f4 >= 0 && (req->f10 > 0 || req->f12 > 0)) {
+            if (--req->fA <= 0) {
+                if (req->f10 >= g->lim) {
+                    g->f18 = 0;
+                    TLobby__sub_8040BE40(req, -0x45, 0);
+                } else if (req->f12 != 0) {
+                    rec = find_next_active_record__6TLobbyFPv((A_8040B33C *)req);
+                    if (rec == NULL) {
+                        TLobby__sub_8040BE40(req, -0x44, 0);
+                    } else {
+                        g->f18 = req->f10 % *nb;
+                        fc = g->fC;
+                        req->fA = fc[req->f10 / *nb];
+                        put_tag_8040AFE0(req, 1);
+                        r = send_8040AFE0(req, rec);
+                        if (r < 0) {
+                            req->fA = 1;
+                        }
+                        req->f12 = 0;
+                        req->f10++;
+                    }
+                } else {
+                    TLobby__sub_8040B1C4(req);
+                }
+            }
+        }
+        i++;
+        req++;
+    }
+}
+#pragma pop
 
 Rec_8040B33C *find_next_active_record__6TLobbyFPv(A_8040B33C *a) {
     G_8040A45C *g = &dns_resolver_state;
@@ -11041,6 +11124,70 @@ s32 TLobby__sub_8041A6A4(Tcb_8041A3CC *tcb, s16 timer) {
 #pragma pop
 
 struct Tcb_8041B724 { u8 pad0[0x264]; u16 maxseg; u8 pad266[0x16]; u8 remote[0x14]; u8 local[0x14]; };
+
+struct Tcb_8041B5C0 {
+    u8 pad0[4];
+    u16 state;
+    s16 f6;
+    s16 listener;
+    u8 padA;
+    u8 flags;
+    u8 padC[0x250];
+    s16 timers[4];
+    u8 pad264[0x62];
+    s16 pending;
+    u8 pad2C8[8];
+    s32 f2D0;
+    u8 pad2D4[0x270];
+};
+struct G_8041B5C0 {
+    Tcb_8041B5C0 *tcbs;
+    s16 count;
+    s16 freed;
+};
+
+#pragma push
+#pragma dont_inline off
+inline void dec_pending_8041B5C0(G_8041B5C0 *g, s16 idx) {
+    Tcb_8041B5C0 *l = g->tcbs;
+
+    l += idx;
+    if (l->state == 1) {
+        l->pending--;
+    }
+}
+
+u8 *TLobby__sub_8041B5C0(void *p) {
+    G_8041B5C0 *g = (G_8041B5C0 *)&tcp_protocol_state;
+    Tcb_8041B5C0 *tcb;
+    Tcb_8041B5C0 *l;
+
+    if ((tcb = (Tcb_8041B5C0 *)p) == NULL) {
+        return NULL;
+    }
+    if (tcb->flags & 0x80) {
+        if (!(tcb->flags & 0x20)) {
+            NetDispatchSocketEvent((s16)(tcb - g->tcbs), tcb->f2D0, 3, 3);
+            tcb->flags |= 0x20;
+        }
+        ((TLobby *)tcb)->close_if_open();
+        TLobby__sub_8041EB74((u8 *)tcb);
+        if (tcb->listener != 0xFFFF) {
+            dec_pending_8041B5C0(g, tcb->listener);
+        }
+        NetDispatchSocketEvent((s16)(tcb - g->tcbs), tcb->f2D0, 3, 0xFF);
+        tcb->state = 0;
+        g->freed = tcb - g->tcbs;
+        return NULL;
+    }
+    tcb->f6 = 0;
+    tcb->timers[0] = 0;
+    tcb->timers[1] = 0;
+    tcb->timers[2] = 0;
+    tcb->timers[3] = 0;
+    return (u8 *)tcb;
+}
+#pragma pop
 
 s16 TLobby__sub_8041B724(u8 *tcb) {
     Tcb_8041B724 *tp = (Tcb_8041B724 *)tcb;
