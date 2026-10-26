@@ -465,7 +465,7 @@ struct Cur_804179A4 { u8 pad[8]; };
 
 struct Sock_804179A4 { u8 pad0[0x10]; u8 addr[0x10]; s32 f20; s16 f24; u8 f26; u8 f27; };
 
-struct Q_804179A4 { u8 pad0[3]; u8 f3; u8 pad4[0x2C]; s16 f30; u8 pad32[2]; u8 *f34; };
+struct Q_804179A4 { u8 pad0[3]; u8 f3; u8 pad4[4]; u8 f8[0x28]; s16 f30; u8 pad32[2]; u8 *f34; };
 
 struct E_804179A4 { u8 pad0[3]; u8 f3; s16 f4; s16 f6; s16 f8; s16 fa; u8 fc; u8 pad[3]; Q_804179A4 *f10; s16 f14; u8 f16[0x10]; s16 f26; u8 f28[1]; };
 
@@ -9639,6 +9639,72 @@ s32 NetIPv6EmitRouterSolicitation(NetPacket *net_packet, NetIPv6SendParameters *
     message.header.checksum = 0;
     message.header.checksum = TLobby__sub_80411040((const IPv6Address *)(&addr->source), (const IPv6Address *)(&addr->destination), addr->next_header, (const NetPacket *)(net_packet), (s16)(1));
     return TLobby__sub_80410BA8(net_packet, addr, arg2, NULL);
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 FlushQueued_804182DC(E_804179A4 *e) {
+    Pkt_80416994 *pkt = (Pkt_80416994 *)TLobby::alloc_free_entry();
+    s32 ret;
+
+    if (pkt == 0) {
+        ret = -0x10E;
+    } else {
+        pkt->n = 0;
+        pkt->port = e->f10->f30;
+        pkt->items[pkt->n].port = e->f10->f30;
+        ((TLobby *)(pkt->items[pkt->n].val))->set_value_and_enable((s32)e->f10->f34);
+        pkt->n++;
+        ret = TLobby__sub_80410BA8(pkt, e->f10->f8, e->f8, e->f28);
+        ((TUdpSocket *)pkt)->release_entry();
+    }
+    e->f10->f3 = 0;
+    e->f10 = 0;
+    return ret;
+}
+
+E_804179A4 *TLobby__sub_804182DC(u8 *addr, u8 *key, s16 len, s16 arg3) {
+    E_804179A4 *NetIPv6FindOrSelectNeighborCacheEntry(void *, void *, s16);
+    E_804179A4 *e;
+
+    if (addr == 0) {
+        return 0;
+    }
+    if (len == 0 || key == 0) {
+        return 0;
+    }
+    e = NetIPv6FindOrSelectNeighborCacheEntry(addr, key, len);
+    if (e == 0) {
+        return 0;
+    }
+    switch (e->f6) {
+    case 0:
+        e->f3 = 1;
+    case 1:
+        NetMemcpy(e->f16, addr, 0x10);
+        e->f26 = ((u32)len > 0x20) ? 0x20 : len;
+        NetMemcpy(e->f28, key, e->f26);
+        e->f4 = 2;
+        e->fa = ((Glob_80416994 *)&ipv6_neighbor_discovery_state)->delay2;
+        e->f8 = arg3;
+        break;
+    case 2:
+        e->f26 = ((u32)len > 0x20) ? 0x20 : len;
+        NetMemcpy(e->f28, key, e->f26);
+        if (e->f4 == 0 && e->f10 != 0) {
+            (void)FlushQueued_804182DC(e);
+        }
+        e->f4 = 2;
+        e->fa = ((Glob_80416994 *)&ipv6_neighbor_discovery_state)->delay2;
+        e->f8 = arg3;
+        break;
+    case 3:
+        e->f8 = arg3;
+        break;
+    }
+    return e;
 }
 #pragma pop
 
