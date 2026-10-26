@@ -10902,6 +10902,181 @@ s32 TLobby__sub_8041D524(A_8041D524 *a, s32 x) {
     return 0;
 }
 
+struct Th_8041D584 {
+    u8 pad0[8];
+    s32 ack;
+};
+
+struct Sack_8041D584 {
+    s32 start;
+    s32 end;
+};
+
+struct Tcb_8041D584 {
+    u8 pad0[0x238];
+    s32 now;
+    u8 pad23C[0xB0];
+    s32 f2EC;
+    u8 pad2F0[0x30];
+    s16 n;
+    u8 pad322[2];
+    s32 una;
+    s32 edge;
+    s32 stamp;
+    Seg_8041D460 items[32];
+};
+
+#pragma push
+#pragma dont_inline off
+#pragma opt_common_subs on
+inline void remove_8041D584(Tcb_8041D584 *tcb, s16 idx) {
+    s16 n = tcb->n;
+    s16 i;
+    if (n >= 0 && idx >= 0 && idx <= n) {
+        for (i = idx; i < tcb->n; i++) {
+            tcb->items[i] = tcb->items[i + 1];
+        }
+        tcb->n--;
+    }
+}
+
+void TLobby__sub_8041D584(Tcb_8041D584 *tcb, Th_8041D584 *th, Sack_8041D584 *blocks, s16 n) {
+    s16 i;
+    s16 j;
+    s32 d;
+
+    if (th->ack - tcb->una > 0) {
+        for (;;) {
+            if (tcb->n < 0) {
+                break;
+            }
+            if (th->ack - tcb->edge > 0) {
+                tcb->f2EC -= tcb->edge - tcb->una;
+                tcb->edge = th->ack;
+                if (tcb->f2EC < 0) {
+                    tcb->f2EC = 0;
+                }
+            } else {
+                tcb->f2EC -= th->ack - tcb->una;
+                if (tcb->f2EC < 0) {
+                    tcb->f2EC = 0;
+                }
+            }
+            if (th->ack - tcb->items[0].end >= 0) {
+                tcb->edge = tcb->items[0].edge;
+                tcb->stamp = tcb->items[0].stamp;
+                tcb->una = tcb->items[0].end;
+                remove_8041D584(tcb, 0);
+                continue;
+            }
+            if (th->ack - tcb->items[0].start >= 0) {
+                tcb->n = -1;
+                tcb->edge = tcb->una;
+            }
+            break;
+        }
+        tcb->una = th->ack;
+    }
+
+    for (i = 0; i < n; i++) {
+        s32 end = blocks[i].end;
+        s32 start = blocks[i].start;
+        Sack_8041D584 *b = &blocks[i];
+        if (start - end >= 0) {
+            continue;
+        }
+        if (tcb->n == -1) {
+            tcb->edge = th->ack;
+            tcb->stamp = tcb->now;
+            ((TLobby *)tcb)->insert_item_at(0, b->start, b->end);
+            continue;
+        }
+        if (end - tcb->una <= 0) {
+            continue;
+        }
+        if (start - tcb->una <= 0) {
+            tcb->n = -1;
+            tcb->edge = tcb->una;
+            continue;
+        }
+        if (start - tcb->items[0].start <= 0) {
+            if (start - tcb->edge < 0) {
+                tcb->f2EC -= tcb->edge - start;
+                tcb->edge = b->start;
+                if (tcb->f2EC < 0) {
+                    tcb->f2EC = 0;
+                }
+            }
+            ((TLobby *)tcb)->insert_item_at(0, b->start, b->end);
+            j = 0;
+        } else {
+            for (j = 1; j <= tcb->n; j++) {
+                if (b->start - tcb->items[j].start > 0) {
+                    continue;
+                }
+                if (b->start - tcb->items[j - 1].end < 0) {
+                    if (b->end - tcb->items[j - 1].end < 0) {
+                        continue;
+                    }
+                    if (end - tcb->items[j - 1].edge > 0) {
+                        tcb->f2EC -= tcb->items[j - 1].edge - tcb->items[j - 1].end;
+                        tcb->items[j - 1].end = b->end;
+                        tcb->items[j - 1].edge = b->end;
+                        if (tcb->f2EC < 0) {
+                            tcb->f2EC = 0;
+                        }
+                    } else {
+                        tcb->f2EC -= end - tcb->items[j - 1].end;
+                        tcb->items[j - 1].end = b->end;
+                        if (tcb->f2EC < 0) {
+                            tcb->f2EC = 0;
+                        }
+                    }
+                    j = j - 1;
+                } else {
+                    if (start - tcb->items[j - 1].edge < 0) {
+                        tcb->f2EC -= tcb->items[j - 1].edge - start;
+                        tcb->items[j - 1].edge = b->start;
+                        if (tcb->f2EC < 0) {
+                            tcb->f2EC = 0;
+                        }
+                    }
+                    ((TLobby *)tcb)->insert_item_at(j, b->start, b->end);
+                }
+                break;
+            }
+            if (j == tcb->n + 1) {
+                ((TLobby *)tcb)->insert_item_at(j, b->start, b->end);
+                continue;
+            }
+        }
+        while (j + 1 <= tcb->n && tcb->items[j].end - tcb->items[j + 1].start >= 0) {
+            d = tcb->items[j].end - tcb->items[j + 1].end;
+            if (0 <= d) {
+                if (tcb->items[j + 1].edge - tcb->items[j].end > 0) {
+                    tcb->f2EC -= d;
+                    tcb->items[j].edge = tcb->items[j + 1].edge;
+                    remove_8041D584(tcb, j + 1);
+                    if (tcb->f2EC < 0) {
+                        tcb->f2EC = 0;
+                    }
+                } else {
+                    tcb->f2EC -= tcb->items[j + 1].edge - tcb->items[j + 1].end;
+                    remove_8041D584(tcb, j + 1);
+                    if (tcb->f2EC < 0) {
+                        tcb->f2EC = 0;
+                    }
+                }
+            } else {
+                tcb->items[j].end = tcb->items[j + 1].end;
+                tcb->items[j].edge = tcb->items[j + 1].edge;
+                remove_8041D584(tcb, j + 1);
+            }
+        }
+    }
+}
+#pragma pop
+
 #pragma push
 #pragma pool_data off
 s16 TLobby::tcp_get_socket_handle(s16 i) {
