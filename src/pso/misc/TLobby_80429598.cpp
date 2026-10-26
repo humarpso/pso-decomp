@@ -93,7 +93,28 @@ extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
-u8 lbl_805D0AA0[0x80];
+typedef struct EthStats_805D0AA0 {
+    u8 pad_0[0x48];
+    s32 f48;
+    s32 f4C;
+    u16 f50;
+    u16 f52;
+    u16 f54;
+    u16 f56;
+    u16 f58;
+    u16 f5A;
+    u16 f5C;
+    u16 f5E;
+    u16 f60;
+    u16 f62;
+    u16 f64;
+    u16 f66;
+    u16 f68;
+    u16 f6A;
+    u8 pad_6C[0x14];
+} EthStats_805D0AA0;
+
+EthStats_805D0AA0 lbl_805D0AA0;
 u8 exi_dma_buffer[0x600];
 u8 exi_dma_write_buffer[0xC00];
 extern "C" {
@@ -148,6 +169,12 @@ extern u16 lbl_805D7C7A;
 int memcmp(const void *, const void *, unsigned long);
 u32 TLobby__sub_8042BA8C(void *);
 extern s32 lbl_805D4830;
+void TLobby__sub_80429B8C(s32, void *);
+extern u16 lbl_805D7C78;
+extern s32 lbl_805D7C58;
+extern u8 lbl_805D7C36;
+extern u16 lbl_805D4836;
+extern u8 lbl_805D4838;
 
 #pragma push
 #pragma opt_propagation off
@@ -233,6 +260,252 @@ void TLobby__sub_80429AC8(void) {
     lbl_805D7C7A = lbl_805D7C6C[0];
     TLobby__sub_80429648();
 }
+
+#pragma push
+#pragma inline_depth(4)
+static inline u8 bba_cmd_in8(u32 reg) {
+    u16 cmd;
+    u8 val;
+    cmd = reg << 8;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImm(0, &val, 1, 0, 0);
+    EXISync(0);
+    EXIDeselect(0);
+    return val;
+}
+
+static inline void bba_cmd_out8(u32 reg, u8 val) {
+    u32 req;
+    u16 cmd;
+    req = (reg << 8) | 0x4000;
+    cmd = req;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImm(0, &val, 1, 1, 0);
+    EXISync(0);
+    EXIDeselect(0);
+}
+
+static inline void bba_cmd_ins(u32 reg, void *buf, s32 len) {
+    u16 cmd;
+    cmd = reg << 8;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32)buf, len, 0);
+    EXIDeselect(0);
+}
+
+static inline void bba_cmd_outs(u32 reg, void *buf, s32 len) {
+    u32 req;
+    u16 cmd;
+    req = (reg << 8) | 0x4000;
+    cmd = req;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32)buf, len, 1);
+    EXIDeselect(0);
+}
+
+static inline void bba_ins(u32 reg, void *buf, s32 len) {
+    u32 cmd;
+    cmd = ((reg << 8) & 0xFFFF00) | 0x80000000;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32)buf, len, 0);
+    EXIDeselect(0);
+}
+
+static inline void bba_outs(u32 reg, void *buf, s32 len) {
+    u32 cmd;
+    cmd = ((reg << 8) & 0xFFFF00) | 0xC0000000;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32)buf, len, 1);
+    EXIDeselect(0);
+}
+
+static inline u8 bba_in8(u32 reg) {
+    u8 val;
+    bba_ins(reg, &val, 1);
+    return val;
+}
+
+static inline void bba_out8(u32 reg, u8 val) {
+    bba_outs(reg, &val, 1);
+}
+
+static inline u16 bba_swap16(u16 val) {
+    u16 swapped;
+    swapped = __lhbrx(&val, 0);
+    return swapped;
+}
+
+static inline u16 bba_in16(u32 reg) {
+    u16 val;
+    bba_ins(reg, &val, 2);
+    return bba_swap16(val);
+}
+
+static inline u32 bba_calc_response(u32 val) {
+    u8 c0;
+    u8 c1;
+    u8 c2;
+    u8 c3;
+    u8 i[4];
+    u8 devid[2];
+    memcpy(i, &val, 4);
+    memcpy(devid, &lbl_805D4836, 2);
+    c0 = (i[0] + i[1] * 0xC1 + 0x18 + lbl_805D7C36) ^ (i[3] * i[2] + 0x90);
+    c1 = (i[1] + i[2] + 0x90) ^ (i[0] + (c0 - 0xC1));
+    c2 = (i[2] + 0xC8) ^ (c0 + ((devid[0] + lbl_805D7C36 * 0x23) ^ 0x19));
+    c3 = (i[0] + 0xC1) ^ (i[3] + ((devid[1] + 0xC8) ^ 0x90));
+    return (c0 << 24) | (c1 << 16) | (c2 << 8) | c3;
+}
+
+static inline void bba_challenge(void) {
+    u32 challenge;
+    u32 response;
+    bba_cmd_out8(0x05, lbl_805D4838);
+    bba_cmd_ins(0x08, &challenge, 4);
+    response = bba_calc_response(challenge);
+    bba_cmd_outs(0x09, &response, 4);
+}
+
+static inline void bba_recv(void) {
+    lbl_805D0AA0.f48++;
+    lbl_805D7C78 = bba_in16(0x16);
+    lbl_805D7C7A = bba_in16(0x18);
+    TLobby__sub_80429648();
+}
+
+void TLobby__sub_80429B8C(s32 chan, void *ctx) {
+    u8 ir;
+    s32 notify;
+    u8 status;
+    u8 err;
+    void (*callback)(u8);
+
+    notify = 0;
+    if (EXILock(0, 2, (u32)TLobby__sub_80429B8C) == 0) {
+        return;
+    }
+    ir = bba_cmd_in8(0x03);
+    bba_cmd_out8(0x02, 0);
+    switch (__cntlzw(ir)) {
+    case 24:
+        bba_cmd_out8(0x03, 0x80);
+        break;
+    case 26:
+        bba_cmd_out8(0x03, 0x20);
+        bba_cmd_out8(0x02, 0xF8);
+        EXIUnlock(0);
+        return;
+    case 25:
+        bba_cmd_out8(0x03, 0x40);
+        bba_cmd_out8(0x02, 0xF8);
+        EXIUnlock(0);
+        return;
+    case 27:
+        bba_challenge();
+        bba_cmd_out8(0x03, 0x10);
+        bba_cmd_out8(0x02, 0xF8);
+        EXIUnlock(0);
+        return;
+    case 28:
+        bba_cmd_in8(0x0B);
+        bba_cmd_out8(0x03, 0x08);
+        bba_cmd_out8(0x02, 0xF8);
+        EXIUnlock(0);
+        return;
+    }
+
+    ir = bba_in8(0x09);
+    if (lbl_805D7C58 == 1 && (ir & 0x02)) {
+        bba_recv();
+        return;
+    }
+    switch (__cntlzw(ir)) {
+    case 24:
+        lbl_805D0AA0.f58++;
+        bba_out8(0x09, 0x80);
+        break;
+    case 25:
+        bba_out8(0x09, 0x40);
+        break;
+    case 26:
+        lbl_805D0AA0.f56++;
+        bba_out8(0x09, 0x20);
+        break;
+    case 27:
+        lbl_805D0AA0.f54++;
+        exi_send_started_flag = 0;
+        status = bba_in8(0x04);
+        if (status & 0x10) {
+            lbl_805D0AA0.f66++;
+        }
+        if (status & 0x20) {
+            lbl_805D0AA0.f68++;
+        }
+        if (status & 0x40) {
+            lbl_805D0AA0.f6A++;
+        }
+        notify = 1;
+        bba_out8(0x09, 0x10);
+        break;
+    case 28:
+        lbl_805D0AA0.f52++;
+        err = bba_in8(0x05);
+        if (err & 0x01) {
+            lbl_805D0AA0.f5A++;
+        }
+        if (err & 0x02) {
+            lbl_805D0AA0.f5C++;
+        }
+        if (err & 0x04) {
+            lbl_805D0AA0.f5E++;
+        }
+        if (err & 0x08) {
+            lbl_805D0AA0.f60++;
+        }
+        if (err & 0x10) {
+            lbl_805D0AA0.f62++;
+        }
+        if (err & 0x40) {
+            lbl_805D0AA0.f64++;
+        }
+        bba_out8(0x09, 0x08);
+        break;
+    case 29:
+        lbl_805D0AA0.f4C++;
+        notify = 1;
+        exi_send_started_flag = 0;
+        status = bba_in8(0x04);
+        bba_out8(0x09, 0x04);
+        break;
+    case 30:
+        bba_recv();
+        return;
+    case 31:
+        lbl_805D0AA0.f50++;
+        bba_out8(0x09, 0x01);
+        break;
+    }
+    bba_cmd_out8(0x02, 0xF8);
+    EXIUnlock(0);
+    if (notify != 0) {
+        callback = (void (*)(u8))lbl_805D7C54;
+        lbl_805D7C54 = 0;
+        callback(status);
+    }
+}
+#pragma pop
 
 void TLobby::start_exi_send(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r3;
