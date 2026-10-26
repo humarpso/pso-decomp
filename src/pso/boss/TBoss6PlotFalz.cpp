@@ -1198,7 +1198,7 @@ void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self) {
 struct V_802AC538 { f32 x, y, z; };
 extern "C" {
 u8 *get_hit_data__14TBoss4DarkFalzFv(void *);
-void set_position_from__14TBoss4DarkFalzFPv();
+void set_position_from__13TUnk_804B9870FPv();
 }
 void reset_cameras_to_actor(void *, s32);
 extern const V_802AC538 lbl_804705A8;
@@ -1220,7 +1220,7 @@ void place_players_in_warp_circle(void) {
             V_802AC538 pos = lbl_804705A8;
             pos.x += 350.0f * sin_table_lookup(ang);
             pos.z += 350.0f * cos_table_lookup(ang);
-            ((void (*)(void *, void *))set_position_from__14TBoss4DarkFalzFPv)(p, &pos);
+            ((void (*)(void *, void *))set_position_from__13TUnk_804B9870FPv)(p, &pos);
             ((TBoss4DarkFalz *)p)->save_position();
             *(s32 *)(get_hit_data__14TBoss4DarkFalzFv(p) + 4) = ang + 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -1267,7 +1267,7 @@ void TBoss6PlotFalz__sub_802AC724(u8 *boss4_dark_falz, u32 arg1) {
     if (boss4_dark_falz == NULL || arg1 == 0U) {
         return;
     }
-    set_position_from__14TBoss4DarkFalzFPv();
+    set_position_from__13TUnk_804B9870FPv();
     ((TBoss4DarkFalz *)boss4_dark_falz)->save_position();
     ((TUnk_804AF8A0 *)boss4_dark_falz)->set_indexed_flags(0, 0x900000);
     *(u32 *)(boss4_dark_falz + 0x30) &= 0xFFFFFFDF;

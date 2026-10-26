@@ -2353,7 +2353,7 @@ void handle_6x56_set_player_position_and_angle(void *arg0) {
         p = ((Player_801C8B5C *)((u8 * (*)(s32))get_player_by_client_id)((s32)(m.slot)));
         if (p != NULL) {
             p->ang = m.c;
-            ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+            ((TUnk_804B9870 *)p)->set_position_from(m.vec);
             ((TUnk_804806E8 *)p)->calc_attach_pos();
             ((void (*)(void *, s32, s32))run_action_state_phase__10TObjPlayerFisi)(p, 0x15, 0);
         }
@@ -2434,7 +2434,7 @@ void TObjPlayer::update_warp_relocation() {
             var_f31 = 0.0f;
             this->phase = 3;
             this->rotation_y = *(s32 *)((s8 *)((u8 *)this) + 0x65C);
-            ((TBoss4DarkFalz *)((u8 *)this))->set_position_from(((u8 *)this) + 0x660);
+            ((TUnk_804B9870 *)((u8 *)this))->set_position_from(((u8 *)this) + 0x660);
             refresh_equipment_slot();
             this->clear_flag_4000();
             this->update_actor_ground_y();
@@ -2502,7 +2502,7 @@ void handle_6x55_intra_map_warp(s32 arg0) {
         p = get_player_by_client_id(cmd.client);
         if (p != NULL && is_in_tl03_state__10TObjPlayerFv(p) != 0 && test_action_mask__10TObjPlayerFl(p, 0x8200) == 0) {
             *(s32 *)(p + 0x65C) = cmd.area;
-            ((TBoss4DarkFalz *)p)->set_position_from(&cmd.a);
+            ((TUnk_804B9870 *)p)->set_position_from(&cmd.a);
             VecCopy__FP3VecPC3Vec(p + 0x660, &cmd.pos);
             ((void (*)(void *, s32, s32))run_action_state_phase__10TObjPlayerFisi)(p, 0x14, 0);
         }
@@ -6004,7 +6004,7 @@ void handle_6x3F_set_position(void *arg0) {
     if (validate_6x3F_set_position(&m) != 0) {
         p = (Player_801D0634 *)((void * (*)(s32))get_player_by_client_id)(m.id);
         if (p != NULL) {
-            ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+            ((TUnk_804B9870 *)p)->set_position_from(m.vec);
             set_flag_400000__10TObjPlayerFi((s32)p);
             if (m.floor >= 0) {
                 ((TObjPlayer *)p)->set_floor(m.floor);
@@ -6037,7 +6037,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
     if (p == NULL) {
         return;
     }
-    ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+    ((TUnk_804B9870 *)p)->set_position_from(m.vec);
     if (m.floor >= 0) {
         ((TObjPlayer *)p)->set_floor(m.floor);
         ((TObjPlayer *)p)->set_floor_index(TLobby::get_player_floor(m.floor));

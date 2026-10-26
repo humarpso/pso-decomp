@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjWarpBossMulti.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804C4540.h"
 struct Tag_801D7D4C { u8 d[4]; };
 
 struct Obj_801D7D4C { s32 n; Tag_801D7D4C x[4]; Tag_801D7D4C y[4]; };
@@ -293,7 +294,6 @@ struct Obj_801D8474 { s8 a; u8 b; };
 extern "C" {
 
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
-s32 set_animation_default__10TObjPlayerFv(s32, s16);
 void *get_anim_table_entry__10TObjPlayerFl();
 s32 TObjPlayer__sub_801D84A8(void* p);
 s32 TObjPlayer__sub_801D84F0(void* p);
@@ -324,7 +324,7 @@ void TObjPlayer::set_animation_from_data(s32 arg0, s32 arg1) {
 
     temp_r3 = get_anim_table_entry__10TObjPlayerFl();
     TObjPlayer__sub_801D8664(arg0, *(s16 *)((s8 *)temp_r3 + 0), *(s16 *)((s8 *)temp_r3 + 2));
-    set_animation_default__10TObjPlayerFv(arg0, arg1);
+    ((TUnk_804C4540 *)arg0)->set_animation_default(arg1);
 }
 
 extern s32 local_client_id;

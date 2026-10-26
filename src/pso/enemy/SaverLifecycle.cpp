@@ -1622,7 +1622,7 @@ void TObjEneSaver::sub_800A62D4() {
         }
         break;
     case 2:
-        ((TBoss4DarkFalz *)((u8 *)this))->set_position_from((void *) (((u8 *)this) + 0x50));
+        ((TUnk_804B9870 *)((u8 *)this))->set_position_from((void *) (((u8 *)this) + 0x50));
         this->update_prev_position();
         *(f32 *)&this->m_70 = (f32) 1.0f;
         this->target_scale = (f32) 1.0f;
@@ -1639,7 +1639,7 @@ void TObjEneSaver::init_render_flags() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    ((TBoss4DarkFalz *)arg0)->set_position_from((u8 *)&this->m_50);
+    ((TUnk_804B9870 *)arg0)->set_position_from((u8 *)&this->m_50);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     *(s32 *)&(this->actorFlags) = (s32) (*(s32 *)&(this->actorFlags) & 0xFFDFFFFF);
     *(s32 *)&(this->actorFlags) = (s32) (*(s32 *)&(this->actorFlags) | 0x06040000);

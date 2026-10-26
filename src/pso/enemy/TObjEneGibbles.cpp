@@ -2015,7 +2015,7 @@ void TObjEneGibbles::sub_802DA7A4() {
         }
         break;
     case 3:
-        ((TBoss4DarkFalz *)((u8 *)this))->set_position_from((void *) (((u8 *)this) + 0x50));
+        ((TUnk_804B9870 *)((u8 *)this))->set_position_from((void *) (((u8 *)this) + 0x50));
         this->update_prev_position();
         *(f32 *)&this->m_70 = (f32) TObjEneGibbles__data_805DE7EC;
         this->target_scale = (f32) TObjEneGibbles__data_805DE7EC;
@@ -2086,7 +2086,7 @@ void TObjEneGibbles::init_state() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    ((TBoss4DarkFalz *)arg0)->set_position_from((void *) (arg0 + 0x50));
+    ((TUnk_804B9870 *)arg0)->set_position_from((void *) (arg0 + 0x50));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     (this->actorFlags) = (s32) ((this->actorFlags) & 0xFFDFFFFF);
     (this->actorFlags) = (s32) ((this->actorFlags) | 0x06040000);

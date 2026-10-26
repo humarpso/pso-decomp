@@ -3629,7 +3629,7 @@ void TLobby::set_quest_object_position(s32 i, s32 k) {
     v.z = TLobby__script_reg_array[(u8)k];
     u32 r = find_by_id__13TQuestColCtrlFUs((u16)TLobby__script_reg_array[(u8)i]);
     if (r != 0) {
-        ((TBoss4DarkFalz *)r)->set_position_from(&v);
+        ((TUnk_804B9870 *)r)->set_position_from(&v);
     }
 }
 

@@ -1,5 +1,6 @@
 #include "pso/TEndingPic.h"
 #include "pso/misc/TEndingPic.h"
+#include "pso/misc/TEndingPicStage.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 
 #include "types.h"
@@ -90,7 +91,7 @@ void TEndingPic::advance_animation_state() {
         temp_r4 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingPic__animation_state = 2;
-            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
+            TEndingPicStage::set_picture(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
         }
         break;
@@ -108,7 +109,7 @@ void TEndingPic::advance_animation_state() {
         temp_r4_2 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingPic__animation_state = 4;
-            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
+            TEndingPicStage::set_picture(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }

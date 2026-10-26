@@ -33,6 +33,9 @@ pso/ui/TAdADXlogo.cpp:
 	.sbss       start:0x805D49C8 end:0x805D49D8
 	.sdata2     start:0x805D7DD0 end:0x805D7DD8
 
+pso/misc/EndingSceneTables.cpp:
+	.rodata     start:0x80434118 end:0x80434580
+
 pso/object/TObject_80019A50.cpp:
 	.text       start:0x80019A60 end:0x80019B78
 
@@ -66,9 +69,13 @@ pso/object/TObject_8001A448.cpp:
 	.text       start:0x8001A448 end:0x8001A468
 
 pso/item/TItemMag_8001A468.cpp:
-	.text       start:0x8001A468 end:0x8001A988
+	.text       start:0x8001A468 end:0x8001A4CC
+
+pso/misc/TEndingPicStage.cpp:
+	.text       start:0x8001A4CC end:0x8001A988
 	.rodata     start:0x80434580 end:0x80434590
 	.data       start:0x80480938 end:0x80480950
+	.sbss       start:0x805D49E0 end:0x805D49F0
 	.sdata2     start:0x805D7DE8 end:0x805D7DF0
 
 pso/menu/TAdEndText.cpp:

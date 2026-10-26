@@ -733,6 +733,7 @@ pso/item/TItemMagSub_80113D84.cpp
 pso/item/TItemMagSub_80114524.cpp
 pso/item/TItemMagSub_80114714.cpp
 pso/item/TItemMag_8001A468.cpp
+pso/misc/TEndingPicStage.cpp
 pso/item/TItemMag_80102C4C.cpp
 pso/item/TItemMag_80113E30.cpp
 pso/item/TItemMenuCtrl.cpp
@@ -2256,6 +2257,7 @@ pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
+pso/misc/EndingSceneTables.cpp
 pso/object/TUnk_804A6DC0.cpp
 pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp

@@ -279,8 +279,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int has_flag_128();
     s16 get_mag_data();
     s32 get_flag890_state();
-    static int publish_light_color(void *p);
-    static void update_flag890_state(s32 arg0);
     static void add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2);
     static void step_angle_clamped(void *actor, int arg1);
     void drain_owner_hp_fraction(f32 farg0);
@@ -1623,9 +1621,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     s32 can_use_palette_action_for_entry(u32 obj);
     static void set_animation_from_data(s32 arg0, s32 arg1);
     static void assign_lobby_slot_if_flagged(s32 arg0, void *arg1);
-    int query_darkfalz_state();
-    int set_animation_default();
-    s32 create_ending_player();
     static void free_shared_lobby_data();
     void*init_inventory();
     void select_normal_attack_marker();

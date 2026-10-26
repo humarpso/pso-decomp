@@ -1415,7 +1415,7 @@ void TBoss4Type1::push_players_out_of_colliders() {
                 }
             }
             if (((f32 (*)(void *, void *))xyz_distance)(get_position_ptr__10TObjPlayerFv(pl), &pos) > lbl_805D8B20) {
-                ((TBoss4DarkFalz *)pl)->set_position_from(&pos);
+                ((TUnk_804B9870 *)pl)->set_position_from(&pos);
                 ((TBoss4DarkFalz *)pl)->save_position();
                 ((TUnk_804AF8A0 *)pl)->set_indexed_flags(0, 0x900000);
                 *(u32 *)(pl + 0x30) &= ~0x20;

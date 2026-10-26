@@ -622,7 +622,7 @@ void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *boss4_dark_falz) {
             Vec_8004B7DC v = base;
             v.x += 2.5e+02f * sin_table_lookup(ang);
             v.z += 2.5e+02f * cos_table_lookup(ang);
-            ((TBoss4DarkFalz *)p)->set_position_from(&v);
+            ((TUnk_804B9870 *)p)->set_position_from(&v);
             ((TBoss4DarkFalz *)p)->save_position();
             get_hit_data__14TBoss4DarkFalzFv(p)->f4 = ang + 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -649,7 +649,7 @@ void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *boss4_dark_falz) {
             Vec_8004B8F8 v = base;
             v.x += 12.5f * sin_table_lookup(ang);
             v.z += 12.5f * cos_table_lookup(ang);
-            ((TBoss4DarkFalz *)p)->set_position_from((Vec_8004B7DC *)(&v));
+            ((TUnk_804B9870 *)p)->set_position_from((Vec_8004B7DC *)(&v));
             ((TBoss4DarkFalz *)p)->save_position();
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFv(p))->f4 = 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();

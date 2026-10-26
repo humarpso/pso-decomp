@@ -32,7 +32,6 @@ struct TBoss4DarkFalz : public TObjEnemy {
     s32 get_state();
     void*get_hit_data();
     void save_position();
-    int set_position_from(void* _w1);
     void swap_and_send();
     void swap_bytes();
     void set_code_25_4();
