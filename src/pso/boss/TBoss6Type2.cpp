@@ -200,6 +200,7 @@ extern s32 TBoss6Type2__player_hit_rock_indices[];
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
+void TBoss6Type2__sub_802BA598(TBoss6Type2 *self, s32 elapsed, s32 duration);
 s32 clear_render_callback__8TObjFishFv(u32);
 }
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
@@ -1143,6 +1144,26 @@ void TBoss6Type2::cache_fish_params() {
     *(s32 *)((s8 *)this + 0x564) = TObjFish__sub_8001EDB0(this->m_3fc, 0xA);
     *(s32 *)((s8 *)this + 0x568) = get_bml_model(this->m_3fc, 0xB);
     *(s32 *)((s8 *)this + 0x56C) = get_bml_model(this->m_3fc, 0xA);
+}
+
+void TBoss6Type2__sub_802BA598(TBoss6Type2 *self, s32 elapsed, s32 duration) {
+    f32 t = TBoss6Type2__data_805DE40C - (f32)elapsed / (f32)duration;
+    f32 u;
+    f32 k;
+    if (t <= 0.1f) {
+        u = TBoss6Type2__data_805DE410;
+    } else if (t >= 0.7f) {
+        u = TBoss6Type2__data_805DE40C;
+    } else {
+        u = (t - 0.1f) / (0.7f - 0.1f);
+    }
+    k = TBoss6PlotFalz::cosine_ease(u);
+    VecCopy((Vec *)&self->position, (const Vec *)&TBoss6Type2__data_8047105C);
+    subtract_vector((Vec_802B9A68 *)&self->position, (Vec_802B9A68 *)self->_pad50C);
+    self->position.x *= k;
+    self->position.y *= k;
+    self->position.z *= k;
+    vec3_add_to(&self->position, self->_pad50C);
 }
 
 void TBoss6Type2::update_zako() { ((int (*)(void*, void*))vec3_add_to)((char*)this + 0x38, (char*)this + 0x524); ((int (*)(void*))snap_to_ground__11TBoss6Type2FPv)(this); }
@@ -2193,7 +2214,7 @@ void TBoss6Type2::load_battle_params() {
 #pragma pop
 
 struct Anim_802BCD2C { u8 pad[4]; u32 n; };
-struct Trk_802BCD2C { Anim_802BCD2C *anim; f32 t; f32 dt; f32 a; f32 da; u8 pad[0x8]; };
+struct Trk_802BCD2C { Anim_802BCD2C *anim; f32 t; f32 dt; f32 a; f32 da; Anim_802BCD2C *prev_anim; f32 prev_t; };
 struct Obj_802BCD2C {
     u8 pad0[0x490];
     s32 f490;
@@ -2267,6 +2288,27 @@ void TBoss6Type2::draw_body_models() {
         }
     }
     TObjPlayer::clear_global_state();
+}
+
+void TBoss6Type2__sub_802BCC54(void *p, int motion) {
+    Obj_802BCD2C *self = (Obj_802BCD2C *)p;
+    if (motion != -1 && motion != self->f490) {
+        s32 *ent;
+        s32 i;
+        self->f490 = motion;
+        ent = &TBoss6Type2__motion_table[motion * 4];
+        self->f494 = ent[0];
+        for (i = 0; i < TBoss6Type2__data_805DE4B8; i++) {
+            Trk_802BCD2C *e = &self->trk[i];
+            Anim_802BCD2C *anim = (Anim_802BCD2C *)get_bml_motion(((TBoss6Type2 *)p)->m_3fc, ((Tb_802BCEF4 *)ent)->v[i]);
+            e->a = e->da;
+            e->prev_anim = e->anim;
+            e->prev_t = e->t;
+            e->dt = *(f32 *)((u8 *)ent + 0xC);
+            e->anim = anim;
+            e->t = TBoss6Type2__data_805DE410;
+        }
+    }
 }
 
 void TBoss6Type2::update_motion_tracks() {
