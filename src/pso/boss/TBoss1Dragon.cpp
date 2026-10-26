@@ -5924,6 +5924,18 @@ void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1) {
     play_sound_effect(arg1, arg0 + 0x63C, 0, 0);
 }
 
+s32 TBoss1Dragon::update_damage_threshold() {
+    s16 current = *(s16 *)((u8 *)this + 0x32C);
+    s32 hp = *(s16 *)((u8 *)this + 0x2B8);
+    s16 step = hp / 10;
+    s16 threshold = hp - step;
+    step += step;
+    while (current <= threshold) {
+        threshold -= step;
+    }
+    hpThreshold = threshold;
+}
+
 s32 TBoss1Dragon::isHpPhaseComplete() {
     return (u8)(hpPhaseValue >= 50);
 }

@@ -62,6 +62,7 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void setPhase2();
     void setActive();
     void clearState();
+    s32 update_damage_threshold();
     s32 isHpPhaseComplete();
     s32 isHpPhasePending();
     void setHpPhaseValue(int complete);
