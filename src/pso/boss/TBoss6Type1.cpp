@@ -2008,8 +2008,10 @@ void TBoss6Type1::set_action_state(s32 arg1) {
     }
 }
 
+extern "C" {
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
+}
 extern const f32 lbl_805DE3CC;
 
 void TBoss6Type1::run_task() {
