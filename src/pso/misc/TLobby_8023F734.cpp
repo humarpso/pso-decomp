@@ -609,7 +609,18 @@ void clamp_field9c__6TLobbyFPvf(void *arg0, f32 farg0) {
 
 void TLobby__sub_802409E4(void* p) { *(s16*)((char*)p + 0x92) = 5; }
 
-int TLobby__sub_802409F0(void) { return 0; }
+extern "C" s32 sndFXCtrl14(u32 vid, u8 ctrl, u16 value);
+
+void TLobby__sub_802409F0(SoundRequestVoice *v) {
+    switch (v->kind) {
+    case 0:
+        if (v->previousPitch != v->pitch) {
+            sndFXCtrl14(v->token, 0x80, v->pitch);
+            v->previousPitch = v->pitch;
+        }
+        break;
+    }
+}
 
 void update__6TLobbyFPv(void *arg0) {
     s32 temp_r0;
@@ -791,7 +802,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
             v->state = 0;
         } else {
             send_voice_controller_updates((u8 *)v);
-            ((void (*)(SoundRequestVoice*))TLobby__sub_802409F0)(v);
+            TLobby__sub_802409F0(v);
             if ((v->flags & 1) && v->refresh < 0) {
                 sndFXKeyOff(v->token);
                 v->state = 0;
