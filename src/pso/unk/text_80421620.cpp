@@ -720,6 +720,114 @@ s32 set_thread_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 ar
 
 }
 
+struct send_buffs {
+    s16 len;
+    u8 *buff;
+};
+
+struct TcpSendItem_80422448 { s16 len; u8 pad2[2]; u8 data[8]; };
+struct TcpSendPkt_80422448 { u8 pad0[4]; s32 count; u32 len; TcpSendItem_80422448 items[4]; };
+
+struct T_80422448 {
+    u8 pad0[0xB]; u8 fB; u8 padC[0x2AD - 0xC]; u8 f2AD; u8 pad2AE[0x2B4 - 0x2AE];
+    u8 f2B4; u8 pad2B5; s16 f2B6; s32 f2B8[(0x544 - 0x2B8) / 4];
+};
+
+extern "C" s16 tcp_start_send(s32 nh, TcpSendPkt_80422448 *pkt, void (*notify)(s16, s16), s32 arg3);
+
+extern "C" s16 tcp_send__FsPFss_vcP10send_buffs(s32 nh, void (*notify)(s16, s16), char bufnum, send_buffs *sb);
+s16 tcp_send__FsPFss_vcP10send_buffs(s32 nh, void (*notify)(s16, s16), char bufnum, send_buffs *sb) {
+    u16 i;
+    T_80422448 *s;
+    TcpSendPkt_80422448 *pkt;
+    s32 j;
+    G_8042213C *g;
+    s16 r;
+
+    i = bufnum;
+    if (bufnum > 3) {
+        return -2;
+    }
+    if (nh & 0xC00) {
+        return -4;
+    }
+    g = (G_8042213C *)&network_dispatch_state;
+    nh = nh & 0xFFFFF3FF;
+    TLobby::lock_mutex(g->f0);
+    if (validate_tcp_handle__6TLobbyFs(nh) < 0) {
+        TUdpSocket::unlock_mutex(g->f0);
+        return -4;
+    }
+    r = tcp_get_socket_handle__6TLobbyFs(nh);
+    if (r == -1 || r == 1) {
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -9;
+    }
+    s = (T_80422448 *)tcp_protocol_state[0];
+    s += (s16)nh;
+    if ((s->f2B4 & 3) || s->f2AD != 0) {
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -9;
+    }
+    pkt = (TcpSendPkt_80422448 *)TLobby::alloc_free_entry();
+    if (pkt == NULL) {
+        TUdpSocket::unlock_mutex(g->f0);
+        return -0x101;
+    }
+    pkt->count = i;
+    pkt->len = j = 0;
+    for (; i != 0; j++) {
+        i--;
+        if (sb[i].len < 0) {
+            ((TUdpSocket *)pkt)->release_entry();
+            TUdpSocket::unlock_mutex(network_dispatch_state.value);
+            return -2;
+        }
+        ((TLobby *)pkt->items[j].data)->init_packet_header((s32)sb[i].buff);
+        pkt->items[j].len = sb[i].len;
+        pkt->len += pkt->items[j].len;
+    }
+    if (pkt->len == 0) {
+        ((TUdpSocket *)pkt)->release_entry();
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -2;
+    }
+    NetMemset(&s->f2B4, 0, 8);
+    s->f2B4 |= 1;
+    if (s->fB & 0x40) {
+        s->f2B4 |= 8;
+        r = tcp_start_send(nh, pkt, notify, 0);
+        s->f2B4 &= ~8;
+    } else {
+        r = tcp_start_send(nh, pkt, notify, 0);
+    }
+    ((TUdpSocket *)pkt)->release_entry();
+    if (r < 0) {
+        s->f2B4 &= ~1;
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return r;
+    }
+    if (notify != NULL && (!(s->fB & 0x40) || !(s->f2B4 & 4))) {
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -1;
+    }
+    if (s->f2B4 & 4) {
+        r = s->f2B6;
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return r;
+    }
+    NetStoreCurrentThread(s->f2B8);
+    s->f2B4 |= 2;
+    TUdpSocket::unlock_mutex(network_dispatch_state.value);
+    NetSuspendCurrentThread();
+    TLobby::lock_mutex(network_dispatch_state.value);
+    s->f2B4 &= ~2;
+    r = s->f2B6;
+    s->f2B4 &= ~1;
+    TUdpSocket::unlock_mutex(network_dispatch_state.value);
+    return r;
+}
+
 s16 tcp_get_opt(s16 nh, s16 type, u32 *opt) {
     s16 r;
     if (nh & 0xC00) {

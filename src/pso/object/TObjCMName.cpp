@@ -24,6 +24,7 @@
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/unk/text_80131ADC.h"
+#include "pso/object/TObjLuker.h"
 
 struct Menu_80296D68
 {
@@ -59,6 +60,22 @@ struct Menu_80297B18 {
 };
 
 struct Pair_80297B18 { s32 a, b; };
+
+struct CreationCharaRecord {
+    char name[0x18];
+    u32 name_color;
+    u8 pad_1C[0x30 - 0x1C];
+    s8 section_id;
+    s8 char_class;
+    u8 flags;
+};
+
+extern "C" {
+extern const char *lbl_804DBC0C[];
+extern s32 lbl_804DBC40[];
+extern char lbl_805D3CD8[4];
+extern const u32 lbl_805DDBB8;
+}
 
 typedef void (TObjCMMainMenu::*MenuFn_802987AC)();
 
@@ -2118,6 +2135,62 @@ void TObjCMMainMenu::render() {
     if (action) (this->*action)();
     restore_saved_depth_alpha_state();
     ((void (*)(void*))fn_802972BC)(this);
+}
+
+void TObjCMMainMenu::sub_80297EF4() {
+    f32 scale = get_scale();
+    f32 alpha;
+    if (progress >= 0.8f) {
+        alpha = 1.0f;
+    } else {
+        alpha = progress / 0.8f;
+    }
+    vec2f pos;
+    pos.x = 243.0f - get_creation_sprite_id__14TObjCMMainMenuFl(154);
+    pos.y = 173.0f;
+    draw_ui_sprite(154, &pos, -3.0625f, alpha);
+    pos.x = 242.0f - get_creation_sprite_id__14TObjCMMainMenuFl(150);
+    pos.y = 210.0f;
+    draw_ui_sprite(150, &pos, -3.0625f, alpha);
+    pos.x = 202.0f - get_creation_sprite_id__14TObjCMMainMenuFl(153);
+    pos.y = 246.0f;
+    draw_ui_sprite(153, &pos, -3.0625f, alpha);
+
+    u32 color = ((u32)(255.0f * alpha) << 24) | 0xFFFFFF;
+    int char_class = ((CreationCharaRecord *)character)->char_class;
+    if (((CreationCharaRecord *)character)->flags & 2) {
+        char_class = 12;
+    }
+    TCameraCtrl::restore_full_screen_view();
+    draw_menu_text(263.0f, 172.0f * scale, lbl_804DBC0C[char_class], color);
+    TCameraCtrl__sub_80068EF0();
+
+    u32 name_color = ((CreationCharaRecord *)character)->name_color;
+    if (!(name_color & 0xFF000000)) {
+        name_color = 0xFFFFFFFF;
+    }
+    name_color &= lbl_805DDBB8;
+    TCameraCtrl::restore_full_screen_view();
+    draw_menu_text(263.0f, 209.0f * scale, ((CreationCharaRecord *)character)->name, name_color | (color & 0xFF000000));
+    TCameraCtrl__sub_80068EF0();
+
+    if (progress <= 0.8f) {
+        return;
+    }
+    f32 section_alpha = (progress - 0.8f) / 0.19999999f;
+    if (!(((CreationCharaRecord *)character)->flags & 1)) {
+        vec2f icon_pos;
+        icon_pos.x = 212.0f;
+        icon_pos.y = 234.0f;
+        draw_ui_sprite(lbl_804DBC40[((CreationCharaRecord *)character)->section_id], &icon_pos, -3.0625f, section_alpha);
+    }
+    const char *section_name = (const char *)TObjLuker::get_stat_table_entry(((CreationCharaRecord *)character)->section_id);
+    if (((CreationCharaRecord *)character)->flags & 1) {
+        section_name = lbl_805D3CD8;
+    }
+    TCameraCtrl::restore_full_screen_view();
+    draw_menu_text(263.0f, 247.0f * scale, section_name, ((u32)(255.0f * section_alpha) << 24) | 0xFFFFFF);
+    TCameraCtrl__sub_80068EF0();
 }
 
 void TObjCMMainMenu::sub_802981BC() {  }
