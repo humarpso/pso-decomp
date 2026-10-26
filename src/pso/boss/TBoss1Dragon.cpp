@@ -4236,7 +4236,6 @@ void TBoss1Dragon::handleFallState(u32 reason) {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-#pragma opt_bool off
 void TBoss1Dragon__sub_80025168(void *arg0, void *arg1) {
     TBoss1Dragon *self = (TBoss1Dragon *)arg0;
     u32 reason = (u32)arg1;
@@ -4266,8 +4265,8 @@ void TBoss1Dragon__sub_80025168(void *arg0, void *arg1) {
         break;
     case 7:
         subtractive_rng_seed((u8 *)self + 0x77C,
-            (u32)(((u64)(s32)(TBoss1Dragon__data_805D7FC4 * self->savedX) << 16) |
-            (u16)(s32)(TBoss1Dragon__data_805D7FC4 * self->savedZ)));
+            ((s32)(TBoss1Dragon__data_805D7FC4 * self->savedX) * 0x10000) |
+            (u32)(u16)(s32)(TBoss1Dragon__data_805D7FC4 * self->savedZ));
         break;
     case 6:
         self->saveCurrentDestination();
