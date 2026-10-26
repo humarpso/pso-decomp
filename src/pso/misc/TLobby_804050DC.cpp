@@ -5882,6 +5882,118 @@ s32 TLobby__sub_80410A98(NetPacket *pkt, u8 *dst, u8 *src, Ipv6SendOptions *opts
     return TLobby__sub_80410BA8(pkt, &params, rt->iface, NULL);
 }
 
+struct Ipv6Header {
+    union {
+        u32 word;
+        u16 half;
+        u8 version;
+    } vtf;
+    u16 payload_length;
+    u8 next_header;
+    u8 hop_limit;
+    IPv6Address src;
+    IPv6Address dst;
+};
+struct Ipv6FragmentHeader {
+    u8 next_header;
+    u8 reserved;
+    u16 offset_flags;
+    u32 ident;
+};
+
+#pragma push
+#pragma opt_common_subs on
+s16 TLobby__sub_80410D6C(NetPacket *pkt, Ipv6Header *hdr, s16 iface, void *opts, u32 room) {
+    s16 NetIPv6IsMulticast(u8 *addr);
+    s16 TLobby__sub_804112B8(s32 packet, s32 dst, s16 iface);
+    s16 TLobby__sub_8041123C(s32 packet, s32 opts, s16 iface);
+    NetPacket out;
+    Ipv6FragmentHeader fh;
+    s16 j;
+    s16 i;
+    s32 flen;
+    s32 offset;
+    s16 left;
+    NetPacket *frag;
+    u32 chunk;
+    s16 n;
+    s16 ret;
+    NetPacketFragment *f;
+
+    if (room < sizeof(fh)) {
+        return -6;
+    }
+    fh.next_header = hdr->next_header;
+    fh.reserved = 0;
+    chunk = room - sizeof(fh);
+    chunk &= 0xFFF8;
+    fh.offset_flags = 0;
+    offset = 0;
+    fh.ident = ipv6_protocol_state.f8;
+    hdr->next_header = 44;
+    while (pkt->total_bytes != 0) {
+        out.total_bytes = 0;
+        out.fragment_count = 0;
+        for (n = pkt->fragment_count - 1; n >= 0; n--) {
+            if (out.total_bytes + (flen = pkt->fragments[n].length) < chunk) {
+                out.total_bytes += pkt->fragments[n].length;
+                out.fragment_count++;
+            } else {
+                out.total_bytes = chunk;
+                out.fragment_count++;
+                break;
+            }
+        }
+        j = out.fragment_count - 1;
+        frag = &out;
+        i = pkt->fragment_count - 1;
+        left = out.total_bytes;
+        while (j >= 0 && left > 0) {
+            NetMemcpy(&out.fragments[j].buffer, &pkt->fragments[i].buffer, sizeof(NetBufferRef));
+            if (left < pkt->fragments[i].length) {
+                out.fragments[j].length = left;
+                pkt->total_bytes -= left;
+                f = (NetPacketFragment *)((u8 *)pkt + i * sizeof(NetPacketFragment));
+                f[1].length -= left;
+                TLobby__sub_80406EB8(&f[1].buffer, left);
+                break;
+            }
+            out.fragments[j].length = pkt->fragments[i].length;
+            left -= pkt->fragments[i].length;
+            pkt->total_bytes -= pkt->fragments[i].length;
+            pkt->fragments[i].length = 0;
+            pkt->fragment_count--;
+            j--;
+            i--;
+        }
+        fh.offset_flags = offset & 0xFFF8;
+        if (pkt->total_bytes != 0) {
+            fh.offset_flags |= 1;
+        }
+        offset += (s16)out.total_bytes;
+        out.total_bytes += sizeof(fh);
+        out.fragments[out.fragment_count].length = sizeof(fh);
+        ((TLobby *)&out.fragments[out.fragment_count].buffer)->set_value_and_enable((s32)&fh);
+        out.fragment_count++;
+        hdr->payload_length = out.total_bytes;
+        out.total_bytes += sizeof(Ipv6Header);
+        out.fragments[out.fragment_count].length = sizeof(Ipv6Header);
+        ((TLobby *)&out.fragments[out.fragment_count].buffer)->set_value_and_enable((s32)hdr);
+        out.fragment_count++;
+        if (NetIPv6IsMulticast(hdr->dst.bytes)) {
+            ret = TLobby__sub_804112B8((s32)frag, (s32)&hdr->dst, iface);
+        } else {
+            ret = TLobby__sub_8041123C((s32)frag, (s32)opts, iface);
+        }
+        if (ret < 0) {
+            break;
+        }
+    }
+    return ret;
+}
+
+#pragma pop
+
 struct PH_80411040 { IPv6Address src; IPv6Address dst; u32 len; u8 zero[3]; u8 next_header; };
 
 u16 TLobby__sub_80411040(const IPv6Address *src, const IPv6Address *dst, u8 next_header, const NetPacket *pkt, s16 flag) {
