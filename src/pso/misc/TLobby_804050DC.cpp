@@ -4620,7 +4620,8 @@ struct Ipv4Route {
     s16 type;
 };
 struct Ipv4Alias {
-    u8 pad0[4];
+    s16 f0;
+    u8 pad2[2];
     u32 addr;
     u32 broadcast;
     u32 network;
@@ -4630,7 +4631,8 @@ struct Ipv4Alias {
 struct Ipv4Iface {
     s16 state;
     s16 handle;
-    u8 pad4[4];
+    s16 f4;
+    u8 pad6[2];
     u32 addr;
     u32 broadcast;
     u32 network;
@@ -4641,7 +4643,7 @@ struct Ipv4RoutingState {
     s16 nroutes;
     s16 nifaces;
     s16 max_aliases;
-    u8 pad6[2];
+    s16 f6;
     Ipv4Route *routes;
     Ipv4Iface *ifaces;
 };
@@ -4753,6 +4755,184 @@ s32 TLobby__sub_8040F00C(s16 idx, NetBufferRef *out, s16 len, s32 arg3) {
     }
     return count;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s16 get_iface_addr_8040F1A0(s16 *n, Ipv4Iface **ifaces, u32 *addr) {
+    if (*n <= 0) {
+        return 0;
+    }
+    if ((*ifaces)->state != 1) {
+        return 0;
+    }
+    *addr = (*ifaces)->addr;
+    return 1;
+}
+
+s16 TRKValidMemory32(u32, u32, u32, s16, u8, u16);
+
+inline void remove_host_route_8040F1A0(Ipv4RoutingState *g, u32 dst, u32 gateway) {
+    s16 i;
+    Ipv4Route *e;
+
+    e = g->routes;
+
+    for (i = 0; i < g->nroutes; i++, e++) {
+        if ((e->flags & 1) && e->dst == dst && e->gateway == gateway && (e->type & 1) == 1) {
+            e->flags = 0;
+            return;
+        }
+    }
+}
+
+s16 TLobby__sub_8040F1A0(s16 idx) {
+    s16 is_socket_flag_set__6TLobbyFs(s16);
+    Ipv4RoutingState *g = (Ipv4RoutingState *)&ipv4_address_routing_state;
+    s16 *pn;
+    Ipv4Iface **pifs;
+    s16 count;
+    Ipv4Iface *ifc;
+    Ipv4Alias *alias;
+    u32 gateway;
+
+    if (idx < 0 || idx >= *(pn = &g->nifaces)) {
+        return -0x109;
+    }
+    ifc = *(pifs = &g->ifaces);
+    ifc += idx;
+    if (ifc->state != 1) {
+        return 0;
+    }
+    alias = ifc->aliases;
+    count = 0;
+    while (alias != NULL && count < g->max_aliases) {
+        Ipv4Alias *next;
+        if (is_socket_flag_set__6TLobbyFs(idx) == 0 && get_iface_addr_8040F1A0(pn, pifs, &gateway)) {
+            remove_host_route_8040F1A0(g, alias->addr, gateway);
+        }
+        TLobby__sub_80409D7C(idx, ifc->handle, 2, (s32)&alias->addr);
+        next = alias->next;
+        count++;
+        alias->f0 = 0;
+        alias->addr = 0;
+        alias->network = 0;
+        alias->broadcast = 0;
+        alias->mask = 0;
+        alias->next = NULL;
+        alias = next;
+    }
+    if (is_socket_flag_set__6TLobbyFs(idx) == 0 && get_iface_addr_8040F1A0(pn, pifs, &gateway)) {
+        remove_host_route_8040F1A0(g, ifc->addr, gateway);
+    }
+    {
+        Ipv4Route *e;
+        s16 n;
+        n = g->nroutes;
+        e = g->routes;
+        for (; n > 0; n--, e++) {
+            if ((e->flags & 1) && e->iface == idx) {
+                e->flags = 0;
+            }
+        }
+    }
+    TLobby::call_entry_callback(idx, ifc->handle);
+    ifc->state = 0;
+    ifc->handle = 0;
+    ifc->f4 = 0;
+    ifc->addr = 0;
+    ifc->network = 0;
+    ifc->broadcast = 0;
+    ifc->mask = 0;
+    ifc->aliases = NULL;
+    return 0;
+}
+s16 TLobby__sub_8040F454(u32 addr, u32 mask, u32 broadcast, s16 idx) {
+    s16 is_socket_flag_set__6TLobbyFs(s16);
+    s16 TLobby__sub_8040A044(s16, s32, s32, u8 *);
+    Ipv4RoutingState *g = (Ipv4RoutingState *)&ipv4_address_routing_state;
+    s16 *pn;
+    Ipv4Iface **pifs;
+    s16 unspecified;
+    Ipv4Iface *ifc;
+    s16 result;
+    s16 err;
+    s16 n;
+    s16 ok;
+    u32 gateway;
+    u32 a;
+
+    if (idx < 0 || idx >= *(pn = &g->nifaces)) {
+        return -0x109;
+    }
+    ifc = *(pifs = &g->ifaces);
+    ifc += idx;
+    if (ifc->state == 1) {
+        return -2;
+    }
+    ifc->state = 1;
+    ifc->handle = TLobby__sub_8040A044(idx, 0x800, 4, (u8 *)&addr);
+    if (ifc->handle < 0) {
+        ifc->state = 0;
+        return ifc->handle;
+    }
+    a = addr;
+    if (a == 0 && mask == 0xFFFFFFFF) {
+        unspecified = 1;
+    } else {
+        unspecified = 0;
+    }
+    ifc->addr = a;
+    ifc->network = addr & mask;
+    if (broadcast != 0) {
+        ifc->broadcast = broadcast;
+    } else {
+        ifc->broadcast = ifc->network | ~mask;
+    }
+    ifc->mask = mask;
+    n = (s64)TLobby::invoke_socket_callback(idx, ifc->handle);
+    if (n < g->f6) {
+        ifc->state = 0;
+        return -6;
+    }
+    ifc->f4 = n;
+    ok = 0;
+    ifc->aliases = NULL;
+    gateway = 0xFFFFFFFF;
+    if (is_socket_flag_set__6TLobbyFs(idx) == 0 && !unspecified) {
+        if (get_iface_addr_8040F1A0(pn, pifs, &gateway)) {
+            result = TRKValidMemory32(addr, 0xFFFFFFFF, gateway, 0, 1, 0);
+            if (result < 0) {
+                TLobby::call_entry_callback(idx, ifc->handle);
+                ifc->state = 0;
+                ifc->handle = 0;
+                ifc->f4 = 0;
+                ifc->addr = 0;
+                ifc->network = 0;
+                ifc->broadcast = 0;
+                ifc->mask = 0;
+                return result;
+            }
+        }
+    }
+    err = TRKValidMemory32(addr & mask, mask, addr, 0, 1, 0);
+    if (err < 0) {
+        if (is_socket_flag_set__6TLobbyFs(idx) == 0 && gateway != 0xFFFFFFFF && !unspecified) {
+            remove_host_route_8040F1A0(g, addr, gateway);
+        }
+        TLobby::call_entry_callback(idx, ifc->handle);
+        ifc->state = 0;
+        ifc->handle = 0;
+        ifc->f4 = 0;
+        ifc->addr = 0;
+        ifc->network = 0;
+        ifc->broadcast = 0;
+        ifc->mask = 0;
+        return err;
+    }
+    return 0;
+}
+#pragma pop
 
 s32 TLobby::is_lookup_found(u32 arg0, u32 arg1) {
     if (TLobby__sub_8040F76C(arg0, arg1) != NULL) {
