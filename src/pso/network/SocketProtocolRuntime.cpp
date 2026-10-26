@@ -87,6 +87,20 @@ struct TcpSeqRange { u32 start; u32 end; };
 
 struct TcpSackView { u8 pad0[0xFA]; s16 last_reasm; TcpSeqRange reasm[32]; u8 pad1FC[0x2F8 - 0x1FC]; TcpSeqRange sack[5]; };
 
+struct Ref_8041FFF8 { s32 p; u8 type; u8 pad5[3]; };
+
+struct Rec_8041FFF8 { u8 data[8]; s16 len; s16 off; s32 arg; };
+
+struct Item_8041FFF8 { s16 len; u8 pad2[2]; Ref_8041FFF8 ref; };
+
+struct Sock_8041FFF8 {
+    u8 pad0[0x10]; u8 buf[8]; u8 pad18[8];
+    u32 f20; s32 f24; u32 f28; u8 pad2C[4]; u32 f30; u32 f34; Item_8041FFF8 items[32];
+    u8 pad1B8[0x1FC - 0x1B8]; s32 f1FC; u8 pad200[4];
+    u8 flag : 1; u8 rest : 7;
+    u8 pad205[0x530 - 0x205]; u32 f530; u8 pad534[0x544 - 0x534];
+};
+
 extern "C" {
 void TLobby__sub_803F87C8(u8 *arg0);
 s32 TLobby__sub_803F87C4(void *);
@@ -106,6 +120,8 @@ void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
 void TLobby__sub_80406FD8(void *, void *, u32);
 void TLobby__sub_8041A9AC(Obj_8041ED8C *);
+void complete_request_callback__6TLobbyFv(s16, s32, s32, void *);
+void set_thread_state_and_resume__6TLobbyFv(s16, s32, s16);
 extern G_8041ED8C tcp_protocol_state;
 s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3);
 s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
@@ -345,6 +361,124 @@ void TLobby__sub_8041FED4(TcpSackView *tcb) {
             }
         }
     }
+}
+
+s32 TLobby__sub_8041FFF8(u32 len, Sock_8041FFF8 *s) {
+    s32 n;
+    s16 idx;
+    u32 rem;
+    s16 j;
+    Item_8041FFF8 *p;
+    s16 i;
+    Item_8041FFF8 *q;
+    u32 k;
+    Rec_8041FFF8 rec;
+    Ref_8041FFF8 a;
+    u8 unused[8];
+    Ref_8041FFF8 b;
+    Ref_8041FFF8 c;
+    idx = (Obj_8041ED8C *)s - tcp_protocol_state.p;
+    if (s->flag == 1) {
+        a.type = 1;
+        rem = len;
+        b.type = 1;
+        if (rem != 0 && s->f20 != 0) {
+            ((TLobby *)&b)->set_value_and_enable((s32)&rec);
+            NetMemcpy(&a, s->buf, 8);
+            n = s->f24;
+            if (n != 0) {
+                TLobby__sub_80406EB8(&a, n * 16);
+            }
+            TLobby__sub_80406FD8(&b, &a, 16);
+            while (rec.len <= rem && s->f20 != 0) {
+                s->f20--;
+                rem -= rec.len;
+                s->f34 -= rec.len;
+                if (s->f24 < 64U) {
+                    s->f24++;
+                } else {
+                    s->f24 = 0;
+                }
+                if (s->f20 == 0) {
+                    s->f28 = 0;
+                    s->f24 = 0;
+                    s->flag = 0;
+                }
+                complete_request_callback__6TLobbyFv(idx, rec.arg, 0, &rec);
+                n = s->f24;
+                NetMemcpy(&a, s->buf, 8);
+                if (n != 0) {
+                    TLobby__sub_80406EB8(&a, n * 16);
+                }
+                TLobby__sub_80406FD8(&b, &a, 16);
+            }
+            if (rem != 0 && s->f20 != 0) {
+                s->f34 -= rem;
+                rec.len -= (s16)rem;
+                rec.off += (s16)rem;
+                TLobby__sub_80406FD8(&a, &b, 16);
+            }
+        }
+        return 0;
+    }
+    if (len != 0) {
+        if (len <= s->f20) {
+            s->f20 -= len;
+            s->f24 += len;
+            if (s->f24 >= s->f530) {
+                s->f24 -= s->f530;
+            }
+        } else {
+            len -= s->f20;
+            s->f20 = 0;
+            p = s->items;
+            s->f24 = s->f28;
+            s->f34 -= len;
+            for (i = 0; i < s->f30 && len != 0; p++, i++) {
+                if (len >= p->len) {
+                    len -= p->len;
+                    p->len = 0;
+                } else {
+                    p->len -= len;
+                    TLobby__sub_80406EB8(&p->ref, len);
+                    len = 0;
+                }
+            }
+        }
+    }
+    if (s->f34 != 0 && s->f34 <= s->f530 - s->f20) {
+        NetMemcpy(&c, s->buf, 8);
+        TLobby__sub_80406EB8(&c, s->f28);
+        q = s->items;
+        for (j = 0; j < s->f30; q++, j++) {
+            if (q->len > 0) {
+                s->f20 += q->len;
+                if (q->len > (k = s->f530 - s->f28)) {
+                    TLobby__sub_80406FD8(&c, &q->ref, k);
+                    TLobby__sub_80406EB8(&q->ref, k);
+                    q->len -= k;
+                    s->f34 -= k;
+                    s->f28 = 0;
+                    NetMemcpy(&c, s->buf, 8);
+                }
+                k = q->len;
+                TLobby__sub_80406FD8(&c, &q->ref, k);
+                s->f28 += k;
+                TLobby__sub_80406EB8(&c, k);
+                s->f34 -= k;
+                q->len = 0;
+            }
+        }
+        if (s->f34 != 0) {
+            return 0;
+        }
+        s->f34 = 0;
+        s->f30 = 0;
+        set_thread_state_and_resume__6TLobbyFv(idx, s->f1FC, 0);
+    } else if (s->f34 == 0) {
+        set_thread_state_and_resume__6TLobbyFv(idx, s->f1FC, 0);
+    }
+    return 0;
 }
 
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2) {
