@@ -111,7 +111,7 @@ TEndingPicStage::TEndingPicStage(TObject *parent) : TObject(parent) {
 
     player_light_index = 0;
     Vec position = ending_player_start_position;
-    ending_player = (TUnk_804C4540 *)((TObjPlayer *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF))->create_ending_player();
+    ending_player = TUnk_804C4540::create(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
     ending_player->set_position_from(&position);
     init__9TItemDataFv(&item);
     item.data1.data_u8[0] = 2;

@@ -16,7 +16,7 @@ void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1) {
 void TLobby::fill_guild_card_from_char(s32 arg1) {
     u32 temp_r3;
     u8 *temp_r31;
-    temp_r3 = get_char_index__23TAdSinglePlyChrSelectGCFUi((arg1));
+    temp_r3 = (u32)get_char_index__23TAdSinglePlyChrSelectGCFUi(arg1);
     if (temp_r3 != 0U) {
         temp_r31 = (unsigned char *) (temp_r3 + 0x370);
         if (temp_r31 != NULL) {

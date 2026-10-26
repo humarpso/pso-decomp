@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+class TPlyCharData;
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801FD770(void);
 s32 TAdPlayerLoadGC__sub_801FD814(void);
@@ -59,7 +61,7 @@ s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void);
 void free_callbacks__23TAdSinglePlyChrSelectGCFv(void);
 s32 free_data__23TAdSinglePlyChrSelectGCFv(void);
 void game_state_load(void);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
+TPlyCharData *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 int get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int a0);
 s32 get_character_save_record(u32 arg0);
 s32 get_entry__23TAdSinglePlyChrSelectGCFi(s32 i);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyCharData.h"
 #include "pso/player/TUnk_804C4540.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
@@ -102,20 +103,18 @@ void TObjPlayer__sub_801D8864(void);
 int TUnk_804C4540::set_position_from(void *pos) { return TUnk_804B9870::set_position_from(pos); }
 void TUnk_804C4540::set_animation_default(s16 index) { set_animation(index); }
 
-struct Player_801D88C8;
-struct Src_801D88C8;
-s32 TObjPlayer::create_ending_player() {
+TUnk_804C4540 *TUnk_804C4540::create(TPlyCharData *data) {
     Rec_801D86F8 sp8;
-    s32 var_r0;
+    TUnk_804C4540 *player;
     ((TObjPlayer *)(&sp8))->init_inventory();
-    copy_player_visual_record(&sp8, (void *) (((u8 *)this) + 0x370));
-    copy_data__6TLobbyFPvPv((sp8.c), (((u8 *)this) + 0x34C));
-    fn_801D40D4((void *) (*((u8 *)this)), (void *) (((TObjPlayer *)((u8 *)this))->get_ptr_4()), sp8.b);
-    var_r0 = __nw__7TObjectFUl(0xDB8);
-    if (var_r0 != 0) {
-        var_r0 = (s32)create_ending_sequence_player((Player_801D88C8 *)var_r0, (void *)tl_03, (Src_801D88C8 *) (&sp8));
+    copy_player_visual_record(&sp8, &data->m_disp_data.m_disp_part2);
+    copy_data__6TLobbyFPvPv(sp8.c, &data->m_disp_data);
+    fn_801D40D4((void *)data->m_inventory.m_num_items, (void *)((TObjPlayer *)data)->get_ptr_4(), sp8.b);
+    player = (TUnk_804C4540 *)TObject::operator new(0xDB8);
+    if (player != NULL) {
+        player = (TUnk_804C4540 *)create_ending_sequence_player((Player_801D88C8 *)player, (void *)tl_03, (Src_801D88C8 *)&sp8);
     }
-    return var_r0;
+    return player;
 }
 
 void TObjPlayer__sub_801D877C(u8 *arg0) {
