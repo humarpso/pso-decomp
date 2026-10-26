@@ -356,6 +356,7 @@ s32 rand();
 extern u8 boss6_type1_random_action_table[];
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE3D8;
+extern const f32 lbl_805DE3D4;
 void TBoss6Type1__sub_802B8BB4(u8 *arg0);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 is_active__14TBoss6PlotFalzFv();
@@ -2119,6 +2120,34 @@ struct T1_802B529C;
 struct Boss_802B5434;
 struct Boss_802B8EE0;
 extern "C" {
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+#pragma opt_lifetimes off
+void TBoss6Type1__sub_802B8A70(TBoss6Type1 *self) {
+    Atk_802B8EE0 atk;
+    s8 v;
+    f32 ratio;
+    s32 total;
+    v = ((u32)self->rotation_y >> 8) & 0xFF;
+    v = lbl_805DE3D4 * (TBoss6Type1__data_805DE304 * (f32)rand() - TBoss6Type1__data_805DE30C) + v;
+    ratio = TBoss6Type1__data_805DE30C;
+    atk.b1 = 0x1C;
+    atk.b0 = v;
+    total = ((Boss_802B865C *)self)->f4C0 + ((Boss_802B865C *)self)->f4C4;
+    if (total > 0) {
+        ratio = (f32)((Boss_802B865C *)self)->f4C0 / (f32)total;
+    }
+    v = 20;
+    if (TBoss6Type1__data_805DE304 * (f32)rand() < ratio) {
+        v = -5;
+    }
+    atk.b2 = v;
+    self->m_438 = 1;
+    self->send_6xA4_action(0x18, (s32 *)&atk);
+}
+#pragma pop
+
 void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
     Atk_802B8EE0 s;
     s32 r4;

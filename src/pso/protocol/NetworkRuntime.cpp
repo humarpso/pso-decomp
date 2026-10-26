@@ -52,6 +52,9 @@ s16 TLobby__sub_80401BCC(void *, void *, int);
 
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
 extern u8 lbl_805D7A74[1];
+extern u8 lbl_805D7A70[4];
+u16 read_network_u16_be(u8 *p);
+u32 TLobby__sub_80402AFC(u8 *p);
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
 
 extern s32 lbl_805D4810;
@@ -509,7 +512,29 @@ struct Sub_803FA664 { u8 pad0[0x1C]; s16 h1C; u8 pad1E[0x34 - 0x1E]; u8 peer[0x5
 struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[4]; u8 b6; u8 pad7[4]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
 struct Msg_803FA664 { u8 pad0; u8 b1; s16 h2; };
 
-s16 NetIPv6CPParseConfigureOption(u32 *src, Sub_803FA664 *a, Sub_803FA664 *b, u8 *hdr, s32 flag);
+struct Opts_803FA990 {
+    s16 h0;
+    u8 pad2[0x8 - 0x2];
+    s32 w8;
+    s32 wC;
+    s32 w10;
+    s32 w14;
+    u8 pad18[0x20 - 0x18];
+    s32 w20;
+    s32 w24;
+    u8 pad28[0x30 - 0x28];
+    s16 h30;
+    u8 pad32[0x3C - 0x32];
+    s32 w3C;
+    s32 w40;
+    s32 w44;
+    s32 w48;
+    u8 pad4C[0x54 - 0x4C];
+    s32 w54;
+    s32 w58;
+};
+
+s16 NetIPv6CPParseConfigureOption(u32 *src, Sub_803FA664 *a, Sub_803FA664 *b, u8 *hdr, s16 flag);
 
 #pragma push
 #pragma opt_common_subs on
@@ -706,6 +731,80 @@ s16 TLobby__sub_803FA7B0(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
     }
     TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
     return status != 2;
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 ipv6cp_read_u16(u32 *src) {
+    if (TLobby__sub_80401BCC(src, lbl_805D7A70, 2) != 2) {
+        return -1;
+    }
+    return read_network_u16_be(lbl_805D7A70);
+}
+
+inline u32 ipv6cp_read_u32(u32 *src) {
+    if (TLobby__sub_80401BCC(src, lbl_805D7A70, 4) != 4) {
+        return 0;
+    }
+    return TLobby__sub_80402AFC(lbl_805D7A70);
+}
+
+s16 NetIPv6CPParseConfigureOption(u32 *src, Sub_803FA664 *a, Sub_803FA664 *b, u8 *hdr, s16 flag) {
+    Opts_803FA990 *local = (Opts_803FA990 *)a;
+    Opts_803FA990 *peer = (Opts_803FA990 *)b;
+    s16 len;
+    s16 status = 2;
+    s32 id;
+    len = hdr[1] - 2;
+    switch (hdr[0]) {
+    case 2:
+        peer->h30 = ipv6cp_read_u16(src);
+        status = 4;
+        len -= 2;
+        break;
+    case 1:
+        peer->w20 = ipv6cp_read_u32(src);
+        peer->w24 = ipv6cp_read_u32(src);
+        len -= 8;
+        if (flag == 0) {
+            local->w8 = peer->w20;
+            local->wC = peer->w24;
+            local->w44 = peer->w20;
+            local->w48 = peer->w24;
+        } else {
+            id = peer->w20;
+            if (id != 0 || peer->w24 != 0) {
+                local->w3C = id;
+                local->w40 = peer->w24;
+                local->w10 = peer->w20;
+                local->w14 = peer->w24;
+            } else {
+                status = 3;
+                local->w54 = local->w3C;
+                local->w58 = local->w40;
+            }
+        }
+        break;
+    default:
+        status = 4;
+        break;
+    }
+    if (!(peer->h0 & (1 << ipv6cp_option_bit(hdr[0])))) {
+        status = 4;
+    }
+    if (len < 0) {
+        return -1;
+    }
+    if (flag == 0 && len > 0) {
+        while (len-- > 0) {
+            if (ipv6cp_read_byte(src) == -1) {
+                return -1;
+            }
+        }
+    }
+    return status;
 }
 #pragma pop
 
