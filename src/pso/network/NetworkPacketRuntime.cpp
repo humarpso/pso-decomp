@@ -132,6 +132,10 @@ u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void NetUnregisterTimer(void *);
 s32 TLobby__sub_80421B3C(s32);
 s32 TLobby__sub_804250A8(s32);
+s16 TLobby__sub_80422F70(s16 iface, void *buf, s32 len, void *out);
+s16 TLobby__sub_8042315C(s16 iface, void *req);
+s16 TLobby__sub_80423064(s16 iface, s32 mode);
+extern s16 lbl_805D7B08;
 extern u8 TLobby__sub_80423298[];
 extern s32 lbl_805D7B14;
 extern s16 lbl_805D7B18;
@@ -436,6 +440,59 @@ s32 TLobby__sub_80424FE0(void) {
         }
     }
     return 0;
+}
+
+struct P_8042315C {
+    s32 type;
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 pad10;
+    s16 n;
+    s16 m;
+    s32 d;
+    s32 pad1C;
+};
+
+static inline s16 request_iface_mode4(s16 iface) {
+    P_8042315C req;
+    req.type = 4;
+    req.a = 0;
+    req.b = -1;
+    req.c = -1;
+    return TLobby__sub_8042315C(iface, &req);
+}
+
+s32 TLobby__sub_804250A8(s32 mode) {
+    u8 mac[6];
+    u8 info[0x1C];
+    s32 cur;
+    cur = TLobby__sub_80422F70(lbl_805D7B08, info, sizeof(info), mac) < 0 ? 0 : 1;
+    if (cur != mode) {
+        switch (mode) {
+        case 1: {
+            s32 req[7];
+            req[0] = 4;
+            req[1] = 0;
+            req[2] = -1;
+            req[3] = -1;
+            if (TLobby__sub_8042315C(lbl_805D7B08, req) != 0) {
+                TLobby__sub_80423064(lbl_805D7B08, 4);
+                if (request_iface_mode4(lbl_805D7B08) != 0) {
+                    lbl_805D7BA0 = 3;
+                    *(volatile s32 *)&lbl_805D7B0C = -1;
+                    *(volatile s32 *)&lbl_805D4820 = -2;
+                    return 0;
+                }
+            }
+            return 1;
+        }
+        case 0:
+            TLobby__sub_80423064(lbl_805D7B08, 4);
+            return 0;
+        }
+    }
+    return cur;
 }
 
 s32 TLobby__sub_804251C0(s16 id, void *out) {
