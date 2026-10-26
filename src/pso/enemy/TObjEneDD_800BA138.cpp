@@ -2,6 +2,7 @@
 #include "pso/enemy/TObjEneDD_800BA138.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_800BA138 { char pad[0x18]; };
 struct VObj_800BA138 : Base_800BA138 {
@@ -244,8 +245,8 @@ void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     ((EneDDObj_800BA138*)obj_ene_dd_instance)->m12(arg2 + 0xC, (void*)arg2, (void*)arg3);
 }
 
-int TObjEneDD__sub_800BA6B8(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
-int TObjEneDD__sub_800BA6C4(void* p) { return (*(u32*)((char*)p + 0x890) >> 6) & 0x1; }
+int is_target_android(void* p) { return (((TObjPlayer *)p)->class_flags & CLASS_FLAG_ANDROID) != 0; }
+int is_target_ranger(void* p) { return (((TObjPlayer *)p)->class_flags & CLASS_FLAG_RANGER) != 0; }
 u8 TObjEneDD::is_alive() {
     int var_r31;
 

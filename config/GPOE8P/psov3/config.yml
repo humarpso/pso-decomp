@@ -1101,7 +1101,7 @@ force_active:
   - TObjPlayer__sub_8001940C
   - TObjPlayer__sub_8001941C
   - TObjPlayer__sub_8001951C
-  - pose_player__15TEndingPicStageFlSc
+  - pose_player__15TEndingPicStageF17player_class_typeSc
   - set_camera__15TEndingPicStageFv
   - TObjPlayer__sub_8002ECC4
   - TObjPlayer__sub_8002ED48
@@ -4198,7 +4198,7 @@ force_active:
   - get_field_2__9TTecLukerFPv
   - get_field_44__23TAdSinglePlyChrSelectGCFv
   - get_field_cc__19TWindowSubShortMailFPv
-  - get_flag890_state__10TObjPlayerFv
+  - get_class_type__10TObjPlayerFv
   - get_flag_1__10TObjPlayerFv
   - get_flag_bit0__14TObjEneBm5WolfFPv
   - get_flag_or_zero__20TWindowSubStatusDispFPvSc

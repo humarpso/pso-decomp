@@ -1269,7 +1269,6 @@ int try_apply_status_action__10TObjPlayerFi(void*);
 s32 set_action_state__10TObjPlayerFPvss(void *, s32, s32);
 u8 * get_player_by_client_id(u16);
 s32 check_camera_mode__10TObjPlayerFv();
-s32 TObjPlayer__sub_801BE2D0(s32);
 s32 get_model_field_m25__10TObjPlayerFv(void *);
 s16 get_action_animation__10TObjPlayerFv(void *);
 s32 call_model_m24__10TObjPlayerFv(void *);
@@ -1471,7 +1470,7 @@ void release_control_lock__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D0F70(void* p);
 int copy_position__10TObjPlayerFPv(void* p);
 int query_field_340__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801D1018(void* p);
+int is_android_player(void* p);
 void TObjPlayer__sub_801D1024(void* p, s32 v);
 void TObjPlayer__sub_801D102C(void* p, s32 v);
 s32 TObjPlayer__sub_801D1034(void* p);
@@ -5980,10 +5979,10 @@ void TObjPlayer::update_action(s32 arg0) {
     } else if (temp_r3 == 1U) {
         ((TObjPlayer *)arg0)->rewind_position_history();
     }
-    if ((TObjPlayer__sub_801BE2D0(arg0) != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
+    if ((((TObjPlayer *)arg0)->is_newman() != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
         add_actor_tp(arg0, 1);
     }
-    if ((((s32 (*)(s32))TObjPlayer__sub_801D1018)(arg0) != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
+    if ((((s32 (*)(s32))is_android_player)(arg0) != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
         add_actor_hp(arg0, 1);
     }
 }
@@ -6307,7 +6306,7 @@ void TObjPlayer::set_float_param(s16 arg1) {
 
 int query_field_340__10TObjPlayerFPv(void* p) { return ((TObjPlayer *)((char*)p + 0x340))->update_action_palette(); }
 
-int TObjPlayer__sub_801D1018(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
+int is_android_player(void* p) { return (((TObjPlayer *)p)->class_flags & CLASS_FLAG_ANDROID) != 0; }
 
 void TObjPlayer__sub_801D1024(void* p, s32 v) { *(s32*)((char*)p + 0x10) = v; }
 

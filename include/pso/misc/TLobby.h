@@ -184,7 +184,7 @@ struct TLobby : public TObject {
     void copy_short_fields(void *arg1);
     static void debug_print(s32 arg0, ...);
     int compare_file_extension(const char *ext);
-    static s32 select_download_type(s32 arg0);
+    static s32 get_class_type_name(s32 class_flags);
     static void update_menu_cursor();
     static void free_keyboard_soft_resources();
     static void update_keyboard_menu();
@@ -1284,8 +1284,9 @@ struct TLobby : public TObject {
     static void acquire_serial_access_for_slot(u8 arg0);
     static void store_chr_select_value(s32 arg0);
     static void qst_op_try_spend_meseta(s32 arg0, s32 arg1);
-    static void fill_player_team_flags(s32 arg0, s32 arg1);
-    static void store_player_state_flag(s32 arg0, s32 arg1);
+    static void qst_op_get_chara_class(s32 arg0, s32 arg1);
+    static void qst_op_get_gender(s32 arg0, s32 arg1);
+    static void qst_op_get_pl_job(s32 arg0);
     static void apply_to_player_by_client_id_a(s32 arg0);
     static void apply_to_player_by_client_id_b(s32 arg0);
     static void store_boss_phase_flag(s32 arg0);

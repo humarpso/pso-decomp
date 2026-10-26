@@ -1,6 +1,7 @@
 #include "pso/misc/TWindowDD.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/unk/text_80228E98.h"
 #include <string.h>
 #include "pso/misc/TLobby.h"
@@ -134,11 +135,11 @@ s32 TWindowDD::get_player_battle_flag_state(u16 arg0) {
 
     player = get_player_by_client_id((u16) arg0);
     if (player != NULL) {
-        temp_r3_2 = *(s32 *)((s8 *)player + 0x890);
-        if (temp_r3_2 & 1) {
+        temp_r3_2 = ((TObjPlayer *)player)->class_flags;
+        if (temp_r3_2 & CLASS_FLAG_MALE) {
             return 0;
         }
-        if (temp_r3_2 & 2) {
+        if (temp_r3_2 & CLASS_FLAG_FEMALE) {
             return 2;
         }
         goto block_5;

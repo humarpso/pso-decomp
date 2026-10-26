@@ -176,35 +176,35 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
             item.sub = 2;
             break;
         case 3:
-            if (((TObjPlayer *)self)->is_ready() != 0) {
+            if (((TObjPlayer *)self)->is_android() != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 0;
             break;
         case 4:
-            if (((TObjPlayer *)self)->is_ready() != 0) {
+            if (((TObjPlayer *)self)->is_android() != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 1;
             break;
         case 5:
-            if (((TObjPlayer *)self)->is_ready() != 0) {
+            if (((TObjPlayer *)self)->is_android() != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 2;
             break;
         case 6:
-            if (((TObjPlayer *)self)->is_ready() != 0) {
+            if (((TObjPlayer *)self)->is_android() != 0) {
                 return 0;
             }
             item.type = 6;
             item.sub = 0;
             break;
         case 7:
-            if (((TObjPlayer *)self)->is_ready() != 0) {
+            if (((TObjPlayer *)self)->is_android() != 0) {
                 return 0;
             }
             item.type = 6;
@@ -223,7 +223,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
             item.type = 7;
             break;
         case 12:
-            if (((TObjPlayer *)self)->is_ready() != 0) {
+            if (((TObjPlayer *)self)->is_android() != 0) {
                 return 0;
             }
             item.type = 8;
