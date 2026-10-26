@@ -8099,7 +8099,7 @@ pso/unk/text_8023F660.cpp:
 pso/misc/TLobby_8023F734.cpp:
 	.text       start:0x8023F734 end:0x80242908
 	.ctors      start:0x80433FB4 end:0x80433FBC
-	.data       start:0x804CDC44 end:0x804CDC88
+	.data       start:0x804CDA50 end:0x804CDC88
 
 pso/misc/TWindowSubStatusDisp_80242908.cpp:
 	.text       start:0x80242908 end:0x80242910

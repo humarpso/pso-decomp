@@ -835,6 +835,299 @@ void update_random_flip_flag__6TLobbyFPv(u8 *arg0) {
 
 void TLobby__sub_80240F38(void) {  }
 
+void TLobby__sub_80240F3C(SoundRequestVoice *v) {
+    s32 num = 1;
+    s32 den = 1;
+    s32 extra = 0;
+    switch (v->bank) {
+    case 0:
+        switch (v->index) {
+        case 0: case 1: case 2: case 3: case 4:
+        case 7: case 9:
+        case 18: case 21:
+        case 23: case 24: case 25: case 26: case 27: case 28: case 29: case 30: case 31:
+            v->flags |= 0x40;
+            break;
+        }
+        break;
+    case 3:
+        switch (((Owner_80241798 *)v->owner)->field_288) {
+        case 2:
+            switch (v->index) {
+            case 12:
+                den = 1;
+                v->flags |= 0x40;
+                break;
+            case 1: case 24:
+                den = 4;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 8:
+            switch (v->index) {
+            case 31:
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 12:
+            switch (v->index) {
+            case 33: case 43: case 64: case 65:
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 16:
+            switch (v->index) {
+            case 17: case 51: case 52:
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        }
+        switch (((Owner_80241798 *)v->owner)->field_288) {
+        case 2:
+            switch (v->index) {
+            case 13:
+                v->flags |= 0x40;
+                break;
+            case 36:
+                den = 2;
+                v->flags |= 0x40;
+                break;
+            case 47:
+                den = 6;
+                extra = 0x1C00;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 10:
+            switch (v->index) {
+            case 1:
+                den = 4;
+                v->flags |= 0x40;
+                break;
+            case 13:
+                den = 2;
+                v->flags |= 0x40;
+                break;
+            case 32:
+                den = 3;
+                v->flags |= 0x40;
+                break;
+            case 34:
+                v->flags |= 0x40;
+                break;
+            case 41:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 11:
+            switch (v->index) {
+            case 1:
+                den = 4;
+                v->flags |= 0x40;
+                break;
+            case 13:
+                den = 2;
+                v->flags |= 0x40;
+                break;
+            case 32:
+                den = 3;
+                v->flags |= 0x40;
+                break;
+            case 34:
+                v->flags |= 0x40;
+                break;
+            case 41:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 14:
+            switch (v->index) {
+            case 1:
+                den = 1;
+                v->flags |= 0x40;
+                break;
+            case 2:
+                v->flags |= 0x40;
+                break;
+            case 10:
+                den = 4;
+                v->flags |= 0x40;
+                break;
+            case 22:
+                v->flags |= 0x40;
+                break;
+            case 36:
+                den = 3;
+                v->flags |= 0x40;
+                break;
+            case 42:
+                den = 2;
+                v->flags |= 0x40;
+                break;
+            case 54:
+                den = 6;
+                v->flags |= 0x40;
+                break;
+            case 57:
+                v->flags |= 0x40;
+                break;
+            case 64:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 15:
+            switch (v->index) {
+            case 3: case 15:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            case 17:
+                den = 4;
+                v->flags |= 0x40;
+                break;
+            case 37: case 38:
+                v->flags |= 0x40;
+                break;
+            case 16:
+                break;
+            }
+            break;
+        case 19:
+            switch (v->index) {
+            case 2: case 8: case 22:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            case 15:
+                v->flags |= 0x40;
+                break;
+            case 27: case 28:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 4:
+            switch (v->index) {
+            case 11: case 19:
+                den = 3;
+                v->flags |= 0x40;
+                break;
+            case 13: case 51: case 52:
+                v->flags |= 0x40;
+                break;
+            case 12:
+                break;
+            }
+            break;
+        case 5:
+            switch (v->index) {
+            case 1: case 6:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 6:
+            switch (v->index) {
+            case 3: case 15: case 24:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 7:
+            switch (v->index) {
+            case 31:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 8:
+            switch (v->index) {
+            case 38: case 45: case 50: case 51:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            case 63:
+                den = 12;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 9:
+            switch (v->index) {
+            case 34:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 18:
+            switch (v->index) {
+            case 13: case 14:
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 12:
+            switch (v->index) {
+            case 2: case 12: case 19: case 21: case 40: case 48: case 57:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        case 16:
+            switch (v->index) {
+            case 2: case 3: case 37: case 39: case 45:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            case 38:
+                break;
+            }
+            break;
+        case 20:
+            switch (v->index) {
+            case 5: case 28: case 62:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        }
+        break;
+    case 6:
+        switch (((Owner_80241798 *)v->owner)->field_288) {
+        case 17:
+            switch (v->index) {
+            case 22: case 30: case 31:
+                num = 2;
+                v->flags |= 0x40;
+                break;
+            }
+            break;
+        }
+        break;
+    }
+    if (v->flags & 0x40) {
+        v->pitchMoving = num * ((s32)((advance_rng__6TLobbyFPv(v->owner) >> 16) & 0x3F00) - 0x2000 + extra) / den;
+    }
+}
+
 void TLobby__sub_80241798(Sound_80241798 *arg0) {
     s32 num = 1;
     s32 den = 1;
