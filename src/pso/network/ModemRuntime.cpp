@@ -3,6 +3,7 @@
 #include "pso/network/NetworkMessageTransport.h"
 
 #include "types.h"
+#include "dolphin/os/OSReset.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TUdpSocket.h"
@@ -24,7 +25,39 @@ struct ByteBlock_1C { u8 bytes[0x1c]; };
 
 struct RecoveredGlobal_8042E768_lbl_805D1D20 {
     s32 value;
-    u8 remaining[0x18];
+    s32 f4;
+    s32 f8;
+    char carrier[5];
+    char error_control[5];
+    char compression[6];
+};
+
+struct ModemExiState {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    u8 pad_10[0x18];
+    s32 f28;
+    u8 pad_2C[0x10];
+    s32 f3C;
+    s32 f40;
+    s32 f44;
+    u8 pad_48[0x10];
+    s32 f58;
+    s32 f5C;
+    s32 f60;
+    s32 f64;
+    u8 pad_68[8];
+};
+
+struct ModemResponseState {
+    void (*callback)(s32 result);
+    s32 done;
+    s32 result;
+    s32 fifo_count;
+    s32 length;
+    u8 buf[0x80];
 };
 
 struct RecoveredGlobal_80427D0C_lbl_805CFC20 {
@@ -88,7 +121,12 @@ s32 OSWakeupThread(void *);
 extern s32 lbl_805D7CA0;
 s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
-extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
+static RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
+static ModemResponseState modem_command_response_state;
+int atoi(const char *);
+void *memcpy(void *, const void *, unsigned long);
+void *memmove(void *, const void *, unsigned long);
+int sscanf(const char *, const char *, ...);
 extern s32 lbl_805D7C98;
 s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(char *str);
@@ -126,9 +164,9 @@ s32 EXISelect(s32, u32, s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISync(s32);
 s32 EXIDeselect(s32);
-struct ModemRegs_805D7C90 { u8 f0; u8 f1; u16 f2; u8 f4; u8 f5; u8 f6; u8 f7; };
+struct ModemRegs_805D7C90 { u16 f0; u16 f2; u8 f4; u8 f5; u8 f6; u8 f7; };
 extern ModemRegs_805D7C90 lbl_805D7C90;
-extern u8 modem_exi_state[0x70];
+static ModemExiState modem_exi_state;
 extern s32 lbl_805D7C9C;
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
 unsigned long strlen(const char *);
@@ -165,6 +203,103 @@ typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8
 
 void TAdSinglePlyChrSelectGC::wake_load_thread() {
     OSWakeupThread(&lbl_805D7CA0);
+}
+
+static OSResetFunctionInfo modem_reset_function_info = {
+    (OSResetFunction)TAdSinglePlyChrSelectGC::send_modem_hangup, 127
+};
+
+void TAdSinglePlyChrSelectGC__sub_8042C8D8(void) {
+    u8 *p;
+    u8 *line;
+    u8 *end;
+    s32 len;
+
+    end = modem_command_response_state.buf + modem_command_response_state.length;
+
+    for (line = modem_command_response_state.buf; *line == 13 || *line == 10; line++) {
+    }
+    for (p = modem_command_response_state.buf; p < end; p++) {
+        if (*p != 13 || line >= p) {
+            continue;
+        }
+        len = p - line;
+        if (len == 2 && memcmp(line, "OK", 2) == 0) {
+        } else if (len > 7 && memcmp(line, "CONNECT", 7) == 0) {
+            lbl_805D7C98 = 3;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 3;
+            }
+            modem_connection_info.value = atoi((char *)line + 8);
+        } else if (len >= 9 && memcmp(line, "+MCR: ", 6) == 0) {
+            memcpy(modem_connection_info.carrier, line + 6, len - 6);
+            modem_connection_info.carrier[len - 6] = 0;
+        } else if (len >= 8 && memcmp(line, "+DR: ", 5) == 0) {
+            memcpy(modem_connection_info.compression, line + 5, len - 5);
+            modem_connection_info.compression[len - 5] = 0;
+        } else if (len >= 8 && memcmp(line, "+ER: ", 5) == 0) {
+            memcpy(modem_connection_info.error_control, line + 5, len - 5);
+            modem_connection_info.error_control[len - 5] = 0;
+        } else if (len > 5 && memcmp(line, "+MRR: ", 5) == 0) {
+            sscanf((char *)line + 5, "%d,%d", &modem_connection_info.f4, &modem_connection_info.f8);
+        } else if ((len == 4 && memcmp(line, "ATE0", 4) == 0) || (len == 5 && memcmp(line, "ERROR", 5) == 0)) {
+        } else if (len == 10 && memcmp(line, "NO CARRIER", 10) == 0) {
+            lbl_805D7C98 = 1;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 1;
+            }
+        } else if (len == 11 && memcmp(line, "NO DIALTONE", 11) == 0) {
+            lbl_805D7C98 = 1;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 0;
+            }
+        } else if (len == 4 && memcmp(line, "BUSY", 4) == 0) {
+            lbl_805D7C98 = 1;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 2;
+            }
+        } else if (len == 4 && memcmp(line, "RING", 4) == 0) {
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 4;
+            }
+        } else if (len == 9 && memcmp(line, "NO ANSWER", 9) == 0) {
+            lbl_805D7C98 = 1;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 5;
+            }
+        } else if (len >= 7 && memcmp(line, "DELAYED", 7) == 0) {
+            lbl_805D7C98 = 1;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 6;
+            }
+        } else if (len == 11 && memcmp(line, "BLACKLISTED", 11) == 0) {
+            lbl_805D7C98 = 1;
+            if (modem_command_response_state.callback != NULL) {
+                modem_command_response_state.done = 1;
+                modem_command_response_state.result = 7;
+            }
+        }
+        for (line = p; *line == 13 || *line == 10; line++) {
+        }
+        if (line >= end) {
+            line = NULL;
+        }
+    }
+    if (line != NULL && end > line) {
+        if (line != modem_command_response_state.buf) {
+            modem_command_response_state.length = end - line;
+            memmove(modem_command_response_state.buf, line, modem_command_response_state.length);
+        }
+    } else {
+        modem_command_response_state.length = 0;
+    }
 }
 
 void TAdSinglePlyChrSelectGC__sub_8042D604(void) {
@@ -294,7 +429,4 @@ s32 fn_8042E8B8(void) {
     return 0x80003100;
 }
 
-RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
-u8 modem_command_response_state[0x94];
-u8 modem_exi_state[0x70];
 }
