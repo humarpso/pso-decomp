@@ -3492,7 +3492,23 @@ s32 TLobby__sub_80403DA8(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, char *name, s16
 }
 
 typedef struct B_80403F4C {
-    u8 bytes[0x44];
+    u16 src_port;
+    u16 dst_port;
+    u32 seq;
+    u32 ack;
+    u16 window;
+    u16 checksum;
+    u16 urgent;
+    u16 mss;
+    u8 pad_14;
+    u8 urg;
+    u8 ack_flag;
+    u8 psh;
+    u8 rst;
+    u8 syn;
+    u8 fin;
+    u8 option_len;
+    u8 options[0x28];
 } B_80403F4C;
 
 typedef struct Ent_80403F4C {
@@ -3511,8 +3527,9 @@ typedef struct Obj_80403F4C {
     u8 flags;
     u8 padE[0x28 - 0xE];
     s32 n28;
-    u8 pad2C[4];
+    s32 n2C;
     s32 n30;
+    s32 n34;
 } Obj_80403F4C;
 
 u32 TLobby__sub_803FEA88(A_80403F4C *out, Strm_80405A74 **src);
@@ -3551,6 +3568,166 @@ s16 TLobby__sub_80403F4C(void *ov, Strm_80405A74 **spp) {
 }
 #undef o
 #undef pp
+
+extern u8 lbl_805D7AC0[4];
+extern u8 lbl_805D7AC4;
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 vj_buffer_valid(Strm_80405A74 **src) {
+    s32 valid = 0;
+    if (src != NULL && *src != NULL) {
+        valid = 1;
+    }
+    return valid;
+}
+
+inline s32 vj_read_byte(Strm_80405A74 **src) {
+    if (TLobby__sub_80401BCC(src, &lbl_805D7AC4, 1) != 1) {
+        return -1;
+    }
+    return (s16)lbl_805D7AC4;
+}
+
+inline s32 vj_next_byte(Strm_80405A74 **src) {
+    s32 fast = 0;
+    if (vj_buffer_valid(src) && (*src)->len > 1) {
+        fast = 1;
+    }
+    if (fast) {
+        (*src)->len--;
+        return *(*src)->p++;
+    }
+    return vj_read_byte(src);
+}
+
+inline s32 vj_read_u16(Strm_80405A74 **src) {
+    if (TLobby__sub_80401BCC(src, lbl_805D7AC0, 2) != 2) {
+        return -1;
+    }
+    return read_network_u16_be(lbl_805D7AC0);
+}
+
+s16 TLobby__sub_804040E0(Obj_80403F4C *comp, Strm_80405A74 **src) {
+    B_80403F4C *th;
+    Ent_80403F4C *cs;
+    s16 changes;
+    s32 v;
+    s16 len;
+
+    comp->n2C++;
+    if (((TLobby *)*src)->get_field_4() < 3) {
+        comp->n30++;
+        return 0;
+    }
+    changes = vj_next_byte(src);
+    if (changes & 0x40) {
+        v = vj_next_byte(src);
+        if (v < 0 || v > comp->max) {
+            goto bad;
+        }
+        comp->flags &= ~1;
+        comp->cur = v;
+    } else if (comp->flags & 1) {
+        comp->n34++;
+        return 0;
+    }
+    if (comp->cur > comp->max) {
+        comp->n34++;
+        return 0;
+    }
+    th = &(cs = &comp->ents[comp->cur])->b;
+    v = vj_read_u16(src);
+    if (v == -1) {
+        goto bad;
+    }
+    th->checksum = v;
+    th->psh = (changes & 0x10) ? 1 : 0;
+    switch (changes & 0xF) {
+    case 0xB: {
+        s16 i = cs->a.len;
+        i -= cs->a.optlen + 40;
+        th->ack += i;
+        th->seq += i;
+        break;
+    }
+    case 0xF:
+        th->seq += cs->a.len - (cs->a.optlen + 40);
+        break;
+    default:
+        if (changes & 1) {
+            th->urg = 1;
+            v = vj_next_byte(src);
+            if (v == 0) {
+                v = vj_read_u16(src);
+            }
+            if (v == -1) {
+                goto bad;
+            }
+            th->urgent = v;
+        } else {
+            th->urg = 0;
+        }
+        if (changes & 2) {
+            v = vj_next_byte(src);
+            if (v == 0) {
+                v = vj_read_u16(src);
+            }
+            if (v == -1) {
+                goto bad;
+            }
+            th->window += (s16)v;
+        }
+        if (changes & 4) {
+            v = vj_next_byte(src);
+            if (v == 0) {
+                v = vj_read_u16(src);
+            }
+            if (v == -1) {
+                goto bad;
+            }
+            th->ack += v;
+        }
+        if (changes & 8) {
+            v = vj_next_byte(src);
+            if (v == 0) {
+                v = vj_read_u16(src);
+            }
+            if (v == -1) {
+                goto bad;
+            }
+            th->seq += v;
+        }
+        break;
+    }
+    if (changes & 0x20) {
+        v = vj_next_byte(src);
+        if (v == 0) {
+            v = vj_read_u16(src);
+        }
+        if (v == -1) {
+            goto bad;
+        }
+        cs->a.id += v;
+    } else {
+        cs->a.id++;
+    }
+    len = ((TLobby *)*src)->get_field_4() + 40 + cs->a.optlen;
+    cs->a.len = len;
+    *src = (Strm_80405A74 *)TLobby__sub_8040555C(th, (u8 *)*src, 0);
+    *src = (Strm_80405A74 *)GXLoadTexObjPreLoaded(&cs->a, (u8 *)*src, 0);
+    return len;
+
+bad:
+    comp->n30++;
+    if (comp == NULL) {
+        return 0;
+    }
+    comp->flags |= 1;
+    return 0;
+}
+#pragma pop
 
 typedef char RecoveredGlobal_804050EC_lbl_805C18A0_size[sizeof(RecoveredGlobal_804050EC_lbl_805C18A0) == 0x10 ? 1 : -1];
 
