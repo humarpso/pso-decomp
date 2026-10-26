@@ -68,6 +68,70 @@ void *TWindowDD__sub_80340F70(void) {
     return o;
 }
 
+extern const f32 TWindowDD__data_805DFB18;
+extern const f32 lbl_805DFC74;
+extern const f32 lbl_805DFBCC;
+extern const f32 lbl_805DFB34;
+extern const f32 lbl_805DFB3C;
+extern const f32 lbl_805DFB2C;
+extern const f32 lbl_805DFB38;
+extern const f32 lbl_805DFB30;
+extern const f32 lbl_805DFC64;
+extern const f32 lbl_805DFC84;
+extern const f32 lbl_805DFC78;
+extern const f32 lbl_805DFC88;
+extern const f32 lbl_805DFBC4;
+extern const f32 lbl_805DFBBC;
+extern const f32 lbl_805DFC7C;
+extern const f32 lbl_805DFC80;
+extern const f32 lbl_805DFC8C;
+extern const f32 lbl_805DFBC8;
+extern const f32 lbl_805DFBC0;
+extern const f32 lbl_805DFC24;
+extern f32 lbl_805D6DC0;
+extern f32 lbl_805D6DC4;
+extern f32 lbl_805D6DC8;
+extern f32 lbl_805D6DCC;
+extern f32 lbl_805D6DD0;
+extern f32 lbl_805D6DD4;
+extern f32 lbl_805D6DD8;
+extern f32 lbl_805D6DDC;
+extern f32 lbl_805D6DE0;
+extern f32 lbl_805D6DE4;
+extern f32 lbl_805D6DE8;
+extern f32 lbl_805D6DEC;
+extern f32 lbl_805D6DF0;
+extern f32 lbl_805D6DF4;
+extern f32 lbl_805D6DF8;
+extern f32 lbl_805D6DFC;
+extern f32 lbl_805D6E00;
+
+void TWindowDD__sub_80340FA8(void) {
+    lbl_805D6DC0 = lbl_805DFC74 + lbl_805DFBCC;
+    lbl_805D6DC4 = lbl_805DFC64 + (lbl_805DFC74 + lbl_805DFBCC);
+    lbl_805D6DC8 = TWindowDD__data_805DFB18;
+    lbl_805D6DCC = lbl_805DFB34 * lbl_805D6DC8;
+    lbl_805D6DD0 = lbl_805D6DC8 * (lbl_805DFB34 + lbl_805DFB3C);
+    lbl_805D6DD4 = lbl_805DFB2C * lbl_805D6DC8;
+    lbl_805D6DD8 = lbl_805D6DC8 * (lbl_805DFB2C + lbl_805DFB38);
+    lbl_805D6DDC = lbl_805DFB30 * lbl_805D6DC8;
+    lbl_805D6DE0 = lbl_805D6DC8 * (lbl_805DFB30 + lbl_805DFB38);
+    lbl_805D6DE4 = lbl_805DFC78 * lbl_805D6DC8;
+    lbl_805D6DE8 = lbl_805DFC7C * lbl_805D6DC8;
+    lbl_805D6DEC = lbl_805DFC80 * lbl_805D6DC8;
+    lbl_805D6DF0 = lbl_805DFC84 * lbl_805D6DC8;
+    lbl_805D6DF4 = lbl_805DFC88 * lbl_805D6DC8;
+    lbl_805D6DF8 = lbl_805DFC8C * lbl_805D6DC8;
+    lbl_805D6DFC = lbl_805DFC84 * lbl_805D6DC8;
+    lbl_805D6E00 = lbl_805DFC88 * lbl_805D6DC8;
+    ((f32 *)lbl_804EFBC8)[0] = lbl_805DFBC4;
+    ((f32 *)lbl_804EFBC8)[1] = lbl_805DFBC8;
+    ((f32 *)lbl_804EFBD0)[0] = lbl_805DFBBC;
+    ((f32 *)lbl_804EFBD0)[1] = lbl_805DFBC0;
+    ((f32 *)lbl_804EFBD0)[2] = lbl_805DFC24;
+}
+__declspec(section ".ctors") static void *const __sinit_TWindowDD_80340EA8_cpp_ref = (void *)TWindowDD__sub_80340FA8;
+
 extern f32 lbl_805DFC90;
 
 void TWindowDD_WS_String::render() {
