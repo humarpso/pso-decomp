@@ -218,7 +218,11 @@ typedef struct Param_80036EA8 {
 } Param_80036EA8;
 
 extern "C" {
-s32 TBoss2Joint__sub_80036940(void *);
+void TBoss2Joint__sub_80036940(void *);
+extern const f32 lbl_80435A58[4];
+extern const u32 lbl_805D8468;
+extern const f32 lbl_805D8470;
+extern const f32 lbl_805D8478;
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
 s32 vfunc_94__9TObjEneDDFv(void *);
@@ -290,6 +294,36 @@ void TBoss2Joint__sub_8003688C(u8 *arg0) {
 }
 
 void TBoss2Joint::call_36A90_with_1() { init_joint_offset(1); }
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+void TBoss2Joint__sub_80036940(void *arg) {
+    Joint_80036EA8 *self = (Joint_80036EA8 *)arg;
+    f32 t;
+    if (self->unk38C & 1) {
+        self->unk3A4 = lbl_805D846C;
+        self->unk3A0 = 0;
+        return;
+    }
+    self->unk3A0 = 0xFF000000;
+    t = self->unk3A8;
+    if (t > lbl_805D846C) {
+        f32 a = lbl_805D8470 * t;
+        f32 b = lbl_805D8470 * (TBoss2Joint__data_805D8474 - t);
+        f32 *c = (f32 *)self->unk3AC;
+        self->unk3A0 |= ((u32)(lbl_80435A58[1] * b + c[1] * a) << 16) & 0xFF0000;
+        self->unk3A0 |= ((u32)(lbl_80435A58[2] * b + c[2] * a) << 8) & 0xFF00;
+        self->unk3A0 |= (u8)(u32)(lbl_80435A58[3] * b + c[3] * a);
+        self->unk3A8 -= lbl_805D8478;
+        if (self->unk3A8 < lbl_805D846C) {
+            self->unk3A8 = lbl_805D846C;
+        }
+    } else {
+        self->unk3A0 |= lbl_805D8468;
+    }
+}
+#pragma pop
 
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void TBoss2Joint::init_joint_offset(s32 arg1) {
