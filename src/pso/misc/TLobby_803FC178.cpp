@@ -739,7 +739,7 @@ s32 TLobby::mark_sub_ready() {
 
 s16 TLobby__sub_803FC820(void *, void *, int);
 s32 TLobby__sub_803FCC10(void *, void *, int);
-s32 TLobby__sub_803FE8BC(u8 *, void *);
+s16 TLobby__sub_803FE8BC(u8 *, void *);
 typedef struct Hdr_803FC4B4 { u8 type; u8 flag; s16 len; } Hdr_803FC4B4;
 struct O_80400ACC;
 void TLobby__sub_80400ACC(O_80400ACC *);
@@ -758,7 +758,7 @@ void TLobby::dispatch_received_packet(s32 arg1) {
     u8 *temp_r30_3;
     u8 *temp_r30_4;
 
-    if ((s16)TLobby__sub_803FE8BC((u8 *)&hdr, &arg1) != -1) {
+    if (TLobby__sub_803FE8BC((u8 *)&hdr, &arg1) != -1) {
         hdr.len -= 4;
         TLobby__sub_80401CAC((Outer_80401CAC *)&arg1, hdr.len);
         switch (hdr.type) {
@@ -1370,7 +1370,7 @@ s32 TLobby::read_2_bytes(void *src) {
     return 0;
 }
 
-s32 TLobby__sub_803FE8BC(u8 *dst, void *src) {
+s16 TLobby__sub_803FE8BC(u8 *dst, void *src) {
     u8 buf[4];
     if (dst == 0) {
         return -1;

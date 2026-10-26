@@ -3342,7 +3342,7 @@ s32 TLobby__sub_8040A0C0(s16 i, u8 *buf) {
 
 #pragma push
 #pragma optimization_level 2
-s32 TLobby::is_slot_flag_0x40_set(s16 i) {
+s16 TLobby::is_slot_flag_0x40_set(s16 i) {
     if (i < 0 || i > (*(G_8040A13C *)&lobby_handler_table_desc).n) { return 0; }
     Ent_8040A13C *e = (*(G_8040A13C *)&lobby_handler_table_desc).p;
     if (e[i].f0 == 0) { return 0; }
@@ -3369,7 +3369,7 @@ struct G_8040A1FC { s16 n; Ent_8040A1FC *p; };
 #pragma push
 #pragma optimization_level 2
 #pragma dont_inline on
-s32 TLobby::is_entry_flag10_set(s16 i) {
+s16 TLobby::is_entry_flag10_set(s16 i) {
     if (i < 0 || i > (*(G_8040A1FC *)&lobby_handler_table_desc).n) { return 0; }
     Ent_8040A1FC *e = (*(G_8040A1FC *)&lobby_handler_table_desc).p;
     if (e[i].f0 == 0) { return 0; }
@@ -5786,7 +5786,7 @@ s32 NetIPv6Init(void) {
 
 s16 TLobby__sub_8040D510(Icmp6ErrorInfo *err, u8 *hdr, s16 len, s16 idx);
 
-s32 TLobby__sub_80410958(u8 *opt, s16 len, u8 *hdr, s16 pktlen, s16 idx) {
+s16 TLobby__sub_80410958(u8 *opt, s16 len, u8 *hdr, s16 pktlen, s16 idx) {
     s16 NetIPv6IsMulticast(u8 *arg0);
     Icmp6ErrorInfo err;
     s32 optlen;
