@@ -6,7 +6,6 @@
 #include "pso/misc/ShortMail.h"
 
 extern "C" {
-s8 get_type__20TWindowSubStatusDispFv(TWindowSubStatusDisp *disp);
 void TWindowSubComCardList__sub_80275360(TWindowSubComCardList *list) {
     TWindowSubComCard *card;
     s32 n;
@@ -14,7 +13,7 @@ void TWindowSubComCardList__sub_80275360(TWindowSubComCardList *list) {
     s32 msg;
 
     list->reset_entries();
-    index = get_type__20TWindowSubStatusDispFv((TWindowSubStatusDisp *)list->m_8c);
+    index = ((TWindowSubStatusDisp *)list->m_8c)->get_type();
     index *= 7;
     for (n = 0; n < 7; n++, index++) {
         if (index >= (s32)list->m_98) {
