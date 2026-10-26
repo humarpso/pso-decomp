@@ -7,6 +7,7 @@
 
 #include "types.h"
 #include "pso/protocol/NetworkRuntime.h"
+#include "pso/network/EthernetReceiveFilter.h"
 
 struct Self_803FD85C;
 struct Tbl_803FD85C {
@@ -2298,6 +2299,116 @@ s16 TLobby::init_net_sockets() {
     }
     return first;
 }
+
+
+struct EtherRxBuffer {
+    s16 used;
+    s16 iface;
+    s16 slot;
+    s16 handler;
+    s16 len;
+    u8 data[0x5EE];
+};
+struct EtherProtocolBinding {
+    s16 used;
+    s16 handler;
+    s16 iface;
+    u16 ether_type;
+    u8 pad8[4];
+    EtherRxBuffer *buf;
+};
+struct EtherRxTable {
+    u8 pad0[4];
+    s16 nbindings;
+    s16 nbufs;
+    u8 pad8[8];
+    EtherProtocolBinding *bindings;
+    EtherRxBuffer *bufs;
+};
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline EtherProtocolBinding *find_protocol_binding(EtherProtocolBinding *e, s16 n, s16 iface, u16 type) {
+    for (; n > 0; n--, e++) {
+        if (e->used != 0 && e->iface == iface && e->ether_type == type) {
+            return e;
+        }
+    }
+    return NULL;
+}
+
+inline EtherRxBuffer *alloc_rx_buffer(EtherRxBuffer *b, s16 n, s16 iface, s16 slot, s16 handler, s16 len) {
+    for (; n > 0; n--, b++) {
+        if (b->used == 0) {
+            b->used = 1;
+            b->iface = iface;
+            b->slot = slot;
+            b->handler = handler;
+            b->len = len;
+            return b;
+        }
+    }
+    return NULL;
+}
+
+u8 *TLobby__sub_804089A8(s16 iface, s16 op, s16 len, u8 *pkt) {
+    EtherRxTable *t = (EtherRxTable *)&lbl_805C1AD8;
+    EtherProtocolBinding *ents;
+    EtherProtocolBinding *e;
+    EtherRxBuffer *b;
+    s16 slot;
+    u16 type;
+    EthernetFrameHeader hdr;
+
+    NetMemcpy(hdr.destination, pkt, 6);
+    NetMemcpy(hdr.source, pkt + 6, 6);
+    NetMemcpy(&hdr.ether_type, pkt + 12, 2);
+    if (op == 0) {
+        if (len > 0x5EA) {
+            return NULL;
+        }
+        ents = t->bindings;
+        e = find_protocol_binding(ents, t->nbindings, iface, hdr.ether_type);
+        if (e == NULL) {
+            return NULL;
+        }
+        e->buf = NULL;
+        slot = e - ents;
+        b = alloc_rx_buffer(t->bufs, t->nbufs, iface, slot, e->handler, len);
+        if (b == NULL) {
+            return NULL;
+        }
+        e->buf = b;
+        return b->data;
+    } else if (op == 1) {
+        ents = t->bindings;
+        type = hdr.ether_type;
+        e = find_protocol_binding(ents, t->nbindings, iface, type);
+        if (e == NULL) {
+            return NULL;
+        }
+        b = e->buf;
+        slot = e - ents;
+        if (b == NULL) {
+            return NULL;
+        }
+        if (b->iface != iface || b->slot != slot || b->handler != e->handler || b->len != len) {
+            s32 lvl = OSDisableInterrupts();
+            b->used = 0;
+            b->iface = 0;
+            b->slot = 0;
+            b->handler = 0;
+            b->len = 0;
+            OSRestoreInterrupts(lvl);
+            return NULL;
+        }
+        TLobby__sub_80409818((s32)(b->data + sizeof(EthernetFrameHeader)), b->len - sizeof(EthernetFrameHeader), b->handler, b->slot, type);
+        return NULL;
+    }
+    return NULL;
+}
+#pragma pop
 
 typedef s32 (*SendFn_80408C24)(s16, u8 *, s16);
 typedef void (*CloseFn_80408C24)(s16, u16);
