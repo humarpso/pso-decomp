@@ -6277,10 +6277,9 @@ struct Ipv6Route {
     u8 gateway[16];
 };
 
-s16 TLobby__sub_80415D0C(NetPacket *pkt, u8 *nexthop, NetIPv6SendParameters *params, s16 idx);
-
 s32 TLobby__sub_80410A98(NetPacket *pkt, u8 *dst, u8 *src, Ipv6SendOptions *opts, s32 next_header) {
     s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
+    s32 TLobby__sub_80415D0C(NetPacket *, u8 *, NetIPv6SendParameters *, s32);
     s16 NetIPv6IsMulticast(u8 *arg0);
     s16 TLobby__sub_804136AC(s16 arg0);
     u8 *nexthop;
