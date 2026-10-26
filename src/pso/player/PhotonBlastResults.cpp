@@ -3,13 +3,11 @@
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/misc/TParticleCtrl_800867E4.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/PhotonBlastSummon.h"
 #include "pso/system/vector.h"
-#include "pso/unk/text_80087278.h"
 #include "pso/unk/text_801AAB74.h"
 #include "pso/unk/text_801AB370.h"
 #include "pso/unk/text_801ABE14.h"
@@ -20,8 +18,6 @@ struct Counts_801A8868 { s32 v[4]; };
 struct Rec_801A8868 { u8 pad[0x20]; s32 f20; };
 
 struct Hit_801A86E0 { s32 kind; f32 value; };
-
-struct PhotonBlastHitEntry_801A8CF0 { u32 identity; f32 power; s32 kind; };
 
 struct PhotonBlastSequence_801A9870 : public TObject {
     TObject *summon;
@@ -96,7 +92,7 @@ TUnk_804806E8 *find_entity_by_id(u16 identity);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 get_photon_blast_chain(void *, s32);
-TObjPlayer *get_player_by_client_id(u32);
+void *get_player_by_client_id(u32);
 s32 is_split_screen();
 s32 get_stat_by_key_state__13TUnk_804B9870Fv(void *);
 u16 obj_getField1c(void *);
@@ -111,12 +107,7 @@ void play_sound_effect(u32 id, void *position, s32, s32);
 u8 *TPhotonLeilla__ct(u8 *self, u8 *params);
 u8 *TPhotonMylla__ct(u8 *self, u8 *params);
 extern u32 lbl_805D5D18;
-extern PhotonBlastHitEntry_801A8CF0 photon_blast_hit_queue[32];
-extern s32 photon_blast_hit_count;
-extern PhotonBlastHitEntry_801A8CF0 deferred_photon_blast_hit_queue[32];
-extern s32 deferred_photon_blast_hit_count;
 void deliver_photon_blast_results_animated(PhotonBlastSequence_801A9870 *seq);
-void deliver_photon_blast_results_delayed(PhotonBlastSequence_801A9870 *seq);
 void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq);
 }
 extern s32 photon_blast_donation_flags[];
@@ -351,250 +342,6 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
 }
 #undef GET_STAT
 #undef SET_TYPE
-
-void deliver_photon_blast_results_animated(PhotonBlastSequence_801A9870 *seq) {
-    TUnk_804806E8 *target;
-    s32 i;
-
-    for (i = 0; i < photon_blast_hit_count; i++) {
-        target = find_entity_by_id(photon_blast_hit_queue[i].identity);
-        if (target != NULL) {
-            Hit_801A86E0 hit;
-            TParticleCtrl *particle;
-            s32 j;
-            TObjPlayer *player;
-            f32 power;
-
-            power = ((TObjPlayer *)seq)->calc_photon_blast_power(photon_blast_hit_queue[i].kind, photon_blast_hit_queue[i].power);
-            hit.value = power * (0.01 * (seq->power_level * seq->summon_count));
-            if (photon_blast_hit_queue[i].kind == 4) {
-                hit.kind = 6;
-                for (j = 0; j < 4; j++) {
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                        particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&player->m_2fc, 0x1F8, 0x10);
-                        if (particle != NULL) {
-                            particle->set_owner_id(obj_getField1c(player));
-                        }
-                    }
-                }
-                if (local_client_id == obj_getField1c(target)) {
-                    play_sound_effect(0x4002AB0E, NULL, 0, 0);
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&target->m_2fc, 0x1F8, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                particle = (TParticleCtrl *)spawn_particle_effect_with_flags(target->position, 0x16C, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                particle = (0, (TParticleCtrl *)spawn_particle_effect_with_flags(target->position, 0x16D, 0x10));
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-            } else if (photon_blast_hit_queue[i].kind == 5) {
-                for (j = 0; j < 4; j++) {
-                    hit.kind = 7;
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        if (player->actorFlags & 0x800) {
-                            hit.kind = 8;
-                        }
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                        particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&player->m_2fc, 0x1F8, 0x10);
-                        if (particle != NULL) {
-                            particle->set_owner_id(obj_getField1c(player));
-                        }
-                    }
-                }
-                hit.kind = 7;
-                if (target->actorFlags & 0x800) {
-                    hit.kind = 8;
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&target->m_2fc, 0x1F8, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                hit.kind = 10;
-                for (j = 0; j < 4; j++) {
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                    }
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                hit.kind = 9;
-                for (j = 0; j < 4; j++) {
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                    }
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                if (local_client_id == obj_getField1c(target)) {
-                    play_sound_effect(0x4002AB10, NULL, 0, 0);
-                    play_sound_effect(0x4002AD14, NULL, 0, 0);
-                    play_sound_effect(0x4002AA16, NULL, 0, 0);
-                }
-                particle = (TParticleCtrl *)create_timed_particle_emitter_with_flags(target->position, 0x16E, 0, 0xF, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                particle = (0, (TParticleCtrl *)spawn_particle_effect_with_flags(target->position, 0x16F, 0x10));
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-            } else {
-                hit.kind = 4;
-                Hit_801A86E0 delivered = hit;
-                target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-            }
-        }
-    }
-    clear_photon_blast_donations();
-}
-
-void deliver_photon_blast_results_delayed(PhotonBlastSequence_801A9870 *seq) {
-    TUnk_804806E8 *target;
-    s32 i;
-
-    for (i = 0; i < deferred_photon_blast_hit_count; i++) {
-        target = find_entity_by_id(deferred_photon_blast_hit_queue[i].identity);
-        if (target != NULL) {
-            Hit_801A86E0 hit;
-            TParticleCtrl *particle;
-            s32 j;
-            TObjPlayer *player;
-            f32 power;
-
-            power = ((TObjPlayer *)seq)->calc_photon_blast_power(deferred_photon_blast_hit_queue[i].kind, deferred_photon_blast_hit_queue[i].power);
-            hit.value = power * (0.01 * (seq->power_level * seq->summon_count));
-            if (deferred_photon_blast_hit_queue[i].kind == 4) {
-                hit.kind = 6;
-                for (j = 0; j < 4; j++) {
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                        particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&player->m_2fc, 0x1F8, 0x10);
-                        if (particle != NULL) {
-                            particle->set_owner_id(obj_getField1c(player));
-                        }
-                    }
-                }
-                if (local_client_id == obj_getField1c(target)) {
-                    play_sound_effect(0x4002AB0E, NULL, 0, 0);
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&target->m_2fc, 0x1F8, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                particle = (TParticleCtrl *)spawn_particle_effect_with_flags(target->position, 0x16C, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                particle = (0, (TParticleCtrl *)spawn_particle_effect_with_flags(target->position, 0x16D, 0x10));
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-            } else if (deferred_photon_blast_hit_queue[i].kind == 5) {
-                for (j = 0; j < 4; j++) {
-                    hit.kind = 7;
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        if (player->actorFlags & 0x800) {
-                            hit.kind = 8;
-                        }
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                        particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&player->m_2fc, 0x1F8, 0x10);
-                        if (particle != NULL) {
-                            particle->set_owner_id(obj_getField1c(player));
-                        }
-                    }
-                }
-                hit.kind = 7;
-                if (target->actorFlags & 0x800) {
-                    hit.kind = 8;
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                particle = (TParticleCtrl *)spawn_particle_effect_with_flags(&target->m_2fc, 0x1F8, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                hit.kind = 10;
-                for (j = 0; j < 4; j++) {
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                    }
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                hit.kind = 9;
-                for (j = 0; j < 4; j++) {
-                    player = get_player_by_client_id(seq->recipients[j]);
-                    if (player != NULL) {
-                        Hit_801A86E0 delivered = hit;
-                        player->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                    }
-                }
-                {
-                    Hit_801A86E0 delivered = hit;
-                    target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-                }
-                if (local_client_id == obj_getField1c(target)) {
-                    play_sound_effect(0x4002AB10, NULL, 0, 0);
-                    play_sound_effect(0x4002AD14, NULL, 0, 0);
-                    play_sound_effect(0x4002AA16, NULL, 0, 0);
-                }
-                particle = (TParticleCtrl *)create_timed_particle_emitter_with_flags(target->position, 0x16E, 0, 0xF, 0x10);
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-                particle = (0, (TParticleCtrl *)spawn_particle_effect_with_flags(target->position, 0x16F, 0x10));
-                if (particle != NULL) {
-                    particle->set_owner_id(obj_getField1c(target));
-                }
-            } else {
-                hit.kind = 4;
-                Hit_801A86E0 delivered = hit;
-                target->receive_direct_attack(seq->owner, &delivered, NULL, -1, -1);
-            }
-        }
-    }
-    clear_photon_blast_donations();
-}
 
 
 void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq) {
