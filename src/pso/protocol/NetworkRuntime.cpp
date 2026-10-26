@@ -823,6 +823,41 @@ inline s32 ipv6cp_option_type(s16 bit) {
     return 0;
 }
 
+inline void ipv6cp_add_options(B_803FADA0 **pbuf, A_803FADA0 *opts, s16 mask) {
+    s16 i;
+    u8 len;
+    if (*pbuf == NULL) {
+        *pbuf = init_net_buffer_entry__6TLobbyFUs(0);
+        if (*pbuf == NULL) {
+            return;
+        }
+    }
+    for (i = 1; i < 32; i++) {
+        if (mask & (1 << i)) {
+            s32 type;
+            if (i < 8) {
+                type = i;
+            } else if (i < 32) {
+                type = i + 120;
+            } else {
+                type = 0;
+            }
+            TLobby__sub_803FADA0(pbuf, opts, type, len = lbl_804FD398[i], NULL);
+        }
+    }
+}
+
+B_803FADA0 *TLobby__sub_803FABDC(Obj_803FA664 *fsm) {
+    Sub_803FA664 *opts = fsm->p30;
+    B_803FADA0 *buf = NULL;
+    buf = init_net_buffer_entry__6TLobbyFUs(0);
+    if (buf == NULL) {
+        return NULL;
+    }
+    ipv6cp_add_options(&buf, (A_803FADA0 *)&opts->h1C, opts->h1C);
+    return buf;
+}
+
 void TLobby__sub_803FACD8(B_803FADA0 **pbuf, A_803FADA0 *opts, s16 mask) {
     s16 i;
     u8 len;

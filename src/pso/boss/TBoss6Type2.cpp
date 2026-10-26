@@ -223,7 +223,7 @@ s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
 s32 init_collision_body_parts(void *, void *, int);
 void build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 void TBoss6Type2__sub_802BA7B0(void* p);
-int TBoss6Type2__sub_802BB694(void);
+s32 TBoss6Type2__sub_802BB694(TBoss6Type2 *self);
 void TBoss6Type2__sub_802BB818(TBoss6Type2 *self, f32);
 void TBoss6Type2__sub_802BBC74(TBoss6Type2 *self);
 extern const f32 lbl_805DE4A0;
@@ -1601,7 +1601,40 @@ void TBoss6Type2__sub_802BB5B4(TBoss6Type2 *self, u16 *first, u16 *second) {
     }
 }
 
-int TBoss6Type2__sub_802BB694(void) { return 0; }
+#pragma push
+#pragma optimization_level 2
+s32 TBoss6Type2__sub_802BB694(TBoss6Type2 *self) {
+    s32 TBoss6PlotFalz__sub_802AAE48(u32 i);
+    s32 count = TBoss6PlotFalz::sort_active_players();
+    s32 id = 0xFFFF;
+    s32 i;
+    if (count < 1) {
+        return id;
+    }
+    if ((s32)self->m_418 == 0) {
+        for (i = 0; i < count; i++) {
+            id = TBoss6PlotFalz__sub_802AAE48(i);
+            if (TBoss6Type2::is_player_in_rock_area(id) == 0) {
+                break;
+            }
+        }
+        if (i == count) {
+            id = 0xFFFF;
+        }
+    } else {
+        for (i = count - 1; i >= 0; i--) {
+            id = TBoss6PlotFalz__sub_802AAE48(i);
+            if (TBoss6Type2::is_player_in_rock_area(id) == 0) {
+                break;
+            }
+        }
+        if (i < 0) {
+            id = 0xFFFF;
+        }
+    }
+    return id;
+}
+#pragma pop
 
 void TBoss6Type2__sub_802BB768(T2_802BB768 *arg0) {
     if (arg0->f410 == 0 || arg0->f414 == 0) {
