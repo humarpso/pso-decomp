@@ -2301,7 +2301,7 @@ pso/misc/TLobby_800FC3CC.cpp:
 
 pso/misc/TWindowSubStatusDisp_800FC3E0.cpp:
 	.text       start:0x800FC3E0 end:0x800FC760
-	.rodata     start:0x8043DAA0 end:0x8043DAA8
+	.rodata     start:0x8043DAA0 end:0x8043DAB0
 
 pso/misc/TFontSmallHelp.cpp:
 	.text       start:0x800FC760 end:0x800FC91C
