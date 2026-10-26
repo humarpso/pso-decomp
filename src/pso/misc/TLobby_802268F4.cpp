@@ -85,7 +85,6 @@ extern f32 lbl_80514C50[];
 extern u32 camera_ctrl_instance;
 extern s32 local_client_id;
 extern s8 lbl_805D6279;
-extern const f32 lbl_805DC74C;
 void update_sound_request_slots(void);
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_805D62E0;
@@ -104,6 +103,24 @@ extern "C" {
 void TLobby__sub_8022644C(void);
 
 void TLobby::update_lobby_subsystems() { TLobby__sub_8022644C(); stop_cue_stream(); }
+
+f32 xz_distance_squared(const Vec *a, const Vec *b);
+f32 newton_sqrtf(f32 x);
+
+s32 check_sound_admission_range(const Vec *pos) {
+    if (pos == NULL) {
+        return 0;
+    }
+    if (camera_ctrl_instance == 0U) {
+        return 0;
+    }
+    f32 dist_sq = xz_distance_squared(pos, (const Vec *)lbl_80514C50);
+    if (dist_sq < 90000.0f) {
+        f32 t = (newton_sqrtf(dist_sq) - 40.0f) / 260.0f;
+        return (s32)-(127.0f * (t > 0.0f ? t : 0.0f));
+    }
+    return -0x100;
+}
 }
 
 void update_sound_request_slots(void) {
@@ -119,9 +136,9 @@ void update_sound_request_slots(void) {
         } else if (camera_ctrl_instance != 0U) {
             VecCopy((Vec *)lbl_80514C50, (const Vec *)(camera_ctrl_instance + 0x178));
         } else {
-            lbl_80514C50[2] = lbl_805DC74C;
-            lbl_80514C50[1] = lbl_805DC74C;
-            lbl_80514C50[0] = lbl_805DC74C;
+            lbl_80514C50[2] = 0.0f;
+            lbl_80514C50[1] = 0.0f;
+            lbl_80514C50[0] = 0.0f;
         }
         if (lbl_805D6279 == 0) {
             for (i = 0; i < 0x28; i++) {

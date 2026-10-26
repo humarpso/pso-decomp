@@ -1,6 +1,9 @@
+#include "pso/effect/EffectConstants.h"
 #include "types.h"
 #include "pso/unk/text_8008271C.h"
 struct Vec_8008271C { f32 x; f32 y; f32 z; };
+#pragma push
+#pragma opt_common_subs off
 
 extern "C" {
 void approach_vector_fixed_distance(const Vec_8008271C *, const Vec_8008271C *, Vec_8008271C *, f32);
@@ -20,12 +23,19 @@ s32 approach_alpha_clamped(f32 *cur, const f32 *target, f32 step) {
     }
     if (*cur < *target) {
         v = *cur + step;
-        *cur = (v < 0.0f) ? 0.0f : ((v < *target) ? v : *target);
+        *cur = (v < effect_zero) ? effect_zero : ((v < *target) ? v : *target);
     } else {
         v = *cur - step;
-        *cur = (v < *target) ? *target : ((v < 1.0f) ? v : 1.0f);
+        *cur = (v < *target) ? *target : ((v < effect_one) ? v : effect_one);
     }
     return 0;
 }
 
 }
+
+extern "C" {
+__declspec(section ".sdata2") const f32 effect_zero = 0.0f;
+__declspec(section ".sdata2") const f32 effect_one = 1.0f;
+}
+
+#pragma pop

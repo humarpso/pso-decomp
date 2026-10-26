@@ -339,6 +339,15 @@ def global_data_layout_mismatch(u: dict) -> list[str]:
             if original[name] != compiled[name]]
 
 
+def stripped_functions(u: dict, split: Path, obj: Path) -> dict[str, int]:
+    """Compiled functions the original split lacks and mwld dead-strips
+    (unreferenced, not a DOL symbol, or a discarded weak copy): name -> size."""
+    in_split = set(elf_function_sizes(split, local=True))
+    discarded = discarded_weak_functions(u)
+    return {name: size for name, size in elf_function_sizes(obj, local=True).items()
+            if name not in in_split and (name not in _dol_symbol_names() or name in discarded)}
+
+
 def section_size_mismatch(u: dict) -> list[str]:
     """Allocated sections whose byte size differs between the original split
     object and the compiled object. objdiff scores functions, not trailing
@@ -351,11 +360,12 @@ def section_size_mismatch(u: dict) -> list[str]:
         return []
     a, b = elf_alloc_sections(split), elf_alloc_sections(obj)
     if ".text" in b:  # functions mwld will dead-strip (see extra_compiled_symbols)
-        in_split = set(elf_function_sizes(split, local=True))
-        discarded = discarded_weak_functions(u)
-        b[".text"] -= sum(size for name, size in elf_function_sizes(obj, local=True).items()
-                          if name not in in_split
-                          and (name not in _dol_symbol_names() or name in discarded))
+        stripped = stripped_functions(u, split, obj)
+        b[".text"] -= sum(stripped.values())
+        # mwld drops a stripped function's exception-table entries with it
+        for section, size in stripped_exception_bytes(obj, set(stripped)).items():
+            if section in b:
+                b[section] -= size
         # MWCC can emit an implicit member and then a strong body with the
         # same name. Only the latter retains an ELF symbol; .mwcats still
         # records both parts, and MWLD drops the superseded one. Never
@@ -502,6 +512,48 @@ def elf_function_sizes(path: Path, local: bool = False) -> dict[str, int]:
     return out
 
 
+def stripped_exception_bytes(path: Path, names: set[str]) -> dict[str, int]:
+    """Bytes of `extabindex` (one 12-byte entry each) and of the `extab` entries
+    they point at that belong to the functions in `names`, in a BE ELF32 .o."""
+    if not names:
+        return {}
+    b = path.read_bytes()
+    be = lambda o, n=4: int.from_bytes(b[o:o + n], "big")
+    shoff, shentsize, shnum, shstrndx = be(0x20), be(0x2E, 2), be(0x30, 2), be(0x32, 2)
+    hdrs = [tuple(be(shoff + i * shentsize + k) for k in (0, 4, 16, 20, 24, 28)) for i in range(shnum)]
+    shstr = hdrs[shstrndx][2]
+    sec_name = lambda i: b[shstr + hdrs[i][0]:b.index(b"\0", shstr + hdrs[i][0])].decode()
+    index = next((i for i in range(shnum) if sec_name(i) == "extabindex"), None)
+    extab = next((i for i in range(shnum) if sec_name(i) == "extab"), None)
+    rela = next((i for i in range(shnum) if hdrs[i][1] == 4 and hdrs[i][5] == index), None)
+    if index is None or extab is None or rela is None:
+        return {}
+    symtab = hdrs[hdrs[rela][4]]
+    strtab = hdrs[symtab[4]][2]
+
+    def symbol(n):
+        o = symtab[2] + n * 16
+        name = b[strtab + be(o):b.index(b"\0", strtab + be(o))].decode()
+        return name, be(o + 4)
+    func, entry = {}, {}
+    for o in range(hdrs[rela][2], hdrs[rela][2] + hdrs[rela][3], 12):
+        off, info, addend = be(o), be(o + 4), int.from_bytes(b[o + 8:o + 12], "big", signed=True)
+        name, value = symbol(info >> 8)
+        if off % 12 == 0:
+            func[off // 12] = name
+        elif off % 12 == 8:
+            entry[off // 12] = value + addend
+    starts = sorted(set(entry.values())) + [hdrs[extab][3]]
+    out = {"extab": 0, "extabindex": 0}
+    for k, name in func.items():
+        if name in names:
+            out["extabindex"] += 12
+            if k in entry:
+                start = entry[k]
+                out["extab"] += next(x for x in starts if x > start) - start
+    return out
+
+
 def section_alignment_mismatch(u: dict) -> list[str]:
     """Reject padding the compiler's section alignment would add at link time.
 
@@ -607,9 +659,24 @@ def report_scores_exact(u: dict) -> bool:
     if any(f.get("fuzzy_match_percent", 0) != 100 for f in fns):
         return False
     for s in sections:
-        if s.get("fuzzy_match_percent", 0) != 100:
+        if s.get("fuzzy_match_percent", 0) != 100 and not _stripped_exception_entries(u, s.get("name")):
             return False
     return True
+
+
+def _stripped_exception_entries(u: dict, section: str) -> bool:
+    """True when `section` (extab/extabindex) holds entries of functions mwld
+    dead-strips: objdiff scores them as extra bytes, the linker drops them.
+    section_size_mismatch then requires the rest to have the original size."""
+    if section not in ("extab", "extabindex"):
+        return False
+    n = unit_name(u)
+    split = SPLIT_OBJ_DIR / (n[:-len(Path(n).suffix)] + ".o")
+    obj = _obj_path(u)
+    if not split.exists() or not obj.exists():
+        return False
+    stripped = stripped_functions(u, split, obj)
+    return stripped_exception_bytes(obj, set(stripped)).get(section, 0) > 0
 
 
 def unit_is_exact(u: dict) -> bool:
@@ -641,9 +708,7 @@ def scan(write: bool) -> int:
         if not source.startswith(("src/pso/", "src/musyx/", "libs/", "build/GPOE8P/orig_asm/")):
             continue
         n = unit_name(u)
-        if source.startswith("libs/") and meta.get("complete") and n not in linked:
-            continue  # Retain established, explicit Matching() library entries.
-        exact[n] = unit_is_exact(u)
+        exact[n] = unit_is_exact(u) or (n in linked and _proven_by_dol(u))
     add = sorted(n for n, ok in exact.items() if ok and n not in linked and n not in skip)
     blocked = {}
     for u in units:
@@ -847,9 +912,20 @@ def force_active(write: bool) -> int:
     return 0
 
 
+def _proven_by_dol(u: dict) -> bool:
+    """A linked SDK/runtime unit (libs/) whose object the checks above reject
+    only for what mwld resolves at link time: the SDK headers' inline-math
+    local statics, statics the compiler renames, literals it pools apart.
+    The DOL hash, which every build checks, is the proof for these."""
+    source = (u.get("metadata") or {}).get("source_path") or ""
+    return source.startswith("libs/") and report_scores_exact(u)
+
+
 def check() -> int:
     units = load_report()
-    exact = {unit_name(u): unit_is_exact(u) for u in units}
+    linked = set(_read_list(LINKED))
+    exact = {unit_name(u): unit_is_exact(u) or (unit_name(u) in linked and _proven_by_dol(u))
+             for u in units}
     bad = [n for n in _read_list(LINKED) if not exact.get(n, False)]
     if bad:
         print(f"link_units check: {len(bad)} linked unit(s) no longer exact:")

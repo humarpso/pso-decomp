@@ -3,6 +3,11 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 
+struct DirectAttackPayload {
+    s32 kind;
+    f32 power;
+};
+
 class TUnk_804806E8 : public TObjMotion {
 public:
     virtual ~TUnk_804806E8();
@@ -89,7 +94,7 @@ public:
     virtual void reset_pose();
     virtual void vfunc_65(s32, s32);
     virtual int vfunc_66();
-    virtual int vfunc_67();
+    virtual int vfunc_67(f32 damage_scale);
     virtual void get_pos(s32);
     virtual void apply_switch_attack();
     virtual void enemy_spawn_jellen_effect();
@@ -198,7 +203,7 @@ public:
     s16 m_2c8;
     u8 unk_2CA[0x2];
     short m_2cc;
-    u8 unk_2CE[0x2];
+    s16 m_2ce;
     s16 m_2d0;
     u8 unk_2D2[0x2];
     u16 m_2d4;

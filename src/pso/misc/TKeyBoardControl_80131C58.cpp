@@ -11,6 +11,11 @@
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/misc/TWindowKeyBoardBase.h"
+#include "pso/misc/TWindowKeyBoardHard_802601D4.h"
+#include "pso/misc/TWindowKeyBoardSoft_80261440.h"
+#include "pso/misc/TKeyBoardControl_8025CB70.h"
+#include "pso/unk/text_8025FF8C.h"
 
 struct RecoveredGlobal_80131C5C_lbl_8050E208 {
     s32 value;
@@ -105,6 +110,75 @@ TKeyBoardControl::~TKeyBoardControl() {
     if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x28))); }
     if (*(void **)((s8 *)this + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x24))); }
     if (*(void **)((s8 *)this + 0x20) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x20))); }
+}
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *, void *);
+void *__nw__7TObjectFUl(u32);
+u8 *TWindowKeyBoardBase__ct(u8 *arg0);
+void TKeyBoardControl__sub_802613A4(TKeyBoardControl *arg0);
+extern s32 __vt__16TKeyBoardControl[];
+extern const char *TKeyBoardControl__class_name;
+
+TKeyBoardControl *TKeyBoardControl__ct(TKeyBoardControl *self, TObject *parent, u32 arg2, u32 arg3, u8 mode, s16 client) {
+    TKeyBoardControl *kb;
+    void *o;
+
+    __ct__7TObjectFP7TObject(self, parent);
+    kb = self;
+    *(s32 **)((u8 *)kb + 0x18) = __vt__16TKeyBoardControl;
+    *(const char **)((u8 *)self + 0x0) = TKeyBoardControl__class_name;
+    self->m_1c = 0;
+    self->m_1e = client;
+    o = __nw__7TObjectFUl(0xB8);
+    if (o != NULL) {
+        o = TWindowKeyBoardBase__ct((u8 *)o);
+    }
+    self->m_20 = (u32)o;
+    ((TWindowKeyBoardBase *)self->m_20)->init_keyboard_text_field(arg2, arg3);
+    ((TKeyBoardControl *)self->m_20)->set_flag62_bit8();
+    o = __nw__7TObjectFUl(0x74);
+    if (o != NULL) {
+        o = TWindowKeyBoardHard__ct((TWindowKeyBoardHard *)o, self->m_20);
+    }
+    self->m_24 = (u32)o;
+    TKeyBoardControl__sub_8025EC04((u8 *)self->m_24);
+    o = __nw__7TObjectFUl(0x70);
+    if (o != NULL) {
+        o = TWindowKeyBoardSoft__ct((u8 *)o, self->m_20, client);
+    }
+    self->m_28 = (u32)o;
+    switch (mode) {
+    case 0:
+        self->m_1c |= 2;
+        TKeyBoardControl__sub_8025CC3C((void *)self->m_20);
+        fn_8025FF8C((void *)self->m_24);
+        ((TKeyBoardControl *)self->m_28)->release();
+        break;
+    case 1:
+        self->m_1c |= 2;
+        self->m_1c |= 8;
+        ((TKeyBoardControl *)self->m_24)->enable_caps_led();
+        TKeyBoardControl__sub_802613A4((TKeyBoardControl *)self->m_28);
+        TKeyBoardControl__sub_8025CC04((u8 *)self->m_20);
+        break;
+    case 2:
+        self->m_1c |= 2;
+        self->m_1c |= 0x10;
+        ((TKeyBoardControl *)self->m_24)->enable_kana_led();
+        ((TKeyBoardControl *)self->m_28)->release_input();
+        TKeyBoardControl__sub_8025CBCC((u8 *)self->m_20);
+        break;
+    case 3:
+        kb = self;
+        kb->m_1c |= 0x20;
+        ((TKeyBoardControl *)self->m_24)->enable_keyboard_led();
+        ((TKeyBoardControl *)self->m_28)->close();
+        TKeyBoardControl__sub_8025CBC0((void *)self->m_20);
+        break;
+    }
+    return kb;
+}
 }
 
 void TKeyBoardControl__sub_80131F5C(void) {  }

@@ -25,12 +25,14 @@ struct TWindowKeyBoardBase : public TUnk_804CE018 {
     u8 m_65;
     u8 _pad66[0x2];
     u32 m_68;
-    void* m_6c;
-    u8 unk_70[0xC];
+    u16 *m_6c;
+    s32 m_70;
+    u8 unk_74[0x8];
     u32 m_7c;
     u8 unk_80[0x4];
-    void* m_84;
-    u8 unk_88[0xC];
+    u16 *m_84;
+    s32 m_88;
+    u8 unk_8C[0x8];
     s32 m_94;
     u8 unk_98[0x4];
     u32 m_9c;

@@ -29,4 +29,11 @@ struct TWindowSubQuestBoardSelect : public TUnk_804CE018 {
 };
 
 typedef char TWindowSubQuestBoardSelect_size[sizeof(TWindowSubQuestBoardSelect) == 0x68 ? 1 : -1];
+
+extern "C" {
+s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(s32 arg0, s8 arg1);
+void render__26TWindowSubQuestBoardSelectFv(u8 *arg0);
+void *__dt__26TWindowSubQuestBoardSelectFv(void *arg0, s16 arg1);
+u8 *TWindowSubQuestBoardSelect__ct(TWindowSubQuestBoardSelect *window_sub_quest_board_select);
+}
 #endif

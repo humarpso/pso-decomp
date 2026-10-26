@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/BmlResource.h"
 #include "pso/object/TObjFish_8001ED90.h"
 #include "pso/misc/TLobby.h"
 
@@ -15,9 +16,7 @@ struct FishEntry16_8001EDB0 { s32 a; s32 b; s32 c; s32 d; };
 
 struct Fish_8001EDB0 { u8 pad[0x42C]; FishEntry16_8001EDB0 *entries; };
 
-struct FishEntry16_8001EDC4 { s32 a; s32 b; s32 c; s32 d; };
 
-struct Fish_8001EDC4 { u8 pad[0x42C]; FishEntry16_8001EDC4 *entries; };
 
 struct List_8001EDD8 { u8 pad[0x18]; s32 items[0x100]; s32 count; };
 
@@ -29,7 +28,6 @@ extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern s32 tmp_buf_in_use_flag;
 s32 get_bml_motion(Fish_8001ED9C *self, s32 i);
 s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i);
-s32 get_bml_model(Fish_8001EDC4 *self, s32 i);
 void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item);
 char *strncpy(char *d, const char *s, u32 n);
 extern char lbl_80434AE8[];
@@ -47,8 +45,8 @@ s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i) {
     return self->entries[i].d;
 }
 
-s32 get_bml_model(Fish_8001EDC4 *self, s32 i) {
-    return self->entries[i].c;
+s32 get_bml_model(BmlResource *resource, s32 index) {
+    return resource->models[index].model;
 }
 
 typedef char RecoveredGlobal_8001EDF4_lbl_804FE148_size[sizeof(RecoveredGlobal_8001EDF4_lbl_804FE148) == 0x20 ? 1 : -1];

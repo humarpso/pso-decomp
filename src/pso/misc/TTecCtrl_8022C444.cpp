@@ -3,7 +3,7 @@
 #include "pso/TTecCtrl.h"
 #include "pso/item/TItemEquipBase.h"
 
-struct Slot_8022C5CC { s16 id; s16 pad; f32 amount; };
+struct Slot_8022C5CC { s16 id; u16 flags; f32 amount; };
 
 struct RecoveredGlobal_8022C680_lbl_80515FBC {
     s32 value;
@@ -43,6 +43,34 @@ s32 TTecCtrl::classify_distance_band(s32 arg0, s32 arg1, s32 arg2) {
         return 2;
     }
     return 3;
+}
+
+u32 get_technique_caster_flags(s32 technique, u16 actor) {
+    u32 flags;
+    void *player;
+    s32 i;
+
+    flags = 0;
+    if (actor >= 4) {
+        return 0;
+    }
+    for (i = 0; i < 6; i++) {
+        player = get_player_by_client_id(actor);
+        if (player != NULL) {
+            flags += ((f32 (*)(void *, u16, s16))get_battle_value__10TObjPlayerFlil)(player, actor, technique);
+            switch (technique) {
+            case 18:
+                if (((f32 (*)(void *, u16, s16))get_battle_value__10TObjPlayerFlil)(player, actor, technique) == lbl_805DC7D0) {
+                    flags |= 1;
+                }
+                break;
+            }
+        }
+        if (technique == ((struct Slot_8022C5CC (*)[6])&lbl_80515FBC)[actor][i].id) {
+            flags |= ((struct Slot_8022C5CC (*)[6])&lbl_80515FBC)[actor][i].flags;
+        }
+    }
+    return flags;
 }
 }
 f32 calc_technique_boost(s32 technique, u16 actor) {

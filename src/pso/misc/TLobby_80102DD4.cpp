@@ -227,7 +227,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
             }
         } else {
             if (horizontal_distance_squared(temp_r30, arg0 + 0x44) < horizontal_distance_squared(arg0 + 0x38, arg0 + 0x44)) {
-                ((TObjPlayer *)temp_r3)->show_miss_for_collider((int) (*(s16 *)((s8 *)arg0 + 0x2C)));
+                ((TObjPlayer *)temp_r3)->show_miss_for_collider(*(s16 *)((s8 *)arg0 + 0x2C));
             }
         }
     }

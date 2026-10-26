@@ -1,3 +1,4 @@
+#include "pso/menu/CreationInput.h"
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/misc/TUnk_80488A28.h"
@@ -19,7 +20,6 @@ struct Cam_80291784 {
 };
 
 extern "C" {
-s32 TObjCMProportion__sub_8029916C(s32);
 f32 cos_table_lookup(s32);
 }
 extern int creation_camera_mode;
@@ -42,13 +42,11 @@ extern const f32 lbl_805DD9B0;
 extern "C" {
 void update_creation_camera_auto(Cam_80291784 *arg0);
 f32 TObjCMProportion::get_ratio(void),TObjCMProportion::get_right_trigger_ratio(void);
-s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
 void *__nw__7TObjectFUl(int);
 void update_creation_camera_auto(Cam_80291784*);
 }
-void get_creation_pad_stick(s32 *arg0, f32 *arg1);
 
 #include "pso/misc/TCameraCtrl.h"
 
@@ -158,7 +156,7 @@ void CreationCamera::advance_manual(){
   s32 temp_r0_2;
   s32 var_r4;
 
-  if (TObjCMProportion__sub_8029914C(0x10) != 0)
+  if (creation_buttons_held(0x10) != 0)
   {
     temp_f1 = this->height;
     temp_f1 = temp_f1;
@@ -170,7 +168,7 @@ void CreationCamera::advance_manual(){
     }
   }
   else
-    if (TObjCMProportion__sub_8029914C(0x20) != 0)
+    if (creation_buttons_held(0x20) != 0)
   {
     temp_f1_2 = this->height;
     temp_f1_2 = temp_f1_2;
@@ -205,12 +203,12 @@ void CreationCamera::advance_manual(){
     }
   }
   else
-    if (TObjCMProportion__sub_8029914C(0x80) != 0)
+    if (creation_buttons_held(0x80) != 0)
   {
     this->yaw = (this->yaw + 0x444);
   }
   else
-    if (TObjCMProportion__sub_8029914C(0x40) != 0)
+    if (creation_buttons_held(0x40) != 0)
   {
     this->yaw = (this->yaw - 0x444);
   }
@@ -227,7 +225,7 @@ void CreationCamera::advance_manual(){
     this->distance = (f32) lbl_805DD9B8;
   }
   get_creation_pad_stick(0, &sp8);
-  if ((sp8 > lbl_805DD974) || (TObjCMProportion__sub_8029914C(0x300F0) != 0))
+  if ((sp8 > lbl_805DD974) || (creation_buttons_held(0x300F0) != 0))
   {
     this->ticks = 0;
     return;
@@ -317,7 +315,7 @@ void CreationCamera::advance_review(){
 #pragma fp_contract on
 void CreationCamera::update_idle(){
     s32 temp_r0;
-    if (TObjCMProportion__sub_8029916C(0x6F0) != 0) {
+    if (creation_buttons_pressed(0x6F0) != 0) {
         *(u32 *)((s8 *)this + 0x84) = 0U;
         creation_camera_mode = 4;
         return;

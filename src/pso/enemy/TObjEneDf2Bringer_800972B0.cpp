@@ -159,7 +159,7 @@ extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
-extern "C" void vfunc_67__13TUnk_804806E8Fv();
+extern "C" void vfunc_67__13TUnk_804806E8Ff();
 extern "C" void vfunc_66__13TUnk_804806E8Fv();
 extern "C" void vfunc_65__13TUnk_804806E8Fll();
 extern "C" void vfunc_60__13TUnk_804806E8Fv();
@@ -240,7 +240,7 @@ void *__vt__17TObjEneDf2Bringer[107] = {
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__17TObjEneDf2BringerFv, (void *)&vfunc_62__17TObjEneDf2BringerFv, (void *)&vfunc_63__17TObjEneDf2BringerFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
     (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEneDDFv,
@@ -722,7 +722,7 @@ struct Vec_8009813C { f32 x, y, z; };
 
 struct Sub_8009813C { u8 pad[0x18]; s32 flags; };
 
-struct Prm_8009813C { f32 speed; u8 pad4[0x18]; s32 i1C; };
+struct Prm_8009813C { f32 speed; u8 pad4[0x18]; s32 i1C; s32 i20; };
 
 struct Vec_80097820 { f32 x, y, z; };
 
@@ -738,6 +738,9 @@ struct Vec_80097820 { f32 x, y, z; };
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TLobby.h"
+#include "pso/item/TItem.h"
+
+u8 *construct_bringer_rush_effect(u8 *, s32, u8 *, s32, f32);
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 struct VBase_18_d3b6b2 { char pad[0x18]; };
@@ -2196,6 +2199,63 @@ void spawn_offset_particle__17TObjEneDf2BringerFPv(u8 *arg0) {
     vec3_add_to(&stack.sp8, arg0 + 0x38);
     spawn_particle_effect(&stack.sp8, 0xF3);
 }
+s32 check_enemy_body_collisions(void *);
+s32 obj_is_hit_receivable(void);
+s32 attack_target_history_add(s32, TObjPlayer *);
+s32 is_player_entity_id(u16);
+s32 is_locally_controlled__10TObjPlayerFPv(TObjPlayer *);
+TItem *get_item_field_6__10TObjPlayerFPv(TObjPlayer *);
+void send_6x26_unequip_item__10TObjPlayerFPvPv(TObjPlayer *, s32);
+void TObjEneDD__sub_800BA438(void *, TObjPlayer *);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+extern const f32 lbl_805D9834;
+
+s32 TObjEneDf2Bringer__sub_80099248(void *bringer) {
+    s32 hit;
+    TObjPlayer *player;
+    s32 i;
+    u8 *eff;
+    hit = 0;
+    TObjPlayer::init_all_slots();
+    ((TObjPlayer *)bringer)->check_object_collisions();
+    check_enemy_body_collisions(bringer);
+    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)bringer + 0xA4)) + 0x18) & 0x180000) {
+        hit = 1;
+        for (i = 0; i < 0x10; i++) {
+            player = (TObjPlayer *)TObjPlayer::get_battle_param(i);
+            if (player == NULL) {
+                break;
+            }
+            if (obj_is_hit_receivable() != 0 && attack_target_history_add(*(s32 *)((s8 *)bringer + 0x49C), player) != 0) {
+                DirectAttackPayload h;
+                h.kind = 0;
+                h.power = TObjEneDf2Bringer__data_805D4FB4->i20;
+                {
+                    DirectAttackPayload t = h;
+                    player->receive_direct_attack(bringer, &t, 0, -1, -1);
+                }
+                if (is_player_entity_id(obj_getField1c(player)) != 0) {
+                    if (TObjEneDD::check_v2_mode() != 0) {
+                        if (is_locally_controlled__10TObjPlayerFPv(player) != 0) {
+                            TItem *item = get_item_field_6__10TObjPlayerFPv(player);
+                            if (item != NULL) {
+                                send_6x26_unequip_item__10TObjPlayerFPvPv(player, item->get_field_d8());
+                            }
+                        }
+                    } else if (calc_boss4_scale__10TObjPlayerFi(bringer) <= lbl_805D9834) {
+                        TObjEneDD__sub_800BA438(bringer, player);
+                    }
+                }
+                eff = (u8 *)__nw__7TObjectFUl(0x34);
+                if (eff != NULL) {
+                    construct_bringer_rush_effect(eff, (s32)bringer, (u8 *)bringer, (s32)player, lbl_805D97F0);
+                }
+            }
+        }
+    }
+    return hit;
+}
+
 void update_attack_child__17TObjEneDf2BringerFPv(Bringer_800993E8 *obj) {
     Fields_800993E8 *self = (Fields_800993E8 *)obj;
     Entry_800993E8 *entry;

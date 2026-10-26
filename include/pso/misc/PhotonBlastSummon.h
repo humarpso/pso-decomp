@@ -17,7 +17,7 @@ void publish_photon_blast_joint_origins(void);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern "C" {
 void queue_deferred_photon_blast_support(void);
-void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
+void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate, f32 scale);
 }
 void queue_photon_blast_support(void);
 extern "C" {

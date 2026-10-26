@@ -23,6 +23,8 @@ struct DragonMotion { u32 unknown00; u32 frameCount; };
 struct DragonMotionEntry { u32 unknown00; DragonMotion* motion; };
 struct DragonAnimationEntry { u32 unknown00; s32 motionIndex; u8 unknown08[8]; };
 
+extern "C" void copy_model_node(u8 *dst, u8 *src);
+
 struct TBoss1Dragon : public TObjEneDD_ST {
     virtual ~TBoss1Dragon();
     void load_resources();

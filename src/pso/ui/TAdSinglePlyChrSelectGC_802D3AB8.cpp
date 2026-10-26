@@ -98,7 +98,8 @@ s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {
 }
 }
 
-void finish_character_selection_transition(void *arg0) {
+void TAdSinglePlyChrSelectGC::finish_character_selection_transition() {
+    void *arg0 = this;
     s32 temp_r4;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
         TWindow__close(*(void **)((s8 *)arg0 + 0x38));
@@ -383,7 +384,8 @@ void TAdSinglePlyChrSelectGC::handle_slot_selection() {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
+void TAdSinglePlyChrSelectGC::sub_802D4570() {
+    u8 *arg0 = (u8 *)this;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x20) = 0xB;
@@ -400,7 +402,8 @@ void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x20) = 5;
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0) {
+void TAdSinglePlyChrSelectGC::sub_802D4664() {
+    u8 *arg0 = (u8 *)this;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x20) = 0xB;
@@ -419,7 +422,8 @@ void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
+void TAdSinglePlyChrSelectGC::sub_802D4730() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
@@ -451,7 +455,8 @@ void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
         }
     }
 }
-void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0) {
+void TAdSinglePlyChrSelectGC::sub_802D486C() {
+    void *arg0 = this;
     s32 temp_r0;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);

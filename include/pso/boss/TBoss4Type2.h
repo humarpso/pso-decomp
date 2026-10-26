@@ -111,6 +111,35 @@ struct TBoss4Type2
     void spawn_afterimages();
     void choose_next_action();
     static void *create_jisin(void *arg0, void *arg1);
+    void change_action(s32 action);
+    void appear_enter();
+    void appear_idle();
+    void appear_update();
+    void wait_next_idle();
+    void dead_enter();
+    void dead_idle();
+    void dead_update();
+    void move_enter();
+    void move_idle();
+    void move_update();
+    void jisin_enter();
+    void jisin_idle();
+    void jisin_update();
+    void beam_enter();
+    void beam_idle();
+    void beam_update();
+    void tenchu_enter();
+    void tenchu_idle();
+    void tenchu_update();
+    void md_stop1_enter();
+    void md_stop_idle();
+    void md_stop_update();
+    void md_stop2_enter();
+    void md_stop3_enter();
+    void md_stop4_enter();
+    void md_recover_enter();
+    void md_recover_idle();
+    void md_recover_update();
 };
 
 #endif

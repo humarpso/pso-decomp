@@ -2,6 +2,8 @@
 #include "pso/unk/text_8020E700.h"
 #include "pso/unk/text_8020EEFC.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TLobby_8020E400.h"
+#include "pso/item/TItemData.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -26,6 +28,10 @@ struct Ctr_8020E934 { u8 b[0x74]; };
 
 struct Tbl_8020E934 { u8 pad[8]; u8 *pairs; u8 count; };
 
+struct Tbl_8020E800 { u8 pad[0x10]; u8 *pairs; u8 count; };
+
+struct Tbl_8020EACC { u8 *pairs; u8 count; };
+
 struct Rec_8020E700 { u8 a, b, c, d, e, f; u8 pad[0x14 - 6]; };
 
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
@@ -40,6 +46,7 @@ void push_shop_pool_entry(Ctr_8020E934 *, u8);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1);
+void generate_shop_armor_pool(s32 arg0);
 typedef char RecoveredGlobal_8020ECD8_lbl_80513D78_size[sizeof(RecoveredGlobal_8020ECD8_lbl_80513D78) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_8020ECA8_lbl_80513D58_size[sizeof(RecoveredGlobal_8020ECA8_lbl_80513D58) == 0x10 ? 1 : -1];
@@ -65,6 +72,7 @@ s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *arg0, s32 arg1) {
     }
     return 1;
 }
+
 }
 
 void generate_shop_shield_pool(s32 arg0) {
@@ -122,6 +130,67 @@ void generate_shop_shield_pool(s32 arg0) {
             j++;
         }
     }
+}
+
+extern "C" {
+void generate_shop_armor_pool(s32 arg0) {
+    Item_8020E934 item;
+    Ctr_8020E934 ctr;
+    Item_8020E934 *dst;
+    s32 n;
+    s32 cnt;
+    s32 i;
+    Tbl_8020EACC *tbl;
+    u8 *p;
+    s32 b;
+    s32 *counts;
+    s32 j;
+    s32 k;
+    s32 grp;
+    ((TLobby *)(&ctr))->reset_counter_64();
+    dst = ((Item_8020E934 **)&lbl_80513D78)[arg0];
+    n = TLobby::get_armor_shop_tier_for_level(lbl_805D615C);
+    tbl = *(Tbl_8020EACC **)lbl_805D6158;
+    grp = TLobby::get_lobby_group(lbl_805D615C);
+    cnt = tbl->count;
+    grp *= cnt;
+    p = tbl->pairs + grp * 2;
+    i = 0;
+    while (i++ < cnt) {
+        for (k = p[1]; k != 0; k--) {
+            push_shop_pool_entry(&ctr, p[0]);
+        }
+        p += 2;
+    }
+    shuffle_shop_pool_n_times(&ctr, 8);
+    j = 0;
+    counts = lbl_80513D68;
+    while (j < n) {
+        b = ((TLobby *)(&ctr))->pop_byte();
+        if (b == -1) {
+            continue;
+        }
+        init__9TItemDataFv(&item);
+        item.b[0] = 1;
+        item.b[1] = 1;
+        if (shop_difficulty_tier != 3) {
+            item.b[2] = b;
+        } else if (lbl_805D615C >= 1 && lbl_805D615C <= 99) {
+            item.b[2] = b;
+        } else if (lbl_805D615C >= 100 && lbl_805D615C <= 150) {
+            item.b[2] = b + 2;
+        } else if (lbl_805D615C >= 151 && lbl_805D615C <= 200) {
+            item.b[2] = b + 3;
+        } else {
+            item.b[2] = b;
+        }
+        ((TItemData *)&item)->register_drop();
+        if (is_duplicate_shop_armor((Rec_8020E700 *)&item, arg0) == 1) {
+            ((TLobby *)(&dst[counts[arg0]++]))->copy_item_data(&item);
+            j++;
+        }
+    }
+}
 }
 
 void TLobby::clear_shop_entry_value(s32 i, s32 j) {

@@ -112,13 +112,13 @@ struct QFrameCtx_80245808
 extern "C" {
 void reset_line_width(void);
 void set_line_width(int a0);
-void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
+struct Vec2_80245A10 { f32 x, y; };
+struct Lines_80245A10 { Vec2_80245A10 *verts; u32 *colors; s32 f8; s32 count; };
+void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, TWindowKeyBoardSoft *r, f32 len);
+void draw_color_lines(Lines_80245A10 *l, s32 n, s32 flags, f32 scale);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32, s32);
-extern const f32 lbl_805DCB10;
-extern const f32 lbl_805DCAD4;
-extern const f32 lbl_805DCAFC;
 struct VOff_8024491C_arg0_card_1 { char pad_0[0x38]; char f_38[1]; };
 
 struct VOff_80244958_arg0_card_1 { char pad_0[0x30]; char f_30[1]; };
@@ -154,21 +154,6 @@ s32 resort_window_order__13TUnk_804CE018Fv(void *);
 
 extern int lbl_805D3614;
 extern s32 lbl_805D3888;
-extern f32 lbl_805DCAC8;
-extern const f32 lbl_805DCACC;
-extern const f32 lbl_805DCAD0;
-extern const f32 lbl_805DCAD8;
-extern const f32 lbl_805DCADC;
-extern const f32 lbl_805DCAE0;
-extern const f32 lbl_805DCAF4;
-extern const f32 lbl_805DCB00;
-extern const f32 lbl_805DCB04;
-extern const f32 lbl_805DCB0C;
-extern const f32 lbl_805DCB14;
-extern const f32 lbl_805DCB18;
-extern const f32 lbl_805DCB1C;
-extern const f32 lbl_805DCB20;
-extern const f32 lbl_805DCB24;
 
 extern "C" {
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Quad_802455CC *);
@@ -180,7 +165,7 @@ s32 TWindowSubComCard::get_field_20() { return this->m_20; }
 
 f32 TWindowSubComCard__sub_80244784(TWindowSubComCard *window_sub_com_card) {
     f32 v = window_sub_com_card->calc_offset();
-    if (v < lbl_805DCAC8) {
+    if (v < 1.0f) {
         return v;
     }
     return window_sub_com_card->get_normalized_progress();
@@ -191,9 +176,9 @@ f32 TWindowSubComCard::calc_offset() {
 
     temp_r3 = *(s16 *)((s8 *)this + 0x22);
     if (temp_r3 != 0) {
-        return lbl_805DCAC8 - ((f32) temp_r3 / (*(f32 *)&lbl_805DCACC));
+        return 1.0f - ((f32) temp_r3 / 4.5f);
     }
-    return lbl_805DCAC8;
+    return 1.0f;
 }
 
 #pragma push
@@ -201,13 +186,13 @@ f32 TWindowSubComCard::calc_offset() {
 f32 TWindowSubComCard::get_normalized_progress() {
     s32 temp_r3;
     if (this->m_2c & 0x2000) {
-        return (*(const f32 *)&lbl_805DCAC8);
+        return 1.0f;
     }
     temp_r3 = this->m_5c;
-    if ((f32) temp_r3 >= lbl_805DCAD0) {
-        return (*(const f32 *)&lbl_805DCAC8);
+    if ((f32) temp_r3 >= 7.5f) {
+        return 1.0f;
     }
-    return (f32) temp_r3 / lbl_805DCAD0;
+    return (f32) temp_r3 / 7.5f;
 }
 #pragma pop
 
@@ -275,7 +260,7 @@ void TWindowLockOn::request_close() {
 }
 
 s32 TUnk_804CE018::is_window_reveal_complete() {
-    return (f32) *(s32 *)((s8 *)((u8 *)this) + 0x5C) >= lbl_805DCAD0;
+    return (f32) *(s32 *)((s8 *)((u8 *)this) + 0x5C) >= 7.5f;
 }
 }
 extern u16 window_ui_theme_index;
@@ -283,18 +268,13 @@ extern s16 lbl_805D63F6;
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
 extern UVPair_8024503C selection_bar_texture_coordinates;
 extern s32 lbl_805D63F0;
-extern const f32 lbl_805DCAE4;
-extern const f32 lbl_805DCAE8;
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
-extern const f32 lbl_805DCB48;
-extern const f32 lbl_805DCB28;
-extern const f32 lbl_805DCB2C;
 void window_request_refresh(u8 *arg0);
 void window_request_show(void *arg0);
 bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
 void apply_window_closing_stretch(u8 *arg0, int arg1);
 void window_request_refresh(u8 *arg0) {
-    if (!((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCAD0)) {
+    if (!((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= 7.5f)) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 7;
     }
 }
@@ -311,7 +291,7 @@ void window_request_show(void *object) {
         *(s32 *)((s8 *)object + 0x2C) = (s32) (temp_r3 | 4);
         return;
     }
-    if (TWindowSubStatusDisp::get_card_window_scale(*(s16 *)((s8 *)object + 0x20)) > lbl_805DCAD4) {
+    if (TWindowSubStatusDisp::get_card_window_scale(*(s16 *)((s8 *)object + 0x20)) > 0.0f) {
         *(s32 *)((s8 *)object + 0x5C) = 0;
     }
     *(s32 *)((s8 *)object + 0x2C) = (s32) (*(s32 *)((s8 *)object + 0x2C) | 3);
@@ -332,11 +312,11 @@ s32 TUnk_804CE018::setup_window_draw_context(s32 arg1) {
         ((TWindowKeyBoardSoft *)temp_r31)->shrink_clip_right();
     }
     if (*(s32 *)((s8 *)((u8 *)this) + 0x2C) & 8) {
-        ((TWindowKeyBoardSoft *)temp_r31)->set_bounds(lbl_805DCAD4, lbl_805DCAD4, lbl_805DCAD8, lbl_805DCADC);
+        ((TWindowKeyBoardSoft *)temp_r31)->set_bounds(0.0f, 0.0f, 640.0f, 480.0f);
     }
     var_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x5C);
     if (!(*(s32 *)((s8 *)((u8 *)this) + 0x2C) & 0x2000)) {
-        var_r4 = (s32) ((f32) var_r4 - lbl_805DCAD0);
+        var_r4 = (s32) ((f32) var_r4 - 7.5f);
     }
     ((TWindowKeyBoardSoft *)temp_r31)->set_open_tick(var_r4);
     apply_window_closing_stretch((u8 *)temp_r31, (*(s16 *)((s8 *)((u8 *)this) + 0x22)));
@@ -408,7 +388,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     ((s32 (*)(void *))save_position__13TUnk_804CE018Fv)(this);
     temp_f1 = *(f32 *)((s8 *)arg1 + 8);
     *(f32 *)((s8 *)((u8 *)this) + 0x1C) = temp_f1;
-    *(f32 *)((s8 *)((u8 *)this) + 0x54) = (f32) lbl_805DCAE0;
+    *(f32 *)((s8 *)((u8 *)this) + 0x54) = -10000.0f;
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
     ((s32 (*)(void *, f32))resort_window_order__13TUnk_804CE018Fv)(this, temp_f1);
     *(s32 *)((s8 *)((u8 *)this) + 0x50) = 0;
@@ -424,7 +404,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2) && !(temp_r3_2 & 0x20)) {
         ((s32 (*)(int, int, int, int))play_sound_effect)(0x53703, 0, 0, 0);
     }
-    if (TWindowSubStatusDisp::get_card_window_scale((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20))) <= lbl_805DCAD4) {
+    if (TWindowSubStatusDisp::get_card_window_scale((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20))) <= 0.0f) {
         *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x01000000;
     }
 }
@@ -448,7 +428,7 @@ void draw_selection_bar(u8 *window_key_board_soft, u8 *arg1, s32 arg2) {
     }
     y = *(f32 *)((s8 *)window_key_board_soft + 0x14) + *(f32 *)((s8 *)arg1 + 0xC);
     x = *(f32 *)((s8 *)window_key_board_soft + 0x10);
-    z = lbl_805DCAE4 / (lbl_805DCAE8 + *(f32 *)((s8 *)window_key_board_soft + 0x38));
+    z = -1.0f / (0.22424999f + *(f32 *)((s8 *)window_key_board_soft + 0x38));
     TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
@@ -596,7 +576,7 @@ bool TWindowSubComCard__sub_80245558(s32 arg0, f32 *arg1, f32 *arg2) {
     f32 temp_f2;
 
     temp_f2 = *(f32 *)((s8 *)arg1 + 0);
-    temp_f1 = (lbl_805DCB00 * (f32) lbl_805D63F6) - lbl_805DCB04;
+    temp_f1 = (5.0f * (f32) lbl_805D63F6) - 100.0f;
     if (temp_f1 <= temp_f2) {
         return 0;
     }
@@ -611,42 +591,42 @@ void TUnk_804CE018::draw_message_frame_row(void *q, void *r) {
     f32 t;
     f32 z;
     f32 w;
-    if (*(f32 *)((s8 *)((u8 *)this) + 0x48) < lbl_805DCB10) {
-        w = lbl_805DCB0C * *(f32 *)((s8 *)((u8 *)this) + 0x48);
+    if (*(f32 *)((s8 *)((u8 *)this) + 0x48) < 64.0f) {
+        w = 0.5f * *(f32 *)((s8 *)((u8 *)this) + 0x48);
     } else {
-        w = lbl_805DCAFC;
+        w = 32.0f;
     }
-    z = lbl_805DCAE4 / ((Rect_802455CC *)r)->depth;
+    z = -1.0f / ((Rect_802455CC *)r)->depth;
     ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->x;
     ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->x + w;
-    ((Quad_802455CC *)q)->u0 = lbl_805DCB14;
-    ((Quad_802455CC *)q)->u1 = lbl_805DCB18;
+    ((Quad_802455CC *)q)->u0 = 0.3828125f;
+    ((Quad_802455CC *)q)->u1 = 0.5078125f;
     ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x0 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
     ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x1 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
     draw_textured_quad_at_depth((f32 *)((Quad_802455CC *)q), z);
     ((Quad_802455CC *)q)->x0 = (((Rect_802455CC *)r)->x + *(f32 *)((s8 *)((u8 *)this) + 0x48)) - w;
     ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->x + *(f32 *)((s8 *)((u8 *)this) + 0x48);
-    ((Quad_802455CC *)q)->u0 = lbl_805DCB1C;
-    ((Quad_802455CC *)q)->u1 = lbl_805DCB20;
+    ((Quad_802455CC *)q)->u0 = 0.6328125f;
+    ((Quad_802455CC *)q)->u1 = 0.7578125f;
     ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x0 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
     ((Quad_802455CC *)q)->x1 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x1 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
     draw_textured_quad_at_depth((f32 *)((Quad_802455CC *)q), z);
-    ((Quad_802455CC *)q)->x0 = lbl_805DCAFC + ((Rect_802455CC *)r)->x;
-    ((Quad_802455CC *)q)->u0 = lbl_805DCB18;
-    ((Quad_802455CC *)q)->u1 = lbl_805DCB1C;
-    rem = ((Rect_802455CC *)r)->sx * (*(f32 *)((s8 *)((u8 *)this) + 0x48) - lbl_805DCB10);
+    ((Quad_802455CC *)q)->x0 = 32.0f + ((Rect_802455CC *)r)->x;
+    ((Quad_802455CC *)q)->u0 = 0.5078125f;
+    ((Quad_802455CC *)q)->u1 = 0.6328125f;
+    rem = ((Rect_802455CC *)r)->sx * (*(f32 *)((s8 *)((u8 *)this) + 0x48) - 64.0f);
     ((Quad_802455CC *)q)->x0 = ((Rect_802455CC *)r)->sx * (((Quad_802455CC *)q)->x0 - ((Rect_802455CC *)r)->px) + ((Rect_802455CC *)r)->px;
-    while (rem >= lbl_805DCAD4) {
-        if (rem < lbl_805DCAFC) {
+    while (rem >= 0.0f) {
+        if (rem < 32.0f) {
             ((Quad_802455CC *)q)->x1 = ((Quad_802455CC *)q)->x0 + rem;
-            t = lbl_805DCB24 + rem;
-            ((Quad_802455CC *)q)->u1 = t * lbl_805DCAF4;
+            t = 130.0f + rem;
+            ((Quad_802455CC *)q)->u1 = t / 256.0f;
         } else {
-            ((Quad_802455CC *)q)->x1 = lbl_805DCAFC + ((Quad_802455CC *)q)->x0;
+            ((Quad_802455CC *)q)->x1 = 32.0f + ((Quad_802455CC *)q)->x0;
         }
         draw_textured_quad_at_depth((f32 *)((Quad_802455CC *)q), z);
-        rem -= lbl_805DCAFC;
-        ((Quad_802455CC *)q)->x0 = ((Quad_802455CC *)q)->x0 + lbl_805DCAFC;
+        rem -= 32.0f;
+        ((Quad_802455CC *)q)->x0 += 32.0f;
     }
 }
 #pragma pop
@@ -686,28 +666,74 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
   q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
   q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
   draw_message_frame_row((Quad_802455CC *)(&q), (Rect_802455CC *)(c));
-  q.y = lbl_805DCAFC + c->y;
-  q.v = lbl_805DCB28;
-  q.vBottom = lbl_805DCB2C;
-  step = lbl_805DCAFC * c->scaleY;
-  rem = ((struct QFrameWindow_80245808 *)this)->height - lbl_805DCB10;
+  q.y = 32.0f + c->y;
+  q.v = 0.125f;
+  q.vBottom = 0.25f;
+  step = 32.0f * c->scaleY;
+  rem = ((struct QFrameWindow_80245808 *)this)->height - 64.0f;
   q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
-  step = lbl_805DCAFC * c->scaleY;
-  while (rem >= lbl_805DCAD4)
+  step = 32.0f * c->scaleY;
+  while (rem >= 0.0f)
   {
-    if (rem < lbl_805DCAFC)
+    if (rem < 32.0f)
     {
       step = rem * ((float) c->scaleY);
-      q.vBottom = (lbl_805DCAFC + rem) / 256.0f;
+      q.vBottom = (32.0f + rem) / 256.0f;
     }
     q.bottom = q.y + step;
     draw_message_frame_row((Quad_802455CC *)(&q), (Rect_802455CC *)(c));
-    rem -= lbl_805DCAFC;
+    rem -= 32.0f;
     q.y += step;
   }
   TWindowSubStatusDisp::get_player();
 }
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubComCard__sub_80245A10(u8 *card, s32 row, TWindowKeyBoardSoft *r, f32 len) {
+    Lines_80245A10 lines;
+    u32 colors[3];
+    Vec2_80245A10 pts[3];
+    f32 depth;
+    f32 t;
+    u8 alpha;
+    f32 y;
+
+    if (len <= 0.0f) {
+        return;
+    }
+    if (len >= *(f32 *)(card + 0x48) - 24.0f) {
+        return;
+    }
+    lines.verts = pts;
+    lines.colors = colors;
+    lines.f8 = 0;
+    lines.count = 3;
+    t = len / (r->w - 24.0f);
+    depth = r->depth;
+    lines.colors[0] = 0x282828;
+    lines.colors[1] = 0x282828;
+    lines.colors[2] = 0x282828;
+    if (t > 0.5f) {
+        alpha = 2.0f * (255.0f * (1.0f - t));
+    } else {
+        alpha = 255.0f * (2.0f * t);
+    }
+    lines.colors[1] |= alpha << 24;
+    pts[0].x = 12.0f + r->x;
+    pts[2].x = (r->x + r->w) - 12.0f;
+    pts[1].x = pts[0].x + len;
+    y = 4.0f * (f32)row + (12.0f + r->y);
+    pts[0].y = y;
+    pts[1].y = y;
+    pts[2].y = y;
+    r->scale_point_about_pivot(&pts[0].x);
+    r->scale_point_about_pivot(&pts[1].x);
+    r->scale_point_about_pivot(&pts[2].x);
+    draw_color_lines(&lines, 3, 0x14, depth);
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -735,7 +761,7 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     TObjPlayer::init_xyz_limits();
     step = 1.0f;
     for (i = 0; i < n2; i++) {
-        TWindowSubComCard__sub_80245A10(arg0, i, arg1, y);
+        TWindowSubComCard__sub_80245A10(arg0, i, (TWindowKeyBoardSoft *)arg1, y);
         y -= step;
     }
     TObjPlayer::reset_transform_state();
@@ -753,7 +779,7 @@ void TUnk_804CE018::draw_window_frame_strips(void *q, void *r) {
   f32 t;
   f32 z;
   f32 w;
-  z = (-1.0f) / ((Rect_80245D64 *)r)->depth;
+  z = -1.0f / ((Rect_80245D64 *)r)->depth;
   w = 0.5f * (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48)));
   if (w > 32.0f)
   {
@@ -768,7 +794,7 @@ void TUnk_804CE018::draw_window_frame_strips(void *q, void *r) {
   draw_textured_quad_at_depth((f32 *)((Quad_80245D64 *)q), z);
   ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->x + (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48)))) - w;
   ((Quad_80245D64 *)q)->x1 = ((Rect_80245D64 *)r)->x + (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48)));
-  ((Quad_80245D64 *)q)->u0 = (lbl_805DCB48 - w) / 256.0f;
+  ((Quad_80245D64 *)q)->u0 = (96.0f - w) / 256.0f;
   ((Quad_80245D64 *)q)->u1 = 0.375f;
   ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x0 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
   ((Quad_80245D64 *)q)->x1 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x1 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
@@ -778,13 +804,13 @@ void TUnk_804CE018::draw_window_frame_strips(void *q, void *r) {
   ((Quad_80245D64 *)q)->u1 = 0.25f;
   rem = ((Rect_80245D64 *)r)->sx * ((*((f32 *) (((s8 *) ((u8 *)this)) + 0x48))) - 64.0f);
   ((Quad_80245D64 *)q)->x0 = (((Rect_80245D64 *)r)->sx * (((Quad_80245D64 *)q)->x0 - ((Rect_80245D64 *)r)->px)) + ((Rect_80245D64 *)r)->px;
-  while (rem >= lbl_805DCAD4)
+  while (rem >= 0.0f)
   {
     if (rem < 32.0f)
     {
       ((Quad_80245D64 *)q)->x1 = ((Quad_80245D64 *)q)->x0 + rem;
       t = 32.0f + rem;
-      ((Quad_80245D64 *)q)->u1 = t * lbl_805DCAF4;
+      ((Quad_80245D64 *)q)->u1 = t / 256.0f;
     }
     else
     {
@@ -838,7 +864,7 @@ void TUnk_804CE018::draw_window_frame(void *r) {
   q.y0 = 32.0f + ((Rect_80245F98 *)r)->y;
   q.v0 = 0.125f;
   q.v1 = 0.25f;
-  rem = n - lbl_805DCB10;
+  rem = n - 64.0f;
   q.y0 = (((Rect_80245F98 *)r)->sy * (q.y0 - ((Rect_80245F98 *)r)->py)) + ((Rect_80245F98 *)r)->py;
   dy = 32.0f * ((Rect_80245F98 *)r)->sy;
   while (rem >= 0.0f)
@@ -872,6 +898,30 @@ void TUnk_804CE018::update_fade() {
     (*(u32 *)((u8 *)this + 0x50)) = (u32) ((*(u32 *)((u8 *)this + 0x50)) - 1);
 }
 
+extern "C" {
+s32 rand(void);
+
+void TWindowSubComCard__sub_8024634C(void) {
+    switch (window_ui_theme_index) {
+    case 0:
+        lbl_805D63F6 = 60.0f * ((1.0f / 32768.0f) * rand()) + 60.0f;
+        window_ui_theme_index = 1;
+    case 1:
+        if (lbl_805D63F6-- < 0) {
+            lbl_805D63F6 = 0;
+            window_ui_theme_index = 2;
+        }
+        break;
+    case 2:
+        lbl_805D63F6++;
+        if (5.0f * ((f32)lbl_805D63F6 - 0.2f * TWindowSubComCard::trunc_float(120.0f)) >= 840.0f) {
+            window_ui_theme_index = 0;
+        }
+        break;
+    }
+}
+}
+
 void TWindowSubComCard::update_open_close() {
     u8 *arg0 = (u8 *)this;
     s32 card_window_flags;
@@ -888,7 +938,7 @@ void TWindowSubComCard::update_open_close() {
             queue_destruction__7TObjectFv(arg0);
         }
     } else if (temp_r5 & 1) {
-        if ((f32) *(s32 *)&this->m_5c >= lbl_805DCAD0) {
+        if ((f32) *(s32 *)&this->m_5c >= 7.5f) {
             if (temp_r5 & 4) {
                 if (!(temp_r5 & 0x20)) {
                     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x53704, 0U, 0, 0);
@@ -900,7 +950,7 @@ void TWindowSubComCard::update_open_close() {
         }
     } else {
         *(s16 *)((s8 *)arg0 + 0x22) = (s16) (*(s16 *)((s8 *)arg0 + 0x22) + 1);
-        if ((f32) *(s16 *)((s8 *)arg0 + 0x22) >= lbl_805DCACC) {
+        if ((f32) *(s16 *)((s8 *)arg0 + 0x22) >= 4.5f) {
             if (*(s32 *)&this->m_2c & 0x10) {
                 disallow_rendering__7TObjectFv((TObject *)arg0);
                 queue_destruction__7TObjectFv(arg0);

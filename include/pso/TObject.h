@@ -147,7 +147,7 @@ public:
     void log(const char *str);
     int  get_node_count();
     int  all_parents_unqueued_for_destruction();
-    bool defer_render();
+    int defer_render();
 public:
 };
 

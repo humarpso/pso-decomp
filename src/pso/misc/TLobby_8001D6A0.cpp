@@ -11,6 +11,13 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubStatusDisp_800FBD74.h"
+#include "pso/misc/TLobby_801E2F94.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+
+#pragma readonly_strings on
 
 void* get_player_entry__6TLobbyFii(int a0, int a1);
 void* TLobby__sub_8001E270(int a0, int a1);
@@ -642,12 +649,35 @@ void bswap__12player_statsFv(void *arg0) {
     bswap_32((u32 *)((void *)((char *)arg0 + 32)));
 }
 
-extern f32 TLobby__data_805D7EC8;
 extern s32 selected_episode;
 
 s32 TLobby::get_instance() {
     return selected_episode;
 }
+
+void set_clock_offset_from_server_time(TLobby *packet) {
+    u8 *save;
+    DateStamp date;
+    s32 minutes;
+    s32 local_time;
+    s32 offset;
+
+    save = (u8 *)TAdSinglePlyChrSelectGC::get_global_state();
+    if (save != 0) {
+        getDateStamp(&date);
+        minutes = date.hour * 60;
+        local_time = (date.minute + minutes) * 60;
+        local_time = date.second + local_time;
+        local_time = (s32)(30.0f * (f32)local_time);
+        offset = packet->calc_time_from_hms() - local_time;
+        offset += 108000.0f;
+        while (offset < 0) {
+            offset += 2592000.0f;
+        }
+        *(s32 *)(save + 8) = offset;
+    }
+}
+
 s32 TLobby::calc_time_from_hms() {
     s32 arg0 = (s32)this;
   s32 *new_var;
@@ -658,7 +688,7 @@ s32 TLobby::calc_time_from_hms() {
   new_var = &arg0;
   temp_r31 = (temp_r31_2 * 0x3C) + TLobby__sub_8001E75C((void *)(arg0 + 0xF));
   new_var2 = (temp_r31 * 0x3C) + TLobby__sub_8001E75C((void *)((void *) ((*new_var) + 0x12)));
-  return (s32) (TLobby__data_805D7EC8 * ((f32) new_var2));
+  return (s32) (30.0f * ((f32) new_var2));
 }
 s32 TLobby__sub_8001E75C(void *arg0) {
     s8 *s = (s8 *)arg0;
@@ -668,59 +698,45 @@ s32 TLobby__sub_8001E75C(void *arg0) {
 }
 
 s32 __cvt_fp2unsigned(f32);
-extern const f32 lbl_805D7ED4;
 
 s32 TLobby::calc_alpha_shifted(f32 farg0) {
-    return __cvt_fp2unsigned(lbl_805D7ED4 * farg0) << 0x18;
+    return __cvt_fp2unsigned(255.0f * farg0) << 0x18;
 }
-
-u32 get_name_text_width();
 
 extern s32 TLobby__data_8050AAAC[];
 extern s32 TLobby__data_805D55AC;
 extern s32 TLobby__lobby_number;
-extern s32 lbl_805D7ED8;
-extern s32 lbl_805D7EDC;
 
 void TLobby::close_result_windows() {
     text_builder_reset();
     text_builder_append((u8 *)TLobby__data_8050AAAC);
-    text_builder_append((u8 *)&lbl_805D7ED8);
+    text_builder_append((u8 *)":");
     append_padded_number(TLobby__data_805D55AC, 2);
-    text_builder_append((u8 *)&lbl_805D7EDC);
+    text_builder_append((u8 *)"-");
     append_padded_number(TLobby__lobby_number + 1, 2);
 }
 
-extern f32 TLobby__data_805D7EE0;
 
 f32 TLobby::calc_result_offset() {
     f32 var_f31;
 
-    var_f31 = TLobby__data_805D7EE0;
+    var_f31 = 0.0f;
     if (get_main_phase() == 0xF) {
         TLobby::close_result_windows();
-        ((s32 (*)(void))get_shared_text_buffer)();
-        var_f31 -= (f32) get_name_text_width();
+        var_f31 -= (f32)(u32)get_name_text_width(get_shared_text_buffer());
     }
     return var_f31;
 }
 
-extern f32 lbl_805D4AC0;
+static f32 clock_bar_pulse;
 
-void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
-
-extern const f32 lbl_805D7EEC;
-extern const f32 lbl_805D7EF0;
-
-extern f32 lbl_805D7EE4;
-extern f32 lbl_805D7EE8;
 
 f32 TLobby::calc_phase_offset() {
     f32 var_f31;
 
-    var_f31 = lbl_805D7EE4;
+    var_f31 = -163.0f;
     if (get_main_phase() == 0xF) {
-        var_f31 -= lbl_805D7EE8;
+        var_f31 -= 57.0f;
     }
     return var_f31;
 }
@@ -767,7 +783,7 @@ s32 TLobby::get_clock_frames() {
   }
   secs = (mins + secs) * 60;
   secs = d.s + secs;
-  s32 t = (s32) (TLobby__data_805D7EC8 * ((f32) ((s32) secs)));
+  s32 t = (s32) (30.0f * ((f32) ((s32) secs)));
   t += base;
   return t;
 }
@@ -777,21 +793,99 @@ void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     f32 var_f4;
     s32 temp_r31;
     var_f4 = farg3;
-    if (!(var_f4 <= TLobby__data_805D7EE0)) {
-        if (var_f4 > lbl_805D7EEC) {
-            var_f4 = lbl_805D7EEC;
+    if (!(var_f4 <= 0.0f)) {
+        if (var_f4 > 1.0f) {
+            var_f4 = 1.0f;
         }
-        scale = lbl_805D7EF0 / farg2;
+        scale = -1.0f / farg2;
         temp_r31 = TLobby::calc_alpha_shifted(var_f4);
         if (get_main_phase() == 0xF) {
             TLobby::close_result_windows();
-            draw_small_font_text((void *)(temp_r31 | 0xFF0000 | 0xFFFF), (const char *)(((u8* (*)(void))get_shared_text_buffer)()), (f32)farg0, (f32)(lbl_805D7EF0 + farg1), (f32)scale);
+            draw_small_font_text((void *)(temp_r31 | 0xFF0000 | 0xFFFF), (const char *)(((u8* (*)(void))get_shared_text_buffer)()), (f32)farg0, (f32)(-1.0f + farg1), (f32)scale);
         }
     }
 }
 
+#pragma fp_contract on
+void TLobby__sub_8001EA5C(f32 x, f32 y, f32 size, f32 alpha) {
+    s32 frames;
+    s32 text_color;
+    s32 color;
+    s32 beat;
+    f32 scale;
+    u32 elapsed;
+    DateStamp date;
+    ColorLineList lines;
+    u32 colors[3];
+    ColorLineVertex verts[3];
+    s32 pulse;
+    f32 progress;
+    f32 bar_end;
+    f32 bar_y;
+
+    if (!(alpha <= 0.0f)) {
+        if (alpha > 1.0f) {
+            alpha = 1.0f;
+        }
+        frames = TLobby::get_clock_frames();
+        beat = frames / 2592;
+        beat %= 1000;
+        scale = -1.0f / size;
+        color = TLobby::calc_alpha_shifted(alpha);
+        if (get_main_phase() == 0xF) {
+            getDateStamp(&date);
+            DateToSeconds(&date, (int *)&elapsed);
+            elapsed -= TLobby__date_seconds;
+            text_builder_reset();
+            if (elapsed / 3600 > 99) {
+                text_builder_append((u8 *)"99:59");
+            } else {
+                append_padded_number(elapsed / 3600, 2);
+                text_builder_append((u8 *)":");
+                append_padded_number((elapsed / 60) % 60, 2);
+                text_builder_append((u8 *)"/");
+            }
+            draw_small_font_text((void *)(color | 0xFF0000 | 0xFFFF), (const char *)get_shared_text_buffer(), x,
+                                 -1.0f + y, scale);
+            x += 57.0f;
+        }
+        text_color = color | 0xFF0000 | 0xFFFF;
+        TWindowSubStatusDisp__sub_800FBD74(text_color, x, y, scale);
+        TWindowSubStatusDisp::draw_number_digits((void *)text_color, beat, 3, 163.0f + x, -1.0f + y, scale);
+        clock_bar_pulse += 0.01f;
+        if (clock_bar_pulse >= 1.0f) {
+            clock_bar_pulse -= 1.0f;
+        }
+        progress = 163.0f * (frames % 2592);
+        progress /= 2592.0f;
+        lines.verts = verts;
+        lines.colors = colors;
+        lines.unk_8 = 0;
+        lines.count = 3;
+        lines.colors[0] = color | 0xFF00;
+        lines.colors[1] = color | 0xFF00;
+        lines.colors[2] = color | 0xFF00;
+        if (clock_bar_pulse > 0.5f) {
+            pulse = 2.0f * (255.0f * (1.0f - clock_bar_pulse));
+        } else {
+            pulse = 255.0f * (2.0f * clock_bar_pulse);
+        }
+        lines.colors[1] |= (pulse & 0xFF) | ((pulse << 16) & 0xFF0000);
+        bar_end = x + progress;
+        bar_y = 18.0f + y;
+        verts[0].x = bar_end;
+        verts[2].x = x;
+        verts[1].x = clock_bar_pulse * (verts[0].x - verts[2].x) + verts[2].x;
+        verts[0].y = bar_y;
+        verts[1].y = bar_y;
+        verts[2].y = bar_y;
+        draw_color_lines(&lines, 3, 20, size);
+    }
+}
+#pragma fp_contract reset
+
 void TLobby__sub_8001ED70(void) {  }
 void TLobby__sub_8001ED74(void) {
-    lbl_805D4AC0 = TLobby__data_805D7EE0;
+    clock_bar_pulse = 0.0f;
 }
 }

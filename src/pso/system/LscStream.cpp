@@ -1,32 +1,48 @@
+#pragma readonly_strings on
 #include "pso/system/LscStream.h"
 #include "pso/system/AdxStreamRuntime.h"
 #include "pso/misc/TLobby.h"
 
-struct SJIf_803D1A98 {
-    void *f[9];
-    s32 (*GetNumData)(struct SJ_803D1A98 *, s32);
+struct SjHandle;
+
+struct SjInterface {
+    void *slots[9];
+    s32 (*GetNumData)(SjHandle *, s32);
 };
 
-struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
+struct SjHandle { SjInterface *vt; };
+
+extern void (*lsc_queue_empty_callback)(void *, void *);
+extern void *lsc_queue_empty_object;
+extern void *lsc_queue_empty_param;
+extern s32 lsc_init_count;
+extern const char *volatile lsc_version_string;
 
 extern "C" {
-extern char lbl_8047DCF0[];
-extern char lbl_8047DD14[];
-extern char lbl_8047DD58[];
-extern char lbl_8047DD78[];
+void lsc_set_repeat(LscStream *lsc_stream, u8 repeat) {
+    if (lsc_stream == 0) {
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
+        return;
+    }
+    lsc_stream->repeat = repeat;
+}
+
+void lsc_notify_queue_empty(void) {
+    if (lsc_queue_empty_callback != NULL) {
+        lsc_queue_empty_callback(lsc_queue_empty_object, lsc_queue_empty_param);
+    }
+}
+}
+
+extern "C" {
 char *strncpy(char *dest, const char *src, unsigned long num);
 void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
-extern s32 lobby_slot_refcount;
-extern char lbl_8047DD34[];
-extern char lbl_8047DDB8[];
-extern char lbl_8047DDE4[];
-extern const char *volatile lbl_805E0DB0;
 void notify_dvd_read__6TLobbyFv(void *);
 void enter_lock__6TLobbyFv(void *);
 s32 lsc_get_min_buffer_bytes(LscStream *p) {
     if (p == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return -1;
     }
     return p->min_buffer_bytes;
@@ -34,11 +50,11 @@ s32 lsc_get_min_buffer_bytes(LscStream *p) {
 
 void lsc_set_min_buffer_bytes(LscStream *lsc_stream, s32 arg1) {
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return;
     }
     if (arg1 < 0 || arg1 > lsc_stream->buffer_capacity) {
-        TLobby::log_printf(lbl_8047DD14);
+        TLobby::log_printf("E0010: Illigal parameter min=%d");
         return;
     }
     lsc_stream->min_buffer_bytes = arg1;
@@ -47,7 +63,7 @@ void lsc_set_min_buffer_bytes(LscStream *lsc_stream, s32 arg1) {
 s32 lsc_get_stream_progress(LscStream *lsc_stream, s32 arg1) {
     s32 i;
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return 0;
     }
     for (i = 0; i < 16; i++) {
@@ -56,7 +72,7 @@ s32 lsc_get_stream_progress(LscStream *lsc_stream, s32 arg1) {
         }
     }
     if (i == 16) {
-        TLobby::log_printf(lbl_8047DD34);
+        TLobby::log_printf("E0012: Can not find stream ID =%d");
         return 0;
     }
     return lsc_stream->entries[i].progress;
@@ -65,7 +81,7 @@ s32 lsc_get_stream_progress(LscStream *lsc_stream, s32 arg1) {
 s32 lsc_get_stream_status(LscStream *lsc_stream, s32 arg1) {
     s32 i;
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return -1;
     }
     for (i = 0; i < 16; i++) {
@@ -74,7 +90,7 @@ s32 lsc_get_stream_status(LscStream *lsc_stream, s32 arg1) {
         }
     }
     if (i == 16) {
-        TLobby::log_printf(lbl_8047DD34);
+        TLobby::log_printf("E0012: Can not find stream ID =%d");
         return -1;
     }
     return lsc_stream->entries[i].status;
@@ -83,7 +99,7 @@ s32 lsc_get_stream_status(LscStream *lsc_stream, s32 arg1) {
 char *lsc_get_stream_filename(LscStream *lsc_stream, s32 arg1) {
     s32 i;
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return 0;
     }
     for (i = 0; i < 16; i++) {
@@ -92,7 +108,7 @@ char *lsc_get_stream_filename(LscStream *lsc_stream, s32 arg1) {
         }
     }
     if (i == 16) {
-        TLobby::log_printf(lbl_8047DD34);
+        TLobby::log_printf("E0012: Can not find stream ID =%d");
         return 0;
     }
     return lsc_stream->entries[i].filename;
@@ -100,11 +116,11 @@ char *lsc_get_stream_filename(LscStream *lsc_stream, s32 arg1) {
 
 s32 lsc_get_queued_stream_id(LscStream *lsc_stream, s32 arg1) {
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return -1;
     }
     if (arg1 < 0 || arg1 >= lsc_stream->queued_count) {
-        TLobby::log_printf(lbl_8047DD58);
+        TLobby::log_printf("E0009: Illigal parameter no=%d");
         return -1;
     }
     return lsc_stream->entries[(lsc_stream->read_index + arg1) % 16].stream_id;
@@ -112,7 +128,7 @@ s32 lsc_get_queued_stream_id(LscStream *lsc_stream, s32 arg1) {
 
 s32 lsc_get_queued_stream_count(LscStream *p) {
     if (p == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return -1;
     }
     return p->queued_count;
@@ -120,7 +136,7 @@ s32 lsc_get_queued_stream_count(LscStream *p) {
 
 s32 lsc_get_state(LscStream *lsc_stream) {
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return -1;
     }
     return lsc_stream->state;
@@ -141,7 +157,7 @@ void lsc_poll_all(void) {
 void lsc_stop(LscStream *lsc_stream) {
     s32 sp8;
     if (lsc_stream == NULL) {
-        TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return;
     }
     if ((s8) lsc_stream->state != 0) {
@@ -157,7 +173,7 @@ void lsc_stop(LscStream *lsc_stream) {
         }
         lsc_stream->file_sector_count = 0;
         if (lsc_stream == NULL) {
-            TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
+            TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         } else if ((s8) lsc_stream->state == 0) {
             lsc_stream->write_index = 0;
             lsc_stream->read_index = 0;
@@ -172,13 +188,13 @@ void lsc_start(LscStream *o) {
     u8 lk0[4];
     u8 lk1[4];
     if (o == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return;
     }
     ((void (*)(void *))enter_lock__6TLobbyFv)(lk0);
     if (o->state != 0) {
         if (o == 0) {
-            TLobby::log_printf(lbl_8047DCF0);
+            TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         } else if (o->state != 0) {
             ((void (*)(void *))enter_lock__6TLobbyFv)(lk1);
             o->state = 0;
@@ -192,7 +208,7 @@ void lsc_start(LscStream *o) {
             }
             o->file_sector_count = 0;
             if (o == 0) {
-                TLobby::log_printf(lbl_8047DCF0);
+                TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
             } else if (o->state == 0) {
                 o->write_index = 0;
                 o->read_index = 0;
@@ -210,19 +226,23 @@ void lsc_start(LscStream *o) {
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lk0);
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma auto_inline on
+#pragma inline_depth(4)
 s32 lsc_enqueue_range(LscStream *lsc_stream, const char *filename, s32 open_mode, s32 range_offset, s32 range_length) {
     LscQueueEntry *entry;
     s32 id;
     s32 prev;
     if (lsc_stream == 0) {
-        TLobby::log_printf(lbl_8047DCF0);
+        TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         return -1;
     }
     if (lsc_stream->queued_count >= 16) {
         return -1;
     }
     if (filename == 0) {
-        TLobby::log_printf(lbl_8047DD78, filename);
+        TLobby::log_printf("E0011: Illigal parameter fname=%s", filename);
         return -1;
     }
     prev = lsc_stream->entries[(lsc_stream->write_index + 15) % 16].stream_id;
@@ -247,10 +267,24 @@ s32 lsc_enqueue_range(LscStream *lsc_stream, const char *filename, s32 open_mode
     return id;
 }
 
+s32 lsc_enqueue_file(LscStream *lsc_stream, const char *filename) {
+    AdxStreamFile *file;
+    s32 sectors;
+    file = TLobby__sub_803C8BAC(filename, (s32)lsc_stream->stream);
+    if (file == 0) {
+        TLobby::log_printf("E0004: Can not open '%s'", filename);
+        return -1;
+    }
+    sectors = (((TLobby *)file)->get_field_14() + 0x7FF) / 0x800;
+    TLobby__sub_803C8B38((u8 *)file);
+    return lsc_enqueue_range(lsc_stream, filename, 0, 0, sectors);
+}
+#pragma pop
+
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-inline LscStream *find_free_803D1A98(void) {
+inline LscStream *lsc_find_free_slot(void) {
     s32 i;
     LscStream *o = 0;
     for (i = 0; i < 16; i++) {
@@ -268,7 +302,7 @@ void lsc_destroy(LscStream *lsc_stream) {
     if (lsc_stream != NULL) {
         enter_lock__6TLobbyFv(&spC);
         if (lsc_stream == NULL) {
-            TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
+            TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
         } else if ((s8) lsc_stream->state != 0) {
             enter_lock__6TLobbyFv(&sp8);
             lsc_stream->state = 0U;
@@ -282,7 +316,7 @@ void lsc_destroy(LscStream *lsc_stream) {
             }
             lsc_stream->file_sector_count = 0;
             if (lsc_stream == NULL) {
-                TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
+                TLobby::log_printf("E0003: Illigal parameter lsc=NULL");
             } else if ((s8) lsc_stream->state == 0) {
                 lsc_stream->write_index = 0;
                 lsc_stream->read_index = 0;
@@ -298,18 +332,18 @@ void lsc_destroy(LscStream *lsc_stream) {
 }
 
 LscStream *lsc_create(void *sj_handle) {
-    SJ_803D1A98 *sj = (SJ_803D1A98 *)sj_handle;
+    SjHandle *sj = (SjHandle *)sj_handle;
     u8 lk[4];
     s32 i;
     LscStream *o;
     if (sj == 0) {
-        TLobby::log_printf(lbl_8047DDB8);
+        TLobby::log_printf("E0001: Illigal parameter=sj (LSC_Create)");
         return 0;
     }
     ((void (*)(void *))enter_lock__6TLobbyFv)(lk);
-    o = find_free_803D1A98();
+    o = lsc_find_free_slot();
     if (o == 0) {
-        TLobby::log_printf(lbl_8047DDE4);
+        TLobby::log_printf("E0002: Not enough instance (LSC_Create)");
     } else {
         o->stream = sj;
         o->state = 0;
@@ -329,7 +363,7 @@ void lsc_shutdown(void) {
     u8 lock[8];
     s32 i;
     ((void (*)(void *))enter_lock__6TLobbyFv)(lock);
-    if (--lobby_slot_refcount == 0) {
+    if (--lsc_init_count == 0) {
         for (i = 0; i < 16; i++) {
             if ((s32)lsc_slot_table[i].in_use == 1) {
                 lsc_destroy(&lsc_slot_table[i]);
@@ -341,16 +375,15 @@ void lsc_shutdown(void) {
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lock);
 }
 
-typedef struct { const char *s; s32 n; } Ver_803D1CC0;
 void lsc_init(void) {
     u8 sp8[8];
-    lbl_805E0DB0;
+    lsc_version_string;
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);
-    if (lobby_slot_refcount == 0) {
+    if (lsc_init_count == 0) {
         memset(lsc_slot_table, 0, (unsigned long)(0x4380));
         TLobby::set_callback(0, 0);
     }
-    lobby_slot_refcount++;
+    lsc_init_count++;
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);
 }
 

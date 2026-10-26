@@ -10,6 +10,7 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TOKey.h"
 
 struct BmlResourceBlock_804B2CC0 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B2CC0_size[(sizeof(BmlResourceBlock_804B2CC0) == 0x18) ? 1 : -1];
@@ -86,6 +87,10 @@ void __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
+s32 init_collision_body_parts(void *, void *, s32);
+void *TOKey__ct(void *, void *);
+extern s32 key_generic_sw_collision_body[];
+extern s32 TOKeyGenericSw__name;
 
 void TOKeyGenericSw::vfunc_25() {  }
 
@@ -215,6 +220,35 @@ void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void *TOKeyGenericSw__ct(TOKeyGenericSw *key_generic_sw, void *parent, void *source) {
+    TOKey__ct(key_generic_sw, parent);
+    *(void **)((s8 *)key_generic_sw + 0x18) = __vt__14TOKeyGenericSw;
+    *(s32 *)((s8 *)key_generic_sw + 0) = TOKeyGenericSw__name;
+    key_generic_sw->apply_object_set_data(source);
+    ((TOKey *)key_generic_sw)->init_switch_id();
+    *(s32 *)((s8 *)key_generic_sw + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
+    *(void **)((s8 *)key_generic_sw + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
+    *(f32 *)((s8 *)key_generic_sw + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)key_generic_sw + 0xBC)) + 4) - 1.0f;
+    key_generic_sw->m_b8 = 2.0f;
+    *(u32 *)&key_generic_sw->texture_id = TOKeyGenericSw__texture_lists[1];
+    init_collision_body_parts(key_generic_sw, key_generic_sw_collision_body, 1);
+    ((TUnk_804AF8A0 *)key_generic_sw)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_generic_sw)->reset_photon_effect();
+    key_generic_sw->m_c0 = 4e+02f;
+    *(f32 *)((s8 *)key_generic_sw + 0xC4) = 4e+01f;
+    if ((*(s32 *)&key_generic_sw->m_d0 != 2) && (key_generic_sw->scale < 0.0f)) {
+        *(s32 *)&key_generic_sw->m_d0 = 1;
+    } else {
+        *(s32 *)&key_generic_sw->m_d0 = 0;
+    }
+    key_generic_sw->m_e8 = TOKeyMachine01::get_global_state();
+    key_generic_sw->m_ec = 0;
+    *(s32 *)((s8 *)key_generic_sw + 0xF0) = 0;
+    key_generic_sw->m_f4 = 0;
+    *(s32 *)((s8 *)key_generic_sw + 0xF8) = 0;
+    return key_generic_sw;
 }
 
 __declspec(section ".data") BmlResourceBlock_804B2CC0 fs_obj_hanyousu_body1_resource_bundle = { { lbl_80441C30, NULL }, { lbl_80441C4C, fs_obj_hanyousu_body1_resource_bundle.model_filenames, fs_obj_hanyousu_body1_motion_names, 1, 0 } };

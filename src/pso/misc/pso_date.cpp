@@ -1,17 +1,7 @@
 #include "types.h"
 #include "pso/misc/pso_date.h"
+#include "pso/system/date.h"
 #include "dolphin/os/OSTime.h"
-
-struct DateStamp {
-    u16 year;
-    u8 month;
-    u8 day;
-    u8 hour;
-    u8 minute;
-    u8 second;
-    u8 weekday;
-    u8 _pad;
-};
 
 #pragma inline_depth(1)
 #pragma auto_inline off

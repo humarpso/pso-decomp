@@ -29,6 +29,46 @@
 #include "pso/boss/TBoss7PhotonBullet_802EF26C.h"
 #include <stddef.h>
 
+struct Vec_802E7888 { f32 x, y, z; };
+
+struct Ang_802E7888 { s32 x, y, z; };
+
+struct Obj_802E7888 {
+    u8 pad0[0x7B0];
+    u32 f7B0;
+    Vec_802E7888 pos;
+    Vec_802E7888 v7C0;
+};
+
+extern "C" {
+f32 atan2_float(f32 y, f32 x);
+f32 newton_sqrtf(f32);
+f32 subtract_vector(void *, void *);
+void queue_destruction__7TObjectFv(void *arg0);
+}
+
+void TObjFish::update_attached_orientation() {
+    Obj_802E7888 *o = (Obj_802E7888 *)this;
+    if (o->f7B0 != 0) {
+        Vec_802E7888 d = o->pos;
+        Ang_802E7888 ang;
+        subtract_vector(&d, &o->v7C0);
+        ang.x = -(s32)(10430.38043493439 * atan2_float(d.y, newton_sqrtf(d.x * d.x + d.z * d.z))) - 0x4000;
+        ang.y = (s32)(10430.38043493439 * atan2_float(d.x, d.z));
+        ang.z = 0;
+        ((TNowLoading *)(o->f7B0))->copy_pos(&o->pos);
+        ((TBoss4Type2 *)(o->f7B0))->copy_vec3(&ang);
+    }
+}
+
+void TObjFish::destroy_child() {
+    Obj_802E7888 *o = (Obj_802E7888 *)this;
+    if (o->f7B0 != 0) {
+        queue_destruction__7TObjectFv((void *)o->f7B0);
+        o->f7B0 = 0;
+    }
+}
+
 extern "C" {
 s32 advance_animation_playback(void *);
 s32 TBoss7DeRolLeC__try_spawn_pattern_crawfish(void *, s32, s32);

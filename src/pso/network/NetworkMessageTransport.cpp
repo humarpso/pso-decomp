@@ -1,3 +1,4 @@
+#include "pso/protocol/NetworkRuntime.h"
 #include "pso/network/NetworkTransport.h"
 
 #include "types.h"
@@ -91,9 +92,7 @@ struct Obj_80426998 { u8 pad[0x36]; s16 count; Rec_80426998 recs[5]; };
 
 extern "C" {
 s32 OSInitMessageQueue(void *, void *, int);
-s32 NetResumeThread(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
-void NetMemset(void *_w0, int _w1, int _w2);
 void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 u8 lbl_805CF240[0xA0];
@@ -105,7 +104,6 @@ extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
-void NetMemcpy(void *_w0, void *_w1, int _w2);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
@@ -125,7 +123,6 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s32 NetMemcmp(void *, void *, int);
 extern s32 lbl_805D7BB0;
 s16 TLobby__sub_804262CC(void *);
 s32 TLobby__sub_80426B88(s16 arg0);
@@ -135,12 +132,12 @@ u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
 s32 TLobby__sub_8042558C(void *);
 extern u8 lbl_805E1190[6];
-s32 TLobby__sub_80426660(u8 *arg0);
+s16 TLobby__sub_80426660(u8 *arg0);
 s32 TLobby__sub_804089A8(s32, s32, void *, void *);
 s32 TLobby__sub_80425640(s32 len);
 s32 TLobby__sub_80426AAC(u16 key, s32 len);
 void forward_to_channel__6TLobbyFPv(void *frame, void *b);
-s32 TLobby__sub_80426440(void);
+s16 TLobby__sub_80426440(void);
 
 #pragma push
 #pragma opt_propagation off
@@ -408,7 +405,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     if (TLobby__sub_803F9B94((void *) (&TLobby::message_thread_loop), &lobby_message_thread_handle) < 0) {
         return -1;
     }
-    NetResumeThread((void *)lobby_message_thread_handle);
+    NetResumeThread((u32)lobby_message_thread_handle);
     lbl_805D7BB0 = 1;
     network_link_status_cache = -1;
     lbl_805D7BB8 = 0;
@@ -419,7 +416,7 @@ s16 TLobby__sub_804262CC(void *argp) {
 }
 #undef arg0
 
-s32 TLobby__sub_80426440(void) {
+s16 TLobby__sub_80426440(void) {
     return 0;
 }
 
@@ -495,7 +492,7 @@ s32 TLobby__sub_80426574(void) {
     return 0;
 }
 
-s32 TLobby__sub_80426660(u8 *arg0) {
+s16 TLobby__sub_80426660(u8 *arg0) {
     Obj_80426110 *g = (Obj_80426110 *)lobby_net_channel_table;
     if (TLobby__sub_804262CC(g) < 0) {
         return -1;

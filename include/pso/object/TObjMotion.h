@@ -37,7 +37,7 @@ public:
     void* m_50;
     f32 m_54;
     void* m_58;
-    void* m_5c;
+    s32 m_5c;
     s32 rotation_y;
     s32 rotation_z;
     f32 scale;
@@ -58,7 +58,7 @@ public:
     void*find_actor_body_contact(u8*, f32);
     void set_indexed_flags(s32, s32);
     void clear_player_status_flag(s32, u32);
-    u32 obj_testFlags30(u32);
+    s32 obj_testFlags30(u32);
     s32 access_object_saved_state(void *, s16);
     void sub_80156A68();
     void*initialize_linked_object_reference(void*);

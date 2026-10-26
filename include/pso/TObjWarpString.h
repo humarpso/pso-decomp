@@ -10,7 +10,6 @@ public:
     virtual void run_task();
     virtual void render();
 public:
-    void draw_string(s32 arg1, f32 farg0, f32 farg1);
 };
 
 #endif

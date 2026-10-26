@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayerSet.h"
+#include "pso/player/TUnk_804B6C24.h"
+#include "pso/misc/TLobby_80227A2C.h"
+#include "pso/TMainTask.h"
 
 struct VBase_18_dac7f3
 {
@@ -29,6 +33,41 @@ typedef struct VObj_18_dac7f3 VObj_18_dac7f3;
 #pragma opt_pointer_analysis on
 typedef char RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70_size[((sizeof(RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70)) == 0x3210) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_dac7f3_m0(_self, _arg0) (((VObj_18_dac7f3 *)(_self))->m0((_arg0)))
+
+extern s32 lbl_80515BA0[];
+extern const char *TObjPlayer__player_set_class_name;
+extern "C" s32 check_value_equals__13TUnk_804B6C24Fl(void *self, const char *name);
+
+TObjPlayerSet *find_player_arrival_set(TObjPlayer *player, s32 slot) {
+    TObjPlayerSet *set;
+    s32 side;
+
+    side = player->get_entrance_id();
+    if (side != -1) {
+        player->reset_entrance_id();
+    } else {
+        switch (select_area_entrance(lbl_80515BA0)) {
+        case 0:
+            side = 1;
+            break;
+        case 1:
+        case 2:
+            side = 0;
+            break;
+        case 4:
+        default:
+            side = 1;
+            break;
+        }
+    }
+    for (set = (TObjPlayerSet *)tl_06->m_down; set != NULL; set = (TObjPlayerSet *)set->m_next) {
+        if (check_value_equals__13TUnk_804B6C24Fl(set, TObjPlayer__player_set_class_name) != 0 &&
+            slot == (s32)set->scale && set->m_84 == side) {
+            return set;
+        }
+    }
+    return NULL;
+}
 
 void TObjPlayer::create_active_players() {
     s32 i;

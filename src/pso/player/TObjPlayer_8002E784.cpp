@@ -11,6 +11,8 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803E2D70.h"
 
 struct Base_8002E784 { char pad[0xC]; };
 struct VObj_8002E784 : Base_8002E784 {
@@ -56,12 +58,22 @@ typedef struct Obj_8002EA64 {
     Part_8002EA64 parts[19];
 } Obj_8002EA64;
 
+struct Color_8002E818 { f32 a, r, g, b; };
+
+struct BreakupNode_8002E818 {
+    u8 pad0[4];
+    void *model;
+    u8 pad8[0x28];
+    BreakupNode_8002E818 *next;
+};
+
 extern "C" {
-extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
-extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
-extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
+struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
+void *lbl_805D4B8C;
+f32 lbl_805D4B90;
+void __sinit_TObjPlayer_8002E784_cpp(void);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 f32 vec3_add_to(void *, void *);
@@ -75,6 +87,15 @@ extern const f32 lbl_805D826C;
 extern const f32 lbl_805D8270;
 extern const f32 lbl_805D8274;
 void scale_matrix(int, f32, f32, f32);
+void post_translate_matrix(void *pos);
+void rotate_matrix_by_node_angles(void *angles, s32 mode);
+void scale_current_matrix(Vec_8002EA64 *scale);
+void TObjLight__sub_801337F8(s32 light);
+extern s32 current_scene_light;
+extern u32 model_render_flags;
+extern u32 lbl_805D5660;
+extern Color_8002E818 lbl_804355F0;
+extern Vec_8002EA64 lbl_80435600;
 void set_matrix_identity(u8 *arg0);
 void rotate_vector_by_matrix(int, void *, void *);
 void push_matrix(void);
@@ -117,6 +138,48 @@ void TObjPlayer__sub_8002E7C8(void) {
     }
     (*(u8 * *)&lbl_805D4B8C) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((void *) var_r0), 0x1C);
+}
+
+void TUnk_804820A8::render() {
+    u8 *res = *(u8 **)(lbl_805D4BA4 + 0x42C);
+    u8 *mdl = *(u8 **)(res + 0x68);
+    Color_8002E818 color = lbl_804355F0;
+    BreakupNode_8002E818 *node = *(BreakupNode_8002E818 **)(mdl + 0x2C);
+    Vec_8002EA64 scale = lbl_80435600;
+    Part_8002EA64 *p = ((Obj_8002EA64 *)this)->parts;
+    s32 i;
+
+    scale.x = lbl_805D8260;
+    scale.y = lbl_805D8260;
+    scale.z = lbl_805D8260;
+    TObjFish::set_global_param(*(s32 *)(res + 0x2C));
+    for (i = 0; i < 19; i++) {
+        push_matrix();
+        post_translate_matrix(&p->pos);
+        rotate_matrix_by_node_angles(&p->unk18, 0);
+        scale_current_matrix(&scale);
+        switch (p->unk28) {
+        case 0:
+        case 1:
+            draw_chunk_model(node->model);
+            break;
+        case 2:
+            lbl_805D5660 = model_render_flags;
+            model_render_flags |= 0x8810;
+            color.a = p->unk24;
+            set_chunk_material_color__13TUnk_80494AE0Fv(&color.a);
+            set_chunk_material_override_pair(0xFF00, 0x800);
+            set_chunk_blend(0x2500);
+            draw_chunk_model(node->model);
+            set_chunk_material_override_pair(0xFF00, 0);
+            model_render_flags = lbl_805D5660;
+            break;
+        }
+        pop_matrix();
+        node = node->next;
+        p++;
+    }
+    TObjLight__sub_801337F8(current_scene_light);
 }
 
 void TUnk_804820A8::run_task() {
@@ -299,9 +362,11 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8002EF80(void) {
+void __sinit_TObjPlayer_8002E784_cpp(void) {
     lbl_805D4B90 = lbl_805D8258;
 }
+
+__declspec(section ".ctors") static void *const __sinit_TObjPlayer_8002E784_cpp_ref = (void *)__sinit_TObjPlayer_8002E784_cpp;
 
 s32 TObjPlayer::calc_random_scaled() {
     return (s32) (lbl_805D8248 * (lbl_805D8244 * (f32) rand()));

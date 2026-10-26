@@ -146,7 +146,7 @@ extern u16 lbl_805D7C6C[2];
 extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
 int memcmp(const void *, const void *, unsigned long);
-u16 TLobby__sub_8042BA8C(void *);
+u32 TLobby__sub_8042BA8C(void *);
 extern s32 lbl_805D4830;
 
 #pragma push
@@ -262,6 +262,35 @@ s32 TLobby::exi_start_send_dma(int, int) {
         EXISync(0);
         EXIDma(0, (void *)lbl_805D7C7C, lbl_805D7C84, 1, (void *)TLobby__sub_8042B434);
     }
+}
+
+void TLobby__sub_8042B434(s32 chan, void *ctx) {
+    u8 val;
+    u8 out;
+    s32 cmd0;
+    s32 cmd1;
+    u8 pad[4];
+    s32 bits;
+    if (lbl_805D7C88 != 0) {
+        EXIImmEx(0, lbl_805D7C7C + lbl_805D7C84, lbl_805D7C88, 1);
+    }
+    EXIDeselect(0);
+    cmd0 = 0x80000000;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd0, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32)&val, 1, 0);
+    EXIDeselect(0);
+    bits = val;
+    bits |= 4;
+    out = bits;
+    cmd1 = 0xC0000000;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd1, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32)&out, 1, 1);
+    EXIDeselect(0);
+    EXIUnlock(0);
 }
 
 void TLobby::copy_6_byte_config() {
@@ -405,6 +434,34 @@ void TLobby__sub_8042BA48(s32 arg0, s32 arg1) {
     lbl_805D7C48 = arg1;
     OSRestoreInterrupts(e);
 }
+
+u32 TLobby__sub_8042BA8C(void *addr) {
+    u8 *p = (u8 *)addr;
+    u32 crc;
+    u8 c;
+    s32 i;
+    s32 j;
+    u32 carry;
+    u32 hash;
+    crc = 0xFFFFFFFF;
+    for (i = 0; i < 6; i++) {
+        c = p[i];
+        for (j = 0; j < 8; j++) {
+            carry = (crc >> 31) ^ (c & 1);
+            crc <<= 1;
+            if (carry) {
+                crc ^= 0x04C11DB6;
+                crc |= 1;
+            }
+            c >>= 1;
+        }
+    }
+    hash = 0;
+    for (i = 5; i >= 0; i--) {
+        hash |= ((crc >> (i + 26)) & 1) << i;
+    }
+    return hash;
+}
 }
 
 void enable_network_multicast_address(void *arg0) {
@@ -417,7 +474,7 @@ void enable_network_multicast_address(void *arg0) {
   u32 cmd2;
   u32 cmd3;
   u32 addr;
-  s32 bit;
+  u16 bit;
   int read_command;
   s32 enabled;
   s32 isDefault;

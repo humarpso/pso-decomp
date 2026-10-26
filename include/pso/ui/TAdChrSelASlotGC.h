@@ -9,10 +9,10 @@ struct TAdChrSelASlotGC : public TObject {
     virtual ~TAdChrSelASlotGC();
     virtual void render();
     virtual void run_task();
-    u32 m_1c;
+    u32 state_frames;
     u8 _pad20[0x4];
-    u32 m_24;
-    u32 m_28;
+    u32 state;
+    u32 prev_state;
     u8 _pad2C[0x4];
     u32 m_30;
     void check_room_seq_4(s32 arg1);
@@ -23,10 +23,15 @@ struct TAdChrSelASlotGC : public TObject {
     s32 create_message_window(s32 arg1, s32 arg2);
     static s32 create_format_message_window(s32 arg0, s32 arg1, s32 arg2);
     static s32 open_yes_no_window(s32 arg0, s32 arg1, s32 arg2);
+    void sub_8030CBD0();
+    void sub_8030CBD4();
     void update_load_state();
     void set_state();
     void check_load_state();
     void init_selection();
+    void sub_8030CCE0();
+    void sub_8030CCE4();
+    void sub_8030CEEC();
     void update_window_78();
     void update_window_7c();
     void update_window_74();
@@ -37,6 +42,7 @@ struct TAdChrSelASlotGC : public TObject {
     void update_slot3();
     void update_slot2();
     void update_slot1();
+    void sub_8030D5DC();
     void close_windows();
     void create_children(s32 arg1);
     void init(s32 arg1);

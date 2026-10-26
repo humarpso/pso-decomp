@@ -184,6 +184,6 @@ s32 TOHangerMachine01::is_valid_slot(int arg0, u16 arg1) {
     return (u32)__cntlzw((u32)(local_client_id - (u16)arg1)) >> 5;
 }
 
-void TOHangerMachine01__sub_80169168(void) {  }
+void TOHangerMachine01__sub_80169168(void *self) {  }
 
 }

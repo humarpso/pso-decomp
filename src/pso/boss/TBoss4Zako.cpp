@@ -17,8 +17,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #pragma inline_depth(2)
 struct DamageRecipientTaskHeaderABI { u8 pad[0x18]; };
 
-struct DirectAttackPayload { s32 kind; f32 power; };
-
 struct DamageRecipientABI : DamageRecipientTaskHeaderABI {
     virtual void v0();
     virtual void v1();
@@ -1117,7 +1115,7 @@ void receive_weapon_special_attack__10TObjPlayerFv();
 void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void receive_physical_attack__13TUnk_804806E8FPvf();
-void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_65__13TUnk_804806E8Fll();
 void reset_pose__13TUnk_804806E8Fv();
@@ -1238,7 +1236,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)reset_pose__13TUnk_804806E8Fv,
     (s32)vfunc_65__13TUnk_804806E8Fll,
     (s32)vfunc_66__13TUnk_804806E8Fv,
-    (s32)vfunc_67__13TUnk_804806E8Fv,
+    (s32)vfunc_67__13TUnk_804806E8Ff,
     (s32)get_pos__13TUnk_804806E8Fl,
     (s32)apply_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
@@ -1323,7 +1321,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)reset_pose__13TUnk_804806E8Fv,
     (s32)vfunc_65__13TUnk_804806E8Fll,
     (s32)vfunc_66__13TUnk_804806E8Fv,
-    (s32)vfunc_67__13TUnk_804806E8Fv,
+    (s32)vfunc_67__13TUnk_804806E8Ff,
     (s32)get_pos__13TUnk_804806E8Fl,
     (s32)apply_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
@@ -1408,7 +1406,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)reset_pose__13TUnk_804806E8Fv,
     (s32)vfunc_65__13TUnk_804806E8Fll,
     (s32)vfunc_66__13TUnk_804806E8Fv,
-    (s32)vfunc_67__13TUnk_804806E8Fv,
+    (s32)vfunc_67__13TUnk_804806E8Ff,
     (s32)get_pos__13TUnk_804806E8Fl,
     (s32)apply_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,

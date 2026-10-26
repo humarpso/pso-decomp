@@ -80,7 +80,6 @@ void lsc_poll(LscStream* stream);
 }
 
 extern "C" {
-LscStream *find_free_803D1A98(void);
 LscStream *lsc_create(void *sj_handle);
 void lsc_destroy(LscStream *arg0);
 s32 lsc_get_min_buffer_bytes(LscStream *p);
@@ -100,7 +99,8 @@ void lsc_stop(LscStream *arg0);
 
 // --- C functions defined in LscStream.cpp ---
 extern "C" {
-LscStream *find_free_803D1A98(void);
+void lsc_set_repeat(LscStream *lsc_stream, u8 repeat);
+void lsc_notify_queue_empty(void);
 LscStream *lsc_create(void *sj_handle);
 void lsc_destroy(LscStream *lsc_stream);
 s32 lsc_enqueue_range(LscStream *lsc_stream, const char *filename, s32 open_mode, s32 range_offset, s32 range_length);

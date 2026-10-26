@@ -9,6 +9,7 @@
 #include "pso/item/TItem.h"
 #include "pso/item/TItemAttackCol.h"
 #include "pso/item/TItemData.h"
+#include "pso/item/TItemEffectWeapon.h"
 #include "pso/item/TItemEffPG.h"
 #include "pso/item/TItemProShield.h"
 
@@ -210,7 +211,7 @@ struct Pl_8011E87C {
     u8 pad0[0xF0];
     void *owner;
     u8 padF4[0x18C - 0xF4];
-    void *trails[4];
+    TItemEffectWeapon *trails[4];
     s8 iconA[4];
     s8 iconB[4];
 };
@@ -357,7 +358,6 @@ void TObjPlayer__sub_80121228(void *p, u32 v);
 f32 horizontal_distance_squared(void *, void *);
 Obj_8011F474 * resolve_hittable_target(s32, s32);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
-void push_trail_interpolated__17TItemEffectWeaponFv(void *, Vec_8011E87C *, Vec_8011E87C *);
 void * __ct__17TItemEffectWeaponFll(void *, u32, u32);
 void * __nw__15TItemHeapObjectFUl(s32);
 u32 __cvt_fp2unsigned(f32);
@@ -528,7 +528,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
         if (self->trails[slot] != NULL) {
             ((TObjPlayer *)self)->draw_icon(self->iconA[slot], (s32)&a);
             ((TObjPlayer *)self)->draw_icon(self->iconB[slot], (s32)&b);
-            push_trail_interpolated__17TItemEffectWeaponFv(self->trails[slot], &a, &b);
+            self->trails[slot]->push_trail_interpolated(&a.x, &b.x);
         }
     }
 }

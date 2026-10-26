@@ -1,6 +1,6 @@
+#pragma readonly_strings on
 #include "types.h"
 #include "pso/boss/TBoss6Type2_8032E708.h"
-#include "pso/boss/TBoss6Type2_80336E6C.h"
 #include "pso/boss/TBoss6Type2.h"
 
 struct O_80337054 { u8 pad[0x3CC]; s32 f3cc; u8 pad2[0x410 - 0x3D0]; s32 f410; };
@@ -38,7 +38,7 @@ void TBoss6Type2::update_recover_timer() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336F00(void* p) { ((TBoss6Type2 *)p)->m_3cc = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); ((TBoss6Type2 *)p)->destroy_part_object((s32)((void*)((void*)0))); }
+void TBoss6Type2::sub_80336F00() { m_3cc = 0; play_sound_effect((void*)438292, &position, (void*)0, (void*)0); destroy_part_object((s32)((void*)((void*)0))); }
 
 #pragma push
 #pragma opt_common_subs off
@@ -56,7 +56,7 @@ void TBoss6Type2::update_ramp_timer() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336FB8(void* p) { ((TBoss6Type2 *)p)->m_3cc = 0; ((TBoss6Type2 *)p)->ensure_particle_emitter((s32)((void*)0)); }
+void TBoss6Type2::sub_80336FB8() { m_3cc = 0; ensure_particle_emitter((s32)((void*)0)); }
 void TBoss6Type2::tick_attack_timer() {
     this->m_3cc = (this->m_3cc - 1);
     if ((s32) this->m_3cc < 0) {
@@ -92,7 +92,7 @@ void TBoss6Type2::update_effect_subsystems() {
         set_action__9TBoss6MagFl(this, 1);
     }
 }
-void TBoss6Type2__sub_80337108(void) {  }
+void TBoss6Type2::sub_80337108() {  }
 void TBoss6Type2::update_attack_state() {
     fly_toward_target__11TBoss6Type2Fv();
     push_out_from_target();
@@ -101,7 +101,7 @@ void TBoss6Type2::update_attack_state() {
         set_action__9TBoss6MagFl(this, 2);
     }
 }
-void TBoss6Type2__sub_80337160(void) {  }
+void TBoss6Type2::sub_80337160() {  }
 void TBoss6Type2::advance_phase_counter() {
     TBoss6Type2__sub_8032FB84();
     this->m_3cc = (this->m_3cc + 1);
@@ -109,6 +109,25 @@ void TBoss6Type2::advance_phase_counter() {
         set_action__9TBoss6MagFl(this, 1);
     }
 }
-void TBoss6Type2__sub_803371B4(void* p) { *(s32*)((char*)p + 0x3cc) = 0; }
+void TBoss6Type2::sub_803371B4() { *(s32 *)((char *)this + 0x3cc) = 0; }
 
 }
+
+typedef void (TBoss6Type2::*TBoss6Type2ActionHandler)();
+
+struct TBoss6Type2Action {
+    const char *name;
+    s32 motion;
+    s32 param;
+    TBoss6Type2ActionHandler enter;
+    TBoss6Type2ActionHandler update;
+};
+
+TBoss6Type2Action boss6_type2_action_table[6] = {
+    {"START", 0, 1, &TBoss6Type2::sub_803371B4, &TBoss6Type2::advance_phase_counter},
+    {"SET_SHOLDER", 0, 0, &TBoss6Type2::sub_80337160, &TBoss6Type2::update_attack_state},
+    {"CHASE_PL", 0, 1, &TBoss6Type2::sub_80337108, &TBoss6Type2::update_effect_subsystems},
+    {"SHOOT", 1, 1, &TBoss6Type2::start_mag_mines_state, &TBoss6Type2::tick_attack_timer},
+    {"DEAD", 2, 0, &TBoss6Type2::sub_80336FB8, &TBoss6Type2::update_ramp_timer},
+    {"REVIVAL", 4, 0, &TBoss6Type2::sub_80336F00, &TBoss6Type2::update_recover_timer},
+};

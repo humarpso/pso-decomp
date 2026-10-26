@@ -1,20 +1,21 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include "types.h"
 #include "pso/unk/text_8039739C.h"
 #include <dolphin/os.h>
 
 extern "C" {
-extern const char lbl_8047BA20[];
-extern const char lbl_8047BA58[];
-
 #pragma push
+#pragma readonly_strings on
 #pragma inline_depth(1)
 #pragma dont_inline off
 inline static void InitDefaultHeap(void) {
     void *arenaLo;
     void *arenaHi;
 
-    OSReport(lbl_8047BA20);
-    OSReport(lbl_8047BA58);
+    OSReport("GCN_Mem_Alloc.c : InitDefaultHeap. No Heap Available\n");
+    OSReport("Metrowerks CW runtime library initializing default heap\n");
 
     arenaLo = OSGetArenaLo();
     arenaHi = OSGetArenaHi();

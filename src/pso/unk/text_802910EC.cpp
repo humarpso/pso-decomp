@@ -1,3 +1,4 @@
+#include "pso/ui/UISpriteConstants.h"
 #include "types.h"
 #include "pso/unk/text_802910EC.h"
 #include "pso/misc/TLobby.h"
@@ -36,7 +37,6 @@ extern s32 ccconsole_pvm_file_name_table[];
 extern f32 ui_sprite_scale;
 extern s32 current_language;
 extern s32 tl_06;
-extern const f32 lbl_805DD964;
 typedef char RecoveredGlobal_80291138_lbl_804D9668_size[sizeof(RecoveredGlobal_80291138_lbl_804D9668) == 0x12DC ? 1 : -1];
 
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
@@ -69,7 +69,7 @@ typedef char RecoveredGlobal_802911E8_lbl_804DAA78_size[sizeof(RecoveredGlobal_8
 
 void fn_80291178(void) {
     creation_sprite_table_index = 0;
-    ui_sprite_scale = lbl_805DD964;
+    ui_sprite_scale = ui_sprite_unit_scale;
     if (current_language != 0) {
         creation_sprite_table_index = 1;
     }

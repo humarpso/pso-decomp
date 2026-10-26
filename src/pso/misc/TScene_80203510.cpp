@@ -764,6 +764,96 @@ void TScene::render_animated_map_section(SceneMaterialSection *scene_material_se
   }
 
 }
+extern "C" {
+extern Vec_80204024 lbl_8044A840[];
+}
+
+void TScene::sub_80204D7C() {
+    Vec_80204024 dir;
+    Vec_80204024 d;
+    Vec_80204024 up = lbl_8044A840[0];
+    Vec_80204024 p;
+    f32 far2;
+    SceneMaterialSection *sec;
+    s32 i;
+
+    if (TScene__data_805D5FCC == NULL) {
+        return;
+    }
+    m_1c = 0;
+    far2 = TScene__data_805D5FCC->radius * TScene__data_805D5FCC->radius;
+    push_matrix_from(identity_matrix);
+    rotate_matrix_y(0, CAM->a194);
+    rotate_vector_by_matrix(0, &up, &dir);
+    normalize_vector(&dir);
+    pop_matrices(1);
+
+    sec = TScene__data_805D5FCC->sections;
+    for (i = 0; i < TScene__data_805D5FCC->count; i++) {
+        if (sec->flags & 0x80000) {
+            update_room_object_visibility(sec);
+            sec++;
+        } else {
+            f32 dist;
+            f32 dot;
+            p.x = sec->position[0];
+            p.y = TScene__data_805DC5D8;
+            p.z = sec->position[2];
+            d.x = p.x - CAM->x;
+            d.y = TScene__data_805DC5D8;
+            d.z = p.z - CAM->z;
+            dist = d.x * d.x + d.y * d.y + d.z * d.z;
+            if (dist < sec->radius * sec->radius) {
+                sec->flags |= 0x10000;
+                sec++;
+                m_1c++;
+            } else if (dist > far2) {
+                sec->flags &= ~0x10000;
+                sec++;
+            } else {
+                normalize_vector(&d);
+                dot = vec3_dot(&dir, &d);
+                if (dot < TScene__data_805DC5D8) {
+                    sec->flags &= ~0x10000;
+                    sec++;
+                } else if (dot >= TScene__data_805DC5D8 && dot < TScene__data_805DC600) {
+                    push_matrix_from(identity_matrix);
+                    rotate_matrix_y(0, CAM->a19C);
+                    rotate_vector_by_matrix(0, &dir, &up);
+                    normalize_vector(&up);
+                    pop_matrices(1);
+                    if (TEST(sec->radius, this, &p, &d, &up) != 0) {
+                        sec->flags |= 0x10000;
+                        sec++;
+                        m_1c++;
+                    } else {
+                        push_matrix_from(identity_matrix);
+                        rotate_matrix_y(0, -CAM->a19C);
+                        rotate_vector_by_matrix(0, &dir, &up);
+                        normalize_vector(&up);
+                        pop_matrices(1);
+                        if (TEST(sec->radius, this, &p, &d, &up) != 0) {
+                            sec->flags |= 0x10000;
+                            sec++;
+                            m_1c++;
+                        } else {
+                            goto clear;
+                        }
+                    }
+                } else {
+                    sec->flags |= 0x10000;
+                    sec++;
+                    m_1c++;
+                }
+            }
+        }
+        continue;
+    clear:
+        sec->flags &= ~0x10000;
+        sec++;
+    }
+}
+
 
 s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 unused, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
     Vec_80204024 c;

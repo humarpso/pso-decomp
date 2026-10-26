@@ -403,10 +403,6 @@ static inline void CheckOutputMode_803AB5A8(u8 *pan, u8 *span) {
     }
 }
 
-static inline void SetHWMix_803AB5A8(const STREAM_INFO *si) {
-    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
-}
-
 void streamOutputModeChanged(void) {
     u32 i;
 
@@ -417,7 +413,7 @@ void streamOutputModeChanged(void) {
             streamInfo[i].span = streamInfo[i].orgSPan;
             CheckOutputMode_803AB5A8(&streamInfo[i].pan, &streamInfo[i].span);
             if (streamInfo[i].state != 3) {
-                SetHWMix_803AB5A8(&streamInfo[i]);
+                SetHWMix(&streamInfo[i]);
             }
         }
     }
@@ -435,8 +431,7 @@ static inline u32 GeneratePublicID_803AB6F0(void) {
 
     do {
         if ((id = nextPublicID++) == -1) {
-            id = nextPublicID;
-            nextPublicID = id + 1;
+            id = nextPublicID++;
         }
         for (i = 0; i < 64; ++i) {
             if (streamInfo[i].state != 0 && id == streamInfo[i].stid) {
@@ -586,17 +581,13 @@ static inline void SetupVolumeAndPan2_803ABB54(STREAM_INFO *si, u8 vol, u8 pan, 
     si->auxb = auxb;
 }
 
-static inline void SetHWMix_803ABB54(const STREAM_INFO *si) {
-    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
-}
-
 static inline void MixParameterInner_803ABB54(u32 stid, u8 vol, u8 pan, u8 span, u8 fxvol) {
     u32 i;
     hwDisableIrq();
     i = GetPrivateIndex(stid);
     if (i != -1) {
         SetupVolumeAndPan2_803ABB54(&streamInfo[i], vol, pan, span, fxvol, 0);
-        SetHWMix_803ABB54(&streamInfo[i]);
+        SetHWMix(&streamInfo[i]);
         if (streamInfo[i].nextStreamHandle != 0xffffffff) {
             sndStreamMixParameter(streamInfo[i].nextStreamHandle, vol, pan, span, fxvol);
         }
@@ -611,7 +602,7 @@ void sndStreamMixParameter(u32 stid, u8 vol, u8 pan, u8 span, u8 fxvol) {
     i = GetPrivateIndex_803ABB54(stid);
     if (i != -1) {
         SetupVolumeAndPan_803ABB54(&streamInfo[i], vol, pan, span, fxvol, 0);
-        SetHWMix_803ABB54(&streamInfo[i]);
+        SetHWMix(&streamInfo[i]);
         if (streamInfo[i].nextStreamHandle != 0xffffffff) {
             MixParameterInner_803ABB54(streamInfo[i].nextStreamHandle, vol, pan, span, fxvol);
         }
@@ -665,10 +656,6 @@ static inline void SetupVolumeAndPan2_803ABECC(STREAM_INFO *si, u8 vol, u8 pan, 
     si->auxb = auxb;
 }
 
-static inline void SetHWMix_803ABECC(const STREAM_INFO *si) {
-    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
-}
-
 static inline void MixParameterInner_803ABECC(u32 stid, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb) {
     u32 i;
     hwDisableIrq();
@@ -676,7 +663,7 @@ static inline void MixParameterInner_803ABECC(u32 stid, u8 vol, u8 pan, u8 span,
     if (i != -1) {
         SetupVolumeAndPan2_803ABECC(&streamInfo[i], vol, pan, span, auxa, auxb);
         if (streamInfo[i].state == 2) {
-            SetHWMix_803ABECC(&streamInfo[i]);
+            SetHWMix(&streamInfo[i]);
         }
         if (streamInfo[i].nextStreamHandle != 0xffffffff) {
             sndStreamMixParameterEx(streamInfo[i].nextStreamHandle, vol, pan, span, auxa, auxb);
@@ -693,7 +680,7 @@ void sndStreamMixParameterEx(u32 stid, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb
     if (i != -1) {
         SetupVolumeAndPan_803ABECC(&streamInfo[i], vol, pan, span, auxa, auxb);
         if (streamInfo[i].state == 2) {
-            SetHWMix_803ABECC(&streamInfo[i]);
+            SetHWMix(&streamInfo[i]);
         }
         if (streamInfo[i].nextStreamHandle != 0xffffffff) {
             MixParameterInner_803ABECC(streamInfo[i].nextStreamHandle, vol, pan, span, auxa, auxb);

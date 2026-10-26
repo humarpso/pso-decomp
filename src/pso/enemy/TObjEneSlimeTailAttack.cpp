@@ -437,7 +437,7 @@ extern s32 tl_04;
 #pragma auto_inline off
 #pragma dont_inline off
 extern "C" {
-void TBoss8Dragon__sub_800E92D8();
+void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self);
 }
 extern "C" {
 void vfunc_6__13TUnk_804B9870FPsl();
@@ -452,7 +452,7 @@ extern "C" {
 void vfunc_28__13TUnk_804806E8Fv();
 }
 extern "C" {
-void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Ff();
 }
 extern "C" {
 void vfunc_66__13TUnk_804806E8Fv();
@@ -854,7 +854,7 @@ void *__vt__22TObjEneSlimeTailAttack[83] = {
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TUnk_804806E8Fv, (void *)&vfunc_62__13TUnk_804806E8Fv, (void *)&vfunc_63__13TUnk_804806E8Fv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
     (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
@@ -1376,6 +1376,75 @@ void TObjEneSlimeOne::copy_position() {
     s32 arg0 = (s32)this;
     VecCopy((Vec *)(arg0 + 0x374), (const Vec *)(arg0 + 0x38));
 }
+
+f32 fabs_float(f32);
+extern const f32 lbl_805DA700;
+extern const f32 lbl_805DA704;
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self) {
+    s32 landed = 0;
+    s32 tries = 4;
+    s32 angle;
+    f32 s;
+    f32 c;
+
+    self->m_3dc.y += lbl_805DA700;
+    do {
+        Vec next;
+        Vec probe;
+        VecCopy(&next, (Vec *)self->position);
+        vec3_add_to(&next, &self->m_3dc);
+        VecCopy(&probe, &next);
+        probe.y += lbl_805DA6AC + fabs_float(self->m_3dc.y);
+        if (project_actor_to_ground(self, &probe, 0) != 0) {
+            VecCopy((Vec *)self->position, &next);
+            if (!(self->position[1] > probe.y)) {
+                self->position[1] = probe.y;
+                landed = 1;
+            }
+            break;
+        }
+        s = sin_table_lookup(0x4000);
+        c = cos_table_lookup(0x4000);
+        self->m_3dc.x = c * self->m_3dc.x + s * self->m_3dc.z;
+        self->m_3dc.z = -s * self->m_3dc.x + c * self->m_3dc.z;
+    } while (--tries > 0);
+    if (tries == 0) {
+        Vec probe;
+        self->m_3dc.x = self->m_3dc.z = lbl_805DA6B4;
+        VecCopy(&probe, (Vec *)self->position);
+        probe.y += lbl_805DA6AC + fabs_float(self->m_3dc.y);
+        if (project_actor_to_ground(self, &probe, 0) != 0) {
+            if (!(self->position[1] > probe.y)) {
+                self->position[1] = probe.y;
+                landed = 1;
+            }
+        } else {
+            landed = 1;
+        }
+    }
+    if (self->m_3e8 != NULL) {
+        ((TNowLoading *)self->m_3e8)->copy_pos(self->position);
+    }
+    if (landed != 0) {
+        if (self->m_3e8 != NULL) {
+            TBoss4Type2::request_destroy((u32)self->m_3e8);
+            self->m_3e8 = NULL;
+        }
+        for (angle = 0; angle < 0xFFFF; angle += 0x1000) {
+            Vec p = *(Vec *)self->position;
+            p.x = lbl_805DA704 * sin_table_lookup(angle) + p.x;
+            p.y += lbl_805DA708;
+            p.z = lbl_805DA704 * cos_table_lookup(angle) + p.z;
+            spawn_particle_effect(&p, 0xE2);
+        }
+        TObjEneSlimeOne__sub_800EAD84((Obj_800EAD84 *)self);
+        self->set_state(1);
+    }
+}
+#pragma pop
 
 void fn_800E9538(u8 *ene_slime_one) {
     *(s32 *)((s8 *)ene_slime_one + 0x3E8) = (s32)create_particle_emitter((ene_slime_one + 0x38), 0xE1);

@@ -67,7 +67,8 @@ struct RecoveredGlobal_803FD520_lbl_805C0310 {
     s16 h8;
     u8 padA[2];
     s16 *buf;
-    u8 pad10[6];
+    u8 *pool;
+    s16 block_size;
     s16 h16;
 };
 
@@ -308,10 +309,14 @@ struct Tbl_80408718 { s16 count; s16 h2; s16 h4; s16 h6; s16 h8; u8 pad[4]; Ent_
 
 typedef struct Conn_804004DC {
     u8 state;
-    u8 pad[7];
+    u8 pad1[2];
+    u8 retries;
+    u8 pad4[4];
     s16 abort;
     u8 pad2[2];
     u8 *sub;
+    u8 pad10[0x20];
+    void *opts;
 } Conn_804004DC;
 
 typedef struct Blk_80400BA8 {
@@ -332,8 +337,12 @@ typedef struct St_80400BA8 {
     s16 f34;
     u8 pad36[2];
     s16 f38;
-    u8 pad3A[0x16];
+    u8 pad3A[0x13];
+    u8 f4D;
+    u8 pad4E[2];
     s16 f50;
+    u8 pad52[6];
+    s16 f58;
 } St_80400BA8;
 
 typedef struct Cfg_804019A8 {
@@ -392,9 +401,9 @@ typedef struct B_803FADA0 { u8 *buf; u16 len; } B_803FADA0;
 
 typedef struct A_803FADA0 { u8 pad0[4]; u32 a; u32 b; } A_803FADA0;
 
-struct Sub_803FA664 { u8 pad0[0x28]; s16 h1C; };
+struct Sub_803FA664 { u8 pad0[0x28]; s16 h1C; u8 pad2A[0x4C - 0x2A]; u8 peer[0x74 - 0x4C]; s16 h74; };
 
-struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[9]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
+struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[4]; u8 b6; u8 pad7[4]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
 
 struct Msg_803FA664 { u8 pad0; u8 b1; s16 h2; };
 
@@ -447,7 +456,7 @@ s32 NetMemcmp(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_8040FDA0(u32, s16);
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 void NetMemset(void * _w0, int _w1, int _w2);
-s32 TLobby__sub_803FE6CC(void *, int, int, void *);
+s32 TLobby__sub_803FE6CC(void *, u8, u8, void *);
 s32 TLobby__sub_803FE658(u8 *arg0);
 s32 send_network_frame(u16, u8 *);
 s32 TLobby__sub_804037B0(s32 arg0, u16 arg1);
@@ -464,6 +473,7 @@ u16 read_network_u16_be(u8 *p);
 u32 TLobby__sub_80402AFC(u8 *p);
 }
 u8 *write_network_u32_be(u8 *p, u32 v);
+void MD5Transform(u32 *state, u8 *block);
 extern "C" {
 void TLobby__sub_80405000(u32 arg0);
 u8 *write_network_u16_be(u8 *p, u16 v);
@@ -473,19 +483,22 @@ extern s32 lbl_8047FEB8[];
 extern s32 lbl_8047FEC8[];
 void TLobby__sub_803FF384(u8 *arg0);
 void TLobby__sub_803F97E8(int);
+extern u8 lbl_8047FE3C[];
 s32 wait_for_connection__6TLobbyFPv(Conn_804004DC *c);
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 extern Names_80403168 lbl_805C04D8;
 s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2);
-s16 TLobby__sub_803FC1CC(u8 *, s32);
+s16 TLobby__sub_803FC1CC(Conn_804004DC *c, s32 timeout);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
 extern u8 lbl_805C0038[];
 extern s16 lbl_805D7A7C;
 s32 TLobby__sub_80403B04(u8 *arg0, u8 *arg1, s32 arg2);
 s16 TLobby__sub_80402BB4(u8 *, s32);
 extern s32 lbl_805D7A90;
+extern s16 lbl_805D7A80;
+extern s16 lbl_805D7A82;
 s32 TLobby__sub_80403BA8(u8 *arg0, u8 *arg1, s32 arg2);
-s16 TLobby__sub_80401BCC(void *, void *, int);
+s16 TLobby__sub_80401BCC(void *src, void *dst, u16 n);
 extern u8 lcp_read_value_buffer[4];
 extern u8 lobby_read_byte_buffer[1];
 void TLobby__sub_8040098C(Self_8040098C *self);
@@ -493,7 +506,8 @@ s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(u16);
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 s32 TLobby__sub_80403730(u8 *dst, unsigned short n);
-s32 TLobby__sub_80400270(u32 *, void *, s32);
+struct Opt_80400338;
+void TLobby__sub_80400270(B_803FADA0 **pbuf, Opt_80400338 *opt, s16 mask);
 Ent_80401CE8 *init_net_buffer_entry__6TLobbyFUs(u16 idx);
 extern u8 lcp_read_byte_buffer;
 s32 TLobby__sub_803FF858(Obj_803FA664 *arg0, Msg_803FA664 *arg1, u32 arg2);
@@ -575,6 +589,47 @@ s32 TLobby::init_net_state_b() {
     return 0;
 }
 
+struct Auth_803FC1CC { u8 pad[0xC]; s16 active; };
+B_803FADA0 *TLobby__sub_803FCF44(Self_803FD74C *fsm);
+s16 TLobby__sub_803FC1CC(Conn_804004DC *c, s32 timeout) {
+    Auth_803FC1CC *auth;
+    u8 *sub;
+    RecoveredGlobal_804050DC_lbl_805C18A0 *g;
+
+    sub = c->sub;
+    auth = (Auth_803FC1CC *)c->opts;
+    if (lbl_805D7A90 & 2) {
+        auth->active = 1;
+        TLobby__sub_803FE820((s32)c);
+        TLobby__sub_803FE6CC(c, 1, 0, TLobby__sub_803FCF44((Self_803FD74C *)c));
+    } else {
+        auth->active = 0;
+    }
+    g = &lbl_805C18A0;
+    c->abort = 0;
+    while (c->state != 5) {
+        if (TLobby::is_timed_out() != 0 || c->abort != 0 || *sub == 4) {
+            c->abort = 0;
+            if (lbl_805D7A80 != 0) {
+                lbl_805D7A82 = 6;
+            } else {
+                lbl_805D7A82 = 5;
+            }
+            lbl_805D7A8A = 8;
+            return -1;
+        }
+        if (TLobby::get_remaining(timeout) != 0) {
+            return -0x12;
+        }
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    c->abort = 0;
+    return 0;
+}
+
 s32 TLobby::set_active_flag() {
     u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 0xA0) = 2;
@@ -602,7 +657,6 @@ void TLobby__sub_80400ACC(O_80400ACC *);
 struct Outer_80401CAC;
 void TLobby__sub_80401CAC(Outer_80401CAC *, u16);
 s32 TLobby__sub_80405304(void *);
-extern s16 lbl_805D7A80;
 
 void TLobby::dispatch_received_packet(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -679,17 +733,54 @@ Buf_803FC684 lbl_805C0180;
 s32 TLobby__sub_803FC684(u8 *arg0, u8 *arg1, u8 *arg2) {
     char **p = *(char ***)(arg2 + 0x30);
 
-    if (TLobby::str_length((s32)arg0) >= 0x80) {
+    if (NetStringLength((const char*)arg0) >= 0x80) {
         arg0[0x7F] = 0;
     }
-    if (TLobby::str_length((s32)arg1) >= 0x80) {
+    if (NetStringLength((const char*)arg1) >= 0x80) {
         arg1[0x7F] = 0;
     }
-    ((TLobby *)(lbl_805C0180.a))->copy_string(arg0);
-    ((TLobby *)(lbl_805C0180.b))->copy_string(arg1);
+    NetCopyString((char*)lbl_805C0180.a, (const char*)arg0);
+    NetCopyString((char*)lbl_805C0180.b, (const char*)arg1);
     p[0] = lbl_805C0180.a;
     p[1] = lbl_805C0180.b;
     return 0;
+}
+
+struct Chap_803FC728 { u8 pad0[8]; const char *msg; s16 active; u8 id; u8 padF; u16 len; };
+struct G_803FC728 { u8 pad0[0x1C]; void *data; };
+extern const char lbl_8047FDE0[];
+extern const char lbl_8047FDF0[];
+struct Ent_80401B20;
+Ent_80401B20 *TLobby__sub_80401B20(void *src, u16 n);
+void TLobby__sub_803FC728(Conn_804004DC *c) {
+    Ent_80401B20 *buf;
+    Chap_803FC728 *chap = (Chap_803FC728 *)c->opts;
+    u8 *sub;
+
+    if (chap->active != 0) {
+        if (c->retries != 0) {
+            chap->msg = lbl_8047FDE0;
+            TLobby__sub_803FE658((u8 *)c);
+            return;
+        }
+        chap->msg = lbl_8047FDF0;
+        sub = c->sub;
+        TLobby::update_connection_state((int)(sub + 0xA0));
+        TLobby::update_connection_state((int)(sub + 4));
+        c->abort = 1;
+        return;
+    }
+    if (c->retries != 0) {
+        buf = TLobby__sub_80401B20(((G_803FC728 *)&lbl_805C02D0)->data, chap->len);
+        TLobby__sub_803FE6CC(c, 2, chap->id, buf);
+        TLobby__sub_80405328((u8 *)c + 0x10);
+        c->retries--;
+        return;
+    }
+    sub = c->sub;
+    TLobby::update_connection_state((int)(sub + 0xA0));
+    TLobby::update_connection_state((int)(sub + 4));
+    c->abort = 1;
 }
 
 s32 TLobby::set_flags_and_state() {
@@ -712,8 +803,8 @@ void TLobby__sub_803FD0C0(void) {
 }
 
 typedef void (*Fn_803FD10C)(void);
-void TLobby__sub_803FD404(void);
-void TLobby__sub_803FD60C(void);
+s32 TLobby__sub_803FD404(s16 slot, u8 *p);
+s32 TLobby__sub_803FD60C(s16 id, u8 *p);
 
 s16 TLobby__sub_803FD10C(void) {
     Fn_803FD10C fns[11];
@@ -722,7 +813,7 @@ s16 TLobby__sub_803FD10C(void) {
     s16 *p;
 
     ((TLobby *)(&lobby_net_buffer_desc_b))->init_buffer_desc_b();
-    fns[0] = TLobby__sub_803FD60C;
+    fns[0] = (Fn_803FD10C)TLobby__sub_803FD60C;
     fns[1] = (void (*)())TLobby__sub_803FD5A4;
     fns[2] = (Fn_803FD10C)TLobby::clear_socket_slot;
     fns[3] = (Fn_803FD10C)TLobby::get_checked_status_value;
@@ -730,7 +821,7 @@ s16 TLobby__sub_803FD10C(void) {
     fns[5] = (Fn_803FD10C)TLobby__sub_803FD4D8;
     fns[6] = (Fn_803FD10C)TLobby__sub_803FD4B4;
     fns[7] = (Fn_803FD10C)TLobby__sub_803FD490;
-    fns[8] = TLobby__sub_803FD404;
+    fns[8] = (Fn_803FD10C)TLobby__sub_803FD404;
     fns[9] = (void (*)())TLobby__sub_803FD310;
     fns[10] = (void (*)())TLobby__sub_803FD21C;
     r = TLobby__sub_80409A3C((u8 *)fns, 2);
@@ -806,6 +897,30 @@ s32 TLobby__sub_803FD310(s16 arg0, s32 arg1, u8 *arg2) {
 }
 #pragma pop
 
+s32 TLobby__sub_803FD404(s16 slot, u8 *p) {
+    RecoveredGlobal_803FD520_lbl_805C0310 *g = &lobby_net_buffer_desc_b;
+    s16 i;
+    s16 *used;
+    u8 *block;
+    s16 size;
+
+    if ((slot != 0) && (slot != 1)) {
+        return -0x112;
+    }
+    used = g->buf;
+    i = 0;
+    block = g->pool;
+    size = g->block_size;
+    for (; i < g->h16; i++, used++) {
+        if (*used != 0 && block <= p && p < block + size) {
+            *used = 0;
+            return 0;
+        }
+        block += size;
+    }
+    return -0x112;
+}
+
 s32 TLobby__sub_803FD490(s16 arg0) {
     if ((arg0 != 0) && (arg0 != 1)) {
         return -0x112;
@@ -875,6 +990,34 @@ s16 TLobby__sub_803FD5A4(s16 h, s16 v) {
     g->e[r].a = 1;
     g->e[r].b = v;
     return r;
+}
+
+struct Opts_803FD60C { u8 pad[8]; u32 f8; u32 fC; };
+s32 TLobby__sub_803FD60C(s16 id, u8 *p) {
+    Self_803FD74C *ipcp;
+    Opts_803FD60C *o;
+    u32 a;
+    u32 b;
+
+    if (id != lobby_net_buffer_desc_b.h0) {
+        return -0x112;
+    }
+    ipcp = (Self_803FD74C *)(lbl_805C0038 + 0xD4);
+    o = (Opts_803FD60C *)ipcp->f30;
+    if (ipcp->f0 != 5) {
+        return -0x112;
+    }
+    a = o->f8;
+    b = o->fC;
+    *p++ = (a >> 24) & 0xFF;
+    *p++ = (a >> 16) & 0xFF;
+    *p++ = (a >> 8) & 0xFF;
+    *p++ = a & 0xFF;
+    *p++ = (b >> 24) & 0xFF;
+    *p++ = (b >> 16) & 0xFF;
+    *p++ = (b >> 8) & 0xFF;
+    *p = b & 0xFF;
+    return 0;
 }
 
 void TLobby__sub_803FD694(u8 *arg0) {
@@ -1154,6 +1297,194 @@ s32 TLobby__sub_803FE8BC(u8 *dst, void *src) {
     return 0;
 }
 
+u32 TLobby__sub_803FE9F8(u32 sum, B_803FADA0 *b, u16 n);
+
+u16 TLobby__sub_803FE934(u8 *hdr, B_803FADA0 *b, u16 n) {
+    u32 sum = 0;
+    int i;
+
+    if (hdr != NULL) {
+        for (i = 0; i < 12; i += 2) {
+            sum += *hdr++ << 8;
+            sum += *hdr++;
+        }
+    }
+    sum = TLobby__sub_803FE9F8(sum, b, n);
+    sum = (sum >> 16) + (sum & 0xFFFF);
+    sum += sum >> 16;
+    return ~sum;
+}
+
+u32 TLobby__sub_803FE9F8(u32 sum, B_803FADA0 *b, u16 n) {
+    u16 last;
+    s32 odd;
+    s16 len;
+    u8 *p = b->buf;
+
+    len = (b->len < n) ? b->len : n;
+    if (len & 1) {
+        last = p[len - 1];
+        odd = 1;
+        len--;
+    } else {
+        odd = 0;
+        last = 0;
+    }
+    for (len = len >> 1; len > 0; len--) {
+        sum += p[0] << 8;
+        sum += p[1];
+        p += 2;
+    }
+    if (odd) {
+        sum += last << 8;
+    }
+    return sum;
+}
+
+typedef struct A_80403F4C {
+    u32 src;
+    u32 dst;
+    u16 len;
+    u16 id;
+    u16 frag;
+    u16 cksum;
+    u8 pad10;
+    u8 df;
+    u8 mf;
+    u8 version;
+    u8 tos;
+    u8 ttl;
+    u8 count;
+    u8 optlen;
+    u8 opts[0x40 - 0x18];
+} A_80403F4C;
+
+struct IpHdr_803FEA88 { u8 ver_ihl; u8 tos; u16 len; u16 id; u16 frag; u8 ttl; u8 proto; u16 cksum; u32 src; u32 dst; };
+
+u32 TLobby__sub_803FEA88(A_80403F4C *out, Strm_80405A74 **src) {
+    Strm_80405A74 *e = *src;
+    IpHdr_803FEA88 h;
+    u32 hl;
+    u16 frag;
+    u32 optlen;
+    IpHdr_803FEA88 *raw;
+
+    raw = &h;
+    if (TLobby__sub_80401BCC(src, raw, 20) != 20) {
+        return 0xFFFF;
+    }
+    out->version = (h.ver_ihl >> 4) & 0xF;
+    out->tos = h.tos;
+    out->len = h.len;
+    out->id = h.id;
+    frag = h.frag;
+    out->frag = (frag & 0x1FFF) << 3;
+    if (frag & 0x2000) {
+        out->mf = 1;
+    } else {
+        out->mf = 0;
+    }
+    if (frag & 0x4000) {
+        out->df = 1;
+    } else {
+        out->df = 0;
+    }
+    out->ttl = h.ttl;
+    out->count = h.proto;
+    out->cksum = h.cksum;
+    out->src = h.src;
+    out->dst = h.dst;
+    if (out->len - 20 < e->len) {
+        e->len = out->len - 20;
+    }
+    hl = (h.ver_ihl & 0xF) * 4;
+    if (hl < 20) {
+        out->optlen = 0;
+        return 0xFFFF;
+    }
+    optlen = hl - 20;
+    out->optlen = optlen;
+    if (out->optlen != 0 && TLobby__sub_80401BCC(src, out->opts, out->optlen) < out->optlen) {
+        return 0xFFFF;
+    }
+    return hl;
+}
+
+extern s32 lbl_805D7AA0;
+
+s16 TLobby__sub_803FED78(u8 *conn) {
+    Conn_804004DC *v6;
+    Conn_804004DC *c;
+    RecoveredGlobal_804050DC_lbl_805C18A0 *g;
+    u8 *sub;
+    s16 status;
+    s16 st;
+    c = (Conn_804004DC *)conn;
+    status = 1;
+    sub = c->sub;
+    c->abort = 0;
+    {
+        u8 *p = lbl_805C0038 + 0xD4;
+        ((Conn_804004DC *)p)->abort = 0;
+        v6 = (Conn_804004DC *)p;
+    }
+    g = &lbl_805C18A0;
+    while (c->state != 5 && lbl_805D7AA0 < 2) {
+        if (TLobby::is_timed_out() != 0 || *sub == 4) {
+            TLobby::update_connection_state((int)c);
+            c->abort = 0;
+            v6->abort = 0;
+            return -1;
+        }
+        if (c->abort != 0) {
+            break;
+        }
+        status = ((TLobby *)v6)->check_connection_status();
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    st = lbl_805D7A7C;
+    if (st != 6 && st != 0) {
+        if (c->abort != 0) {
+            v6->abort = 0;
+            c->abort = 0;
+            return -1;
+        }
+        v6->abort = 0;
+        c->abort = 0;
+        return 0;
+    }
+    g = &lbl_805C18A0;
+    while (status > 0) {
+        status = ((TLobby *)v6)->check_connection_status();
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    switch (status) {
+    case 0:
+        c->abort = 0;
+        v6->abort = 0;
+        return 0;
+    case -2:
+        if (c->abort == 0) {
+            c->abort = 0;
+            v6->abort = 0;
+            return 0;
+        }
+        break;
+    case -1:
+        break;
+    }
+    TLobby::update_connection_state((int)c);
+    v6->abort = 0;
+    c->abort = 0;
+    return -1;
+}
+
 s32 set_socket_flags_by_mode__6TLobbyFsPv(s16 arg0, u8 *arg1) {
     struct Fields_arg1 { s16 field_0; u8 pad_2[2]; s16 field_4; u8 pad_6[10]; s16 field_10; s16 field_12; s8 field_14; u8 pad_15[19]; s16 field_28; };
     if (arg0 == 0) {
@@ -1312,7 +1643,96 @@ void TLobby__sub_803FF48C(P_803FF48C *o) {
     q->h4C = q->h4C | q->h50;
 }
 
-struct Opt_80400338 { u8 pad0[4]; u32 f4; u32 f8; s16 fC; s16 fE; u8 f10; u8 pad11[3]; u32 f14; u32 f18; };
+struct Opt_80400338 { s16 mask; u8 pad2[2]; u32 f4; u32 f8; s16 fC; s16 fE; u8 f10; u8 pad11[3]; u32 f14; u32 f18; };
+
+s16 TLobby__sub_803FFB84(u32 *src, Sub_803FA664 *opts, Sub_803FA664 *peer, u8 *hdr, s32 reply);
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 ipcp_is_extended_option(u8 type) {
+    s32 result = 0;
+    if (type >= 0x80 && type < 0x90) {
+        result = 1;
+    }
+    return result;
+}
+
+inline s32 ipcp_option_bit(u8 type) {
+    if (type < 8) {
+        return type;
+    }
+    if (ipcp_is_extended_option(type)) {
+        return type - 120;
+    }
+    return 0;
+}
+
+inline s32 ipcp_read_byte(u32 *src) {
+    if (TLobby__sub_80401BCC(src, &lcp_read_byte_buffer, 1) != 1) {
+        return -1;
+    }
+    return (s16)lcp_read_byte_buffer;
+}
+
+s32 TLobby__sub_803FF50C(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts = fsm->p30;
+    Sub_803FA664 *peer = opts;
+    s32 remaining = msg->h2;
+    u8 hdr[2];
+    s16 n;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        if ((opts->h1C & (1 << ipcp_option_bit(hdr[0]))) == 0) {
+            return -1;
+        }
+        n = hdr[1] - 2;
+        while (n-- > 0) {
+            if (ipcp_read_byte(&src) == -1) {
+                return -1;
+            }
+        }
+        opts->h1C &= ~(1 << ipcp_option_bit(hdr[0]));
+    }
+    return 0;
+}
+
+s32 TLobby__sub_803FF698(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts = fsm->p30;
+    Sub_803FA664 *peer = opts;
+    s32 remaining = msg->h2;
+    u8 hdr[2];
+    s16 r;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        if ((opts->h1C & (1 << ipcp_option_bit(hdr[0]))) == 0) {
+            opts->h1C |= 1 << ipcp_option_bit(hdr[0]);
+        }
+        r = TLobby__sub_803FFB84(&src, opts, peer, hdr, 0);
+        if (r == -1) {
+            return -1;
+        }
+        if (r == 4) {
+            opts->h1C &= ~(1 << ipcp_option_bit(hdr[0]));
+        }
+    }
+    return 0;
+}
+#pragma pop
+
 
 #pragma push
 #pragma opt_lifetimes off
@@ -1328,7 +1748,7 @@ inline u32 first_803FA664(Sub_803FA664 *s) {
     if (t == 0) {
         return v;
     }
-    TLobby__sub_80400270(&t, &s->h1C, s->h1C);
+    TLobby__sub_80400270((B_803FADA0 **)&t, (Opt_80400338 *)&s->h1C, s->h1C);
     v = t;
     return v;
 }
@@ -1366,6 +1786,121 @@ s32 TLobby__sub_803FF858(Obj_803FA664 *arg0, Msg_803FA664 *arg1, u32 arg2) {
 }
 #pragma pop
 #pragma pop
+
+struct IpcpOpts_80400174 { u8 pad[0x28]; Opt_80400338 vals; };
+void TLobby__sub_80400338(B_803FADA0 **pbuf, Opt_80400338 *opt, s32 type, s32 len, void *src);
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s16 TLobby__sub_803FF9A4(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    Sub_803FA664 *opts;
+    s32 remaining;
+    s16 status;
+    s16 r;
+    B_803FADA0 *reply;
+    u8 hdr[2];
+    status = 2;
+    opts = fsm->p30;
+    remaining = msg->h2;
+    reply = NULL;
+    opts->h74 = 0;
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        r = TLobby__sub_803FFB84(&src, opts, (Sub_803FA664 *)opts->peer, hdr, 1);
+        if (r == -1) {
+            return -1;
+        }
+        if (r < status) {
+            continue;
+        }
+        if (r > status) {
+            reply = NULL;
+            status = r;
+        }
+        if (r != 4) {
+            opts->h74 |= 1 << ipcp_option_bit(hdr[0]);
+        }
+        TLobby__sub_80400338(&reply, (Opt_80400338 *)&opts->h74, hdr[0], hdr[1], &src);
+        if (r > 3) {
+            TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+        }
+    }
+    if (status == 3) {
+        if (fsm->b6 != 0) {
+            fsm->b6--;
+        } else {
+            status = 4;
+            TLobby__sub_803FE6CC(fsm, 4, msg->b1, reply);
+        }
+    }
+    if (status > 3) {
+        return status != 2;
+    }
+    TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+    return status != 2;
+}
+#pragma pop
+
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void add_ipcp_options(B_803FADA0 **pbuf, Opt_80400338 *opt, s16 mask) {
+    s16 i;
+    s32 type = 0;
+
+    if (*pbuf == NULL) {
+        *pbuf = init_net_buffer_entry__6TLobbyFUs(type);
+        if (*pbuf == NULL) {
+            return;
+        }
+    }
+    for (i = 1; i < 32; i++) {
+        type = i;
+        if (mask & (1 << type)) {
+            type = (type < 8) ? type : (type < 32) ? type + 0x78 : 0;
+            TLobby__sub_80400338(pbuf, opt, type, lbl_8047FE3C[i], NULL);
+        }
+    }
+}
+
+B_803FADA0 *TLobby__sub_80400174(Self_803FD74C *fsm) {
+    IpcpOpts_80400174 *o = (IpcpOpts_80400174 *)fsm->f30;
+    B_803FADA0 *buf = NULL;
+
+    buf = init_net_buffer_entry__6TLobbyFUs(0);
+    if (buf == NULL) {
+        return NULL;
+    }
+    add_ipcp_options(&buf, &o->vals, o->vals.mask);
+    return buf;
+}
+#pragma pop
+
+void TLobby__sub_80400270(B_803FADA0 **pbuf, Opt_80400338 *opt, s16 mask) {
+    s16 i;
+    s32 type = 0;
+
+    if (*pbuf == NULL) {
+        *pbuf = init_net_buffer_entry__6TLobbyFUs(type);
+        if (*pbuf == NULL) {
+            return;
+        }
+    }
+    for (i = 1; i < 32; i++) {
+        type = i;
+        if (mask & (1 << type)) {
+            type = (type < 8) ? type : (type < 32) ? type + 0x78 : 0;
+            TLobby__sub_80400338(pbuf, opt, type, lbl_8047FE3C[i], NULL);
+        }
+    }
+}
 
 void TLobby__sub_80400338(B_803FADA0 **pbuf, Opt_80400338 *opt, s32 type, s32 len, void *src) {
     B_803FADA0 *buf;
@@ -1530,6 +2065,125 @@ void TLobby::save_timer_state() {
     s->f34 |= s->f38;
 }
 
+struct LcpVals_8040172C { s16 mask; u16 mru; u32 accm; u16 auth_proto; u8 pad0A[2]; u32 magic; u8 pad10[4]; u8 chap_alg; };
+struct LcpOpts_8040172C { u8 pad[0x1C]; LcpVals_8040172C vals; };
+extern u8 lbl_8047FE68[];
+void TLobby__sub_804017D8(B_803FADA0 **pbuf, LcpVals_8040172C *vals, u8 type, u8 len, void *src);
+
+inline void add_lcp_options(B_803FADA0 **pbuf, LcpVals_8040172C *vals, s16 mask) {
+    s16 i;
+
+    for (i = 1; i <= 8; i++) {
+        if (mask & (1 << i)) {
+            TLobby__sub_804017D8(pbuf, vals, i, lbl_8047FE68[i], NULL);
+        }
+    }
+}
+
+#pragma push
+#pragma opt_common_subs on
+s32 TLobby__sub_80400DA8(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    St_80400BA8 *opts = (St_80400BA8 *)fsm->p30;
+    St_80400BA8 *peer = opts;
+    s32 remaining = msg->h2;
+    s16 last = 0;
+    u8 hdr[2];
+    s16 r;
+    if (msg->b1 != fsm->b1) {
+        return -1;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        if (hdr[0] <= 8) {
+            if (hdr[0] < last || (opts->saved.flags & (1 << hdr[0])) == 0) {
+                if (opts->saved.flags & (1 << hdr[0])) {
+                    return -1;
+                }
+                opts->saved.flags |= 1 << hdr[0];
+                last = 9;
+            } else {
+                last = hdr[0];
+            }
+        }
+        r = TLobby::parse_lcp_option((s32)&src, (u8 *)opts, (u8 *)peer, hdr, 0);
+        if (r == -1) {
+            return -1;
+        }
+        if (r == 4 && hdr[0] <= 8 && (hdr[0] != 3 || (opts->saved.flags & (1 << hdr[0])) == 0)) {
+            opts->saved.flags &= ~(1 << hdr[0]);
+        }
+    }
+    return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s16 TLobby__sub_804010A0(Obj_803FA664 *fsm, Msg_803FA664 *msg, u32 src) {
+    St_80400BA8 *opts;
+    s32 remaining;
+    s16 status;
+    s16 r;
+    B_803FADA0 *reply;
+    u8 hdr[2];
+    status = 2;
+    opts = (St_80400BA8 *)fsm->p30;
+    remaining = msg->h2;
+    reply = NULL;
+    opts->f50 = 0;
+    reply = init_net_buffer_entry__6TLobbyFUs(1);
+    if (opts->f4D != 0) {
+        opts->f58 = 0;
+        opts->f50 |= 8;
+    }
+    while (remaining > 0 && (s16)((TLobby *)hdr)->read_2_bytes(&src) != -1) {
+        remaining -= hdr[1];
+        if (remaining < 0) {
+            return -1;
+        }
+        r = TLobby::parse_lcp_option((s32)&src, (u8 *)opts, (u8 *)&opts->f34, hdr, 1);
+        if (r == -1) {
+            return -1;
+        }
+        if (r < status) {
+            continue;
+        }
+        if (r > status) {
+            reply = NULL;
+            status = r;
+        }
+        if (r != 4 && hdr[0] <= 8) {
+            opts->f50 |= 1 << hdr[0];
+        }
+        TLobby__sub_804017D8(&reply, (LcpVals_8040172C *)&opts->f50, hdr[0], hdr[1], &src);
+        if (r >= 3) {
+            TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+        }
+    }
+    s16 missing = opts->f38 & ~opts->f50;
+    if (status == 3) {
+        if (fsm->b6 != 0) {
+            add_lcp_options(&reply, (LcpVals_8040172C *)&opts->f50, missing);
+            fsm->b6--;
+        } else {
+            status = 4;
+            TLobby__sub_803FE6CC(fsm, 4, msg->b1, reply);
+        }
+    }
+    if (status >= 3) {
+        return status != 2;
+    }
+    TLobby__sub_803FE6CC(fsm, status, msg->b1, reply);
+    return status != 2;
+}
+#pragma pop
+
 #define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
 #define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
 #define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
@@ -1651,6 +2305,85 @@ s16 TLobby::parse_lcp_option(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     return res;
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+B_803FADA0 *TLobby__sub_8040172C(Self_803FD74C *fsm) {
+    LcpOpts_8040172C *o = (LcpOpts_8040172C *)fsm->f30;
+    B_803FADA0 *buf = NULL;
+
+    buf = init_net_buffer_entry__6TLobbyFUs(0);
+    if (buf == NULL) {
+        return NULL;
+    }
+    add_lcp_options(&buf, &o->vals, o->vals.mask);
+    return buf;
+}
+#pragma pop
+
+void TLobby__sub_804017D8(B_803FADA0 **pbuf, LcpVals_8040172C *vals, u8 type, u8 len, void *src) {
+    B_803FADA0 *buf;
+    u8 *p;
+    u8 *lenp;
+    s16 n;
+    n = len - 2;
+    if (*pbuf == NULL) {
+        *pbuf = init_net_buffer_entry__6TLobbyFUs(1);
+        if (*pbuf == NULL) {
+            return;
+        }
+    }
+    buf = *pbuf;
+    p = buf->buf;
+    p += buf->len;
+    *p++ = type;
+    lenp = p;
+    *p++ = len;
+    switch (type) {
+    case 1:
+        p = write_network_u16_be(p, vals->mru);
+        n -= 2;
+        break;
+    case 2:
+        p = write_network_u32_be(p, vals->accm);
+        n -= 4;
+        break;
+    case 3:
+        p = write_network_u16_be(p, vals->auth_proto);
+        n -= 2;
+        if (vals->auth_proto == 0xC223) {
+            *lenp = 5;
+            *p++ = vals->chap_alg;
+            if (len == 4) {
+                len++;
+            }
+            n = 0;
+        }
+        if (vals->auth_proto == 0xC023) {
+            *lenp = 4;
+            if (len == 5) {
+                len--;
+            }
+            n = 0;
+        }
+        break;
+    case 4:
+        break;
+    case 5:
+        p = write_network_u32_be(p, vals->magic);
+        n -= 4;
+        break;
+    case 6:
+    case 7:
+    case 8:
+        break;
+    }
+    while (n-- > 0) {
+        *p++ = TLobby__sub_80401BCC(src, lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0];
+    }
+    buf->len += len;
+}
+
 s32 TLobby::configure_mode_by_type(s16 type) {
     Cfg_804019A8 *c = (Cfg_804019A8 *)this;
     if (type == 0) {
@@ -1685,6 +2418,17 @@ s32 TLobby::init_net_subsystem_block() {
     return 0;
 }
 
+s16 TLobby__sub_80401ABC(B_803FADA0 *b, u8 *dst, u16 n) {
+    s16 len;
+
+    if (dst == NULL) {
+        return 0;
+    }
+    len = (b->len < n) ? b->len : n;
+    NetMemcpy(dst, b->buf, len);
+    return len;
+}
+
 struct Ent_80401B20 { u8 *p0; u16 h4; };
 struct G_80401B20 { s32 f0; s32 f4; s32 f8; Ent_80401B20 *pC; };
 #pragma opt_propagation off
@@ -1714,6 +2458,42 @@ u8 *TLobby::alloc_from_buffer(s16 arg1) {
     return NULL;
 }
 
+s16 TLobby__sub_80401BCC(void *src, void *dst, u16 n) {
+    B_803FADA0 *e;
+    B_803FADA0 **pp;
+    s16 total;
+    s16 len;
+    u16 left;
+    u8 *out;
+
+    pp = (B_803FADA0 **)src;
+    out = (u8 *)dst;
+    left = n;
+    total = 0;
+    if (pp == NULL) {
+        return 0;
+    }
+    while (left != 0 && (e = *pp) != NULL) {
+        len = (left < e->len) ? left : e->len;
+        if (out != NULL) {
+            if (len == 1) {
+                *out = *e->buf;
+            } else if (len > 1) {
+                NetMemcpy(out, e->buf, len);
+            }
+            out += len;
+        }
+        total += len;
+        e->buf += len;
+        left -= len;
+        e->len -= len;
+        if (e->len == 0) {
+            left = 0;
+        }
+    }
+    return total;
+}
+
 void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v) {
     if (o == NULL || o->p == NULL) return;
     if (v == 0) return;
@@ -1740,6 +2520,66 @@ Ent_80401CE8 *init_net_buffer_entry__6TLobbyFUs(u16 idx) {
   e = t;
 }
 #pragma pop
+
+struct Md5Ctx_80401EB8 { u32 state[4]; u32 count[2]; u8 buffer[64]; };
+void TLobby__sub_80401EB8(Md5Ctx_80401EB8 *ctx, u8 *input, u32 len);
+
+extern u8 lbl_8047FE78[];
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void Encode_80401D2C(u8 *output, u32 *input, u32 len) {
+    u32 i, j;
+    for (i = 0, j = 0; j < len; i++, j += 4) {
+        output[j] = (u8)(input[i] & 0xFF);
+        output[j + 1] = (u8)((input[i] >> 8) & 0xFF);
+        output[j + 2] = (u8)((input[i] >> 16) & 0xFF);
+        output[j + 3] = (u8)((input[i] >> 24) & 0xFF);
+    }
+}
+
+void TLobby__sub_80401D2C(u8 *digest, Md5Ctx_80401EB8 *ctx) {
+    u8 bits[8];
+    u32 index;
+    u32 padLen;
+    Encode_80401D2C(bits, ctx->count, 8);
+    index = (ctx->count[0] >> 3) & 0x3F;
+    padLen = (index < 56) ? (56 - index) : (120 - index);
+    TLobby__sub_80401EB8(ctx, lbl_8047FE78, padLen);
+    TLobby__sub_80401EB8(ctx, bits, 8);
+    Encode_80401D2C(digest, ctx->state, 16);
+    NetMemset(ctx, 0, sizeof(*ctx));
+}
+#pragma pop
+
+void TLobby__sub_80401EB8(Md5Ctx_80401EB8 *ctx, u8 *input, u32 len) {
+    int space;
+    u32 bits = len << 3;
+    u32 i;
+    u32 index;
+    u32 partLen;
+
+    index = (ctx->count[0] >> 3) & 0x3F;
+    if ((ctx->count[0] += bits) < bits) {
+        ctx->count[1]++;
+    }
+    ctx->count[1] += len >> 29;
+    space = index;
+    space = 64 - space;
+    partLen = space;
+    if (len >= partLen) {
+        NetMemcpy(&ctx->buffer[index], input, partLen);
+        MD5Transform(ctx->state, ctx->buffer);
+        for (i = partLen; i + 63 < len; i += 64) {
+            MD5Transform(ctx->state, &input[i]);
+        }
+        index = 0;
+    } else {
+        i = 0;
+    }
+    NetMemcpy(&ctx->buffer[index], &input[i], len - i);
+}
 
 void TLobby::init_md5_state() {
     u8 *arg0 = (u8 *)this;
@@ -1935,6 +2775,41 @@ s32 TLobby::init_net_block_620_secondary() {
     return 0;
 }
 
+s16 TLobby__sub_80402BB4(u8 *arg0, s32 timeout) {
+    Conn_804004DC *c = (Conn_804004DC *)arg0;
+    RecoveredGlobal_804050DC_lbl_805C18A0 *g;
+    u8 *sub;
+
+    sub = c->sub;
+    g = &lbl_805C18A0;
+    c->abort = 0;
+    while (c->state != 5) {
+        if (TLobby::is_timed_out() != 0 || c->abort != 0 || *sub == 4) {
+            TLobby::update_connection_state((int)c);
+            TLobby::update_connection_state((int)(c->sub + 4));
+            c->abort = 0;
+            if (lbl_805D7A80 != 0) {
+                lbl_805D7A82 = 6;
+            } else {
+                lbl_805D7A82 = 5;
+            }
+            lbl_805D7A8A = 8;
+            return -1;
+        }
+        if (TLobby::get_remaining(timeout) != 0) {
+            TLobby::update_connection_state((int)c);
+            TLobby::update_connection_state((int)(c->sub + 4));
+            return -0x12;
+        }
+        TUdpSocket::unlock_mutex(g->value);
+        TLobby__sub_803F97E8(100);
+        TLobby::process_expired_timers();
+        TLobby::lock_mutex(g->value);
+    }
+    c->abort = 0;
+    return 0;
+}
+
 s32 TLobby::mark_ready() {
     u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 0x38) = 2;
@@ -1961,13 +2836,13 @@ s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2) {
     u32 m;
     p = *(u8 ***)(arg2 + 0x30);
     g = &lbl_805C04D8;
-    n = TLobby::str_length((s32)(arg0));
+    n = NetStringLength((const char*)arg0);
     if (n >= 0x80) {
         n = 0x7F;
     }
     NetMemcpy(g->a, arg0, n);
     g->a[n] = 0;
-    m = TLobby::str_length((s32)(arg1));
+    m = NetStringLength((const char*)arg1);
     if (m >= 0x80) {
         m = 0x7F;
     }
@@ -2019,6 +2894,33 @@ void TLobby::handle_request_timeout() {
     *(s32 **)((s8 *)temp_r4 + 8) = lbl_8047FEC8;
     TLobby::update_connection_state((int) (*(s32 *)((s8 *)arg0 + 0xC) + 4));
     *(s16 *)((s8 *)arg0 + 8) = 1;
+}
+
+struct Pap_80403634 { char *name; char *passwd; };
+B_803FADA0 *TLobby__sub_80403634(Self_803FD74C *fsm) {
+    Pap_80403634 *pap = (Pap_80403634 *)fsm->f30;
+    B_803FADA0 *buf;
+    u8 *p;
+    u32 idlen;
+    u32 pwlen;
+
+    if (pap->name == NULL || pap->passwd == NULL) {
+        return NULL;
+    }
+    buf = init_net_buffer_entry__6TLobbyFUs(0);
+    if (buf == NULL) {
+        return NULL;
+    }
+    p = buf->buf;
+    idlen = NetStringLength(pap->name);
+    *p++ = idlen;
+    NetMemcpy(p, pap->name, idlen);
+    p += idlen;
+    pwlen = NetStringLength(pap->passwd);
+    *p++ = pwlen;
+    NetMemcpy(p, pap->passwd, pwlen);
+    buf->len += 2 + idlen + pwlen;
+    return buf;
 }
 
 s32 TLobby__sub_804036FC(u8 *arg0) {
@@ -2160,7 +3062,7 @@ s32 TLobby__sub_80403B04(u8 *arg0, u8 *arg1, s32 arg2) {
     s16 r;
     s16 st;
     TLobby__sub_803FC684(arg0, arg1, c);
-    r = TLobby__sub_803FC1CC(c, arg2);
+    r = TLobby__sub_803FC1CC((Conn_804004DC *)c, arg2);
     if (r < 0) {
         if (r == -0x12) {
             return -0x12;
@@ -2248,12 +3150,6 @@ s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 a
     return temp_r31;
 }
 
-typedef struct A_80403F4C {
-    u8 pad0[0x16];
-    u8 count;
-    u8 pad17[0x40 - 0x17];
-} A_80403F4C;
-
 typedef struct B_80403F4C {
     u8 bytes[0x44];
 } B_80403F4C;
@@ -2278,7 +3174,7 @@ typedef struct Obj_80403F4C {
     s32 n30;
 } Obj_80403F4C;
 
-void TLobby__sub_803FEA88(A_80403F4C *);
+u32 TLobby__sub_803FEA88(A_80403F4C *out, Strm_80405A74 **src);
 void TLobby__sub_804053B8(B_80403F4C *, u8 **);
 u8 *TLobby__sub_8040555C(B_80403F4C *, u8 *, s32);
 u8 *GXLoadTexObjPreLoaded(A_80403F4C *, u8 *, s32);
@@ -2290,7 +3186,7 @@ s16 TLobby__sub_80403F4C(void *ov, Strm_80405A74 **spp) {
     Ent_80403F4C *e;
     u8 c;
 
-    TLobby__sub_803FEA88(&a);
+    TLobby__sub_803FEA88(&a, spp);
     TLobby__sub_804053B8(&b, pp);
     c = a.count;
     if (c > o->max) {

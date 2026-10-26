@@ -521,9 +521,9 @@ s32 TLobby__sub_803FAEDC(LoginCfg_803FAEDC *cfg) {
     if (cfg->user == NULL) {
         return 1;
     }
-    len = TLobby::str_length((s32)cfg->user);
+    len = NetStringLength((const char*)cfg->user);
     if (cfg->mode == 1 && cfg->prefix != NULL) {
-        plen = TLobby::str_length((s32)cfg->prefix);
+        plen = NetStringLength((const char*)cfg->prefix);
         if (plen + len > 59) {
             return 1;
         }
@@ -740,7 +740,7 @@ s16 NetApplyConnectionConfig(u8 *arg0) {
 }
 extern "C" {
 
-s32 TLobby::get_remaining(s32 arg0) {
+s16 TLobby::get_remaining(s32 arg0) {
     return lbl_805D7A78 - arg0;
 }
 
@@ -783,7 +783,7 @@ s32 TLobby__sub_803FB6A0(void) {
     lbl_805D7A86 = 0;
     lbl_805D7A8A = 7;
     TLobby__sub_804037F0();
-    if (sess->h22 != 0 && sess->w60 != 0 && TLobby::str_length(sess->w60) != 0) {
+    if (sess->h22 != 0 && sess->w60 != 0 && NetStringLength((const char*)sess->w60) != 0) {
         TLobby__sub_804283C8(sess->w60, sess);
     }
     if (lbl_805D7A7E != 0) {

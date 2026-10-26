@@ -1,3 +1,4 @@
+#include "pso/system/RlcArchive.h"
 #include "types.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TLobby.h"
@@ -55,9 +56,6 @@ extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(u32 *arg0);
 s32 memcpy(s32, s32, s32);
-s32 fn_802A5B2C(s32);
-s32 fn_802A5B50(s32, s32);
-int rlc_get_directory_offset(void *arg0);
 s32 fn_802A6070(s32, s32);
 s32 fn_802A6078(s32, s32);
 extern s32 lbl_805D669C;
@@ -209,11 +207,11 @@ void TLobby::alloc_snapshot_buffer() {
 
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = rlc_get_directory_offset((void *)(*(s32 *)&snapshot_image_buffer));
+    temp_r31 = ((RlcHeader *)(*(s32 *)&snapshot_image_buffer))->get_directory_offset();
     temp_r31 = (*(s32 *)&snapshot_image_buffer) + temp_r31;
     temp_r31 = temp_r31 + arg0 * 8;
-    fn_802A6078(arg1, lbl_805D669C + fn_802A5B50(temp_r31, (*(s32 *)&snapshot_image_buffer)));
-    fn_802A6070(arg1, fn_802A5B2C(temp_r31));
+    fn_802A6078(arg1, lbl_805D669C + ((RlcDirectoryEntry *)temp_r31)->get_offset());
+    fn_802A6070(arg1, ((RlcDirectoryEntry *)temp_r31)->get_size());
 }
 void TLobby::send_type2_event(s32 arg0, s32 arg1, s32 arg2) {
     aram_dma_blocking__6TLobbyFllll(2, arg0, arg1, arg2, arg0);
