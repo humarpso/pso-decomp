@@ -7,6 +7,7 @@
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TBoss5Gryphon.h"
+#include "pso/boss/TBoss5GryphonSnarl.h"
 #include "pso/TBoss5GryphonDemo.h"
 #include "pso/system/vector.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -1441,7 +1442,7 @@ extern "C" {
 void TBoss8Dragon__sub_8005FE18(TBoss5Gryphon *self, s32 event);
 }
 extern "C" {
-void TBoss8Dragon__sub_8005FEF8();
+void TBoss8Dragon__sub_8005FEF8(TBoss5Gryphon *self, s32 event);
 }
 extern "C" {
 void TBoss8Dragon__sub_800605E8(TBoss5Gryphon *self, s32 event);
@@ -3041,6 +3042,43 @@ void TBoss8Dragon__sub_8005FE18(TBoss5Gryphon *self, s32 event) {
 #pragma push
 #pragma fp_contract on
 #define PLAY_SE(o, id) ((TBoss5Gryphon *)o)->play_se((id))
+extern const f32 lbl_805D8DB8;
+
+void TBoss8Dragon__sub_8005FEF8(TBoss5Gryphon *self, s32 event) {
+    Vec pos;
+    Vec *bones;
+
+    switch (event) {
+    case 4:
+        self->m_b8 = 2;
+        self->vfunc_96();
+        ((TBoss8Dragon *)self)->clear_timer();
+        ((TBoss8Dragon *)self)->reset_angle();
+        break;
+    case 0:
+        advance_animation_playback(self);
+        if (objInBand((GameObj *)self, lbl_805D8DB8) != 0) {
+            bones = (Vec *)((u8 *)self + 0x3C0);
+            pos.x = lbl_805D8D74 * (bones[1].x + bones[2].x);
+            pos.y = lbl_805D8D74 * (bones[1].y + bones[2].y);
+            pos.z = lbl_805D8D74 * (bones[1].z + bones[2].z);
+            new TBoss5GryphonSnarl((TObject *)&self->m_4c4, &pos);
+            TCameraCtrl::set_shake_preset(1);
+            self->play_se(0x40032306);
+        }
+        if (TBoss8Dragon__sub_8005FAE0((u8 *)self) != 0) {
+            self->advance_motion_entry();
+        }
+        break;
+    case 5:
+        break;
+    case 10:
+    case 11:
+    default:
+        break;
+    }
+}
+
 void TBoss8Dragon__sub_80060020(Dragon_80060020 *self, u32 arg1) {
     Vec_80060020 w;
     Vec_80060020 v;

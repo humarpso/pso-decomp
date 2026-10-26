@@ -340,7 +340,7 @@ f32 subtract_vector(void *, void *);
 Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
 f32 fabs_float(f32);
 s32 obj_getField1c(void *);
-extern Vec_802B57D4 TBoss6Type1__data_80470FB4;
+extern const Vec_802B57D4 TBoss6Type1__data_80470FB4;
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 TBoss6Type1__data_805DE310;
@@ -408,7 +408,7 @@ extern const f32 lbl_805DE370;
 extern const f32 lbl_805DE374;
 void TBoss6Type1__sub_802B4CF4(s32 arg0);
 void TBoss6Type1__sub_802B59A8(void);
-void TBoss6Type1__sub_802B59CC(void *);
+void TBoss6Type1__sub_802B59CC(TBoss6Type1 *self);
 void TBoss6Type1__sub_802B5AB0(void);
 extern const f32 lbl_805DE348;
 extern const s32 lbl_805DE2D4;
@@ -454,7 +454,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self);
 f32 atan2_float(f64, f64);
 extern const f64 TBoss6Type1__data_80471038;
 void request_follow_camera_offsets(void *, void *, int);
-extern Vec_802B57D4 lbl_80470FC0;
+extern const Vec_802B57D4 lbl_80470FC0;
 s32 angle_diff_s16(s32, s32);
 extern const f32 lbl_805DE2DC;
 extern const f32 lbl_805DE2E8;
@@ -878,10 +878,10 @@ s32 TBoss6Type1::request_jittered_camera(void *arg0, void *arg1, void *arg2, int
     f32 dist;
     Vec_802B57D4 off;
     if (arg1 == NULL) {
-        arg1 = &TBoss6Type1__data_80470FB4;
+        arg1 = (void *)&TBoss6Type1__data_80470FB4;
     }
     if (arg2 == NULL) {
-        arg2 = &lbl_80470FC0;
+        arg2 = (void *)&lbl_80470FC0;
     }
     dist = TBoss6Type1__data_805DE2E0 * xyz_distance(arg1, arg2);
     if (dist < 4.0f) {
@@ -912,6 +912,27 @@ void TBoss6Type1__sub_802B5970(s32 arg0) {
 void TBoss6Type1__sub_802B59A8(void) {
     ((s32 (*)(f32))fire_at_all_players__11TBoss6Type1FPvf)(TBoss6Type1__data_805DE2D0);
 }
+
+extern const Vec_802B57D4 lbl_80470FCC;
+extern const Vec_802B57D4 lbl_80470FD8;
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type1__sub_802B59CC(TBoss6Type1 *self) {
+    Vec_802B57D4 eye = TBoss6Type1__data_80470FB4;
+    Vec_802B57D4 target = lbl_80470FC0;
+    f32 t = *(f32 *)&self->unk_4DC;
+    if (t > TBoss6Type1__data_805DE2D0) {
+        eye.x += t * lbl_80470FCC.x;
+        eye.y += t * lbl_80470FCC.y;
+        eye.z += t * lbl_80470FCC.z;
+        target.x += t * lbl_80470FD8.x;
+        target.y += t * lbl_80470FD8.y;
+        target.z += t * lbl_80470FD8.z;
+    }
+    TBoss6Type1::request_jittered_camera(self, &eye, &target, 0xFFFF);
+}
+#pragma pop
 
 void TBoss6Type1__sub_802B5AB0(void) {
     ((s32 (*)(f32))fire_at_all_players__11TBoss6Type1FPvf)(TBoss6Type1__data_805DE32C);
