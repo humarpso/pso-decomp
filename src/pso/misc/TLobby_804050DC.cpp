@@ -236,14 +236,29 @@ struct RecoveredGlobal_8040ED70_lbl_805C1B60 {
 };
 
 struct E_8040FF58 { u8 c0; u8 c1; u8 c2; u8 c3; s16 f4; u8 pad6[0x2E]; };
+struct Ipv6Header {
+    union {
+        u32 word;
+        u16 half;
+        u8 version;
+    } vtf;
+    u16 payload_length;
+    u8 next_header;
+    u8 hop_limit;
+    IPv6Address src;
+    IPv6Address dst;
+};
 struct RecoveredGlobal_8040FF0C_lbl_805C1B78 {
     s16 value;
     u8 pad2[2];
     E_8040FF58 *ents;
     s32 f8;
-    u8 padC[8];
+    u16 traffic_class;
+    u8 padE[2];
+    u32 flow_label;
     u8 f14;
-    u8 pad15[0x2B];
+    u8 pad15[3];
+    Ipv6Header hdr;
 };
 
 struct RecoveredGlobal_80415650_lbl_805C1BF8 {
@@ -659,7 +674,6 @@ void TLobby__sub_80406FD8(void *, void *, s32);
 s16 TLobby__sub_80416F58(u8 *, s32, void *, void *);
 s16 TLobby__sub_80417028(IPv6NeighborSolicitation *ns, u8 *src, u8 *dst, s16 iface);
 s16 NetIPv6HandleNeighborSolicitation(u8 *arg0, void *arg1, void *arg2, void *arg3);
-s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
 u16 TLobby__sub_80411040(const IPv6Address *, const IPv6Address *, u8, const NetPacket *, s16);
 s16 NetIPv6GetInterfaceLinkLayerAddress(s32 arg0, s16 arg1, s16 arg2);
 s32 NetIPv6EmitRouterSolicitation(NetPacket *arg0, NetIPv6SendParameters *arg1, s32 arg2);
@@ -3865,6 +3879,61 @@ void TLobby__sub_8040AFE0(void) {
 }
 #pragma pop
 
+
+#pragma push
+#pragma dont_inline off
+inline Rec_8040B33C *next_server_8040B1C4(G_8040A45C *g, F_8040A45C *a) {
+    s16 t, n, i;
+    for (i = 0; i < (n = g->nb); i++) {
+        Rec_8040B33C *r = &g->b[(a->f14 + (t = a->f10)) % n];
+        if (r->f0 != 0) {
+            if (t < g->lim) {
+                return r;
+            }
+            break;
+        }
+        a->f10 = t + 1;
+    }
+    return 0;
+}
+
+inline s16 send_8040B1C4(F_8040A45C *req, u32 *dst) {
+    UdpBuf_8040AFE0 buf;
+
+    buf.len = req->f18->len;
+    buf.data = req->f18->data;
+    return TUdpSocket__sub_80421BAC(req->f4, NULL, dst, 0, NULL, 1, &buf);
+}
+
+void TLobby__sub_8040B1C4(F_8040A45C *req) {
+    G_8040A45C *g;
+    Rec_8040B33C *r;
+    s16 *count;
+    s16 nb;
+
+    g = &dns_resolver_state;
+    if ((r = next_server_8040B1C4(g, req)) == NULL) {
+        TLobby__sub_8040BE40(req, -68, 0);
+        return;
+    }
+    count = &g->nb;
+    nb = *count;
+    g->f18 = req->f10 % nb;
+    req->fA = g->fC[req->f10 / *count];
+    if (send_8040B1C4(req, (u32 *)r) < 0) {
+        req->fA = 1;
+        req->f10++;
+        return;
+    }
+    if (req->f8 == 1 && req->f20 == 0) {
+        req->fA = 2;
+        req->f12 = 1;
+        return;
+    }
+    req->f10++;
+}
+#pragma pop
+
 Rec_8040B33C *find_next_active_record__6TLobbyFPv(A_8040B33C *a) {
     G_8040A45C *g = &dns_resolver_state;
     s16 n, t, i;
@@ -6121,6 +6190,7 @@ struct Ipv6Route {
 s32 TLobby__sub_80415D0C(NetPacket *pkt, u8 *nexthop, NetIPv6SendParameters *params, s16 idx);
 
 s32 TLobby__sub_80410A98(NetPacket *pkt, u8 *dst, u8 *src, Ipv6SendOptions *opts, s32 next_header) {
+    s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
     s16 NetIPv6IsMulticast(u8 *arg0);
     s16 TLobby__sub_804136AC(s16 arg0);
     u8 *nexthop;
@@ -6155,18 +6225,6 @@ s32 TLobby__sub_80410A98(NetPacket *pkt, u8 *dst, u8 *src, Ipv6SendOptions *opts
     return TLobby__sub_80410BA8(pkt, &params, rt->iface, NULL);
 }
 
-struct Ipv6Header {
-    union {
-        u32 word;
-        u16 half;
-        u8 version;
-    } vtf;
-    u16 payload_length;
-    u8 next_header;
-    u8 hop_limit;
-    IPv6Address src;
-    IPv6Address dst;
-};
 struct Ipv6FragmentHeader {
     u8 next_header;
     u8 reserved;
@@ -6176,6 +6234,74 @@ struct Ipv6FragmentHeader {
 
 #pragma push
 #pragma opt_common_subs on
+
+s16 TLobby__sub_80411C44(IPv6Address *addr, s16 idx);
+s16 TLobby__sub_80410D6C(NetPacket *pkt, Ipv6Header *hdr, s16 iface, void *opts, u32 room);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s16 get_mtu_80410BA8(IPv6Address *dst, s16 iface) {
+    return TLobby__sub_80411C44(dst, iface);
+}
+
+s16 TLobby__sub_80410BA8(NetPacket *pkt, NetIPv6SendParameters *params, s16 iface, void *opts) {
+    s16 NetIPv6IsMulticast(u8 *arg0);
+    s16 TLobby__sub_804112B8(s32 packet, s32 dst, s16 iface);
+    s16 TLobby__sub_8041123C(s32 packet, s32 opts, s16 iface);
+    RecoveredGlobal_8040FF0C_lbl_805C1B78 *g;
+    u32 len;
+    Ipv6Header *hdr;
+    s16 mtu;
+    u32 room;
+
+    len = pkt->total_bytes;
+    g = &ipv6_protocol_state;
+    hdr = &g->hdr;
+    if (len == 0) {
+        return 0;
+    }
+    hdr->vtf.word = 0;
+    if (params->flow_label != 0) {
+        hdr->vtf.word = params->flow_label & 0xFFFFF;
+    } else {
+        hdr->vtf.word = g->flow_label;
+    }
+    if (params->traffic_class_bits != 0) {
+        hdr->vtf.half |= params->traffic_class_bits & 0xFF0;
+    } else {
+        hdr->vtf.half |= g->traffic_class;
+    }
+    hdr->vtf.version = 0x60;
+    hdr->payload_length = len;
+    hdr->next_header = params->next_header;
+    if (params->hop_limit != 0) {
+        hdr->hop_limit = params->hop_limit;
+    } else {
+        hdr->hop_limit = g->f14;
+    }
+    NetMemcpy(&hdr->src, &params->source, sizeof(hdr->src));
+    NetMemcpy(&hdr->dst, &params->destination, sizeof(hdr->dst));
+    mtu = get_mtu_80410BA8(&params->destination, iface);
+    if (mtu < 0) {
+        return mtu;
+    }
+    room = mtu - sizeof(Ipv6Header);
+    g->f8++;
+    if (len > room) {
+        return TLobby__sub_80410D6C(pkt, hdr, iface, opts, room);
+    }
+    pkt->total_bytes += sizeof(Ipv6Header);
+    pkt->fragments[pkt->fragment_count].length = sizeof(Ipv6Header);
+    ((TLobby *)&pkt->fragments[pkt->fragment_count].buffer)->set_value_and_enable((s32)hdr);
+    pkt->fragment_count++;
+    if (NetIPv6IsMulticast((u8 *)&params->destination)) {
+        return TLobby__sub_804112B8((s32)pkt, (s32)&params->destination, iface);
+    }
+    return TLobby__sub_8041123C((s32)pkt, (s32)opts, iface);
+}
+#pragma pop
+
 s16 TLobby__sub_80410D6C(NetPacket *pkt, Ipv6Header *hdr, s16 iface, void *opts, u32 room) {
     s16 NetIPv6IsMulticast(u8 *addr);
     s16 TLobby__sub_804112B8(s32 packet, s32 dst, s16 iface);
@@ -9023,6 +9149,7 @@ inline Peer_80416994 *ScanPeers_80416994(Glob_80416994 *g, void *name) {
 }
 
 s32 NetIPv6ApplyNeighborAdvertisement(Msg_80416994 *msg, u8 *name, s16 len, s32 arg3, s32 arg4, s32 id) {
+    s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
     s32 TLobby__sub_80411604(s32, int, void *);
     s16 TLobby__sub_80413C0C(void *, s32);
     s16 TLobby__sub_80413AA0(void *, s32);
@@ -9717,6 +9844,7 @@ typedef char Layout_NetIcmpv6NeighborSolicitation_target[offsetof(NetIcmpv6Neigh
 typedef char Layout_NetIcmpv6RouterSolicitation_size[sizeof(NetIcmpv6RouterSolicitation) == 8 ? 1 : -1];
 typedef char Layout_NetIcmpv6RouterSolicitation_header[offsetof(NetIcmpv6RouterSolicitation, header) == 0 ? 1 : -1];
 s32 NetIPv6EmitRouterSolicitation(NetPacket *net_packet, NetIPv6SendParameters *addr, s32 arg2) {
+    s32 TLobby__sub_80410BA8(NetPacket *, NetIPv6SendParameters *, s32, void *);
     s16 NetIPv6GetInterfaceLinkLayerAddress(s32, s16, s32);
     s16 NetIPv6IsMulticast(u8 *);
     s16 NetIPv6IsUnspecified(u8 *);
@@ -9760,6 +9888,7 @@ s32 NetIPv6EmitRouterSolicitation(NetPacket *net_packet, NetIPv6SendParameters *
 #pragma dont_inline off
 #pragma inline_depth(4)
 inline s32 FlushQueued_804182DC(E_804179A4 *e) {
+    s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
     Pkt_80416994 *pkt = (Pkt_80416994 *)TLobby::alloc_free_entry();
     s32 ret;
 
