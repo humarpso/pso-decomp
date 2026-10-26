@@ -127,7 +127,6 @@ void forward_802272B4__6TLobbyFv();
 void TLobby__sub_801EB588();
 void TLobby__sub_801EB5A8();
 void update_client_slot_from_player__6TLobbyFll();
-void TLobby__sub_801EB6B8();
 void store_player_name_by_client__6TLobbyFl();
 void eval_op_add_ratio__6TLobbyFv();
 void TLobby__sub_801EB85C();
@@ -135,8 +134,9 @@ void acquire_serial_access_for_slot__6TLobbyFUc();
 void TLobby__sub_801EB914();
 void store_chr_select_value__6TLobbyFl();
 void qst_op_try_spend_meseta__6TLobbyFll();
-void fill_player_team_flags__6TLobbyFll();
-void store_player_state_flag__6TLobbyFll();
+void qst_op_get_chara_class__6TLobbyFll();
+void qst_op_get_gender__6TLobbyFll();
+void qst_op_get_pl_job__6TLobbyFl();
 void apply_to_player_by_client_id_a__6TLobbyFl();
 void apply_to_player_by_client_id_b__6TLobbyFl();
 void TLobby__sub_801EBCA0();
@@ -819,8 +819,8 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B0C, TLobby__sub_801EBCA0 },
     { qst_getargs_801F2B0C, apply_to_player_by_client_id_b__6TLobbyFl },
     { qst_getargs_801F2B0C, apply_to_player_by_client_id_a__6TLobbyFl },
-    { qst_getargs_801F2AB4, store_player_state_flag__6TLobbyFll },
-    { qst_getargs_801F2AB4, fill_player_team_flags__6TLobbyFll },
+    { qst_getargs_801F2AB4, qst_op_get_gender__6TLobbyFll },
+    { qst_getargs_801F2AB4, qst_op_get_chara_class__6TLobbyFll },
     { qst_getargs_801F2AB4, qst_op_try_spend_meseta__6TLobbyFll },
     { qst_getargs_801F2B0C, store_chr_select_value__6TLobbyFl },
     { qst_getargs_801F2B0C, TLobby__sub_801EB914 },
@@ -828,7 +828,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2AB4, TLobby__sub_801EB85C },
     { qst_getargs_801F2B0C, eval_op_add_ratio__6TLobbyFv },
     { qst_getargs_801F2B0C, store_player_name_by_client__6TLobbyFl },
-    { qst_getargs_801F2B0C, TLobby__sub_801EB6B8 },
+    { qst_getargs_801F2B0C, qst_op_get_pl_job__6TLobbyFl },
     { qst_getargs_801F2AB4, count_nearby_players__6TLobbyFUcUc },
     { qst_getargs_801F2B54, TLobby::write_state_s16_to_buffer },
     { qst_getargs_801F2B54, TLobby::write_state_s32_to_buffer },

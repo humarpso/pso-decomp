@@ -1,6 +1,6 @@
 #include "pso/misc/EndingSceneTables.h"
 
-const Vec ending_player_positions_0[12] = {
+const Vec ending_player_positions_hunter[12] = {
     {7.0f, -7.27548f, -25.0f},
     {-2000.0f, 0.0f, 0.0f},
     {8.4f, -8.3f, -21.0f},
@@ -14,7 +14,7 @@ const Vec ending_player_positions_0[12] = {
     {2.8f, -8.6f, -6.0f},
     {18.4f, -28.2f, -60.0f},
 };
-const EndingPlayerAngle ending_player_angles_0[12] = {
+const EndingPlayerAngle ending_player_angles_hunter[12] = {
     {7, 5, 0},
     {0, 0, 0},
     {0, -5, 9},
@@ -29,7 +29,7 @@ const EndingPlayerAngle ending_player_angles_0[12] = {
     {2, -17, -15},
 };
 
-const Vec ending_player_positions_1[12] = {
+const Vec ending_player_positions_ranger[12] = {
     {7.0f, -7.27548f, -25.0f},
     {-2000.0f, 0.0f, 0.0f},
     {8.4f, -8.3f, -21.0f},
@@ -43,7 +43,7 @@ const Vec ending_player_positions_1[12] = {
     {2.8f, -8.6f, -6.0f},
     {18.4f, -28.2f, -60.0f},
 };
-const EndingPlayerAngle ending_player_angles_1[12] = {
+const EndingPlayerAngle ending_player_angles_ranger[12] = {
     {8, -15, 0},
     {0, 0, 0},
     {0, 2, 0},
@@ -58,7 +58,7 @@ const EndingPlayerAngle ending_player_angles_1[12] = {
     {0, -5, 0},
 };
 
-const Vec ending_player_positions_2[12] = {
+const Vec ending_player_positions_force[12] = {
     {7.0f, -7.27548f, -25.0f},
     {-2000.0f, 0.0f, 0.0f},
     {8.4f, -8.3f, -21.0f},
@@ -72,7 +72,7 @@ const Vec ending_player_positions_2[12] = {
     {8.0f, -8.6f, -28.5f},
     {18.4f, -28.2f, -60.0f},
 };
-const EndingPlayerAngle ending_player_angles_2[12] = {
+const EndingPlayerAngle ending_player_angles_force[12] = {
     {7, -17, 0},
     {0, 0, 0},
     {0, 12, 0},

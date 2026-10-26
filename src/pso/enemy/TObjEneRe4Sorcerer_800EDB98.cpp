@@ -428,7 +428,7 @@ s32 *csnLookAt(s32 arg0, s32 arg1);
 s32 enemy_bind_or_clear_target(void *, u16);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 void enemy_set_target_id(void *, u16);
-int TObjEneDD__sub_800BA6C4(void *p);
+int is_target_ranger(void *p);
 s32 is_alive__9TObjEneDDFv(s32);
 s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -2207,7 +2207,7 @@ s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg
         q = (u8 *)get_player_data__10TObjPlayerFi(j);
         if (is_alive__9TObjEneDDFv((s32)q) != 0) {
             e = horizontal_distance_squared((void *)(arg0 + 0x2FC), q + 0x2FC);
-            if (TObjEneDD__sub_800BA6C4(q) != 0) {
+            if (is_target_ranger(q) != 0) {
                 if (e < farg0 && transform_relative_position__9TObjEneDDFPv(self, q) != 0) {
                     farg0 = e;
                     tA = ((s32 (*)(void *))obj_getField1c)(q);

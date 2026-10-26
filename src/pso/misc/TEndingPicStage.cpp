@@ -17,25 +17,25 @@ extern s32 game_difficulty_selection;
 
 TUnk_804C4540 *ending_player;
 s8 player_light_index;
-s32 ending_player_state;
+player_class_type ending_player_class_type;
 
-void TEndingPicStage::pose_player(s32 state, s8 picture) {
-    switch (state) {
-        case 0: {
-            ending_player->set_position_from((void *)&ending_player_positions_0[picture]);
-            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_0[picture].y;
+void TEndingPicStage::pose_player(player_class_type class_type, s8 picture) {
+    switch (class_type) {
+        case CLASS_TYPE_HUNTER: {
+            ending_player->set_position_from((void *)&ending_player_positions_hunter[picture]);
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_hunter[picture].y;
             TObjPlayer::set_animation_from_data((s32)ending_player, picture);
             break;
         }
-        case 1: {
-            ending_player->set_position_from((void *)&ending_player_positions_1[picture]);
-            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_1[picture].y;
+        case CLASS_TYPE_RANGER: {
+            ending_player->set_position_from((void *)&ending_player_positions_ranger[picture]);
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_ranger[picture].y;
             TObjPlayer::set_animation_from_data((s32)ending_player, picture);
             break;
         }
-        case 2: {
-            ending_player->set_position_from((void *)&ending_player_positions_2[picture]);
-            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_2[picture].y;
+        case CLASS_TYPE_FORCE: {
+            ending_player->set_position_from((void *)&ending_player_positions_force[picture]);
+            ending_player->rotation_y = 182.04445f * (f32)ending_player_angles_force[picture].y;
             TObjPlayer::set_animation_from_data((s32)ending_player, picture);
             break;
         }
@@ -46,20 +46,20 @@ struct EndingCamera { u8 pad0[0x14]; s32 f14; s32 f18; Vec v1c; Vec v28; s32 tai
 
 struct ColorF { f32 r, g, b, a; };
 
-s32 TObjPlayer::get_flag890_state() {
-    s32 flags = this->m_890;
-    s32 state = 0;
+player_class_type TObjPlayer::get_class_type() {
+    s32 flags = this->class_flags;
+    player_class_type class_type = CLASS_TYPE_HUNTER;
 
-    if (flags & 0x20) {
-        state = 0;
+    if (flags & CLASS_FLAG_HUNTER) {
+        class_type = CLASS_TYPE_HUNTER;
     }
-    if (flags & 0x40) {
-        state = 1;
+    if (flags & CLASS_FLAG_RANGER) {
+        class_type = CLASS_TYPE_RANGER;
     }
-    if (flags & 0x80) {
-        return 2;
+    if (flags & CLASS_FLAG_FORCE) {
+        return CLASS_TYPE_FORCE;
     }
-    return state;
+    return class_type;
 }
 
 void TEndingPicStage::publish_light() {
@@ -88,12 +88,12 @@ void TEndingPicStage::set_camera() {
 
 void TEndingPicStage::set_picture(s32 picture) {
     if (game_difficulty_selection != 3 && get_ending_scene_active() == 0) {
-        s32 state;
+        player_class_type class_type;
 
         player_light_index = (s8)picture;
-        state = ending_player->get_flag890_state();
-        ending_player_state = state;
-        pose_player(state, (s8)picture);
+        class_type = ending_player->get_class_type();
+        ending_player_class_type = class_type;
+        pose_player(class_type, (s8)picture);
     }
 }
 

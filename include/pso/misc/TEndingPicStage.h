@@ -1,6 +1,7 @@
 #ifndef PSO_MISC_TENDINGPICSTAGE_H
 #define PSO_MISC_TENDINGPICSTAGE_H
 #include "pso/TObject.h"
+#include "pso/player/PlayerClassFlags.h"
 
 class TEndingPicStage : public TObject {
 public:
@@ -10,7 +11,7 @@ public:
     virtual void run_task();
     void publish_light();
     void set_camera();
-    static void pose_player(s32 state, s8 picture);
+    static void pose_player(player_class_type class_type, s8 picture);
     static void set_picture(s32 picture);
 };
 

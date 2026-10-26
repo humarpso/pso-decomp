@@ -414,7 +414,7 @@ struct Obj_802DAD50 : VObj_802DAD50 {
     f32 *range;
     u8 pad354[0x374 - 0x354];
     u32 f374;
-    u32 f378;
+    u32 target_class_mask;
 };
 
 struct Gib_802D8984 {
@@ -2257,7 +2257,7 @@ void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self) {
             VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(p + 0x2FC)));
             subtract_vector(&v, &self->pos);
             d = v.x * v.x + v.z * v.z;
-            if ((*(u32 *)(p + 0x890) & self->f378) && d < best &&
+            if ((((TObjPlayer *)p)->class_flags & self->target_class_mask) && d < best &&
                 check_path_obstructed(self, p + 0x2FC) != 1) {
                 best_id = ((s32 (*)(void *))obj_getField1c)(p);
                 best = d;

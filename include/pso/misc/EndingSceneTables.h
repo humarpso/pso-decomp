@@ -11,12 +11,12 @@ struct EndingLightColor {
     u8 r, g, b, a;
 };
 
-extern const Vec ending_player_positions_0[12];
-extern const EndingPlayerAngle ending_player_angles_0[12];
-extern const Vec ending_player_positions_1[12];
-extern const EndingPlayerAngle ending_player_angles_1[12];
-extern const Vec ending_player_positions_2[12];
-extern const EndingPlayerAngle ending_player_angles_2[12];
+extern const Vec ending_player_positions_hunter[12];
+extern const EndingPlayerAngle ending_player_angles_hunter[12];
+extern const Vec ending_player_positions_ranger[12];
+extern const EndingPlayerAngle ending_player_angles_ranger[12];
+extern const Vec ending_player_positions_force[12];
+extern const EndingPlayerAngle ending_player_angles_force[12];
 extern const EndingLightColor player_light_color_rgba_table[21];
 extern const Vec player_light_direction_color_table[12];
 extern Vec ending_player_start_position;

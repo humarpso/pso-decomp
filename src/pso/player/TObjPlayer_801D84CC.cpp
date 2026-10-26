@@ -577,12 +577,12 @@ void TObjPlayer::select_normal_attack_marker() {
   s16 temp_r30;
   s16 falz_phase;
   s16 new_var;
-  s32 move_mode;
-  move_mode = get_move_mode();
+  s32 class_flags;
+  class_flags = get_class_flags();
   new_var = ((TObjPlayer *)(((u8 *)this) + 0x7CC))->get_stage_strike_count();
   temp_r30 = new_var;
   falz_phase = this->get_falz_phase();
-  lookup_attack_marker((s32) get_handle_value(), falz_phase, temp_r30, move_mode);
+  lookup_attack_marker((s32) get_handle_value(), falz_phase, temp_r30, class_flags);
 }
 
 #pragma pop
@@ -594,7 +594,7 @@ f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     case 14:
         return *(f32 *)((s8 *)((u8 *)(((u8 *)attack_marker_table_double_saber + (arg2 * 0xC))) + (arg1 * 4)) + 0);
     case 15:
-        if (arg3 & 1) {
+        if (arg3 & CLASS_FLAG_MALE) {
             return *(f32 *)((s8 *)((u8 *)(((u8 *)twin_sword_male_marker_table + (arg2 * 0xC))) + (arg1 * 4)) + 0);
         }
         return *(f32 *)((s8 *)((u8 *)(((u8 *)twin_sword_female_marker_table + (arg2 * 0xC))) + (arg1 * 4)) + 0);
@@ -653,7 +653,7 @@ player_stats *TObjPlayer::get_class_stat_entry(u8 *player) {
 
 f32 TObjPlayer::get_tp_class_factor() {
     u8 *arg0 = (u8 *)this;
-    if (this->m_890 & 0x10) {
+    if (this->class_flags & CLASS_FLAG_ANDROID) {
         return lbl_805DC400;
     }
     return player_profession_stat_factors[((TObjPlayer *)arg0)->get_clamped_index()].tp;

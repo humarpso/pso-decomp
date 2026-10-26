@@ -285,8 +285,6 @@ s32 parse_f_index(s32 a0) {
 
 #pragma push
 
-struct Ctrl_801E6B20 { u8 pad[0x890]; s32 type; };
-
 struct VBase_18_f23ffb { char pad[0x18]; };
 
 struct VObj_18_f23ffb : VBase_18_f23ffb {
@@ -317,8 +315,8 @@ s32 TObjItemOKWindow__sub_801F3268();
 s32 *fn_801F4C98(void);
 extern char lbl_80449C88[];
 void TLobby__sub_801E6A04(void);
-namespace pf2_p1 { extern "C" { s32 select_download_type__6TLobbyFl(s32); } }
-#define select_download_type__6TLobbyFl pf2_p1::select_download_type__6TLobbyFl
+namespace pf2_p1 { extern "C" { s32 get_class_type_name__6TLobbyFl(s32); } }
+#define get_class_type_name__6TLobbyFl pf2_p1::get_class_type_name__6TLobbyFl
 u32 get_player_by_client_id(s32);
 }
 extern char lbl_80449C9C[];
@@ -393,9 +391,9 @@ void TLobby__sub_801E6AE0(void) {
 }
 
 void append_hero_class_name(void) {
-    Ctrl_801E6B20 *c = (Ctrl_801E6B20 *)get_player_by_client_id(local_client_id);
+    TObjPlayer *c = (TObjPlayer *)get_player_by_client_id(local_client_id);
     if (c != NULL) {
-        append_string(select_download_type__6TLobbyFl(c->type));
+        append_string(get_class_type_name__6TLobbyFl(c->class_flags));
     } else {
         append_string((s32)lbl_80449C9C);
     }
@@ -434,7 +432,7 @@ void append_string(s32 arg0) {
     quest_string_append_cursor += temp_r31;
 }
 
-#undef select_download_type__6TLobbyFl
+#undef get_class_type_name__6TLobbyFl
 #undef sscanf
 #undef TLobby__script_reg_array
 #pragma pop
@@ -2020,7 +2018,7 @@ s16 get_mag_item_stat_percent();
 s32 advance_item_id_counter(u16);
 f32 xz_distance_squared(Vec3_801E79BC *, Vec3_801E79BC *);
 f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
-s32 select_download_type__6TLobbyFl(int);
+s32 get_class_type_name__6TLobbyFl(int);
 int TLobby__sub_80142944(void *);
 int TNpcPlayer__sub_8014DC30(void*);
 }
@@ -2161,7 +2159,6 @@ void TLobby__sub_801EB478(void);
 void TLobby__sub_801EB484(u8 src, u8 dst);
 int TLobby__sub_801EB588(void* p);
 void TLobby__sub_801EB5A8(void);
-void TLobby__sub_801EB6B8(s32 arg0);
 void TLobby__sub_801EB85C(s32 arg0, s32 arg1);
 void TLobby__sub_801EB914(s32 arg0);
 void TLobby__sub_801EBCA0(s32 arg0);
@@ -5331,13 +5328,13 @@ void TLobby::write_state_s16_to_buffer() {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EB6B8(s32 arg0) {
+void TLobby::qst_op_get_pl_job(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     temp_r31 = (arg0 * 4) & 0x3FC;
     temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0)), (int)((*(s32 *)&TLobby__script_reg_array)))));
     if (temp_r3 != NULL) {
-        strncpy((void *) (&quest_player_class_name_buffer.value), (int) (select_download_type__6TLobbyFl((int) (*(s32 *)((s8 *)temp_r3 + 0x890)))), 0xF);
+        strncpy((void *) (&quest_player_class_name_buffer.value), (int) (get_class_type_name__6TLobbyFl((int) (((TObjPlayer *)temp_r3)->class_flags))), 0xF);
         *(s8 *)((s8 *)(&quest_player_class_name_buffer.value) + 0xF) = 0;
         *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 1;
         return;
@@ -5508,31 +5505,31 @@ void TLobby::qst_op_try_spend_meseta(s32 arg0, s32 arg1) {
     }
 }
 
-void TLobby::fill_player_team_flags(s32 arg0, s32 arg1) {
+void TLobby::qst_op_get_chara_class(s32 arg0, s32 arg1) {
     u8 *p = ((u8 * (*)(s32))get_player_by_client_id)(TLobby__script_reg_array[(u8)arg0]);
     if (p != NULL) {
-        s32 f = *(s32 *)(p + 0x890);
-        if (f & 4) {
-            TLobby__script_reg_array[(u8)arg1] = 0;
-        } else if (f & 8) {
-            TLobby__script_reg_array[(u8)arg1] = 1;
-        } else if (f & 0x10) {
-            TLobby__script_reg_array[(u8)arg1] = 2;
+        s32 f = ((TObjPlayer *)p)->class_flags;
+        if (f & CLASS_FLAG_HUMAN) {
+            TLobby__script_reg_array[(u8)arg1] = RACE_HUMAN;
+        } else if (f & CLASS_FLAG_NEWMAN) {
+            TLobby__script_reg_array[(u8)arg1] = RACE_NEWMAN;
+        } else if (f & CLASS_FLAG_ANDROID) {
+            TLobby__script_reg_array[(u8)arg1] = RACE_ANDROID;
         } else {
-            TLobby__script_reg_array[(u8)arg1] = 3;
+            TLobby__script_reg_array[(u8)arg1] = RACE_NONE;
         }
-        if (f & 0x20) {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = 0;
-        } else if (f & 0x40) {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = 1;
-        } else if (f & 0x80) {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = 2;
+        if (f & CLASS_FLAG_HUNTER) {
+            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_HUNTER;
+        } else if (f & CLASS_FLAG_RANGER) {
+            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_RANGER;
+        } else if (f & CLASS_FLAG_FORCE) {
+            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_FORCE;
         } else {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = 3;
+            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_NONE;
         }
     } else {
-        TLobby__script_reg_array[(u8)arg1++] = 3;
-        TLobby__script_reg_array[(u8)arg1] = 3;
+        TLobby__script_reg_array[(u8)arg1++] = RACE_NONE;
+        TLobby__script_reg_array[(u8)arg1] = CLASS_TYPE_NONE;
     }
 }
 
@@ -5549,24 +5546,24 @@ void TLobby::fill_player_team_flags(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby::store_player_state_flag(s32 arg0, s32 arg1) {
+void TLobby::qst_op_get_gender(s32 arg0, s32 arg1) {
     s32 temp_r3_2;
     u8 *temp_r3;
     temp_r3 = ((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)(arg1))));
     if (temp_r3 != NULL) {
-        temp_r3_2 = *(s32 *)((s8 *)temp_r3 + 0x890);
-        if (temp_r3_2 & 1) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
+        temp_r3_2 = ((TObjPlayer *)temp_r3)->class_flags;
+        if (temp_r3_2 & CLASS_FLAG_MALE) {
+            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_MALE;
             return;
         }
-        if (temp_r3_2 & 2) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 1;
+        if (temp_r3_2 & CLASS_FLAG_FEMALE) {
+            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_FEMALE;
             return;
         }
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 2;
+        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_NONE;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 2;
+    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_NONE;
 }
 #pragma pop
 
