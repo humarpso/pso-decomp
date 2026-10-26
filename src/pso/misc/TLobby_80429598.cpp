@@ -94,7 +94,8 @@ extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 typedef struct EthStats_805D0AA0 {
-    u8 pad_0[0x48];
+    u8 queue[0x20];
+    void *queue_msgs[10];
     s32 f48;
     s32 f4C;
     u16 f50;
@@ -170,6 +171,14 @@ int memcmp(const void *, const void *, unsigned long);
 u32 TLobby__sub_8042BA8C(void *);
 extern s32 lbl_805D4830;
 void TLobby__sub_80429B8C(s32, void *);
+void OSInitThreadQueue(void *);
+void OSInitMessageQueue(void *, void *, int);
+u32 OSGetTick(void);
+void OSReport(const char *, ...);
+void *memset(void *, int, unsigned long);
+void *EXISetExiCallback(s32, void (*)(s32, void *));
+s32 TLobby__sub_8042AAA0(void *);
+volatile u32 __SIRegs[0x100] AT_ADDRESS(0xCC006400);
 extern u16 lbl_805D7C78;
 extern s32 lbl_805D7C58;
 extern u8 lbl_805D7C36;
@@ -505,6 +514,108 @@ void TLobby__sub_80429B8C(s32 chan, void *ctx) {
         callback(status);
     }
 }
+
+static inline void bba_udelay(u32 usec) {
+    u32 start;
+    u32 ticks;
+    start = OSGetTick();
+    ticks = usec * ((*(u32 *)0x800000F8 / 4) / 125000) / 8;
+    while (OSGetTick() - start < ticks) {
+    }
+}
+
+static inline u32 bba_cmd_in32(u32 reg) {
+    u32 req;
+    u32 val;
+    u16 cmd;
+    req = reg << 8;
+    cmd = req;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImm(0, &val, 4, 0, 0);
+    EXISync(0);
+    EXIDeselect(0);
+    return val;
+}
+
+static inline u8 bba_cmd_in8_slow(u32 reg) {
+    u16 cmd;
+    u8 val;
+    cmd = reg << 8;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImm(0, &val, 1, 0, 0);
+    EXISync(0);
+    bba_udelay(200);
+    EXIDeselect(0);
+    return val;
+}
+
+static inline void bba_reset(void) {
+    bba_out8(0x60, 0);
+    bba_udelay(10000);
+    bba_cmd_in8_slow(0x0F);
+    bba_udelay(10000);
+    bba_out8(0x00, 1);
+    bba_out8(0x00, 0);
+}
+
+s32 TLobby__sub_8042AAA0(void *) {
+    s32 level;
+    u32 cid;
+    u8 val;
+
+    OSInitThreadQueue(&network_thread_queue);
+    OSInitMessageQueue(lbl_805D0AA0.queue, lbl_805D0AA0.queue_msgs, 10);
+    __SIRegs[15] &= ~0x80000000;
+    level = OSDisableInterrupts();
+    for (;;) {
+        if (EXILock(0, 2, (u32)TLobby::wake_network_thread) == 1) {
+            OSRestoreInterrupts(level);
+            break;
+        }
+        OSSleepThread(&network_thread_queue);
+        OSRestoreInterrupts(level);
+    }
+    exi_send_started_flag = 0;
+    memset(&lbl_805D0AA0.f48, 0, 0x24);
+    lbl_805D7C44 = 0;
+    lbl_805D7C48 = 0;
+    lbl_805D7C4C = 0;
+    exi_receive_callback = 0;
+    cid = bba_cmd_in32(0x00);
+    if (cid != 0x04020200) {
+        EXIUnlock(0);
+        OSReport("cid = %08x\n", cid);
+        return -1;
+    }
+    bba_reset();
+    bba_ins(0x20, &exi_mac_address, 6);
+    if (memcmp(&exi_mac_address, &lbl_805D4830, 6) == 0) {
+        OSReport("MAC ADDRESS is 0xffffff\n");
+        return -2;
+    }
+    lbl_805D7C36 = bba_cmd_in8(0x01);
+    bba_cmd_outs(0x04, &lbl_805D4836, 2);
+    bba_cmd_out8(0x05, lbl_805D4838);
+    val = bba_in8(0x5B);
+    val &= ~0x80;
+    bba_out8(0x5B, val);
+    bba_out8(0x5E, 1);
+    val = bba_in8(0x5C);
+    val |= 0x04;
+    bba_out8(0x5C, val);
+    bba_out8(0x01, 0);
+    bba_out8(0x50, 0x80);
+    bba_out8(0x08, 0);
+    bba_cmd_out8(0x02, 0xF8);
+    EXISetExiCallback(2, TLobby__sub_80429B8C);
+    EXIUnlock(0);
+    return 1;
+}
+
 #pragma pop
 
 void TLobby::start_exi_send(s32 arg0, s32 arg1, s32 arg2) {
