@@ -4651,6 +4651,165 @@ struct Icmp6ErrorInfo {
     u16 checksum;
     s32 pointer;
 };
+struct Ipv6Header_8040D120 {
+    u32 version_class_flow;
+    u16 payload_length;
+    u8 next_header;
+    u8 hop_limit;
+    IPv6Address src;
+    IPv6Address dst;
+};
+struct UdpHeader {
+    u16 src_port;
+    u16 dst_port;
+    u16 length;
+    u16 checksum;
+};
+
+s16 NetIPv6HandleIcmpMessage(NetPacket *pkt, u8 *src, u8 *dst, u8 hop_limit, s16 iface) {
+    s16 NetIPv6HandleRouterSolicitation(NetPacket *pkt, u8 *src, u8 *dst, s16 iface);
+    s16 NetIPv6HandleRouterAdvertisement(NetPacket *pkt, u8 *src, u8 *dst, s16 iface);
+    s16 NetIPv6HandleNeighborSolicitation(NetPacket *pkt, u8 *src, u8 *dst, s16 iface);
+    s16 NetIPv6HandleNeighborAdvertisement(NetPacket *pkt, u8 *src, u8 *dst, s16 iface);
+    s16 NetIPv6HandleRedirect(NetPacket *pkt, u8 *src, u8 *dst, s16 iface);
+    s32 TLobby__sub_80411DEC(IPv6Address *addr, s16 mtu);
+    void TLobby__sub_80420D38(u16 port, u8 code);
+    s16 TLobby__sub_8040D718(u8 type, u8 code, u8 *src, u8 *dst, NetPacket *pkt, s16 idx);
+    NetBufferRef ref;
+    Ipv6Header_8040D120 ip;
+    Icmp6ErrorInfo icmp;
+    UdpHeader udp;
+    NetPacketFragment *from;
+    NetBufferRef *buf;
+    s32 mtu;
+    s16 r;
+    u32 i;
+    NetPacketFragment *body;
+    NetPacket *reply;
+
+    if (TLobby__sub_80411040((const IPv6Address *)src, (const IPv6Address *)dst, 0x3A, pkt, 0)) {
+        return -1;
+    }
+    body = &pkt->fragments[1];
+    ((TLobby *)&ref)->set_value_and_enable((s32)&icmp);
+    TLobby__sub_80406FD8(&ref, &body->buffer, 8);
+    switch (icmp.type) {
+    case 128:
+        reply = (NetPacket *)TLobby::alloc_free_entry();
+        if (reply == NULL) {
+            return -257;
+        }
+        reply->fragment_count = pkt->fragment_count - 1;
+        reply->total_bytes = pkt->total_bytes - pkt->fragments[0].length;
+        from = &pkt->fragments[pkt->fragment_count] - 1;
+        for (i = 0; i < reply->fragment_count; i++) {
+            reply->fragments[i].length = from->length;
+            buf = &from->buffer;
+            from--;
+            NetMemcpy(&reply->fragments[i].buffer, buf, 8);
+        }
+        r = TLobby__sub_8040D718(0x81, 0, dst, src, reply, iface);
+        ((TUdpSocket *)reply)->release_entry();
+        return r;
+    case 1:
+        TLobby__sub_80406EB8(&body->buffer, 8);
+        ((TLobby *)&ref)->set_value_and_enable((s32)&ip);
+        TLobby__sub_80406FD8(&ref, &body->buffer, sizeof(ip));
+        TLobby__sub_80406EB8(&body->buffer, sizeof(ip));
+        switch (ip.next_header) {
+        case 17:
+            ((TLobby *)&ref)->set_value_and_enable((s32)&udp);
+            TLobby__sub_80406FD8(&ref, &body->buffer, sizeof(udp));
+            TLobby__sub_80420D38(udp.src_port, icmp.code);
+            break;
+        case 6:
+            break;
+        }
+        return 0;
+    case 2:
+        mtu = icmp.pointer;
+        if (mtu > 0 && mtu < 0x8000) {
+            TLobby__sub_80406EB8(&body->buffer, 8);
+            ((TLobby *)&ref)->set_value_and_enable((s32)&ip);
+            TLobby__sub_80406FD8(&ref, &body->buffer, sizeof(ip));
+            TLobby__sub_80411DEC(&ip.dst, mtu);
+        }
+        return 0;
+    case 133:
+        if (hop_limit != 255) {
+            return -1;
+        }
+        switch (icmp.code) {
+        case 0:
+            r = NetIPv6HandleRouterSolicitation(pkt, src, dst, iface);
+            if (r < 0) {
+                return r;
+            }
+            break;
+        }
+        return 0;
+    case 134:
+        if (hop_limit != 255) {
+            return -1;
+        }
+        switch (icmp.code) {
+        case 0:
+            r = NetIPv6HandleRouterAdvertisement(pkt, src, dst, iface);
+            if (r < 0) {
+                return r;
+            }
+            break;
+        }
+        return 0;
+    case 135:
+        if (hop_limit != 255) {
+            return -1;
+        }
+        switch (icmp.code) {
+        case 0:
+            r = NetIPv6HandleNeighborSolicitation(pkt, src, dst, iface);
+            if (r < 0) {
+                return r;
+            }
+            break;
+        }
+        return 0;
+    case 136:
+        if (hop_limit != 255) {
+            return -1;
+        }
+        switch (icmp.code) {
+        case 0:
+            r = NetIPv6HandleNeighborAdvertisement(pkt, src, dst, iface);
+            if (r < 0) {
+                return r;
+            }
+            break;
+        }
+        return 0;
+    case 137:
+        if (hop_limit != 255) {
+            return -1;
+        }
+        switch (icmp.code) {
+        case 0:
+            r = NetIPv6HandleRedirect(pkt, src, dst, iface);
+            if (r < 0) {
+                return r;
+            }
+            break;
+        }
+        return 0;
+    case 3:
+    case 4:
+    case 129:
+        break;
+    default:
+        return 0;
+    }
+    return 0;
+}
+
 s16 TLobby__sub_8040D510(Icmp6ErrorInfo *err, u8 *hdr, s16 len, s16 idx) {
     s16 NetIPv6IsMulticast(u8 *addr);
     s16 NetIPv6IsUnspecified(u8 *addr);
