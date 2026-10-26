@@ -3268,6 +3268,14 @@ inline s32 *pop_free_block() {
     return p;
 }
 
+Q_803EC09C *TQuestVmDownLoadServer__sub_803ECE94(void) {
+    s32 *p = pop_free_block();
+    if (p == NULL) {
+        return NULL;
+    }
+    return (Q_803EC09C *)p;
+}
+
 void *TQuestVmDownLoadServer__sub_803ECED0(void) {
     s32 *p = pop_free_block();
     if (p == NULL) {

@@ -409,7 +409,7 @@ struct Q_8040B6E4 { u8 pad0[6]; u16 id; u8 pad8[0x10]; Pkt_8040B6E4 *pkt; };
 
 struct QT_8040B6E4 { s16 type; s16 cls; };
 
-struct Hdr_8040B790 { u16 id; u8 f2; u8 f3; s16 qd; s16 an; s16 ns; s16 ar; u8 body[4]; };
+struct Hdr_8040B790 { u16 id; u8 f2; u8 f3; u16 qd; u16 an; s16 ns; s16 ar; u8 body[4]; };
 
 struct Pkt_8040B790 { u8 pad0[2]; s16 len; Hdr_8040B790 *hdr; };
 
@@ -2710,13 +2710,13 @@ struct F_8040A45C {
     s16 f4;
     s16 f6;
     s16 f8;
-    u8 padA[2];
+    s16 fA;
     s32 fC;
     s16 f10;
     s16 f12;
     u8 pad14[4];
     s32 f18;
-    s32 f1C;
+    A_8040A45C *f1C;
     u8 pad20[8];
     s32 f28;
     E_8040A45C *f2C;
@@ -3669,6 +3669,71 @@ s32 TLobby::build_dns_query_a(u8 *name, s16 len) {
     return 0;
 }
 #pragma pop
+
+void TLobby__sub_8040BE40(F_8040A45C *req, s16 err, s16 arg);
+s16 TLobby__sub_8040BA38(F_8040A45C *req, u8 *p, s16 len);
+s16 TLobby__sub_8040BD40(F_8040A45C *req, u8 *p, s16 len, u8 *out);
+
+s16 TLobby__sub_8040B8BC(F_8040A45C *req) {
+    Hdr_8040B790 *h;
+    s16 k;
+    u8 *p;
+    u16 n;
+    s16 left;
+    s16 r;
+
+    h = (Hdr_8040B790 *)req->f1C->f4;
+    left = req->f1C->f2;
+    if (h->id != (u16)req->f6) {
+        return -1;
+    }
+    if (!(h->f2 & 0x80)) {
+        return -1;
+    }
+    switch (h->f3 & 0xF) {
+    case 0:
+        break;
+    case 1:
+        TLobby__sub_8040BE40(req, -70, 0);
+        return -1;
+    case 3:
+        TLobby__sub_8040BE40(req, -71, 0);
+        return -1;
+    case 2:
+    case 4:
+    case 5:
+    default:
+        req->fA = 1;
+        return -1;
+    }
+    if (h->an == 0) {
+        req->fA = 1;
+        return -1;
+    }
+    p = h->body;
+    left -= 12;
+    n = h->qd;
+    if (n != 0) {
+        for (k = n; k > 0; k--) {
+            u8 unused[8];
+            u8 *q = p;
+
+            r = TLobby__sub_8040BD40(req, q, left, NULL) + 4;
+            left -= r;
+            p += r;
+        }
+    }
+    n = h->an;
+    if (n != 0) {
+        for (k = n; k > 0; k--) {
+            r = TLobby__sub_8040BA38(req, p, left);
+            left -= r;
+            p += r;
+        }
+    }
+    return 0;
+}
+
 
 #pragma push
 #pragma dont_inline off
