@@ -4485,7 +4485,7 @@ struct Conn_8040C540 {
 };
 
 void TLobby__sub_8040C74C(void *);
-s16 TLobby__sub_8040C8A8(u32, void *, s16);
+s16 TLobby__sub_8040C8A8(u8 *dst, u8 *src, s16 max);
 s16 TLobby__sub_8040C978(void *);
 
 void TLobby::dispatch_request_callback(s16 status) {
@@ -4555,7 +4555,7 @@ void TLobby::dispatch_request_callback(s16 status) {
             } else if (b->f0 == 0) {
                 b->f4 = TLobby__sub_8040C978(b->fC + 0x1C);
             } else {
-                b->f4 = TLobby__sub_8040C8A8(b->f0, b->fC + 0x1C, b->f4);
+                b->f4 = TLobby__sub_8040C8A8((u8 *)b->f0, b->fC + 0x1C, b->f4);
             }
             b->cb(connection->id, b->f0, b->f4);
         }
@@ -4563,6 +4563,37 @@ void TLobby::dispatch_request_callback(s16 status) {
         break;
     }
 }
+
+#pragma push
+#pragma optimization_level 2
+#pragma opt_common_subs off
+s16 TLobby__sub_8040C8A8(u8 *dst, u8 *src, s16 max) {
+    s32 limit = max;
+    s32 n;
+    s16 len = 0;
+
+    while (len < limit) {
+        s8 c = *src++;
+        if (c == 0) {
+            *dst = 0;
+            return --len;
+        }
+        n = c;
+        if (limit >= len + n + 1) {
+            NetMemcpy(dst, src, n);
+            dst += n;
+            *dst = '.';
+            src += n;
+            dst++;
+        } else {
+            NetMemcpy(dst, src, limit - len);
+            return max;
+        }
+        len += n + 1;
+    }
+    return len;
+}
+#pragma pop
 
 s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
     struct Fields_arg0 { u8 pad_0[4]; s32 field_4; u8 pad_8[16]; u16 field_18; };
