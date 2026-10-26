@@ -853,8 +853,8 @@ force_active:
   - TObjPlayer__sub_8001940C
   - TObjPlayer__sub_8001941C
   - TObjPlayer__sub_8001951C
-  - pose_player__13TUnk_80480938FlSc
-  - set_camera__13TUnk_80480938Fv
+  - pose_player__15TEndingPicStageFlSc
+  - set_camera__15TEndingPicStageFv
   - TObjPlayer__sub_8003F81C
   - TObjPlayer__sub_8003F9D4
   - TObjPlayer__sub_8003FCD0
@@ -1320,7 +1320,7 @@ force_active:
   - __dt__13TPlyOnCreatedFv
   - __dt__13TQuestBgmCtrlFv
   - __dt__13TQuestColCtrlFv
-  - __dt__13TUnk_80480938Fv
+  - __dt__15TEndingPicStageFv
   - __dt__13TUnk_80484840Fv
   - __dt__13TUnk_80488AD8Fv
   - __dt__13TUnk_8048DF58Fv
@@ -1704,7 +1704,7 @@ force_active:
   - __vt__13TParticleCtrl
   - __vt__13TQuestBgmCtrl
   - __vt__13TQuestColCtrl
-  - __vt__13TUnk_80480938
+  - __vt__15TEndingPicStage
   - __vt__13TUnk_80488AD8
   - __vt__13TUnk_8048DF58
   - __vt__13TUnk_8049F130
@@ -9491,7 +9491,7 @@ force_active:
   - prs_read_control_bit
   - prune_weapon_attributes__9TItemDropFPvPv
   - psycho_wand_ct__FPUcPUcl
-  - publish_light__13TUnk_80480938Fv
+  - publish_light__15TEndingPicStageFv
   - push_attack_target_entry__FPUcl
   - push_list_node__14TObjEneBm5WolfFPPvPPv
   - push_model_fade_color__10TObjPlayerFv
@@ -9679,7 +9679,7 @@ force_active:
   - render__13TObjEneMorfosFv
   - render__13TObjEneRe4BitFv
   - render__13TQuestColCtrlFv
-  - render__13TUnk_80480938Fv
+  - render__15TEndingPicStageFv
   - render__13TUnk_80483A10Fv
   - render__13TUnk_804A2148Fv
   - render__13TUnk_804B5C08Fv
@@ -10027,7 +10027,7 @@ force_active:
   - run_task__13TParticleCtrlFv
   - run_task__13TQuestBgmCtrlFv
   - run_task__13TQuestColCtrlFv
-  - run_task__13TUnk_80480938Fv
+  - run_task__15TEndingPicStageFv
   - run_task__13TUnk_80483A10Fv
   - run_task__13TUnk_80484840Fv
   - run_task__13TUnk_80488AD8Fv

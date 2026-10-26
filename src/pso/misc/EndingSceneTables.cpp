@@ -1,4 +1,4 @@
-#include "pso/player/EndingSceneTables.h"
+#include "pso/misc/EndingSceneTables.h"
 
 const Vec ending_player_positions_0[12] = {
     {7.0f, -7.27548f, -25.0f},

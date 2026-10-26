@@ -1,5 +1,5 @@
-#ifndef PSO_PLAYER_ENDING_SCENE_TABLES_H
-#define PSO_PLAYER_ENDING_SCENE_TABLES_H
+#ifndef PSO_MISC_ENDING_SCENE_TABLES_H
+#define PSO_MISC_ENDING_SCENE_TABLES_H
 #include "types.h"
 #include <dolphin/mtx.h>
 
