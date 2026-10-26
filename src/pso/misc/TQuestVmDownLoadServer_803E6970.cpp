@@ -1479,9 +1479,9 @@ s32 TQuestVmDownLoadServer__sub_803E8788(int _w0, void * _w1, int _w2) {
     return -1;
 }
 
-void TQuestVmDownLoadServer::aram_read_thunk(u32 arg1, int _w2) {
+u32 TQuestVmDownLoadServer::aram_read_thunk(u32 arg1, int _w2) {
     s32 arg0 = (s32)this;
-    TQuestVmDownLoadServer::aram_dma_read((void *)arg0, (void *)arg1, (int)_w2);
+    return TQuestVmDownLoadServer::aram_dma_read((void *)arg0, (void *)arg1, (int)_w2);
 }
 
 void TQuestVmDownLoadServer::unescape_copy_string(u8 *arg0, u8 *arg1, u8 *arg2) {
