@@ -632,7 +632,7 @@ struct TLobby : public TObject {
     static s32 dispatch_slot_a(s16 arg0, s32 arg1);
     static s32 dispatch_slot_b(s16 arg0, s32 arg1);
     static s32 forward_net_op(s16 arg0, u8 *arg1, u8 *arg2);
-    static void forward_net_op_5args(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5, s8 arg6, s32 arg7);
+    static s16 forward_net_op_5args(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5, s8 arg6, s32 arg7);
     static void flush_flags_step();
     static void run_connect_step();
     static s16 init_net_sockets();
@@ -644,9 +644,9 @@ struct TLobby : public TObject {
     static s32 dispatch_handler_by_id(s16 arg0, s32 arg1, s32 arg2);
     static s32 invoke_socket_callback(s16 i, s32 arg);
     static s32 call_entry_callback(s16 i, s32 arg);
-    static s32 is_slot_flag_0x40_set(s16 i);
+    static s16 is_slot_flag_0x40_set(s16 i);
     static s32 is_slot_flag_0x20_set(s16 i);
-    static s32 is_entry_flag10_set(s16 i);
+    static s16 is_entry_flag10_set(s16 i);
     static void init_net_tables();
     static s32 close_connection_by_index(s16 i);
     static s32 clear_all_used_records();

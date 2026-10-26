@@ -139,6 +139,37 @@ static inline CollisionPoint collisionNormalize(CollisionPoint p) {
 #pragma use_lmw_stmw off
 struct Point2_803E0CC8 { f32 u, v; };
 s32 TObjPlayer__sub_803DF9D0(Point2_803E0CC8 *a, Point2_803E0CC8 *b);
+f32 TObjPlayer__sub_803DF840(Point2_803E0CC8 *p, Point2_803E0CC8 *a, Point2_803E0CC8 *b);
+extern const f32 lbl_805E0FFC;
+
+s32 TObjPlayer__sub_803DF9D0(Point2_803E0CC8 *a, Point2_803E0CC8 *b) {
+    Point2_803E0CC8 *p;
+    Point2_803E0CC8 *inner;
+    Point2_803E0CC8 *outer;
+    f32 areaA;
+    f32 areaB;
+    f32 limit;
+    s32 i;
+    areaA = TObjPlayer__sub_803DF840(a, a + 1, a + 2) + TObjPlayer__sub_803DF840(a, a + 2, a + 3);
+    areaB = TObjPlayer__sub_803DF840(b, b + 1, b + 2) + TObjPlayer__sub_803DF840(b, b + 2, b + 3);
+    if (areaA < areaB) {
+        inner = a;
+        outer = b;
+        limit = areaB;
+    } else {
+        inner = b;
+        outer = a;
+        limit = areaA;
+    }
+    for (i = 0, p = inner, limit = lbl_805E0FFC * limit; i < 4; p++, i++) {
+        if (TObjPlayer__sub_803DF840(p, outer, outer + 1) + TObjPlayer__sub_803DF840(p, outer + 1, outer + 2) +
+                TObjPlayer__sub_803DF840(p, outer + 2, outer + 3) + TObjPlayer__sub_803DF840(p, outer + 3, outer) <
+            limit) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b) {
     Point2_803E0CC8 pa[4];

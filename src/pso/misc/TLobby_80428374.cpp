@@ -111,6 +111,9 @@ s16 TLobby__sub_804037B0(void *src, u16 len);
 extern char *lbl_804801E0[];
 extern u32 lbl_805D7BD0;
 extern u32 lbl_805D7BD4;
+extern s32 lbl_805D7BD8;
+extern s32 lbl_805D7BDC;
+s32 NetCompareStringsCaseInsensitiveN(u8 *a, u8 *b, u32 n);
 
 #pragma push
 #pragma opt_propagation off
@@ -357,6 +360,87 @@ s32 TLobby__sub_80428EC0(u8 *src, u8 *dst, u8 **next) {
     }
     *next = src;
     return 1;
+}
+
+inline u8 *modem_skip_spaces(u8 *s) {
+    s16 n = 0;
+    u8 *p = s;
+    while (*p++ == 0x20U) {
+        n++;
+    }
+    return s + n;
+}
+
+s32 TLobby__sub_804290D4(s16 timeout) {
+    ModemConfig *cfg;
+    s32 i;
+    u8 *q;
+    u8 c;
+    s32 len;
+
+    cfg = (ModemConfig *)TLobby__sub_803FB110();
+    if (cfg == NULL) {
+        return 1;
+    }
+    TLobby::get_time_ms((s32 *)&lbl_805D7BD0);
+    if (timeout == 0x7FFF) {
+        lbl_805D7BD4 = 0xFFFFFFFF;
+    } else {
+        lbl_805D7BD4 = timeout * 1000;
+    }
+    NetMemset(lobby_net_session_state.rxbuf, 0, lobby_net_session_state.rxlen);
+    for (;;) {
+        NetMemmove(lobby_net_session_state.rxbuf, lobby_net_session_state.rxbuf + 1, lobby_net_session_state.rxlen - 1);
+        if (TLobby__sub_804293B0(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - 1, 1) != 0) {
+            return 4;
+        }
+        len = NetStringLength(cfg->result_ok);
+        if (NetCompareStringsCaseInsensitiveN(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - len, (u8 *)cfg->result_ok, len) == 0) {
+            break;
+        }
+        len = NetStringLength(cfg->result_error);
+        if (NetCompareStringsCaseInsensitiveN(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - len, (u8 *)cfg->result_error, len) == 0) {
+            return 2;
+        }
+        len = NetStringLength(cfg->result_busy);
+        if (NetCompareStringsCaseInsensitiveN(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - len, (u8 *)cfg->result_busy, len) == 0) {
+            return 2;
+        }
+        len = NetStringLength(cfg->result_no_dialtone);
+        if (NetCompareStringsCaseInsensitiveN(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - len, (u8 *)cfg->result_no_dialtone, len) == 0) {
+            return 2;
+        }
+        len = NetStringLength(cfg->result_no_carrier);
+        if (NetCompareStringsCaseInsensitiveN(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - len, (u8 *)cfg->result_no_carrier, len) == 0) {
+            return 3;
+        }
+        len = NetStringLength(cfg->result_no_answer);
+        if (NetCompareStringsCaseInsensitiveN(lobby_net_session_state.rxbuf + lobby_net_session_state.rxlen - len, (u8 *)cfg->result_no_answer, len) == 0) {
+            return 3;
+        }
+    }
+    if (cfg->numeric_result != 0) {
+        lbl_805D7BDC = 0;
+        for (i = 0; i < lobby_net_session_state.rxlen - 1; i++) {
+            if (TLobby__sub_804293B0(lobby_net_session_state.rxbuf + i, 1) != 0) {
+                return 4;
+            }
+            if (cfg->terminator == lobby_net_session_state.rxbuf[i]) {
+                break;
+            }
+        }
+        lobby_net_session_state.rxbuf[i] = 0;
+        q = modem_skip_spaces(lobby_net_session_state.rxbuf);
+        for (;;) {
+            c = *q++;
+            if (c < '0' || c > '9') {
+                break;
+            }
+            lbl_805D7BDC = lbl_805D7BDC * 10 + (c - '0');
+        }
+    }
+    lbl_805D7BD8 = lbl_805D7BDC;
+    return 0;
 }
 
 s16 TLobby__sub_804293B0(u8 *buf, s16 len) {

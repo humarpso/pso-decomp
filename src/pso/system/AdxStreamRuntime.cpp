@@ -1536,7 +1536,7 @@ extern s32 lbl_805D75A4;
 extern s32 lobby_worker_thread_run_flag;
 extern char adxm_idle_border_internal_error[];
 
-s32 TLobby__sub_803C97F4(void *, void *, void *);
+void TLobby__sub_803C97F4(u8 *arg0, s32 *pos, s32 *rate);
 s32 TLobby__sub_803CBF10(int);
 extern s32 lbl_805D7560;
 extern s32 lbl_805D7570;
@@ -1722,6 +1722,110 @@ s32 TLobby__sub_803C97B8(u8 *arg0) {
     }
     return 0;
 }
+
+struct Strm_803C97F4;
+
+struct VT_803C97F4 {
+    void *pad[9];
+    s32 (*f24)(Strm_803C97F4 *, s32);
+};
+
+struct Strm_803C97F4 { VT_803C97F4 *vt; };
+
+struct Adxt_803C97F4 {
+    u8 pad_0[1];
+    s8 f1;
+    u8 pad_2[2];
+    s32 f4;
+    u8 pad_8[4];
+    s32 fC;
+    u8 pad_10[8];
+    Strm_803C97F4 *f18;
+    u8 pad_1c[0x72 - 0x1C];
+    s8 f72;
+    u8 pad_73[0x88 - 0x73];
+    s32 f88;
+    u8 pad_8c[0x9C - 0x8C];
+    s32 f9C;
+    s32 fA0;
+    s32 fA4;
+};
+
+extern "C" {
+s32 TLobby__sub_803C0010(u8 *arg0);
+s32 send_packet_by_id_2__6TLobbyFv(int);
+s32 query_available_size__6TLobbyFv(int);
+extern f32 lbl_805D756C;
+extern s32 lbl_805D7568;
+extern u32 lbl_805D4678;
+}
+
+#pragma push
+#pragma inline_depth(4)
+#pragma dont_inline off
+inline void get_play_position_803C97F4(Adxt_803C97F4 *p, s32 *pos, s32 *rate) {
+    s32 st = p->f1;
+    if (st == 3 || st == 4) {
+        s32 total;
+        *rate = notify_field_4__6TLobbyFv(p->f4);
+        total = TLobby__sub_803C0010((u8 *)p->f4);
+        *pos = p->fA4 + (total - (query_available_size__6TLobbyFv(p->fC) + (p->f18 != NULL ? p->f18->vt->f24(p->f18, 1) / 2 : 0)));
+    } else if (st == 5) {
+        *pos = send_packet_by_id__6TLobbyFv(p->f4);
+        *rate = notify_field_4__6TLobbyFv(p->f4);
+        *pos *= 16 / send_packet_by_id_2__6TLobbyFv(p->f4);
+        *pos += p->fA4;
+    } else {
+        *pos = 0;
+        *rate = 1;
+    }
+    *pos += p->f88;
+}
+
+void TLobby__sub_803C97F4(u8 *arg0, s32 *pos, s32 *rate) {
+    Adxt_803C97F4 *p = (Adxt_803C97F4 *)arg0;
+    s32 cur_pos;
+    s32 cur_rate;
+    s32 st;
+
+    if (lbl_805D7560 == 0) {
+        get_play_position_803C97F4(p, pos, rate);
+        return;
+    }
+    lbl_805D756C = lbl_805E0D58;
+    st = p->f1;
+    if (st == 3 || st == 4) {
+        if (p->f72 == 0) {
+            *pos = p->f9C + (lbl_805D7540 - p->fA0) * 100;
+        } else {
+            *pos = p->f9C;
+        }
+        get_play_position_803C97F4(p, &cur_pos, &cur_rate);
+        lbl_805D756C = lbl_805E0D5C * ((f32)cur_pos / (f32)cur_rate - (f32)*pos / (f32)lbl_805D7570);
+        if (lbl_805D756C > lbl_805E0D60 || lbl_805D756C < lbl_805E0D64) {
+            if (lbl_805D4678 == 1) {
+                s32 save = lbl_805D7560;
+                lbl_805D7560 = 0;
+                TLobby__sub_803C97F4(arg0, &cur_pos, &cur_rate);
+                lbl_805D7560 = save;
+                lbl_805D7568++;
+            }
+            p->f9C = (u32)((f32)lbl_805D7570 * ((f32)cur_pos / (f32)cur_rate));
+            p->fA0 = lbl_805D7540;
+        }
+    } else if (st == 5) {
+        cur_pos = send_packet_by_id__6TLobbyFv(p->f4);
+        cur_rate = notify_field_4__6TLobbyFv(p->f4);
+        cur_pos *= 16 / send_packet_by_id_2__6TLobbyFv(p->f4);
+        *pos = (s32)((f32)lbl_805D7570 * ((f32)cur_pos / (f32)cur_rate));
+        *pos += p->f9C + 1;
+    } else {
+        *pos = 0;
+    }
+    *pos += p->f88;
+    *rate = lbl_805D7570;
+}
+#pragma pop
 
 void TLobby::set_rate_mode(s32 arg0) {
     if (arg0 == 1) {

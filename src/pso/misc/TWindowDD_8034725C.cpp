@@ -1,6 +1,8 @@
 #include "pso/misc/TWindowDD.h"
 
 #include "types.h"
+#include "pso/unk/text_80228E98.h"
+#include <string.h>
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
@@ -56,7 +58,11 @@ extern "C" {
 void show_message_by_count__9TWindowDDFll(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
-s32 TWindowDD__sub_803474CC(int, int, int, int, int);
+void TWindowDD__sub_803474CC(M_80347758 *entry, s16 id, char *word, s32 buf, s32 *pos);
+s32 TWindowDD__sub_80348D88(M_80347758 *entry);
+extern const s32 word_select_numeric_limits[];
+extern const char lbl_804786A0[];
+extern s32 TWindowDD__window_mode;
 s32 TWindowDD__sub_80348B70(s32);
 void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805DFB54;
@@ -195,7 +201,89 @@ void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
   var_r6 = var_r30;
   pos = var_r31;
   var_r30 = (int) var_r4;
-  TWindowDD__sub_803474CC((int) var_r3, var_r30, (int) var_r5, (int) var_r6, (int) pos);
+  void TWindowDD__sub_803474CC(M_80347758 *, s32, char *, s32, s32 *);
+  TWindowDD__sub_803474CC((M_80347758 *)var_r3, var_r30, (char *)var_r5, var_r6, (s32 *)pos);
+}
+
+void TWindowDD__sub_803474CC(M_80347758 *entry, s16 id, char *word, s32 buf, s32 *pos) {
+    char num[20];
+    s32 kind;
+    s32 value;
+    s32 limit;
+    s32 len;
+    s32 split;
+    s32 next;
+    s32 c;
+    char *p;
+    s32 i;
+
+    kind = TWindowDD::classify_id(id);
+    if (kind != 7) {
+        value = TWindowDD__sub_80348D88(entry);
+        limit = word_select_numeric_limits[kind];
+        if (value > 0) {
+            if (value > limit) {
+                value = limit;
+            }
+            fn_80228E98(value, num);
+            switch (kind) {
+            case 0:
+            case 5:
+                if (kind == 5 && TWindowDD__window_mode == 2) {
+                    len = strlen(word);
+                    s32 need = len + strlen(num) + 1;
+                    if (TWindowDD::can_append_chars(need, pos) == 0) {
+                        break;
+                    }
+                    split = len;
+                    for (i = 0; i < len - 1; i++) {
+                        p = word + i;
+                        c = p[0];
+                        next = p[1];
+                        if ((c == 'J' || c == 'j') && next == 'a') {
+                            split = i;
+                            break;
+                        }
+                    }
+                    if (split != 0) {
+                        strncpy((char *)(buf + *pos), word, split);
+                        *pos += split;
+                    }
+                    TWindowDD::append_string((s32)num, buf, pos);
+                    TWindowDD::show_message_by_count(buf, (s32)pos);
+                    len -= split;
+                    if (len > 0) {
+                        strncpy((char *)(buf + *pos), word + split, len);
+                        *pos += len;
+                    }
+                } else {
+                    TWindowDD::append_string((s32)num, buf, pos);
+                    if (TWindowDD__window_mode != 0) {
+                        TWindowDD::append_char(' ', buf, pos);
+                    }
+                    TWindowDD::append_string((s32)word, buf, pos);
+                }
+                break;
+            case 1:
+                TWindowDD::append_string((s32)word, buf, pos);
+                TWindowDD::append_char('+', buf, pos);
+                TWindowDD::append_string((s32)num, buf, pos);
+                break;
+            case 2:
+                TWindowDD::append_string((s32)word, buf, pos);
+                TWindowDD::append_string((s32)lbl_804786A0, buf, pos);
+                TWindowDD::append_string((s32)num, buf, pos);
+                break;
+            case 3:
+            case 4:
+                TWindowDD::append_string((s32)word, buf, pos);
+                TWindowDD::append_string((s32)num, buf, pos);
+                break;
+            }
+            return;
+        }
+    }
+    TWindowDD::append_string((s32)word, buf, pos);
 }
 
 void TWindowDD__sub_80347758(M_80347758 *src, M_80347758 *dst) {

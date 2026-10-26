@@ -44,6 +44,7 @@ void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
 void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
+s32 TLobby__sub_8013F810(TLobby *lz, u32 *data, s32 len, u8 *out);
 extern char lbl_8043F168[];
 
 #pragma push
@@ -51,6 +52,62 @@ extern char lbl_8043F168[];
 #define EOF_8013F99C(c) (((s32 (*)(u8 *))lzss_input_exhausted)(c))
 #define PUT_8013F99C(c, v) (((void (*)(u8 *, s32))TLobby__sub_8013FF64)(c, v))
 #define GET_8013F99C(c) (((s32 (*)(u8 *))lzss_read_byte)(c))
+#pragma push
+#pragma opt_lifetimes off
+s32 TLobby__sub_8013F810(TLobby *lz, u32 *data, s32 len, u8 *out) {
+    s16 r = 0xFEE;
+    u32 flags = 0;
+    u8 c;
+    u8 fc;
+    u32 *hdr = data;
+    s32 i;
+    s32 j;
+    u32 k;
+    u8 c2;
+    bswap_32__FPUl(hdr);
+    bswap_32__FPUl(hdr + 1);
+    lz->set_range((int)(data + 2), hdr[1], (int)out);
+    for (i = 0; i < 0xFEE; i++) {
+        ((Lz_8013F99C *)lz)->text_buf[i] = 0;
+    }
+    for (;;) {
+        if (((flags >>= 1) & 0x100) == 0) {
+            fc = lzss_read_byte((u8 *)lz);
+            if (EOF_8013F99C((u8 *)lz) != 0) {
+                break;
+            }
+            flags = fc | 0xFF00;
+        }
+        if (flags & 1) {
+            c = lzss_read_byte((u8 *)lz);
+            if (EOF_8013F99C((u8 *)lz) != 0) {
+                break;
+            }
+            ((void (*)(u8 *, u8))TLobby__sub_8013FF64)((u8 *)lz, c);
+            ((Lz_8013F99C *)lz)->text_buf[r++] = c;
+            r &= 0xFFF;
+        } else {
+            i = lzss_read_byte((u8 *)lz);
+            if (EOF_8013F99C((u8 *)lz) != 0) {
+                break;
+            }
+            j = lzss_read_byte((u8 *)lz);
+            if (EOF_8013F99C((u8 *)lz) != 0) {
+                break;
+            }
+            i |= (j & 0xF0) << 4;
+            for (k = 0; k <= (j & 0x0F) + 2; k++) {
+                c2 = ((Lz_8013F99C *)lz)->text_buf[(i + k) & 0xFFF];
+                ((void (*)(u8 *, u8))TLobby__sub_8013FF64)((u8 *)lz, c2);
+                ((Lz_8013F99C *)lz)->text_buf[r++] = c2;
+                r &= 0xFFF;
+            }
+        }
+    }
+    return ((Lz_8013F99C *)lz)->out - out;
+}
+#pragma pop
+
 s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
     u8 code_buf[17];
     char msg[256];

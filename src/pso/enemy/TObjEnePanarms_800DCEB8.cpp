@@ -169,6 +169,7 @@ extern s32 lbl_8043CD0C[];
 extern s32 lbl_8043CCF4[];
 extern s32 lbl_8043CCFC[];
 s32 TObjEnePanarms__sub_800DE494(void *);
+extern s32 lbl_805D586C;
 int TObjEnePanarms__sub_800DFBC4(void *p);
 extern const f32 lbl_805DA4B8;
 extern const f32 lbl_805DA4C4;
@@ -791,6 +792,27 @@ void TObjEnePanarms__sub_800DE430(s32 arg0, s32 arg1, s32 arg2) {
     position.y += TObjEnePanarms__data_805DA4A4;
     fn_80086B64((&position.x), (void *)(arg0 + 0x5C), 0x106, (arg1), (arg2));
 }
+
+#pragma push
+#pragma opt_loop_invariants off
+s32 TObjEnePanarms__sub_800DE494(void *self) {
+    s32 i;
+    f32 best = lbl_805DA4E4;
+    for (i = 0; i < lbl_805D586C; i++) {
+        TObjPlayer *player = TObjPlayer::get_player_data(i);
+        if (player != NULL) {
+            f32 d = horizontal_distance_squared((u8 *)self + 0x38, (u8 *)player + 0x2FC);
+            if (d < best) {
+                best = d;
+            }
+        }
+    }
+    if (best < lbl_805DA4E4) {
+        return 0;
+    }
+    return 1;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

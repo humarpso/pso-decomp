@@ -144,6 +144,7 @@ s32 *csnVecterUnder(s32 arg0, s32 arg1);
 void *query_wall_radial(Obj_8007A32C *self);
 void TObjPlayer__sub_80079124(void *, void *);
 u32 TObjPlayer__sub_80079DE0(void *, void *);
+f32 vec_squared_length(Vec_800798A0 *);
 extern s32 lbl_804389C0[];
 s32 *csnLookAt(s32 arg0, s32 arg1);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
@@ -517,6 +518,49 @@ CsnGroup *select_ground_query_groups(CsnVector *origin, u32 mask) {
   }
   *output = 0;
   return ((CsnGroup * *)&lbl_804FFD40)[0];
+}
+
+u32 TObjPlayer__sub_80079DE0(void *a, void *b) {
+    Vec_8007A138 d;
+    s32 n;
+    Wall_8007A138 *w;
+    Wall_8007A138 **src;
+    Wall_8007A138 **dst;
+    f32 len;
+    f32 lenSq;
+    f32 inv;
+    f32 r;
+    f32 dsq;
+    n = 0;
+    TObjMapCsn::get_map_count();
+    src = (Wall_8007A138 **)get_data_ptr__10TObjMapCsnFv();
+    dst = (Wall_8007A138 **)lbl_804FFD40;
+    vsub(a, b, &d);
+    lenSq = d.x * d.x + d.z * d.z;
+    if (lbl_805D91F0 == lenSq) {
+        lenSq = lbl_805D91FC;
+    }
+    inv = lbl_805D920C / lenSq;
+    len = newton_sqrtf(lenSq);
+    while ((w = *src++) != NULL) {
+        if (w->flags & 0x8000) {
+            vsub(a, &w->pos, &lbl_8050BEE0);
+            dsq = vec_squared_length(&lbl_8050BEE0);
+            r = len + w->radius;
+            r *= r;
+            if (dsq <= r) {
+                if (calc_segment_xz_distance_sq(&w->pos, (Vec_8007A138 *)a, (Vec_8007A138 *)b, &d, w->radius, lenSq, inv) != 0) {
+                    if (++n >= 0x100) {
+                        break;
+                    }
+                    *dst++ = w;
+                }
+            }
+        }
+    }
+    *dst = NULL;
+    ((void (*)(void *))TObjPlayer__sub_80079114)(lbl_804FFD40);
+    return lbl_804FFD40[0];
 }
 
 #pragma push

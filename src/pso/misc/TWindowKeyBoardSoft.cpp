@@ -109,7 +109,7 @@ s32 end_render_forward__20TWindowSubStatusDispFPv();
 s32 fn_8025CE00(void *, u8 *);
 void TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, s32 *);
-int TWindowKeyBoardSoft__sub_8025D1C8(void*, void*);
+void TWindowKeyBoardSoft__sub_8025D1C8(void *, void *);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
 s32 TWindowKeyBoardSoft__sub_8025D544(void *, s32 *, s8 *);
 void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self);
@@ -299,6 +299,34 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, s32 *arg1) {
 #undef self
 #undef text
 
+void TWindowKeyBoardSoft__sub_8025D1C8(void *arg0, void *arg1) {
+    KbSoft_8025D264 *self = (KbSoft_8025D264 *)arg0;
+    s8 *src = (s8 *)arg1;
+    s8 *dst = src;
+    s32 len = src[1];
+    s8 n;
+
+    src += len + 3;
+    *src = *dst;
+    while (*src != 0) {
+        KbRec_8025D264 *from = (KbRec_8025D264 *)src;
+        KbRec_8025D264 *to = (KbRec_8025D264 *)dst;
+        to->tag = from->tag;
+        to->len = n = from->len;
+        to->kind = from->kind;
+        src += 3;
+        dst += 3;
+        while (n-- != 0) {
+            *dst++ = *src++;
+        }
+    }
+    *dst = *src;
+    self->remain += len + 3;
+    if (self->cursor > self->buf) {
+        self->cursor -= len + 3;
+    }
+}
+
 #pragma push
 #pragma opt_propagation off
 void TWindowKeyBoardSoft::insert_string(char *src) {
@@ -337,6 +365,17 @@ void TWindowKeyBoardSoft::insert_string(char *src) {
 #pragma pop
 
 void TWindowKeyBoardSoft::update_input(void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(this, *(void**)((char*)this + 0xa0)); insert_string((char *)(a1)); }
+
+#pragma push
+#pragma optimization_level 2
+s32 TWindowKeyBoardSoft__sub_8025D378(void *arg0, void *arg1) {
+    KbSoft_8025D264 *self = (KbSoft_8025D264 *)arg0;
+    s32 len = ((KbRec_8025D264 *)self->buf)->len;
+    s32 need = measure_string_len__20TWindowSubStatusDispFv(arg1);
+
+    return (self->remain >= need - len) ? 1 : 0;
+}
+#pragma pop
 
 void TWindowKeyBoardSoft::append_text_entry(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
@@ -384,6 +423,22 @@ void TWindowKeyBoardSoft::write_name_and_text(char *name, char *text) {
     self->remain = 0x94 - (p - self->base);
     self->cursor = self->buf;
 }
+
+#pragma push
+#pragma optimization_level 2
+s32 TWindowKeyBoardSoft__sub_8025D544(void *arg0, s32 *name, s8 *text) {
+    s32 name_len = strnlen__19TWindowKeyBoardSoftFPScUl(name, 0x100);
+    s32 text_len = strnlen__19TWindowKeyBoardSoftFPScUl(text, 0x100);
+    s32 room = 0x94 - (((KbSoft_8025D47C *)arg0)->buf - ((KbSoft_8025D47C *)arg0)->base);
+
+    room -= 3;
+    room -= name_len;
+    room -= 3;
+    room -= text_len;
+    room -= 1;
+    return (room >= 0) ? 1 : 0;
+}
+#pragma pop
 
 void TWindowKeyBoardSoft::set_kanji_mode() {
     s8 sp8[0x200];

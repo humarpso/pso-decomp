@@ -47,6 +47,7 @@ void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1);
 void generate_shop_armor_pool(s32 arg0);
+void generate_shop_unit_pool(s32 arg0);
 typedef char RecoveredGlobal_8020ECD8_lbl_80513D78_size[sizeof(RecoveredGlobal_8020ECD8_lbl_80513D78) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_8020ECA8_lbl_80513D58_size[sizeof(RecoveredGlobal_8020ECA8_lbl_80513D58) == 0x10 ? 1 : -1];
@@ -73,6 +74,53 @@ s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *arg0, s32 arg1) {
     return 1;
 }
 
+}
+
+void generate_shop_unit_pool(s32 arg0) {
+    Item_8020E934 item;
+    Ctr_8020E934 ctr;
+    Item_8020E934 *dst;
+    s32 cnt;
+    s32 n;
+    Tbl_8020E800 *tbl;
+    u8 *p;
+    s32 i;
+    s32 b;
+    s32 k;
+    s32 grp;
+    ((TLobby *)(&ctr))->reset_counter_64();
+    dst = ((Item_8020E934 **)&lbl_80513D78)[arg0];
+    n = get_shop_unit_count(lbl_805D615C);
+    if (n == 0) {
+        return;
+    }
+    tbl = (Tbl_8020E800 *)*lbl_805D6158;
+    grp = TLobby::get_lobby_group(lbl_805D615C);
+    cnt = tbl->count;
+    p = tbl->pairs + grp * cnt * 2;
+    i = 0;
+    while (i++ < cnt) {
+        for (k = p[1]; k != 0; k--) {
+            push_shop_pool_entry(&ctr, p[0]);
+        }
+        p += 2;
+    }
+    shuffle_shop_pool_n_times(&ctr, 8);
+    cnt = 0;
+    while (cnt < n) {
+        b = ((TLobby *)(&ctr))->pop_byte();
+        if (b == -1) {
+            continue;
+        }
+        init__9TItemDataFv(&item);
+        item.b[0] = 1;
+        item.b[1] = 3;
+        item.b[2] = b;
+        if (is_duplicate_shop_shield_or_unit(&item, arg0) == 1) {
+            ((TLobby *)(&dst[lbl_80513D68[arg0]++]))->copy_item_data(&item);
+            cnt++;
+        }
+    }
 }
 
 void generate_shop_shield_pool(s32 arg0) {

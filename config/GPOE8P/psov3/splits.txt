@@ -2308,7 +2308,7 @@ pso/misc/TLobby_800FC3CC.cpp:
 
 pso/misc/TWindowSubStatusDisp_800FC3E0.cpp:
 	.text       start:0x800FC3E0 end:0x800FC760
-	.rodata     start:0x8043DAA0 end:0x8043DAA8
+	.rodata     start:0x8043DAA0 end:0x8043DAB0
 
 pso/misc/TFontSmallHelp.cpp:
 	.text       start:0x800FC760 end:0x800FC91C
@@ -8106,7 +8106,7 @@ pso/unk/text_8023F660.cpp:
 pso/misc/TLobby_8023F734.cpp:
 	.text       start:0x8023F734 end:0x80242908
 	.ctors      start:0x80433FB4 end:0x80433FBC
-	.data       start:0x804CDC44 end:0x804CDC88
+	.data       start:0x804CDA50 end:0x804CDC88
 
 pso/misc/TWindowSubStatusDisp_80242908.cpp:
 	.text       start:0x80242908 end:0x80242910
@@ -13725,6 +13725,7 @@ pso/misc/TWindowKeyBoardSoft_803E6610.cpp:
 
 pso/misc/TQuestVmDownLoadServer_803E6970.cpp:
 	.text       start:0x803E6970 end:0x803F0C50
+	.rodata     start:0x8047EA28 end:0x8047F0D0
 	.data       start:0x804FC858 end:0x804FCD34
 	.bss        start:0x80596668 end:0x805A02A8
 
@@ -13786,16 +13787,17 @@ pso/misc/TLobby_803FAEA0.cpp:
 
 pso/misc/TLobby_803FC178.cpp:
 	.text       start:0x803FC178 end:0x804048E8
-	.data       start:0x804FD628 end:0x804FD64C
-	.bss        start:0x805C0180 end:0x805C02D0
+	.data       start:0x804FD628 end:0x804FD650
+	.bss        start:0x805C0180 end:0x805C0310
 
 pso/misc/TLobby_804048E8.cpp:
 	.text       start:0x804048E8 end:0x804050DC
+	.data       start:0x804FD650 end:0x804FD690
 	.bss        start:0x805C06D8 end:0x805C18A0
 
 pso/misc/TLobby_804050DC.cpp:
 	.text       start:0x804050DC end:0x8041ED8C
-	.data       start:0x804FD84C end:0x804FD890
+	.data       start:0x804FD80C end:0x804FD890
 	.bss        start:0x805C1AD8 end:0x805C1DF0
 
 pso/network/SocketProtocolRuntime.cpp:
@@ -13828,7 +13830,9 @@ pso/misc/TLobby_80429598.cpp:
 
 pso/network/ModemRuntime.cpp:
 	.text       start:0x8042BF48 end:0x8042E8C4
+	.data       start:0x804FDA20 end:0x804FDA78
 	.bss        start:0x805D1D20 end:0x805D1E40
+	.sdata      start:0x805D4840 end:0x805D489C
 
 pso/unk/text_8042E8C4.cpp:
 	.text       start:0x8042E8C4 end:0x8042E9FC
