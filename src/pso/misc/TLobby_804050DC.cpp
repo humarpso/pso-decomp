@@ -622,6 +622,7 @@ s32 OSRestoreInterrupts(s32);
 void TLobby__sub_803F97E8(int);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
 extern u8 lbl_805C0038[];
+s32 TLobby__sub_804066D8(Strm_80405A74 *);
 extern s16 lbl_805D7A7C;
 s32 TLobby__sub_8040B838(u8 *dst, u8 *src, s16 len);
 s16 TLobby__sub_8040DC8C(u8 *arg0, u8 *arg1);
@@ -1387,6 +1388,40 @@ s32 TLobby__sub_804062A0(s16 arg0) {
     default:
         return -1;
     }
+}
+
+struct Ppp_80406624 { u8 state; u8 pad1[0x121]; s16 f122; s16 f124; };
+inline s32 ppp_send_80406624(Ppp_80406624 *ppp, Strm_80405A74 *u) {
+    if (u == NULL) {
+        ppp->f124++;
+        return -1;
+    }
+    return TLobby__sub_804066D8(u);
+}
+
+s32 TLobby__sub_80406624(s32 arg0, s32 arg1, u16 proto, Strm_80405A74 *pkt) {
+    Ppp_80406624 *ppp = (Ppp_80406624 *)lbl_805C0038;
+    Strm_80405A74 *u;
+    u16 code;
+    Strm_80405A74 *t;
+    u8 *p;
+    u8 *q;
+    u8 *r;
+    s32 ret;
+
+    if (ppp->state == 0) {
+        ppp->f122++;
+        return -1;
+    }
+    code = proto;
+    t = (Strm_80405A74 *)((TLobby *)pkt)->alloc_from_buffer(4);
+    p = t->p;
+    *p++ = 0xFF;
+    *p++ = 3;
+    write_network_u16_be(p, code);
+    u = t;
+    ret = ppp_send_80406624(ppp, u);
+    return ret;
 }
 
 s32 TLobby::shutdown_network_handle() {
