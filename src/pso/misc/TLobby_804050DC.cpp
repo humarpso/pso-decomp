@@ -906,6 +906,116 @@ void TLobby__sub_804050DC(s16 arg0) {
     *(s16 *)((s8 *)(&lbl_805C18A0.value) + 8) = arg0;
 }
 
+typedef struct TcpWire_804053B8 {
+    u16 src_port;
+    u16 dst_port;
+    u32 seq;
+    u32 ack;
+    u8 data_offset;
+    u8 flags;
+    u16 window;
+    u16 checksum;
+    u16 urgent;
+} TcpWire_804053B8;
+
+typedef struct TcpPacket_8040555C {
+    TcpWire_804053B8 hdr;
+    u8 options[0x28];
+} TcpPacket_8040555C;
+
+typedef struct TcpSegment_804053B8 {
+    u16 src_port;
+    u16 dst_port;
+    u32 seq;
+    u32 ack;
+    u16 window;
+    u16 checksum;
+    u16 urgent;
+    u16 mss;
+    u8 pad_14;
+    u8 urg;
+    u8 ack_flag;
+    u8 psh;
+    u8 rst;
+    u8 syn;
+    u8 fin;
+    u8 option_len;
+    u8 options[0x28];
+} TcpSegment_804053B8;
+
+typedef struct PseudoHeader_8040555C {
+    u8 pad_0[0xA];
+    u16 length;
+} PseudoHeader_8040555C;
+
+u16 TLobby__sub_803FE934(u8 *hdr, B_803FADA0 *b, u16 n);
+
+B_803FADA0 *TLobby__sub_8040555C(TcpSegment_804053B8 *seg, TLobby *lobby, PseudoHeader_8040555C *pseudo) {
+    u16 opt_len;
+    B_803FADA0 *b;
+    TcpPacket_8040555C *w;
+    u8 *dst;
+    u32 n;
+    u8 flags;
+    TcpPacket_8040555C pkt;
+
+    opt_len = 0;
+    n = 0;
+    if (seg->option_len != 0 && seg->option_len <= 40) {
+        opt_len = seg->option_len;
+    } else if (seg->mss != 0) {
+        opt_len = 4;
+    }
+    b = (B_803FADA0 *)lobby->alloc_from_buffer(opt_len + 20);
+    if (b == NULL) {
+        return NULL;
+    }
+    dst = b->buf;
+    w = &pkt;
+    pkt.hdr.src_port = seg->src_port;
+    flags = 0;
+    pkt.hdr.dst_port = seg->dst_port;
+    pkt.hdr.seq = seg->seq;
+    pkt.hdr.ack = seg->ack;
+    pkt.hdr.data_offset = (u8)(opt_len + 20) << 2;
+    if (seg->urg) {
+        flags |= 0x20;
+    }
+    if (seg->ack_flag) {
+        flags |= 0x10;
+    }
+    if (seg->psh) {
+        flags |= 0x08;
+    }
+    if (seg->rst) {
+        flags |= 0x04;
+    }
+    if (seg->syn) {
+        flags |= 0x02;
+    }
+    if (seg->fin) {
+        flags |= 0x01;
+    }
+    pkt.hdr.flags = flags;
+    pkt.hdr.window = seg->window;
+    if (pseudo == NULL) {
+        pkt.hdr.checksum = seg->checksum;
+    } else {
+        pkt.hdr.checksum = 0;
+    }
+    pkt.hdr.urgent = seg->urgent;
+    if (opt_len > n) {
+        NetMemcpy(w->options, seg->options, seg->option_len);
+    }
+    n = (u16)(opt_len + 20);
+    NetMemcpy(dst, w, n);
+    if (pseudo != NULL) {
+        pkt.hdr.checksum = TLobby__sub_803FE934((u8 *)pseudo, b, pseudo->length);
+    }
+    NetMemcpy(dst, w, n);
+    return b;
+}
+
 typedef char RecoveredGlobal_804050EC_lbl_805C18A0_size[sizeof(RecoveredGlobal_804050EC_lbl_805C18A0) == 0x10 ? 1 : -1];
 void TLobby::init_net_block_18A0() {
     TLobby__sub_803F79AC((void *) (&(*(RecoveredGlobal_804050EC_lbl_805C18A0 *)&lbl_805C18A0).value));
