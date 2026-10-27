@@ -1680,7 +1680,7 @@ typedef struct Desc_800C17B8 {
 } Desc_800C17B8;
 
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 s32 get_main_phase();
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(s32);
@@ -1699,7 +1699,7 @@ extern s32 rappy_alternate_texture_list;
 void TLobby::cleanup_handles() {
     if (TLobby::get_instance() == 0) {
         if ((u32) (*(u32 *)&rappy_alternate_texture_list) != 0U) {
-            TLobby__sub_803DA16C((void*)(*(u32 *)&rappy_alternate_texture_list));
+            release_texture_list((void*)(*(u32 *)&rappy_alternate_texture_list));
             TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&rappy_alternate_texture_list));
             (*(u32 *)&rappy_alternate_texture_list) = 0U;
         }

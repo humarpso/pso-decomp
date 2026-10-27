@@ -87,7 +87,7 @@ extern s32 model_render_flags;
 extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
 s32 calc_section_id_from_name(s8 *arg0);
-s32 TLobby__sub_803DA16C(void *);
+s32 release_texture_list(void *);
 
 extern u32 creation_main_menu_obj;
 
@@ -184,19 +184,19 @@ void TCharaMaking::free_loaded_buffers() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x8B8) != 0) {
         if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 1)) {
-            TLobby__sub_803DA16C(arg0 + 0xA1C);
+            release_texture_list(arg0 + 0xA1C);
         }
         *(s32 *)((s8 *)arg0 + 0x8B8) = 0;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xA24) != 0) {
         if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 2)) {
-            TLobby__sub_803DA16C(arg0 + 0xB88);
+            release_texture_list(arg0 + 0xB88);
         }
         *(s32 *)((s8 *)arg0 + 0xA24) = 0;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB90) != 0) {
         if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 4)) {
-            TLobby__sub_803DA16C(arg0 + 0xCF4);
+            release_texture_list(arg0 + 0xCF4);
         }
         *(s32 *)((s8 *)arg0 + 0xB90) = 0;
     }

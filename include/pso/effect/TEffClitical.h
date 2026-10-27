@@ -2,6 +2,17 @@
 #define PSO_EFFECT_TEFFCLITICAL_H
 
 #include "types.h"
+#include "pso/effect/TEffect.h"
+
+class TEffClitical : public TEffect {
+public:
+    TEffClitical(void *arg1);
+    virtual ~TEffClitical();
+    virtual void run_task();
+    virtual void render();
+public:
+    void create();
+};
 
 extern "C" {
 void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);

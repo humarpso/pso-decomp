@@ -15,7 +15,7 @@ extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
 #include "pso/player/DamageBookkeeping.h"
 #include "dolphin/mtx.h"
 #include <stddef.h>
-#include "pso/TEffClitical.h"
+#include "pso/effect/TEffClitical.h"
 
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TLobby.h"

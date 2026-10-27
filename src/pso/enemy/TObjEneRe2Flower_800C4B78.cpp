@@ -80,7 +80,7 @@ extern "C" {
 s32 subtract_vector(void *, void *);
 
 extern void *player_render_texture_buffer;
-void TLobby__sub_803DA16C(void *);
+void release_texture_list(void *);
 void mem_free(void *);
 s32 is_alive__9TObjEneDDFv(s32);
 extern u8 *camera_ctrl_instance;
@@ -140,7 +140,7 @@ __declspec(section ".data") Node_800C4D88 lbl_80500C30;
 void TObjPlayer__sub_800C4D44(void) {
     void *p = lbl_80500C30;
     if (p != 0) {
-        TLobby__sub_803DA16C(p);
+        release_texture_list(p);
     }
     if (player_render_texture_buffer != 0) {
         mem_free(player_render_texture_buffer);

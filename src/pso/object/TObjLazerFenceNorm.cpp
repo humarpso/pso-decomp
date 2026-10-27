@@ -318,7 +318,7 @@ extern s32 __vt__18TObjLazerFenceNorm[];
 extern s32 obj_lazer_fence_norm_class_name;
 
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 s32 free_collision_body_parts(void *);
 s32 update_closed__18TObjLazerFenceNormFv();
 s32 __dl__7TObjectFPv(void *);
@@ -395,7 +395,7 @@ void TObjLazerFenceNorm::free_resources() {
         lazer_fence_norm_bml_resource = 0U;
     }
     if ((u32) lazer_fence_norm_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)lazer_fence_norm_texture_list);
+        release_texture_list((void*)lazer_fence_norm_texture_list);
         TAdSinglePlyChrSelectGC::safe_free((u32)lazer_fence_norm_texture_list);
         lazer_fence_norm_texture_list = 0;
     }

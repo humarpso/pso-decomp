@@ -26,7 +26,7 @@ struct Res_80207038 { s32 table; s32 index; s32 pad; };
 extern "C" {
 s32 get_player_name_copy_buffer();
 s32 strncmp(s32, s32, s32);
-s32 TLobby__sub_803DA16C(u32);
+s32 release_texture_list(u32);
 extern s32 TScene__current_floor_name;
 extern s32 *scene_collision_data;
 extern void *TScene__data_805D5FCC;
@@ -194,7 +194,7 @@ void load_floor_scene(void) {
     Res_8020681C res;
     s32 path[11];
     if (TScene__data_805D5FCC != NULL && *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) != 0) {
-        TLobby__sub_803DA16C(*(u32 *)((s8 *)TScene__data_805D5FCC + 0x14));
+        release_texture_list(*(u32 *)((s8 *)TScene__data_805D5FCC + 0x14));
         *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) = 0;
     }
     if (get_floor_map_selection(current_floor_index, (u8 *)&res) == 1) {
@@ -257,7 +257,7 @@ void TScene::free_scene_resources() {
     temp_r3 = (u32)TScene__data_805D5FCC;
     if (temp_r3 != 0U) {
         if ((temp_r3 = *(u32*)((u8*)TScene__data_805D5FCC + 0x14)) != 0U) {
-            TLobby__sub_803DA16C(temp_r3);
+            release_texture_list(temp_r3);
             *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) = 0U;
         }
     }

@@ -2,7 +2,7 @@
 #include "pso/misc/TTecZarua.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 
 #include <stddef.h>
 

@@ -52,7 +52,7 @@ extern "C" u8 lbl_80477B90[];
 extern "C" u8 lbl_80477BA0[];
 extern "C" u8 lbl_80477BB4[];
 u8 *load_gvm_texture_file(s32 arg0);
-s32 TLobby__sub_803DA16C(s32 *);
+s32 release_texture_list(s32 *);
 int free_if_valid__10TObjPlayerFl(void*);
 
 void *lbl_804EF1B8[9] = {
@@ -159,7 +159,7 @@ void TLobby__sub_803382E4(void) {
 
 void TLobby::handle_flag2_request() {
     if (lobby_request_flags & 2) {
-        TLobby__sub_803DA16C(lbl_804EF1DC);
+        release_texture_list(lbl_804EF1DC);
         lobby_request_flags &= 0xFFFFFFFD;
     }
 }

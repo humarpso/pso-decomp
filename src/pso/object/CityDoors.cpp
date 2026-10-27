@@ -167,11 +167,11 @@ s32 pop_matrix();
 extern const f32 lbl_805DBBE0;
 extern const f32 lbl_805DBBE4;
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TLobby::free_map_resources() {
     if ((u32) city_common_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)city_common_texture_list);
+        release_texture_list((void*)city_common_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(city_common_texture_list);
         city_common_texture_list = 0U;
     }

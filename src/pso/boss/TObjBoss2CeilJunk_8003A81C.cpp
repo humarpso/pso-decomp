@@ -10,7 +10,7 @@ extern "C" {
 extern void *lbl_804FE9C8[];
 extern void *lbl_805D4BEC;
 extern void *boss2_tunnel_instance;
-void TLobby__sub_803DA16C(void *);
+void release_texture_list(void *);
 void TLobby__sub_8001FE7C(void *, int);
 void *TObjBoss2CeilJunk__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -37,7 +37,7 @@ void TLobby__sub_8003A874(void) {
     for (i = 0; i < 7; i++) {
         lbl_804FE9C8[i] = 0;
     }
-    TLobby__sub_803DA16C(lbl_805D4BEC);
+    release_texture_list(lbl_805D4BEC);
     TLobby__sub_8001FE7C(boss2_tunnel_instance, 1);
     boss2_tunnel_instance = 0;
 }

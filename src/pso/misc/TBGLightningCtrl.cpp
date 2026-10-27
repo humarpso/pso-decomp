@@ -74,7 +74,7 @@ u32 __cvt_fp2unsigned(f32);
 s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void TParticleCtrl__sub_803E2A1C(void *, int);
 
 extern void *__vt__12TBGLightning[];
@@ -155,7 +155,7 @@ void *TBGLightningCtrl__create(void *arg0) {
 
 void TBGLightningCtrl::destroy_instance() {
     if ((u32) (*(u32 *)&bg_lightning_texture_handle) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&bg_lightning_texture_handle));
+        release_texture_list((void*)(*(u32 *)&bg_lightning_texture_handle));
         TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&bg_lightning_texture_handle));
         (*(u32 *)&bg_lightning_texture_handle) = 0U;
     }

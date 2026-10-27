@@ -530,7 +530,7 @@ extern Spawn_8029C7DC lbl_80465828;
 extern u8 identity_matrix[];
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
@@ -632,7 +632,7 @@ u8 *TORockJungleS01::get_model(s32 arg0) {
 
 void TORockJungleS01::free_globals() {
     if ((u32) TORockJungleS01__texture_resource != 0U) {
-        TLobby__sub_803DA16C((void*)TORockJungleS01__texture_resource);
+        release_texture_list((void*)TORockJungleS01__texture_resource);
         TAdSinglePlyChrSelectGC::safe_free(TORockJungleS01__texture_resource);
         TORockJungleS01__texture_resource = 0U;
     }

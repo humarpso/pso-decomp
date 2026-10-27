@@ -63,7 +63,7 @@ s32 __dt__7TObjectFv(void *, s32);
 extern s32 lbl_804EEF64[];
 extern u32 title_scene_instance;
     extern int lbl_805D68C8;
-s32 TLobby__sub_803DA16C(void *, s32);
+s32 release_texture_list(void *, s32);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern u8 *lobby_title_texture_list;
@@ -274,7 +274,7 @@ void TLobby::destroy_global_object() {
     u32 temp_r4;
     temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi(&lobby_load_callback_table.value, 0x20);
     if ((void *) lobby_title_texture_list != NULL) {
-        TLobby__sub_803DA16C(lobby_title_texture_list, (s32) temp_r4);
+        release_texture_list(lobby_title_texture_list, (s32) temp_r4);
         lobby_title_texture_list = NULL;
     }
 }

@@ -33,7 +33,7 @@ void matrix_mult_vec(void *mtx, const Vec *src, Vec *dst);
 void scroll_ginja_mesh_uvs(void *mesh, s16 du, s16 dv, u16 cmd, s32 rewrite);
 void PPCSync(void);
 int rand(void);
-void TLobby__sub_803DA16C(GinjaTextureList *list);
+void release_texture_list(GinjaTextureList *list);
 
 
 extern u32 model_render_flags;
@@ -248,7 +248,7 @@ void TBoss3VoloptMonitor::load_resources() {
 
 void TBoss3VoloptMonitor::release() {
     if (volopt_monitor_textures != NULL) {
-        TLobby__sub_803DA16C(volopt_monitor_textures);
+        release_texture_list(volopt_monitor_textures);
         volopt_monitor_textures = NULL;
     }
 }

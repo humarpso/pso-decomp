@@ -170,7 +170,7 @@ extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPv(void *, void *, void *);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void mem_free(void *p);
 extern s32 particle_area_entry_table;
 extern u32 TParticleCtrl__regular_bml_resource;
@@ -642,7 +642,7 @@ void TParticleCtrl::free_all() {
         TParticleCtrl__regular_bml_resource = 0U;
     }
     if ((u32) TParticleCtrl__texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TParticleCtrl__texture_list);
+        release_texture_list((void*)TParticleCtrl__texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TParticleCtrl__texture_list);
         TParticleCtrl__texture_list = 0U;
     }

@@ -122,7 +122,7 @@ extern s32 __vt__13TUnk_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -335,7 +335,7 @@ TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*object) : TObject((TObject*)(object)) {
 
 void TLobby__sub_802C78EC(void) {
     if ((u32) lbl_805D67F0 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D67F0);
+        release_texture_list((void*)lbl_805D67F0);
         lbl_805D67F0 = 0U;
     }
 }

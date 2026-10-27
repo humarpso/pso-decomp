@@ -1,6 +1,6 @@
 #include "types.h"
-#include "pso/misc/TEffIndirectCtrl.h"
-#include "pso/misc/TEffIndirectCtrl_802A88AC.h"
+#include "pso/effect/TEffIndirectCtrl.h"
+#include "pso/effect/TEffIndirectCtrl_802A88AC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/memory.h"
 
@@ -59,7 +59,7 @@ extern const f32 lbl_805DE024;
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent);
 extern const f32 TEffIndirectCtrl__data_805DE02C;
 s32 DCFlushRange(s32, s32);
-void TLobby__sub_803DA16C(void *);
+void release_texture_list(void *);
 s32 memcpy(s32, s32, s32);
 
 void TEffIndirectCtrl::render() {  }
@@ -71,7 +71,7 @@ void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
 
 }
 TEffIndirectCtrl::~TEffIndirectCtrl() {
-    if (*(void **)((s8 *)this + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)this + 0x2C)); ::operator delete(*(void **)((s8 *)this + 0x2C)); }
+    if (*(void **)((s8 *)this + 0x2C) != NULL) { release_texture_list(*(void **)((s8 *)this + 0x2C)); ::operator delete(*(void **)((s8 *)this + 0x2C)); }
     if (*(void **)((s8 *)this + 0x28) != NULL) { ::operator delete(*(void **)((s8 *)this + 0x28)); }
 }
 

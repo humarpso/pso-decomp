@@ -7,7 +7,7 @@ TPlayerFootStamp::~TPlayerFootStamp() {}
 
 extern "C" {
 
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void *__ct__16TPlayerFootStampFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -24,7 +24,7 @@ extern u32 player_footstamp_texture_gvm_handle;
 
 void TPlayerFootStamp::free_instance() {
     if ((u32) player_footstamp_texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)player_footstamp_texture_gvm_handle);
+        release_texture_list((void*)player_footstamp_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(player_footstamp_texture_gvm_handle);
         player_footstamp_texture_gvm_handle = 0U;
     }

@@ -4,7 +4,7 @@
 #include "pso/ui/TAdMcSelectCursorGC.h"
 
 extern "C" {
-s32 TLobby__sub_803DA16C(void *, s32);
+s32 release_texture_list(void *, s32);
 extern int TAdMcSelectCursorGC__texture_entry;
 u32 TAdMcSelectCursorGC__ct(u32, s32);
 u32 __nw__7TObjectFUl(s32);
@@ -32,7 +32,7 @@ void TAdMcSelectCursorGC::release_cursor_entry() {
     if ((void **) (*(void ** *)&TAdMcSelectCursorGC__texture_entry) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectCursorGC__texture_entry));
         if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
-            TLobby__sub_803DA16C((*(void ** *)&TAdMcSelectCursorGC__texture_entry), (s32) temp_r4);
+            release_texture_list((*(void ** *)&TAdMcSelectCursorGC__texture_entry), (s32) temp_r4);
         }
     }
 }

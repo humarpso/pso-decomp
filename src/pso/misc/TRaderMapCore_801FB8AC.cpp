@@ -30,11 +30,11 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_8044A7B8;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 obj_f_enemy_resource_descriptor;
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TRaderMapCore::free_statics() {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
-        TLobby__sub_803DA16C((void*)TRaderMapCore__data_805D5F4C);
+        release_texture_list((void*)TRaderMapCore__data_805D5F4C);
         TAdSinglePlyChrSelectGC::safe_free(TRaderMapCore__data_805D5F4C);
         TRaderMapCore__data_805D5F4C = 0U;
     }

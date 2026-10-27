@@ -11,7 +11,7 @@ u8 is_valid_player_motion_variant(u32 arg0);
 u8 TLobby__sub_802A7278(u32 arg0);
 int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 struct Tbl_802A6F98 { s32 w[5]; };
 struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
@@ -36,7 +36,7 @@ extern u32 TObjSeabedSuisoBrakable__texture_gvm_handle;
 
 void TObjSeabedSuisoBrakable::free_static_resources() {
     if ((u32) TObjSeabedSuisoBrakable__texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjSeabedSuisoBrakable__texture_gvm_handle);
+        release_texture_list((void*)TObjSeabedSuisoBrakable__texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjSeabedSuisoBrakable__texture_gvm_handle);
         TObjSeabedSuisoBrakable__texture_gvm_handle = 0U;
     }

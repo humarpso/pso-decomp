@@ -48,12 +48,12 @@ extern char lbl_8043F4F8[];
 extern char lbl_8043F514[];
 extern char lbl_8043F52C[];
 extern const f32 lbl_805DB1B8;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void __dl__7TObjectFPv(void *);
 
 void TObjNpcARW00::free_resources() {
     if ((u32) TObjNpcARW00__gvm_texture_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcARW00__gvm_texture_handle);
+        release_texture_list((void*)TObjNpcARW00__gvm_texture_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcARW00__gvm_texture_handle);
         TObjNpcARW00__gvm_texture_handle = 0U;
     }

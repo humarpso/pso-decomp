@@ -142,7 +142,7 @@ extern ChipParam_8018860C lbl_80444EA8;
 extern void *tl_05;
 void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
 s32 submit_cursor_candidate(void *, s32);
@@ -215,7 +215,7 @@ void *TObjComputer::create() {
 
 void TObjComputer::free_resources() {
     if ((u32) TObjComputer__texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjComputer__texture_gvm_handle);
+        release_texture_list((void*)TObjComputer__texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjComputer__texture_gvm_handle);
         TObjComputer__texture_gvm_handle = 0U;
     }

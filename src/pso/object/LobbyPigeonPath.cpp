@@ -516,7 +516,7 @@ void matrix_mult_vec(void *, void *, void *);
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 void set_matrix_identity(u8 *arg0);
 
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 extern Entry_802C2C48 seabed_dolphin_path_profiles[];
 extern u8 seabed_dolphin_anim_binding[];
@@ -677,7 +677,7 @@ void *TObjPlayer::create_child_object(void *arg0) {
 
 void TObjPlayer::destroy_instance() {
     if ((u32) lobby_kamome_texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)lobby_kamome_texture_gvm_handle);
+        release_texture_list((void*)lobby_kamome_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(lobby_kamome_texture_gvm_handle);
         lobby_kamome_texture_gvm_handle = 0U;
     }
@@ -875,7 +875,7 @@ void *create__10TObjPlayerFPv(void *arg0) {
 
 void TObjPlayer::free_statics() {
     if ((u32) lobby_pigeon_texture_gvm != 0U) {
-        TLobby__sub_803DA16C((void*)lobby_pigeon_texture_gvm);
+        release_texture_list((void*)lobby_pigeon_texture_gvm);
         TAdSinglePlyChrSelectGC::safe_free(lobby_pigeon_texture_gvm);
         lobby_pigeon_texture_gvm = 0U;
     }
@@ -1064,7 +1064,7 @@ void *TObjPlayer::create_path_obj(void *arg0) {
 
 void TObjPlayer::free_chr_select() {
     if ((u32) jungle_ebi_texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)jungle_ebi_texture_gvm_handle);
+        release_texture_list((void*)jungle_ebi_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(jungle_ebi_texture_gvm_handle);
         jungle_ebi_texture_gvm_handle = 0U;
     }
@@ -1277,7 +1277,7 @@ void *TObjPlayer__sub_802C28B4(void *arg0) {
 
 void TObjPlayer__sub_802C2900(void) {
     if ((u32) (*(u32 *)&seabed_dolphin_texture_handle) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&seabed_dolphin_texture_handle));
+        release_texture_list((void*)(*(u32 *)&seabed_dolphin_texture_handle));
         TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&seabed_dolphin_texture_handle));
         (*(u32 *)&seabed_dolphin_texture_handle) = 0U;
     }

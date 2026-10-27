@@ -30,7 +30,7 @@ extern u32 TObjNpcHFW00__texture_handle;
 extern char lbl_8043FA38[];
 extern char lbl_8043FA4C[];
 void TLobby__sub_8001FE7C(void*, int);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -95,7 +95,7 @@ void * TObjNpcHFW00__create(void *arg0) {
 
 void TObjNpcHFW00::free_resources() {
     if ((u32) TObjNpcHFW00__texture_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcHFW00__texture_handle);
+        release_texture_list((void*)TObjNpcHFW00__texture_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcHFW00__texture_handle);
         TObjNpcHFW00__texture_handle = 0U;
     }

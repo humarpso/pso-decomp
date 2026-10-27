@@ -93,7 +93,7 @@ extern Tbl_802A194C select_gamen_resource_name_table;
 extern Tbl_802A194C select_gamen_resource_name_table_b;
 extern const s32 current_language;
 extern u32 ad_select_text_texture_handle;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 void TAdSelectTxtGC::reset_state() { *(short *)&this->m_prev = 0; *(short *)&this->m_id = 0; *(short *)&this->m_flags = 0; *(short*)((char*)this + 0x2) = 0; *(short *)&this->m_name = 0; *(short*)((char*)this + 0xe) = 0; *(short *)&this->m_next = 0; *(short*)((char*)this + 0xa) = 0; *(float *)&this->m_up = 0.0f; *(float *)&this->m_down = 0.0f; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
 
@@ -153,7 +153,7 @@ TAdSelectTxtGC::TAdSelectTxtGC(TObject *object, void *arg1_arg, void *arg3) : TO
 
 void TLobby__sub_802A1918(void) {
     if ((u32) ad_select_text_texture_handle != 0U) {
-        TLobby__sub_803DA16C((void*)ad_select_text_texture_handle);
+        release_texture_list((void*)ad_select_text_texture_handle);
         ad_select_text_texture_handle = 0U;
     }
 }

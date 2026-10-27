@@ -66,7 +66,7 @@ extern s32 motorcycle_class_name;
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
@@ -102,7 +102,7 @@ void *TMotorcycle::create() {
 
 void TMotorcycle::free_statics() {
     if ((u32) TMotorcycle__texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TMotorcycle__texture_list);
+        release_texture_list((void*)TMotorcycle__texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TMotorcycle__texture_list);
         TMotorcycle__texture_list = 0U;
     }

@@ -91,7 +91,6 @@ typedef struct Rabarta_80237494
 } Rabarta_80237494;
 
 extern "C" {
-s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
 u16 obj_getField1c(void *);
@@ -114,8 +113,8 @@ void TTecPlayerInfluence::render() {
     stack.sp8 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 0);
     stack.spC = *(s32 *)((s8 *)&lbl_8044D8EC.value + 4);
     stack.sp10 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 8);
-    approach_vector_in_place(arg0 + 0x3C, (void *)&stack.sp8, (f32) ((2.7f)));
-    TObjRoomId__sub_80141CF4(arg0 + 0x20, (u8 *)&this->field_2c, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
+    approach_vector_in_place(&scale, (const Vec *)&stack.sp8, 2.7f);
+    TObjRoomId__sub_80141CF4(arg0 + 0x20, (u8 *)&this->color, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
 void TTecPlayerInfluence::tick_lifetime() {

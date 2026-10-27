@@ -5,6 +5,7 @@
 #include "pso/misc/TTecZonde.h"
 
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -28,12 +29,6 @@ struct RecoveredGlobal_8023DA10___vt__12TTecZondeEff {
 };
 
 struct P_8023DBB4 { void *vt; s32 n; u8 pad[4]; };
-
-struct C_8023DBB4 { s32 v; };
-
-struct B_8023DBB4 { u8 pad[0xc]; C_8023DBB4 *c; };
-
-struct A_8023DBB4 { u8 pad[0xc8]; B_8023DBB4 *b; };
 
 struct Rec_8023D4A8 { f32 a, b, c; };
 
@@ -147,7 +142,6 @@ extern s32 TTecZondeEff_class_name;
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
 extern P_8023DBB4 tec_zonde_effect_task_list;
 extern char lbl_804CC8C8[];
-extern A_8023DBB4 *shared_effect_texture_list[];
 extern s32 TTecZondeEff__beam_vertex_data;
 f32 rand_signed_unit();
 void randomize_bolt_jitter__12TTecZondeEffFv(Obj_8023D4A8 *arg0);
@@ -553,7 +547,7 @@ void clear_zonde_beam_vertex_pointer(void) {
 void TTecZondeEff::init_resources() {
     tec_zonde_effect_task_list.vt = lbl_804CC8C8;
     tec_zonde_effect_task_list.n = 0x10;
-    TTecZondeEff__beam_vertex_data = shared_effect_texture_list[0]->b->c->v;
+    TTecZondeEff__beam_vertex_data = shared_effect_texture_list.entries[16].texture->surface->id;
 }
 
 }

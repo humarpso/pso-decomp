@@ -43,14 +43,14 @@ int TWindowKeyBoardSoft__language_text_resources;
 
 extern "C" {
 u8 *load_gvm_texture_file(s32 arg0);
-s32 TLobby__sub_803DA16C(void *);
+s32 release_texture_list(void *);
 }
 
 void TLanguage::free_alphabet_textures() {
     if (localized_alphabet_list != NULL) {
         struct GvmTextureInner *inner = localized_alphabet_list->f0;
         if (inner->f8 != 0U) {
-            TLobby__sub_803DA16C(localized_alphabet_list);
+            release_texture_list(localized_alphabet_list);
         }
         TAdSinglePlyChrSelectGC::safe_free((u32)localized_alphabet_list);
         localized_alphabet_list = NULL;

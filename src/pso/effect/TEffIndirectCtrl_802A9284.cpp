@@ -1,7 +1,7 @@
 #include "types.h"
-#include "pso/misc/TEffIndirectCtrl_802A9284.h"
+#include "pso/effect/TEffIndirectCtrl_802A9284.h"
 #include "pso/player/TObjPlayer_802A8368.h"
-#include "pso/misc/TEffIndirectCtrl.h"
+#include "pso/effect/TEffIndirectCtrl.h"
 
 extern "C" {
 s32 read_disc_file(s32, u8 *);

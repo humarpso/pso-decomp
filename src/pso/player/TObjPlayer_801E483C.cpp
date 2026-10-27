@@ -4,11 +4,11 @@
 
 extern "C" {
 
-int TLobby__sub_803DA16C();
+int release_texture_list();
 
 void TObjPlayer::free_if_valid(s32 arg0) {
     if (arg0 != 0) {
-        TLobby__sub_803DA16C();
+        release_texture_list();
         TAdSinglePlyChrSelectGC::safe_free(arg0);
     }
 }

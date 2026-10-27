@@ -867,7 +867,7 @@ void TLobby::set_entry_params(s32 arg1, s32 arg2, s32 arg3) {
 
 #pragma push
 extern u8 lobby_font_texture_loaded;
-void TLobby__sub_803DA16C(void *p);
+void release_texture_list(void *p);
 extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 load_gvm_texture_archive(void *, void *);
@@ -895,7 +895,7 @@ void TLobby::draw_fullscreen_texture_quad() {
 
 void TLobby::release_menu_font() {
     if (lobby_font_texture_loaded) {
-        TLobby__sub_803DA16C(lbl_8049C61C);
+        release_texture_list(lbl_8049C61C);
     }
     lobby_font_texture_loaded = 0;
 }

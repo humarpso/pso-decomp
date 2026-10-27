@@ -2,7 +2,7 @@
 #include "pso/misc/TTecFoie_802301EC.h"
 #include "pso/misc/TTecGiZonde_8023A4CC.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 #include "pso/misc/TTecFoie.h"
 #include "pso/misc/TNowLoading.h"
 

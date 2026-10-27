@@ -165,7 +165,7 @@ extern s32 lbl_80434C98[];
 void TLobby__sub_8001EDF4(u8 *arg0);
 s32 TLobby__sub_800F9FF4(s32);
 void mem_free(void *p);
-s32 TLobby__sub_803DA16C(void *);
+s32 release_texture_list(void *);
 Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
 void open__8TGStreamFPvPvi(void *, s32, s32);
 s32 get_gstream_file_size(void *);
@@ -664,7 +664,7 @@ Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del) {
             }
             if (self->ents16[i].b != NULL) {
                 if (self->ents16[i].flags & 1) {
-                    TLobby__sub_803DA16C(self->ents16[i].b);
+                    release_texture_list(self->ents16[i].b);
                 }
                 ((TLobby *)self)->free_if_not_owner(self->ents16[i].b);
             }

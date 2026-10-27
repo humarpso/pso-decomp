@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/system/memory.h"
-#include "pso/misc/TEffIndirectCtrl.h"
+#include "pso/effect/TEffIndirectCtrl.h"
 
 extern u32 indirect_effect_tile_buffer;
 extern "C" {

@@ -26,7 +26,7 @@ extern const f32 lbl_805DDFD4;
 extern const f32 lbl_805DDFD8;
 extern const f32 lbl_805DDFDC;
 extern const f32 lbl_805DDFE0;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 extern u32 lbl_805D6668;
 extern const s32 lbl_804666DC[];
@@ -39,7 +39,7 @@ struct Tbl_802A5154 { s32 v[5]; };
 
 void TLobby::free_dialing_gc() {
     if ((u32) lbl_805D6668 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6668);
+        release_texture_list((void*)lbl_805D6668);
         lbl_805D6668 = 0U;
     }
 }

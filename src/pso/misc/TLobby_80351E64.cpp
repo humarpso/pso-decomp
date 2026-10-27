@@ -14,7 +14,7 @@ struct L_80351EAC { u8 pad[0x1C]; u32 flags; s32 mode; };
 extern "C" {
 extern const s32 __vt__13TUnk_804F0EA8[];
 extern void *lobby_event_theme_controller;
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 extern int lobby_main_texture_gvm;
 u8 *load_gvm_texture_file(s32 arg0);
     extern unsigned char lbl_80478E20[];
@@ -80,7 +80,7 @@ u8 *TLobby__sub_80351FDC(u8 *arg0) {
 
 void TLobby__sub_8035202C(void) {
     if ((u32) (*(u32 *)&lobby_main_texture_gvm) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&lobby_main_texture_gvm));
+        release_texture_list((void*)(*(u32 *)&lobby_main_texture_gvm));
         TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&lobby_main_texture_gvm));
         (*(u32 *)&lobby_main_texture_gvm) = 0U;
     }

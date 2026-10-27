@@ -22,7 +22,7 @@ extern u32 TObjNpcHRM01__shared_object_resource;
 extern u32 TObjNpcHRM01__body_texture_gvm_handle;
 extern char TObjNpcHRM01__data_rel_filename[];
 extern char TObjNpcHRM01__body_texture_filename[];
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2);
 void __dl__7TObjectFPv(void *);
@@ -30,7 +30,7 @@ void *__nw__7TObjectFUl(int);
 
 void TObjNpcHRM01::free_shared_objects() {
     if ((u32) TObjNpcHRM01__body_texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcHRM01__body_texture_gvm_handle);
+        release_texture_list((void*)TObjNpcHRM01__body_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcHRM01__body_texture_gvm_handle);
         TObjNpcHRM01__body_texture_gvm_handle = 0U;
     }

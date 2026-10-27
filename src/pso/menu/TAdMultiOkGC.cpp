@@ -5,7 +5,7 @@
 struct E_80306AC8 { u8 pad[0x1c]; u32 flags; u8 pad2[0xc4 - 0x20]; };
 struct O_80306AC8 { E_80306AC8 e[12]; u8 pad[0x97c - 12 * 0xc4]; s32 count; };
 extern "C" {
-void TLobby__sub_803DA16C(void *);
+void release_texture_list(void *);
 extern unsigned char multi_confirm_texture_archive_name[];
 void *multi_confirm_texture_entries[3] = { multi_confirm_texture_archive_name, 0, 0 };
 struct MultiConfirmTextureList { void *entries; u32 count; };
@@ -277,7 +277,7 @@ Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_8030703
 
 void free_multi_confirm_textures(void) {
     if ((u32) multi_confirm_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)multi_confirm_texture_list);
+        release_texture_list((void*)multi_confirm_texture_list);
         multi_confirm_texture_list = 0U;
     }
 }

@@ -3,7 +3,7 @@
 
 #include "types.h"
 #include "pso/technique/TechniqueContact.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 
 struct TechniqueDamagePayload { s32 kind; f32 power; };
 struct TechniqueHitRecipient;
