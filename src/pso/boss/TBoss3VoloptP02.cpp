@@ -35,12 +35,6 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
 
-class TUnk_8048FA00 {
-public:
-    u8 pad_0[0xC];
-    virtual ~TUnk_8048FA00();
-};
-
 struct VoloptPartsMessage {
     u8 command;
     u8 size;
@@ -100,12 +94,13 @@ void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *
 void TObjPlayer__sub_800498E8(void *, void *, Vec *, u16);
 void fn_800483F8(void *, Vec *, void *, s32, s16);
 void obj_setFlags30(void *, s32);
-void reset_status_effect_row__FPUc(u8 *);
 extern s32 lbl_805D2714;
 extern u16 lbl_805D2718;
 extern BmlResource *boss3_volopt_resources;
 extern Vec boss3_volopt_spawn_pos;
 }
+
+void reset_status_effect_row(u8 *row);
 
 struct NjModel {
     void *vlist;
@@ -540,7 +535,7 @@ void TBoss3VoloptP02::run_task() {
         }
         if (obj_testFlags30(0x4000) != 0) {
             if (((TObjPlayer *)this)->add_status_effect_timer(4, -1) <= 0) {
-                reset_status_effect_row__FPUc(unk_284);
+                reset_status_effect_row(unk_284);
                 obj_clearFlags30(0x4000);
             }
         } else {

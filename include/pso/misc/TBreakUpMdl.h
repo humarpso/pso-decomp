@@ -23,8 +23,9 @@ struct TBreakUpMdl : public TObject {
     u8 *init_from_model(s32 arg1);
 };
 
-// The piece model a TBreakUpMdl is built from (init_from_model is its constructor).
-struct TUnk_8048FA00 {
+// The 0x10-byte breakup model built by init_from_model (vtable 0x8048FA00).
+class TUnk_8048FA00 {
+public:
     u8 pad_0[0xC];
     virtual ~TUnk_8048FA00();
 };
