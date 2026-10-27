@@ -20,6 +20,8 @@
 #include "pso/boss/TUnk_80484888.h"
 #include "pso/unk/text_80049FD8.h"
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/player/TObjPlayer_801542CC.h"
+#include "pso/unk/text_803D8F74.h"
 
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
@@ -27,13 +29,10 @@ s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
 s32 push_matrix(void);
 void post_translate_matrix(const Vec *v);
 void rotate_matrix_x(s32 matrix, s32 angle);
-void rotate_matrix_y(s32 matrix, s32 angle);
 void scale_matrix(s32 matrix, f32 x, f32 y, f32 z);
 void matrix_mult_vec(s32 matrix, const Vec *src, Vec *dst);
 void subtract_vector(Vec *v, const Vec *sub);
 void play_sound_effect(s32 id, const Vec *pos, s32 a2, s32 a3);
-void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
-void free_collision_body_parts(TUnk_804AF8A0 *actor);
 extern GC_Mtx identity_matrix;
 }
 

@@ -12,19 +12,18 @@
 #include "pso/system/vector.h"
 #include "pso/unk/text_800870BC.h"
 #include "pso/unk/text_803D96A8.h"
+#include "pso/player/TObjPlayer_801AF2F0.h"
+#include "pso/object/TObjButterflyLobby_8007A5D8.h"
+#include "pso/player/TObjPlayer_801542CC.h"
+#include "pso/unk/text_803D8F74.h"
 
 extern "C" {
-void rotate_matrix_y(s32 matrix, s32 angle);
 void rotate_vector_by_matrix(s32 matrix, const Vec *src, Vec *dst);
 void vec3_add_to(Vec *v, const Vec *add);
 void subtract_vector(Vec *v, const Vec *sub);
-u32 csnVector(const Vec *from, const Vec *to, s32 mask);
 void play_persistent_sound(s32 id, void *owner, const Vec *pos, s32 a3, s32 flags);
-TObjPlayer *get_player_by_client_id(s32 id);
 s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
 u16 obj_getField1c(TObject *object);
-void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
-void free_collision_body_parts(TUnk_804AF8A0 *actor);
 extern GC_Mtx identity_matrix;
 }
 
