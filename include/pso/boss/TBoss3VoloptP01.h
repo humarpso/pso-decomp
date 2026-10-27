@@ -96,6 +96,7 @@ struct TBoss3VoloptP01 : public TObjEnemyCustom {
     void set_primary(s32 primary);
     void push_nearby_players();
     BOOL is_mode_0();
+    int is_broken();
     void get_node_position(s32 node, Vec *out);
     void sub_80042F84();
     s32 update_sink();

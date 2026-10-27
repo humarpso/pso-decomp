@@ -794,7 +794,7 @@ void TBoss3VoloptCore::init_params() {
     clear_lobby_object_state();
 }
 
-TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, s16 id, s16 param) {
+TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, u16 id, s32 param) {
     TObjEnemyCustom__ct(core, parent);
     *(void ***)((u8 *)core + 0x18) = TBoss3VoloptCore__vtable;
     core->m_1c = id;

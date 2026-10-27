@@ -68,6 +68,11 @@ public:
     void set_motion(u16 target_id);
     void check_and_trigger();
     void set_action(u16 target_id);
+    BOOL is_mode_0();
+    BOOL can_set_motion();
+    BOOL can_trigger();
+    BOOL can_action();
+    BOOL can_action_wait();
     void run_state();
     static void free_resources();
     static void load_resources();

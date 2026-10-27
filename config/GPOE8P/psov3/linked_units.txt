@@ -213,7 +213,6 @@ pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin.cpp
 pso/boss/TBoss3VoloptMonitor.cpp
 pso/boss/TBoss3VoloptP01.cpp
-pso/boss/TBoss3Volopt_8003F3F8.cpp
 pso/boss/TBoss3Volopt_8004812C.cpp
 pso/boss/TUnk_80484AFC.cpp
 pso/boss/TBoss3Volopt_800C7458.cpp
@@ -850,8 +849,6 @@ pso/misc/TBreakUpMdl.cpp
 pso/misc/TButterfly.cpp
 pso/misc/TButterfly_8017F364.cpp
 pso/misc/TCameraCtrl_8002ADD0.cpp
-pso/misc/TCameraCtrl_8003F3A0.cpp
-pso/misc/TCameraCtrl_8003F3EC.cpp
 pso/misc/TCameraCtrl_80067654.cpp
 pso/misc/TCameraCtrl_8006782C.cpp
 pso/misc/TCameraCtrl_80067C88.cpp
@@ -1513,7 +1510,6 @@ pso/misc/TQuadSpriteScl.cpp
 pso/misc/TQuadSpriteSclCol.cpp
 pso/misc/TQuadSpriteSclColRot.cpp
 pso/misc/TQuestColCtrl.cpp
-pso/misc/TQuestColCtrl_8003F3BC.cpp
 pso/misc/TQuestColCtrl_80195CF0.cpp
 pso/misc/TQuestListChallenge.cpp
 pso/misc/TQuestListOnline.cpp
@@ -2250,7 +2246,6 @@ pso/object/TObjWeddingLobby.cpp
 pso/object/TObject.cpp
 pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
-pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
 pso/object/TUnk_804A6DC0.cpp
 pso/player/PlayerClassStats.cpp

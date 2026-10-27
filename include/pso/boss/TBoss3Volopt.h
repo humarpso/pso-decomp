@@ -71,5 +71,10 @@ struct TBoss3Volopt : public TObjEnemyCustom {
 
 extern s32 volopt_breakup_flag;
 
+void clear_volopt_cage_flag();
+
+class TBoss3VoloptCore;
+extern "C" TBoss3VoloptCore *fn_8003F468(TBoss3Volopt *parent, u16 id, s32 param);
+
 typedef char TBoss3Volopt_size[sizeof(TBoss3Volopt) == 0x408 ? 1 : -1];
 #endif

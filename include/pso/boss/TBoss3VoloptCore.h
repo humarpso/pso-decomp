@@ -47,6 +47,7 @@ public:
     s32 calc_spin_value();
     s32 check_target_collision();
     static s32 get_orbit_speed(s32 index);
+    BOOL is_mode_0();
 
     void run_freeze_state();
     void update_orbit_state();
@@ -77,7 +78,7 @@ public:
 typedef char TBoss3VoloptCore_size[sizeof(TBoss3VoloptCore) == 0x3D4 ? 1 : -1];
 
 extern "C" {
-TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, s16 id, s16 param);
+TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, u16 id, s32 param);
 TBoss3VoloptCore *TBoss3VoloptCore__sub_80040A7C(TBoss3VoloptCore *core, TObject *parent, void *set_data);
 }
 

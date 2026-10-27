@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
@@ -23,6 +24,7 @@
 #include "pso/object/TObjVoloptCage.h"
 #include "pso/object/TObjVoloptPillar.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804B6C24.h"
 #pragma readonly_strings on
 
 struct Vec_8003D7BC { f32 x, y, z; };
@@ -57,11 +59,8 @@ typedef struct { u8 cmd; u8 size; u16 id; s16 a; s16 b; s16 c; s16 d; } Pk15_800
 typedef struct { u8 cmd; u8 size; u16 id; u8 data[6]; s16 a; s16 b; u16 pad; } Pk84_8003E584;
 typedef struct { u8 cmd; u8 size; u16 id; u8 data[6]; s16 a; } Pk16_8003E584;
 s32 TCameraCtrl__sub_8003D0A8(void *);
-s32 TBoss3Volopt__sub_8003F458();
-extern s32 volopt_breakup_flag;
 extern s32 boss3_volopt_core_active_flag;
 
-s32 pause_update__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006A044(int, f32);
 s32 spawn_particle_effect(void *, int);
 s32 is_local_client_floor_leader();
@@ -72,29 +71,17 @@ s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u16 volopt_target_entity_ids[];
-extern u16 lbl_805D271C;
 void TBoss3Volopt__sub_8003D7BC(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 int TBoss3Volopt__sub_8003F398(void);
-s32 TBoss3Volopt__sub_8003F444(void *);
-s32 TBoss3Volopt__sub_8003F430(void *);
-s32 TBoss3Volopt__sub_8003F41C(void *);
-s32 TBoss3Volopt__sub_8003F408(void *);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u16 fn_8003C8B4(void);
 u16 fn_8003C804(void);
-extern u16 lbl_805D2718;
 void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_);
-void fn_8003F468(void *, u16, s32);
 void TBoss3VoloptHiraisin__ct(void *, void *, u16, s32);
 void init_with_slot__19TBoss3VoloptMonitorFPvPviiii(void *, void *, u16, s32, s32, s32);
-extern u16 boss3_volopt_monitor_base_actor_id;
 void request_follow_camera_offsets(void *, void *, int, f32);
 }
-extern s32 volopt_camera_seq_handle_a;
-extern s32 volopt_camera_seq_handle_b;
-extern s32 lbl_805D4C38;
-extern s32 boss3_volopt_cage_flag;
 struct Obj_8003CA2C { u8 pad[4]; s16 mode; };
 
 struct V3_8003CC18 { f32 x, y, z; };
@@ -183,9 +170,6 @@ void TBoss3Volopt__sub_8003F33C(void* p);
 void TBoss3Volopt__sub_8003F384(void* p);
 s32 get_adjusted_angle__12TBoss3VoloptFl(void *, int);
 u16 get_param_offset__12TBoss3VoloptFl(void *, int);
-s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
-s32 is_photon_blast_active__11TCameraCtrlFPv();
-s32 fn_8003F3F8();
 s32 __ct__13TUnk_80483B88Fv();
 s32 clear_flag_08000000__20TBoss3VoloptHiraisinFv();
 s32 set_flag_08000000__20TBoss3VoloptHiraisinFv();
@@ -205,26 +189,13 @@ void play_area_music(char *name);
 void __dl__7TObjectFPv(void *);
 int update_if_active__12TBoss3VoloptFl(void*);
 
-extern u16 TBoss3Volopt__cage_entity_id;
 extern RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt __vt__12TBoss3Volopt;
 extern u8 bm_boss3_volopt_resource_descriptor[];
 extern u8 boss3_volopt_resource_desc[];
 extern RecoveredGlobal_8003D648_lbl_8048377C boss3_volopt_intro_camera_poses;
 extern TObjPlayer *volopt_candidate_players[5];
-extern s32 lbl_805D2714;
-extern u16 lbl_805D271A;
-extern s32 lbl_805D2720;
 extern s32 lbl_805D2ECC;
 extern s32 TODoorVoShip__class_name;
-extern u32 boss3_volopt_resources;
-extern int vol_opt_active_hit_zone;
-extern int lbl_805D4C1C;
-extern int lbl_805D4C20;
-extern int volopt_death_active;
-extern int volopt_resources_loaded;
-extern int lbl_805D4C40;
-extern u32 volopt_active_player_id;
-extern s32 lbl_805D4C48;
 extern s32 volopt_shutter_model_a;
 extern s32 volopt_shutter_model_b;
 extern s32 volopt_shutter_global_param;
@@ -233,6 +204,29 @@ extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 tl_04;
+
+u16 TBoss3Volopt__cage_entity_id = 0xFFFF;
+s32 lbl_805D2714 = 0xFFFF;
+u16 lbl_805D2718 = 0xFFFF;
+u16 lbl_805D271A = 0xFFFF;
+u16 lbl_805D271C = 0xFFFF;
+static const char *TBoss3Volopt_name = "TBoss3Volopt";
+
+u32 boss3_volopt_resources;
+int vol_opt_active_hit_zone;
+u16 boss3_volopt_monitor_base_actor_id;
+static int lbl_805D4C1C;
+static int lbl_805D4C20;
+int volopt_death_active;
+s32 volopt_breakup_flag;
+int volopt_resources_loaded;
+static s32 volopt_camera_seq_handle_a;
+static s32 volopt_camera_seq_handle_b;
+static s32 lbl_805D4C38;
+s32 boss3_volopt_cage_flag;
+static int lbl_805D4C40;
+u32 volopt_active_player_id;
+static s32 lbl_805D4C48;
 
 Vec boss3_volopt_spawn_pos;
 __declspec(section ".data") s32 boss3_volopt_player_target_ids[2];
@@ -450,8 +444,8 @@ void TBoss3Volopt__sub_8003CE38(s32 arg0) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL) continue;
         if (*(u8 **)((s8 *)p + 0xA4) == NULL) continue;
-        if (check_value_equals__13TUnk_804B6C24Fl(p, lbl_805D2ECC) != 0) continue;
-        if (check_value_equals__13TUnk_804B6C24Fl(p, TODoorVoShip__class_name) != 0) continue;
+        if (((TUnk_804B6C24 *)p)->check_value_equals(lbl_805D2ECC) != 0) continue;
+        if (((TUnk_804B6C24 *)p)->check_value_equals(TODoorVoShip__class_name) != 0) continue;
         if (!(*(u32 *)((s8 *)(*(u8 **)((s8 *)p + 0xA4)) + 0x18) & 0x20000)) continue;
         if (fabs_float(*(f32 *)((s8 *)p + 0x40) - base) > 1000.0f) {
             V3_8003CC18 pos = *(V3_8003CC18 *)(p + 0x38);
@@ -510,7 +504,8 @@ s32 TCameraCtrl__sub_8003D0A8(void *arg0) {
 
     count = 0;
     for (i = 0; i < 6; i++) {
-        if (find_entity_by_id(volopt_target_entity_ids[i]) != NULL && is_photon_blast_active__11TCameraCtrlFPv() == 0) {
+        TBoss3VoloptP01 *p01 = (TBoss3VoloptP01 *)find_entity_by_id(volopt_target_entity_ids[i]);
+        if (p01 != NULL && p01->is_broken() == 0) {
             EE74[count] = i;
             count++;
         }
@@ -543,7 +538,8 @@ s32 is_photon_blast_active__11TCameraCtrlFv(void) {
         return 1;
     }
     for (var_r29 = 0; var_r29 < 6; var_r29 += 1) {
-        if ((find_entity_by_id(volopt_target_entity_ids[var_r29]) != NULL) && (is_photon_blast_active__11TCameraCtrlFPv() == 0)) {
+        TBoss3VoloptP01 *p01 = (TBoss3VoloptP01 *)find_entity_by_id(volopt_target_entity_ids[var_r29]);
+        if (p01 != NULL && p01->is_broken() == 0) {
             return 0;
         }
     }
@@ -551,7 +547,8 @@ s32 is_photon_blast_active__11TCameraCtrlFv(void) {
 }
 
 s32 TCameraCtrl::is_photon_ready() {
-    if ((((u32)find_entity_by_id(lbl_805D2718)) != 0U) && (fn_8003F3F8() != 0)) {
+    TBoss3VoloptP02 *p02 = (TBoss3VoloptP02 *)find_entity_by_id(lbl_805D2718);
+    if (p02 != NULL && p02->is_mode_0() != 0) {
         return 1;
     }
     return 0;
@@ -562,7 +559,7 @@ s32 TCameraCtrl__sub_8003D2C4(void) {
     void *p;
     for (i = 0; i < 6; i++) {
         p = find_entity_by_id(volopt_target_entity_ids[i]);
-        if (p != 0 && is_photon_blast_active__11TCameraCtrlFPv() == 0 && ((TBoss3VoloptP01 *)p)->is_mode_0() == 0) {
+        if (p != 0 && ((TBoss3VoloptP01 *)p)->is_broken() == 0 && ((TBoss3VoloptP01 *)p)->is_mode_0() == 0) {
             return 0;
         }
     }
@@ -751,7 +748,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
         for (i = 0; i < 6; i++) {
             p = (u8 *)find_entity_by_id(volopt_target_entity_ids[i]);
             if (p != NULL) {
-                pause_update__7TObjectFv(p);
+                ((TObject *)p)->pause_update();
             }
         }
         p = (u8 *)find_entity_by_id(lbl_805D271C);
@@ -895,7 +892,7 @@ void reset_vol_opt_state(void* a0) {
 #pragma fp_contract on
 
 void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
-    void *e;
+    TBoss3VoloptP02 *e;
     s32 n;
     Volopt_8003DD4C *o = (Volopt_8003DD4C *)arg0_;
     if (TCameraCtrl::is_photon_ready() == 0) {
@@ -908,7 +905,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
         o->f3f2--;
         return;
     }
-    e = find_entity_by_id(lbl_805D2718);
+    e = (TBoss3VoloptP02 *)find_entity_by_id(lbl_805D2718);
     if (e == NULL) {
         return;
     }
@@ -918,12 +915,12 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
         f32 total = 0.0f;
         u16 sel;
         n = 0;
-        if (TBoss3Volopt__sub_8003F444(e) != 0) {
+        if (e->can_action_wait() != 0) {
             total += 0.27f;
             thresh[0] = 0.27f;
             kind[n++] = 0;
         }
-        if (TBoss3Volopt__sub_8003F430(e) != 0) {
+        if (e->can_action() != 0) {
             thresh[n] = 0.15f + total;
             total += 0.15f;
             kind[n++] = 1;
@@ -931,12 +928,12 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             total += 0.2f;
             kind[n++] = 4;
         }
-        if (TBoss3Volopt__sub_8003F41C(e) != 0) {
+        if (e->can_trigger() != 0) {
             thresh[n] = 0.18f + total;
             total += 0.18f;
             kind[n++] = 2;
         }
-        if (TBoss3Volopt__sub_8003F408(e) != 0) {
+        if (e->can_set_motion() != 0) {
             thresh[n] = 0.2f + total;
             total += 0.2f;
             kind[n++] = 3;
@@ -965,7 +962,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
         o->f338 = sel;
         switch (o->f3f0) {
         case 0:
-            if (TBoss3Volopt__sub_8003F444(e) != 0) {
+            if (e->can_action_wait() != 0) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -977,7 +974,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0++;
             return;
         case 1:
-            if (TBoss3Volopt__sub_8003F430(e) != 0 && o->f338 != 0xFFFF) {
+            if (e->can_action() != 0 && o->f338 != 0xFFFF) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -992,7 +989,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0++;
             return;
         case 2:
-            if (TBoss3Volopt__sub_8003F41C(e) != 0) {
+            if (e->can_trigger() != 0) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -1003,7 +1000,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0++;
             return;
         case 3:
-            if (TBoss3Volopt__sub_8003F408(e) != 0 && sel != 0xFFFF) {
+            if (e->can_set_motion() != 0 && sel != 0xFFFF) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -1015,7 +1012,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0 = 0;
             return;
         case 4:
-            if (TBoss3Volopt__sub_8003F430(e) != 0) {
+            if (e->can_action() != 0) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -1029,7 +1026,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
     } else {
         switch (o->f3f0) {
         case 0:
-            if (TBoss3Volopt__sub_8003F444(e) != 0) {
+            if (e->can_action_wait() != 0) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -1041,7 +1038,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0++;
             return;
         case 1:
-            if (TBoss3Volopt__sub_8003F430(e) != 0) {
+            if (e->can_action() != 0) {
                 u16 t = find_nearest_visible_player(o, 0, 400.0f);
                 if (t != 0xFFFF) {
                     Pkt_8003DD4C p;
@@ -1059,7 +1056,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0++;
             return;
         case 2:
-            if (TBoss3Volopt__sub_8003F41C(e) != 0) {
+            if (e->can_trigger() != 0) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -1070,7 +1067,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0++;
             return;
         case 3:
-            if (TBoss3Volopt__sub_8003F408(e) != 0) {
+            if (e->can_set_motion() != 0) {
                 u16 t = find_nearest_visible_player(o, 0, 400.0f);
                 if (t != 0xFFFF) {
                     Pkt_8003DD4C p;
@@ -1085,7 +1082,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
             o->f3f0 = 0;
             return;
         case 4:
-            if (TBoss3Volopt__sub_8003F430(e) != 0) {
+            if (e->can_action() != 0) {
                 Pkt_8003DD4C p;
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
@@ -1104,6 +1101,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
 
 void TBoss3Volopt__sub_8003E584(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
+    TBoss3VoloptCore *core;
     Pk15_8003E584 a1;
     Pk15_8003E584 b1;
     Pk84_8003E584 c1;
@@ -1130,7 +1128,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
                 }
             }
             if (found != 0) {
-                if (find_entity_by_id(lbl_805D271C) != NULL && TBoss3Volopt__sub_8003F458() != 0) {
+                if ((core = (TBoss3VoloptCore *)find_entity_by_id(lbl_805D271C)) != NULL && core->is_mode_0() != 0) {
                     n = (s32)(2.0f * calc_boss4_scale__10TObjPlayerFi(arg0)) + 2;
                     ((TBoss3Volopt *)(&a1))->set_type();
                     a1.id = F(u16, 0x1C);
@@ -1194,7 +1192,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
                 }
             }
             if (found != 0) {
-                if (find_entity_by_id(lbl_805D271C) != NULL && TBoss3Volopt__sub_8003F458() != 0) {
+                if ((core = (TBoss3VoloptCore *)find_entity_by_id(lbl_805D271C)) != NULL && core->is_mode_0() != 0) {
                     n = (s32)(2.0f * calc_boss4_scale__10TObjPlayerFi(arg0)) + 2;
                     ((TBoss3Volopt *)(&a2))->set_type();
                     a2.id = F(u16, 0x1C);
@@ -1452,7 +1450,7 @@ S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {
 u8 *TBoss3Volopt__ct(TBoss3Volopt *arg0, s32 arg1) {
     TObjEnemyCustom__ct(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss3Volopt.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2720;
+    arg0->m_name = TBoss3Volopt_name;
     ((TBoss3Volopt *)(arg0))->apply_set_data((void *)arg1);
     arg0->reset_photon_effect();
     TBoss3Volopt__sub_8003EA2C(0);
@@ -1501,3 +1499,59 @@ void TBoss3Volopt::send_update_60() { bswap_actions(); TLobby__send_and_handle_6
 void TBoss3Volopt__sub_8003F384(void* p) { *(u8*)((char*)p + 0x0) = 132; *(u8*)((char*)p + 0x1) = 4; }
 
 int TBoss3Volopt__sub_8003F398(void) {  return lbl_805D4C40; }
+
+s32 TBoss3Volopt::get_adjusted_angle(s32 arg1) {
+    return *(s16 *)&this->m_2c + arg1;
+}
+
+u16 TBoss3Volopt::get_param_offset(s32 arg1) {
+    return (u16) (this->m_1c + arg1);
+}
+
+void clear_volopt_cage_flag() {
+    boss3_volopt_cage_flag = 0;
+}
+
+BOOL TUnk_804B6C24::check_value_equals(s32 name) {
+    return (s32)m_name == name;
+}
+
+void TObject::pause_update() {
+    m_flags |= PAUSE_UPDATE;
+}
+
+int TBoss3VoloptP01::is_broken() {
+    return (m_388 >> 18) & 1;
+}
+
+BOOL TBoss3VoloptP02::is_mode_0() {
+    return mode == 0;
+}
+
+BOOL TBoss3VoloptP02::can_set_motion() {
+    return !(m_388 & 0x10000);
+}
+
+BOOL TBoss3VoloptP02::can_trigger() {
+    return !(m_388 & 0x40000);
+}
+
+BOOL TBoss3VoloptP02::can_action() {
+    return !(m_388 & 0x20000);
+}
+
+BOOL TBoss3VoloptP02::can_action_wait() {
+    return !(m_388 & 0x80000);
+}
+
+BOOL TBoss3VoloptCore::is_mode_0() {
+    return mode == 0;
+}
+
+extern "C" TBoss3VoloptCore *fn_8003F468(TBoss3Volopt *parent, u16 id, s32 param) {
+    TBoss3VoloptCore *core = (TBoss3VoloptCore *)TObject::operator new(sizeof(TBoss3VoloptCore));
+    if (core != NULL) {
+        core = create_TBoss3VoloptCore(core, parent, id, param);
+    }
+    return core;
+}
