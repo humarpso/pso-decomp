@@ -15,6 +15,7 @@
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 class TObjItemNameSelect : public TObject {
 public:
  void* m_1c;
@@ -263,7 +264,6 @@ extern s32 TQuestThreadBoard__class_name;
 extern s32 TObjItemNameEntry__class_name;
 extern const char *TObjItemNameSelect__class_name;
 extern s32 local_client_id;
-extern s32 current_language;
 extern s32 game_difficulty_selection;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;

@@ -7,6 +7,7 @@
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/Language.h"
 
 struct Field_8025C974 { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 scroll; u32 capacity; };
 
@@ -41,7 +42,6 @@ s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 extern s32 lbl_805DD030;
 extern s32 lbl_805DD034;
 s32 TWindowKeyBoardSoft__sub_8025D7FC();
-extern s32 current_language;
 void export_keyboard_text(Base_8025C974 *base, char *out);
 int set_text_from_string__19TWindowKeyBoardSoftFPc(void*);
 
@@ -531,7 +531,7 @@ int TWindowKeyBoardSoft::get_field_6c() { return set_text_from_string__19TWindow
 
 void TWindowKeyBoardBase::insert_character(u16 arg1) {
     s32 f;
-    if (current_language == 0 && arg1 >= 0x80U && arg1 < 0x100U) {
+    if (current_language == LANGUAGE_JAPANESE && arg1 >= 0x80U && arg1 < 0x100U) {
         return;
     }
     if (!(*(u16 *)((s8 *)((u8 *)this) + 0x60) & 0x80) && *(u8 *)((s8 *)((u8 *)this) + 0x64) >= 1U) {
@@ -646,7 +646,7 @@ void export_keyboard_text(Base_8025C974 *base, char *out) {
     u16 *in = base->field.buffer;
     if (!(base->fb4 & 0x10) && (s32)*in != 0) {
         out[0] = 9;
-        if (current_language == 0) {
+        if (current_language == LANGUAGE_JAPANESE) {
             out[1] = 'J';
             out += 2;
         } else {

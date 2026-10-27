@@ -1767,7 +1767,7 @@ pso/misc/TWindowKeyBoardHard_8025EB68.cpp
 pso/misc/TWindowKeyBoardHard_802601D4.cpp
 pso/misc/TWindowKeyBoardHard_8026038C.cpp
 pso/misc/TWindowKeyBoardSoft_80080798.cpp
-pso/misc/TWindowKeyBoardSoft_80132A5C.cpp
+pso/ui/TLanguage_80132A5C.cpp
 pso/misc/TWindowKeyBoardSoft_80228BEC.cpp
 pso/misc/TWindowKeyBoardSoft_8024E68C.cpp
 pso/misc/TWindowKeyBoardSoft_8025B85C.cpp

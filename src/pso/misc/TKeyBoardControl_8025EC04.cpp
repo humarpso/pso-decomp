@@ -7,6 +7,7 @@
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredFields_8025FC60_arg0 {
     u8 unknown_0[0x60];
@@ -56,7 +57,6 @@ s32 is_key_57_pressed__16TKeyBoardControlFi(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 extern s32 TKeyBoardControl__global_key_state[];
-extern s32 current_language;
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 s32 TKeyBoardControl__sub_801A58B0(void);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
@@ -127,7 +127,7 @@ s32 TKeyBoardControl::translate_key_char(void *arg0_, u8 arg1, u16 *arg2) {
     if (!(arg0->sub->flags & 1) || get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state) != 0) {
         switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
         case 0:
-            if ((arg0->flags & 4) && current_language == 0) {
+            if ((arg0->flags & 4) && current_language == LANGUAGE_JAPANESE) {
                 *arg2 = keyboard_jp_symbol_map[arg1];
             } else if (shift != 0) {
                 *arg2 = keyboard_jp_shifted_map[arg1];
@@ -230,14 +230,14 @@ s32 TKeyBoardControl::get_input_mode() {
         return 3;
     }
     switch (current_language) {
-    case 1:
-    case 3:
+    case LANGUAGE_ENGLISH:
+    case LANGUAGE_FRENCH:
         return 0;
-    case 4:
+    case LANGUAGE_SPANISH:
         return 1;
-    case 2:
+    case LANGUAGE_GERMAN:
         return 2;
-    case 0:
+    case LANGUAGE_JAPANESE:
         return 3;
     }
     return (s32)c;

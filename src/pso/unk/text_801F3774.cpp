@@ -8,6 +8,7 @@
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TScene.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 struct Stack_801F37CC {
     s32 sp8;
@@ -28,7 +29,6 @@ struct Stack_801F3778 {
 extern "C" {
 void read_be16_field2__10TObjPlayerFv(void *);
 extern s32 game_difficulty_selection;
-extern s32 current_language;
 extern char offline_quest_filename_buffer_a[],offline_quest_filename_buffer_b[];
 extern char lbl_80449CD8[],lbl_80449CE0[],lbl_80449CE8[],lbl_80449CF0[],lbl_80449CF8[],lbl_80449D00[];
 void replace_file_extension__6TLobbyFPvPvPv(char*,const char*,const char*);
@@ -71,11 +71,11 @@ void handle_6x75_update_quest_flag_dc(TLobby *lobby) {
 
 void prepare_offline_quest_filenames(const char* identity) {
  switch(current_language) {
- case 0:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CD8);break;
- case 1:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CE0);break;
- case 2:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CE8);break;
- case 3:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CF0);break;
- case 4:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CF8);break;
+ case LANGUAGE_JAPANESE:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CD8);break;
+ case LANGUAGE_ENGLISH:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CE0);break;
+ case LANGUAGE_GERMAN:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CE8);break;
+ case LANGUAGE_FRENCH:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CF0);break;
+ case LANGUAGE_SPANISH:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CF8);break;
  default:replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_a,identity,lbl_80449CE0);break;
  }
  replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_b,identity,lbl_80449D00);
