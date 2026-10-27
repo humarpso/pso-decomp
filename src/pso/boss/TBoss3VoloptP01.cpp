@@ -14,7 +14,6 @@
 #include "pso/math/AngleLookup.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/misc/TBreakUpMdl.h"
-#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
@@ -25,6 +24,7 @@
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/object/TObjLight_80133568.h"
 #include "pso/object/TObjVoloptShutter.h"
+#include "pso/TObjVoloptShutter.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/vector.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -439,7 +439,7 @@ void TBoss3VoloptP01::update_attack() {
             m_b8 = 5;
             start_rise();
             m_388 |= 0x10000;
-            ((TCameraCtrl *)shutter)->set_mode();
+            shutter->open();
             *(s16 *)&timer = 0x14;
             resume_state = 1;
             state = 1;
@@ -541,7 +541,7 @@ void TBoss3VoloptP01::update_attack() {
     case 11:
         set_flags_30();
         if (update_sink() == 1) {
-            ((TCameraCtrl *)shutter)->reset_look_state();
+            shutter->close();
             vfunc_58();
             m_388 &= ~0x80000;
         }
@@ -582,7 +582,7 @@ void TBoss3VoloptP01::run_state_machine() {
             state = 2;
         } else {
             start_rise();
-            ((TCameraCtrl *)shutter)->set_mode();
+            shutter->open();
             push_nearby_players();
             state = 1;
         }
@@ -617,7 +617,7 @@ void TBoss3VoloptP01::run_state_machine() {
     case 4:
         set_flags_30();
         if (update_sink() == 1) {
-            ((TCameraCtrl *)shutter)->reset_look_state();
+            shutter->close();
             vfunc_58();
         }
         break;
@@ -640,7 +640,7 @@ void TBoss3VoloptP01::sub_80043758() {
         m_b8 = 0;
         advance_animation_playback(this);
         y_offset = -40.0f;
-        ((TCameraCtrl *)shutter)->reset_look_state();
+        shutter->close();
         is_primary = 0;
         m_388 &= ~0x80000;
         state = 1;
@@ -986,5 +986,12 @@ void TBoss3VoloptP01::load_model(s32 index) {
     texture_id = TBoss3VoloptP01__resource_bundle->models[index].m_c;
 }
 
-void TCameraCtrl::reset_look_state() { this->m_20 = 1; this->m_24 = 0; }
-void TCameraCtrl::set_mode() { this->m_20 = 2; this->m_24 = 0; }
+void TObjVoloptShutter::close() {
+    state = 1;
+    substate = 0;
+}
+
+void TObjVoloptShutter::open() {
+    state = 2;
+    substate = 0;
+}

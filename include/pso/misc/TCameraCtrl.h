@@ -76,10 +76,6 @@ struct TCameraCtrl : public TObject {
     void update_volopt_seq();
     void run_intro_camera_sequence();
     static s32 get_camera_mode();
-    void reset_look_state();
-    void set_mode();
-    static void set_player_view_flag(s32 arg0);
-    static void set_flag_08000000(s32 arg0);
     void update_target_follow();
     void init_state();
     void reset_behind_player();

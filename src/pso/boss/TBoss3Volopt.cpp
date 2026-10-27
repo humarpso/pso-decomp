@@ -12,6 +12,7 @@
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3VoloptP01.h"
+#include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TFogCtrl.h"
@@ -194,8 +195,6 @@ s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void destroy__20TBoss3VoloptHiraisinFv(void);
-s32 set_player_view_flag__11TCameraCtrlFl();
-s32 set_flag_08000000__11TCameraCtrlFl();
 void set_motion__12TBoss3VoloptFs(void *, u16);
 void set_action__12TBoss3VoloptFs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
@@ -678,8 +677,11 @@ void TCameraCtrl::run_intro_camera_sequence() {
         set_active_camera_pose((u8 *)&boss3_volopt_intro_camera_poses.value, ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
-        if (((u32)find_entity_by_id(lbl_805D2718)) != 0U) {
-            set_flag_08000000__11TCameraCtrlFl();
+        {
+            TBoss3VoloptP02 *p02 = (TBoss3VoloptP02 *)find_entity_by_id(lbl_805D2718);
+            if (p02 != NULL) {
+                p02->set_flag_08000000();
+            }
         }
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         return;
@@ -718,8 +720,11 @@ void TCameraCtrl::run_intro_camera_sequence() {
         }
         break;
     case -1:
-        if (((u32)find_entity_by_id(lbl_805D2718)) != 0U) {
-            set_player_view_flag__11TCameraCtrlFl();
+        {
+            TBoss3VoloptP02 *p02 = (TBoss3VoloptP02 *)find_entity_by_id(lbl_805D2718);
+            if (p02 != NULL) {
+                p02->clear_flag_08000000();
+            }
         }
         TWindowCtrl::init_all_slots2();
         TObjPlayer__sub_801BA42C();
