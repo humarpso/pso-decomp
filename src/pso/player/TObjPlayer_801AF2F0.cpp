@@ -169,7 +169,6 @@ struct Self_801B96BC {
 void reset_status_effect_row(u8 *arg0);
 extern "C" {
 f32 TObjPlayer__sub_800192C4(void *, int);
-int TObjPlayer__sub_801BE2D0(void *p);
 extern const f64 lbl_80446F38;
 extern const f64 lbl_80446F40;
 s32 calc_stat_threshold__10TObjPlayerFPv(void *arg0);
@@ -2617,7 +2616,7 @@ s32 calc_stat_threshold__10TObjPlayerFPv(void *arg0) {
     if (var_r31 > 0x63) {
         var_r31 = 0x63;
     }
-    if (TObjPlayer__sub_801BE2D0(arg0) != 0) {
+    if (((TObjPlayer *)arg0)->is_newman() != 0) {
         var_r31 *= lbl_80446F38;
         return 0x5A - var_r31;
     }
@@ -2701,7 +2700,7 @@ s32 is_action_available__10TObjPlayerFi(s32 arg0) {
     if (is_camera_ready__10TObjPlayerFv() != 0) {
         return (u32)__cntlzw(obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x20000)) >> 5;
     }
-    return ((TObjPlayer *)arg0)->is_ready() != 0 ? 1 : 0;
+    return ((TObjPlayer *)arg0)->is_android() != 0 ? 1 : 0;
 }
 
 s32 TObjPlayer::are_traps_full() {
@@ -2710,7 +2709,7 @@ s32 TObjPlayer::are_traps_full() {
 
 s32 TObjPlayer::is_alive_and_ready() {
     s32 arg0 = (s32)this;
-    if ((((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() == 0) && (((TObjPlayer *)arg0)->is_ready() != 0)) {
+    if ((((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() == 0) && (((TObjPlayer *)arg0)->is_android() != 0)) {
         return 1;
     }
     return 0;
@@ -2954,7 +2953,7 @@ s32 TObjPlayer__sub_801AFD8C(u8 *arg0) {
     return temp_r3;
 }
 
-s32 TObjPlayer::get_move_mode() { return this->m_890; }
+s32 TObjPlayer::get_class_flags() { return this->class_flags; }
 
 s8 TObjPlayer::get_class_index() {
     return (s8) this->m_88d;
@@ -5310,12 +5309,12 @@ void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 void TObjPlayer::init_trait_flags() {
     this->m_2e4 = 0;
-    if (get_move_mode() & 0x10) {
+    if (get_class_flags() & CLASS_FLAG_ANDROID) {
         this->add_flags_2e4(4);
     } else {
         this->add_flags_2e4(1);
     }
-    if (get_move_mode() & 0x40) {
+    if (get_class_flags() & CLASS_FLAG_RANGER) {
         this->add_flags_2e4(0x20);
     }
 }
@@ -5333,12 +5332,12 @@ s32 TObjPlayer::get_clamped_index() {
 void set_move_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = ((TObjPlayer *)arg0)->get_move_mode();
-    if (temp_r3 & 0x10) {
+    temp_r3 = ((TObjPlayer *)arg0)->get_class_flags();
+    if (temp_r3 & CLASS_FLAG_ANDROID) {
         ((TObjPlayer *)arg0)->set_move_mode(2);
         return;
     }
-    if (temp_r3 & 8) {
+    if (temp_r3 & CLASS_FLAG_NEWMAN) {
         ((TObjPlayer *)arg0)->set_move_mode(1);
         return;
     }
@@ -5347,14 +5346,14 @@ void set_move_mode__10TObjPlayerFi(s32 arg0) {
 
 void TObjPlayer::apply_input_mode() {
     s32 arg0 = (s32)this;
-    s32 move_mode;
+    s32 class_flags;
 
-    move_mode = get_move_mode();
-    if (move_mode & 0x20) {
+    class_flags = get_class_flags();
+    if (class_flags & CLASS_FLAG_HUNTER) {
         ((TObjPlayer *)arg0)->set_input_mode(0);
         return;
     }
-    if (move_mode & 0x40) {
+    if (class_flags & CLASS_FLAG_RANGER) {
         ((TObjPlayer *)arg0)->set_input_mode(1);
         return;
     }
@@ -7827,7 +7826,7 @@ void TObjPlayer::setup_fresh_player_state(u8 *arg1) {
     if ((obj_isState2_324__13TUnk_804806E8Fv() != 0) && (((s32 (*)(void))is_lobby_floor_15__15TFontSmallLobbyFv)() == 0) && (check_camera_mode__10TObjPlayerFv() == 0)) {
         deactivate_body_collision();
     }
-    if (this->is_ready() != 0) {
+    if (this->is_android() != 0) {
         this->set_flag_10000();
     }
     if (is_alive_and_ready() != 0) {

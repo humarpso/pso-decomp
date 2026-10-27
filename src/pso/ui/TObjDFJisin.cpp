@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/PlayerClassFlags.h"
 #include "pso/object/TObjDFHorming.h"
 #include "pso/TObjDFTenchuFuru.h"
 #include "pso/TObject.h"
@@ -139,7 +140,7 @@ struct Player_80050D74 : VObj_80050D74 {
     u8 pad1c[0x38 - 0x1c];
     Vec_80050D74 pos;
     u8 pad44[0x890 - 0x44];
-    u32 flags890;
+    u32 class_flags;
 };
 
 typedef struct Vec_80050EB4 {
@@ -392,7 +393,7 @@ void damage_players_near_point(s32 arg0, Vec_80050D74 *arg1) {
     for (i = 0; i < TLobby::get_game_mode(); i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0 &&
-            !(p->flags890 & 0x10) &&
+            !(p->class_flags & CLASS_FLAG_ANDROID) &&
             !(xyz_distance(&pos, &p->pos) > lbl_805D8A8C)) {
             Hit_80050D74 h = hit;
             p->m21(TBoss4DarkFalz__sub_8004C1B4(), &h, 0, -1, -1);

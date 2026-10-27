@@ -22,7 +22,7 @@ void TItemLockCountCtrl::create_instance() {
 }
 
 void fn_8011E1D4(TObjPlayer *player) {
-    if (!(player->m_890 & 0x10)) {
+    if (!(player->class_flags & CLASS_FLAG_ANDROID)) {
         ((TObjPlayer *)player)->sub_8011E204(0x10000);
     }
 }

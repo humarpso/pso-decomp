@@ -2,6 +2,7 @@
 #define PSO_PLAYER_TOBJPLAYER_H
 
 #include "types.h"
+#include "pso/player/PlayerClassFlags.h"
 #include "pso/player/PlayerScaleState.h"
 #include "pso/player/TUnk_804806E8.h"
 
@@ -220,7 +221,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     u8 m_88d;
     s8 m_88e;
     u8 unk_88F[0x1];
-    s32 m_890;
+    s32 class_flags;
     u8 unk_894[0x18];
     void* m_8ac;
     u8 unk_8B0[0x4];
@@ -278,7 +279,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void add_item_flags(u32 v);
     int has_flag_128();
     s16 get_mag_data();
-    s32 get_flag890_state();
+    player_class_type get_class_type();
     static void add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2);
     static void step_angle_clamped(void *actor, int arg1);
     void drain_owner_hp_fraction(f32 farg0);
@@ -690,7 +691,8 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void finalize_shared();
     static void init_shared();
     static u8 check_camera_mode();
-    int is_ready();
+    int is_android();
+    int is_newman();
     int check_stat_flag_41c();
     int check_flag_at_41c();
     int set_flag_41c_bit1();
@@ -1410,7 +1412,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void refill_traps();
     static void update_movement_by_screen();
     s16 get_handle_value();
-    s32 get_move_mode();
+    s32 get_class_flags();
     static s32 check_technique_castable(s32 arg0);
     void sync_current_floor();
     void sync_current_area();

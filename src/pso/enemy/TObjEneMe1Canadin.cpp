@@ -1925,7 +1925,7 @@ extern const f32 lbl_805D9900;
 extern const f32 lbl_805D9904;
 extern const f32 lbl_805D9908;
 extern const f32 lbl_805D990C;
-int TObjEneDD__sub_800BA6B8(void *p);
+int is_target_android(void *p);
 extern const f32 lbl_805D991C;
 extern const f32 lbl_805D9918;
 extern const f32 lbl_805D9920;
@@ -3493,7 +3493,7 @@ void TObjEneMe1Canadin__sub_8009CC74(void *arg0, s32 arg1) {
                 if (TObjEneMe1Canadin__sub_8009E76C((u8 *)o) != 0 && ((VObj_8009CC74 *)o->target)->m18(o, lbl_805D98D4) != 0) {
                     ((VObj_8009CC74 *)o->target)->m20(o, lbl_805D98D4);
                     ((VObj_8009CC74 *)o->target)->m23(o, lbl_805D9904);
-                    if ((s32)is_player_entity_id(obj_getField1c(o->target)) != 0 && TObjEneDD__sub_800BA6B8(o->target) != 0 && calc_boss4_scale__10TObjPlayerFi((s32)o) < lbl_805D9908) {
+                    if ((s32)is_player_entity_id(obj_getField1c(o->target)) != 0 && is_target_android(o->target) != 0 && calc_boss4_scale__10TObjPlayerFi((s32)o) < lbl_805D9908) {
                         ((VObj_8009CC74 *)o->target)->m47();
                         ((VObj_8009CC74 *)o->target)->m72(0);
                     }
