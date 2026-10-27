@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/player/PlayerClassFlags.h"
 #include "pso/object/TObjDFHorming.h"
 #include "pso/TObjDFTenchuFuru.h"
@@ -807,7 +808,7 @@ void TObjDFRecover::run_task() {
         if (countdown <= 0) {
             TBoss4Type2::request_destroy((u32)effect);
             effect = NULL;
-            TBoss4Type3::spawn_effect(0xC0, 0xF, (int) ((s16) target_id));
+            start_pad_rumble_client(0xC0, 0xF, (int) ((s16) target_id));
             countdown = 0xB;
             phase = 2;
             return;

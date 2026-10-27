@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
@@ -149,7 +150,7 @@ void TBoss6Demo11_TYPE1_DEAD::run_task() {
     case 0x8C:
     case 0xBE:
     case 0xFF:
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     }
     F(s32, 0x44)++;

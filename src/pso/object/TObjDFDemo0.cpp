@@ -3,6 +3,7 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/object/TObjDFDemo1.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/player/TObjPlayer_80052374.h"
 #include "pso/player/TObjPlayer_803E4954.h"
@@ -286,7 +287,7 @@ void TObjDFDemo1::run_task() {
         }
     }
     if (self->timer == 0x46 || self->timer == 0x2C) {
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (self->timer == 0x7C) {
         play_sound_effect(0x4003AA26, self->pos, 0, 1);

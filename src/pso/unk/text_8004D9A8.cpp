@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
@@ -168,18 +169,18 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
     case 0:
         play_sound_effect(0x4003BC07, lbl_804854F0, 0, 1);
         play_sound_effect(0x3C604, lbl_804854F0, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     case 0x50:
         play_sound_effect(0x3A805, 0, 0, 0);
     case 0x64:
     case 0x78:
         play_sound_effect(0x4003D006, lbl_804854F0, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     case 0x8C:
         play_sound_effect(0x36408, lbl_804854F0, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     case 0x92:
         play_sound_effect(0x3DA03, lbl_804854F0, 0, 1);
@@ -189,7 +190,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         break;
     case 0xC8:
         play_sound_effect(0x40039E21, lbl_804854F0, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     }
     ((TBoss4Type2 *)(self + 0x94))->scroll_strips();

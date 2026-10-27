@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/misc/TLobby_802268F4.h"
 #include "pso/object/TObject_80019A50.h"
@@ -101,7 +102,7 @@ void TObjDFDemo5::run_task() {
     this->update_particle_emitters();
     if ((s32) this->m_e4 == 0x8C) {
         play_cue_stream_file((s32) "dfdeath.adx");
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     { f32 k = 0.5f; temp_f1 = *(f32 *)((s8 *)this + 0xE8) + k; }
     *(f32 *)((s8 *)this + 0xE8) = temp_f1;

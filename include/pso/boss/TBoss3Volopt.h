@@ -121,11 +121,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void play_area_sound_effect();
     static s32 collect_and_count(u32 arg0, s32 arg1);
     void call_vt21();
-    int is_active();
-    static void update_if_active(s32 id);
-    static void alloc_event(s16 frames, s32 id);
-    static void alloc_effect_node(u32 arg0, s16 arg1, s32 arg2);
-    static void queue_event_1D(s16 arg0, s16 arg1);
     static s32 remap_area_sound_id(s32 arg0);
     void create_cage(u16 target_id);
     static void clear_flag8_all(u32 **arg0);

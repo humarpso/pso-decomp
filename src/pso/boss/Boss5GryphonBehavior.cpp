@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -4239,18 +4240,18 @@ void TBoss3Volopt__sub_800627E4(u8 *arg0, u32 arg1) {
                 if (objInBand((GameObj *)(arg0), (f32)lbl_805D8E60) != 0) {
                     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)sp8, (void *)boss5_gryphon_waypoint_vecs);
                     ((s32 (*)(void *, void *, int))spawn_particle_effect_with_flags)((void *)sp8, (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x5F0)) + 4)), 0x40);
-                    TBoss3Volopt::queue_event_1D(0x1C, 0x3C);
+                    start_pad_rumble_all(0x1C, 0x3C);
                 } else if (objInBand((GameObj *)(arg0), (f32)lbl_805D8E64) != 0) {
                     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)sp8, (void *) ((u8 *)boss5_gryphon_waypoint_vecs + 0xC));
                     ((s32 (*)(void *, void *, int))spawn_particle_effect_with_flags)((void *)sp8, (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x5F0)) + 4)), 0x40);
-                    TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+                    start_pad_rumble_all(0xC0, 0xF);
                 } else if ((objInBand((GameObj *)(arg0), (f32)lbl_805D8E68) != 0) || (objInBand((GameObj *)(arg0), (f32)lbl_805D8E6C) != 0)) {
                     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)sp8, (void *) ((u8 *)boss5_gryphon_waypoint_vecs + 0xC));
                     ((s32 (*)(void *, void *, int))spawn_particle_effect_with_flags)((void *)sp8, (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x5F0)) + 0)), 0x40);
                 }
                 if (objInBand((GameObj *)(arg0), (f32)lbl_805D8E70) != 0) {
                     play_sound_effect(0x40032A00, (void *) (0), 0, 0);
-                    TBoss3Volopt::queue_event_1D(0xA0, 0x3C);
+                    start_pad_rumble_all(0xA0, 0x3C);
                 }
                 if ((objInBand((GameObj *)(arg0), (f32)lbl_805D8D6C) != 0) || (objInBand((GameObj *)(arg0), (f32)lbl_805D8E74) != 0)) {
                     play_sound_effect(0x40033409, (void *) (0), 0, 0);
@@ -4260,7 +4261,7 @@ void TBoss3Volopt__sub_800627E4(u8 *arg0, u32 arg1) {
                 }
                 if (objInBand((GameObj *)(arg0), (f32)lbl_805D8E78) != 0) {
                     play_sound_effect(0x40033409, (void *) (0), 0, 0);
-                    TBoss3Volopt::queue_event_1D(0x80, 7);
+                    start_pad_rumble_all(0x80, 7);
                 }
                 if (objInBand((GameObj *)(arg0), (f32)lbl_805D8E7C) != 0) {
                     TObjBoss5Ctrl::play_pillar_sound();

@@ -1,16 +1,11 @@
 #include "types.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC_802431D0.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/misc/TWindowKeyBoardHard.h"
 
 extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E15A4(s32, s32, s32, s32, s32 *, s32);
 int TAdPlayerLoadGC__sub_801E1944(void*, int, int, int);
-int reset_pad_rumble_effects_and_channels(void*);
 
-int TAdSinglePlyChrSelectGC__sub_802431D0(void) { return reset_pad_rumble_effects_and_channels((void*)(0)); }
-int TAdSinglePlyChrSelectGC::test_card_flag8() { return TWindowKeyBoardHard::test_card_flag((s32)this, 8); }
 void TAdSinglePlyChrSelectGC::draw_window_bg(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
 

@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+struct TObjEnemy;
+
 extern "C" {
 void TObjPlayer__sub_8000FF4C(void *p, s16 v);
 void TObjPlayer__sub_8001053C(u8 *arg0);
@@ -33,7 +35,7 @@ int get_item_field_6__10TObjPlayerFPv(void *p);
 int get_player_data__10TObjPlayerFi(int a0);
 s32 get_type__10TObjPlayerFPv(void *p);
 u8 is_locally_controlled__10TObjPlayerFPv(u8 *arg0);
-bool is_split_screen(void);
+BOOL is_split_screen(void);
 void main(void);
 f32 newton_sqrtf(f32 x);
 int obj_getPtr2B0_20(u8 *p);

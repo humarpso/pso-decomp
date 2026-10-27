@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -3677,7 +3678,7 @@ void TBoss8Dragon__sub_802F6838(u8 *arg0, u32 arg1) {
         case 0:
             if (objInBand__FP7GameObjf(arg0, TBoss8Dragon__data_805DEDAC) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DEDE8) != 0) {
                 play_sound_effect(0x4003AD07, 0, 0, 0);
-                TBoss3Volopt::queue_event_1D(0xA0, 0xF);
+                start_pad_rumble_all(0xA0, 0xF);
             }
             if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEDEC && *(f32 *)((s8 *)arg0 + 0xC0) < lbl_805DEDF0) {
                 direction_to_rotation_xz(arg0 + 0x41C, &r.x, &r.z);
@@ -6009,7 +6010,7 @@ void TBoss8Dragon__sub_802FB828(u8 *arg0, s32 arg1) {
 
 void TBoss8Dragon::spawn_effect() {
     s32 arg0 = (s32)this;
-    TBoss3Volopt::alloc_effect_node(arg0 + 0x38, 0xE0, arg0);
+    start_pad_rumble_at((Vec *)(arg0 + 0x38), 0xE0, arg0);
 }
 
 #pragma push

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
@@ -143,7 +144,7 @@ void TObjDFDemo2::run_task() {
             ((TBoss4Type2 *)e)->set_flags(0x40);
         }
         play_sound_effect(0x4003AD15, arg0->fac, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     while (arg0->ftimer >= 0xB4) {
         if (arg0->fa8 != 0 || arg0->ftimer <= 0xDC) {

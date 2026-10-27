@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TWindowCtrl_8024A054.h"
 #include "pso/misc/TWindowSubStatusDisp_80248BE8.h"
 #include "pso/misc/TWindowMainMenu.h"
@@ -192,7 +193,7 @@ void TUnk_804D1818::update_photon_selection() {
     if ((selected_menu_value == 4) && ((s8)this->m_1d != temp_r3)) {
         (this->m_1d) = (u8) temp_r3;
         if ((s8)this->m_1d == 0) {
-            TBoss4Type3::spawn_effect(0xC0, 0xF, (s16) *(s32 *)&(this->m_20));
+            start_pad_rumble_client(0xC0, 0xF, (s16) *(s32 *)&(this->m_20));
         }
     }
 }
@@ -255,7 +256,7 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
         ((TUnk_804D0618 *)temp_r31)->ensure_status_display((int) (get_message_10__20TWindowSubStatusDispFl(0x6A)));
         TWindowSubStatusDisp::dispatch_without_flags(temp_r31, (int) (get_message_10__20TWindowSubStatusDispFl(0xA6)), 0);
         TWindowSubStatusDisp::dispatch_without_flags(temp_r31, (int) (get_message_10__20TWindowSubStatusDispFl(0xA7)), 1);
-        temp_r3 = ((TAdSinglePlyChrSelectGC *)(this->m_20))->test_card_flag8();
+        temp_r3 = TWindowKeyBoardHard::test_card_flag_8(this->m_20);
         this->m_1d = temp_r3;
         var_r29 = (s16) temp_r3;
         break;

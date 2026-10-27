@@ -8127,26 +8127,16 @@ pso/misc/TWindowSubStatusDisp_80242908.cpp:
 	.text       start:0x80242908 end:0x80242910
 
 pso/misc/TLobby_80242910.cpp:
-	.text       start:0x80242910 end:0x80242C48
-	.rodata     start:0x8044E5C8 end:0x8044E5D0
-
-pso/boss/TBoss3Volopt_80242C48.cpp:
-	.text       start:0x80242C48 end:0x80242CFC
-
-pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp:
-	.text       start:0x80242CFC end:0x80242D74
-
-pso/boss/TBoss3Volopt_80242D74.cpp:
-	.text       start:0x80242D74 end:0x80242F0C
-
-pso/unk/text_80242F0C.cpp:
-	.text       start:0x80242F0C end:0x80242F94
+	.text       start:0x80242910 end:0x80242938
 
 pso/system/PadRumble.cpp:
-	.text       start:0x80242F94 end:0x802431D0
+	.text       start:0x80242938 end:0x80243218
+	.rodata     start:0x8044E5C8 end:0x8044E5D0
+	.bss        start:0x80518580 end:0x80518730
+	.sdata2     start:0x805DCA00 end:0x805DCA10
 
-pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp:
-	.text       start:0x802431D0 end:0x802432F0
+pso/ui/TAdSinglePlyChrSelectGC_80243218.cpp:
+	.text       start:0x80243218 end:0x802432F0
 
 pso/unk/text_802432F0.cpp:
 	.text       start:0x802432F0 end:0x80243370

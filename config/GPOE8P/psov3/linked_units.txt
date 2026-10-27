@@ -218,8 +218,6 @@ pso/boss/TBoss3Volopt_800C7458.cpp
 pso/boss/TBoss3Volopt_800D8ACC.cpp
 pso/boss/TBoss3Volopt_80131700.cpp
 pso/boss/TBoss3Volopt_8016A47C.cpp
-pso/boss/TBoss3Volopt_80242C48.cpp
-pso/boss/TBoss3Volopt_80242D74.cpp
 pso/boss/TBoss4CheckEmpty.cpp
 pso/boss/TBoss4CheckEmpty_8034A8B0.cpp
 pso/boss/TBoss4CheckEmpty_8034A8FC.cpp
@@ -2789,8 +2787,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801E4CF0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80202A68.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
-pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp
-pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp
+pso/ui/TAdSinglePlyChrSelectGC_80243218.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028C650.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028C8E0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.cpp
@@ -3366,7 +3363,6 @@ pso/unk/text_8023F160.cpp
 pso/unk/text_8023F1B8.cpp
 pso/unk/text_8023F3F8.cpp
 pso/unk/text_8023F660.cpp
-pso/unk/text_80242F0C.cpp
 pso/unk/text_802432F0.cpp
 pso/unk/text_802437C4.cpp
 pso/unk/text_80244238.cpp

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/misc/TLockOnCursor.h"
@@ -3573,7 +3574,7 @@ void TObjPlayer::send_field_state() {
 
 void TObjPlayer::spawn_effect(s32 arg0) {
     if (((s32 (*)(void))is_locally_controlled__10TObjPlayerFPv)() != 0) {
-        TBoss4Type3::spawn_effect(0xC0, 0xF, ((s32 (*)(s32))obj_getField1c)(arg0));
+        start_pad_rumble_client(0xC0, 0xF, ((s32 (*)(s32))obj_getField1c)(arg0));
     }
 }
 

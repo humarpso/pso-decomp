@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptCtrl.h"
@@ -1461,11 +1462,11 @@ BOOL TBoss3Volopt::is_death_active() {
 }
 
 void TBoss3Volopt::start_rumble() {
-    alloc_event(0xA0, 0);
+    start_pad_rumble(0xA0, 0);
 }
 
 void TBoss3Volopt::stop_rumble() {
-    update_if_active(0);
+    cancel_pad_rumble(0);
 }
 
 void TBoss3Volopt::update_phase() {

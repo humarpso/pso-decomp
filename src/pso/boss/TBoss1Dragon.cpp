@@ -148,6 +148,7 @@ struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct Obj_80021260;
 #include "types.h"
+#include "pso/system/PadRumble.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -3271,7 +3272,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
         case 0:
             if (objInBand((GameObj *)arg0, (f32)TBoss1Dragon__data_805D7F84) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D7FB4)) != 0) {
                 play_sound_effect(0x4003AD07, 0, 0, 0);
-                TBoss3Volopt::queue_event_1D(0xA0, 0xF);
+                start_pad_rumble_all(0xA0, 0xF);
             }
             if (F(f32, 0xC0) >= TBoss1Dragon__data_805D7F3C && F(f32, 0xC0) < TBoss1Dragon__data_805D7F68) {
                 direction_to_rotation_xz(arg0 + 0x418, (s32 *)&rot.x, (s32 *)&rot.z);
@@ -5545,7 +5546,7 @@ void apply_landing_attack__12TBoss1DragonFi(s32 arg0) {
 }
 
 void clear_work__12TBoss1DragonFi(s32 arg0) {
-    TBoss3Volopt::alloc_effect_node(arg0 + 0x38, 0xE0, arg0);
+    start_pad_rumble_at((Vec *)(arg0 + 0x38), 0xE0, arg0);
 }
 
 #pragma push

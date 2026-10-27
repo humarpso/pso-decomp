@@ -2,6 +2,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_8001C5E8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_8033A8EC.h"
 #include "pso/ui/TObjBagWarnWin_8006EF24.h"
@@ -594,7 +595,7 @@ void *TUnk_804EF8C0::construct() {
     }
     alloc_download_buffer();
     clear_buffer();
-    TAdSinglePlyChrSelectGC::init_slots();
+    stop_pad_rumble();
     return this;
 }
 }

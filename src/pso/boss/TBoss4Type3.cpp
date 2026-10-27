@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -1620,7 +1621,7 @@ void TBoss4Type3::update_target_effect_timer() {
     static s32 sound_frame = (s32)8.0f;
     temp_r30 = *(s32 *)((s8 *)this + 0x3D8) % 39;
     if (temp_r30 == 0) {
-        TBoss4Type3::spawn_effect(0x60, 0xF, (s16) *(u16 *)((s8 *)this + 0x3BA));
+        start_pad_rumble_client(0x60, 0xF, (s16) *(u16 *)((s8 *)this + 0x3BA));
     }
     if (temp_r30 == sound_frame) {
         ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003C133, 0, 0, 0);
@@ -1956,7 +1957,7 @@ void TBoss4Type3::update_light_magic() {
                 TTecGrants::create((void *)arg0, (void *)sub, &g, (void *)r29);
             }
         }
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (--*(s32 *)((s8 *)arg0 + 0x398) < 0) {
         ((TBoss4Type3 *)arg0)->set_action_from_table(1);
@@ -2006,7 +2007,7 @@ void TBoss4Type3::update_dark_magic() {
                 create__9TTecMegidFllll(o, &v, (u8 *)p, r30);
             }
         }
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (--o->f398 < 0) {
         ((TBoss4Type3 *)o)->set_action_from_table(1);
@@ -2057,7 +2058,7 @@ void TBoss4Type3::update_capture() {
     ((TBoss4Type3 *)arg0)->turn_toward_player(this->m_3b8);
     if (this->m_398 == 0x31) {
         play_sound_effect(0x4003AA2E, 0, 0, 0);
-        TBoss4Type3::spawn_effect(0xC0, 0xF, (s16)this->m_3b8);
+        start_pad_rumble_client(0xC0, 0xF, (s16)this->m_3b8);
         ((TBoss4Type3 *)arg0)->set_anim_state(5);
     }
     pos = (u8 *)&this->m_474;
@@ -2190,7 +2191,7 @@ void TBoss4Type3::update_libera() {
     }
     ((TBoss4Type3 *)o)->turn_toward_player(id);
     if (o->f398 == 0x31) {
-        TBoss4Type3::spawn_effect(0xC0, 0xF, (s16)o->f3ba);
+        start_pad_rumble_client(0xC0, 0xF, (s16)o->f3ba);
         o->f3b8 = 0xFFFF;
         o->f3ba = 0xFFFF;
     }

@@ -1,5 +1,6 @@
 #pragma readonly_strings on
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/boss/TBoss4Type3_800524E8.h"
 #include "pso/boss/TBoss4Zanzo.h"
 #include "pso/object/TObject_80019A50.h"
@@ -968,7 +969,7 @@ void TBoss4Type2::beam_update() {
             ((TBoss4Type2 *)h)->set_flags(0x40);
         }
         play_sound_effect(0x4003A813, arg0 + 0x38, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (*(s32 *)((s8 *)arg0 + 0x398) <= 0x26 && *(s32 *)((s8 *)arg0 + 0x398) >= 4 && !(*(s32 *)((s8 *)arg0 + 0x398) & 1)) {
         VecCopy((Vec *)&p, (const Vec *)(arg0 + 0x410));

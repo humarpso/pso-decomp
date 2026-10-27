@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
@@ -861,7 +862,7 @@ void update_tech_charge__11TBoss4Type2FPv(u8 *arg0) {
         } else {
             ((TTecRaFoie *)arg0)->create(arg0 + 0x3B8, arg0 + 0x3B8, (void *)(*(s32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x36)) + 0x18)));
         }
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (--*(s32 *)((s8 *)arg0 + 0x398) < 0) {
         ((TBoss4Type2 *)arg0)->set_state(1);
@@ -1845,7 +1846,7 @@ void TBoss4Type2__sub_80054DA8(TBoss4Type2 *boss) {
         }
     }
     play_sound_effect(0x4003A818, 0, 0, 0);
-    TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+    start_pad_rumble_all(0xC0, 0xF);
 }
 
 s32 TBoss4Type1::create(s32 arg0) {

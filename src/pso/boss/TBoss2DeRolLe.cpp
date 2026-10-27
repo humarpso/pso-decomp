@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TObjPlayer.h"
@@ -1710,7 +1711,7 @@ void handle_death_state__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
                 play_sound_effect((void *)0x4003AD11, 0, 0, 0);
             } else if (objInBand__FP7GameObjf(o, lbl_805D8298) != 0) {
                 play_sound_effect((void *)0x4003AD12, 0, 0, 0);
-                TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+                start_pad_rumble_all(0xC0, 0xF);
             }
             o->f6E4++;
             t = o->fC0;
