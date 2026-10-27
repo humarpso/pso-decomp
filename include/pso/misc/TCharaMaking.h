@@ -4,12 +4,14 @@
 #include "types.h"
 #include "pso/TObject.h"
 
+struct CharacterAppearanceFields;
+
 struct TCharaMaking : public TObject {
     virtual ~TCharaMaking();
     u32 m_1c;
     u32 m_20;
     static s32 query_state();
-    static void setup_from_data(s32 arg0, s32 arg1);
+    static void setup_from_data(s32 model, CharacterAppearanceFields *appearance);
     void free_loaded_buffers();
     void update_body_parts();
     static void clear_flag_bit0();

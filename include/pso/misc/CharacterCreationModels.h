@@ -2,6 +2,7 @@
 #define PSO_MISC_CHARACTER_CREATION_MODELS_H
 
 #include "types.h"
+#include "pso/misc/CharacterAppearance.h"
 
 struct CreationModelPart {
     u32 present;
@@ -18,6 +19,6 @@ extern u32 chara_select_hair_node_b;
 extern u32 chara_select_head_node;
 extern s32 chara_select_preview_resource;
 }
-extern u32 creation_player_character;
+extern CharacterAppearanceFields *creation_player_character;
 
 #endif

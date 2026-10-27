@@ -9,6 +9,7 @@ int qst_label_address(int label);
 }
 #include "pso/quest/QuestOpcodeTables.h"
 #include "types.h"
+#include "pso/camera/CreationCamera.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/system/date.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -474,7 +475,6 @@ void append_hero_name(void);
 extern "C" {
 s32 is_split_screen();
 char *TLobby__sub_800713C8();
-char *TLobby__sub_80291D4C();
 extern char lbl_805DC4AC[3];
 void TLobby__sub_801E6998(void);
 u8 TLobby__sub_801E6BB8(void);
@@ -501,7 +501,7 @@ extern u8 *TLobby__quest_script_read_ptr;
 void TLobby__sub_801E6998(void) {
     char buf[0x40];
     if (is_split_screen() == 1) {
-        sprintf(buf, lbl_805DC4AC, TLobby__sub_80291D4C());
+        sprintf(buf, lbl_805DC4AC, get_split_screen_character_name());
     } else {
         sprintf(buf, lbl_805DC4AC, TLobby__sub_800713C8());
     }

@@ -54,12 +54,12 @@ __declspec(section ".data") u32 creation_models_ready;
 #pragma common reset
 extern "C" {
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-s32 creation_motion_group(u32);
+s32 creation_motion_group(CharacterAppearanceFields *);
 void load_creation_shape_rel(W_80290250 *arg0);
 void TCharaMaking__sub_8028E3A0();
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
 extern u8 lbl_80451CD0[];
-s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(void *, u32);
+s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 extern CreationTextureCacheEntry *char_select_current_entry;
 void advance_animation_playback(s32);
 void TAdSinglePlyChrSelectGC__sub_8028ED54(void);
@@ -1048,7 +1048,6 @@ s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
 s32 TObjMotion__ct(void *, void *);
 void *mem_alloc(u32 size);
 }
-extern u32 creation_player_character;
 extern u32 creation_figure_object;
 void request_creation_motion(s32 arg0);
 extern s32 chara_select_creation_shape_rel_files[];
@@ -1127,7 +1126,7 @@ extern "C" {
 void *TCMCharacter__ct(void *motion, void *arg1) {
     CreationTextureCacheEntry *p;
     s32 res;
-    u32 cm;
+    CharacterAppearanceFields *cm;
 
     TObjMotion__ct(motion, arg1);
     *(void **)((s8 *)motion + 0x18) = (void *)lbl_804D4054;

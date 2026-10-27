@@ -284,7 +284,7 @@ force_active:
   - TCameraCtrl__sub_8006B798
   - TCameraCtrl__sub_8006CC30
   - TCameraCtrl__sub_8006E804
-  - TCameraCtrl__sub_80291C64
+  - __dt__14CreationCameraFv
   - TChCrEffTagStr__name
   - TChCrEffTag__name
   - TChCrLoadAfsTextureReq__active_load_count
@@ -3352,7 +3352,7 @@ force_active:
   - construct_card_window_array__23TAdSinglePlyChrSelectGCFPv
   - construct_card_window_array__23TAdSinglePlyChrSelectGCFi
   - construct_city_vertical_model__FPUcll
-  - construct_creation_camera__FPv
+  - __ct__14CreationCameraFv
   - construct_dagger_weapon__FPUcPUcPUc
   - construct_entry_array
   - construct_entry_array__6TLobbyFv
@@ -5218,7 +5218,7 @@ force_active:
   - lbl_804CF9F8
   - lbl_804CFA10
   - lbl_804CFA28
-  - lbl_804DAB08
+  - __vt__14CreationCamera
   - lbl_804DC098
   - lbl_804DC448
   - lbl_804DD830
@@ -12625,7 +12625,7 @@ force_active:
   - update_countdown__11TBoss6Type1Fv
   - update_countdown__15TObjDeadListWinFv
   - update_countdown_state__11TBoss6Type1Fv
-  - update_creation_camera_auto
+  - frame_menu_selection__14CreationCameraFv
   - update_customize_help_text__13TUnk_804D1160FPv
   - update_cut__11TBoss4Type3Fv
   - update_dark_magic__11TBoss4Type3Fv

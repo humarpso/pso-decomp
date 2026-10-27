@@ -11,7 +11,7 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC_8029A914.h"
 #include "pso/unk/text_8028D8B8.h"
 #include "pso/unk/text_802910EC.h"
-#include "pso/unk/text_80291290.h"
+#include "pso/camera/CreationCamera.h"
 #include "pso/object/TObjCMMainMenu.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TCharaMaking.h"
@@ -58,7 +58,7 @@ void init_creation_menu_scene(void) {
         TCameraCtrl__ct((u8 *)p, (void *)tl_camera);
     }
     TCameraCtrl::select_active_controller(8);
-    fn_80291290();
+    begin_creation_view();
     register_texture_f256_ad_pic_2();
     register_texture_f256_backtext();
     TLobby::update_keyboard_menu();

@@ -212,7 +212,7 @@ s32 TUnk_80488E00::predict_obstruction() {
 void TCameraCtrl__sub_80068354(void) {  }
 void TCameraCtrl__sub_80068358(void) {  }
 
-void TCameraCtrl::post_update_view() {
+void TUnk_80488A28::post_update_view() {
     Vec_8006835C e;
     Vec_8006835C d;
     Vec_8006835C *t;

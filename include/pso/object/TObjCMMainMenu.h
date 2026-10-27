@@ -2,6 +2,10 @@
 #define PSO_OBJECT_TOBJCMMAINMENU_H
 #include "pso/TObject.h"
 #include <stddef.h>
+
+// The id of the entry selected in the character creation main menu.
+extern s32 creation_menu_selected_entry;
+
 class TObjCMMainMenu : public TObject {
 public:
     virtual ~TObjCMMainMenu();

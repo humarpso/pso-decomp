@@ -2,7 +2,7 @@
 #include "pso/misc/TCharaMaking_8028E790.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_8028D8B8.h"
-#include "pso/unk/text_80291268.h"
+#include "pso/camera/CreationCamera.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/TChCrCharSelect.h"
 #include "pso/TSaveChCr.h"
@@ -64,7 +64,7 @@ s32 TCharaMaking::update_main_menu(s32 arg0) {
             var_r3 = 1;
         }
         TSaveChCr::create((void *)var_r3);
-        fn_80291268();
+        end_creation_view();
         queue_destruction__7TObjectFv((void *)arg0);
         return 1;
     }

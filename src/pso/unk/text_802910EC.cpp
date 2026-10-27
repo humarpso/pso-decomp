@@ -4,7 +4,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/TObjCMIcon.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/camera/CameraViewParams.h"
 #include "pso/ui/Language.h"
 
 struct RecoveredGlobal_80291138_lbl_804D9668 {
@@ -15,23 +14,13 @@ struct RecoveredGlobal_80291138_lbl_804D9668 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_48 { u8 bytes[0x48]; };
 
-struct RecoveredGlobal_802911E8_lbl_804DAA78 {
-    s32 value;
-    u8 remaining[0x8C];
-};
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 s32 TLobby__sub_803DA16C(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
-extern RecoveredGlobal_802911E8_lbl_804DAA78 creation_view_parameters;
-extern f32 lbl_805D3CA0;
-extern const f32 lbl_805DD968;
-extern const f32 lbl_805DD96C;
-extern const f32 lbl_805DD970;
 extern u8 creation_chara_sprite_entries[];
 extern s32 creation_sprite_table_index;
 s32 create__10TObjCMIconFPv(int);
@@ -66,7 +55,6 @@ void fn_80291138(void) {
 }
 #pragma push
 #pragma fp_contract on
-typedef char RecoveredGlobal_802911E8_lbl_804DAA78_size[sizeof(RecoveredGlobal_802911E8_lbl_804DAA78) == 0x90 ? 1 : -1];
 
 void fn_80291178(void) {
     creation_sprite_table_index = 0;
@@ -80,12 +68,4 @@ void fn_80291178(void) {
 }
 }
 
-void set_creation_projection_center(f32 farg0) {
-    struct CopyStack_802911E8 { u8 bytes[0x48]; };
-    CopyStack_802911E8 copy_storage_802911E8;
-    *(ByteBlock_48 *)(copy_storage_802911E8.bytes) = *(const ByteBlock_48 *)((s32) ((u8 *)&creation_view_parameters.value + -4) + 4);
-    (*(f32 *)(copy_storage_802911E8.bytes + 0x8)) = lbl_805DD968 * ((lbl_805DD970 * farg0) + lbl_805DD96C);
-    ((CameraViewParams *)(copy_storage_802911E8.bytes))->apply_if_overridden();
-    lbl_805D3CA0 = farg0;
-}
 #pragma pop

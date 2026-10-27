@@ -10,6 +10,7 @@
 #include "pso/TObjCMHairMenu.h"
 #include "pso/TObjCMAssignMenu.h"
 #include "pso/object/TObjCMMainMenu.h"
+#include "pso/camera/CreationCamera.h"
 #include "pso/object/TObjCMProportion.h"
 #include "pso/object/TObjCMAutoMkData.h"
 #include "pso/TChCrCharSelect.h"
@@ -149,7 +150,6 @@ extern const f32 lbl_805DDBF4;
 extern const f32 lbl_805DDBF8;
 extern const f32 lbl_805DDBFC;
 extern const f32 TObjCMMainMenu__data_805DDC00;
-void set_creation_projection_center(f32 farg0);
 extern const Icons_802952E0 lbl_80465118;
 extern const f32 lbl_805DDAC8;
 extern const f32 lbl_805DDAE0;
@@ -440,7 +440,6 @@ extern s32 lbl_804DBDA8[];
 extern RecoveredGlobal_80298F08_lbl_8050E3B8 controller_physical_port_bank;
 extern RecoveredGlobal_80298DD4_lbl_8051C07C character_creation_name_buffer;
 extern f32 ui_sprite_scale;
-extern f32 lbl_805D3CA0;
 extern const char *lbl_805D3CD0;
 extern const char *lbl_805D3CDC;
 extern s32 lbl_805D3CE0;
@@ -451,8 +450,6 @@ extern void *creation_player_character;
 extern s32 creation_dressing_room_mode_flag;
 extern int creation_figure_rotation_y;
 extern void *creation_figure_object;
-extern int creation_camera_mode;
-extern s32 TObjCMMainMenu__selected_entry_id;
 extern const f32 lbl_805DDA74;
 extern const f32 lbl_805DDA78;
 extern const f32 lbl_805DDA94;
@@ -1876,7 +1873,7 @@ void TObjCMMainMenu::run_task() {
         &TObjCMMainMenu::sub_802984FC,
     };
     (this->*table[TObjCMMainMenu__data_805D659C])();
-    TObjCMMainMenu__selected_entry_id = this->entries[this->selected_entry];
+    creation_menu_selected_entry = this->entries[this->selected_entry];
     TObjCMMainMenu::update_random_proportion_action(this);
     ((void (*)(void *))TObjCMMainMenu__sub_80298310)(this);
     switch (TObjCMMainMenu__data_805D659C) {
@@ -2259,7 +2256,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
     ((Menu_80298B70 *)arg0)->list = creation_menu_mode_lists[((Menu_80298B70 *)arg0)->mode].entries;
     (*(int *)&TObjCMMainMenu__data_805D659C) = 0;
     ((Menu_80298B70 *)arg0)->f2C = 0;
-    TObjCMMainMenu__selected_entry_id = ((Menu_80298B70 *)arg0)->list[((Menu_80298B70 *)arg0)->f2C];
+    creation_menu_selected_entry = ((Menu_80298B70 *)arg0)->list[((Menu_80298B70 *)arg0)->f2C];
     fn_802993F0();
     ((Menu_80298B70 *)arg0)->f38 = lbl_805DDA90;
     ((Menu_80298B70 *)arg0)->f3C = lbl_805DDA90;
@@ -2287,7 +2284,7 @@ f32 TObjCMMainMenu::get_scale() {
 }
 
 f32 TObjCMMainMenu::get_proportion() {
-    return lbl_805D3CA0;
+    return creation_view_shift;
 }
 
 void TObjCMMainMenu::set_selection(int a0) { creation_camera_mode = a0; }
