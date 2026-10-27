@@ -351,7 +351,7 @@ static NjObject *chain_nodes_b[5];
 static void *boss_stat_handle;
 static void *shared_handler_b;
 static void *object_handle;
-s32 *volopt_p02_params;
+VoloptP02Params *volopt_p02_params;
 static s32 *part_params;
 BmlResource *lbl_805D4CE4;
 static TUnk_8048FA00 *breakup_model;
@@ -502,7 +502,7 @@ void TBoss3VoloptP02::load_resources() {
     boss_stat_handle = TLobby::register_boss(0x25);
     shared_handler_b = TLobby::dispatch_shared_handler_b(0x25);
     object_handle = TLobby::register_object(0x25);
-    volopt_p02_params = (s32 *)TLobby::dispatch_shared_handler_a(0x25);
+    volopt_p02_params = (VoloptP02Params *)TLobby::dispatch_shared_handler_a(0x25);
     part_params = (s32 *)TLobby::dispatch_shared_handler_a(0x2A);
 }
 

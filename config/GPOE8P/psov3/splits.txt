@@ -428,7 +428,10 @@ pso/unk/text_80048118.cpp:
 	.text       start:0x80048118 end:0x8004812C
 
 pso/boss/TBoss3Volopt_8004812C.cpp:
-	.text       start:0x8004812C end:0x80048360
+	.text       start:0x8004812C end:0x80048260
+
+pso/boss/TBoss3Volopt_80048260.cpp:
+	.text       start:0x80048260 end:0x80048360
 
 pso/player/TObjPlayer_80048360.cpp:
 	.text       start:0x80048360 end:0x800483F8

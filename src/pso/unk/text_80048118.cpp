@@ -1,8 +1,7 @@
 #include "types.h"
 #include "pso/unk/text_80048118.h"
-struct G_80048118 { u8 pad[0x18]; s32 arr[1]; };
+#include "pso/boss/TBoss3VoloptP02.h"
 
-extern G_80048118 *volopt_p02_params;
-s32 TObjVoloptPillar__sub_80048118(s32 i) {
-    return volopt_p02_params->arr[i];
+s32 TObjVoloptPillar__sub_80048118(s32 index) {
+    return volopt_p02_params->int_params[index];
 }

@@ -5,6 +5,7 @@
 #include "dolphin/mtx.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/misc/RenderFadeState.h"
+#include "pso/system/BmlResource.h"
 
 struct VoloptPhase2Message {
     u8 command;
@@ -13,6 +14,11 @@ struct VoloptPhase2Message {
     s16 mode;
     s16 delays[3];
     u8 pad_C[0x8];
+};
+
+struct VoloptP02Params {
+    f32 float_params[6];
+    s32 int_params[6];
 };
 
 class TBoss3VoloptP02 : public TObjEnemyCustom {
@@ -100,6 +106,9 @@ public:
     f32 ring_radius;
     s32 ring_phase;
 };
+
+extern BmlResource *lbl_805D4CE4;
+extern VoloptP02Params *volopt_p02_params;
 
 typedef char TBoss3VoloptP02_size[sizeof(TBoss3VoloptP02) == 0x510 ? 1 : -1];
 
