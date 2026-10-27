@@ -180,7 +180,7 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
 s32 TUnk_8048E1A4::select_melee_contact_body(void *, f32) { return 1; }
 int TUnk_8048E1A4::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-f32 TUnk_8048E1A4::receive_direct_attack(void *, void *, void *, s32, s32) {
+f32 TUnk_8048E1A4::receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32) {
     return lbl_805D9378;
 }
 

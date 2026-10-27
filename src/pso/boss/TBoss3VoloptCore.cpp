@@ -25,7 +25,7 @@ struct TBoss3VoloptCoreTarget : public TUnk_804AF8A0 {
     virtual s32 select_melee_contact_body(TObject *attacker, f32 range);
     virtual int calc_distance_accuracy_penalty(void *, void *, void *, f32);
     virtual f32 receive_physical_attack(TObject *attacker, f32 scale);
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
     virtual f32 receive_weapon_special_attack(void *, void *);
     virtual void apply_knockback_from_attacker(TObject *attacker, f32 strength);
 };

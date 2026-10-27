@@ -410,7 +410,7 @@ void *lbl_804E135C[83] = {
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, s32, V_802CAAF0, s32, s32, s32);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, s32, V_802CAAF0, s32, s32, s32);
 f32 receive_weapon_special_attack__13TUnk_804806E8FPvPv();
 f32 receive_physical_attack__13TUnk_804806E8FPvf();
 
@@ -434,7 +434,7 @@ f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAA
         ((TUnk_804806E8 *)arg0)->show_miss_popup((const float *)(arg0->f2FC));
         ((TObjEneMe1GiGue *)arg0)->set_state(10);
     } else {
-        r = receive_direct_attack__13TUnk_804806E8FPvPvPvll(arg0, arg1, arg2, arg3, -1, -1);
+        r = receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(arg0, arg1, arg2, arg3, -1, -1);
     }
     return r;
 }

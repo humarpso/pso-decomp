@@ -23,7 +23,7 @@ struct TOMine : public TUnk_804806E8 {
     virtual void vfunc_84();
     virtual void vfunc_85();
     virtual void vfunc_86();
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
     virtual void vfunc_6(s16 *, s32);
     virtual f32 receive_physical_attack(void *, f32);
     virtual int vfunc_12();

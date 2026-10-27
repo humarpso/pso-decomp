@@ -237,7 +237,7 @@ void __dl__7TObjectFPv(void *);
 s32 __dt__11TBoss6Type2Fv(s32 self_, s16 flag);
 extern const s32 lbl_8047133C[];
 struct AttackMsg_802BD430 { s32 type; s32 value; };
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
 f32 vfunc_23__11TBoss6Type2FPvPvPvll(TBoss6Type2 *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
 void set_screen_pos__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
@@ -2628,7 +2628,7 @@ f32 vfunc_23__11TBoss6Type2FPvPvPvll(TBoss6Type2 *self, void *attacker, AttackMs
         self->spawn_hit_effects();
         return TBoss6Type2__data_805DE410;
     }
-    return receive_direct_attack__13TUnk_804806E8FPvPvPvll(self, attacker, msg, collision, tech, arg5);
+    return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(self, attacker, msg, collision, tech, arg5);
 }
 
 #pragma push

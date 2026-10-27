@@ -49,7 +49,7 @@ s32 TUnk_80484A94::try_capture_target() {
             }
             if (obj_is_hit_receivable(target) != 0) {
                 DirectAttackPayload hit = {0, 0.0f};
-                target->receive_direct_attack(m_up, &hit, NULL, -1, -1);
+                target->receive_direct_attack(m_up, hit, NULL, -1, -1);
                 owner = m_up;
                 if (owner != NULL) {
                     ((TBoss3Volopt *)owner)->create_cage(obj_getField1c(target));

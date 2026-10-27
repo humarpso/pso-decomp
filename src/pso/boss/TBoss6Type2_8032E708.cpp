@@ -1144,7 +1144,7 @@ typedef char RecoveredGlobal_803300C8_lbl_80477404_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803300C8_lbl_80477428_size[sizeof(RecoveredGlobal_803300C8_lbl_80477428) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_803300C8_lbl_804EDD94_size[sizeof(RecoveredGlobal_803300C8_lbl_804EDD94) == 0x50 ? 1 : -1];
 
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, void *, P_80330240, void *, void *, void *);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, void *, P_80330240, void *, void *, void *);
 s32 query_teammate_state__9TObjEneDDFv();
 
 f32 fn_80330240(O_80330240 *arg0, void *att, P_80330240 arg2, void *coll, void *tech, void *arg5) {
@@ -1154,7 +1154,7 @@ f32 fn_80330240(O_80330240 *arg0, void *att, P_80330240 arg2, void *coll, void *
         }
         break;
     }
-    return receive_direct_attack__13TUnk_804806E8FPvPvPvll(arg0, att, arg2, coll, tech, arg5);
+    return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(arg0, att, arg2, coll, tech, arg5);
 }
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD340(int);

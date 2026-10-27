@@ -778,10 +778,7 @@ s32 TBoss3VoloptP01::fire_zonde_at_players() {
                 bolt->construct((u8 *)tl_07, (u8 *)&pos, (u8 *)&dir, len);
             }
             VecCopy(&pos, target_pos);
-            {
-                DirectAttackPayload hit = attack;
-                target->receive_direct_attack(this, &hit, NULL, -1, -1);
-            }
+            target->receive_direct_attack(this, attack, NULL, -1, -1);
         }
         hiraisin = (TBoss3VoloptHiraisin *)find_entity_by_id(volopt_hiraisin_id);
         if (hiraisin != NULL) {

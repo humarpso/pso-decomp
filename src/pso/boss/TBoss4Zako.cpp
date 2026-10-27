@@ -1114,7 +1114,7 @@ void add_actor_exp__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
 void apply_defense_stat_status__13TUnk_804806E8FPv();
-void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
+void receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void receive_physical_attack__13TUnk_804806E8FPvf();
 void vfunc_67__13TUnk_804806E8Ff();
@@ -1194,7 +1194,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)select_melee_contact_body__13TUnk_804806E8FPvf,
     (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
-    (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
+    (s32)receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
     (s32)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
@@ -1279,7 +1279,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)select_melee_contact_body__13TUnk_804806E8FPvf,
     (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
-    (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
+    (s32)receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
     (s32)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
@@ -1364,7 +1364,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)select_melee_contact_body__13TUnk_804806E8FPvf,
     (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
-    (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
+    (s32)receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
     (s32)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,

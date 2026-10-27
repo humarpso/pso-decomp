@@ -370,7 +370,7 @@ extern const f32 lbl_805DBAA4;
 
 #pragma push
 #pragma fp_contract on
-void receive_direct_attack__16TOTrapAncient02RFPvPvPvll();
+void receive_direct_attack__16TOTrapAncient02RFPv19DirectAttackPayloadPvll();
 void receive_weapon_special_attack__16TOTrapAncient02RFPvPv();
 void vfunc_86__16TOTrapAncient02RFv();
 void vfunc_88__16TOTrapAncient02RFv();
@@ -516,7 +516,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&select_melee_contact_body__16TOTrapAncient02RFPvf,
     (s32)&calc_distance_accuracy_penalty__16TOTrapAncient02RFPvPvPvf,
     (s32)&receive_physical_attack__16TOTrapAncient02RFPvf,
-    (s32)&receive_direct_attack__16TOTrapAncient02RFPvPvPvll,
+    (s32)&receive_direct_attack__16TOTrapAncient02RFPv19DirectAttackPayloadPvll,
     (s32)&receive_weapon_special_attack__16TOTrapAncient02RFPvPv,
     (s32)&apply_knockback_from_attacker__6TOTrapFPUc,
     (s32)&try_start_action__16TOTrapAncient02RFll,

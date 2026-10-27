@@ -232,7 +232,7 @@ extern s32 TContainerAncient01__effect_id_table[];
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
 
 int calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf(void);
-f32 receive_direct_attack__20TContainerAncient01RFPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
+f32 receive_direct_attack__20TContainerAncient01RFPv19DirectAttackPayloadPvll(void *arg0, s32 arg1, s32 *arg2);
 void render__20TContainerAncient01RFv(u8 *arg0);
 void vfunc_6__20TContainerAncient01RFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
@@ -364,7 +364,7 @@ void *__vt__20TContainerAncient01R[79] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&is_within_range__19TContainerAncient01Fii, (void *)&calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf, (void *)&receive_physical_attack__20TContainerAncient01RFPvf, (void *)&receive_direct_attack__20TContainerAncient01RFPvPvPvll,
+    (void *)&is_within_range__19TContainerAncient01Fii, (void *)&calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf, (void *)&receive_physical_attack__20TContainerAncient01RFPvf, (void *)&receive_direct_attack__20TContainerAncient01RFPv19DirectAttackPayloadPvll,
     (void *)&receive_weapon_special_attack__20TContainerAncient01RFPvPv, (void *)&apply_knockback_from_attacker__20TContainerAncient01RFPUc, (void *)&try_start_action__20TContainerAncient01RFll, (void *)&roll_physical_accuracy__20TContainerAncient01RFPvlf,
     (void *)&vfunc_28__13TUnk_804806E8Fv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
@@ -559,12 +559,11 @@ f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     return TContainerAncient01__data_805DBD14[0];
 }
 
-f32 TContainerAncient01R::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
-    s32 *arg2 = (s32 *)arg2_arg;
+f32 TContainerAncient01R::receive_direct_attack(void *arg1, DirectAttackPayload payload, void *, s32, s32) {
     s32 temp_r4;
     struct VObj_8018AC68_8018A584 *o = (struct VObj_8018AC68_8018A584 *)this;
 
-    temp_r4 = *arg2;
+    temp_r4 = payload.kind;
     if ((temp_r4 == 0) || ((temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
         o->m20(0, TContainerAncient01__data_805DBD10[0]);
     }
@@ -929,12 +928,11 @@ f32 TContainerAncient01::receive_physical_attack(void *, f32) {
     return TContainerAncient01__data_805DBD14[0];
 }
 
-f32 TContainerAncient01::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
-    s32 *arg2 = (s32 *)arg2_arg;
+f32 TContainerAncient01::receive_direct_attack(void *arg1, DirectAttackPayload payload, void *, s32, s32) {
     s32 temp_r4;
     struct VObj_8018B820_8018B79C *o = (struct VObj_8018B820_8018B79C *)this;
 
-    temp_r4 = *arg2;
+    temp_r4 = payload.kind;
     if ((temp_r4 == 0) || ((temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
         o->m20(0, TContainerAncient01__data_805DBD10[0]);
     }

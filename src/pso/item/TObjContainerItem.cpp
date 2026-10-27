@@ -169,7 +169,7 @@ void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_within_range__10TObjPlayerFl();
 void calc_distance_accuracy_penalty__13TUnk_804B6C24FPvPvPvf();
 void receive_physical_attack__21TObjContainerAbeEnemyFPvf();
-void receive_direct_attack__13TUnk_804B6C24FPvPvPvll();
+void receive_direct_attack__13TUnk_804B6C24FPv19DirectAttackPayloadPvll();
 void receive_weapon_special_attack__13TUnk_804B6C24FPvPv();
 void apply_knockback_from_attacker__13TUnk_804B6C24FPUc();
 void try_start_action__13TUnk_804B6C24Fll();
@@ -248,7 +248,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)is_within_range__10TObjPlayerFl,
     (void *)calc_distance_accuracy_penalty__13TUnk_804B6C24FPvPvPvf,
     (void *)receive_physical_attack__21TObjContainerAbeEnemyFPvf,
-    (void *)receive_direct_attack__13TUnk_804B6C24FPvPvPvll,
+    (void *)receive_direct_attack__13TUnk_804B6C24FPv19DirectAttackPayloadPvll,
     (void *)receive_weapon_special_attack__13TUnk_804B6C24FPvPv,
     (void *)apply_knockback_from_attacker__13TUnk_804B6C24FPUc,
     (void *)try_start_action__13TUnk_804B6C24Fll,
@@ -643,12 +643,11 @@ f32 TUnk_804B6C24::receive_physical_attack(void *, f32) {
     return lbl_805DBCF4;
 }
 
-f32 TUnk_804B6C24::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
-    s32 *arg2 = (s32 *)arg2_arg;
+f32 TUnk_804B6C24::receive_direct_attack(void *arg1, DirectAttackPayload payload, void *, s32, s32) {
     s32 temp_r4;
     struct VObj_8018A0B4 *o = (struct VObj_8018A0B4 *)this;
 
-    temp_r4 = *arg2;
+    temp_r4 = payload.kind;
     if ((temp_r4 == 0) || ((temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
         o->m20(0, lbl_805DBCF0);
     }

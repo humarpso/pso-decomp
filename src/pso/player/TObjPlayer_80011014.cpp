@@ -331,7 +331,7 @@ u8 obj_isState3_324__13TUnk_804806E8Fv(u8* p);
 s32 get_type__10TObjPlayerFPv(void* p);
 void create_hit_effect__10TObjPlayerFPv(void *);
 s32 is_boss_area(void);
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(Actor_8001311C *self, Actor_8001311C *att, Info_8001311C *arg, Coll_8001311C *coll, s32 tech, s32 arg5);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(Actor_8001311C *self, Actor_8001311C *att, Info_8001311C *arg, Coll_8001311C *coll, s32 tech, s32 arg5);
 u8 obj_is_hit_receivable(u8 *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D586C;
@@ -1899,7 +1899,7 @@ void *lbl_804806E8[] = {
     (void *)select_melee_contact_body__13TUnk_804806E8FPvf,
     (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (void *)receive_physical_attack__13TUnk_804806E8FPvf,
-    (void *)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
+    (void *)receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
     (void *)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (void *)try_start_action__13TUnk_804806E8Fll,
@@ -2462,7 +2462,7 @@ f32 TUnk_804806E8::receive_weapon_special_attack(void *attacker, void *collision
 #undef CLEARCOLL_W24
 #pragma pop
 
-f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 tech, s32 arg5) {
+f32 TUnk_804806E8::receive_direct_attack(void *att, DirectAttackPayload payload, void *coll, s32 tech, s32 arg5) {
     Info_8001311C info;
     Vec_8001311C pos;
     s32 immune;
@@ -2471,7 +2471,7 @@ f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 t
     f32 dmg;
     f32 f;
     f32 heal;
-    ((void (*)(Info_8001311C *, Info_8001311C *))obj_copyVec2_0)(&info, ((Info_8001311C *)arg));
+    ((void (*)(Info_8001311C *, Info_8001311C *))obj_copyVec2_0)(&info, (Info_8001311C *)&payload);
     if (info.power < 0.0f) {
         info.power = 0.0f;
     }

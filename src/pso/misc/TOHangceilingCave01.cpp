@@ -648,7 +648,7 @@ f32 TUnk_804B2578::receive_weapon_special_attack(void *, void *) {
     return 0.0f;
 }
 
-f32 TUnk_804B2578::receive_direct_attack(void *, void *, void *, s32, s32) {
+f32 TUnk_804B2578::receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32) {
     return 0.0f;
 }
 

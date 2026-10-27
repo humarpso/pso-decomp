@@ -12,7 +12,7 @@ public:
     virtual void vfunc_81();
     virtual void debug_print_item_box_info();
     void *destroy_container_object(s16);
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
     virtual f32 receive_physical_attack(void *, f32);
     void spawn_item(s32);
     virtual void vfunc_6(s16 *, s32);

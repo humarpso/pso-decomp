@@ -92,7 +92,7 @@ void spawn_disp_objects__6TOMineFv(u8 *arg0);
 void apply_object_set_data__6TOMineFPv();
 void vfunc_85__6TOMineFv();
 void vfunc_6__6TOMineFPsl();
-void receive_direct_attack__6TOMineFPvPvPvll();
+void receive_direct_attack__6TOMineFPv19DirectAttackPayloadPvll();
 void vfunc_86__6TOMineFv();
 void render__6TOMineFv();
 void vfunc_29__13TUnk_804806E8Fv();
@@ -185,7 +185,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)can_trigger__10TOMineTrapFUl,
     (void *)check_trigger__10TOMineTrapFUl,
     (void *)receive_physical_attack__6TOMineFPvf,
-    (void *)receive_direct_attack__6TOMineFPvPvPvll,
+    (void *)receive_direct_attack__6TOMineFPv19DirectAttackPayloadPvll,
     (void *)receive_weapon_special_attack__6TOMineFPvPv,
     (void *)apply_knockback_from_attacker__6TOMineFPUc,
     (void *)try_start_action__6TOMineFll,

@@ -378,7 +378,7 @@ int TOAttackableCol::calc_distance_accuracy_penalty(void *, void *, void *, floa
 
 f32 TOAttackableCol::receive_physical_attack(void *_w1, f32) { return this->apply_hit((s32)_w1); }
 
-f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) { return this->apply_hit((s32)_w1); }
+f32 TOAttackableCol::receive_direct_attack(void *_w1, DirectAttackPayload, void *, s32, s32) { return this->apply_hit((s32)_w1); }
 
 f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return this->apply_hit((s32)_w1); }
 

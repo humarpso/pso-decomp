@@ -421,8 +421,7 @@ f32 TOMine::receive_weapon_special_attack(void *arg1, void *) {
 
 typedef struct VBase_18_33b813 VBase_18_33b813;
 typedef struct VObj_18_33b813 VObj_18_33b813;
-f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
-    s32 *arg2 = (s32 *)arg2_arg;
+f32 TOMine::receive_direct_attack(void *arg1, DirectAttackPayload payload, void *, s32, s32) {
   s32 temp_r0;
   s32 var_r31;
   if (arg1 == 0)
@@ -440,7 +439,7 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
   }
   if (var_r31 != 0)
   {
-    temp_r0 = *arg2;
+    temp_r0 = payload.kind;
     if (temp_r0 != 0x13)
     {
       if ((temp_r0 < 0x13) && (temp_r0 < 5))

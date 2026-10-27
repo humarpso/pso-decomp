@@ -72,8 +72,7 @@ void fn_80048C04(TObjVoloptCage *cage) {
     attack.power = TObjVoloptPillar__sub_80048118(2);
     player = get_player_by_client_id(cage->targetId);
     if (player != NULL) {
-        DirectAttackPayload hit = attack;
-        player->receive_direct_attack(cage->m_up, &hit, NULL, -1, -1);
+        player->receive_direct_attack(cage->m_up, attack, NULL, -1, -1);
     }
     cage->status = 15;
     obj_setFlags30(cage, 0x800);

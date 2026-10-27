@@ -269,7 +269,7 @@ extern const f32 TObjEneMe3Stelth__data_805DA820;
 extern const f32 TObjEneMe3Stelth__data_805DA824;
 void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
-s32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, void *, void *, void *, s32, s32);
+s32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, void *, void *, void *, s32, s32);
 u16 obj_getField1c(void *);
 void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
 void fn_8002B630(u8 *arg0, u8 *arg1);
@@ -287,7 +287,7 @@ void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *actor, void 
     } else if (actor->f326 == 2) {
         ((TObjEneDD *)actor)->transition_enemy_state(6);
     }
-    ((s32 (*)(void *, void *, Pair_800F0EC4, void *, s32, s32))receive_direct_attack__13TUnk_804806E8FPvPvPvll)(actor, arg1, arg2, arg3, -1, -1);
+    ((s32 (*)(void *, void *, Pair_800F0EC4, void *, s32, s32))receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll)(actor, arg1, arg2, arg3, -1, -1);
 }
 
 s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1) {

@@ -68,8 +68,7 @@ void TUnk_80484AFC::explode_and_destroy() {
                 break;
             }
             if (obj_is_hit_receivable(target) != 0) {
-                DirectAttackPayload hit = attack;
-                target->receive_direct_attack(m_up, &hit, NULL, -1, -1);
+                target->receive_direct_attack(m_up, attack, NULL, -1, -1);
             }
         }
     }

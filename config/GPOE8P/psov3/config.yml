@@ -10549,7 +10549,7 @@ force_active:
   - rebuild_com_card_list__17TWindowSubComCardFii
   - rebuild_item_list__18TShopGetItemWindowFv
   - receive_attack__15TObjEneMe1GiGueFPviii
-  - receive_direct_attack__20TContainerAncient01RFPvPvPvll
+  - receive_direct_attack__20TContainerAncient01RFPv19DirectAttackPayloadPvll
   - receive_physical_attack__15TObjEneMe1GiGueFPvf
   - receive_physical_attack__16TOTrapAncient02RFPvf
   - receive_physical_attack__19TObjEneEpsilonGuardFPvf

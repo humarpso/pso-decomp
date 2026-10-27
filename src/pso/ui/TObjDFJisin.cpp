@@ -625,7 +625,7 @@ void get_actor_level_index__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_target_in_attack_range__13TUnk_804806E8Fv();
-void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
+void receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll();
 void receive_physical_attack__13TUnk_804806E8FPvf();
 void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
 void apply_defense_stat_status__13TUnk_804806E8FPv();
@@ -672,7 +672,7 @@ void *__vt__13TObjDFHorming[] = {
     (void *)select_melee_contact_body__13TUnk_804806E8FPvf,
     (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (void *)receive_physical_attack__13TUnk_804806E8FPvf,
-    (void *)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
+    (void *)receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
     (void *)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (void *)try_start_action__13TUnk_804806E8Fll,

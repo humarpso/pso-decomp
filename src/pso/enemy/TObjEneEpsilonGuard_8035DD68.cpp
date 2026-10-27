@@ -480,7 +480,7 @@ void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 // (moved from TBoss6DPB: these three EpsilonGuard methods at 0x8035DCC0-0x8035DD68 use this unit's pool)
 struct Msg_8035DD18 { s32 type; s32 value; };
 extern "C" {
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, s32, Msg_8035DD18, void *, s32, s32);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, s32, Msg_8035DD18, void *, s32, s32);
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
 }
 
@@ -496,7 +496,7 @@ f32 TObjEneEpsilonGuard::receive_physical_attack(void *, f32) {
 }
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 att, Msg_8035DD18 *msg, void *coll, s32 tech, s32 arg5) {
     if (msg->type == 0x14) {
-        return receive_direct_attack__13TUnk_804806E8FPvPvPvll((void *)arg0, att, *msg, coll, tech, arg5);
+        return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll((void *)arg0, att, *msg, coll, tech, arg5);
     }
     ((TUnk_804806E8 *)arg0)->try_apply_damage(arg0 + 0x2FC, 0);
     return 0.0f;

@@ -27,7 +27,7 @@ public:
     virtual void run_task();
     virtual void render();
     virtual f32 receive_physical_attack(void *, f32);
-    virtual f32 receive_direct_attack(void *source, void *payload, void *collider, s32 technique, s32 flags);
+    virtual f32 receive_direct_attack(void *source, DirectAttackPayload payload, void *collider, s32 technique, s32 flags);
     virtual void vfunc_79();
 
     void clear_flag_08000000();

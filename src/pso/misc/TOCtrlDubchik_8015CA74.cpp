@@ -144,7 +144,7 @@ void submit_cursor_candidate(void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
 void TObjPlayer__sub_800A8C1C(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, s32, Pair_8015D518, void *, s32, s32);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, s32, Pair_8015D518, void *, s32, s32);
 f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -395,7 +395,7 @@ s32 TOCtrlDubchik::select_melee_contact_body(void *, f32) {
 
 f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3) {
     if (arg0->f326 != 0) {
-        return receive_direct_attack__13TUnk_804806E8FPvPvPvll(arg0, arg1, arg2, arg3, -1, -1);
+        return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(arg0, arg1, arg2, arg3, -1, -1);
     }
     return TOCtrlDubchik__data_805DB3A8;
 }

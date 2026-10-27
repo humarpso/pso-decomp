@@ -1504,7 +1504,7 @@ f32 TBoss3VoloptP02::receive_physical_attack(void *source, f32 damage) {
     return TUnk_804806E8::receive_physical_attack(source, damage);
 }
 
-f32 TBoss3VoloptP02::receive_direct_attack(void *source, void *payload, void *collider, s32, s32) {
+f32 TBoss3VoloptP02::receive_direct_attack(void *source, DirectAttackPayload payload, void *collider, s32, s32) {
     u32 mask = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1513,8 +1513,7 @@ f32 TBoss3VoloptP02::receive_direct_attack(void *source, void *payload, void *co
         }
         mask <<= 1;
     }
-    DirectAttackPayload hit = *(DirectAttackPayload *)payload;
-    return TUnk_804806E8::receive_direct_attack(source, &hit, collider, -1, -1);
+    return TUnk_804806E8::receive_direct_attack(source, payload, collider, -1, -1);
 }
 
 #pragma push
