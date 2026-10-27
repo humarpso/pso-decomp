@@ -28,18 +28,15 @@ void post_translate_matrix(const f32 *pos);
 void rotate_matrix_y(void *mtx, s32 angle);
 void scale_matrix(void *mtx, f32 x, f32 y, f32 z);
 
-TObjEnemyCustom *__ct__15TObjEnemyCustomFP7TObject(TObjEnemyCustom *obj, TObject *parent);
-TObjEnemyCustom *__dt__15TObjEnemyCustomFv(TObjEnemyCustom *obj, s16 flag);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 TUnk_8048FA00 *init_from_model__11TBreakUpMdlFl(TUnk_8048FA00 *obj, s32 model);
-TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__sub_80041AA0(TBoss3VoloptHiraisin *hiraisin, TObject *parent, void *set_data);
 void trigger_dell_biter_events__10TObjPlayerFv(Vec *pos);
 void update_collisions__10TObjPlayerFv(TObjEnemy *obj);
-void init_params__20TBoss3VoloptHiraisinFv(TBoss3VoloptHiraisin *hiraisin, Vec *spawn, const char *name);
 
 extern u32 model_render_flags;
 extern u32 lbl_805D5660;
 extern TObject *tl_04;
+void init_params__20TBoss3VoloptHiraisinFv(TBoss3VoloptHiraisin *hiraisin, Vec *spawn, const char *name);
 }
 
 struct BreakupParams {
@@ -113,113 +110,6 @@ static HiraisinParams volopt_hiraisin_params = {
     { { 0.0f, -5.0f, 0.0f }, 6.0f, { 0 }, 0x8005 },
 };
 
-extern "C" {
-TBoss3VoloptHiraisin *__dt__20TBoss3VoloptHiraisinFv(TBoss3VoloptHiraisin *hiraisin, s16 flag);
-void run_task__20TBoss3VoloptHiraisinFv();
-void render__20TBoss3VoloptHiraisinFv();
-void render_shadows__9TObjEnemyFv();
-void vfunc_6__13TUnk_804B9870FPsl();
-void apply_object_set_data__13TUnk_804B9870FPv();
-void reset_motion_fields__13TUnk_804806E8Fv();
-void vfunc_9__13TUnk_804806E8Fv();
-void update_object_view_visibility__13TUnk_804B9870Fff();
-void classify_actor_view_detail__13TUnk_804B9870Ffff();
-void vfunc_12__9TObjEnemyFv();
-void vfunc_13__13TUnk_804AF8A0Fl();
-void add_actor_exp__13TUnk_804806E8Fl();
-void consume_timer_field__13TUnk_804806E8Fl();
-void get_actor_level_index__13TUnk_804806E8Fv();
-void update_actor_ground_y__13TUnk_804806E8Fv();
-void vfunc_18__13TUnk_804806E8FPUc();
-void is_actor_cadence_frame__13TUnk_804806E8Fl();
-void select_melee_contact_body__13TUnk_804806E8FPvf();
-void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
-void receive_physical_attack__13TUnk_804806E8FPvf();
-void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
-void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
-void apply_defense_stat_status__13TUnk_804806E8FPv();
-void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
-void try_start_action__13TUnk_804806E8Fll();
-void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-void vfunc_28__15TObjEnemyCustomFv();
-void vfunc_29__13TUnk_804806E8Fv();
-void is_target_in_attack_range__13TUnk_804806E8Fv();
-void test_flag_256__13TUnk_804806E8Fv();
-void test_flag30_512__13TUnk_804806E8Fv();
-void has_flag_0x800__13TUnk_804806E8Fv();
-void test_flag_1000__13TUnk_804806E8Fv();
-void update_poison_status__13TUnk_804806E8Fv();
-void update_action_hold_status__13TUnk_804806E8Fv();
-void vfunc_37__13TUnk_804806E8Fv();
-void update_flag30_timer__13TUnk_804806E8Fv();
-void update_movement_status__13TUnk_804806E8Fv();
-void update_shock_clock__13TUnk_804806E8Fv();
-void update_attack_stat_status__13TUnk_804806E8Fv();
-void update_defense_stat_status__13TUnk_804806E8Fv();
-void vfunc_43__13TUnk_804806E8Fv();
-void apply_poison_status__13TUnk_804806E8Fv();
-void apply_paralysis__13TUnk_804806E8Fv();
-void apply_slow_status__13TUnk_804806E8Fv();
-void apply_confusion_status__13TUnk_804806E8Fv();
-void apply_movement_ailment__13TUnk_804806E8Fl();
-void apply_shock_status__13TUnk_804806E8Fv();
-void clear_harmful_statuses__13TUnk_804806E8Fv();
-void apply_attack_stat_status__13TUnk_804806E8FPv();
-void cure_poison_ailment__13TUnk_804806E8Fv();
-void cure_paralysis__13TUnk_804806E8Fv();
-void clear_all_status_effects__13TUnk_804806E8Fv();
-void apply_action_hold_status__13TUnk_804806E8Ff();
-void apply_anti_technique__13TUnk_804806E8Fl();
-void vfunc_58__15TObjEnemyCustomFv();
-void vfunc_59__15TObjEnemyCustomFv();
-void vfunc_60__15TObjEnemyCustomFv();
-void vfunc_61__15TObjEnemyCustomFv();
-void vfunc_62__15TObjEnemyCustomFv();
-void vfunc_63__15TObjEnemyCustomFv();
-void reset_pose__13TUnk_804806E8Fv();
-void vfunc_65__15TObjEnemyCustomFll();
-void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_67__13TUnk_804806E8Ff();
-void get_pos__13TUnk_804806E8Fl();
-void apply_switch_attack__13TUnk_804806E8Fv();
-void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
-void trigger_switch_attack__13TUnk_804806E8Fv();
-void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
-void vfunc_73__13TUnk_804806E8Fv();
-void vfunc_74__9TObjEnemyFl();
-void vfunc_75__13TUnk_804806E8Ff();
-void vfunc_76__13TUnk_804806E8Fv();
-void vfunc_77__13TUnk_804806E8Fv();
-void vfunc_78__13TUnk_804806E8Fl();
-void vfunc_79__15TObjEnemyCustomFv();
-void apply_hit_message_flags__9TObjEnemyFPv();
-void apply_set_data__9TObjEnemyFPv();
-void clear_lobby_object_state__9TObjEnemyFv();
-}
-
-extern "C" void *__vt__20TBoss3VoloptHiraisin[83] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__20TBoss3VoloptHiraisinFv, (void *)&run_task__20TBoss3VoloptHiraisinFv,
-    (void *)&render__20TBoss3VoloptHiraisinFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
-    (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (void *)&receive_weapon_special_attack__13TUnk_804806E8FPvPv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
-    (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status__13TUnk_804806E8Fv, (void *)&vfunc_43__13TUnk_804806E8Fv,
-    (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
-    (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
-    (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__15TObjEnemyCustomFv, (void *)&vfunc_59__15TObjEnemyCustomFv,
-    (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&vfunc_61__15TObjEnemyCustomFv, (void *)&vfunc_62__15TObjEnemyCustomFv, (void *)&vfunc_63__15TObjEnemyCustomFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
-    (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
-    (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__15TObjEnemyCustomFv,
-    (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
-};
 
 static void *volopt_hiraisin_stats;
 static void *volopt_hiraisin_stats_b;
@@ -463,23 +353,11 @@ void TBoss3VoloptHiraisin::init_models() {
 }
 
 void *TBoss3VoloptHiraisin::create(void *set_data) {
-    TBoss3VoloptHiraisin *hiraisin = (TBoss3VoloptHiraisin *)TObject::operator new(sizeof(TBoss3VoloptHiraisin));
-    if (hiraisin != NULL) {
-        hiraisin = TBoss3VoloptHiraisin__sub_80041AA0(hiraisin, tl_04, set_data);
-    }
-    return hiraisin;
+    return new TBoss3VoloptHiraisin(tl_04, set_data);
 }
 
-extern "C" TBoss3VoloptHiraisin *__dt__20TBoss3VoloptHiraisinFv(TBoss3VoloptHiraisin *hiraisin, s16 flag) {
-    if (hiraisin != NULL) {
-        *(void ***)((u8 *)hiraisin + 0x18) = __vt__20TBoss3VoloptHiraisin;
-        free_collision_body_parts(hiraisin);
-        __dt__15TObjEnemyCustomFv(hiraisin, 0);
-        if (flag > 0) {
-            TObject::operator delete(hiraisin);
-        }
-    }
-    return hiraisin;
+TBoss3VoloptHiraisin::~TBoss3VoloptHiraisin() {
+    free_collision_body_parts(this);
 }
 
 #pragma push
@@ -511,32 +389,26 @@ void TBoss3VoloptHiraisin::init_params() {
     clear_lobby_object_state();
 }
 
-extern "C" TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__ct(TBoss3VoloptHiraisin *hiraisin, TUnk_804B9870 *parent, u16 id, s16 group) {
+TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TUnk_804B9870 *parent, u16 id, s32 group) : TObjEnemyCustom(parent) {
     const char *name;
-    __ct__15TObjEnemyCustomFP7TObject(hiraisin, parent);
-    *(void ***)((u8 *)hiraisin + 0x18) = __vt__20TBoss3VoloptHiraisin;
     name = TBoss3VoloptHiraisin_name;
-    hiraisin->m_name = name;
-    hiraisin->m_1c = id;
-    hiraisin->group_index = group;
-    hiraisin->m_80 = NULL;
-    hiraisin->group_ids[0] = parent->group_ids[0];
-    hiraisin->group_ids[1] = parent->group_ids[1];
-    hiraisin->position[1] = 80.0f;
-    hiraisin->position[0] = boss3_volopt_spawn_pos.x;
-    hiraisin->position[2] = boss3_volopt_spawn_pos.z;
-    init_params__20TBoss3VoloptHiraisinFv(hiraisin, &boss3_volopt_spawn_pos, name);
-    return hiraisin;
+    m_name = name;
+    m_1c = id;
+    group_index = group;
+    m_80 = NULL;
+    group_ids[0] = parent->group_ids[0];
+    group_ids[1] = parent->group_ids[1];
+    position[1] = 80.0f;
+    position[0] = boss3_volopt_spawn_pos.x;
+    position[2] = boss3_volopt_spawn_pos.z;
+    init_params__20TBoss3VoloptHiraisinFv(this, &boss3_volopt_spawn_pos, name);
 }
 #pragma pop
 
-extern "C" TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__sub_80041AA0(TBoss3VoloptHiraisin *hiraisin, TObject *parent, void *set_data) {
-    __ct__15TObjEnemyCustomFP7TObject(hiraisin, parent);
-    *(void ***)((u8 *)hiraisin + 0x18) = __vt__20TBoss3VoloptHiraisin;
-    hiraisin->m_name = TBoss3VoloptHiraisin_name;
-    hiraisin->apply_set_data(set_data);
-    hiraisin->init_params();
-    return hiraisin;
+TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TObject *parent, void *set_data) : TObjEnemyCustom(parent) {
+    m_name = TBoss3VoloptHiraisin_name;
+    apply_set_data(set_data);
+    init_params();
 }
 
 void TBoss3VoloptHiraisin::copy_position() {

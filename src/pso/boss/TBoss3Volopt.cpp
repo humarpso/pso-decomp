@@ -74,7 +74,7 @@ void *load_resource_from_descriptor(void *resource, s32 kind, u8 *descriptor, s3
 u16 TObjRoomId__sub_801A1DB8(u16 id);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void TObjPlayer__sub_801BA42C(void);
-TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__ct(TBoss3VoloptHiraisin *hiraisin, TObject *parent, u16 id, s32 group);
+TBoss3VoloptHiraisin *__ct__20TBoss3VoloptHiraisinFP13TUnk_804B9870Usl(TBoss3VoloptHiraisin *hiraisin, TObject *parent, u16 id, s32 group);
 TBoss3VoloptMonitor *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(TBoss3VoloptMonitor *monitor, TObject *parent, u16 id,
                                                                      s32 group, s32 slot, s32 timer);
 TBoss3Volopt *TBoss3Volopt__ct(TBoss3Volopt *volopt, s32 set_data);
@@ -495,7 +495,7 @@ void TBoss3Volopt::spawn_parts() {
         if (is_v2_mode() == 0) {
             part = (TObject *)TObject::operator new(sizeof(TBoss3VoloptHiraisin));
             if (part != NULL) {
-                TBoss3VoloptHiraisin__ct((TBoss3VoloptHiraisin *)part, this, volopt_hiraisin_id, get_part_group(0x21));
+                __ct__20TBoss3VoloptHiraisinFP13TUnk_804B9870Usl((TBoss3VoloptHiraisin *)part, this, volopt_hiraisin_id, get_part_group(0x21));
             }
         }
         next_action = 1;
