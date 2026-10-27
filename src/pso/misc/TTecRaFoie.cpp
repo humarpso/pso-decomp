@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_80141550.h"
-#include "pso/unk/text_8008271C.h"
+#include "pso/effect/TEffect.h"
 #include "pso/effect/TEffClitical.h"
 #include "pso/unk/text_802A8210.h"
 #include "pso/render/depth_buffer.h"
@@ -426,7 +426,7 @@ void TUnk_804CCB28::run_task() {
     } else {
         approach_position_if_far(((u8 *)&this->m_34), (u8 *)&stack.sp18, (f32) ((0.15f)));
     }
-    approach_alpha_clamped((f32 *)(arg0 + 0x48), (const f32 *)&stack.sp8, (f32) ((0.035f)));
+    approach_alpha_clamped((f32 *)(arg0 + 0x48), (const f32 *)&stack.sp8, 0.035f);
 }
 #pragma pop
 

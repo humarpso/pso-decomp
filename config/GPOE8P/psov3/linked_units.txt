@@ -2893,9 +2893,7 @@ pso/unk/text_8008197C.cpp
 pso/unk/text_80081A30.cpp
 pso/unk/text_80081B7C.cpp
 pso/unk/text_80081BB0.cpp
-pso/unk/text_8008271C.cpp
-pso/unk/text_800827E0.cpp
-pso/unk/text_80082910.cpp
+pso/unk/text_80082C30.cpp
 pso/unk/text_800832EC.cpp
 pso/unk/text_80086B64.cpp
 pso/unk/text_80086D50.cpp

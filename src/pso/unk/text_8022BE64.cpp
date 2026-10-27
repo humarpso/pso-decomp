@@ -11,7 +11,6 @@ struct V3_8022BEAC { s32 x; s32 y; s32 z; };
 struct T_8022BEAC { u8 pad[0x20]; u8 f20[0xC]; u8 f2c[0x10]; f32 f3c; u8 pad2[0x2c]; s32 state; };
 
 extern "C" {
-void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
@@ -45,18 +44,18 @@ void TTecReverser::sub_8022BE64(u8 *arg1, s32 arg2) {
 void TUnk_804CC148::render() {
     T_8022BEAC *self = (T_8022BEAC *)this;
     V3_8022BEAC v = TTecLuker__render_scale_vec;
-    switch (this->field_6c) {
+    switch (this->state) {
     case 0:
         break;
     case 1:
-        approach_vector_in_place(&self->f3c, &v, lbl_805DC7B0);
+        approach_vector_in_place(&scale, (const Vec *)&v, lbl_805DC7B0);
         break;
     }
     TObjRoomId__sub_80141CF4(self->f20, self->f2c, self->f3c);
 }
 
 void TUnk_804CC148::tick_lifetime() {
-    this->field_6c = 1;
+    this->state = 1;
     this->age = (this->age + 1);
     if ((f32) this->age > *(f32 *)((s8 *)this + 0x70)) {
         queue_destruction__7TObjectFv(this);
@@ -72,7 +71,7 @@ void TUnk_804CC148::count_if_within_range() {
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
     stack.sp10 = temp_f1 - this->m_84;
     if (vector_length(&stack.sp8, temp_f1) <= *(f32 *)((s8 *)arg0 + 0x64)) {
-        this->field_6c = (this->field_6c + 1);
+        this->state = (this->state + 1);
     }
 }
 
@@ -93,7 +92,7 @@ void free_collision_body_parts(void *);
 
 void TUnk_804CC148::run_task() {
 
-    switch (this->field_6c) {
+    switch (this->state) {
     case 0:
         sub_8022C008__13TUnk_804CC148Fv();
         count_if_within_range__13TUnk_804CC148Fv(this);

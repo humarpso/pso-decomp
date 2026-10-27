@@ -2,8 +2,10 @@
 #define PSO_PLAYER_TOBJPLAYER_80141D1C_H
 
 #include "types.h"
+#include <dolphin/mtx.h>
 
 extern "C" {
+f32 approach_vector_fixed_distance(const Vec *from, const Vec *to, Vec *out, f32 step);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s16 angle_diff_s16(s32 a, s32 b);

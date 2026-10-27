@@ -7,16 +7,6 @@
 #include "pso/misc/TScene.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-typedef struct Rec_8023E638 {
-    s32 a;
-    s32 b;
-    s32 c;
-} Rec_8023E638;
-
-typedef struct List_8023E638 {
-    Rec_8023E638 *recs;
-    s32 count;
-} List_8023E638;
 
 extern "C" {
 s32 set_stream_and_load_file__6TLobbyFi(void *);
@@ -34,7 +24,6 @@ void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
 s32 memset(s32, s32, s32);
 extern s32 lbl_805D63C0;
 extern s32 lbl_805D63C4;
-s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1);
 int TLobby__sub_803DA16C();
 s32 load_texture_list();
 int set_global_param__8TObjFishFl();
@@ -86,24 +75,24 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     return 0;
 }
 
-s32 bind_gvm_texture_list(s32 name, List_8023E638 *arg1) {
+s32 bind_gvm_texture_list(const char *name, GinjaTextureList *texlist) {
     u8 m_texture_list[8];
-    Rec_8023E638 *d;
+    GinjaTextureEntry *d;
     s32 i;
     s32 n;
-    if (name == 0 || arg1 == NULL) {
+    if (name == NULL || texlist == NULL) {
         return 0;
     }
     memset(lbl_805D63C0, 0, 0x1800);
     TObjPlayer__sub_803DD5E8(m_texture_list, lbl_805D63C0, lbl_805D63C4, 0x200);
-    if (TLobby::load_texture_pvm_file((const char *)name, (s32)m_texture_list) == -1) {
+    if (TLobby::load_texture_pvm_file(name, (s32)m_texture_list) == -1) {
         return 0;
     }
-    n = arg1->count;
-    d = arg1->recs;
+    n = texlist->count;
+    d = texlist->entries;
     for (i = 0; i < n; i++) {
-        d[i].c = ((Rec_8023E638 *)lbl_805D63C0)[i].c;
-        d[i].b = ((Rec_8023E638 *)lbl_805D63C0)[i].b;
+        d[i].texture = ((GinjaTextureEntry *)lbl_805D63C0)[i].texture;
+        d[i].value04 = ((GinjaTextureEntry *)lbl_805D63C0)[i].value04;
     }
     return 1;
 }

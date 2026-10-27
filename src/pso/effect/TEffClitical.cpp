@@ -1,5 +1,4 @@
 #include "pso/TEffClitical.h"
-#include "pso/unk/text_8008271C.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/effect/TEffClitical.h"
 #include "pso/object/TObject_80019A50.h"
@@ -48,14 +47,11 @@ struct RecoveredGlobal_800823E0_lbl_80438EC8 {
 extern "C" {
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
-s32 approach_vector_in_place(void *, void *, f32);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 clitical_vec_a;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
-s32 copy_slot_to_anim_frame(void *);
-s32 fn_800829E0(void *);
 s32 begin_effect_render__13TParticleCtrlFv(int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -64,7 +60,6 @@ s32 post_translate_matrix(void *);
 extern s32 lbl_8048E2E0[];
 extern s32 technique_ringwave_texture_list[];
 extern u8 *camera_ctrl_instance;
-extern s32 *lbl_805D4ED8;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void *__ct__12TEffCliticalFPv(void *arg0, void *arg1);
@@ -90,15 +85,15 @@ void TEffClitical::render() {
     model_render_flags = temp_r3 | 0x10;
     begin_effect_render__13TParticleCtrlFv(temp_r3);
     ((TUnk_80494AE0 *)(arg0 + 0x2C))->set_chunk_material_color();
-    fn_800829E0(&sp8);
+    copy_anim_frame_to_slot((TextureFrameSlot *)&sp8);
     push_matrix();
     TObjFish::set_global_param((s32)lbl_8048E2E0);
     post_translate_matrix(arg0 + 0x20);
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
     scale_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
-    draw_chunk_object((void *)(*(s32 *)((s8 *)lbl_805D4ED8 + 0)));
+    draw_chunk_object((void *)(*(s32 *)effect_rel));
     pop_matrix();
-    copy_slot_to_anim_frame(&sp8);
+    copy_slot_to_anim_frame((TextureFrameSlot *)&sp8);
     model_render_flags = lbl_805D5660;
     TParticleCtrl::end_effect_render();
     restore_saved_depth_alpha_state();
@@ -153,11 +148,11 @@ void TEffClitical::run_task() {
         *(s32 *)((s8 *)arg0 + 0x74) = 1;
         break;
     }
-    if (approach_alpha_clamped((f32 *)&this->field_2c, (const f32 *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
+    if (approach_alpha_clamped(&color.a, (const f32 *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    approach_vector_in_place(arg0 + 0x3C, (void *)&stack.sp14, lbl_805D93AC);
+    approach_vector_in_place(&scale, (const Vec *)&stack.sp14, lbl_805D93AC);
     *(s32 *)((s8 *)arg0 + 0x70) = (s32) (*(s32 *)((s8 *)arg0 + 0x70) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x70) >= 7) {
         *(s32 *)((s8 *)arg0 + 0x70) = 0;

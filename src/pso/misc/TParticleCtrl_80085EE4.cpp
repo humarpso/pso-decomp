@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E728.h"
@@ -204,7 +205,6 @@ void begin_screen_draw(s32 arg0);
 void DVDConvertEntrynumToPath(f32 *q);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 }
-s32 find_particle_texture_index(s32 id);
 void *init_particle_base(void *arg0, void *arg1, s32 arg2);
 void load_projected_texture_matrix(f32 farg0);
 void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);

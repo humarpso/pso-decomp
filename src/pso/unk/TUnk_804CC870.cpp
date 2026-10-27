@@ -1,5 +1,6 @@
 // ---- pso/unk/text_80232934
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/unk/text_803D96A8.h"
@@ -12,8 +13,6 @@ struct Vec_80232934 { f32 x; f32 y; f32 z; };
 
 struct Quad_80232934 { u32 a; u32 b; u32 c; u32 d; };
 
-struct Ctx_80232934 { u8 buf[0x10]; };
-
 struct Obj_80232934 {
     u8 pad[0x20];
     u8 f20[0xC];
@@ -25,11 +24,8 @@ struct Obj_80232934 {
 
 extern "C" {
 s32 get_bml_model(s32, u32);
-void init_texture_copy_rect(Ctx_80232934 *, void *, void *, s32, s32);
+void init_texture_copy_rect(TextureFrameSlot *, void *, void *, s32, s32);
 void approach_position_if_far(Vec_80232934 *, Vec_80232934 *, f32);
-void approach_alpha_clamped(void *, Quad_80232934 *, f32);
-void copy_slot_to_anim_frame(Ctx_80232934 *);
-void fn_800829E0(Ctx_80232934 *);
 void scale_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void post_translate_matrix(void *);
@@ -49,6 +45,7 @@ extern s32 model_render_flags;
 
 // ---- pso/unk/text_80232AA4
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC870.h"
@@ -60,11 +57,13 @@ void *find_entity_by_id(u16 id);
 
 // ---- pso/unk/text_80232B24
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/unk/TUnk_804CC870.h"
 #include "pso/unk/text_80232B24.h"
 
 // ---- pso/unk/text_80232B7C
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/unk/TUnk_804CC888.h"
 
 #include "pso/misc/TLobby_80226070.h"
@@ -246,7 +245,7 @@ void TUnk_804CC870::run_task() {
 
 void TUnk_804CC870::render() {
     Obj_80232934 *arg0 = (Obj_80232934 *)this;
-    Ctx_80232934 ctx;
+    TextureFrameSlot ctx;
     s32 id;
     if (TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0x12 ||
         TOKeyMachine01::get_global_state() == 0xF) {
@@ -255,9 +254,9 @@ void TUnk_804CC870::render() {
     init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, this->m_48 + 1);
     Vec_80232934 v = lbl_8044D5A8;
     Quad_80232934 q = grants_flash_quad_vertices;
-    approach_alpha_clamped(arg0->f38, &q, 0.1f);
+    approach_alpha_clamped((f32 *)arg0->f38, (const f32 *)&q, 0.1f);
     approach_position_if_far(&arg0->pos, &v, arg0->f4c);
-    fn_800829E0(&ctx);
+    copy_anim_frame_to_slot(&ctx);
     id = model_render_flags;
     lbl_805D5660 = id;
     model_render_flags = id | 0x10;

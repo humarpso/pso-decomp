@@ -1286,19 +1286,19 @@ pso/effect/TEffClitical.cpp:
 	.text       start:0x80082308 end:0x8008271C
 	.data       start:0x8048E2E8 end:0x8048E300
 
-pso/unk/text_8008271C.cpp:
-	.text       start:0x8008271C end:0x800827E0
+pso/effect/TEffect.cpp:
+	.text       start:0x8008271C end:0x80082C30
+	.rodata     start:0x80438ED8 end:0x80438F08
+	.data       start:0x8048E300 end:0x8048E318
+	.bss        start:0x80500620 end:0x805006F8
+	.sdata      start:0x805D2908 end:0x805D2910
+	.sbss       start:0x805D4ED8 end:0x805D4EE0
 	.sdata2     start:0x805D93B8 end:0x805D93C0
 
-pso/unk/text_800827E0.cpp:
-	.text       start:0x800827E0 end:0x80082910
-
-pso/unk/text_80082910.cpp:
-	.text       start:0x80082910 end:0x80082B28
-
-pso/effect/TEffect.cpp:
-	.text       start:0x80082B28 end:0x80082FCC
-	.data       start:0x8048E300 end:0x8048E318
+pso/unk/text_80082C30.cpp:
+	.text       start:0x80082C30 end:0x80082FCC
+	.rodata     start:0x80438F08 end:0x80439348
+	.data       start:0x8048E318 end:0x8048E5A8
 
 pso/misc/TCameraCtrl_80082FCC.cpp:
 	.text       start:0x80082FCC end:0x800832EC

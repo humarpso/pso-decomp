@@ -21,7 +21,7 @@ typedef struct GinjaParameter {
   u32 value;
 } GinjaParameter;
 typedef struct GinjaSurfaceState {
-  u32 reserved0;
+  u32 id;
   u32 format;
   u8 reserved8[0x14];
   u32 flags;
