@@ -24,12 +24,13 @@ struct TBoss3VoloptCoreBodyPart {
 
 class TBoss3VoloptCore : public TObjEnemyCustom {
 public:
+    TBoss3VoloptCore(TObject *parent, u16 id, s32 param);
+    TBoss3VoloptCore(TObject *parent, void *set_data);
     virtual ~TBoss3VoloptCore();
     virtual void run_task();
     virtual void render();
     virtual s32 is_target_in_attack_range();
 
-    void *destroy(s16 flags);
     static void *create(void *set_data);
     static void load_resources();
     static void release();
@@ -76,11 +77,6 @@ public:
 };
 
 typedef char TBoss3VoloptCore_size[sizeof(TBoss3VoloptCore) == 0x3D4 ? 1 : -1];
-
-extern "C" {
-TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, u16 id, s32 param);
-TBoss3VoloptCore *TBoss3VoloptCore__sub_80040A7C(TBoss3VoloptCore *core, TObject *parent, void *set_data);
-}
 
 extern s32 boss3_volopt_core_active_flag;
 

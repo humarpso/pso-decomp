@@ -1484,9 +1484,5 @@ BOOL TBoss3VoloptCore::is_mode_0() {
 }
 
 extern "C" TBoss3VoloptCore *fn_8003F468(TBoss3Volopt *parent, u16 id, s32 group) {
-    TBoss3VoloptCore *core = (TBoss3VoloptCore *)TObject::operator new(sizeof(TBoss3VoloptCore));
-    if (core != NULL) {
-        core = create_TBoss3VoloptCore(core, parent, id, group);
-    }
-    return core;
+    return new TBoss3VoloptCore(parent, id, group);
 }
