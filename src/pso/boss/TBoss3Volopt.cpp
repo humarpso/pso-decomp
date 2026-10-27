@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/TBoss3VoloptCtrl.h"
+#include "pso/boss/TBoss3VoloptCtrl.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3VoloptP01.h"

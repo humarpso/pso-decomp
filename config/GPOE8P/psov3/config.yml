@@ -207,6 +207,7 @@ force_active:
   - TBoss3VoloptCore__sub_80040A7C
   - TBoss3VoloptCore__vtable
   - TBoss3VoloptCore_name
+  - TBoss3VoloptCtrl_name
   - TBoss3VoloptHiraisin__breakup_model
   - TBoss3VoloptHiraisin__init_param_table
   - TBoss3VoloptHiraisin__resource_bundle
@@ -1632,6 +1633,7 @@ force_active:
   - __dt__13TPlyOnCreatedFv
   - __dt__13TQuestBgmCtrlFv
   - __dt__13TQuestColCtrlFv
+  - __dt__13TUnk_80483B88Fv
   - __dt__13TUnk_80484840Fv
   - __dt__13TUnk_80488AD8Fv
   - __dt__13TUnk_8048DF58Fv
@@ -2040,6 +2042,7 @@ force_active:
   - __vt__13TParticleCtrl
   - __vt__13TQuestBgmCtrl
   - __vt__13TQuestColCtrl
+  - __vt__13TUnk_80483B88
   - __vt__13TUnk_80488AD8
   - __vt__13TUnk_8048DF58
   - __vt__13TUnk_8049EFB8
@@ -11099,6 +11102,7 @@ force_active:
   - run_task__13TQuestBgmCtrlFv
   - run_task__13TQuestColCtrlFv
   - run_task__13TUnk_80483A10Fv
+  - run_task__13TUnk_80483B88Fv
   - run_task__13TUnk_80484840Fv
   - run_task__13TUnk_80488AD8Fv
   - run_task__13TUnk_8049EFB8Fv

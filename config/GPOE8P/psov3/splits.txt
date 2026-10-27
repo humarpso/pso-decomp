@@ -379,7 +379,10 @@ pso/boss/TBoss3VoloptCore.cpp:
 
 pso/boss/TBoss3VoloptCtrl.cpp:
 	.text       start:0x80040B80 end:0x80040F7C
-	.data       start:0x80483BA0 end:0x80483BB8
+	.rodata     start:0x80436358 end:0x80436380
+	.data       start:0x80483B88 end:0x80483BB8
+	.sdata      start:0x805D2730 end:0x805D2734
+	.sdata2     start:0x805D86F8 end:0x805D86FC
 
 pso/boss/TBoss3Volopt_80040F7C.cpp:
 	.text       start:0x80040F7C end:0x80040FDC
