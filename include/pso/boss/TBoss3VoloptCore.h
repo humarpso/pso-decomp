@@ -33,6 +33,8 @@ public:
     static void *create(void *set_data);
     static void load_resources();
     static void release();
+    static void set_grabbed_state(s32 delay);
+    static void link_photon(u16 id, s32);
 
     void init_params();
     void load_entry_params_volopt(s32 index);

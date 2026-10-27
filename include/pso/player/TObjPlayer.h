@@ -234,8 +234,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     f32 m_d48;
     u8 unk_D4C[0x60];
     void* m_dac;
-    static void set_grabbed_state(s32 arg0);
-    static void link_photon(u16 arg0);
     int construct_target_cursor_records();
     static void draw_area_chunk_objects();
     void save_position();

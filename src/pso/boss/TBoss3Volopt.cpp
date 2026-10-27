@@ -399,7 +399,7 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
         }
         break;
     case 1:
-        TObjPlayer::set_grabbed_state(0);
+        TBoss3VoloptCore::set_grabbed_state(0);
         break;
     case 2:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A);

@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptP01.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
@@ -59,7 +60,6 @@ extern BmlResource *boss3_volopt_resources;
 extern s32 volopt_active_player_id;
 extern u16 lbl_805D271A;
 s32 TBoss3Volopt__sub_8003F398(void);
-void link_photon__10TObjPlayerFUs(u16 id, s32 a1);
 void TObjEnemyCustom__ct(void *obj);
 void *__dt__15TObjEnemyCustomFv(void *obj, s16 flags);
 void *__dt__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *self, s16 flags);
@@ -666,8 +666,8 @@ void TBoss3VoloptP01::update_breakup() {
         TObjPlayer::spawn_effect_f8((s32)&m_2fc, *(s16 *)&timer);
         if (is_primary != 0) {
             volopt_breakup_flag = 1;
-            link_photon__10TObjPlayerFUs(m_2d4, 0);
-            TObjPlayer::set_grabbed_state(0x12C);
+            TBoss3VoloptCore::link_photon(m_2d4, 0);
+            TBoss3VoloptCore::set_grabbed_state(0x12C);
         }
         state = 1;
     case 1:
@@ -699,8 +699,8 @@ void TBoss3VoloptP01::update_state() {
         referenceHp = hp;
         if (is_primary != 0) {
             volopt_breakup_flag = 1;
-            link_photon__10TObjPlayerFUs(m_2d4, 0);
-            TObjPlayer::set_grabbed_state(0x12C);
+            TBoss3VoloptCore::link_photon(m_2d4, 0);
+            TBoss3VoloptCore::set_grabbed_state(0x12C);
         }
         if (TBoss3Volopt__sub_8003F398() != 0) {
             flags = m_388;

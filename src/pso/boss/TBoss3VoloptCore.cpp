@@ -208,7 +208,7 @@ static void *TBoss3VoloptCore__vtable[83] = {
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 
-void TObjPlayer::set_grabbed_state(s32 delay) {
+void TBoss3VoloptCore::set_grabbed_state(s32 delay) {
     TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(lbl_805D271C);
     if (core != NULL && core->mode != 10) {
         ((TObjEneMe1GiGue *)core)->update_if_active(10);
@@ -258,7 +258,7 @@ void TBoss3VoloptCore::update_topple_state() {
     }
 }
 
-void TObjPlayer::link_photon(u16 id) {
+void TBoss3VoloptCore::link_photon(u16 id, s32) {
     TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(lbl_805D271C);
     if (core != NULL && core->hit_cooldown <= 0) {
         TObject *source = (TObject *)find_entity_by_id(id);
@@ -551,7 +551,7 @@ void TBoss3VoloptCore::update_grabbed_state() {
         if (m_b4 != 8) {
             m_388 &= ~1;
             if (m_388 & 0x40000) {
-                TObjPlayer::set_grabbed_state(0xF);
+                set_grabbed_state(0xF);
             } else {
                 ((TObjEneMe1GiGue *)this)->update_if_active(m_380);
             }

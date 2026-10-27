@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
@@ -36,7 +37,6 @@ void TLobby__sub_803DA16C(GinjaTextureList *list);
 
 TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *obj, TObject *parent);
 TObjEnemyCustom *__dt__15TObjEnemyCustomFv(TObjEnemyCustom *obj, s16 flag);
-void link_photon__10TObjPlayerFUs(u16 id, s32 unused);
 
 extern BmlResource *boss3_volopt_resources;
 extern s32 vol_opt_active_hit_zone;
@@ -285,7 +285,7 @@ void TBoss3VoloptMonitor::spawn_effects() {
 
 void TBoss3VoloptMonitor::damage_player_if_aligned() {
     if (!(m_388 & 0x40000) && vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == slot / 4) {
-        link_photon__10TObjPlayerFUs(m_2d4, 0);
+        TBoss3VoloptCore::link_photon(m_2d4, 0);
     }
 }
 
