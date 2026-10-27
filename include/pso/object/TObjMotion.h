@@ -97,6 +97,15 @@ public:
     void * m_a4;
     u8 unk_A8[0x4];
 };
+// One entry of TObjMotion::action_table.
+struct TObjMotionAction {
+    s16 mode;
+    s16 next;
+    s32 motion;
+    f32 speed;
+    u32 flags;
+};
+
 class TObjMotion : public TUnk_804AF8A0 {
 public:
     virtual ~TObjMotion();

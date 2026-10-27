@@ -235,15 +235,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     u8 unk_D4C[0x60];
     void* m_dac;
     static void set_grabbed_state(s32 arg0);
-    void update_topple_state();
     static void link_photon(u16 arg0);
-    void set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3);
-    s32 calc_spin_value();
-    void update_state_spin();
-    void run_freeze_state();
-    void update_reaction_animation();
-    void update_grabbed_state();
-    void dispatch_reaction_state();
     int construct_target_cursor_records();
     static void draw_area_chunk_objects();
     void save_position();
@@ -1353,7 +1345,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void advance_render_counters();
     static void notify_fish_obj(void* a0);
     static void draw_effect();
-    s32 check_target_collision();
     void draw_trail_pair();
     s32 apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
     void update_aim_and_fire();

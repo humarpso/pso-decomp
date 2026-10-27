@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptCtrl.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
@@ -187,7 +188,6 @@ u16 get_param_offset__12TBoss3VoloptFl(void *, int);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
-void TBoss3VoloptCore__sub_80040788(void);
 s32 __ct__13TUnk_80483B88Fv();
 s32 clear_flag_08000000__20TBoss3VoloptHiraisinFv();
 s32 set_flag_08000000__20TBoss3VoloptHiraisinFv();
@@ -319,7 +319,6 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0);
 void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0);
 void reset_vol_opt_state(void* a0);
 void clear_volopt_cage_flag(void);
-void cache_volopt_resource_ptrs(void);
 void reset_cameras_to_actor(void *actor, s32 arg1);
 s32 get_story_flag(s32);
 void handle_6x84_vol_opt_boss_actions(TBoss3Volopt *arg0) {
@@ -396,7 +395,7 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     case 0:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271C);
         if (p != NULL) {
-            ((TObjPlayer *)p)->set_boss_target_pos(*(s16 *)((s8 *)arg0 + 8), *(s16 *)((s8 *)arg0 + 0xA), 0x258);
+            ((TBoss3VoloptCore *)p)->set_boss_target_pos(*(s16 *)((s8 *)arg0 + 8), *(s16 *)((s8 *)arg0 + 0xA), 0x258);
         }
         break;
     case 1:
@@ -1392,7 +1391,7 @@ void TBoss3Volopt::free_parts() {
         boss3_volopt_resources = 0U;
     }
     TBoss3VoloptP01::destroy();
-    TBoss3VoloptCore__sub_80040788();
+    TBoss3VoloptCore::release();
     TBoss3Volopt__sub_800479D0();
     TBoss3VoloptHiraisin::destroy();
     TBoss3VoloptMonitor::release();
@@ -1417,7 +1416,7 @@ void TBoss3Volopt::load_resources() {
     }
     lbl_805D4C40 = v2;
     TBoss3VoloptP01::init_breakup_effect();
-    cache_volopt_resource_ptrs();
+    TBoss3VoloptCore::load_resources();
     TBoss3Volopt__sub_80047A60();
     TBoss3VoloptHiraisin::init_models();
     TBoss3VoloptMonitor::load_resources();
