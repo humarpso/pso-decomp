@@ -103,7 +103,7 @@ s32 get_bml_motion(s32, s32);
 Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
 void init_collision_body_parts(void *, void *, s32);
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 extern Ent_80192874 laser_fence_collision_body_parts[];
 extern s32 __vt__19TObjLazerFenceExtra[];
 extern s32 lazer_fence_extra_class_name;
@@ -132,7 +132,7 @@ void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjLazerFenceExtra;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -145,7 +145,7 @@ extern void *tl_05;
 #define self ((u8 *)arg0)
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, arg1);
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);
     *(s32 **)((s8 *)self + 0x18) = __vt__19TObjLazerFenceExtra;
     *(s32 *)((s8 *)self + 0) = lazer_fence_extra_class_name;
     ((VObj_80192874 *)self)->m5(arg2);
@@ -342,7 +342,7 @@ void *__dt__18TObjLazerFenceNormFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjLazerFenceNorm;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -357,7 +357,7 @@ typedef char RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm_size[sizeof(Rec
 u8 *TObjLazerFenceNorm__ct(TObjLazerFenceNorm *lazer_fence_norm, s32 arg1, s32 arg2) {
     u32 temp_r4;
     u32 temp_r6;
-    ((TUnk_804AF8A0 *)lazer_fence_norm)->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(lazer_fence_norm, (void *)arg1);
     *(s32 **)((s8 *)lazer_fence_norm + 0x18) = &(*(RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm *)&__vt__18TObjLazerFenceNorm).value;
     *(s32 *)((s8 *)lazer_fence_norm + 0) = (s32) obj_lazer_fence_norm_class_name;
     ((TObjLazerFenceNorm *)(lazer_fence_norm))->apply_object_set_data((void *)arg2);

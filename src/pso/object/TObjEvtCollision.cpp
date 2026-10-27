@@ -3,6 +3,7 @@
 #include "pso/object/TObjEvtCollision.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 
 struct RecoveredGlobal_80190DE4___vt__16TObjEvtCollision {
     s32 value;
@@ -84,7 +85,7 @@ void TObjEvtCollision::run_task() {
 void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEvtCollision;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -93,7 +94,7 @@ void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80190DE4___vt__16TObjEvtCollision_size[sizeof(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision) == 0x38 ? 1 : -1];
 u8 *TObjEvtCollision__ct(TObjEvtCollision *evt_collision, s32 arg1, s32 arg2) {
-    ((TUnk_804AF8A0 *)evt_collision)->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(evt_collision, arg1);
     *(s32 **)((s8 *)evt_collision + 0x18) = &(*(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision *)&__vt__16TObjEvtCollision).value;
     *(s32 *)((s8 *)evt_collision + 0) = (s32) TObjEvtCollision__class_name;
     ((TObjEvtCollision *)(evt_collision))->apply_object_set_data((void *)arg2);

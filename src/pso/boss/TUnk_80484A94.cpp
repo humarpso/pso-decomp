@@ -24,7 +24,7 @@ s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
 u16 obj_getField1c(TObject *object);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TUnk_804AF8A0 *construct_collider_proxy__13TUnk_804AF8A0Fv(TUnk_804AF8A0 *actor, TObject *parent);
+TUnk_804AF8A0 *__ct__13TUnk_804AF8A0FP7TObject(TUnk_804AF8A0 *actor, TObject *parent);
 extern GC_Mtx identity_matrix;
 extern void *__vt__13TUnk_80484A94[];
 }
@@ -111,7 +111,7 @@ extern "C" TUnk_80484A94 *__dt__13TUnk_80484A94Fv(TUnk_80484A94 *shot, s16 flags
         if (shot->m_up != NULL) {
             fn_80049A0C((TObjEnemyCustom *)shot->m_up);
         }
-        shot->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(shot, 0);
         if (flags > 0) {
             TObject::operator delete(shot);
         }
@@ -120,7 +120,7 @@ extern "C" TUnk_80484A94 *__dt__13TUnk_80484A94Fv(TUnk_80484A94 *shot, s16 flags
 }
 
 TUnk_80484A94 *TUnk_80484A94__ct(TUnk_80484A94 *shot, TObjEnemy *owner, Vec *pos, s32 target_id) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(shot, (TObject *)owner);
+    __ct__13TUnk_804AF8A0FP7TObject(shot, (TObject *)owner);
     *(void ***)((u8 *)shot + 0x18) = __vt__13TUnk_80484A94;
     init_collision_body_parts(shot, volopt_shot_collision_body, 1);
     shot->entity_id = obj_getField1c((TObject *)owner);

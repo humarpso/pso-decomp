@@ -223,7 +223,7 @@ extern "C" {
 
 s32 init_collision_body_parts(void *, void *, int);
 
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *);
+void __ct__13TUnk_804AF8A0FP7TObject(void *);
 extern u16 lbl_80445BE0[];
 extern u8 laser_fence4_collision_body_sets[];
 extern s32 __vt__15TObjLazerFence4[];
@@ -244,7 +244,7 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             TObject::operator delete(arg0);
         }
@@ -255,7 +255,7 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
 #define self ((Fence_801935D8 *)arg0)
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    ((void (*)(void *, void *, void *))construct_collider_proxy__13TUnk_804AF8A0Fv)(self, arg1, arg2);
+    ((void (*)(void *, void *, void *))__ct__13TUnk_804AF8A0FP7TObject)(self, arg1, arg2);
     self->vt = (void *)__vt__15TObjLazerFence4;
     self->id = lazer_fence4_class_name;
     ((V_801935D8 *)self)->init(arg2);

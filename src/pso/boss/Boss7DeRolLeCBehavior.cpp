@@ -4018,7 +4018,7 @@ void TBoss7DeRolLeC::vfunc_88() {
         set = 0;
         clr = 7;
     }
-    for (i = 0; i != *(s32 *)&this->unk_A8; i++) {
+    for (i = 0; i != this->body_count; i++) {
         (*(Elem_802ED73C * *)&this->m_a4)[i].flags |= set;
         (*(Elem_802ED73C * *)&this->m_a4)[i].flags &= ~clr;
     }

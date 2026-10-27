@@ -106,7 +106,7 @@ extern u32 rock_cave_model_resource;
 void *TORockCave__ct(void *arg0);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 
 void TORockCave::draw_model() {
@@ -170,7 +170,7 @@ void TORockCave::load_resources() {
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -184,7 +184,7 @@ extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
 void *TORockCave__ct(void *rock_cave) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(rock_cave, tl_05);
+    __ct__13TUnk_804AF8A0FP7TObject(rock_cave, tl_05);
     *(s32 **)((s8 *)rock_cave + 0x18) = __vt__10TORockCave;
     *(void * *)&((TORockCave *)rock_cave)->m_name = TORockCave__class_name;
     *(f32 *)((s8 *)rock_cave + 0xAC) = lbl_805DB974;

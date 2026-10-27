@@ -34,7 +34,7 @@ void subtract_vector(Vec *v, const Vec *sub);
 void play_sound_effect(s32 id, const Vec *pos, s32 a2, s32 a3);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TUnk_804AF8A0 *construct_collider_proxy__13TUnk_804AF8A0Fv(TUnk_804AF8A0 *actor, TObject *parent);
+TUnk_804AF8A0 *__ct__13TUnk_804AF8A0FP7TObject(TUnk_804AF8A0 *actor, TObject *parent);
 extern GC_Mtx identity_matrix;
 extern void *__vt__16TObjVoloptPillar[];
 }
@@ -162,7 +162,7 @@ extern "C" TObjVoloptPillar *__dt__16TObjVoloptPillarFv(TObjVoloptPillar *pillar
     if (pillar != NULL) {
         *(void ***)((u8 *)pillar + 0x18) = __vt__16TObjVoloptPillar;
         free_collision_body_parts(pillar);
-        pillar->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(pillar, 0);
         if (flags > 0) {
             TObject::operator delete(pillar);
         }
@@ -172,7 +172,7 @@ extern "C" TObjVoloptPillar *__dt__16TObjVoloptPillarFv(TObjVoloptPillar *pillar
 
 TObjVoloptPillar *TObjVoloptPillar__ct(TObjVoloptPillar *pillar, Vec *pos, TObject *owner) {
     f32 dist;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(pillar, tl_04);
+    __ct__13TUnk_804AF8A0FP7TObject(pillar, tl_04);
     *(void ***)((u8 *)pillar + 0x18) = __vt__16TObjVoloptPillar;
     pillar->m_name = TObjVoloptPillar_name;
     init_collision_body_parts(pillar, volopt_pillar_collision_body, 1);

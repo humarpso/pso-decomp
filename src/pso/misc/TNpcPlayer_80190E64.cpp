@@ -6,6 +6,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 
 struct RecoveredGlobal_8019118C_lbl_804B7BD8 {
     s32 value;
@@ -149,7 +150,7 @@ Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1) {
                 c->v0(1);
             }
         }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -158,7 +159,7 @@ Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1) {
 }
 
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B7C1C.value;
     ((TUnk_804B7C1C *)(arg0))->apply_object_set_data((void *)arg2);
     *(s16 *)((s8 *)arg0 + 0xAC) = 3;

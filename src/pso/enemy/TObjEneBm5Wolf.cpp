@@ -3440,7 +3440,7 @@ s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, int);
 void *__nw__7TObjectFUl(int);
 extern s32 bm5_wolf_class_name;
 void TLobby__sub_8001FE7C(void*, int);
@@ -3575,7 +3575,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *ene_bm5_wolf, void *arg1, void *arg2) {
     *(f32 *)((s8 *)ene_bm5_wolf + 0x40C) = (*(f32 *)&TObjEneBm5Wolf__data_805D9D78);
     o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = construct_collider_proxy__13TUnk_804AF8A0Fv(o, 0);
+        o = __ct__13TUnk_804AF8A0FP7TObject(o, 0);
     }
     *(void **)((s8 *)ene_bm5_wolf + 0x410) = o;
     init_collision_body_parts(*(void **)((s8 *)ene_bm5_wolf + 0x410), (void *)((u8 *)TObjEneBm5Wolf__collider_params + 0x2C), 1);

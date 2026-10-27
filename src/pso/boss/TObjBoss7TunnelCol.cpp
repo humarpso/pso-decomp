@@ -6,6 +6,7 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, TObject *);
 
 extern "C" {
 
@@ -25,7 +26,7 @@ void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -38,9 +39,9 @@ extern void *lbl_805D3FF0;
 extern const f32 lbl_805DECA0;
 extern const f32 lbl_805DEC9C;
 
-void *TObjBoss7TunnelCol__ct(void *arg0) {
+void *TObjBoss7TunnelCol__ct(void *arg0, TObject *parent) {
     struct VOff_802F1BEC_arg0_802F1B7C *self = (struct VOff_802F1BEC_arg0_802F1B7C *)arg0;
-    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
     *(void * *)&((TObjBoss7TunnelCol *)arg0)->m_name = lbl_805D3FF0;
     fn_8002B630((u8 *)self->f_AC, (u8 *)TObjBoss7TunnelCol__col_desc);

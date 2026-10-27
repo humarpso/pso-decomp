@@ -110,7 +110,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 s32 init_collision_body_parts(void *, void *, s32);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 extern s32 TObjDoor__name;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door);
@@ -527,7 +527,7 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TObjDoor;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -537,7 +537,7 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
 
 #define d ((Door_8018F15C *)arg0)
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, arg1);
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);
     d->vt = __vt__8TObjDoor;
     d->f0 = TObjDoor__name;
     ((TObjPlayer *)d)->apply_object_set_data(arg2);

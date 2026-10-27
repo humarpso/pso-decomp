@@ -2,6 +2,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 
 #include "pso/boss/TBoss6GravBall.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -379,7 +380,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFv(arg0);
         clear_player_grav_flags__14TBoss6GravBallFv(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -388,7 +389,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
 }
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     s32 i;
-    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);
     ((u8 **)arg0)[0x18 / 4] = ((u8 *)&__vt__14TBoss6GravBall);
     arg0->f0 = TBoss6GravBall__name;
     arg0->fAC = arg1;

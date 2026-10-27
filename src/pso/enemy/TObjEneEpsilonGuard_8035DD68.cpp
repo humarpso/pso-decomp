@@ -1095,7 +1095,7 @@ s32 reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, int);
 extern s32 epsilon_guard_boss_stat_handle;
 extern s32 epsilon_guard_shared_handler_b;
 extern s32 epsilon_guard_registered_object_handle;
@@ -1390,7 +1390,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     ((VObj_18_b345b0 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = construct_collider_proxy__13TUnk_804AF8A0Fv(o, 0);
+        o = __ct__13TUnk_804AF8A0FP7TObject(o, 0);
     }
     *(void **)((s8 *)arg0 + 0x45C) = o;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x45C), (u8 *) TObjEneEpsilonGuard__model_desc + 0x2C, 1);

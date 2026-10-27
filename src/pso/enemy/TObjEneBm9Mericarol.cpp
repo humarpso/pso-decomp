@@ -354,7 +354,7 @@ void init_model__9TObjEneDDFv(void *, void *, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
@@ -708,7 +708,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((VObj14_802D0D3C *)self->o46C)->m3();
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
+        p = __ct__13TUnk_804AF8A0FP7TObject(p, 0);
     }
     self->f48C = p;
     init_collision_body_parts(self->f48C, (u8 *)lbl_804E1564 + 0x2C, 1);

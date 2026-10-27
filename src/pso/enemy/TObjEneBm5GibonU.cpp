@@ -4413,7 +4413,7 @@ void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv();
 extern s32 lbl_805D2A70;
@@ -4576,7 +4576,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *ene_bm5_gibon_u, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)ene_bm5_gibon_u + 0x4AC) = 0;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
+        p = __ct__13TUnk_804AF8A0FP7TObject(p, 0);
     }
     *(void **)((s8 *)ene_bm5_gibon_u + 0x50C) = p;
     init_collision_body_parts(*(void **)((s8 *)ene_bm5_gibon_u + 0x50C), &gibon_collision_body_templates[2], 1);

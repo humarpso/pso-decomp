@@ -56,7 +56,7 @@ int TObjPlayer::draw_fading_motion() {
     TObjPlayer::set_global_flag();
     post_translate_matrix((u8 *)&this->unk_D4);
     rotate_matrix_y(0, (*(s32 *)&this->motion_buffer));
-    TObjFish::set_global_param(*(s32 *)&this->unk_A8);
+    TObjFish::set_global_param(this->body_count);
     ((TObjFish *)(this->m_ec))->set_draw_callback_list();
     draw_model_motion((void *)(*(s32 *)&this->m_a4), (void *)(*(s32 *)&this->unknownAC), *(f32 *)&this->unk_E8);
     clear_render_callback__8TObjFishFv(this->m_ec);

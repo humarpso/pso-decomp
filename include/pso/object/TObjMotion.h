@@ -57,9 +57,10 @@ public:
     u8 * m_88;
     u32 m_8c;
 };
-// The derived destructors still written out by hand call the base one by its
-// symbol.
+// The derived destructors still written out by hand call the base ones by
+// their symbols.
 extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+extern "C" void *__dt__13TUnk_804AF8A0Fv(void *, s16);
 
 // One collision sphere of an actor (TUnk_804AF8A0::m_a4 points at the actor's
 // array of them); init_collision_body_parts copies a static table of these.
@@ -73,6 +74,7 @@ struct CollisionBody {
 
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
+    TUnk_804AF8A0(TObject *parent);
     virtual ~TUnk_804AF8A0();
     virtual void reset_motion_fields();
     void*find_actor_body_contact(u8*, f32);
@@ -89,8 +91,6 @@ public:
     u16 unregister_object_by_id();
     void send_object_state_update(void *);
     virtual void vfunc_13(s32);
-    u8 *construct_collider_proxy();
-    void *destroy_particle_controller(s16);
     s32 set_flag8();
     u8 sub_8010319C();
     void set_shadow_flag();
@@ -99,11 +99,10 @@ public:
     u16 m_94;
     u8 unk_96[0x2];
     void* m_98;
-    s16 m_9c;
-    u8 unk_9E[0x2];
+    void *m_9c;
     u32 m_a0;
     CollisionBody *m_a4;
-    u8 unk_A8[0x4];
+    s32 body_count;
 };
 // One entry of TObjMotion::action_table.
 struct TObjMotionAction {

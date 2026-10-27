@@ -186,7 +186,7 @@ extern s32 gibbles_combat_stats_handle;
 extern u32 TObjEneGibbles__resource_bundle;
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 void init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, int);
 void * __nw__7TObjectFUl(int);
 void __construct_array(void *, void *, void *, int, int);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
@@ -1126,7 +1126,7 @@ void TObjEneGibbles__sub_802D8464(TObjEneGibbles *self) {
             self->referenceHp = self->hp;
             self->actorFlags &= ~0x200;
             self->m_2dc = 0;
-            for (i = 0; i < *(s32 *)self->unk_A8; i++) {
+            for (i = 0; i < self->body_count; i++) {
                 ((GibblesBody *)self->m_a4)[i].flags &= ~0x04000000;
             }
         } else {
@@ -2636,13 +2636,13 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x384) = 0x101;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
+        p = __ct__13TUnk_804AF8A0FP7TObject(p, 0);
     }
     *(void **)((s8 *)arg0 + 0x3B4) = p;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x3B4), (u8 *)lbl_804E296C + 0x2C, 1);
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
+        p = __ct__13TUnk_804AF8A0FP7TObject(p, 0);
     }
     ((TObjEneGibbles *)arg0)->m_3b8 = p;
     init_collision_body_parts(((TObjEneGibbles *)arg0)->m_3b8, (u8 *)lbl_804E296C + 0x58, 1);

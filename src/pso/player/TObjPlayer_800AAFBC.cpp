@@ -219,7 +219,7 @@ s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 player_sub_800ab7a0_id_table[];
 extern void *lbl_805D5090;
@@ -450,7 +450,7 @@ void *TUnk_80491478::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
         if (*(void * *)&(this->m_d0) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_d0)); (this->m_d0) = 0; }
-        destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -464,7 +464,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     void *obj;
     u8 *temp_r3;
     s32 t;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80491478;
     *(s16 *)((s8 *)arg0 + 0xAC) = arg1;
     *(s16 *)((s8 *)arg0 + 0xD4) = obj_getField1c(arg2);

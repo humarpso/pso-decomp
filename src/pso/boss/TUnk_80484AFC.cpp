@@ -36,7 +36,7 @@ s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
 void check_enemy_body_collisions(TUnk_804AF8A0 *actor);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TUnk_804AF8A0 *construct_collider_proxy__13TUnk_804AF8A0Fv(TUnk_804AF8A0 *actor, TObject *parent);
+TUnk_804AF8A0 *__ct__13TUnk_804AF8A0FP7TObject(TUnk_804AF8A0 *actor, TObject *parent);
 extern GC_Mtx identity_matrix;
 extern void *__vt__13TUnk_80484AFC[];
 }
@@ -142,7 +142,7 @@ extern "C" TUnk_80484AFC *__dt__13TUnk_80484AFCFv(TUnk_80484AFC *missile, s16 fl
         if (missile->trail != NULL) {
             ((TObject *)missile->trail)->queue_destruction();
         }
-        missile->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(missile, 0);
         if (flags > 0) {
             TObject::operator delete(missile);
         }
@@ -152,7 +152,7 @@ extern "C" TUnk_80484AFC *__dt__13TUnk_80484AFCFv(TUnk_80484AFC *missile, s16 fl
 
 TUnk_80484AFC *TBoss3Volopt__sub_80049E9C(TUnk_80484AFC *missile, TObject *parent, Vec *pos, s32 rotation_y,
                                           s32 target_id) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(missile, parent);
+    __ct__13TUnk_804AF8A0FP7TObject(missile, parent);
     *(void ***)((u8 *)missile + 0x18) = __vt__13TUnk_80484AFC;
     init_collision_body_parts(missile, volopt_missile_collision_body, 1);
     missile->m_a4->radius = 5.0f;

@@ -968,7 +968,7 @@ void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1);
 extern void *challenge_task;
 s32 TLobby__sub_80182E60(void);
 s32 init_collision_body_parts(void *, void *, int, int);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
+s32 __ct__13TUnk_804AF8A0FP7TObject();
 }
 extern RecoveredGlobal_80182D8C_lbl_80443F20 city_door_init_params;
 u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
@@ -1115,7 +1115,7 @@ void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_door_base_vtable;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1131,7 +1131,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     CopyStack_80182D8C copy_storage_80182D8C;
     u8 *temp_r4;
     u8 *count;
-    construct_collider_proxy__13TUnk_804AF8A0Fv();
+    __ct__13TUnk_804AF8A0FP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80182D8C_lbl_804B5BA8 *)&city_door_base_vtable).value;
     ((TUnk_804B5BA8 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;

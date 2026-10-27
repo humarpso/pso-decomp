@@ -86,7 +86,7 @@ f32 atan2_float(f32, f32);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, int);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern s32 lbl_80494E10[];
@@ -208,7 +208,7 @@ void *__dt__13TUnk_80494E10Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
         if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); *(s32 *)((s8 *)arg0 + 0xE0) = 0; }
         if (*(void **)((s8 *)arg0 + 0xE4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE4)); ((TUnk_80494E10 *)arg0)->m_e4 = 0; }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -218,7 +218,7 @@ void *__dt__13TUnk_80494E10Fv(void *arg0, s16 arg1) {
 u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
     Ang_800DC83C ang;
     f32 s;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
     ((TUnk_80494E10 *)arg0)->m_f4 = arg3;
     VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)arg1);

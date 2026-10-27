@@ -55,7 +55,7 @@ struct Obj_80108C90 {
     u8 sub[0x10];
 };
 s32 pop_free_id__6TLobbyFv();
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 extern u8 lbl_8043E1A0[];
 
 #include "pso/TItemEffFlame.h"
@@ -274,7 +274,7 @@ void *TUnk_8049F038::destroy(s16 arg1) {
             TLobby__sub_80103B04();
             set_item_count__13TUnk_804B9870Fs(this, 0xFFFF);
         }
-        this->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -283,7 +283,7 @@ void *TUnk_8049F038::destroy(s16 arg1) {
 }
 
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent);
+    __ct__13TUnk_804AF8A0FP7TObject(self, parent);
     self->vt = lbl_8049F038;
     self->f_AC = a;
     self->f_B0 = b;

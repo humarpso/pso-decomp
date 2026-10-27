@@ -939,7 +939,7 @@ s32 init_model__9TObjEneDDFv(void *, void *, int);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -2631,7 +2631,7 @@ void TObjEneDellBiter::init_params() {
     self->f498 = n;
     n = __nw__7TObjectFUl(0xAC);
     if (n != NULL) {
-        n = construct_collider_proxy__13TUnk_804AF8A0Fv(n, 0);
+        n = __ct__13TUnk_804AF8A0FP7TObject(n, 0);
     }
     self->f49C = n;
     init_collision_body_parts(self->f49C, &((Part_80306468 *)lbl_804E6B8C)[3], 1);

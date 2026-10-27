@@ -152,7 +152,7 @@ f32 atan2_float(f32, f32);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 void matrix_mult_vec(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
@@ -172,7 +172,7 @@ void *TUnk_80494E48::destroy_particle_obj(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80494E48;
         if (this->m_f8 != NULL) { queue_destruction__7TObjectFv(this->m_f8); this->m_f8 = 0; }
-        destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -181,7 +181,7 @@ void *TUnk_80494E48::destroy_particle_obj(s16 arg1) {
 }
 Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s16 id, s32 *rot, s32 arg4, s16 arg5) {
     Vec_800DCD04 *pp;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(self, tl_04);
+    __ct__13TUnk_804AF8A0FP7TObject(self, tl_04);
     self->vt = lbl_80494E48;
     self->id = id;
     self->f102 = arg5;

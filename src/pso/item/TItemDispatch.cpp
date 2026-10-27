@@ -225,7 +225,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
         ((TItem *)arg0)->set_mode(3);
         ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
         ((TItem *)arg0)->unregister_item();
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -240,14 +240,14 @@ void set_item_count__13TUnk_804B9870Fs(void *, s32);
 void TItem__sub_801031C0(void *);
 s8 get_type_nibble__9TItemDataFv(void *);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
 extern s32 TItem__name;
 extern u32 item_object_set_data;
 u8 *TItem__ct(u8 *self, void *parent, u8 *item);
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent);
+    __ct__13TUnk_804AF8A0FP7TObject(self, parent);
     *(void **)((s8 *)self + 0x18) = __vt__5TItem;
     *(s32 *)((s8 *)self + 0) = TItem__name;
     obj_setFlags30(self, 0x80000000);

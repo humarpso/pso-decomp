@@ -71,7 +71,7 @@ s32 vec3_add_to(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s16 obj_getField1c(void *, f32);
 s32 subtract_vector(void *, void *);
@@ -148,7 +148,7 @@ void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xD0) != 0U) {
             queue_destruction__7TObjectFv(((TUnk_804909C4 *)arg0)->m_d0);
         }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -159,7 +159,7 @@ void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1) {
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *player, s32 arg2, s32 arg3) {
     s32 var_r0;
     u8 *temp_r3;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
     init_collision_body_parts(arg0, lbl_80490998, 1);
     *(f32 *)((s8 *)(((TUnk_804909C4 *)arg0)->m_a4) + 0xC) = 0.75f * player_scale_factor;
