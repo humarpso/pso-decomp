@@ -58,6 +58,7 @@ extern s32 lbl_805D586C;
 extern Vec boss3_volopt_spawn_pos;
 extern BmlResource *boss3_volopt_resources;
 extern s32 volopt_active_player_id;
+extern u16 lbl_805D271A;
 s32 TBoss3Volopt__sub_8003F398(void);
 void link_photon__10TObjPlayerFUs(u16 id, s32 a1);
 void TObjEnemyCustom__ct(void *obj);
