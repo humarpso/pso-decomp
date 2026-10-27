@@ -79,7 +79,7 @@ s32 *TLobby__sub_80291D4C(void) {
 }
 }
 u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
-void* construct_creation_camera(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); ((TUnk_804DAB08 *)a0)->m_38 = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; ((TUnk_804DAB08 *)a0)->m_4c = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; ((TUnk_804DAB08 *)a0)->m_70 = 0; ((TUnk_804DAB08 *)a0)->m_78 = 2; *(int*)((char*)a0 + 0x7c) = 0; ((TUnk_804DAB08 *)a0)->m_88 = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; ((TUnk_804DAB08 *)a0)->m_54 = 17294; return a0; }
+void* construct_creation_camera(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); ((TUnk_804DAB08 *)a0)->m_38 = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; ((TUnk_804DAB08 *)a0)->target.y = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; ((TUnk_804DAB08 *)a0)->m_70 = 0; ((TUnk_804DAB08 *)a0)->m_78 = 2; *(int*)((char*)a0 + 0x7c) = 0; ((TUnk_804DAB08 *)a0)->m_88 = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; ((TUnk_804DAB08 *)a0)->projection_angle = 17294; return a0; }
 
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

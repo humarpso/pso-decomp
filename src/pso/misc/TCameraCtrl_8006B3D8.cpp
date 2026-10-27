@@ -253,13 +253,13 @@ void TUnk_80488B08::vfunc_6() {
 
     if ((u32) camera_ctrl_instance != 0U) {
         temp_r3 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
-        *(f32 *)&this->unk_48 = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
-        this->m_4c = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
-        *(f32 *)&this->unk_50 = (f32) *(f32 *)((s8 *)temp_r3 + 0x30);
-        this->m_3c = (f32) *(f32 *)((s8 *)temp_r3 + 0x1C);
-        *(f32 *)&this->unk_40 = (f32) *(f32 *)((s8 *)temp_r3 + 0x20);
-        this->m_44 = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
-        this->m_54 = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
+        this->target.x = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
+        this->target.y = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
+        this->target.z = (f32) *(f32 *)((s8 *)temp_r3 + 0x30);
+        this->position.x = (f32) *(f32 *)((s8 *)temp_r3 + 0x1C);
+        this->position.y = (f32) *(f32 *)((s8 *)temp_r3 + 0x20);
+        this->position.z = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
+        this->projection_angle = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
         this->m_58 = (f32) *(f32 *)((s8 *)temp_r3 + 0x10);
     }
 }
