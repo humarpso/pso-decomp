@@ -1,6 +1,7 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/boss/TBoss3VoloptP01.h"
+#include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/animation/ActorAnimationState.h"
@@ -23,6 +24,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/object/TObjLight_80133568.h"
+#include "pso/object/TObjVoloptShutter.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/vector.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -51,9 +53,8 @@ void *__construct_array(void *array, void *ctor, void *dtor, u32 size, u32 count
 extern Mtx34 identity_matrix;
 extern Mtx34 *anim_model_matrix_array;
 extern s32 lbl_805D586C;
-extern void *tl_04;
-extern void *tl_07;
 
+// TBoss3Volopt.cpp defines these; its header does not declare them yet.
 extern Vec boss3_volopt_spawn_pos;
 extern BmlResource *boss3_volopt_resources;
 extern s32 volopt_active_player_id;
@@ -61,7 +62,6 @@ s32 TBoss3Volopt__sub_8003F398(void);
 void link_photon__10TObjPlayerFUs(u16 id, s32 a1);
 void TObjEnemyCustom__ct(void *obj);
 void *__dt__15TObjEnemyCustomFv(void *obj, s16 flags);
-TObjVoloptShutter *__ct__17TObjVoloptShutterFv(void *obj, s32 index);
 void *__dt__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *self, s16 flags);
 void run_task__15TBoss3VoloptP01Fv();
 void render__15TBoss3VoloptP01Fv();
@@ -155,18 +155,18 @@ void is_target_in_attack_range__13TUnk_804806E8Fv();
 void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 void receive_physical_attack__13TUnk_804806E8FPvf();
 void receive_weapon_special_attack__10TObjPlayerFv();
-void render_shadows__9TObjEnemyFv(u8 *arg0);
+void render_shadows__9TObjEnemyFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void select_melee_contact_body__13TUnk_804806E8FPvf();
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
-s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
+void vfunc_37__13TUnk_804806E8Fv();
 void update_actor_ground_y__13TUnk_804806E8Fv();
-s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-s32 update_defense_stat_status(u8 *arg0);
+void update_attack_stat_status__13TUnk_804806E8Fv();
+void update_defense_stat_status();
 void update_flag30_timer__13TUnk_804806E8Fv();
 void vfunc_60__15TObjEnemyCustomFv();
 void vfunc_59__15TObjEnemyCustomFv();
@@ -863,7 +863,7 @@ void TBoss3VoloptP01::init_breakup_effect() {
 void *TBoss3VoloptP01::create(void *set_data) {
     TBoss3VoloptP01 *o = (TBoss3VoloptP01 *)TObject::operator new(0x418);
     if (o != NULL) {
-        o = TBoss3VoloptP01__sub_800442A0(o, (TObject *)tl_04, set_data);
+        o = TBoss3VoloptP01__sub_800442A0(o, tl_04, set_data);
     }
     return o;
 }
@@ -930,7 +930,7 @@ TBoss3VoloptP01 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *self, TBoss3Volopt *parent
     self->rotation_y = -0x4000 - angle;
     shutter = (TObjVoloptShutter *)TObject::operator new(0x34);
     if (shutter != NULL) {
-        shutter = __ct__17TObjVoloptShutterFv(shutter, index);
+        shutter = (TObjVoloptShutter *)__ct__17TObjVoloptShutterFv((u8 *)shutter, index);
     }
     self->shutter = shutter;
     return self;
@@ -948,7 +948,7 @@ TBoss3VoloptP01 *TBoss3VoloptP01__sub_800442A0(TBoss3VoloptP01 *self, TObject *p
     self->init_params();
     shutter = (TObjVoloptShutter *)TObject::operator new(0x34);
     if (shutter != NULL) {
-        shutter = __ct__17TObjVoloptShutterFv(shutter, 0);
+        shutter = (TObjVoloptShutter *)__ct__17TObjVoloptShutterFv((u8 *)shutter, 0);
     }
     self->shutter = shutter;
     return self;
