@@ -7070,7 +7070,7 @@ pso/menu/TQuestBgmCtrl.cpp:
 pso/quest/QuestOpcodeTables.cpp:
 	.data       start:0x804C69D0 end:0x804C81D8
 
-pso/misc/TLobby_801E6544.cpp:
+pso/quest/QuestOpcodeHandlers.cpp:
 	.text       start:0x801E6544 end:0x801F2D2C
 	.rodata     start:0x80449CB8 end:0x80449CC0
 	.data       start:0x804C81D8 end:0x804C8230
