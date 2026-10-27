@@ -2,8 +2,7 @@
 #include "pso/misc/TRaderMapCore_801FB2B8.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/TParticleCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 #pragma fp_contract on
 

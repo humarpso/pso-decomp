@@ -8,7 +8,6 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
@@ -26,7 +25,6 @@
 #include "pso/object/TObjCity_Season_SonicAdv2.h"
 #include "pso/object/TObjCity_Season_Board.h"
 #include "pso/object/TObjCity_Season_FireWorkCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 struct RecoveredGlobal_80184B44_lbl_804440B0 { s32 value; u8 remaining[0x28]; };
 extern "C" {
 const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template = {0, {

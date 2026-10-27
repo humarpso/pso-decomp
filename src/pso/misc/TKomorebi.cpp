@@ -10,7 +10,7 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 extern char lbl_80445A00[];
 extern char lbl_80445A10[];

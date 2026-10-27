@@ -2,6 +2,7 @@
 
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/object/TObjDFDemo1.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/player/TObjPlayer_80052374.h"
 #include "pso/player/TObjPlayer_803E4954.h"
@@ -217,12 +218,10 @@ void TObjDFDemo1::render() { draw_fading_model(); sub_8004E068(); }
 
 #pragma push
 
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/unk/text_80087278.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct DFDemo1Emitter {
     s32 effect;
@@ -317,27 +316,21 @@ struct S_8004E634 {
 extern "C" {
 void fn_8004AA04(void *);
 void __dl__7TObjectFPv(void *);
-extern u8 lbl_80485640[];
-S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag);
-S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
+extern u8 __vt__11TObjDFDemo1[];
+S_8004E634 *__dt__11TObjDFDemo1Fv(S_8004E634 *o, s16 flag);
+}
+TObjDFDemo1::~TObjDFDemo1() {
     s32 i;
-    if (o != 0) {
-        o->vt = lbl_80485640;
-        fn_8004AA04(o->f11c);
-        for (i = 0; i < 4; i++) {
-            if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->ptr[i]);
-                o->ptr[i] = 0;
-            }
-        }
-        restore_player_cameras();
-        __dt__13TUnk_804B9870Fv(o, 0);
-        if (flag > 0) {
-            __dl__7TObjectFPv(o);
+    fn_8004AA04(((S_8004E634 *)this)->f11c);
+    for (i = 0; i < 4; i++) {
+        if (((S_8004E634 *)this)->ptr[i] != 0) {
+            TBoss4Type2::request_destroy((u32)((S_8004E634 *)this)->ptr[i]);
+            ((S_8004E634 *)this)->ptr[i] = 0;
         }
     }
-    return o;
+    restore_player_cameras();
 }
+extern "C" {
 
 }
 

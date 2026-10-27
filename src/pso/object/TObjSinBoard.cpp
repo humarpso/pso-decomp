@@ -32,7 +32,6 @@
 #include "pso/unk/TUnk_804B8E18.h"
 #include "pso/unk/TUnk_804B8E00.h"
 #include <stddef.h>
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_801982D4_lbl_804B8DAC { s32 value; u8 remaining[0x20]; };
 typedef char RecoveredGlobal_801982D4_lbl_804B8DAC_size[sizeof(RecoveredGlobal_801982D4_lbl_804B8DAC) == 0x24 ? 1 : -1];

@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TOSwitchAttack.h"
 #include "pso/misc/TOSwitchItem.h"
 #include "pso/misc/TOSwitchAttack.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_80177C80___vt__14TOSwitchAttack {
     s32 value;
@@ -194,16 +193,11 @@ void *TOSwitchAttack::create(void *arg0) {
 void TOSwitchAttack__sub_80177C20(void) {  }
 void TOSwitchAttack__sub_80177C24(void) {  }
 
-void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOSwitchAttack;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOSwitchAttack::~TOSwitchAttack() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_80177C80___vt__14TOSwitchAttack_size[sizeof(RecoveredGlobal_80177C80___vt__14TOSwitchAttack) == 0x38 ? 1 : -1];
 u8 *TOSwitchAttack__ct(u8 *switch_attack, s32 arg1, s32 arg2) {
     __ct__13TUnk_804B9870FP7TObject(switch_attack);

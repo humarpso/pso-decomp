@@ -3,10 +3,9 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOKeyJungleMain.h"
 #include "pso/misc/TOGrassJungle.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_8029CE64___vt__13TOGrassJungle {
     s32 value;

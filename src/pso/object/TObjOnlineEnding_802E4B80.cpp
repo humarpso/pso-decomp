@@ -10,7 +10,6 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 extern "C" {
 

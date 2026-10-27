@@ -4,11 +4,9 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/unk/text_80050134.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/misc/TCameraCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 extern "C" {
 

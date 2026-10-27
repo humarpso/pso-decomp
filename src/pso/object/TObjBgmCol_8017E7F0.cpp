@@ -1,8 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjBgmCol_8017E7F0.h"
 #include "pso/object/TObjBgmCol.h"
-#include "pso/TParticleCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 

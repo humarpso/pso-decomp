@@ -16,7 +16,6 @@ public:
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_802A9C24___vt__16TBGLightningCtrl {
     s32 value;

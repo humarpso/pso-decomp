@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TOSparkMachine01.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOSparkMachine01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_80177330_lbl_804B43F0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80177330_lbl_804B43F0_size[sizeof(RecoveredGlobal_80177330_lbl_804B43F0) == 0x10 ? 1 : -1];
@@ -184,16 +184,11 @@ void TOSparkMachine01::load_static_resource() {
     (*(s32 *)&TOSparkMachine01__static_resource) = var_r0;
 }
 
-void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOSparkMachine01;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOSparkMachine01::~TOSparkMachine01() {
+
+}
+extern "C" {
 void *TOSparkMachine01__ct(void *arg0, void *arg1) {
     Obj_801773D8 *self = (Obj_801773D8 *)arg0;
     s32 i;

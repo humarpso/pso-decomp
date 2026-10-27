@@ -2,9 +2,8 @@
 #include "pso/object/TObject_8001A448.h"
 #include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjRaderHideCol.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_80197490___vt__16TObjRaderHideCol {
     s32 value;

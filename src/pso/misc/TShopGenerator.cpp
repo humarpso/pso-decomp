@@ -9,9 +9,8 @@ struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
 
 #include <stddef.h>
 #include "pso/TAdPlayerLoadGC.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TMedicalCenterMes.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 struct Stack_8021DC30 {
     s32 sp8;
     s32 spC;

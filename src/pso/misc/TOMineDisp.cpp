@@ -1,6 +1,5 @@
 #include "types.h"
-#include "pso/TParticleCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 

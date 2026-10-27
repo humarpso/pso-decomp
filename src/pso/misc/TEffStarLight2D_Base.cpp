@@ -2,9 +2,8 @@
 #include "pso/misc/TEffStarLight2D_Base.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TEffStarLight2D.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TUnk_8048E640.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 struct Stack_80084C10 {

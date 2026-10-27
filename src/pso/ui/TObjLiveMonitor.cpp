@@ -5,12 +5,11 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjLiveCamera.h"
 #include "pso/TObjLiveMonitor.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TObjLiveCameraCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TCameraCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct O_8030B370 { u8 pad[0x24]; u32 a; s32 t; };
 

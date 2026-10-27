@@ -8,7 +8,6 @@
 #include "pso/unk/text_8004D9A8.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Uro.h"
@@ -16,7 +15,6 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 extern "C" {
 

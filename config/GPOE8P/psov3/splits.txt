@@ -307,6 +307,7 @@ pso/boss/TBoss2Tentacle.cpp:
 pso/boss/TObjBoss2CeilJunk.cpp:
 	.text       start:0x8003A1B4 end:0x8003A81C
 	.rodata     start:0x80435C30 end:0x80435C38
+	.data       start:0x804832C8 end:0x804832FC
 	.sdata2     start:0x805D8568 end:0x805D85AC
 
 pso/boss/TObjBoss2CeilJunk_8003A81C.cpp:
@@ -4809,6 +4810,7 @@ pso/object/TObjFogCollisionSwitch.cpp:
 
 pso/object/TObjFogCollision.cpp:
 	.text       start:0x80153F78 end:0x80154090
+	.data       start:0x804AF860 end:0x804AF8A0
 
 pso/misc/TMainCursor_80154090.cpp:
 	.text       start:0x80154090 end:0x801542CC
@@ -4894,6 +4896,7 @@ pso/misc/TOBoss4Rock_801589E8.cpp:
 
 pso/misc/TOBoss4.cpp:
 	.text       start:0x80159CEC end:0x80159E24
+	.data       start:0x804AFDB8 end:0x804AFDEC
 
 pso/misc/TOCakeshopCave01.cpp:
 	.text       start:0x80159E24 end:0x8015A2B8
@@ -4932,6 +4935,7 @@ pso/misc/TOChatSensor_8015AC80.cpp:
 
 pso/misc/TOChatSensor.cpp:
 	.text       start:0x8015B014 end:0x8015B214
+	.data       start:0x804AFFA8 end:0x804AFFDC
 
 pso/misc/TOChatSensor_8015B214.cpp:
 	.text       start:0x8015B214 end:0x8015B350
@@ -5110,6 +5114,7 @@ pso/unk/text_80165940.cpp:
 
 pso/misc/TODummyKeyCave01.cpp:
 	.text       start:0x80165B50 end:0x80165F84
+	.data       start:0x804B1A40 end:0x804B1A74
 	.sdata2     start:0x805DB5D0 end:0x805DB5F0
 
 pso/misc/TOExplosiveMachine03.cpp:
@@ -5437,6 +5442,7 @@ pso/misc/TOSignCave03.cpp:
 pso/misc/TOSparkMachine01.cpp:
 	.text       start:0x80177088 end:0x801774BC
 	.rodata     start:0x80442BB8 end:0x80442BC0
+	.data       start:0x804B4400 end:0x804B4434
 
 pso/system/TOSwitchAttackSub.cpp:
 	.text       start:0x801774BC end:0x801778A4
@@ -5446,6 +5452,7 @@ pso/system/TOSwitchAttackSub.cpp:
 
 pso/misc/TOSwitchAttack_801778A4.cpp:
 	.text       start:0x801778A4 end:0x80177D60
+	.data       start:0x804B4450 end:0x804B4484
 
 pso/misc/TOSwitchItem.cpp:
 	.text       start:0x80177D60 end:0x80178150
@@ -5628,6 +5635,7 @@ pso/unk/text_8017E900.cpp:
 pso/misc/TButterfly.cpp:
 	.text       start:0x8017E978 end:0x8017F364
 	.rodata     start:0x80443970 end:0x80443978
+	.data       start:0x804B5840 end:0x804B5874
 	.sdata2     start:0x805DBAD8 end:0x805DBB54
 
 pso/misc/TButterfly_8017F364.cpp:
@@ -5833,6 +5841,7 @@ pso/misc/TLobby_80191F80.cpp:
 
 pso/item/TObjItemLight.cpp:
 	.text       start:0x80191F90 end:0x80192174
+	.data       start:0x804B7E98 end:0x804B7ECC
 
 pso/misc/TKomorebi.cpp:
 	.text       start:0x80192174 end:0x80192554
@@ -5866,6 +5875,7 @@ pso/object/TLazerFenceSw.cpp:
 pso/object/TObjLight.cpp:
 	.text       start:0x80193FE4 end:0x80194670
 	.rodata     start:0x80445D50 end:0x80445D68
+	.data       start:0x804B8410 end:0x804B8444
 	.sdata2     start:0x805DBE98 end:0x805DBEBC
 
 pso/object/TObjMapCsn.cpp:
@@ -5882,9 +5892,11 @@ pso/misc/TMotorcycle.cpp:
 
 pso/object/TObjParticle.cpp:
 	.text       start:0x8019527C end:0x80195674
+	.data       start:0x804B85E8 end:0x804B861C
 
 pso/player/TObjPlayerSet.cpp:
 	.text       start:0x80195674 end:0x80195874
+	.data       start:0x804B8620 end:0x804B8654
 
 pso/object/TObjQuestCol2.cpp:
 	.text       start:0x80195874 end:0x80195954
@@ -5979,6 +5991,7 @@ pso/misc/TQuestThreadBoard.cpp:
 
 pso/object/TObjRaderIcon.cpp:
 	.text       start:0x801970C0 end:0x801973AC
+	.data       start:0x804B88D8 end:0x804B890C
 	.sdata2     start:0x805DBF08 end:0x805DBF10
 
 pso/object/TObjRaderHideCol.cpp:
@@ -5986,6 +5999,7 @@ pso/object/TObjRaderHideCol.cpp:
 
 pso/object/TObjRaderCol.cpp:
 	.text       start:0x80197508 end:0x801977D4
+	.data       start:0x804B8940 end:0x804B8974
 
 pso/unk/text_801977D4.cpp:
 	.text       start:0x801977D4 end:0x80197998
@@ -6315,6 +6329,7 @@ pso/misc/TPhotonLine.cpp:
 pso/misc/TPhotonMagicSquare_801ACE1C.cpp:
 	.text       start:0x801ACE1C end:0x801AD47C
 	.rodata     start:0x80446E38 end:0x80446E40
+	.data       start:0x804C39A0 end:0x804C39D4
 	.sdata2     start:0x805DC1E0 end:0x805DC1F8
 
 pso/player/TObjPlayer_801AD47C.cpp:
@@ -6335,6 +6350,7 @@ pso/player/TObjPlayer_801AE48C.cpp:
 
 pso/misc/TPhotonRainbow.cpp:
 	.text       start:0x801AE510 end:0x801AE640
+	.data       start:0x804C3B10 end:0x804C3B44
 
 pso/misc/TPhotonRainbow_801AE640.cpp:
 	.text       start:0x801AE640 end:0x801AE744
@@ -9957,6 +9973,7 @@ pso/unk/text_802AF64C.cpp:
 
 pso/object/TObjMistCtrl.cpp:
 	.text       start:0x802AF72C end:0x802AF968
+	.data       start:0x804DE4C0 end:0x804DE4F4
 
 pso/misc/TPlayerFootStamp.cpp:
 	.text       start:0x802AF968 end:0x802B01D8
@@ -12406,6 +12423,7 @@ pso/enemy/TObjEneHoldEffect_8036CDFC.cpp:
 
 pso/enemy/TObjEneHoldEffect.cpp:
 	.text       start:0x8036CFFC end:0x8036D070
+	.data       start:0x804F3688 end:0x804F36BC
 
 pso/enemy/TObjEneHoldEffect_8036D070.cpp:
 	.text       start:0x8036D070 end:0x8036D0C0

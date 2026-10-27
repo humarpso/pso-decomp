@@ -119,9 +119,7 @@ struct Vec_80155294 { f32 x, y, z; };
 
 #include "pso/protocol/subcmd_6x.h"
 #include "pso/TObject.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 union ObjectSavedState_801548A8 {
     u32 word;
     struct { s16 flags; s16 source; } halves;

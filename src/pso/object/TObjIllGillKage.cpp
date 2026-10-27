@@ -3,8 +3,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjIllGillKage.h"
 #include "pso/TObject.h"
-#include "pso/TParticleCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_803655F8___vt__15TObjIllGillKage { s32 value; u8 remaining[0x30]; };
 typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(RecoveredGlobal_803655F8___vt__15TObjIllGillKage) == 0x34 ? 1 : -1];

@@ -10,14 +10,12 @@
 #include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo3.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 #pragma readonly_strings on
 
 extern "C" {

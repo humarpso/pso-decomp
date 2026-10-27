@@ -1506,8 +1506,7 @@ s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32
 #pragma push
 
 #include "pso/TAdStorySelectGC.h"
-#include "pso/TParticleCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct Base_802C3188 { char pad[0x18]; };
 struct VObj_802C3188 : Base_802C3188 {

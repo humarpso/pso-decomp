@@ -1,9 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjEnvSoundEx.h"
 #include "pso/object/TObjEnvSoundGlobal.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal {
     s32 value;
@@ -297,7 +296,6 @@ void * TObjEnvSound__create(void *rader_map_core) {
 
 #include "types.h"
 #include "pso/object/TObjEnvSound.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };

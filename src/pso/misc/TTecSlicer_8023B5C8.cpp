@@ -7,7 +7,7 @@
 #include "pso/TItemAttacker.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_8023B770_lbl_8044DC20
 {

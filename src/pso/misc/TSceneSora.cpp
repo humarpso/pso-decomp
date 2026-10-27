@@ -12,7 +12,7 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TScene.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_802072E0___vt__10TSceneSora {
     s32 value;

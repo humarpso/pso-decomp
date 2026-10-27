@@ -1,9 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/misc/TOSwitchTimer.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct Stack_801783BC {
     f32 sp8;

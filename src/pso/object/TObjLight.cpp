@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjLight.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/object/TObject_80019A50.h"
@@ -7,11 +8,9 @@
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjLight.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_80194528___vt__9TObjLight {
     s32 value;
@@ -192,17 +191,11 @@ void TObjLight::run_task() {
 }
 #pragma pop
 
-void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjLight;
-        ((TUnk_804B9870 *)arg0)->mask_object_set_row_flags(-3);
-        __dt__13TUnk_804B9870Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjLight::~TObjLight() {
+    ((TUnk_804B9870 *)this)->mask_object_set_row_flags(-3);
+}
+extern "C" {
 
 typedef char RecoveredGlobal_80194528___vt__9TObjLight_size[sizeof(RecoveredGlobal_80194528___vt__9TObjLight) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80194528_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80194528_TObjLight__data_80506320) == 0x50 ? 1 : -1];

@@ -3,11 +3,10 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjButterflyLobby.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct ButterflyLobbyBase_80350958 { char pad[0x18]; };
 struct ButterflyLobbyVObj_80350958 : ButterflyLobbyBase_80350958 {

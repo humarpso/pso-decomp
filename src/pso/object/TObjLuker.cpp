@@ -5,7 +5,6 @@
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjLuker.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -14,7 +13,6 @@
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/object/TObjAreaWarpQuest.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct Win_801A0DB4 { u8 pad[4]; u16 flags; };
 

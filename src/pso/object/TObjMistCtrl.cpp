@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMistCtrl.h"
 #include "pso/unk/text_803E29B0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80141A30.h"
@@ -6,10 +7,8 @@
 #include "pso/render/depth_buffer.h"
 #include "pso/TPlayerFootStamp.h"
 #include "pso/object/TObjMistCtrl.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl {
     s32 value;
@@ -40,17 +39,11 @@ void __dl__7TObjectFPv(void *);
 
 void TObjMistCtrl::run_task() { { (void)(sub_802AF64C()); return; } }
 
-void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjMistCtrl;
-        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x90)); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
-        __dt__13TUnk_804B9870Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjMistCtrl::~TObjMistCtrl() {
+    if (*(void **)((s8 *)this + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x90)); *(s32 *)((s8 *)this + 0x90) = 0; }
+}
+extern "C" {
 
 extern s32 camera_ctrl_instance;
 extern s32 lbl_805D5660;

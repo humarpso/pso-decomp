@@ -3,7 +3,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TUnk_804B5C08.h"
@@ -15,7 +14,6 @@
 #include "pso/object/TObjCityDoor_Warp.h"
 #include "pso/object/TObjCityDoor_Med.h"
 #include "pso/object/TObjCityDoor_Lobby.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_8018289C_lbl_80443F4C
 {

@@ -57,6 +57,10 @@ public:
     u8 * m_88;
     u32 m_8c;
 };
+// The derived destructors still written out by hand call the base one by its
+// symbol.
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+
 // One collision sphere of an actor (TUnk_804AF8A0::m_a4 points at the actor's
 // array of them); init_collision_body_parts copies a static table of these.
 struct CollisionBody {

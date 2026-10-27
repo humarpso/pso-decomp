@@ -2,8 +2,7 @@
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjDFUsoTower.h"
-#include "pso/TParticleCtrl.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_80052200_lbl_804858A8 {
     s32 value;

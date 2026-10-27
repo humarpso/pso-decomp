@@ -1,12 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct VBase_18_1a504b { char pad[0x18]; };
 

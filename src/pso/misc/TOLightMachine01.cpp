@@ -6,7 +6,7 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 struct Base_8016E9F4_8016E998 { char pad[0x18]; };
 struct VObj_8016E9F4_8016E998 : Base_8016E9F4_8016E998 {

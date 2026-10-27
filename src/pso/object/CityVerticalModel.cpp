@@ -6,9 +6,7 @@
 #include "pso/system/CityTraffic.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/object/TUnk_804B5C08.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 extern const f32 lbl_805DBC00;
 
 struct VBase_18_26a62c

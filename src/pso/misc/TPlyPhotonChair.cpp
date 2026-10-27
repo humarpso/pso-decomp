@@ -9,12 +9,11 @@
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TPlyPhotonChair.h"
 #include "pso/TMainTask.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 extern char lbl_804796E0[];
 extern char lbl_804796F4[];

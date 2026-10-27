@@ -3,9 +3,8 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjGrassWeb.h"
 #include "pso/TObject.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 typedef struct Web_800BC798 {
     u8 pad0[0x38];

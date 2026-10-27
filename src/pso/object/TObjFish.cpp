@@ -592,7 +592,6 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 }
 
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 #define alloc__23TAdSinglePlyChrSelectGCFv ((u8 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)
 #define __nw__7TObjectFUl ((u8 * (*)(s32))__nw__7TObjectFUl)

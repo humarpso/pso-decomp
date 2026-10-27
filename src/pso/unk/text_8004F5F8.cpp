@@ -1,9 +1,8 @@
 #include "types.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 struct S_8004F5F8 {
     u8 pad0[0x18];
     void *vt;

@@ -8,11 +8,10 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDFDemo5.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
-extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 s32 post_translate_matrix(void *);
