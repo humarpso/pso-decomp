@@ -74,10 +74,6 @@ void *load_resource_from_descriptor(void *resource, s32 kind, u8 *descriptor, s3
 u16 TObjRoomId__sub_801A1DB8(u16 id);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void TObjPlayer__sub_801BA42C(void);
-TBoss3VoloptHiraisin *__ct__20TBoss3VoloptHiraisinFP13TUnk_804B9870Usl(TBoss3VoloptHiraisin *hiraisin, TObject *parent, u16 id, s32 group);
-TBoss3VoloptP01 *__ct__15TBoss3VoloptP01FP12TBoss3VoloptlUsl(TBoss3VoloptP01 *self, TBoss3Volopt *parent, s32 index, u16 id, s32 angle_param);
-TBoss3VoloptMonitor *__ct__19TBoss3VoloptMonitorFP13TUnk_804B9870Uslll(TBoss3VoloptMonitor *monitor, TObject *parent, u16 id,
-                                                                     s32 group, s32 slot, s32 timer);
 TBoss3Volopt *TBoss3Volopt__ct(TBoss3Volopt *volopt, s32 set_data);
 void __ct__15TObjEnemyCustomFP7TObject(void *, TObject *);
 void *__dt__15TObjEnemyCustomFv(void *, s16);
@@ -467,7 +463,6 @@ u16 TBoss3Volopt::find_attack_target() {
 #pragma fp_contract on
 void TBoss3Volopt::spawn_parts() {
     s32 timer;
-    TObject *part;
     s32 i;
     s32 j;
 
@@ -475,29 +470,18 @@ void TBoss3Volopt::spawn_parts() {
     case 0:
         for (i = 0; i < 6; i++) {
             volopt_target_entity_ids[i] = get_part_id(i + 1);
-            part = (TObject *)TObject::operator new(sizeof(TBoss3VoloptP01));
-            if (part != NULL) {
-                __ct__15TBoss3VoloptP01FP12TBoss3VoloptlUsl((TBoss3VoloptP01 *)part, this, i, volopt_target_entity_ids[i], get_part_group(i + 1));
-            }
+            new TBoss3VoloptP01(this, i, volopt_target_entity_ids[i], get_part_group(i + 1));
         }
         boss3_volopt_monitor_base_actor_id = get_part_id(7);
         for (j = 0; j < 0x18; j++) {
             timer = (s32)(30.0f * (5.0f * (3.0517578e-05f * (f32)rand())) + 90.0f);
-            part = (TObject *)TObject::operator new(sizeof(TBoss3VoloptMonitor));
-            if (part != NULL) {
-                __ct__19TBoss3VoloptMonitorFP13TUnk_804B9870Uslll((TBoss3VoloptMonitor *)part, this,
-                                                               boss3_volopt_monitor_base_actor_id + j,
-                                                               get_part_group(j + 7), j, timer);
-            }
+            new TBoss3VoloptMonitor(this, boss3_volopt_monitor_base_actor_id + j, get_part_group(j + 7), j, timer);
         }
         volopt_core_id = get_part_id(0x22);
         fn_8003F468(this, volopt_core_id, get_part_group(0x22));
         volopt_hiraisin_id = get_part_id(0x21);
         if (is_v2_mode() == 0) {
-            part = (TObject *)TObject::operator new(sizeof(TBoss3VoloptHiraisin));
-            if (part != NULL) {
-                __ct__20TBoss3VoloptHiraisinFP13TUnk_804B9870Usl((TBoss3VoloptHiraisin *)part, this, volopt_hiraisin_id, get_part_group(0x21));
-            }
+            new TBoss3VoloptHiraisin(this, volopt_hiraisin_id, get_part_group(0x21));
         }
         next_action = 1;
         break;
