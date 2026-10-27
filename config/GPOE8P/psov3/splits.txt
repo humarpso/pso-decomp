@@ -370,15 +370,12 @@ pso/boss/TBoss3Volopt_8003F3F8.cpp:
 	.text       start:0x8003F3F8 end:0x8003F4C0
 
 pso/boss/TBoss3VoloptCore.cpp:
-	.text       start:0x8003F4C0 end:0x80040B28
-	.rodata     start:0x80436350 end:0x80436358
+	.text       start:0x8003F4C0 end:0x80040B80
+	.rodata     start:0x80436338 end:0x80436358
 	.data       start:0x80483978 end:0x80483B88
-
-pso/player/TObjPlayer_80040B28.cpp:
-	.text       start:0x80040B28 end:0x80040B3C
-
-pso/enemy/TObjEneMe1GiGue_80040B3C.cpp:
-	.text       start:0x80040B3C end:0x80040B80
+	.sdata      start:0x805D2728 end:0x805D272C
+	.sbss       start:0x805D4C50 end:0x805D4C6C
+	.sdata2     start:0x805D86B0 end:0x805D86F8
 
 pso/boss/TBoss3VoloptCtrl.cpp:
 	.text       start:0x80040B80 end:0x80040F7C

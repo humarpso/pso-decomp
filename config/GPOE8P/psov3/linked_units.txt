@@ -472,7 +472,6 @@ pso/enemy/TObjEneMe1GiGue.cpp
 pso/enemy/TObjEneMe1GiGueBarrier.cpp
 pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
-pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
 pso/enemy/TObjEneMe1GiGue_802CDB1C.cpp
 pso/enemy/TObjEneMe3ShinowaReal.cpp
 pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp
@@ -734,7 +733,6 @@ pso/item/TItemMagSub_80113D84.cpp
 pso/item/TItemMagSub_80114524.cpp
 pso/item/TItemMagSub_80114714.cpp
 pso/item/TItemMag_8001A468.cpp
-pso/misc/TEndingPicStage.cpp
 pso/item/TItemMag_80102C4C.cpp
 pso/item/TItemMag_80113E30.cpp
 pso/item/TItemMenuCtrl.cpp
@@ -842,6 +840,7 @@ pso/menu/TQuestBgmCtrl.cpp
 pso/misc/ChallengeMode.cpp
 pso/misc/CharacterAppearanceTables.cpp
 pso/misc/CreationMotion.cpp
+pso/misc/EndingSceneTables.cpp
 pso/misc/KeyboardCharacterMaps.cpp
 pso/misc/RenderFadeState.cpp
 pso/misc/ShopToolStock.cpp
@@ -934,6 +933,7 @@ pso/misc/TEndingAB_8008CE08.cpp
 pso/misc/TEndingC.cpp
 pso/misc/TEndingC_8008D00C.cpp
 pso/misc/TEndingPic.cpp
+pso/misc/TEndingPicStage.cpp
 pso/misc/TEnding_8008C5C0.cpp
 pso/misc/TEneEffHamon.cpp
 pso/misc/TFogCtrl.cpp
@@ -2257,7 +2257,6 @@ pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
-pso/misc/EndingSceneTables.cpp
 pso/object/TUnk_804A6DC0.cpp
 pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp
@@ -2273,7 +2272,6 @@ pso/player/TObjPlayer_80020898.cpp
 pso/player/TObjPlayer_8002AE7C.cpp
 pso/player/TObjPlayer_8002E784.cpp
 pso/player/TObjPlayer_80036824.cpp
-pso/player/TObjPlayer_80040B28.cpp
 pso/player/TObjPlayer_80048360.cpp
 pso/player/TObjPlayer_800495E0.cpp
 pso/player/TObjPlayer_8004FA98.cpp
