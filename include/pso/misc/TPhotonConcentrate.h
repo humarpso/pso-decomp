@@ -5,6 +5,7 @@
 #include "pso/object/TObjMotion.h"
 
 struct TPhotonConcentrate : public TUnk_804AF8A0 {
+    TPhotonConcentrate(u8 *arg1, s32 arg2, s32 arg3);
     virtual ~TPhotonConcentrate();
     virtual void render();
     virtual void run_task();
@@ -33,14 +34,13 @@ struct TPhotonConcentrate : public TUnk_804AF8A0 {
 typedef char TPhotonConcentrate_size[sizeof(TPhotonConcentrate) == 0x10C ? 1 : -1];
 
 extern "C" {
-u8 *TPhotonConcentrate__ct(u8 *photon_concentrate, u8 *arg1, s32 arg2, s32 arg3);
+u8 *__ct__18TPhotonConcentrateFPUcll(u8 *photon_concentrate, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 }
 
 // --- C functions defined in TPhotonConcentrate.cpp ---
 extern "C" {
-u8 *TPhotonConcentrate__ct(u8 *photon_concentrate, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 }

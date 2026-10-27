@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCollision.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCollision.h"
@@ -34,18 +35,12 @@ void *TObjCollision::create(void *arg0) {
     return o;
 }
 
-void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjCollision;
-        free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjCollision::~TObjCollision() {
+    free_collision_body_parts(this);
+    ((TUnk_804AF8A0 *)this)->unregister_object_by_id();
+}
+extern "C" {
 u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
     __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6RockChase.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_80087278.h"
@@ -192,16 +193,11 @@ void TBoss6RockChase::run_task() {
 }
 #pragma pop
 
-void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6RockChase;
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss6RockChase::~TBoss6RockChase() {
+
+}
+extern "C" {
 
 #pragma push
 #pragma fp_contract on

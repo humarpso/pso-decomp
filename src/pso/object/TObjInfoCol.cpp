@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjInfoCol.h"
 #include "pso/misc/TPlyJoinLobbyEntry.h"
 #include "pso/system/byteswap.h"
 #include "pso/object/TObjMotion.h"
@@ -67,13 +68,6 @@ u8 *TObjInfoCol__ct(u8 *info_col, s32 arg1, s32 arg2) {
     return info_col;
 }
 
-void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjInfoCol;
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+TObjInfoCol::~TObjInfoCol() {
+
 }

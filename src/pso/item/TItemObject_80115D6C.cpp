@@ -286,7 +286,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void *lookup_item_pmt_record(u8 *item);
-s32 TItem__ct();
+s32 __ct__5TItemFP7TObjectPUc();
 s32 consume_item_by_id();
 s32 check_flag_400__20TWindowSubStatusDispFv();
 s32 get_item_type_or_default__9TItemListFv(void *);
@@ -351,7 +351,7 @@ void TItemObject__vt16(u8 *item_object, u8 *item) {
 void *TItemObject__ct(void *arg0, void *arg1, void *item) {
     s16 temp_r3;
 
-    TItem__ct();
+    __ct__5TItemFP7TObjectPUc();
     *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__11TItemObject;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C28;
     *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record((u8 *)item);

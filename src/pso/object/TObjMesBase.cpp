@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMesBase.h"
 #include "pso/misc/TMotorcycle.h"
 #include "pso/object/TObjMesBase.h"
 #include "pso/object/TObjMotion.h"
@@ -96,16 +97,11 @@ void TObjMesBase::run_task() {
 
 extern s32 __vt__11TObjMesBase[];
 
-void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjMesBase::~TObjMesBase() {
+
+}
+extern "C" {
 
 extern s32 TObjMesBase__class_name;
 

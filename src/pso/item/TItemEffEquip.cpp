@@ -1,4 +1,5 @@
 #include "pso/TItemEffEquip.h"
+#include "pso/item/TUnk_8049F038.h"
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss1DragonColli.h"
@@ -70,7 +71,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 retire_equipment_effect[];
 extern s32 TItemEffEquip__sub_801088F8[];
 extern s32 TItemEffEquip__class_name;
-Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b);
+Obj_80108C90 *__ct__13TUnk_8049F038FP7TObjectsl(Obj_80108C90 *self, void *parent, s16 a, s32 b);
 
 #define self ((Equip_80108A20 *)arg0)
 void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
@@ -82,7 +83,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     disallow_rendering__7TObjectFv((TObject *)arg0);
     mem = __nw__7TObjectFUl(0xE0);
     if (mem != NULL) {
-        mem = ((void *(*)(void *, void *, void *, void *))TItemEffFlame__sub_80108C90)(mem, arg0, arg2, arg3);
+        mem = ((void *(*)(void *, void *, void *, void *))__ct__13TUnk_8049F038FP7TObjectsl)(mem, arg0, arg2, arg3);
     }
     self->src = mem;
     self->x20 = 0;
@@ -262,11 +263,11 @@ void TUnk_8049F038::run_task() {
     }
 }
 
-extern void *lbl_8049F038[];
+extern void *__vt__13TUnk_8049F038[];
 
 void *TUnk_8049F038::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049F038;
+        *(s32 **)((s8 *)this + 0x18) = (s32 *)__vt__13TUnk_8049F038;
         if ((u32) this->m_a4 != 0U) {
             unregister_object_by_id();
             clear_obj_links();
@@ -282,20 +283,19 @@ void *TUnk_8049F038::destroy(s16 arg1) {
     return this;
 }
 
-Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b) {
-    __ct__13TUnk_804AF8A0FP7TObject(self, parent);
-    self->vt = lbl_8049F038;
-    self->f_AC = a;
-    self->f_B0 = b;
-    fn_8002B630(self->sub, lbl_8043E1A0);
-    if ((u16)obj_getField1c(self) == 0xFFFF) {
-        set_item_count__13TUnk_804B9870Fs(self, pop_free_id__6TLobbyFv());
-    }
-    ((TUnk_804AF8A0 *)self)->initialize_linked_object_reference(self->sub);
-    ((TObjPlayer *)self)->reset_photon_effect();
-    disallow_rendering__7TObjectFv((TObject *)self);
-    return self;
 }
+TUnk_8049F038::TUnk_8049F038(TObject *parent, s16 a, s32 b) : TUnk_804AF8A0(parent) {
+    ((Obj_80108C90 *)this)->f_AC = a;
+    ((Obj_80108C90 *)this)->f_B0 = b;
+    fn_8002B630(((Obj_80108C90 *)this)->sub, lbl_8043E1A0);
+    if ((u16)obj_getField1c(((Obj_80108C90 *)this)) == 0xFFFF) {
+        set_item_count__13TUnk_804B9870Fs(((Obj_80108C90 *)this), pop_free_id__6TLobbyFv());
+    }
+    ((TUnk_804AF8A0 *)this)->initialize_linked_object_reference(((Obj_80108C90 *)this)->sub);
+    ((TObjPlayer *)this)->reset_photon_effect();
+    disallow_rendering__7TObjectFv((TObject *)this);
+}
+extern "C" {
 
 }
 
@@ -318,7 +318,7 @@ void *__vt__13TItemEffEquip[6] = {
     0, 0, (void *)__dt__13TItemEffEquipFv, (void *)run_task__13TItemEffEquipFv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
 };
-void *lbl_8049F038[14] = {
+void *__vt__13TUnk_8049F038[14] = {
     0, 0, (void *)destroy__13TUnk_8049F038Fs, (void *)run_task__13TUnk_8049F038Fv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,

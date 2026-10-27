@@ -23,7 +23,7 @@ struct Data_80115CA8 { u8 pad[0x10]; s32 amount; };
 u8 *TItemMoney__ct(void *self, s32 parent, void *datav) {
 #define arg0 ((struct Money_80115CA8 *)self)
 #define data ((struct Data_80115CA8 *)datav)
-    TItem__ct((u8 *)arg0, (void *)parent, (u8 *)data);
+    __ct__5TItemFP7TObjectPUc((u8 *)arg0, (void *)parent, (u8 *)data);
     arg0->vt = __vt__10TItemMoney;
     s32 max = 999999;
     arg0->f0 = lbl_805D2C20;

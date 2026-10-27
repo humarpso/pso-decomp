@@ -6,6 +6,7 @@
 #include <dolphin/mtx.h>
 
 struct TBoss6GravBall : public TUnk_804AF8A0 {
+    TBoss6GravBall(s32 arg1, void *arg2);
     virtual ~TBoss6GravBall();
     virtual void run_task();
     u32 m_ac;

@@ -5,6 +5,7 @@
 #include "pso/object/TObjMotion.h"
 
 struct TORockCave : public TUnk_804AF8A0 {
+    TORockCave();
     virtual ~TORockCave();
     virtual void vfunc_14();
     virtual void vfunc_15();

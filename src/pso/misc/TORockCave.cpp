@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TORockCave.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOSensor.h"
@@ -103,7 +104,6 @@ u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
-void *TORockCave__ct(void *arg0);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
@@ -183,14 +183,13 @@ extern const f32 lbl_805DB974;
 extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
-void *TORockCave__ct(void *rock_cave) {
-    __ct__13TUnk_804AF8A0FP7TObject(rock_cave, tl_05);
-    *(s32 **)((s8 *)rock_cave + 0x18) = __vt__10TORockCave;
-    *(void * *)&((TORockCave *)rock_cave)->m_name = TORockCave__class_name;
-    *(f32 *)((s8 *)rock_cave + 0xAC) = lbl_805DB974;
-    ((TORockCave *)rock_cave)->m_b0 = lbl_805DB978;
-    return rock_cave;
 }
+TORockCave::TORockCave() : TUnk_804AF8A0((TObject *)tl_05) {
+    *(void * *)&this->m_name = TORockCave__class_name;
+    *(f32 *)((s8 *)this + 0xAC) = lbl_805DB974;
+    this->m_b0 = lbl_805DB978;
+}
+extern "C" {
 
 void TORockCave::vfunc_14() {  }
 void TORockCave::vfunc_15() {  }

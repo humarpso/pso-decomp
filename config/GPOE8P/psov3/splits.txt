@@ -726,6 +726,7 @@ pso/misc/TLobby_80067410.cpp:
 
 pso/object/TObjCollision.cpp:
 	.text       start:0x80067490 end:0x80067654
+	.data       start:0x80488790 end:0x804887C8
 
 pso/misc/TCameraCtrl_80067654.cpp:
 	.text       start:0x80067654 end:0x8006782C
@@ -2030,6 +2031,7 @@ pso/enemy/TObjEneNanoDrago.cpp:
 pso/unk/text_800DC420.cpp:
 	.text       start:0x800DC420 end:0x800DC9EC
 	.rodata     start:0x8043C908 end:0x8043C920
+	.data       start:0x80494E10 end:0x80494E48
 
 pso/player/TObjPlayer_800DCC90.cpp:
 	.text       start:0x800DC9EC end:0x800DCEB8
@@ -4505,6 +4507,7 @@ pso/misc/obj_band.cpp:
 
 pso/object/TObjMotion.cpp:
 	.text       start:0x801437C0 end:0x80143818
+	.data       start:0x804A7498 end:0x804A74D0
 
 pso/unk/text_80143818.cpp:
 	.text       start:0x80143818 end:0x80143888
@@ -5809,6 +5812,7 @@ pso/object/TObjEnvSoundGlobal.cpp:
 
 pso/object/TObjEvtCollision.cpp:
 	.text       start:0x80190BFC end:0x80190E64
+	.data       start:0x804B7BA0 end:0x804B7BD8
 
 pso/misc/TNpcPlayer_80190E64.cpp:
 	.text       start:0x80190E64 end:0x80191218
@@ -5835,6 +5839,7 @@ pso/unk/text_80191D14.cpp:
 
 pso/object/TObjInfoCol.cpp:
 	.text       start:0x80191D80 end:0x80191F80
+	.data       start:0x804B7E60 end:0x804B7E98
 
 pso/misc/TLobby_80191F80.cpp:
 	.text       start:0x80191F80 end:0x80191F90
@@ -5884,6 +5889,7 @@ pso/object/TObjMapCsn.cpp:
 
 pso/object/TObjMesBase.cpp:
 	.text       start:0x80194AEC end:0x80194F68
+	.data       start:0x804B8510 end:0x804B8554
 
 pso/misc/TMotorcycle.cpp:
 	.text       start:0x80194F68 end:0x8019527C
@@ -6266,6 +6272,7 @@ pso/misc/TScene_801A7E40.cpp:
 pso/misc/TPhotonConcentrate.cpp:
 	.text       start:0x801A7E58 end:0x801A826C
 	.rodata     start:0x80446A68 end:0x80446A78
+	.data       start:0x804C3288 end:0x804C32C0
 
 pso/player/PhotonBlastResults.cpp:
 	.text       start:0x801A826C end:0x801A9BAC
@@ -10160,6 +10167,7 @@ pso/ui/TAdFadeGC.cpp:
 
 pso/object/TObjTradeCollision.cpp:
 	.text       start:0x802C7F78 end:0x802C80F0
+	.data       start:0x804E0B98 end:0x804E0BD0
 
 pso/misc/TOTrapChainSawEdge.cpp:
 	.text       start:0x802C80F0 end:0x802C9924
@@ -12434,6 +12442,7 @@ pso/unk/text_8036D0C0.cpp:
 pso/boss/TBoss6RockChase.cpp:
 	.text       start:0x8036D1B4 end:0x8036D774
 	.rodata     start:0x8047ACD8 end:0x8047AD00
+	.data       start:0x804F36C0 end:0x804F36F8
 	.sdata2     start:0x805E03B8 end:0x805E03E8
 
 pso/misc/TWindowSubStatusDisp_8036D774.cpp:

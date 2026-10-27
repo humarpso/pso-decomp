@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_804909C4.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/player/TObjPlayer.h"
@@ -118,7 +119,6 @@ void queue_destruction__7TObjectFv(void *arg0);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
-u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 submit_cursor_candidate(void *, s32);
 s32 play_sound_effect(int, void *, int, int);
@@ -1284,10 +1284,7 @@ s32 TObjPlayer__sub_800A1FEC(void *arg0) {
         ((TObjEnemyCustom *)self)->find_target_in_range(200.0f);
         if (self->f338 == 0xFFFF) break;
         {
-            u8 *p = (u8 *)__nw__7TObjectFUl(0xD4);
-            if (p != NULL) {
-                TObjPlayer__sub_800A34E8(p, (u8 *)self, (s32)&self->f3B4, (s32)(self->target + 0x2FC));
-            }
+            u8 *p = (u8 *)new TUnk_804909C4((u8 *)self, (s32)&self->f3B4, (s32)(self->target + 0x2FC));
         }
         play_sound_effect(0x40039E2B, &self->pos, 0, 0);
         break;
