@@ -389,7 +389,9 @@ pso/boss/TBoss3Volopt_80040F7C.cpp:
 
 pso/boss/TBoss3VoloptHiraisin.cpp:
 	.text       start:0x80040FDC end:0x80041B64
+	.rodata     start:0x80436380 end:0x80436395
 	.data       start:0x80483BB8 end:0x80483DB8
+	.sdata      start:0x805D2738 end:0x805D273C
 	.sbss       start:0x805D4C70 end:0x805D4C8C
 	.sdata2     start:0x805D8700 end:0x805D8738
 

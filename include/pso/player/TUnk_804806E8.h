@@ -228,8 +228,7 @@ public:
     f32 m_304;
     u8 unk_308[0x2];
     s16 m_30a;
-    u16 m_30c;
-    u8 unk_30E[0x2];
+    f32 y_speed;
     f32 m_310;
     s32 m_314;
     u32 m_318;

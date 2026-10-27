@@ -191,8 +191,6 @@ void TBoss3VoloptCore__sub_80040788(void);
 s32 __ct__13TUnk_80483B88Fv();
 s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
-void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
-void destroy__20TBoss3VoloptHiraisinFv(void);
 void set_motion__12TBoss3VoloptFs(void *, u16);
 void set_action__12TBoss3VoloptFs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
@@ -407,7 +405,7 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     case 2:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A);
         if (p != NULL) {
-            start_attack__20TBoss3VoloptHiraisinFPv(p);
+            ((TBoss3VoloptHiraisin *)p)->start_attack();
         }
         for (i = 0; i < 6; i++) {
             p = ((u8 * (*)(u16))find_entity_by_id)(volopt_target_entity_ids[i]);
@@ -1396,7 +1394,7 @@ void TBoss3Volopt::free_parts() {
     TBoss3VoloptP01::destroy();
     TBoss3VoloptCore__sub_80040788();
     TBoss3Volopt__sub_800479D0();
-    destroy__20TBoss3VoloptHiraisinFv();
+    TBoss3VoloptHiraisin::destroy();
     TBoss3VoloptMonitor::release();
 }
 

@@ -6,17 +6,25 @@
 
 struct TBoss3VoloptHiraisin : public TObjEnemyCustom {
     virtual ~TBoss3VoloptHiraisin();
-    void init_params();
-    void dispatch_state();
-    void sub_8004118C();
-    virtual void render();
     virtual void run_task();
-    u32 m_38c;
+    virtual void render();
+
+    void sub_80040FDC();
+    void start_attack();
+    void sub_8004118C();
+    void update_drop();
+    void sub_80041314();
+    void dispatch_state();
+    static void destroy();
     static void init_models();
-    static void *create(void *arg0);
-    void load_params_from_table(s32 i);
+    static void *create(void *set_data);
+    void init_params();
     void copy_position();
+    void load_params_from_table(s32 index);
+
+    s32 hover_angle;
 };
 
 typedef char TBoss3VoloptHiraisin_size[sizeof(TBoss3VoloptHiraisin) == 0x390 ? 1 : -1];
+
 #endif

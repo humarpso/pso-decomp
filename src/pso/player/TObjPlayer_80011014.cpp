@@ -1161,7 +1161,7 @@ void TObjPlayer__sub_8001053C(u8 *arg0) {
 
 void TObjPlayer::apply_velocity() {
     *(f32 *)&this->position[0] = (f32) (*(f32 *)&this->position[0] + *(f32 *)&this->unk_308);
-    *(f32 *)&this->position[1] = (f32) (*(f32 *)&this->position[1] + (*(f32 *)&this->m_30c));
+    *(f32 *)&this->position[1] = (f32) (*(f32 *)&this->position[1] + this->y_speed);
     this->position[2] = (f32) (this->position[2] + *(f32 *)&this->m_310);
 }
 

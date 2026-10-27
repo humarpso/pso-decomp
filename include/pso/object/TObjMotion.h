@@ -114,7 +114,10 @@ public:
     short m_ba;
     u32 m_bc;
     f32 m_c0;
-    u8 unk_C4[0x4];
+    union {
+        u8 unk_C4[0x4];
+        f32 anim_end_frame;
+    };
     f32 m_c8;
     u8 unk_CC[0x4];
     f32 m_d0;
