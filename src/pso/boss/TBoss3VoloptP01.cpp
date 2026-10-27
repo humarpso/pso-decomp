@@ -7,7 +7,6 @@
 #include "pso/animation/ActorAnimationState.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
-#include "pso/boss/TBoss3Volopt_80040F7C.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -299,7 +298,7 @@ s32 TBoss3VoloptP01::fire_zonde_at_players() {
             if (bolt != NULL) {
                 bolt->construct((u8 *)tl_07, (u8 *)&pos, (u8 *)&to_hiraisin, len);
             }
-            if (TBoss3Volopt__sub_80040FCC(hiraisin) != 0) {
+            if (hiraisin->sub_80040FCC() != 0) {
                 TBoss3VoloptActionPacket packet;
                 ((TBoss3Volopt *)&packet)->set_type();
                 packet.id = m_1c;

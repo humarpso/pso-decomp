@@ -230,6 +230,18 @@ static BmlResource *volopt_hiraisin_resources;
 static ModelNode *volopt_hiraisin_spin_node;
 static TUnk_8048FA00 *volopt_hiraisin_breakup_model;
 
+void TBoss3VoloptHiraisin::clear_flag_08000000() {
+    clear_player_status_flag(0, 0x08000000);
+}
+
+void TBoss3VoloptHiraisin::set_flag_08000000() {
+    set_indexed_flags(0, 0x08000000);
+}
+
+s32 TBoss3VoloptHiraisin::sub_80040FCC() {
+    return (((ActorCollisionState *)m_a4)->flags >> 1) & 1;
+}
+
 void TBoss3VoloptHiraisin::sub_80040FDC() {
     switch (state) {
     case -1:

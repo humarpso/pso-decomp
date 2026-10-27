@@ -214,7 +214,6 @@ pso/boss/TBoss3VoloptHiraisin.cpp
 pso/boss/TBoss3VoloptMonitor.cpp
 pso/boss/TBoss3VoloptP01.cpp
 pso/boss/TBoss3Volopt_8003F3F8.cpp
-pso/boss/TBoss3Volopt_80040F7C.cpp
 pso/boss/TBoss3Volopt_8004812C.cpp
 pso/boss/TBoss3Volopt_800485C8.cpp
 pso/boss/TBoss3Volopt_80049C10.cpp
