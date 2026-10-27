@@ -21,6 +21,7 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct Vec_802D9EB4 { f32 x, y, z; };
 
@@ -2595,7 +2596,7 @@ Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1) {
 u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     s32 i;
     void *p;
-    ((TObjEnemy *)arg0)->initialize(parent);
+    __ct__9TObjEnemyFP7TObject(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = (void *)lbl_804E29F0;
     ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
     __construct_array(arg0 + 0x3DC, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);

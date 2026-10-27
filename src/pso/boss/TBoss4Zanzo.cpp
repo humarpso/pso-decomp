@@ -30,6 +30,7 @@
 #include "pso/misc/TTecResta.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct Arr_800579A0 { u8 pad[0x42C]; s32 f42C[8]; };
 
@@ -1669,7 +1670,7 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 parent, s32 *arg2) {
     s32 i;
     s32 v;
 
-    ((TObjEnemy *)arg0)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(arg0, (void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80486924;
     *(s32 *)((s8 *)arg0 + 0) = (s32)boss4_type2_class_name;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);

@@ -61,7 +61,7 @@ extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
-s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
+s32 __ct__13TUnk_804806E8FP7TObject(void *, int);
 s32 obj_setFlags30(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 TOAttackableCol__collision_parts;
@@ -352,7 +352,7 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80157AD8_lbl_804AF9A8_size[sizeof(RecoveredGlobal_80157AD8_lbl_804AF9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80157AD8___vt__15TOAttackableCol_size[sizeof(RecoveredGlobal_80157AD8___vt__15TOAttackableCol) == 0x13C ? 1 : -1];
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
-    construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
+    __ct__13TUnk_804806E8FP7TObject(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
     ((TOAttackableCol *)(arg0))->apply_object_set_data((void *)arg1);

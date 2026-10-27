@@ -189,7 +189,7 @@ extern const f32 lbl_805E02C8;
 extern const f32 TObjEneIllGill__data_805E02CC;
 extern const f32 lbl_805E02D0;
 extern const f32 lbl_805E02D4;
-void initialize__9TObjEnemyFPv(void *, s32, void *);
+void __ct__9TObjEnemyFP7TObject(void *, s32, void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 __vt__14TObjEneIllGill[];
 extern s32 TObjEneIllGill_class_name;
@@ -1772,7 +1772,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
 
 #define G6FD0 ((u8 *)TObjEneIllGill__shared_effect)
 u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
-    initialize__9TObjEnemyFPv(self, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(self, arg1, arg2);
     FIG_8036858C(void *, 0x18) = __vt__14TObjEneIllGill;
     ((TUnk_80494938 *)(self + 0x374))->init_common();
     FIG_8036858C(s32, 0) = TObjEneIllGill_class_name;

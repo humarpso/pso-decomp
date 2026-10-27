@@ -48,7 +48,7 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
+void __ct__13TUnk_804806E8FP7TObject(void *, void *);
 void obj_setFlags30(void *, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -148,7 +148,7 @@ void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
 #pragma opt_common_subs off
 void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1) {
     s32 t;
-    construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
+    __ct__13TUnk_804806E8FP7TObject(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
     ((TObjPlayer *)((u8 *)arg0 + 0x340))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = TOVS2Wall01__class_name;

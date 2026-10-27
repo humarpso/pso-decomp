@@ -35,7 +35,7 @@ int rand(void);
 void TObjGyaranzoMissile__sub_80131488(GinjaTextureList *list);
 void TLobby__sub_803DA16C(GinjaTextureList *list);
 
-TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *obj, TObject *parent);
+TObjEnemyCustom *__ct__15TObjEnemyCustomFP7TObject(TObjEnemyCustom *obj, TObject *parent);
 TObjEnemyCustom *__dt__15TObjEnemyCustomFv(TObjEnemyCustom *obj, s16 flag);
 
 extern u32 model_render_flags;
@@ -564,7 +564,7 @@ extern "C" TBoss3VoloptMonitor *__dt__19TBoss3VoloptMonitorFv(TBoss3VoloptMonito
 
 extern "C" TBoss3VoloptMonitor *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(TBoss3VoloptMonitor *monitor, TUnk_804B9870 *parent, u16 id, s16 group, s32 slot, s16 timer) {
     TObjEnemy *enemy;
-    TObjEnemyCustom__ct(monitor, parent);
+    __ct__15TObjEnemyCustomFP7TObject(monitor, parent);
     *(void ***)((u8 *)monitor + 0x18) = __vt__19TBoss3VoloptMonitor;
     monitor->m_name = TBoss3VoloptMonitor_name;
     monitor->m_1c = id;
@@ -592,7 +592,7 @@ extern "C" TBoss3VoloptMonitor *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(T
 }
 
 extern "C" TBoss3VoloptMonitor *TBoss3VoloptMonitor__ct(TBoss3VoloptMonitor *monitor, TObject *parent, void *set_data) {
-    TObjEnemyCustom__ct(monitor, parent);
+    __ct__15TObjEnemyCustomFP7TObject(monitor, parent);
     *(void ***)((u8 *)monitor + 0x18) = __vt__19TBoss3VoloptMonitor;
     monitor->m_name = TBoss3VoloptMonitor_name;
     monitor->apply_set_data(set_data);

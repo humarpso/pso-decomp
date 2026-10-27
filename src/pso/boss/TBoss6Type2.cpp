@@ -18,6 +18,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TBoss6SwordWave.h"
 #include "pso/enemy/TObjEneDD.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct TBoss6Type2_802BD014;
 typedef void (TBoss6Type2_802BD014::*Fn_802BD014)();
@@ -3144,7 +3145,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     Tmp_802BE0D4 tmp;
     s32 i;
     s32 id;
-    ((TObjEnemy *)arg0)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(arg0, (void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type2;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB8;
     *(s32 *)((s8 *)arg0 + 0x3F8) = arg2[0];

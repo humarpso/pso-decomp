@@ -55,6 +55,7 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/object/TObjFish.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 #pragma defer_codegen on
 
 struct Vec_8005A1AC { f32 x, y, z; };
@@ -878,7 +879,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     s32 model;
     s32 p;
 
-    ((TObjEnemy *)self)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(self, (void*)parent);
     self->vt = __vt__11TBoss4Type3;
     self->f0 = (s32)TBoss4Type3_name;
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);

@@ -1311,7 +1311,7 @@ void *fn_8033068C(void *arg0, s16 arg1) {
 struct Key_80330724 { s32 a; s16 b; s16 c; s32 d; s32 e; };
 
 extern "C" {
-void initialize__9TObjEnemyFPv(void *, s32, void *);
+void __ct__9TObjEnemyFP7TObject(void *, s32, void *);
 s32 exchange_object_state__9TObjEnemyFls(void *, Key_80330724 *, s32);
 void init_collision_body_parts(void *, void *, s32);
 f32 *dispatch_shared_handler_a__6TLobbyFl(int);
@@ -1323,7 +1323,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     f32 *d;
     s32 prm;
     TObjEnemy *enemy;
-    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804EDDEC;
     *(s32 *)((s8 *)arg0 + 0) = (s32)lbl_805D4220;
     *(s32 *)((s8 *)arg0 + 0x378) = *(s32 *)((s8 *)arg2 + 0x40);

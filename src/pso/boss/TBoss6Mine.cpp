@@ -20,6 +20,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 struct Stack_803242C0 {
     f32 sp8;
     f32 spC;
@@ -413,7 +414,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     Tmp_80324A00 tmp;
     f32 f;
     self = (u8 *)arg0;
-    ((TObjEnemy *)arg0)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject((TObjEnemy *)arg0, (void*)parent);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss6Mine;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D4178;
     ((TBoss3Volopt *)THIS)->m_378 = *(s32 *)((s8 *)arg2 + 0x40);

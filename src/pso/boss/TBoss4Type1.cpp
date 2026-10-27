@@ -26,6 +26,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TTecRaFoie.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 extern "C" {
 s32 get_nth_view_player_id__11TCameraCtrlFl(s32);
@@ -1731,7 +1732,7 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
     s32 i;
     s32 j;
 
-    ((TObjEnemy *)self)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(self, (void*)parent);
     self->vt = __vt__11TBoss4Type1;
     self->f0 = TBoss4Type1__name;
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);

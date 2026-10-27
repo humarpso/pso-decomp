@@ -1415,7 +1415,7 @@ void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 
 s32 add_flags_2e4__13TUnk_804806E8FUl(void *, int, f32, f32);
-s32 initialize__9TObjEnemyFPv(void *, s32, void *);
+s32 __ct__9TObjEnemyFP7TObject(void *, s32, void *);
 s32 init_collision_body_parts(void *, void *, int);
 
 extern s32 lbl_805D2A40;
@@ -1856,7 +1856,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     s32 i;
     f32 scale;
 
-    initialize__9TObjEnemyFPv(self, arg1, set);
+    __ct__9TObjEnemyFP7TObject(self, arg1, set);
     *(void **)(self + 0x18) = (u8 *)lbl_80492F28;
     *(s32 *)(self + 0) = lbl_805D2A40;
     ((TObjEneLappy *)self)->apply_set_data(set);

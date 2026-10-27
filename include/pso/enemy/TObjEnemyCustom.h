@@ -5,6 +5,7 @@
 #include "pso/enemy/TObjEnemy.h"
 
 struct TObjEnemyCustom : public TObjEnemy {
+    TObjEnemyCustom(TObject *parent);
     virtual ~TObjEnemyCustom();
     u16 find_nearest_enemy(void *, f32);
     BOOL select_nearest_target(f32);

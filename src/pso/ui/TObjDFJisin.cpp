@@ -176,7 +176,7 @@ struct Ball_8005123C {
 
 struct Obj_80050AF8 { u8 pad[0x358]; u32 objs[2]; };
 
-s32 construct_actor_base__10TObjPlayerFPvPv(void *, s32);
+s32 __ct__13TUnk_804806E8FP7TObject(void *, s32);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
 f32 atan2_float(f32 y, f32 x);
@@ -334,7 +334,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 parent, s32 arg2, u16 arg3) {
     u8 *p;
     s32 i;
 
-    construct_actor_base__10TObjPlayerFPvPv(arg0, parent);
+    __ct__13TUnk_804806E8FP7TObject(arg0, parent);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)__vt__13TObjDFHorming;
     *(s32 *)((s8 *)arg0 + 0) = TObjDFHorming__name;
     ((TObjDFHorming *)arg0)->m_334 = arg3;

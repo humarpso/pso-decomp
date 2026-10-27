@@ -357,7 +357,7 @@ void __ct__14SubtractiveRngFv(void *);
 void TObjMotion__ct(void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 extern void *lbl_804806E8[];
-Obj_80019038 *construct_actor_base__10TObjPlayerFPvPv(Obj_80019038 *self, void *parent);
+Obj_80019038 *__ct__13TUnk_804806E8FP7TObject(Obj_80019038 *self, void *parent);
 }
 void reset_status_effect_row(u8 *arg0);
 s32 calc_freeze_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2, f32 farg0);
@@ -4504,7 +4504,7 @@ void *TUnk_804806E8::destroy_motion_object(s16 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-Obj_80019038 *construct_actor_base__10TObjPlayerFPvPv(Obj_80019038 *self, void *parent) {
+Obj_80019038 *__ct__13TUnk_804806E8FP7TObject(Obj_80019038 *self, void *parent) {
     u8 *p = (u8 *)self;
     Layout_80019038 *l;
     s32 i;

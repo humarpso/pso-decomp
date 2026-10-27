@@ -54,7 +54,7 @@ extern Mtx34 *anim_model_matrix_array;
 extern s32 lbl_805D586C;
 
 // TBoss3Volopt.cpp defines these; its header does not declare them yet.
-void TObjEnemyCustom__ct(void *obj);
+void __ct__15TObjEnemyCustomFP7TObject(void *obj);
 void *__dt__15TObjEnemyCustomFv(void *obj, s16 flags);
 void *__dt__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *self, s16 flags);
 void run_task__15TBoss3VoloptP01Fv();
@@ -907,7 +907,7 @@ void TBoss3VoloptP01::init_params() {
 TBoss3VoloptP01 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *self, TBoss3Volopt *parent, s32 index, u16 id, s32 angle_param) {
     s32 angle;
 
-    TObjEnemyCustom__ct(self);
+    __ct__15TObjEnemyCustomFP7TObject(self);
     *(void **)((u8 *)self + 0x18) = __vt__15TBoss3VoloptP01;
     ((TObjPlayer *)&self->targets)->construct_target_cursor_records();
     self->m_name = TBoss3VoloptP01_class_name;
@@ -928,7 +928,7 @@ TBoss3VoloptP01 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *self, TBoss3Volopt *parent
 #pragma pop
 
 TBoss3VoloptP01 *TBoss3VoloptP01__sub_800442A0(TBoss3VoloptP01 *self, TObject *parent, void *set_data) {
-    TObjEnemyCustom__ct(self);
+    __ct__15TObjEnemyCustomFP7TObject(self);
     *(void **)((u8 *)self + 0x18) = __vt__15TBoss3VoloptP01;
     ((TObjPlayer *)&self->targets)->construct_target_cursor_records();
     self->m_name = TBoss3VoloptP01_class_name;

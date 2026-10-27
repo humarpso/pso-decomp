@@ -91,7 +91,7 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
-void initialize__9TObjEnemyFPv(void *, void *, void *);
+void __ct__9TObjEnemyFP7TObject(void *, void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 void *__nw__7TObjectFUl(int);
 u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -2150,7 +2150,7 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1) {
 u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2) {
     s16 t;
     void *p;
-    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)TObjEneSaver__vtable;
     ((TUnk_80490470 *)((u8 *)arg0 + 0x3A4))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = TObjEneSaver__class_name;

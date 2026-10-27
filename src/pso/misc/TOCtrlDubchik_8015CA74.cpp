@@ -123,7 +123,7 @@ extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 s32 try_start_action__13TUnk_804806E8Fll(void *, void *, void *);
 s32 roll_physical_accuracy__13TUnk_804806E8FPvlf(void *, void *, void *, f32);
-s32 initialize__9TObjEnemyFPv(void *);
+s32 __ct__9TObjEnemyFP7TObject(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
 extern s32 __vt__13TOCtrlDubchik[];
@@ -360,7 +360,7 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
 u8 *TOCtrlDubchik__ct(TOCtrlDubchik *ctrl_dubchik, s32 arg1, s32 arg2) {
-    initialize__9TObjEnemyFPv(ctrl_dubchik);
+    __ct__9TObjEnemyFP7TObject(ctrl_dubchik);
     *(s32 **)((s8 *)ctrl_dubchik + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
     *(s32 *)((s8 *)ctrl_dubchik + 0) = (s32) lbl_805D2F1C;
     ((TOCtrlDubchik *)(ctrl_dubchik))->apply_set_data((void *)arg2);

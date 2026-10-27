@@ -64,7 +64,7 @@ f32 newton_sqrtf(f32 x);
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
 extern const f32 lbl_805DBA30;
-void construct_actor_base__10TObjPlayerFPvPv(void *);
+void __ct__13TUnk_804806E8FP7TObject(void *);
 void init_collision_body_parts(void *, void *, int);
 extern u8 lbl_804B4550[];
 extern s32 __vt__17TOSymbolchatColli[];
@@ -225,7 +225,7 @@ void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
 }
 Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     s32 i;
-    construct_actor_base__10TObjPlayerFPvPv(arg0);
+    __ct__13TUnk_804806E8FP7TObject(arg0);
     *(u8 **)((u8 *)arg0 + 0x18) = ((u8 *)&__vt__17TOSymbolchatColli);
     *(s32 *)arg0 = lbl_805D3194;
     arg0->v5(arg2);

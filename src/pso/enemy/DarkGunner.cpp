@@ -250,7 +250,7 @@ void TEneEffHamon__sub_800A380C(void);
 u8 * __ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 u8 *get_enemy_entity(u16 arg0);
-s32 initialize__9TObjEnemyFPv(void *);
+s32 __ct__9TObjEnemyFP7TObject(void *);
 f32 xz_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
 s32 free_collision_body_parts(void *);
@@ -277,7 +277,7 @@ extern Ofs_800A1814 hamon_effect_offset_table;
 extern Vec_800A159C lbl_8043A6A4;
 
 void obj_setFlags30(void *, u32);
-void TObjEnemyCustom__ct(void *, s32, void *);
+void __ct__15TObjEnemyCustomFP7TObject(void *, s32, void *);
 }
 void move_with_wall_slide(u8 *arg0);
 int initialize_enemy_photon_effect(void *p);
@@ -635,7 +635,7 @@ extern void *tl_04;
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2) {
     Obj_800A0EDC *o;
     s32 i;
-    initialize__9TObjEnemyFPv(arg0);
+    __ct__9TObjEnemyFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjEneDarkGunCenter;
     *(s32 *)((s8 *)arg0 + 0) = TObjEneDarkGunCenter__name;
     ((TObjEneDarkGunCenter *)(arg0))->apply_set_data((void *)arg2);
@@ -1674,7 +1674,7 @@ Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {
 u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     s32 i;
 
-    TObjEnemyCustom__ct(self, arg1, arg2);
+    __ct__15TObjEnemyCustomFP7TObject(self, arg1, arg2);
     F(void *, 0x18) = __vt__17TObjEneDarkGunner;
     ((TUnk_80490470 *)(self + 0x408))->init_vtable_and_field18();
     F(s32, 0) = dark_gunner_class_name_ptr;

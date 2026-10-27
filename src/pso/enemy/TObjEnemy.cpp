@@ -5,7 +5,6 @@
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
-void* construct_actor_base__10TObjPlayerFPvPv(TObjEnemy*,void*);
 extern s32 __vt__9TObjEnemy[];
 extern void* TObjEnemy_class_name;
 extern const f32 lbl_805DA8E0;
@@ -39,28 +38,26 @@ extern s32 TLobby__data_805D6144;
 
 }
 
-TObjEnemy* TObjEnemy::initialize(void* parent) {
-    TObjEnemy* self=this;
-    construct_actor_base__10TObjPlayerFPvPv(self,parent);
-    *(void **)((u8 *)self + 0x18) = (void *)(((u32 *)&__vt__9TObjEnemy));
-    self->m_name=(const char *)TObjEnemy_class_name;
-    self->targetId=0xFFFF;
-    self->variant=0;
-    self->state36C=0;
-    self->control=0;
-    self->subtype=0;
-    self->group=0;
-    self->previous=0;
-    self->next=0;
-    self->children=0;
-    self->movementParameters=0;
-    self->resetTimer=0;
-    self->timer=0;
-    self->referenceHp=self->hp;
-    for(int i=0;i<5;++i)self->parameters[i]=lbl_805DA8E0;
-    self->actorFlags|=0x20000000;
-    self->animationFlags|=1;
-    return self;
+TObjEnemy::TObjEnemy(TObject *parent) : TUnk_804806E8(parent) {
+    m_name = (const char *)TObjEnemy_class_name;
+    targetId = 0xFFFF;
+    variant = 0;
+    state36C = 0;
+    control = 0;
+    subtype = 0;
+    group = 0;
+    previous = 0;
+    next = 0;
+    children = 0;
+    movementParameters = 0;
+    resetTimer = 0;
+    timer = 0;
+    referenceHp = hp;
+    for (int i = 0; i < 5; ++i) {
+        parameters[i] = lbl_805DA8E0;
+    }
+    actorFlags |= 0x20000000;
+    animationFlags |= 1;
 }
 
 s32 TObjEnemy::apply_by_index(s16 arg0) {

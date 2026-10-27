@@ -1899,12 +1899,9 @@ pso/enemy/TObjEnemyCustom_800C76F4.cpp:
 pso/enemy/TObjEnemyCustom_800C7A04.cpp:
 	.text       start:0x800C7A04 end:0x800C7D18
 
-pso/enemy/TObjEnemyCustom_800C7D18.cpp:
-	.text       start:0x800C7D18 end:0x800C7F28
-	.data       start:0x80493618 end:0x80493780
-
 pso/enemy/TObjEnemyCustom.cpp:
-	.text       start:0x800C7F28 end:0x800C8018
+	.text       start:0x800C7D18 end:0x800C8018
+	.data       start:0x80493618 end:0x80493780
 
 pso/enemy/TObjEnemyCustom_800C8018.cpp:
 	.text       start:0x800C8018 end:0x800C8040

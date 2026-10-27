@@ -33,7 +33,7 @@ struct Npc_801491B4 {
 };
 
 extern "C" {
-void initialize__9TObjEnemyFPv(void *, void *, void *);
+void __ct__9TObjEnemyFP7TObject(void *, void *, void *);
 void TObjNpcBase__sub_80149368(void* p);
 extern s32 __vt__11TObjNpcBase[];
 extern s32 TObjNpcBase__name;
@@ -61,7 +61,7 @@ void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
 
 #define self ((Npc_801491B4 *)arg0)
 void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2) {
-    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(arg0, arg1, arg2);
     self->vt = __vt__11TObjNpcBase;
     self->f0 = TObjNpcBase__name;
     self->f388 = 0;

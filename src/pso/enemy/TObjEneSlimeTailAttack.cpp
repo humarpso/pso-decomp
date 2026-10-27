@@ -354,7 +354,7 @@ void * TObjControl__ct(void *, s32);
 u8 *get_enemy_entity(u16 arg0);
 int obj_getField1c(void *);
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
-s32 initialize__9TObjEnemyFPv(void *);
+s32 __ct__9TObjEnemyFP7TObject(void *);
 f32 horizontal_distance_squared(void *, void *);
 }
 s32 water_bomb_hit_nearby(u8 *arg0);
@@ -1142,7 +1142,7 @@ extern s32 TObjEneSlimeTailAttack__name;
 void *TObjEneSlimeTailAttack__ct(TObjEneSlimeTailAttack *ene_slime_tail_attack, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
   unsigned int id;
   u8 *inst;
-  ((s32 (*)(void *, void *)) initialize__9TObjEnemyFPv)(ene_slime_tail_attack, arg1);
+  ((s32 (*)(void *, void *)) __ct__9TObjEnemyFP7TObject)(ene_slime_tail_attack, arg1);
   *((u8 **) (((s8 *) ene_slime_tail_attack) + 0x18)) = (u8 *) __vt__22TObjEneSlimeTailAttack;
   *((s32 *) (((s8 *) ene_slime_tail_attack) + 0)) = TObjEneSlimeTailAttack__name;
   *((s32 *) (((s8 *) ene_slime_tail_attack) - -0x374)) = arg4;
@@ -1295,7 +1295,7 @@ void *__dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1) {
 void *TObjEneSlimeWaterBomb__ct(TObjEneSlimeWaterBomb *ene_slime_water_bomb, void *arg1, void *arg2) {
     f32 s;
     f32 c;
-    ((s32 (*)(void *, void *))initialize__9TObjEnemyFPv)(ene_slime_water_bomb, arg1);
+    ((s32 (*)(void *, void *))__ct__9TObjEnemyFP7TObject)(ene_slime_water_bomb, arg1);
     *(s32 **)((s8 *)ene_slime_water_bomb + 0x18) = __vt__21TObjEneSlimeWaterBomb;
     *(s32 *)((s8 *)ene_slime_water_bomb + 0) = lbl_805D2AE0;
     *(void **)((s8 *)ene_slime_water_bomb + 0x38C) = arg2;
@@ -2198,7 +2198,7 @@ u8 *TObjEneSlimeOne__ct(u8 *actor, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     typedef char sp8_offset[(offsetof(Stack_800EB3D4, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800EB3D4, spE) == 0x6) ? 1 : -1];
     Stack_800EB3D4 stack;
-    initialize__9TObjEnemyFPv(actor);
+    __ct__9TObjEnemyFP7TObject(actor);
     *(s32 **)((s8 *)actor + 0x18) = &(*(RecoveredGlobal_800EB3D4___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
     *(s32 *)((s8 *)actor + 0) = (s32) TObjEneSlimeOne_class_name;
     ((TUnk_804806E8 *)actor)->add_flags_2e4(2);
@@ -2219,7 +2219,7 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_800EB4A0, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800EB4A0, spE) == 0x6) ? 1 : -1];
     Stack_800EB4A0 stack;
-    initialize__9TObjEnemyFPv(arg0);
+    __ct__9TObjEnemyFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EB4A0___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneSlimeOne_class_name;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);

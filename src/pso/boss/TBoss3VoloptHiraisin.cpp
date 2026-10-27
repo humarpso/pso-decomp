@@ -28,7 +28,7 @@ void post_translate_matrix(const f32 *pos);
 void rotate_matrix_y(void *mtx, s32 angle);
 void scale_matrix(void *mtx, f32 x, f32 y, f32 z);
 
-TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *obj, TObject *parent);
+TObjEnemyCustom *__ct__15TObjEnemyCustomFP7TObject(TObjEnemyCustom *obj, TObject *parent);
 TObjEnemyCustom *__dt__15TObjEnemyCustomFv(TObjEnemyCustom *obj, s16 flag);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 TUnk_8048FA00 *init_from_model__11TBreakUpMdlFl(TUnk_8048FA00 *obj, s32 model);
@@ -513,7 +513,7 @@ void TBoss3VoloptHiraisin::init_params() {
 
 extern "C" TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__ct(TBoss3VoloptHiraisin *hiraisin, TUnk_804B9870 *parent, u16 id, s16 group) {
     const char *name;
-    TObjEnemyCustom__ct(hiraisin, parent);
+    __ct__15TObjEnemyCustomFP7TObject(hiraisin, parent);
     *(void ***)((u8 *)hiraisin + 0x18) = __vt__20TBoss3VoloptHiraisin;
     name = TBoss3VoloptHiraisin_name;
     hiraisin->m_name = name;
@@ -531,7 +531,7 @@ extern "C" TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__ct(TBoss3VoloptHiraisin *
 #pragma pop
 
 extern "C" TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__sub_80041AA0(TBoss3VoloptHiraisin *hiraisin, TObject *parent, void *set_data) {
-    TObjEnemyCustom__ct(hiraisin, parent);
+    __ct__15TObjEnemyCustomFP7TObject(hiraisin, parent);
     *(void ***)((u8 *)hiraisin + 0x18) = __vt__20TBoss3VoloptHiraisin;
     hiraisin->m_name = TBoss3VoloptHiraisin_name;
     hiraisin->apply_set_data(set_data);

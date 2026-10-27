@@ -78,7 +78,7 @@ TBoss3VoloptHiraisin *TBoss3VoloptHiraisin__ct(TBoss3VoloptHiraisin *hiraisin, T
 TBoss3VoloptMonitor *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(TBoss3VoloptMonitor *monitor, TObject *parent, u16 id,
                                                                      s32 group, s32 slot, s32 timer);
 TBoss3Volopt *TBoss3Volopt__ct(TBoss3Volopt *volopt, s32 set_data);
-void TObjEnemyCustom__ct(void *, TObject *);
+void __ct__15TObjEnemyCustomFP7TObject(void *, TObject *);
 void *__dt__15TObjEnemyCustomFv(void *, s16);
 extern s32 lbl_805D2ECC;
 extern s32 TODoorVoShip__class_name;
@@ -1325,7 +1325,7 @@ extern "C" S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {
 }
 
 extern "C" TBoss3Volopt *TBoss3Volopt__ct(TBoss3Volopt *arg0, s32 arg1) {
-    TObjEnemyCustom__ct(arg0, tl_04);
+    __ct__15TObjEnemyCustomFP7TObject(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss3Volopt.value;
     arg0->m_name = TBoss3Volopt_name;
     ((TBoss3Volopt *)(arg0))->apply_set_data((void *)arg1);

@@ -1189,6 +1189,7 @@ struct Stack_802B7D74_boss6_1
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 struct Stack_802B9204_boss6_1 {
     s32 sp8;
     s8 spC;
@@ -2433,7 +2434,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     Tmp_802B93C4 tmp;
     s32 i;
 
-    ((TObjEnemy *)arg0)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(arg0, (void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type1;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);

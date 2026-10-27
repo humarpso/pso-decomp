@@ -1342,7 +1342,7 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 initialize__9TObjEnemyFPv();
+s32 __ct__9TObjEnemyFP7TObject();
 u16 register_entity_by_id(void *ov);
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 void TItemEffOrgaFlowShot__sub_80357204(void);
@@ -1472,7 +1472,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     s32 temp_r29;
     s32 temp_r6;
 
-    initialize__9TObjEnemyFPv();
+    __ct__9TObjEnemyFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TBoss6PlotFalz.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E50;
     ((TBoss6PlotFalz *)arg0)->sub_802AAC98();

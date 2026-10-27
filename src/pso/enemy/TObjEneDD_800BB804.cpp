@@ -492,7 +492,7 @@ void TObjEneDD::init_position_vectors() {
     this->clear_lobby_object_state();
 }
 
-void initialize__9TObjEnemyFPv(void *);
+void __ct__9TObjEnemyFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 
@@ -513,7 +513,7 @@ extern const f32 lbl_805D9EA8;
 extern void *lbl_805D2A30;
 
 void *TObjEneDD__ct(void *ene_dd) {
-    initialize__9TObjEnemyFPv(ene_dd);
+    __ct__9TObjEnemyFP7TObject(ene_dd);
     *(s32 **)((s8 *)ene_dd + 0x18) = __vt__9TObjEneDD;
     *(void * *)&((TObjEneDD *)ene_dd)->m_name = lbl_805D2A30;
     *(u32 *)((s8 *)ene_dd + 0x374) = 0;

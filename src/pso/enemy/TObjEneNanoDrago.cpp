@@ -1188,7 +1188,7 @@ s32 register_boss__6TLobbyFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
-void TObjEnemyCustom__ct(void *, s32, void *);
+void __ct__15TObjEnemyCustomFP7TObject(void *, s32, void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void init_and_activate__10TObjPlayerFv();
@@ -1779,7 +1779,7 @@ Obj_800DC0FC *__dt__16TObjEneNanoDragoFv(Obj_800DC0FC *arg0, s16 arg1) {
 
 u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 i;
-    TObjEnemyCustom__ct(arg0, arg1, arg2);
+    __ct__15TObjEnemyCustomFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80494C90;
     ((TUnk_80494938 *)(arg0 + 0x3E8))->init_common();
     __construct_array(arg0 + 0x40C, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);

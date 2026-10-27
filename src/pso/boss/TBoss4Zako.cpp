@@ -282,6 +282,7 @@ void render__9TBoss4UroFv(void);
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct O_8005D6B0 { u8 pad[0x374]; s32 f374; };
 
@@ -361,7 +362,7 @@ s32 TBoss4Zako::create(s32 arg0) {
 s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
     u8 *self;
     self = (u8 *)arg0;
-    ((TObjEnemy *)arg0)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject((TObjEnemy *)arg0, (void*)parent);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss4Zako;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D27E8;
     ((TUnk_804806E8 *)THIS)->add_flags_2e4(8);

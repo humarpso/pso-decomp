@@ -10,6 +10,7 @@ struct DirectAttackPayload {
 
 class TUnk_804806E8 : public TObjMotion {
 public:
+    TUnk_804806E8(TObject *parent);
     virtual ~TUnk_804806E8();
     u8 obj_isState3_324();
     u8 obj_isState2_324();

@@ -364,7 +364,7 @@ s32 is_split_screen();
 extern s32 local_client_id;
 s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__9TObjEnemyFl(void *, int, int);
-s32 initialize__9TObjEnemyFPv(void *, s32, s32);
+s32 __ct__9TObjEnemyFP7TObject(void *, s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
 extern "C" u8 lbl_8043B6A0[];
 extern "C" u8 lbl_8043B6B4[];
@@ -1801,7 +1801,7 @@ Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1) {
 
 u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 t;
-    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__9TObjGrass;
     ((TUnk_80494938 *)(arg0 + 0x3B0))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A38;

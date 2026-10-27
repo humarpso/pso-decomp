@@ -6,6 +6,7 @@
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 struct Entry_800E31C4 { s32 id; u8 data[0xC]; };
 
 struct Vec_800E31C4 { f32 x; f32 y; f32 z; };
@@ -538,7 +539,7 @@ extern const f32 lbl_805DA5A8 = 10.0f;
 extern const f32 lbl_805DA5AC = 2.8f;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *parent, void *arg2, void *arg3, void *arg4) {
     f32 scale;
-    ((TObjEnemy *)self)->initialize(parent);
+    __ct__9TObjEnemyFP7TObject(self, parent);
     self->vt = __vt__22TObjEnePanarmsAtkColli;
     self->f0 = lbl_805D2AC0;
     VecCopy((Vec *)&self->pos, (const Vec *)arg2);

@@ -90,7 +90,7 @@ void is_flag_set_550__10TObjPlayerFv(void *, void *);
 void sub_801BD240__10TObjPlayerFv(void *, void *);
 void TObjPlayer__sub_801BEC78(void *);
 void init_player_telepipe_record(void *);
-void construct_actor_base__10TObjPlayerFPvPv(void *);
+void __ct__13TUnk_804806E8FP7TObject(void *);
 void TObjPlayer__sub_801BBB70(void *, void *);
 void TObjPlayer__sub_80309E9C(void *);
 void TObjPlayer__sub_803374C4(void *);
@@ -98,7 +98,7 @@ void TObjPlayer__sub_80351974(void *);
 extern void *lbl_805D3530;
 
 void *TObjPlayer__ct(TObjPlayer *player, void *arg1, void *arg2) {
-    construct_actor_base__10TObjPlayerFPvPv(player);
+    __ct__13TUnk_804806E8FP7TObject(player);
     *(s32 **)((s8 *)player + 0x18) = __vt__10TObjPlayer;
     ((TObjPlayer *)((char *)player + 832))->init_subobject();
     ((TObjPlayer *)((char *)player + 844))->setup_ctrl();
@@ -146,7 +146,7 @@ void *TObjPlayer__ct(TObjPlayer *player, void *arg1, void *arg2) {
 }
 
 void *__ct__10TObjPlayerFPvPvPv(TObjPlayer *arg0, void *arg1, void *arg2) {
-    construct_actor_base__10TObjPlayerFPvPv(arg0);
+    __ct__13TUnk_804806E8FP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjPlayer;
     ((TObjPlayer *)((char *)arg0 + 832))->init_subobject();
     ((TObjPlayer *)((char *)arg0 + 844))->setup_ctrl();

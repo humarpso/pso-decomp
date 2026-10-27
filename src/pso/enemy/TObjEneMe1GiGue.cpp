@@ -2112,7 +2112,7 @@ void __dl__7TObjectFPv(void *);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 obj_setFlags30(void *, int);
-s32 TObjEnemyCustom__ct(void *, s32);
+s32 __ct__15TObjEnemyCustomFP7TObject(void *, s32);
 }
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
@@ -2136,7 +2136,7 @@ void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1) {
 }
 
 u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 enemy_custom, u8 *arg2) {
-    TObjEnemyCustom__ct(arg0, enemy_custom);
+    __ct__15TObjEnemyCustomFP7TObject(arg0, enemy_custom);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804E135C;
     ((TUnk_80494938 *)(arg0 + 0x3FC))->init_common();
     ((TObjPlayer *)(arg0 + 0x418))->init_and_activate();

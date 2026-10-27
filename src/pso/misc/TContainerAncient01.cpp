@@ -192,7 +192,7 @@ struct Obj_8018B030 : VBase_8018B030 {
 };
 
 extern "C" {
-void construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
+void __ct__13TUnk_804806E8FP7TObject(void *, void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 void init_collision_body_parts(void *, void *, int);
 extern s32 TContainerAncient01R__name;
@@ -678,7 +678,7 @@ void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
 void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     Coll_8018B030 *c;
 
-    construct_actor_base__10TObjPlayerFPvPv(self, arg1, parent);
+    __ct__13TUnk_804806E8FP7TObject(self, arg1, parent);
     *(void **)((u8 *)self + 0x18) = (void *)__vt__20TContainerAncient01R;
     *(s32 *)self = TContainerAncient01R__name;
     self->m5(parent);
@@ -1162,7 +1162,7 @@ typedef char RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0_size[si
 typedef char RecoveredGlobal_8018BD00_lbl_804B6DEC_size[sizeof(RecoveredGlobal_8018BD00_lbl_804B6DEC) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_8018BD00___vt__19TContainerAncient01_size[sizeof(RecoveredGlobal_8018BD00___vt__19TContainerAncient01) == 0x140 ? 1 : -1];
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_actor_base__10TObjPlayerFPvPv(arg0, (void *)arg1, (void *)arg2);
+    __ct__13TUnk_804806E8FP7TObject(arg0, (void *)arg1, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TContainerAncient01__name;
     ((TContainerAncient01 *)(arg0))->apply_object_set_data((void *)arg2);

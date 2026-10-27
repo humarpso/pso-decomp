@@ -39,7 +39,7 @@ void send_6x2C_impose_hold(TObjPlayer *player, const Vec *pos, s32 a2, s32 a3, f
 void submit_cursor_candidate(TObjVoloptCage *cage, s32 a1);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *enemy);
+TObjEnemyCustom *__ct__15TObjEnemyCustomFP7TObject(TObjEnemyCustom *enemy);
 void TObjVoloptCage__sub_800C76F0(TObjVoloptCage *cage);
 extern void *__vt__14TObjVoloptCage[];
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
@@ -281,7 +281,7 @@ extern "C" TObjVoloptCage *__dt__14TObjVoloptCageFv(TObjVoloptCage *cage, s16 fl
 
 TObjVoloptCage *TObjVoloptCage__ct(TObjVoloptCage *cage, TObjEnemy *boss, u16 target, s16 id, s16 arg4) {
     TObjPlayer *player;
-    TObjEnemyCustom__ct(cage);
+    __ct__15TObjEnemyCustomFP7TObject(cage);
     *(void ***)((u8 *)cage + 0x18) = __vt__14TObjVoloptCage;
     cage->m_name = TObjVoloptCage_name;
     cage->targetId = target;

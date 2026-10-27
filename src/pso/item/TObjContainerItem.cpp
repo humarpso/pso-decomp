@@ -664,7 +664,7 @@ s32 TObjPlayer::is_within_range(s32 arg1) {
 struct RecoveredGlobal_8018A150_lbl_804B6C24 { s32 value; u8 remaining[0x148]; };
 
 extern "C" {
-u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
+u8 * __ct__13TUnk_804806E8FP7TObject(void *);
 extern RecoveredGlobal_8018A150_lbl_804B6C24 lbl_804B6C24;
 extern s32 lbl_805D32E8;
 extern const f32 lbl_805DBD00;
@@ -673,7 +673,7 @@ extern const f32 lbl_805DBD08;
 #pragma push
 #pragma fp_contract on
 u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_actor_base__10TObjPlayerFPvPv(arg0);
+    __ct__13TUnk_804806E8FP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B6C24.value;
     ((TUnk_804AF8D8 *)(arg0 + 0x340))->init_vtable_804AF8D8();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32E8;

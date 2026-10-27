@@ -64,7 +64,7 @@ void init_collision_body_parts(TObjEnemyCustom *object, TBoss3VoloptCoreBodyPart
 void obj_setFlags30(TObjEnemyCustom *object, u32 flags);
 s32 obj_is_hit_receivable(TBoss3VoloptCoreTarget *object);
 void TCameraCtrl__sub_8006A044(s32 id, f32 strength);
-TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *object, TObject *parent);
+TObjEnemyCustom *__ct__15TObjEnemyCustomFP7TObject(TObjEnemyCustom *object, TObject *parent);
 void __dt__15TObjEnemyCustomFv(TObjEnemyCustom *object, s16 flags);
 }
 void reset_status_effect_row(u8 *row);
@@ -790,7 +790,7 @@ void TBoss3VoloptCore::init_params() {
 }
 
 TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, u16 id, s32 param) {
-    TObjEnemyCustom__ct(core, parent);
+    __ct__15TObjEnemyCustomFP7TObject(core, parent);
     *(void ***)((u8 *)core + 0x18) = TBoss3VoloptCore__vtable;
     core->m_1c = id;
     *(s16 *)((u8 *)core + 0x2C) = param;
@@ -802,7 +802,7 @@ TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *paren
 }
 
 TBoss3VoloptCore *TBoss3VoloptCore__sub_80040A7C(TBoss3VoloptCore *core, TObject *parent, void *set_data) {
-    TObjEnemyCustom__ct(core, parent);
+    __ct__15TObjEnemyCustomFP7TObject(core, parent);
     *(void ***)((u8 *)core + 0x18) = TBoss3VoloptCore__vtable;
     core->apply_set_data(set_data);
     core->init_params();
