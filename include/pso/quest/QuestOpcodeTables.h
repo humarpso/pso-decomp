@@ -12,7 +12,7 @@ struct QuestOpcodeEntry {
 
 extern "C" {
 extern QuestOpcodeEntry qst_opcode_table[0x300];
-extern const char* qst_bgm_filename_table[2];
+extern const char* qst_bgm_filename_table[];
 }
 
 #endif

@@ -1,5 +1,13 @@
 #include "pso/TMainTask.h"
 #include "pso/quest/QuestVm.h"
+#include "pso/quest/BattleRules.h"
+
+extern "C" {
+void qst_call_stack_push(s32 value);
+s32 qst_call_stack_pop(void);
+int qst_label_address(int label);
+}
+#include "pso/quest/QuestOpcodeTables.h"
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/system/date.h"
@@ -237,44 +245,9 @@ void qst_op_player_effect_nc(u8 arg0);
 void qst_op_has_ep3_save_file(void);
 }
 
-struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
-    s32 value;
-    u8 remaining[0xAC];
-};
-
 struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
     s32 value;
     u8 remaining[0x24];
-};
-
-struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8000F90C_lbl_804FE120 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8000F91C_lbl_804FE120 {
-    s32 value;
-    u8 remaining[0x14];
 };
 
 struct Cmd_801E6604 {
@@ -427,17 +400,10 @@ void TLobby::append_card_window_text() {
 
 extern s32 lbl_805DC4A4;
 
-typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TLobby::append_default_string() {
     append_string((void *)((s32 *)(&quest_player_class_name_buffer.value)));
 }
-typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 void TLobby__sub_801E6840(void) {
     append_string((void *)((s32 *)(&quest_player_name_buffer.value)));
@@ -483,22 +449,6 @@ s32 parse_f_index(s32 a0) {
 #undef quest_player_name_buffer
 #undef quest_player_class_name_buffer
 
-struct VBase_18_f23ffb { char pad[0x18]; };
-
-struct VObj_18_f23ffb : VBase_18_f23ffb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual s32 m10();
-};
-
 extern "C" {
 void append_string(s32 arg0);
 extern char lbl_805DC4B4[4];
@@ -528,8 +478,6 @@ void TLobby__sub_801E6998(void);
 u8 TLobby__sub_801E6BB8(void);
 s32 parse_r_index(s32 arg0);
 u8 read_byte_advance__6TLobbyFv(void);
-namespace pf2_p1 { extern "C" { s32 sscanf(s32, s32 *, s32 *, ...); } }
-#define sscanf pf2_p1::sscanf
 s32 strcpy(s32, s32);
 s32 strlen();
 
@@ -599,7 +547,7 @@ void append_hero_name(void) {
     u8 *player;
     player = (u8 *)(get_player_by_client_id(local_client_id));
     if (player != NULL) {
-        append_string(((VObj_18_f23ffb *)(player))->m10());
+        append_string(((TObjPlayer *)player)->vfunc_12());
     } else {
         append_string((s32)lbl_80449CA8);
     }
@@ -629,7 +577,6 @@ void append_string(s32 arg0) {
 }
 
 #undef get_class_type_name__6TLobbyFl
-#undef sscanf
 
 void TLobby__sub_801E6C2C(s8 arg0);
 
@@ -654,8 +601,6 @@ void qst_op_olga_flow_is_dead(s32 arg0);
 namespace pf2_p3 { extern "C" { u32 find_item_by_id(int); } }
 #define find_item_by_id pf2_p3::find_item_by_id
 s32 TObjPlayer__sub_801C1AC8();
-namespace pf2_p3 { extern "C" { u8 *get_player_by_client_id(s32); } }
-#define get_player_by_client_id pf2_p3::get_player_by_client_id
 void qst_op_get_guildcard_num(void);
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 extern Tbl_801E6CA4 lobby_index_identity_table_b;
@@ -670,8 +615,6 @@ void create_singleton__6TLobbyFPv(void *arg0);
 
 namespace pf2_p3 { extern "C" { extern int TLobby__quest_script_read_ptr; } }
 #define TLobby__quest_script_read_ptr pf2_p3::TLobby__quest_script_read_ptr
-namespace pf2_p3 { extern "C" { extern int quest_string_append_cursor; } }
-#define quest_string_append_cursor pf2_p3::quest_string_append_cursor
 void TLobby__sub_801E6C40(int a0, int a1) { TLobby__quest_script_read_ptr = a0; quest_string_append_cursor = a1; }
 
 void qst_op_olga_flow_is_dead(s32 arg0) {
@@ -736,9 +679,7 @@ void qst_op_check_for_keyword(void) {
 }
 
 #undef find_item_by_id
-#undef get_player_by_client_id
 #undef TLobby__quest_script_read_ptr
-#undef quest_string_append_cursor
 
 extern s16 TLobby__quest_state_word_170;
 extern s16 TLobby__quest_state_word_172;
@@ -748,8 +689,6 @@ void qst_op_prepare_statistic(void);
 s32 fn_801D9FA0(int, int, int, int, void *);
 }
 extern s32 TLobby__protocol_instance;
-namespace pf2_p4 { extern "C" { void push_op_arg__6TLobbyFi(s32); } }
-#define push_op_arg__6TLobbyFi pf2_p4::push_op_arg__6TLobbyFi
 void qst_op_arg_pushw(u16 a0);
 void qst_op_arg_pushb(u8 a0);
 void qst_op_arg_pushs(int a0);
@@ -814,12 +753,11 @@ void qst_op_va_call(s32 arg0) {
   qst_registers[5] = qst_args[4];
   qst_registers[6] = qst_args[5];
   qst_registers[7] = qst_args[6];
-  push_op_arg__6TLobbyFi(qst_pc);
+  qst_call_stack_push(qst_pc);
   qst_pc = qst_function_table[(u16)arg0];
 }
 }
 
-#undef push_op_arg__6TLobbyFi
 
 extern "C" {
 s16 obj_getS16_32C(u8 *);
@@ -835,26 +773,6 @@ struct ItemData_801E72B4 {
     u8 data1[12];
     u32 id;
     u8 data2[4];
-};
-
-struct VBase_18_eecf68 { char pad[0x18]; };
-
-struct VObj_18_eecf68 : VBase_18_eecf68 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual s32 m14();
 };
 
 struct Win_801E78D4 { u8 pad[0x2314]; s32 t[16]; };
@@ -886,21 +804,7 @@ struct ItemData_801E8000 {
     u32 extra;
 };
 
-typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
-
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
-
-typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 typedef char RecoveredGlobal_801F196C_lbl_804499A8_size[sizeof(RecoveredGlobal_801F196C_lbl_804499A8) == 0x74 ? 1 : -1];
 
@@ -950,53 +854,11 @@ struct Glob_801E9274 {
 
 struct Vec3_801E9274 { f32 x, y, z; };
 
-struct RecoveredGlobal_801EA274_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_80141860_lbl_8050C000 {
-    s32 value;
-    u8 remaining[0x24];
-};
-
-struct RecoveredGlobal_80141788_lbl_8050C000 {
-    s32 value;
-    u8 remaining[0x24];
-};
-
-struct RecoveredGlobal_80141788_lbl_8050C028 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_801417B8_lbl_8050C000 {
-    s32 value;
-    u8 remaining[0x24];
-};
-
-struct RecoveredGlobal_801417B8_lbl_8050C028 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_801417E8_lbl_8050C028 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8014175C_lbl_8050C000 {
-    s32 value;
-    u8 remaining[0x24];
-};
-
 struct ByteBlock_30 { u8 bytes[0x30]; };
 
 struct ByteBlock_20 { u8 bytes[0x20]; };
 
 struct ByteBlock_24 { u8 bytes[0x24]; };
-
-struct G_801EA7E8 { u8 pad[0x13]; u8 f13; u8 pad14[0x18]; };
 
 struct Ctx_801EA5FC { u8 pad[0x10]; u8 buf[0xFD]; };
 
@@ -1087,43 +949,11 @@ struct Spawn_801EA388 {
     u8 pad3c[4];
 };
 
-typedef char RecoveredGlobal_801EA274_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EA274_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
 struct Spawn_801EA508;
-
-typedef char RecoveredGlobal_80141860_lbl_8050C000_size[sizeof(RecoveredGlobal_80141860_lbl_8050C000) == 0x28 ? 1 : -1];
-
-typedef char RecoveredGlobal_80141788_lbl_8050C000_size[sizeof(RecoveredGlobal_80141788_lbl_8050C000) == 0x28 ? 1 : -1];
-
-typedef char RecoveredGlobal_80141788_lbl_8050C028_size[sizeof(RecoveredGlobal_80141788_lbl_8050C028) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8014175C_lbl_8050C000) == 0x28 ? 1 : -1];
-
-typedef char RecoveredGlobal_801417B8_lbl_8050C000_size[sizeof(RecoveredGlobal_801417B8_lbl_8050C000) == 0x28 ? 1 : -1];
-
-typedef char RecoveredGlobal_801417B8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417B8_lbl_8050C028) == 0x18 ? 1 : -1];
-
-typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];
 
 struct RecoveredGlobal_801EB6B8_lbl_80512350 {
     s32 value;
     u8 remaining[0xC];
-};
-
-struct VBase_18_26c590 { char pad[0x18]; };
-
-struct VObj_18_26c590 : VBase_18_26c590 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual s32 m10();
 };
 
 struct RecoveredGlobal_801EB73C_lbl_80512340 {
@@ -1131,54 +961,14 @@ struct RecoveredGlobal_801EB73C_lbl_80512340 {
     u8 remaining[0xC];
 };
 
-struct RecoveredGlobal_801EC64C_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
 struct RecoveredGlobal_801EC90C_lbl_80449AFC {
     s32 value;
     u8 remaining[0x8];
 };
 
-struct RecoveredGlobal_801EC90C_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_801EC93C_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_801EC954_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_801EC9CC_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_801EC9F8_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
-struct RecoveredGlobal_801ECA1C_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
 struct RecoveredGlobal_801ECF84_lbl_8050D3E0 {
     s32 value;
     u8 remaining[0x4C];
-};
-
-struct RecoveredGlobal_801EC984_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
 };
 
 struct E_801EB484 { s32 a; s32 b; };
@@ -1217,23 +1007,7 @@ typedef char RecoveredGlobal_801EB6B8_lbl_80512350_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801EB73C_lbl_80512340_size[sizeof(RecoveredGlobal_801EB73C_lbl_80512340) == 0x10 ? 1 : -1];
 
-typedef char RecoveredGlobal_801EC64C_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC64C_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
 typedef char RecoveredGlobal_801EC90C_lbl_80449AFC_size[sizeof(RecoveredGlobal_801EC90C_lbl_80449AFC) == 0xC ? 1 : -1];
-
-typedef char RecoveredGlobal_801EC90C_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC90C_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801EC93C_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC93C_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801EC954_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC954_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801EC9CC_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC9CC_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801EC984_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC984_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801EC9F8_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EC9F8_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801ECA1C_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801ECA1C_TLobby__data_80512360) == 0x2C ? 1 : -1];
 
 typedef char RecoveredGlobal_801ECF84_lbl_8050D3E0_size[sizeof(RecoveredGlobal_801ECF84_lbl_8050D3E0) == 0x50 ? 1 : -1];
 
@@ -1248,19 +1022,9 @@ struct RecoveredGlobal_801EDA70_lbl_80449AC8 {
     u8 remaining[0x8];
 };
 
-struct RecoveredGlobal_801EDA70_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
 struct RecoveredGlobal_801EDB4C_lbl_80449AAC {
     s32 value;
     u8 remaining[0x8];
-};
-
-struct RecoveredGlobal_801EDB4C_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_801EDBDC_lbl_80449A94 {
@@ -1268,52 +1032,20 @@ struct RecoveredGlobal_801EDBDC_lbl_80449A94 {
     u8 remaining[0xC];
 };
 
-struct RecoveredGlobal_801EDBDC_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
-};
-
 struct RecoveredGlobal_801EDC24_lbl_80449A88 {
     s32 value;
     u8 remaining[0x8];
-};
-
-struct RecoveredGlobal_801EDC24_TLobby__data_80512360 {
-    s8 value;
-    u8 remaining[0x2B];
-};
-
-struct RecoveredGlobal_800F8A78_lbl_80501178 {
-    s32 value;
-    u8 remaining[0xC];
-};
-
-struct RecoveredGlobal_801ED938_TLobby__data_80512360 {
-    s32 value;
-    u8 remaining[0x28];
 };
 
 struct Tbl_801EDC98 { u32 w[18]; };
 
 typedef char RecoveredGlobal_801EDA70_lbl_80449AC8_size[sizeof(RecoveredGlobal_801EDA70_lbl_80449AC8) == 0xC ? 1 : -1];
 
-typedef char RecoveredGlobal_801EDA70_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EDA70_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_801ED938_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801ED938_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
 typedef char RecoveredGlobal_801EDB4C_lbl_80449AAC_size[sizeof(RecoveredGlobal_801EDB4C_lbl_80449AAC) == 0xC ? 1 : -1];
-
-typedef char RecoveredGlobal_801EDB4C_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EDB4C_TLobby__data_80512360) == 0x2C ? 1 : -1];
 
 typedef char RecoveredGlobal_801EDBDC_lbl_80449A94_size[sizeof(RecoveredGlobal_801EDBDC_lbl_80449A94) == 0x10 ? 1 : -1];
 
-typedef char RecoveredGlobal_801EDBDC_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EDBDC_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
 typedef char RecoveredGlobal_801EDC24_lbl_80449A88_size[sizeof(RecoveredGlobal_801EDC24_lbl_80449A88) == 0xC ? 1 : -1];
-
-typedef char RecoveredGlobal_801EDC24_TLobby__data_80512360_size[sizeof(RecoveredGlobal_801EDC24_TLobby__data_80512360) == 0x2C ? 1 : -1];
-
-typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
 
 struct Pkt_801EE048 {
     u8 cmd;
@@ -2084,12 +1816,6 @@ void qst_op_add(s32 arg0, s32 arg1);
 void qst_op_gget(u16 arg0, s32 arg1);
 void qst_op_glet(u16 arg0, s32 arg1);
 extern "C" {
-namespace pf2_p5 { extern "C" { int pop_stack_value__6TLobbyFv(void); } }
-#define pop_stack_value__6TLobbyFv pf2_p5::pop_stack_value__6TLobbyFv
-namespace pf2_p5 { extern "C" { s32 push_op_arg__6TLobbyFi(int); } }
-#define push_op_arg__6TLobbyFi pf2_p5::push_op_arg__6TLobbyFi
-namespace pf2_p5 { extern "C" { u32 get_indexed_offset__6TLobbyFi(void *, int); } }
-#define get_indexed_offset__6TLobbyFi pf2_p5::get_indexed_offset__6TLobbyFi
 s32 set_flag_80000__6TLobbyFv(int);
 s32 set_flag_40000__6TLobbyFv(int);
 s32 TLobby__sub_801F3314(int);
@@ -2273,7 +1999,6 @@ s32 strncpy(void *, int, int);
 u32 TLobby__sub_803DF1CC(void);
 
 extern E_801EB484 TLobby__duel_result_table[];
-extern RecoveredGlobal_801EDA70_TLobby__data_80512360 TLobby__data_80512360;
 extern s32 TLobby__designated_client_id;
 extern int TLobby__battle_ctrl_default_value;
 extern u8 *TLobby__quest_message_window;
@@ -2310,7 +2035,6 @@ extern s32 lbl_80449B10[];
 extern Tbl_801E9AF8 lobby_index_identity_table_a[];
 extern s32 lbl_80449B2C[];
 extern const f64 lbl_80449CC0;
-extern s32 qst_bgm_filename_table[];
 extern RecoveredGlobal_801ECF84_lbl_8050D3E0 lbl_8050D3E0;
 extern s32 symbolchat_colli_param_table[];
 extern E_801E93B4 controller_input_state[];
@@ -2644,7 +2368,7 @@ void qst_op_get_player_level(void) {
     temp_r3 = (u8 *)(((u8 * (*)(s32))get_player_by_client_id)(qst_args[0]));
     temp_r31 = (u8) qst_args[1];
     if (temp_r3 != NULL) {
-        qst_registers[(u8)temp_r31] = ((VObj_18_eecf68 *)(temp_r3))->m14() + 1;
+        qst_registers[(u8)temp_r31] = ((TObjPlayer *)temp_r3)->get_actor_level_index() + 1;
         return;
     }
     qst_registers[(u8)temp_r31] = -1;
@@ -3091,7 +2815,7 @@ void qst_op_npc_text_id(u8 a0, u8 a1, void *a2) {
     s32 x = qst_registers[a0];
     s32 v = qst_registers[a1];
     u16 y = x;
-    u32 r = get_indexed_offset__6TLobbyFi(a2, x);
+    u32 r = ((u32 (*)(void *, int))qst_label_address)(a2, x);
     if (r != 0U) {
         set_partner_dialogue_override((const char *)r, v, (u16)y);
     }
@@ -3110,7 +2834,7 @@ void qst_op_compute_bezier_curve_point() {
     s32 ret;
     s32 j;
     Vec3_801E915C *dst;
-    pts = (u8 *)get_indexed_offset__6TLobbyFi((void *)(u16)g->id, (int)g);
+    pts = (u8 *)((u32 (*)(void *, int))qst_label_address)((void *)(u16)g->id, (int)g);
     if (pts == NULL) {
         return;
     }
@@ -3142,7 +2866,7 @@ void qst_op_get_vector_from_path() {
     s32 ret;
     s32 j;
     Vec3_801E9274 *dst;
-    pts = (u8 *)get_indexed_offset__6TLobbyFi((void *)(u16)g->id, (int)g);
+    pts = (u8 *)((u32 (*)(void *, int))qst_label_address)((void *)(u16)g->id, (int)g);
     if (pts == NULL) {
         return;
     }
@@ -3537,7 +3261,7 @@ void qst_op_vol_opt_is_dead(s32 arg0) {
 
 void qst_op_ba_death_tech_level_up(void) {
     if ((u32) (u32)qst_args[0] <= 0x1DU) {
-        *(s16 *)((s8 *)(&(*(RecoveredGlobal_801EA274_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x28) = (s16) (u32)qst_args[0];
+        battle_rules.death_tech_level_up = (s16) (u32)qst_args[0];
     }
 }
 }
@@ -3563,9 +3287,9 @@ void qst_op_set_symbol_chat_collision(u8 i) {
     s.c = qst_registers[i++];
     s.d = qst_registers[i++];
     s.e = qst_registers[i++];
-    symbolchat_colli_param_table[0] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)qst_registers[i++]);
-    symbolchat_colli_param_table[1] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)qst_registers[i++]);
-    symbolchat_colli_param_table[2] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)qst_registers[i]);
+    symbolchat_colli_param_table[0] = ((int (*)(int))qst_label_address)((u16)qst_registers[i++]);
+    symbolchat_colli_param_table[1] = ((int (*)(int))qst_label_address)((u16)qst_registers[i++]);
+    symbolchat_colli_param_table[2] = ((int (*)(int))qst_label_address)((u16)qst_registers[i]);
     TOSymbolchatColli::create(&s);
     symbolchat_colli_param_table[1] = 0;
     symbolchat_colli_param_table[0] = 0;
@@ -3647,7 +3371,7 @@ void qst_op_player_recovery(s32 arg0) {
 void qst_op_ba_forbid_scape_dolls() {
     u32 v = (u32)qst_args[0];
     if (v < 2) {
-        (*(G_801EA7E8 *)&TLobby__data_80512360).f13 = lbl_80449B10[v];
+        battle_rules.forbid_scape_dolls = lbl_80449B10[v];
     }
 }
 
@@ -3750,7 +3474,7 @@ void qst_op_get_eventflag16(u8 a0, u8 a1) {
 void qst_op_set_enemy_movement_data(s32 arg0) {
     ByteBlock_30 sp8;
     u32 temp_r3;
-    temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
+    temp_r3 = ((int (*)(int))qst_label_address)(arg0);
     if (temp_r3 != 0U) {
         sp8 = *(const ByteBlock_30 *)(temp_r3 - 4 + 4);
         TLobby::bswap_entry_words((s32) &sp8);
@@ -3761,7 +3485,7 @@ void qst_op_set_enemy_movement_data(s32 arg0) {
 void qst_op_set_enemy_resist_data(s32 arg0) {
     ByteBlock_20 sp8;
     u32 temp_r3;
-    temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
+    temp_r3 = ((int (*)(int))qst_label_address)(arg0);
     if (temp_r3 != 0U) {
         sp8 = *(const ByteBlock_20 *)(temp_r3 - 4 + 4);
         ((TLobby *)(&sp8))->swap_endian();
@@ -3772,7 +3496,7 @@ void qst_op_set_enemy_resist_data(s32 arg0) {
 void qst_op_set_enemy_attack_data(s32 arg0) {
     ByteBlock_30 sp8;
     u32 temp_r3;
-    temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
+    temp_r3 = ((int (*)(int))qst_label_address)(arg0);
     if (temp_r3 != 0U) {
         sp8 = *(const ByteBlock_30 *)(temp_r3 - 4 + 4);
         ((TLobby *)(&sp8))->byteswap_packet();
@@ -3784,7 +3508,7 @@ void qst_op_set_enemy_physical_data(int _w0) {
     struct CopyStack_801EAC48 { u8 bytes[0x24]; };
     CopyStack_801EAC48 copy_storage_801EAC48;
     u32 temp_r3;
-    temp_r3 = ((u32)((int (*)(int))get_indexed_offset__6TLobbyFi)(_w0));
+    temp_r3 = ((u32)((int (*)(int))qst_label_address)(_w0));
     if (temp_r3 != 0U) {
         *(ByteBlock_24 *)(copy_storage_801EAC48.bytes) = *(const ByteBlock_24 *)((temp_r3 - 4) + 4);
         bswap__12player_statsFv(((copy_storage_801EAC48.bytes)));
@@ -3919,7 +3643,7 @@ s32 TLobby::init_guild_card_tag() {
 
 void qst_op_get_player_state(s32 arg0, s32 arg1) {
     s32 temp_r3;
-    temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int)((int) (qst_registers[(u8)arg0])), (void *)arg1);
+    temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (void *)arg1);
     if (temp_r3 != 0) {
         if (TLobby__sub_801F345C() != 0) {
             qst_registers[(u8)arg1] = 1;
@@ -4008,7 +3732,7 @@ void qst_op_call_image_data() {
     s32 quest_vm_down_load_server;
     u32 temp_r3;
     quest_vm_down_load_server = qst_args[0];
-    temp_r3 = ((int)((u32 (*)(void *))get_indexed_offset__6TLobbyFi)((void *)((s32) (u16) qst_args[1])));
+    temp_r3 = ((int)((u32 (*)(void *))qst_label_address)((void *)((s32) (u16) qst_args[1])));
     if (temp_r3 != 0U) {
         prs_decompress_buffer((s32) temp_r3, resource_decompress_buffer);
         fn_80197FD0((void *)resource_decompress_buffer, (void *)quest_vm_down_load_server);
@@ -4017,7 +3741,7 @@ void qst_op_call_image_data() {
 
 void qst_op_animation_check(s32 arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((u32) (u16) qst_registers[(u8)arg0])), (int)(arg1))));
+    temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((u32) (u16) qst_registers[(u8)arg0]), (int)(arg1))));
     if (temp_r3 != NULL) {
         qst_registers[(u8)arg1] = TLobby__sub_80142944(temp_r3);
     }
@@ -4048,7 +3772,7 @@ void qst_op_get_pl_name(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)qst_registers[(u8)arg0], (int)qst_registers)));
     if (temp_r3 != NULL) {
-        strncpy((void *)((void *) (&quest_player_name_buffer.value)), (int)((void *) (((VObj_18_26c590 *)(temp_r3))->m10())), 0xF);
+        strncpy(((void *)(&quest_player_name_buffer.value)), ((TObjPlayer *)temp_r3)->vfunc_12(), 0xF);
         *(s8 *)((s8 *)(&quest_player_name_buffer.value) + 0xF) = 0;
         qst_registers[(u8)arg0] = 1;
         return;
@@ -4083,7 +3807,7 @@ void qst_op_get_serial_number(u8 arg0) {
 }
 
 void qst_op_kill_player(s32 arg0) {
-    if (((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers) != 0U) {
+    if (((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers) != 0U) {
         TObjPlayer__sub_801AF904();
     }
 }
@@ -4143,7 +3867,7 @@ void qst_op_get_chara_class(s32 arg0, s32 arg1) {
 void qst_op_get_gender(s32 arg0, s32 arg1) {
     s32 temp_r3_2;
     u8 *temp_r3;
-    temp_r3 = ((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(qst_registers[(u8)arg0]))), (int)((int)(arg1))));
+    temp_r3 = ((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)(arg1)));
     if (temp_r3 != NULL) {
         temp_r3_2 = ((TObjPlayer *)temp_r3)->class_flags;
         if (temp_r3_2 & CLASS_FLAG_MALE) {
@@ -4162,7 +3886,7 @@ void qst_op_get_gender(s32 arg0, s32 arg1) {
 
 void qst_op_disable_techs(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers);
+    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers);
     if (temp_r3 != 0U) {
         TLobby__sub_801F3694((void *)(temp_r3 + 0x428));
     }
@@ -4170,7 +3894,7 @@ void qst_op_disable_techs(s32 arg0) {
 
 void qst_op_enable_techs(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers);
+    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers);
     if (temp_r3 != 0U) {
         TFontSmallLobby__sub_801C013C((void *)(temp_r3 + 0x428));
     }
@@ -4178,7 +3902,7 @@ void qst_op_enable_techs(s32 arg0) {
 
 void qst_op_disable_stealth_suit_effect(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)((int) (qst_registers[(u8)arg0])))), (int)((int)qst_registers)));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers));
     if ((temp_r3 != 0) && (sub_801A1DDC__10TObjPlayerFv() != 0)) {
         draw_small_label__15TFontSmallLobbyFi((temp_r3));
     }
@@ -4186,7 +3910,7 @@ void qst_op_disable_stealth_suit_effect(s32 arg0) {
 
 void qst_op_enable_stealth_suit_effect(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers));
     if ((temp_r3 != 0) && (sub_801A1DDC__10TObjPlayerFv() != 0)) {
         TLobby__sub_801B1254((temp_r3));
     }
@@ -4426,12 +4150,12 @@ void qst_op_clear_score_announce() {
 }
 
 void qst_op_ba_sonar_count(void) {
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EA274_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x12) = (s8) qst_args[0];
+    battle_rules.sonar_count = (s8) qst_args[0];
 }
 
 void qst_op_ba_enable_sonar() {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EC90C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x11) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449B08.value) + ((u32)qst_args[0] * 4)) + 0);
+        battle_rules.enable_sonar = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449B08.value) + ((u32)qst_args[0] * 4)) + 0);
     }
 }
 
@@ -4440,7 +4164,7 @@ void qst_op_set_allow_item_flags(void) {
 }
 
 void qst_op_p_talk_guild_local(int _w0, int _w1) {
-    if (((u32 (*)(int, int))get_player_by_client_id)((int)((int)(local_client_id)), (int)((int)(_w1))) != 0U) {
+    if (((u32 (*)(int, int))get_player_by_client_id)((int)(local_client_id), (int)(_w1)) != 0U) {
         handle_main_phase__6TLobbyFl();
     }
 }
@@ -4492,12 +4216,12 @@ void qst_op_set_area_total() {
 
 void qst_op_ba_set_meseta_drop_mode(void) {
     if ((u32) (u32)qst_args[0] <= 2U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EC90C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0xB) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AFC.value) + ((u32)qst_args[0] * 4)) + 0);
+        battle_rules.meseta_mode = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AFC.value) + ((u32)qst_args[0] * 4)) + 0);
     }
 }
 
 void qst_op_ba_death_lvl_up(void) {
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EC93C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0xC) = (s8) qst_args[0];
+    battle_rules.death_level_up = (s8) qst_args[0];
 }
 
 void qst_op_ba_set_time_limit(void) {
@@ -4506,7 +4230,7 @@ void qst_op_ba_set_time_limit(void) {
     if (var_r4 > 0x278D0U) {
         var_r4 = 0U;
     }
-    *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC954_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x24) = var_r4;
+    battle_rules.time_limit = var_r4;
 }
 
 void qst_op_ba_set_char_level(void) {
@@ -4515,7 +4239,7 @@ void qst_op_ba_set_char_level(void) {
     if (var_r31 > TObjPlayer::get_max_level()) {
         var_r31 = 0U;
     }
-    *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC984_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x20) = var_r31;
+    battle_rules.char_level = var_r31;
 }
 
 void qst_op_ba_set_max_tech_level() {
@@ -4524,7 +4248,7 @@ void qst_op_ba_set_max_tech_level() {
     if ((var_r0 != 0xFFU) && (var_r0 > 0x1DU)) {
         var_r0 = 0U;
     }
-    *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC9CC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x1C) = var_r0;
+    battle_rules.max_tech_level = var_r0;
 }
 
 void qst_op_ba_set_lives(void) {
@@ -4533,12 +4257,12 @@ void qst_op_ba_set_lives(void) {
     if (var_r0 > 0x63U) {
         var_r0 = 0U;
     }
-    *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC9F8_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x18) = var_r0;
+    battle_rules.lives = var_r0;
 }
 
 void qst_op_ba_hide_target_reticle(void) {
     if ((u32) (u32)qst_args[0] <= 1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801ECA1C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0xA) = (s8) (u32)qst_args[0];
+        battle_rules.hide_target_reticle = (s8) (u32)qst_args[0];
     }
 }
 
@@ -4546,7 +4270,7 @@ void qst_op_ba_set_trap_count(s32 reg) {
     s32 slot = qst_registers[(u8)reg++];
     s32 value = qst_registers[(u8)reg];
     if (slot >= 0 && slot <= 3) {
-        TLobby__data_80512360.remaining[lbl_80449AEC[slot] + 9] = value;
+        battle_rules.trap_counts[lbl_80449AEC[slot]] = value;
     }
 }
 
@@ -4626,7 +4350,7 @@ void qst_op_set_cmode_base_time(s32 arg0) {
 
 void qst_op_prepare_npc_visual(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = ((u32 (*)(void *))get_indexed_offset__6TLobbyFi)((void *)arg0);
+    temp_r3 = ((u32 (*)(void *))qst_label_address)((void *)arg0);
     if (temp_r3 != 0U) {
         copy_player_visual_record((void *) (&lbl_8050D3E0.value), temp_r3);
     }
@@ -4668,7 +4392,7 @@ void qst_op_set_shrink_cam1(u8 arg0) {
 
 void qst_op_unshrink(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers));
     if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0)) {
         request_player_size_restore((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
@@ -4676,7 +4400,7 @@ void qst_op_unshrink(s32 arg0) {
 
 void qst_op_shrink(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers));
     if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0)) {
         request_player_shrink((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
@@ -4734,7 +4458,7 @@ void qst_op_set_switch_flag_sync() {
 
 void qst_op_reset_kills(s32 arg0) {
     u8 *lobby;
-    lobby = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(qst_registers[(u8)arg0]))), (int)((int)((int)(((s32)qst_registers)))))));
+    lobby = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)(((s32)qst_registers)))));
     if (lobby != NULL) {
         ((TLobby *)lobby)->set_floor(0);
     }
@@ -4872,82 +4596,82 @@ void qst_op_ba_start(void) {
     s32 temp_r31;
     temp_r31 = qst_args[0];
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        TPlayerBattleCtrl4P::init_instance_with_text((s32) &(*(RecoveredGlobal_801ED938_TLobby__data_80512360 *)&TLobby__data_80512360).value, temp_r31);
+        TPlayerBattleCtrl4P::init_instance_with_text((s32)&battle_rules, temp_r31);
         return;
     }
-    init_battle_ctrl__6TLobbyFii((s32) &(*(RecoveredGlobal_801ED938_TLobby__data_80512360 *)&TLobby__data_80512360).value, temp_r31);
+    init_battle_ctrl__6TLobbyFii((s32)&battle_rules, temp_r31);
 }
 
 void qst_op_ba_teams() {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x9) = (s8) (&lbl_80449AE4.value)[(u32)qst_args[0]];
+        battle_rules.is_teams = (s8) (&lbl_80449AE4.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x9) = (s8) lbl_80449AE4.value;
+    battle_rules.is_teams = (s8) lbl_80449AE4.value;
 }
 
 void qst_op_ba_dropwep() {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x8) = (s8) (&lbl_80449ADC.value)[(u32)qst_args[0]];
+        battle_rules.drop_weapon = (s8) (&lbl_80449ADC.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x8) = (s8) lbl_80449ADC.value;
+    battle_rules.drop_weapon = (s8) lbl_80449ADC.value;
 }
 
 void qst_op_ba_set_replace_char() {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 0x7) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AD4.value) + ((u32)qst_args[0] * 4)) + 0);
+        battle_rules.replace_char = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AD4.value) + ((u32)qst_args[0] * 4)) + 0);
         return;
     }
-    *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 0x7) = (s8) *(s32 *)((s8 *)(&lbl_80449AD4.value) + 0x4);
+    battle_rules.replace_char = (s8) *(s32 *)((s8 *)(&lbl_80449AD4.value) + 0x4);
 }
 
 void qst_op_ba_set_respawn(void) {
     if ((u32) (u32)qst_args[0] <= 2U) {
-        *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 6) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AC8.value) + ((u32)qst_args[0] * 4)) + 0);
+        battle_rules.respawn_mode = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AC8.value) + ((u32)qst_args[0] * 4)) + 0);
         return;
     }
-    *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 6) = (s8) *(s32 *)((s8 *)(&lbl_80449AC8.value) + 8);
+    battle_rules.respawn_mode = (s8) *(s32 *)((s8 *)(&lbl_80449AC8.value) + 8);
 }
 
 void qst_op_ba_set_unused_F817(void) {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x5) = (s8) (&lbl_80449AC0.value)[(u32)qst_args[0]];
+        battle_rules.unused_F817 = (s8) (&lbl_80449AC0.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x5) = (s8) lbl_80449AC0.value;
+    battle_rules.unused_F817 = (s8) lbl_80449AC0.value;
 }
 
 void qst_op_ba_set_trap_mode(void) {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x4) = (s8) (&lbl_80449AB8.value)[(u32)qst_args[0]];
+        battle_rules.trap_mode = (s8) (&lbl_80449AB8.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x4) = (s8) lbl_80449AB8.value;
+    battle_rules.trap_mode = (s8) lbl_80449AB8.value;
 }
 
 void qst_op_ba_set_tool_mode(void) {
     if ((u32) (u32)qst_args[0] <= 2U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 3) = (s8) (&lbl_80449AAC.value)[(u32)qst_args[0]];
+        battle_rules.tool_mode = (s8) (&lbl_80449AAC.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 3) = (s8) lbl_80449AAC.value;
+    battle_rules.tool_mode = (s8) lbl_80449AAC.value;
 }
 
 void qst_op_ba_set_forbid_mags() {
     if ((u32) (u32)qst_args[0] <= 0x1U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x2) = (s8) (&lbl_80449AA4.value)[(u32)qst_args[0]];
+        battle_rules.mag_mode = (s8) (&lbl_80449AA4.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x2) = (s8) lbl_80449AA4.value;
+    battle_rules.mag_mode = (s8) lbl_80449AA4.value;
 }
 
 void qst_op_ba_set_weapon_and_armor_mode() {
     if ((u32) (u32)qst_args[0] <= 3U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) (&lobby_menu_byte_1_map.value)[(u32)qst_args[0]];
+        battle_rules.weapon_and_armor_mode = (s8) (&lobby_menu_byte_1_map.value)[(u32)qst_args[0]];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) lobby_menu_byte_1_map.value;
+    battle_rules.weapon_and_armor_mode = (s8) lobby_menu_byte_1_map.value;
 }
 
 void qst_op_ba_set_tech_disk_mode() {
@@ -4957,11 +4681,11 @@ void qst_op_ba_set_tech_disk_mode() {
     } else {
         var_r0 = (s8) *(s32 *)((s8 *)(&lbl_80449A88.value) + 8);
     }
-    (*(RecoveredGlobal_801EDC24_TLobby__data_80512360 *)&TLobby__data_80512360).value = var_r0;
+    battle_rules.tech_disk_mode = var_r0;
 }
 
 void qst_op_clear_ba_rules() {
-    memset((void *) (&(*(RecoveredGlobal_800F8A78_lbl_80501178 *)&TLobby__data_80512360).value), 0, 0x2c);
+    memset(&battle_rules, 0, sizeof(BattleRules));
 }
 
 void qst_op_ba_initial_floor(void) {
@@ -4972,13 +4696,13 @@ void qst_op_ba_initial_floor(void) {
 }
 
 void qst_op_enable_weapon_drop(int _w0, int _w1) {
-    if (((u32 (*)(int, int))get_player_by_client_id)((int)((int) (qst_args[0])), _w1) != 0U) {
+    if (((u32 (*)(int, int))get_player_by_client_id)((int)(qst_args[0]), _w1) != 0U) {
         send_field1c_packet__6TLobbyFl();
     }
 }
 
 void qst_op_disable_weapon_drop(int _w0, int _w1) {
-    if (((u32 (*)(int, int))get_player_by_client_id)((int)((int) (qst_args[0])), _w1) != 0U) {
+    if (((u32 (*)(int, int))get_player_by_client_id)((int)(qst_args[0]), _w1) != 0U) {
         send_font_state__6TLobbyFl();
     }
 }
@@ -6389,7 +6113,7 @@ void qst_op_window_msg(void) {
 }
 
 void qst_op_bgm(void) {
-    play_cue_stream_file(qst_bgm_filename_table[qst_args[0]]);
+    play_cue_stream_file((s32)qst_bgm_filename_table[qst_args[0]]);
 }
 
 void qst_op_se(void) {
@@ -6476,7 +6200,7 @@ void qst_op_stack_popm(s32 arg0, s32 arg1) {
     s32 n = arg1;
     u8 j = arg0 + arg1;
     while (n > 0) {
-        int v = pop_stack_value__6TLobbyFv();
+        int v = qst_call_stack_pop();
         j--;
         qst_registers[j] = v;
         n--;
@@ -6486,14 +6210,14 @@ void qst_op_stack_popm(s32 arg0, s32 arg1) {
 void qst_op_stack_pushm(s32 arg0, s32 arg1) {
     s32 i;
     for (i = 0; i < arg1; i++) {
-        push_op_arg__6TLobbyFi(qst_registers[(u8)arg0++]);
+        qst_call_stack_push(qst_registers[(u8)arg0++]);
     }
 }
 
-void qst_op_stack_pop(int a0) { qst_registers[(unsigned char)(a0)] = pop_stack_value__6TLobbyFv(); }
+void qst_op_stack_pop(int a0) { qst_registers[(unsigned char)(a0)] = qst_call_stack_pop(); }
 
 void qst_op_stack_push(s32 arg0) {
-    push_op_arg__6TLobbyFi((int) (qst_registers[(u8)arg0]));
+    qst_call_stack_push((int) (qst_registers[(u8)arg0]));
 }
 }
 
@@ -6661,7 +6385,7 @@ void qst_op_jmp_on(s32 arg0, u8 arg1, u8 *arg2) {
 #pragma push
 #pragma fp_contract on
 void qst_op_call(u16 arg0) {
-    push_op_arg__6TLobbyFi((int)((void *) (qst_pc)));
+    qst_call_stack_push((int)((void *) (qst_pc)));
     qst_pc = qst_function_table[arg0];
 }
 #pragma pop
@@ -6751,22 +6475,8 @@ void qst_op_glet(u16 flag, s32 arg1) {
     clear_story_flag((flag));
 }
 
-#undef get_indexed_offset__6TLobbyFi
-#undef pop_stack_value__6TLobbyFv
-#undef push_op_arg__6TLobbyFi
 
-struct Ent_A { s32 a; s32 (*fn)(s32, s32); };
-
-void qst_getargs_801F26A8(s32 arg0);
-struct Ent_A; namespace pf2_p6 { extern "C" { s32 read_be_u16(struct Ent_A *); } }
-#define read_be_u16 pf2_p6::read_be_u16
-namespace pf2_p6 { extern "C" { s32 read_packet_byte__6TLobbyFv(); } }
-#define read_packet_byte__6TLobbyFv pf2_p6::read_packet_byte__6TLobbyFv
-extern struct Ent_A qst_opcode_table[];
 void qst_op_gclear(u16 arg0);
-namespace pf2_p6 { extern "C" { void clear_story_flag(s32 flag); } }
-namespace pf2_p6 { extern "C" { extern int local_client_id; } }
-#define local_client_id pf2_p6::local_client_id
 void qst_op_gset(u16 arg0);
 namespace pf2_p6 { extern "C" { s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32); } }
 #define dispatch_by_main_phase__14TBoss4DarkFalzFUs pf2_p6::dispatch_by_main_phase__14TBoss4DarkFalzFUs
@@ -6795,8 +6505,6 @@ void qst_op_nop(void);
 void qst_op_ret(void);
 void qst_op_sync(void);
 extern "C" {
-s32 pop_stack_value__6TLobbyFv();
-namespace pf2_p6 { extern "C" { s32 get_story_flag(s32); } }
 
 void qst_op_grev(s32 arg0) {
     u16 v = arg0;
@@ -6844,9 +6552,6 @@ void qst_op_letb(int a0, int a1) { qst_registers[(unsigned char)(a0)] = (a1 & 0x
 
 void qst_op_leti(int a0, int a1) { qst_registers[(unsigned char)(a0)] = a1; }
 
-namespace pf2_p6 { extern "C" { extern s32 TLobby__quest_window_state; } }
-#define TLobby__quest_window_state pf2_p6::TLobby__quest_window_state
-
 void qst_op_let(s32 arg0, s32 arg1) {
     qst_registers[(u8)arg0] = qst_registers[(u8)arg1];
 }
@@ -6866,7 +6571,7 @@ void qst_op_exit(void) { TLobby__quest_window_state = 3; }
 void qst_op_ret(void) {
     u32 nested = qst_call_stack_depth > 0;
     if (nested) {
-        qst_pc = pop_stack_value__6TLobbyFv();
+        qst_pc = qst_call_stack_pop();
     }
     if (!nested) {
         TLobby__quest_window_state = 2;
@@ -6874,75 +6579,29 @@ void qst_op_ret(void) {
 }
 
 void qst_op_nop(void) {  }
-void qst_getargs_801F26A8(s32 arg0) {
-    s32 (*temp_r31)(s32, s32);
-    s32 temp_r30;
-    struct Ent_A *e;
-    e = (struct Ent_A *) (u8 *) qst_opcode_table;
-    e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
-    temp_r31 = e->fn;
-    temp_r30 = read_be_u16(e);
-    temp_r31(temp_r30, read_packet_byte__6TLobbyFv());
-}
-
-#undef dispatch_by_main_phase__14TBoss4DarkFalzFUs
-#undef read_be_u16
-#undef read_packet_byte__6TLobbyFv
-#undef TLobby__quest_window_state
-#undef local_client_id
-
-struct Entry804C69D8_801F2748 {
-    u32 field0;
-    void (*handler)(void*);
-};
-struct Entry804C69D8_801F2910 {
-    u32 field0;
-    void (*handler)(s32, s32, s32);
-};
-
-struct Entry804C69D8_801F28AC {
-    u32 field0;
-    void (*handler)(s32, s32, s32);
-};
-
-struct Entry804C69D8; namespace pf2_p7 { extern "C" { extern struct Entry804C69D8 qst_opcode_table[]; } }
-#define qst_opcode_table pf2_p7::qst_opcode_table
-namespace pf2_p7 { extern "C" { s32 read_packet_byte__6TLobbyFv(void*); } }
-#define read_packet_byte__6TLobbyFv pf2_p7::read_packet_byte__6TLobbyFv
-namespace pf2_p7 { extern "C" { s32 read_be_u16(void *); } }
-#define read_be_u16 pf2_p7::read_be_u16
-void qst_getargs_801F2910(s32 arg0);
-extern u8 qst_cstring_buffer[];
-namespace pf2_p7 { extern "C" { void append_string_to_buffer(void*); } }
-#define append_string_to_buffer pf2_p7::append_string_to_buffer
-void qst_getargs_cstring(s32 arg0);
-void qst_getargs_801F27A0(s32 op);
 extern "C" {
-void qst_getargs_801F2828(s32 op);
-s32 stream_read_be32();
+u16 read_be_u16(void);
+s32 stream_read_be32(void);
+void append_string_to_buffer(s32 arg0);
 }
-void qst_getargs_801F28AC(s32 arg0);
-struct Entry804C69D8 {
-    u32 field0;
-    s32 (*handler)(s32);
-};
+extern char qst_cstring_buffer[];
+
+void qst_getargs_801F26A8(s32 op) {
+    void (*fn)(u16, u8) = (void (*)(u16, u8))qst_opcode_table[op].handler;
+    u16 a = read_be_u16();
+    fn(a, TLobby::read_packet_byte());
+}
+
 extern "C" {
-
-void qst_getargs_801F2700(s32 arg0) {
-    struct Entry804C69D8 *temp_r3;
-    s32 (*temp_r31)(s32);
-
-    temp_r3 = qst_opcode_table;
-    temp_r3 += arg0;
-    temp_r31 = temp_r3->handler;
-    temp_r31(read_be_u16(temp_r3));
+void qst_getargs_801F2700(s32 op) {
+    void (*fn)(u16) = (void (*)(u16))qst_opcode_table[op].handler;
+    fn(read_be_u16());
 }
 }
-void qst_getargs_cstring(s32 arg0) {
-    Entry804C69D8_801F2748 *e = (Entry804C69D8_801F2748 *)&qst_opcode_table;
-    e += arg0;
-    void (*fn)(void*) = e->handler;
-    append_string_to_buffer(qst_cstring_buffer);
+
+void qst_getargs_cstring(s32 op) {
+    void (*fn)(char *) = (void (*)(char *))qst_opcode_table[op].handler;
+    append_string_to_buffer((s32)qst_cstring_buffer);
     fn(qst_cstring_buffer);
 }
 
@@ -6952,8 +6611,8 @@ typedef void (*Handler_801F2828)(u16, u8, u8 *);
 void qst_getargs_801F27A0(s32 op) {
     s16 buf[16];
     Handler_801F27A0 fn = (Handler_801F27A0) qst_opcode_table[op].handler;
-    s32 first = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
-    u8 count = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+    s32 first = ((s32 (*)(void))TLobby::read_packet_byte)();
+    u8 count = ((s32 (*)(void))TLobby::read_packet_byte)();
     s32 i;
 
     for (i = 0; i < count; i++) {
@@ -6961,188 +6620,94 @@ void qst_getargs_801F27A0(s32 op) {
     }
     fn(first, count, buf);
 }
-extern "C" {
 
+extern "C" {
 void qst_getargs_801F2828(s32 op) {
     u8 buf[16];
     Handler_801F2828 fn = (Handler_801F2828) qst_opcode_table[op].handler;
     u16 label = ((s32 (*)(void))read_be_u16)();
-    u8 count = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+    u8 count = ((s32 (*)(void))TLobby::read_packet_byte)();
     s32 i;
 
     for (i = 0; i < count; i++) {
-        buf[i] = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+        buf[i] = ((s32 (*)(void))TLobby::read_packet_byte)();
     }
     fn(label, count, buf);
 }
 }
 
-void qst_getargs_801F28AC(s32 arg0) {
-    Entry804C69D8_801F28AC* e = ((Entry804C69D8_801F28AC *)&qst_opcode_table);
-    e += arg0;
-    void (*fn)(s32, s32, s32) = e->handler;
-    s32 a = read_packet_byte__6TLobbyFv(e);
+void qst_getargs_801F28AC(s32 op) {
+    void (*fn)(u8, s32, u16) = (void (*)(u8, s32, u16))qst_opcode_table[op].handler;
+    u8 a = TLobby::read_packet_byte();
     s32 b = stream_read_be32();
-    fn(a, b, read_be_u16((void *)b));
+    fn(a, b, read_be_u16());
 }
 
-void qst_getargs_801F2910(s32 arg0) {
-    Entry804C69D8_801F2910* e = ((Entry804C69D8_801F2910 *)&qst_opcode_table);
-    e += arg0;
-    void (*fn)(s32, s32, s32) = e->handler;
-    s32 a = read_packet_byte__6TLobbyFv(e);
-    s32 b = read_packet_byte__6TLobbyFv((void*)a);
-    fn(a, b, ((s32)read_be_u16((void *)((void*)b))));
+void qst_getargs_801F2910(s32 op) {
+    void (*fn)(u8, u8, u16) = (void (*)(u8, u8, u16))qst_opcode_table[op].handler;
+    u8 a = TLobby::read_packet_byte();
+    u8 b = TLobby::read_packet_byte();
+    fn(a, b, read_be_u16());
 }
 
-#undef append_string_to_buffer
-#undef read_be_u16
-#undef read_packet_byte__6TLobbyFv
-#undef qst_opcode_table
+void TLobby::dispatch_command(s32 op) {
+    void (*fn)(u8, u16) = (void (*)(u8, u16))qst_opcode_table[op].handler;
+    u8 a = TLobby::read_packet_byte();
+    fn(a, read_be_u16());
+}
+
+void qst_getargs_801F29CC(s32 op) {
+    void (*fn)(u16) = (void (*)(u16))qst_opcode_table[op].handler;
+    fn(read_be_u16());
+}
+
+void qst_getargs_801F2A14(s32 op) {
+    void (*fn)(s32) = (void (*)(s32))qst_opcode_table[op].handler;
+    fn(stream_read_be32());
+}
+
+void qst_getargs_801F2A5C(s32 op) {
+    void (*fn)(u8, s32) = (void (*)(u8, s32))qst_opcode_table[op].handler;
+    u8 a = TLobby::read_packet_byte();
+    fn(a, stream_read_be32());
+}
+
+void qst_getargs_801F2AB4(s32 op) {
+    void (*fn)(u8, u8) = (void (*)(u8, u8))qst_opcode_table[op].handler;
+    u8 a = TLobby::read_packet_byte();
+    fn(a, TLobby::read_packet_byte());
+}
 
 extern "C" {
-s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
-
-namespace pf2_p8 { extern "C" { s32 read_be_u16(); } }
-#define read_be_u16 pf2_p8::read_be_u16
-
-void TLobby::dispatch_command(s32 arg0) {
-    s32 (*temp_r31)(s32, s32);
-    s32 temp_r30;
-    struct Ent_A *e;
-
-    e = (struct Ent_A *) (u8 *) qst_opcode_table;
-    e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
-    temp_r31 = e->fn;
-    temp_r30 = read_packet_byte__6TLobbyFv(e);
-    temp_r31(temp_r30, read_be_u16());
+void qst_getargs_801F2B0C(s32 op) {
+    void (*fn)(u8) = (void (*)(u8))qst_opcode_table[op].handler;
+    fn(TLobby::read_packet_byte());
 }
 }
 
-#undef read_be_u16
-
-namespace pf2_p9 { extern "C" { s32 read_be_u16(void *); } }
-#define read_be_u16 pf2_p9::read_be_u16
-
-struct Entry804C69D8; namespace pf2_p9 { extern "C" { extern struct Entry804C69D8 qst_opcode_table[]; } }
-#define qst_opcode_table pf2_p9::qst_opcode_table
-
-void qst_getargs_801F29CC(s32 arg0) {
-    struct Entry804C69D8 *temp_r3;
-    s32 (*temp_r31)(s32);
-
-    temp_r3 = qst_opcode_table;
-    temp_r3 += arg0;
-    temp_r31 = temp_r3->handler;
-    temp_r31(read_be_u16(temp_r3));
-}
-
-#undef read_be_u16
-#undef qst_opcode_table
-
-typedef struct {
-    s32 x0;
-    s32 (*fn)(s32);
-} Ent_801F2A14;
-
-typedef struct Ent_801F2AB4 {
-    s32 x0;
-    void (*fn)(s32, s32);
-} Ent_801F2AB4;
-namespace pf2_p10 { extern "C" { s32 stream_read_be32(void); } }
-namespace pf2_p10 { extern "C" { extern Ent_801F2A14 qst_opcode_table[]; } }
-#define qst_opcode_table pf2_p10::qst_opcode_table
-void qst_getargs_801F2A5C(s32 arg0);
-void qst_getargs_801F2AB4(s32 arg0);
-void qst_getargs_801F2A14(s32 arg0) {
-    Ent_801F2A14 *temp_r3;
-    s32 (*temp_r31)(s32);
-
-    temp_r3 = qst_opcode_table;
-    temp_r3 += arg0;
-    temp_r31 = temp_r3->fn;
-    temp_r31(stream_read_be32());
-}
-
-void qst_getargs_801F2A5C(s32 arg0) {
-    s32 (*temp_r31)(s32, s32);
-    s32 temp_r30;
-    struct Ent_A *e;
-    e = (struct Ent_A *) (u8 *) ((struct Ent_A *)&qst_opcode_table);
-    e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
-    temp_r31 = e->fn;
-    temp_r30 = read_packet_byte__6TLobbyFv(e);
-    temp_r31(temp_r30, ((s32)stream_read_be32()));
-}
-void qst_getargs_801F2AB4(s32 arg0) {
-    void (*fn)(s32, s32);
-    s32 a;
-    Ent_801F2AB4 *e = (Ent_801F2AB4 *)&qst_opcode_table;
-    e += arg0;
-    fn = e->fn;
-    a = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
-    fn(a, ((s32 (*)(void))read_packet_byte__6TLobbyFv)());
-}
-
-#undef qst_opcode_table
-
-extern "C" {
-s32 pop_stack_value__6TLobbyFv(void);
-typedef struct {
-    s32 x0;
-    s32 (*fn)(s32);
-} Ent_801F2B0C;
-
-int get_indexed_offset__6TLobbyFi(int a0);
-void qst_getargs_801F2B0C(s32 arg0);
-namespace pf2_p11 { extern "C" { s32 read_packet_byte__6TLobbyFv(void *); } }
-#define read_packet_byte__6TLobbyFv pf2_p11::read_packet_byte__6TLobbyFv
-
-namespace pf2_p11 { extern "C" { extern Ent_801F2B0C qst_opcode_table[]; } }
-#define qst_opcode_table pf2_p11::qst_opcode_table
-
-void qst_getargs_801F2B0C(s32 arg0) {
-    Ent_801F2B0C *temp_r3;
-    s32 (*temp_r31)(s32);
-
-    temp_r3 = qst_opcode_table;
-    temp_r3 += arg0;
-    temp_r31 = temp_r3->fn;
-    temp_r31(read_packet_byte__6TLobbyFv(temp_r3));
-}
-}
-
-void qst_getargs_801F2B54(s32 arg0) {
-    Ent_801F2B0C *e;
-
-    e = qst_opcode_table;
-    e += arg0;
-    e->fn((s32)e);
+void qst_getargs_801F2B54(s32 op) {
+    qst_opcode_table[op].handler();
     qst_arg_count = 0;
 }
-void qst_getargs_801F2B94(s32 arg0) {
-    ((void (*)(void))qst_opcode_table[arg0].fn)();
+
+void qst_getargs_801F2B94(s32 op) {
+    qst_opcode_table[op].handler();
 }
 
 extern "C" {
-s32 pop_stack_value__6TLobbyFv(void) {
+s32 qst_call_stack_pop(void) {
     if (qst_call_stack_depth > 0) {
         return qst_call_stack[--qst_call_stack_depth];
     }
     return 0;
 }
 
-void push_op_arg__6TLobbyFi(int a0)
+void qst_call_stack_push(s32 a0)
 {
   qst_call_stack[qst_call_stack_depth++] = a0;
 }
-int get_indexed_offset__6TLobbyFi(int a0) {  return (int)(qst_code + qst_function_table[(u16)a0]); }
+int qst_label_address(int a0) {  return (int)(qst_code + qst_function_table[(u16)a0]); }
 
-#undef read_packet_byte__6TLobbyFv
-#undef qst_opcode_table
-
-void append_string_to_buffer(s32 arg0);
-s32 stream_read_be32(void);
 namespace pf2_p12 { extern "C" { s32 expand_message_substitutions(s32, s32, s32); } }
 #define expand_message_substitutions pf2_p12::expand_message_substitutions
 s32 bswap_32__FPUl(s32 *, s32);
