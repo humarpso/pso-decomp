@@ -19,6 +19,7 @@ s32 xmalloc__FUl(s32);
 s32 read_disc_file(s32, u32);
 int GBAInit(void*);
 s32 GBAGetProcessStatus(s32, u8 *);
+u32 SIProbe(s32);
 u32 update_lobby_scene__6TSceneFv();
 
 extern u32 gba_download_data_buffer;
@@ -245,6 +246,22 @@ void update_gba_joyboot_transfer(void) {
             TLobby__data_805434A8[0].phase = 0;
         }
         break;
+    }
+}
+
+void TLobby__sub_8032CB6C(void) {
+    TLobby__data_805434A8[0].probe_counter = TLobby__data_805434A8[0].probe_counter + 1;
+    if (SIProbe(3) == 0x40000) {
+        TLobby__data_805434A8[0].probe_counter = 0;
+        *(s8 *)((s8 *)TLobby__data_805434A8 + 7) = 1;
+    } else {
+        if (TLobby__data_805434A8[0].probe_counter >= TLobby__data_805DF7A4) {
+            *(volatile u16 *)&TLobby__data_805434A8[0].probe_counter = 0x78;
+            *(volatile s8 *)((s8 *)TLobby__data_805434A8 + 7) = 0;
+            *(volatile s32 *)&TLobby__data_805D6CCC = 2;
+        } else {
+            *(volatile s32 *)&TLobby__data_805D6CCC = 1;
+        }
     }
 }
 
