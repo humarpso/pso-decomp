@@ -397,7 +397,7 @@ pso/boss/TBoss3VoloptHiraisin.cpp:
 
 pso/boss/TBoss3VoloptMonitor.cpp:
 	.text       start:0x80041B64 end:0x80042974
-	.rodata     start:0x80436398 end:0x80436620
+	.rodata     start:0x80436398 end:0x8043661E
 	.data       start:0x80483DB8 end:0x80484170
 	.bss        start:0x804FEEC0 end:0x804FF008
 	.sdata      start:0x805D2740 end:0x805D2744
