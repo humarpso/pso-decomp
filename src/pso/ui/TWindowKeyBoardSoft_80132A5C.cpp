@@ -1,11 +1,11 @@
 #include "types.h"
 #include "pso/misc/TLobby_800F9690.h"
-#include "pso/ui/TWindowKeyBoardSoft_80132A5C.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/ui/Language.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Inner_80132A5C { char pad8[0x8]; u32 f8; };
 struct Outer_80132A5C { struct Inner_80132A5C *f0; };
@@ -42,10 +42,11 @@ int text_language_group_table;
 struct Outer_80132A5C *localized_alphabet_list;
 language current_language;
 int TWindowKeyBoardSoft__language_text_resources;
+
 extern "C" {
-s32 begin_render__20TWindowSubStatusDispFl();
 u8 *load_gvm_texture_file(s32 arg0);
 s32 TLobby__sub_803DA16C(void *);
+}
 
 void TWindowKeyBoardSoft::free_instance() {
     if (localized_alphabet_list != NULL) {
@@ -58,57 +59,74 @@ void TWindowKeyBoardSoft::free_instance() {
     }
 }
 
-void TWindowKeyBoardSoft::free_resources() { TLobby::free_nodes_with_id(TWindowKeyBoardSoft__text_resource); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
+void TWindowKeyBoardSoft::free_resources() {
+    TLobby::free_nodes_with_id(TWindowKeyBoardSoft__text_resource);
+    TWindowKeyBoardSoft__language_text_resources = 0;
+    text_language_group_table = 0;
+    TWindowKeyBoardSoft__text_resource = 0;
+}
 
-void TLanguage__ct(s32 arg0) {
+void TLanguage::load_fonts(s32 language) {
     s32 sp8;
+    Outer_80132A5C *alphabet;
     sp8 = TLobby::tmp_buf_use_req(TLanguage__class_name);
     TLanguage::draw_string((void *)f256_alphabet_gvp, &sp8, 0x48);
     ((TLobby *)TLanguage__class_name)->tmp_buf_release();
-    switch (arg0) {
-    case LANGUAGE_JAPANESE:
-        TLanguage::draw_string((void *)f256_symbolsetumei_jpn_gvp, &sp8, 0x49);
-        TLanguage::draw_string((void *)f128_keyjpn_gvp, &sp8, 2);
-        TLanguage::draw_string((void *)f064_wordmojitex_jpn_gvp, &sp8, 3);
-        TLanguage::decode_font_data((void *)b256_menutext01_j_gvp, &sp8, 0x4B, 0x4C);
-        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureJapanese_gvm);
-        break;
-    case LANGUAGE_GERMAN:
-        TLanguage::draw_string((void *)f256_symbolsetumei_ger_gvp, &sp8, 0x49);
-        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
-        TLanguage::draw_string((void *)f064_wordmojitex_ger_gvp, &sp8, 3);
-        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureGerman_gvm);
-        break;
-    case LANGUAGE_FRENCH:
-        TLanguage::draw_string((void *)f256_symbolsetumei_fre_gvp, &sp8, 0x49);
-        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
-        TLanguage::draw_string((void *)f064_wordmojitex_fre_gvp, &sp8, 3);
-        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureFrench_gvm);
-        break;
-    case LANGUAGE_SPANISH:
-        TLanguage::draw_string((void *)f256_symbolsetumei_spa_gvp, &sp8, 0x49);
-        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
-        TLanguage::draw_string((void *)f064_wordmojitex_spa_gvp, &sp8, 3);
-        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureSpanish_gvm);
-        break;
-    default:
-        TLanguage::draw_string((void *)f256_symbolsetumei_eng_gvp, &sp8, 0x49);
-        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
-        TLanguage::draw_string((void *)f064_wordmojitex_eng_gvp, &sp8, 3);
-        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureEnglish_gvm);
-        break;
+
+    switch (language) {
+        case LANGUAGE_JAPANESE:
+            TLanguage::draw_string((void *)f256_symbolsetumei_jpn_gvp, &sp8, 0x49);
+            TLanguage::draw_string((void *)f128_keyjpn_gvp, &sp8, 2);
+            TLanguage::draw_string((void *)f064_wordmojitex_jpn_gvp, &sp8, 3);
+            TLanguage::decode_font_data((void *)b256_menutext01_j_gvp, &sp8, 0x4B, 0x4C);
+            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureJapanese_gvm);
+            localized_alphabet_list = alphabet;
+            break;
+
+        case LANGUAGE_GERMAN:
+            TLanguage::draw_string((void *)f256_symbolsetumei_ger_gvp, &sp8, 0x49);
+            TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+            TLanguage::draw_string((void *)f064_wordmojitex_ger_gvp, &sp8, 3);
+            TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureGerman_gvm);
+            localized_alphabet_list = alphabet;
+            break;
+
+        case LANGUAGE_FRENCH:
+            TLanguage::draw_string((void *)f256_symbolsetumei_fre_gvp, &sp8, 0x49);
+            TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+            TLanguage::draw_string((void *)f064_wordmojitex_fre_gvp, &sp8, 3);
+            TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureFrench_gvm);
+            localized_alphabet_list = alphabet;
+            break;
+
+        case LANGUAGE_SPANISH:
+            TLanguage::draw_string((void *)f256_symbolsetumei_spa_gvp, &sp8, 0x49);
+            TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+            TLanguage::draw_string((void *)f064_wordmojitex_spa_gvp, &sp8, 3);
+            TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureSpanish_gvm);
+            localized_alphabet_list = alphabet;
+            break;
+
+        default:
+            TLanguage::draw_string((void *)f256_symbolsetumei_eng_gvp, &sp8, 0x49);
+            TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+            TLanguage::draw_string((void *)f064_wordmojitex_eng_gvp, &sp8, 3);
+            TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureEnglish_gvm);
+            localized_alphabet_list = alphabet;
+            break;
     }
-    begin_render__20TWindowSubStatusDispFl();
-    TLanguage::set_entry_index(0, 0x48);
-    TLanguage::set_entry_index(2, 0x4B);
-    TLanguage::set_entry_index(1, 0x49);
-    TLanguage::set_entry_index(3, 2);
-    TLanguage::set_entry_index(4, 3);
-}
+
+    TWindowSubStatusDisp::begin_render((s32)alphabet);
+
+    TLanguage::set_entry_index(LANGUAGE_JAPANESE, 0x48);
+    TLanguage::set_entry_index(LANGUAGE_GERMAN, 0x4B);
+    TLanguage::set_entry_index(LANGUAGE_ENGLISH, 0x49);
+    TLanguage::set_entry_index(LANGUAGE_FRENCH, 2);
+    TLanguage::set_entry_index(LANGUAGE_SPANISH, 3);
 }
 
 void select_language_text_resources(s32 arg0) {
@@ -159,27 +177,29 @@ __declspec(section ".rodata") extern const char TextGerman[] = "TextGerman";
 __declspec(section ".rodata") extern const char TextFrench[] = "TextFrench";
 __declspec(section ".rodata") extern const char TextSpanish[] = "TextSpanish";
 __declspec(section ".rodata") extern const char TextEnglish[] = "TextEnglish";
-extern "C" {
 
-void *get_global_state__23TAdSinglePlyChrSelectGCFv();
+s32 TWindowKeyBoardSoft::set_language(s8 language) {
+    u8 *save_payload;
 
-s32 TWindowKeyBoardSoft::set_language(s8 arg0) {
-    void *temp_r3;
-
-    if ((s32) current_language == arg0) {
+    if ((s32) current_language == language) {
         return 0;
     }
+
     TWindowKeyBoardSoft::free_instance();
     TWindowKeyBoardSoft::free_resources();
-    temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
-    if (temp_r3 != NULL) {
-        *(s8 *)((s8 *)temp_r3 + 7) = arg0;
+
+    save_payload = TAdSinglePlyChrSelectGC::get_global_state();
+    if (save_payload != NULL) {
+        *(s8 *)((s8 *)save_payload + 7) = language;
     }
-    current_language = (language)(s8) arg0;
+
+    current_language = (enum language)(s8) language;
     select_language_text_resources((s8) current_language);
-    TLanguage__ct(current_language);
+    TLanguage::load_fonts(current_language);
+
     return 1;
 }
 
-int TLobby__sub_80132EC8(void) { return 1; }
+s8 TLanguage::get_default_language() {
+    return LANGUAGE_ENGLISH;
 }

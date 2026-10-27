@@ -162,7 +162,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
     Rec_8032C9A8 rec;
     DateStamp_8032C9A8 ds;
     u8 *obj;
-    s32 st;
+    u8 *st;
     memset(&rec, 0, 0xC);
     obj = TLobby__gba_joyboot_send_buffer;
     st = TAdSinglePlyChrSelectGC::get_global_state();
