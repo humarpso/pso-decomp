@@ -16,6 +16,9 @@ struct NJS_TEXLIST {
     u32 nbTexture;
 };
 
+// NJS_OBJECT evalflags bit: the node is not drawn.
+#define NJD_EVAL_HIDE 0x8
+
 // Ninja model hierarchy node.
 struct NJS_OBJECT {
     u32 evalflags;

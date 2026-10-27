@@ -3,6 +3,8 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 
+struct Vec;
+
 struct DirectAttackPayload {
     s32 kind;
     f32 power;
@@ -93,7 +95,7 @@ public:
     virtual void vfunc_62();
     virtual void vfunc_63();
     virtual void reset_pose();
-    virtual void vfunc_65(s32, s32);
+    virtual void get_anim_node_position(s32 node, Vec *out);
     virtual int vfunc_66();
     virtual int vfunc_67(f32 damage_scale);
     virtual void get_pos(s32);
@@ -242,6 +244,13 @@ public:
     s16 hp;
     u16 m_32e;
     u8 unk_330[0x4];
+
+    // Typed views of the vectors the fields above split up: the movement
+    // destination at 0x29C, the body centre other actors measure distance to
+    // at 0x2FC, and the velocity at 0x308.
+    Vec *destination() { return (Vec *)&m_29c; }
+    Vec *body_center() { return (Vec *)&m_2fc; }
+    Vec *velocity() { return (Vec *)unk_308; }
 };
 
 #endif

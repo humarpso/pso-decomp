@@ -137,7 +137,7 @@ struct VSub_8036858C : VSubB_8036858C {
 };
 
 extern "C" {
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_80367270 *);
+f32 calc_xz_distance_sq(void *, void *, Vec_80367270 *);
 extern const f64 lbl_8047A358[];
 extern int enable_v2_features;
 s32 apply_actor_gravity(void *, int, f32);
@@ -1219,7 +1219,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
             bind_enemy_combat_stats((u8 *)0, (u8 *)(ill_gill_combat_parameter_variants[F(s32, 0x394)]), (u8 *)0);
             return 1;
         }
-        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, F(u8 *, 0x2A8), &v);
+        dist = calc_xz_distance_sq(this, F(u8 *, 0x2A8), &v);
         ang = angle_difference_abs(F(s32, 0x60), (s32)(TObjEneIllGill__data_8047A348 * atan2_float(v.x, v.z)));
         pl = F(u8 *, 0x2A8);
         if (*(u8 **)((s8 *)pl + 0xA4) != NULL) {

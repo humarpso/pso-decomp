@@ -4,18 +4,37 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemy.h"
 
+struct Vec;
+struct NJS_OBJECT;
+
+// What TObjEnemy::movementParameters points at for the custom enemies.
+struct EnemyMoveParams {
+    f32 max_distance;
+    f32 min_distance;
+    s32 turn_speed;
+};
+
 struct TObjEnemyCustom : public TObjEnemy {
     TObjEnemyCustom(TObject *parent);
     virtual ~TObjEnemyCustom();
-    u16 find_nearest_enemy(void *, f32);
-    BOOL select_nearest_target(f32);
-    u8 find_target_in_range(f32);
+    u16 find_nearest_enemy(Vec *out, f32 radius);
+    BOOL select_nearest_target(f32 radius);
+    bool has_target() const { return target != NULL; }
+    BOOL find_target_in_range(f32 radius);
+    void target_nearest_player(f32 radius);
+    u16 pick_random_nearby_player(f32 radius);
+    void pick_open_direction(f32 *dir, f32 reach, f32 radius);
+    void move_along_ground_avoiding_walls(Vec dest, f32 speed, f32 probe);
+    s32 turn_toward_point(Vec *point, s32 max_step, s32 angle_offset);
+    void render_anim_model_at_pos();
+    void run_demo_task();
+    void sub_800C73F4();
     void sub_800C7860();
     void release_destroyed_target();
     void sub_8004292C();
     void set_flags_30();
     virtual void vfunc_79();
-    virtual void vfunc_65(s32, s32);
+    virtual void get_anim_node_position(s32 node, Vec *out);
     virtual void vfunc_63();
     virtual void vfunc_62();
     virtual void vfunc_61();
@@ -31,16 +50,21 @@ struct TObjEnemyCustom : public TObjEnemy {
     u32 m_380;
     s32 m_384;
     u32 m_388;
-    static void update_camera_if_active();
+    void update_dying_state();
     void update_knockback_state();
     void update_state_machine();
     void update();
     void update_wander_state();
     void update_state();
     void dispatch_state();
-    static void init_globals();
-    static void reset_instance();
 };
 
 typedef char TObjEnemyCustom_size[sizeof(TObjEnemyCustom) == 0x38C ? 1 : -1];
+
+// Ninja node helpers (NJD_EVAL_HIDE on NULL-terminated node lists).
+void hide_model_nodes(NJS_OBJECT **nodes);
+void show_model_nodes(NJS_OBJECT **nodes);
+// Every visible node with a model under `root` (not its siblings), NULL-terminated.
+s32 collect_visible_nodes(NJS_OBJECT *root, NJS_OBJECT **out);
+
 #endif

@@ -32,7 +32,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void sub_801BB950();
     void handle_state2_transitions();
     void sub_8011E204(s32);
-    virtual void vfunc_65(s32, s32);
+    virtual void get_anim_node_position(s32 node, Vec *out);
     virtual u8 *update_actor_ground_y();
     virtual u8 *vfunc_18(u8 *);
     virtual void vfunc_73();
@@ -1259,7 +1259,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void draw_player_model_by_id(s32 arg0, f32 farg0);
     void draw_shadowed_node_tree();
     static void rebuild_players_for_stage(s32 arg0);
-    void pick_open_direction(f32 *dir, f32 a, f32 b);
     static s32 snap_to_ground(s32 arg0, s32 arg1);
     static void spawn_appearance_effect(s32 idx);
     static u8 *create_vtable_804A08B8(u8 *arg0);
@@ -1683,7 +1682,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_floor_index(s32 v);
     u8 unk_DB0[0x4];
     s32 m_db4;
-    u16 pick_random_nearby_player(f32 radius);
     void revive_or_spawn_marker();
     static void spawn_dead_spot(s32 point, s32 selector, s32 delay, f32 farg0);
     void update_homing_shot();

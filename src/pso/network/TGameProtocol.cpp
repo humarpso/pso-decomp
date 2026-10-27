@@ -5,6 +5,7 @@ struct TLobby;
 struct TObjPlayer;
 #include "pso/misc/TPacket.h"
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/unk/text_800C7FEC.h"
 
 extern s32 game_protocol_instance;
 
@@ -37,7 +38,6 @@ void handle_6x04_legacy_activate_switch_by_token(void *arg0);
 void handle_6x05_write_switch_flag(void *arg0);
 void handle_6x06_send_guild_card(s32 arg0);
 extern "C" void handle_6x07_symbol_chat();
-void handle_6x09_legacy_kill_enemy(s32 arg0);
 extern "C" void handle_6x0A_update_enemy_state();
 extern "C" void handle_6x0B_update_object_state();
 extern "C" void handle_6x0C_add_or_remove_status_effect(void *arg0);

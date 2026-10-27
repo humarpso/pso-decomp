@@ -316,7 +316,7 @@ u8 obj_isState2_324__13TUnk_804806E8Fv(u8* p);
 s32 vfunc_43__13TUnk_804806E8Fv(Player_800172CC *self);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void subtract_vector(void *a, void *b);
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(s32 arg0, u32 arg1, void *arg2);
+f32 calc_xz_distance_sq(s32 arg0, u32 arg1, void *arg2);
 s32 get_main_phase();
 s32 check_heavy_damage_flag__13TUnk_804806E8Ff(void *arg0, f32 farg0);
 void activate_switch_attacks__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -828,7 +828,7 @@ void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc(u8 *arg0, u8 *arg1);
 int vfunc_67__13TUnk_804806E8Ff(void);
 int vfunc_66__13TUnk_804806E8Fv(void);
-void vfunc_65__13TUnk_804806E8Fll(void);
+void get_anim_node_position__13TUnk_804806E8FlP3Vec(void);
 void reset_pose__13TUnk_804806E8Fv(void* p);
 void vfunc_63__13TUnk_804806E8Fv(void);
 void vfunc_62__13TUnk_804806E8Fv(void);
@@ -1722,7 +1722,7 @@ u16 find_nearest_hittable_enemy__10TObjPlayerFiPvf(s32 arg0, Vec_800114D8 *arg1,
         if (((s32 (*)(ObjFlags *))obj_is_hit_receivable)(p) != 0) {
             u16 id = obj_getField1c(p);
             if (id >= 0x1000 && id < 0x4000 && !(p->flags_30 & 0x02000800)) {
-                dist = ((f32 (*)(s32, ObjFlags *, void *))calc_xz_distance_sq__10TObjPlayerFiUiPv)(arg0, p, &pos);
+                dist = ((f32 (*)(s32, ObjFlags *, void *))calc_xz_distance_sq)(arg0, p, &pos);
                 if (dist < best) {
                     best = dist;
                     result = p->field_1c;
@@ -1941,7 +1941,7 @@ void *lbl_804806E8[] = {
     (void *)vfunc_62__13TUnk_804806E8Fv,
     (void *)vfunc_63__13TUnk_804806E8Fv,
     (void *)reset_pose__13TUnk_804806E8Fv,
-    (void *)vfunc_65__13TUnk_804806E8Fll,
+    (void *)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
@@ -3107,7 +3107,7 @@ int TUnk_804806E8::vfunc_67(f32) { return 0; }
 
 int TUnk_804806E8::vfunc_66() { return 0; }
 
-void TUnk_804806E8::vfunc_65(s32, s32) {  }
+void TUnk_804806E8::get_anim_node_position(s32, Vec *) {  }
 
 void TUnk_804806E8::reset_pose() { obj_clearFlags30((u32)((void*)2048)); *(short *)&this->hp = *(short *)&this->hpmax; *(short *)&this->m_32e = *(short *)&this->m_2ba; }
 
@@ -3959,7 +3959,7 @@ s32 TUnk_804806E8::is_target_in_attack_range() {
                     }
                 }
             } else {
-                dist = calc_xz_distance_sq__10TObjPlayerFiUiPv((s32)((s32)p), (u32)((u32)t), &out);
+                dist = calc_xz_distance_sq((s32)((s32)p), (u32)((u32)t), &out);
                 ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(out.x, out.z))));
                 if (p->target->parts != NULL) {
                     prod = (p->target->parts->radius + ((TUnk_804806E8 *)p)->get_target_value()) * (p->target->parts->radius + ((TUnk_804806E8 *)p)->get_target_value());
@@ -4291,7 +4291,7 @@ void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn) {
     angle_difference_abs(self->angle, a);
 }
 
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(s32 arg0, u32 arg1, void *arg2) {
+f32 calc_xz_distance_sq(s32 arg0, u32 arg1, void *arg2) {
     Vec_800186E8 diff;
     f32 dist;
     if (arg1 != 0U) {
@@ -4322,7 +4322,7 @@ f32 TObjPlayer::calc_distance_to_client(s32 arg0, u16 arg1, u32 arg2) {
       ;
       if (((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor())
       {
-        var_f31 = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, (u32)((u32) temp_r3), &stack.sp8);
+        var_f31 = calc_xz_distance_sq(arg0, (u32)((u32) temp_r3), &stack.sp8);
         if (arg2 != 0U)
         {
           VecCopy__FP3VecPC3Vec((s32)((void *) arg2), (s32)&stack.sp8);

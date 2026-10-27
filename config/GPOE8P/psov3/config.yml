@@ -3324,7 +3324,6 @@ force_active:
   - close_windows__9TObjLukerFPv
   - close_windows_and_advance__17TAdEnterPPPPassGCFPv
   - close_with_callback__22TChallenge4PItemSelectFv
-  - collect_active_nodes__12TBoss3VoloptFPv
   - collect_body_contacts__10TObjPlayerFiPvPv
   - collect_candidate_players__12TBoss3VoloptFv
   - collect_hit_targets__12TPhotonGollaFPv
@@ -3995,7 +3994,7 @@ force_active:
   - find_free_slot__6TLobbyFv
   - find_gsl_entry__FPv
   - find_heal_target__13TOHealGeneralFPv
-  - find_nearest_enemy__15TObjEnemyCustomFPvf
+  - find_nearest_enemy__15TObjEnemyCustomFP3Vecf
   - find_nearest_target__10TObjPlayerFPv
   - find_open_direction__10TObjPlayerFPvPv
   - find_open_direction__15TObjEneMe1GiGueFPvPv
@@ -4655,6 +4654,7 @@ force_active:
   - init_object__9TObjLightFv
   - init_offset_vectors__13TUnk_804EDD20Fv
   - init_offsets_object__13TUnk_804EDD20Fv
+  - init_override_params__Fv
   - init_packet_9a__10TObjPlayerFv
   - init_parameters__9TTecBartaFv
   - init_parameters__9TTecMegidFv
@@ -5724,7 +5724,6 @@ force_active:
   - lbl_805E03DC
   - lbl_805E03E0
   - lbl_805E03E4
-  - legacy_enemy_kill_received_flags
   - lerp_follow_anchor
   - level_to_reward__6TLobbyFl
   - load_all_floor_event_sets__6TLobbyFv
@@ -12519,6 +12518,7 @@ force_active:
   - update__13TObjEneMe1GeeFv
   - update__14TObjEneBm5WolfFPv
   - update__15PadRumbleEffectFv
+  - update__15TObjEnemyCustomFv
   - update__15TShopWindowBaseFPv
   - update__16PadRumbleChannelFP14PadRumbleLevel
   - update__17TObjWarpBossMultiFv
@@ -12653,6 +12653,7 @@ force_active:
   - update_duel_start_countdown__15TDuelEffectCtrlFv
   - update_dying__9TObjGrassFPv
   - update_dying_state__14TObjEneBm5WolfFl
+  - update_dying_state__15TObjEnemyCustomFv
   - update_effect_params__10TTecDebandFv
   - update_effect_params__9TTecSiftaFv
   - update_effect_positions__9TBoss6MagFv
@@ -12728,6 +12729,7 @@ force_active:
   - update_judge_confirm__23TShopJudgmentItemWindowFv
   - update_key_events__16TKeyBoardControlFl
   - update_knockback_state__12TObjEneSaverFv
+  - update_knockback_state__15TObjEnemyCustomFv
   - update_letterbox_hide__9TCineCtrlFv
   - update_letterbox_show__9TCineCtrlFv
   - update_level_requirement__15TWindowHelpItemFPv
@@ -12943,6 +12945,7 @@ force_active:
   - update_wait_for_player__19TContainerAncient01Fv
   - update_wait_input__18TChallenge4PResultFv
   - update_wait_switch__19TObjLazerFenceExtraFv
+  - update_wander_state__15TObjEnemyCustomFv
   - update_warp_boss_visibility__12TObjWarpBossFv
   - update_warp_confirmation__12TObjWarpBossFv
   - update_warp_dialogs__12TObjWarpBossFv

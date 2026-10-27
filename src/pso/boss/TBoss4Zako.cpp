@@ -1119,7 +1119,7 @@ void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void receive_physical_attack__13TUnk_804806E8FPvf();
 void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 void reset_pose__13TUnk_804806E8Fv();
 void vfunc_62__13TUnk_804806E8Fv();
 void vfunc_61__13TUnk_804806E8Fv();
@@ -1236,7 +1236,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)vfunc_62__13TUnk_804806E8Fv,
     (s32)try_enter_state_3__11TBoss4BishiFPv,
     (s32)reset_pose__13TUnk_804806E8Fv,
-    (s32)vfunc_65__13TUnk_804806E8Fll,
+    (s32)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (s32)vfunc_66__13TUnk_804806E8Fv,
     (s32)vfunc_67__13TUnk_804806E8Ff,
     (s32)get_pos__13TUnk_804806E8Fl,
@@ -1321,7 +1321,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)vfunc_62__13TUnk_804806E8Fv,
     (s32)TBoss4Uro__vt61,
     (s32)reset_pose__13TUnk_804806E8Fv,
-    (s32)vfunc_65__13TUnk_804806E8Fll,
+    (s32)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (s32)vfunc_66__13TUnk_804806E8Fv,
     (s32)vfunc_67__13TUnk_804806E8Ff,
     (s32)get_pos__13TUnk_804806E8Fl,
@@ -1406,7 +1406,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)vfunc_62__13TUnk_804806E8Fv,
     (s32)update_state3__10TBoss4ZakoFPv,
     (s32)reset_pose__13TUnk_804806E8Fv,
-    (s32)vfunc_65__13TUnk_804806E8Fll,
+    (s32)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (s32)vfunc_66__13TUnk_804806E8Fv,
     (s32)vfunc_67__13TUnk_804806E8Ff,
     (s32)get_pos__13TUnk_804806E8Fl,

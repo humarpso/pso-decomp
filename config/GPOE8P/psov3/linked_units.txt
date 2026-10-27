@@ -214,7 +214,6 @@ pso/boss/TBoss3VoloptHiraisin.cpp
 pso/boss/TBoss3VoloptMonitor.cpp
 pso/boss/TBoss3VoloptP01.cpp
 pso/boss/TBoss3VoloptP02.cpp
-pso/boss/TBoss3Volopt_800C7458.cpp
 pso/boss/TBoss3Volopt_800D8ACC.cpp
 pso/boss/TBoss3Volopt_8016A47C.cpp
 pso/boss/TBoss4CheckEmpty.cpp
@@ -563,11 +562,6 @@ pso/enemy/TObjEneSlime_800EBD38.cpp
 pso/enemy/TObjEneSlime_802D7260.cpp
 pso/enemy/TObjEnemy.cpp
 pso/enemy/TObjEnemyCustom.cpp
-pso/enemy/TObjEnemyCustom_800C6CF0.cpp
-pso/enemy/TObjEnemyCustom_800C76F4.cpp
-pso/enemy/TObjEnemyCustom_800C7A04.cpp
-pso/enemy/TObjEnemyCustom_800C8018.cpp
-pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
 pso/item/ChallengeForceLoadouts.cpp
 pso/item/ChallengeHunterLoadouts.cpp
@@ -1000,7 +994,6 @@ pso/misc/TLobby_8007B858.cpp
 pso/misc/TLobby_8007C550.cpp
 pso/misc/TLobby_80082048.cpp
 pso/misc/TLobby_8008350C.cpp
-pso/misc/TLobby_800C80FC.cpp
 pso/misc/TLobby_800F5CF0.cpp
 pso/misc/TLobby_800F7744.cpp
 pso/misc/TLobby_800F795C.cpp
@@ -2936,6 +2929,7 @@ pso/unk/text_800C3088.cpp
 pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
 pso/unk/text_800C69E8.cpp
+pso/unk/text_800C7FEC.cpp
 pso/unk/text_800D7824.cpp
 pso/unk/text_800D7950.cpp
 pso/unk/text_800D79A8.cpp

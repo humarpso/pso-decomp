@@ -1109,7 +1109,7 @@ void TObjGrass::vfunc_60() {
 }
 
 struct Vec_800BE1CC { f32 x, y, z; };
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
+f32 calc_xz_distance_sq(void *, void *, Vec_800BE1CC *);
 #define TBL ((u32 *)TObjGrass__bml_resource)
 #define T318 (*(u32 *)((s8 *)(((u8 *)this)) + 0x318))
 #define IN_RANGE() (dist <= (r + ((TObjPlayer *)T318)->get_pos_x()) * (r + ((TObjPlayer *)T318)->get_pos_x()) && ang <= ((TObjPlayer *)T318)->get_field_0c())
@@ -1130,7 +1130,7 @@ s32 TObjGrass::is_target_in_attack_range() {
     if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x2000) != 0) {
         BIND(2)
     }
-    dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, this->target, &v);
+    dist = calc_xz_distance_sq(this, this->target, &v);
     ang = angle_difference_abs(this->rotation_y, (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
     t = this->target;
     if (*(u8 **)((s8 *)t + 0xA4) != NULL) {

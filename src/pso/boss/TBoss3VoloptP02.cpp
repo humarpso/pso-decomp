@@ -72,7 +72,6 @@ s32 set_scripted_camera_pose(void *, void *, void *);
 u8 *get_scripted_camera_playback(s16);
 s32 TObjPlayer__sub_801BA42C();
 s32 approach_angle_limited(s32, s32, s32);
-s32 turn_toward_point__12TBoss3VoloptFPvPvPvi(void *, void *, int, int);
 u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
 extern u8 identity_matrix[];
@@ -375,16 +374,16 @@ void TBoss3VoloptP02::load_resources() {
     for (i = 0; i < 5; i++) {
         parts[i] = (NjObject *)find_model_node(root, part_breakup_node_ids[i]);
     }
-    n = ((TBoss3Volopt *)parts[0])->query_field_30((s32 *)breakup_flags_a);
-    ((TBoss3Volopt *)parts[1])->query_field_30((s32 *)&breakup_flags_a[n]);
-    n = ((TBoss3Volopt *)parts[2])->query_field_30((s32 *)breakup_flags_b);
+    n = collect_visible_nodes((NJS_OBJECT *)parts[0], (NJS_OBJECT **)breakup_flags_a);
+    collect_visible_nodes((NJS_OBJECT *)parts[1], (NJS_OBJECT **)&breakup_flags_a[n]);
+    n = collect_visible_nodes((NJS_OBJECT *)parts[2], (NJS_OBJECT **)breakup_flags_b);
     breakup_flags_b[n] = (u32 *)find_model_node(root, 0x3B);
     breakup_flags_b[n + 1] = (u32 *)find_model_node(root, 0x3C);
     breakup_flags_b[n + 2] = NULL;
-    n = ((TBoss3Volopt *)parts[3])->query_field_30((s32 *)breakup_flags_c);
+    n = collect_visible_nodes((NJS_OBJECT *)parts[3], (NJS_OBJECT **)breakup_flags_c);
     breakup_flags_c[n] = (u32 *)find_model_node(root, 0x3A);
     breakup_flags_c[n + 1] = NULL;
-    ((TBoss3Volopt *)parts[4])->query_field_30((s32 *)breakup_flags_d);
+    collect_visible_nodes((NJS_OBJECT *)parts[4], (NJS_OBJECT **)breakup_flags_d);
     model_node_44 = (NjObject *)find_model_node(root, 0x44);
     model_node_39 = (NjObject *)find_model_node(root, 0x39);
     model_node_27 = (NjObject *)find_model_node(root, 0x27);
@@ -621,11 +620,11 @@ void TBoss3VoloptP02::fn_80046CB8() {
             break;
         }
         play_persistent_sound(0x4003C616, this, position, 0, 0);
-        turn_toward_point__12TBoss3VoloptFPvPvPvi(this, target + 0x38, 0x566, -0x4000);
+        turn_toward_point((Vec *)(target + 0x38), 0x566, -0x4000);
         play_persistent_sound(0x4003A60E, this, position, 0, 0);
         advance_animation_playback(this);
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(0x3C, (s32)&line_origin);
+        render_anim_model_at_pos();
+        get_anim_node_position(0x3C, &line_origin);
         if (--*(s16 *)&timer <= 0) {
             m_b8 = 2;
             play_sound_effect(0x4003A817, position, 0, 0);
@@ -640,14 +639,14 @@ void TBoss3VoloptP02::fn_80046CB8() {
             break;
         }
         play_persistent_sound(0x4003C616, this, position, 0, 0);
-        turn_toward_point__12TBoss3VoloptFPvPvPvi(this, target + 0x38, 0x566, -0x4000);
+        turn_toward_point((Vec *)(target + 0x38), 0x566, -0x4000);
         play_persistent_sound(0x4003A60E, this, position, 0, 0);
         advance_animation_playback(this);
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(0x3C, (s32)&line_origin);
+        render_anim_model_at_pos();
+        get_anim_node_position(0x3C, &line_origin);
         if (m_c0 >= 33.0f) {
-            ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-            vfunc_65(0x39, (s32)&pos);
+            render_anim_model_at_pos();
+            get_anim_node_position(0x39, &pos);
             emitter = (TObject *)create_particle_emitter(&pos, 0x1A0);
             timer = 0x1E;
             state = 4;
@@ -663,10 +662,10 @@ void TBoss3VoloptP02::fn_80046CB8() {
             vfunc_58();
             break;
         }
-        turn_toward_point__12TBoss3VoloptFPvPvPvi(this, target + 0x38, 0x566, -0x4000);
+        turn_toward_point((Vec *)(target + 0x38), 0x566, -0x4000);
         play_persistent_sound(0x4003C616, this, position, 0, 0);
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(0x3C, (s32)&line_origin);
+        render_anim_model_at_pos();
+        get_anim_node_position(0x3C, &line_origin);
         push_matrix_from(identity_matrix);
         {
             Vec v = {38.0f, 31.0f, 0.0f};
@@ -781,7 +780,7 @@ void TBoss3VoloptP02::fn_800465B0() {
             s32 turn;
             advance_animation_playback(this);
             push_players_out_of_radius();
-            turn = turn_toward_point__12TBoss3VoloptFPvPvPvi(this, target + 0x38, 0x566, 0);
+            turn = turn_toward_point((Vec *)(target + 0x38), 0x566, 0);
             play_persistent_sound(0x4003A60E, this, position, 0, 0);
             if ((turn < 0 ? -turn : turn) <= 0x566) {
                 timer = 45;
@@ -833,7 +832,7 @@ void TBoss3VoloptP02::fn_800465B0() {
     case 5: {
         f32 blend;
         f32 inverse;
-        turn_toward_point__12TBoss3VoloptFPvPvPvi(this, target + 0x38, 0x566, 0);
+        turn_toward_point((Vec *)(target + 0x38), 0x566, 0);
         play_persistent_sound(0x4003A30C, this, position, 0, 0);
         for (i = 0; i < 5; i++) {
             if (*(s16 *)&timer < (duration / 6) * (5 - i)) {
@@ -877,10 +876,10 @@ void TBoss3VoloptP02::fn_800465B0() {
                 fn_80048C04((TObjVoloptCage *)cage);
                 timer = 30;
                 state = 7;
-                ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
+                render_anim_model_at_pos();
                 for (i = 0; i < 10; i++) {
                     s32 dir = i < 5 ? 1 : -1;
-                    vfunc_65(chain_node_ids[i], (s32)&chain_positions[i]);
+                    get_anim_node_position(chain_node_ids[i], &chain_positions[i]);
                     new TUnk_80484840(&chain_positions[i], (Vec *)&cage->m_2fc, dir, timer);
                 }
                 play_sound_effect(0x4003B20D, position, -10, 0);
@@ -890,9 +889,9 @@ void TBoss3VoloptP02::fn_800465B0() {
         }
         break;
     case 7:
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
+        render_anim_model_at_pos();
         for (s32 j = 0; j < 10; j++) {
-            vfunc_65(chain_node_ids[j], (s32)&chain_positions[j]);
+            get_anim_node_position(chain_node_ids[j], &chain_positions[j]);
         }
         if (--*(s16 *)&timer <= 0) {
             state = 8;
@@ -968,10 +967,10 @@ void TBoss3VoloptP02::fn_80046260() {
         Vec pos;
         s16 count;
         volley_count++;
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
+        render_anim_model_at_pos();
         collect_targets_in_front();
         for (i = 0; i < (count = front_target_count); i++) {
-            vfunc_65(volley_node_ids[i], (s32)&pos);
+            get_anim_node_position(volley_node_ids[i], &pos);
             new TUnk_80484AFC(this, &pos, rotation_y + 0x8000, front_target_ids[i]);
         }
         if (count > 0) {
@@ -1255,12 +1254,12 @@ void TBoss3VoloptP02::spawn_breakup_models() {
     u32 flags = m_388;
     if (!(flags & 0x10000)) {
         m_388 = flags | 0x10000;
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(2, (s32)&pos);
+        render_anim_model_at_pos();
+        get_anim_node_position(2, &pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[0], (s32)&part_breakup_params, texture_id, (s32)&pos, rotation_y);
-        vfunc_65(0x12, (s32)&pos);
+        get_anim_node_position(0x12, &pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[1], (s32)&part_breakup_params, texture_id, (s32)&pos, rotation_y);
-        TBoss3Volopt::set_flag8_list(breakup_flags_a);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_a);
     }
 }
 #pragma pop
@@ -1275,10 +1274,10 @@ void TBoss3VoloptP02::fn_800457A0() {
     if (!(flags & 0x20000)) {
         m_388 = flags | 0x20000;
         m_a4[1].flags &= ~0x10000001;
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(0x32, (s32)&pos);
+        render_anim_model_at_pos();
+        get_anim_node_position(0x32, &pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[2], (s32)&part_breakup_params, texture_id, (s32)&pos, rotation_y);
-        TBoss3Volopt::set_flag8_list(breakup_flags_b);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_b);
         play_sound_effect(0x4003A80F, position, 0, 1);
     }
 }
@@ -1294,10 +1293,10 @@ void TBoss3VoloptP02::fn_800456E4() {
     if (!(flags & 0x40000)) {
         m_388 = flags | 0x40000;
         m_a4[2].flags &= ~0x10000001;
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(0x22, (s32)&pos);
+        render_anim_model_at_pos();
+        get_anim_node_position(0x22, &pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[3], (s32)&part_breakup_params, texture_id, (s32)&pos, rotation_y);
-        TBoss3Volopt::set_flag8_list(breakup_flags_c);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_c);
         play_sound_effect(0x4003A80F, position, 0, 1);
     }
 }
@@ -1309,38 +1308,38 @@ void TBoss3VoloptP02::trigger_breakup() {
     if (!(flags & 0x80000)) {
         m_388 = flags | 0x80000;
         m_a4[3].flags &= ~0x10000001;
-        ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-        vfunc_65(0x29, (s32)&pos);
+        render_anim_model_at_pos();
+        get_anim_node_position(0x29, &pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[4], (s32)&part_breakup_params, texture_id, (s32)&m_2fc, rotation_y);
-        TBoss3Volopt::set_flag8_list(breakup_flags_d);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_d);
         play_sound_effect(0x4003A80F, position, 0, 1);
     }
 }
 
 // Not called anywhere in the game, so the linker drops it. It is the per-part
 // form of TObjEneDubchik::sub_800A8A7C (same m_388 broken-part bits, same
-// set_flag8_list/clear_flag8_all pair), and its use of three .bss statics is
+// hide_model_nodes/show_model_nodes pair), and its use of three .bss statics is
 // what makes this file's .bss pool before load_resources does.
 void TBoss3VoloptP02::apply_broken_part_visibility() {
     if (m_388 & 0x10000) {
-        TBoss3Volopt::set_flag8_list(breakup_flags_a);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_a);
     } else {
-        TBoss3Volopt::clear_flag8_all(breakup_flags_a);
+        show_model_nodes((NJS_OBJECT **)breakup_flags_a);
     }
     if (m_388 & 0x20000) {
-        TBoss3Volopt::set_flag8_list(breakup_flags_b);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_b);
     } else {
-        TBoss3Volopt::clear_flag8_all(breakup_flags_b);
+        show_model_nodes((NJS_OBJECT **)breakup_flags_b);
     }
     if (m_388 & 0x40000) {
-        TBoss3Volopt::set_flag8_list(breakup_flags_c);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_c);
     } else {
-        TBoss3Volopt::clear_flag8_all(breakup_flags_c);
+        show_model_nodes((NJS_OBJECT **)breakup_flags_c);
     }
     if (m_388 & 0x80000) {
-        TBoss3Volopt::set_flag8_list(breakup_flags_d);
+        hide_model_nodes((NJS_OBJECT **)breakup_flags_d);
     } else {
-        TBoss3Volopt::clear_flag8_all(breakup_flags_d);
+        show_model_nodes((NJS_OBJECT **)breakup_flags_d);
     }
 }
 
@@ -1637,8 +1636,8 @@ void TBoss3VoloptP02::fn_80044680() {
         play_persistent_sound(0x4003C616, this, position, 0, 0);
         advance_animation_playback(this);
         if (m_c0 >= 33.0f) {
-            ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
-            vfunc_65(0x39, (s32)&pos);
+            render_anim_model_at_pos();
+            get_anim_node_position(0x39, &pos);
             emitter = (TObject *)create_particle_emitter(&pos, 0x1A0);
             timer = 0x1E;
             state = 2;

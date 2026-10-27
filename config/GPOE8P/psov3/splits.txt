@@ -1875,34 +1875,20 @@ pso/enemy/TObjEneBeast_800C4E08.cpp:
 	.data       start:0x804935EC end:0x80493614
 
 pso/unk/text_800C69E8.cpp:
-	.text       start:0x800C69E8 end:0x800C6CF0
-
-pso/enemy/TObjEnemyCustom_800C6CF0.cpp:
-	.text       start:0x800C6CF0 end:0x800C7458
-	.rodata     start:0x8043BCD0 end:0x8043BCD8
-
-pso/boss/TBoss3Volopt_800C7458.cpp:
-	.text       start:0x800C7458 end:0x800C76F4
-
-pso/enemy/TObjEnemyCustom_800C76F4.cpp:
-	.text       start:0x800C76F4 end:0x800C7A04
-
-pso/enemy/TObjEnemyCustom_800C7A04.cpp:
-	.text       start:0x800C7A04 end:0x800C7D18
+	.text       start:0x800C69E8 end:0x800C6A18
 
 pso/enemy/TObjEnemyCustom.cpp:
-	.text       start:0x800C7D18 end:0x800C8018
+	.text       start:0x800C6A18 end:0x800C7FEC
+	.rodata     start:0x8043BC90 end:0x8043BCD8
 	.data       start:0x80493618 end:0x80493780
+	.sdata      start:0x805D2A60 end:0x805D2A64
+	.sbss       start:0x805D5190 end:0x805D5198
+	.sdata2     start:0x805DA068 end:0x805DA094
 
-pso/enemy/TObjEnemyCustom_800C8018.cpp:
-	.text       start:0x800C8018 end:0x800C8040
-
-pso/enemy/TObjEnemyCustom_800C8040.cpp:
-	.text       start:0x800C8040 end:0x800C80FC
+pso/unk/text_800C7FEC.cpp:
+	.text       start:0x800C7FEC end:0x800C811C
 	.bss        start:0x80500C38 end:0x80500E38
-
-pso/misc/TLobby_800C80FC.cpp:
-	.text       start:0x800C80FC end:0x800C811C
+	.sbss       start:0x805D5198 end:0x805D51B0
 
 pso/enemy/TObjEneMe1Gee.cpp:
 	.text       start:0x800C811C end:0x800CCB24

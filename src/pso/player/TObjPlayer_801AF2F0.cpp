@@ -6017,7 +6017,7 @@ void TObjPlayer::init_effect_5f0() {
 }
 
 void TObjPlayer::get_hand_joint_position(s32 arg1) {
-    this->vfunc_65(*(s32 *)((s8 *)(TObjPlayer__sub_801D8DCC()) + 0x10), arg1);
+    this->get_anim_node_position(*(s32 *)((s8 *)(TObjPlayer__sub_801D8DCC()) + 0x10), (Vec *)arg1);
 }
 
 void TObjPlayer::calc_move(void* a1, void* a2) { vector_length(this); ((int (*)(void*, void*))calc_move_velocity__10TObjPlayerFPvPvf)(a1, a2); }
@@ -6831,7 +6831,7 @@ block_17:
     return 0;
 }
 
-void TObjPlayer::vfunc_65(s32 arg1, s32 arg2) {
+void TObjPlayer::get_anim_node_position(s32 arg1, Vec *arg2) {
     Stack_801B9544 stack;
     s32 arg0 = (s32)this;
     stack.sp10 = TObjPlayer__data_805DC278;
@@ -6853,7 +6853,7 @@ void TObjPlayer::use_current_item() {
         ((VObj_801B95C8*)temp_r3)->m28();
         return;
     }
-    this->vfunc_65(0x24, (s32)&sp8);
+    this->get_anim_node_position(0x24, (Vec *)&sp8);
     TEffGuard::create((const Vec*)(&sp8));
 }
 

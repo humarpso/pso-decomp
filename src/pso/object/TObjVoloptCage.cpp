@@ -39,7 +39,6 @@ void send_6x2C_impose_hold(TObjPlayer *player, const Vec *pos, s32 a2, s32 a3, f
 void submit_cursor_candidate(TObjVoloptCage *cage, s32 a1);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-void TObjVoloptCage__sub_800C76F0(TObjVoloptCage *cage);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void create_breakup_mdl__12TBoss3VoloptFlllll(TBreakUpMdlPieces *model, VoloptBreakUpParams *params, s32 textures,
                                               Vec *pos, s32 angle);
@@ -230,7 +229,7 @@ void TObjVoloptCage::update_state() {
 
 void TObjVoloptCage::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjVoloptCage__sub_800C76F0(this);
+        run_demo_task();
         return;
     }
     if (mode != 7) {

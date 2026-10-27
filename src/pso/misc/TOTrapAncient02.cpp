@@ -383,7 +383,7 @@ void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
 void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 void vfunc_63__13TUnk_804806E8Fv();
 void vfunc_62__13TUnk_804806E8Fv();
 void vfunc_61__13TUnk_804806E8Fv();
@@ -559,7 +559,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&vfunc_62__13TUnk_804806E8Fv,
     (s32)&vfunc_63__13TUnk_804806E8Fv,
     (s32)&reset_pose__13TUnk_804806E8Fv,
-    (s32)&vfunc_65__13TUnk_804806E8Fll,
+    (s32)&get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (s32)&vfunc_66__13TUnk_804806E8Fv,
     (s32)&vfunc_67__13TUnk_804806E8Ff,
     (s32)&get_pos__13TUnk_804806E8Fl,

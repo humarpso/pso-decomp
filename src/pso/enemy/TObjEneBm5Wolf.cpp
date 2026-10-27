@@ -2524,7 +2524,7 @@ void vfunc_59__13TUnk_804806E8Fv(void);
 void vfunc_60__13TUnk_804806E8Fv(void);
 void vfunc_61__14TObjEneBm5WolfFv(void);
 void reset_pose__13TUnk_804806E8Fv(void);
-void vfunc_65__13TUnk_804806E8Fll(void);
+void get_anim_node_position__13TUnk_804806E8FlP3Vec(void);
 void vfunc_66__13TUnk_804806E8Fv(void);
 void vfunc_67__13TUnk_804806E8Ff(void);
 void get_pos__13TUnk_804806E8Fl(void);
@@ -2628,7 +2628,7 @@ void *lbl_804922F8[107] = {
     (void *)vfunc_62__14TObjEneBm5WolfFv,
     (void *)vfunc_63__14TObjEneBm5WolfFv,
     (void *)reset_pose__13TUnk_804806E8Fv,
-    (void *)vfunc_65__13TUnk_804806E8Fll,
+    (void *)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,

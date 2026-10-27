@@ -17,7 +17,6 @@ struct TLobby : public TObject {
     static void cleanup_handles();
     static void free_global_window();
     static void load_shark_resources();
-    static void clear_table_80500C38();
     static s32 clear_record_flags_a();
     static s32 clear_record_flags_b();
     static void free_nodes_with_id(u32 arg0);

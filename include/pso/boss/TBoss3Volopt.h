@@ -114,7 +114,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
 
     // Defined in other units; most are helpers of other classes filed under
     // TBoss3Volopt.
-    s32 query_field_30(s32 *arg1);
     static void create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     void play_area_variant_sound();
     void play_area_se_with_particle();
@@ -122,8 +121,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void call_vt21();
     static s32 remap_area_sound_id(s32 arg0);
     void create_cage(u16 target_id);
-    static void clear_flag8_all(u32 **arg0);
-    static void set_flag8_list(u32 **arg0);
 
     u8 pad_38C[0x18];
     s32 core_slot;
