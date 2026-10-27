@@ -56,10 +56,8 @@ void TBoss3Volopt__sub_8003E584(void *);
 typedef struct { u8 cmd; u8 size; u16 id; s16 a; s16 b; s16 c; s16 d; } Pk15_8003E584;
 typedef struct { u8 cmd; u8 size; u16 id; u8 data[6]; s16 a; s16 b; u16 pad; } Pk84_8003E584;
 typedef struct { u8 cmd; u8 size; u16 id; u8 data[6]; s16 a; } Pk16_8003E584;
-typedef struct { s8 b; u8 pad[3]; } Ent_8003E584;
 s32 TCameraCtrl__sub_8003D0A8(void *);
 s32 TBoss3Volopt__sub_8003F458();
-extern Ent_8003E584 volopt_target_slot_used[];
 extern s32 volopt_breakup_flag;
 extern s32 boss3_volopt_core_active_flag;
 
@@ -1137,7 +1135,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
         case 0:
             found = 0;
             for (i = 0; i < 6; i++) {
-                if (volopt_target_slot_used[i].b == 0) {
+                if (volopt_target_slot_used[i * 4] == 0) {
                     found = 1;
                 }
             }
@@ -1201,7 +1199,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
         case 0:
             found = 0;
             for (i = 0; i < 6; i++) {
-                if (volopt_target_slot_used[i].b == 0) {
+                if (volopt_target_slot_used[i * 4] == 0) {
                     found = 1;
                 }
             }

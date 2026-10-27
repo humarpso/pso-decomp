@@ -458,6 +458,9 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # The character appearance tables keep eight-byte descriptors in .data
     # but four-byte pointer lists in .sdata.
     "pso/misc/CharacterAppearanceTables.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
+    # Vol Opt's monitors keep their eight-byte texture lists in .data but the
+    # four-byte class-name pointer in .sdata.
+    "pso/boss/TBoss3VoloptMonitor.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
     # Metrowerks' GCN_Mem_Alloc.c (runtime library code at -O4,p); belongs
     # in the runtime lib under its own name.
     "pso/unk/text_8039739C.cpp": {"cflags": _switch(cflags_pso, "-O4,p")},

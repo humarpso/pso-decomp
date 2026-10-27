@@ -26,8 +26,14 @@ public:
     u8 m_22;
     u8 unk_23[0x1];
     s32 texture_id;
-    void* m_28;
-    void * m_2c;
+    union {
+        void* m_28;
+        s16 group_ids[2];
+    };
+    union {
+        void * m_2c;
+        s16 group_index;
+    };
     u32 actorFlags;
     void* model;
     f32 position[3];

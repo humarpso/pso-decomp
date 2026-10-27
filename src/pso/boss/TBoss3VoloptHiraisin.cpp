@@ -633,13 +633,11 @@ void *spawn_particle_effect(void *pos, s32 id);
 u8 *TObjEnemyCustom__ct(u8 *arg0);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
-void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFv(Hira_800418C8 *self);
 void *find_entity_by_id(u16 id);
 extern s8 volopt_target_slot_used[];
 extern u16 boss3_volopt_monitor_base_actor_id;
-void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
 void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1);
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 void free_collision_body_parts(void *);
@@ -766,108 +764,6 @@ void TBoss3VoloptHiraisin::load_params_from_table(s32 i) {
     O_80041B34 *self = (O_80041B34 *)this;
     self->f34 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__resource_bundle)->entries[i].f8;
     self->f24 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__resource_bundle)->entries[i].fc;
-}
-
-void TBoss3VoloptHiraisin::set_hit_flags_and_notify() {
-    u8 *arg0 = (u8 *)this;
-    this->m_388 = (s32) (this->m_388 | 0x40000);
-    obj_setFlags30(arg0, 0x800U);
-    this->vfunc_63();
-}
-
-void TBoss3VoloptHiraisin::spawn_effects() {
-    u8 *arg0 = (u8 *)this;
-    typedef char sp8_offset[(offsetof(Stack_80041BB4, sp8) == 0x0) ? 1 : -1];
-    typedef char spC_offset[(offsetof(Stack_80041BB4, spC) == 0x4) ? 1 : -1];
-    typedef char sp10_offset[(offsetof(Stack_80041BB4, sp10) == 0x8) ? 1 : -1];
-    Stack_80041BB4 stack;
-    stack.sp8 = 0;
-    stack.spC = this->rotation_y;
-    stack.sp10 = 0;
-    spawn_directional_particle(((u8 *)&this->m_2fc), (&stack.sp8), (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
-    spawn_particle_effect(((u8 *)&this->m_2fc), 0x45);
-}
-
-void TBoss3VoloptHiraisin::damage_player_if_aligned() {
-    if (!(this->m_388 & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) *(s16 *)((s8 *)this + 0x38C) / 4))) {
-        link_photon__10TObjPlayerFUs(this->m_2d4, 0);
-    }
-}
-
-void TBoss3VoloptHiraisin::update_state() {
-    s16 temp_r4;
-
-    switch (*(s32 *)&this->state) {
-    case 0:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02040000);
-        *(s32 *)&this->state = 1;
-    case 1:
-        temp_r4 = *(s16 *)&this->timer;
-        temp_r4 -= 1;
-        *(s16 *)&this->timer = temp_r4;
-        if (temp_r4 <= 0) {
-            this->vfunc_59();
-        }
-        break;
-    case -1:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFDFBFFFF);
-        break;
-    }
-}
-void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self) {
-    switch (self->f37c) {
-    case -1:
-        break;
-    case 0:
-        self->f30 &= ~0x40000;
-        self->f37c = 1;
-        break;
-    case 1:
-        break;
-    }
-}
-void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
-    s32 base;
-    s32 all;
-    s32 j;
-    u8 *p;
-    switch (self->state) {
-    case 0:
-        play_sound_effect(0x4003A804, self->pos, 0, 0);
-        ((TBoss3VoloptHiraisin *)self)->damage_player_if_aligned();
-        ((TBoss3VoloptHiraisin *)self)->spawn_effects();
-        volopt_target_slot_used[self->idx] = 1;
-        if (self->idx % 4 > 0) {
-            all = 1;
-            base = (self->idx / 4) * 4;
-            for (j = base + 1; j < base + 4; j++) {
-                if (volopt_target_slot_used[j] == 0) {
-                    all = 0;
-                }
-            }
-            if (all != 0) {
-                p = (u8 *)find_entity_by_id(boss3_volopt_monitor_base_actor_id + base);
-                if (p != NULL) {
-                    ((TBoss3VoloptHiraisin *)p)->set_hit_flags_and_notify();
-                }
-            }
-        } else {
-            for (j = self->idx + 1; j < self->idx + 4; j++) {
-                p = (u8 *)find_entity_by_id(boss3_volopt_monitor_base_actor_id + j);
-                if (p != NULL) {
-                    ((TBoss3VoloptHiraisin *)p)->set_hit_flags_and_notify();
-                }
-            }
-        }
-        self->state = 1;
-        break;
-    case -1:
-        return;
-    case 1:
-        break;
-    case 2:
-        break;
-    }
 }
 
 }

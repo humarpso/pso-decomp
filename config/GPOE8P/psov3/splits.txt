@@ -388,21 +388,19 @@ pso/boss/TBoss3Volopt_80040F7C.cpp:
 	.text       start:0x80040F7C end:0x80040FDC
 
 pso/boss/TBoss3VoloptHiraisin.cpp:
-	.text       start:0x80040FDC end:0x80041E88
+	.text       start:0x80040FDC end:0x80041B64
 	.data       start:0x80483BB8 end:0x80483DB8
 	.sbss       start:0x805D4C70 end:0x805D4C8C
 	.sdata2     start:0x805D8700 end:0x805D8738
 
-pso/unk/text_80041E88.cpp:
-	.text       start:0x80041E88 end:0x80041F6C
-
 pso/boss/TBoss3VoloptMonitor.cpp:
-	.text       start:0x80041F6C end:0x80042960
-	.rodata     start:0x80436600 end:0x80436608
+	.text       start:0x80041B64 end:0x80042974
+	.rodata     start:0x80436398 end:0x80436620
 	.data       start:0x80483DB8 end:0x80484170
-
-pso/unk/text_80042960.cpp:
-	.text       start:0x80042960 end:0x80042974
+	.bss        start:0x804FEEC0 end:0x804FF008
+	.sdata      start:0x805D2740 end:0x805D2744
+	.sbss       start:0x805D4C90 end:0x805D4CAC
+	.sdata2     start:0x805D8738 end:0x805D8760
 
 pso/boss/TBoss3VoloptP01.cpp:
 	.text       start:0x80042974 end:0x80044448

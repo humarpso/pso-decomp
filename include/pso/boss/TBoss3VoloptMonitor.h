@@ -3,22 +3,40 @@
 
 #include "types.h"
 #include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/system/vector.h"
+
+// Vol Opt's wall monitors: six walls of four, slot = wall * 4 + position.
+#define VOLOPT_MONITOR_SLOTS 24
 
 struct TBoss3VoloptMonitor : public TObjEnemyCustom {
     virtual ~TBoss3VoloptMonitor();
-    void sub_80042944(s32);
-    void sub_80042510();
-    virtual void render();
     virtual void run_task();
-    s16 m_38c;
-    s16 m_38e;
-    s16 m_390;
-    void update_state();
+    virtual void render();
+
+    void set_hit_flags_and_notify();
+    void spawn_effects();
+    void damage_player_if_aligned();
+    void sub_80041C78();
+    void sub_80041D0C();
+    void sub_80041D3C();
+    void sub_80041E88();
+    void sub_800420D8();
+    void dispatch_state();
     static void release();
     static void load_resources();
-    static void *create(void *arg0);
-    u8 unk_392[0x2];
+    static void *create(void *set_data);
+    void init_params();
+    void set_model(s32 index);
+
+    s16 slot;
+    s16 anim_frame;
+    s16 anim_timer;
+    u8 pad_392[0x2];
 };
 
 typedef char TBoss3VoloptMonitor_size[sizeof(TBoss3VoloptMonitor) == 0x394 ? 1 : -1];
+
+extern s8 volopt_target_slot_used[VOLOPT_MONITOR_SLOTS];
+extern Vec volopt_slot_positions[VOLOPT_MONITOR_SLOTS];
+
 #endif
