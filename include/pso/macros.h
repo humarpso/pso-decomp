@@ -113,4 +113,6 @@
     PRIVATE_MEMBER_GETTER(type, name); \
     PRIVATE_MEMBER_SETTER(type, name)
 
+#define ABS(x) ((x) < 0 ? -(x) : (x))
+
 #endif

@@ -14,7 +14,7 @@
 #include "pso/npc/TObjNpcFemaleOld.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/boss/TBoss3VoloptCore.h"
-#include "pso/boss/TBoss3Volopt_80044498.h"
+#include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/enemy/SaverLifecycle.h"
 #include "pso/enemy/TObjEneDellBiter.h"
 #include "pso/enemy/TObjEneDolmOlm.h"
@@ -283,7 +283,7 @@ EnemyFactoryEntry enemy_factories_floor_13[8] = {
     { 0x00C2, TBoss3Volopt::create, 250000.0f, 35 },
     { 0x00C3, TBoss3VoloptP01::create, 250000.0f, 0 },
     { 0x00C4, TBoss3VoloptCore::create, 250000.0f, 0 },
-    { 0x00C5, TBoss3Volopt__sub_80047DD4, 250000.0f, 0 },
+    { 0x00C5, TBoss3VoloptP02::create, 250000.0f, 0 },
     { 0x00C6, TBoss3VoloptMonitor::create, 250000.0f, 0 },
     { 0x00C7, TBoss3VoloptHiraisin::create, 250000.0f, 0 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },

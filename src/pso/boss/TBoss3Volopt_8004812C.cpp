@@ -5,7 +5,7 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TUnk_80484610.h"
+#include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/player/TUnk_80484840.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
@@ -38,7 +38,7 @@ typedef struct Color_80048260 {
 } Color_80048260;
 
 extern "C" {
-extern s32 lbl_805D4CDC;
+extern s32 volopt_p02_params;
 extern G_8004813C *lbl_805D4CE4;
 extern G_8004816C *lbl_805D4D1C;
 void draw_line_list(void *, s32, s32);
@@ -54,10 +54,10 @@ extern Vec_80048260 boss3_volopt_direction_line_points[];
 int read_be16_field2__10TObjPlayerFv(void*);
 
 f32 TBoss3Volopt__sub_8004812C(s32 arg0) {
-    return *(f32 *)((s8 *)(lbl_805D4CDC + (arg0 * 4)) + 0);
+    return *(f32 *)((s8 *)(volopt_p02_params + (arg0 * 4)) + 0);
 }
 
-void TUnk_80484610::load_params_from_table(s32 i) {
+void TBoss3VoloptP02::load_params_from_table(s32 i) {
     O_8004813C *self = (O_8004813C *)this;
     self->f34 = lbl_805D4CE4->entries[i].c;
     self->f24 = lbl_805D4CE4->entries[i].d;

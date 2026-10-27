@@ -455,6 +455,10 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # vtables before the switch tables in .data.
     "pso/misc/TMedicalCenterSequence.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
     "pso/boss/TBoss7LaserLight.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    # Vol Opt's second form also keeps eight-byte tables in .data, a six-byte
+    # one in .bss and four-byte pointers in .sbss; its .rodata initializers run
+    # from the last function back and its vtable precedes the switch tables.
+    "pso/boss/TBoss3VoloptP02.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
     # The character appearance tables keep eight-byte descriptors in .data
     # but four-byte pointer lists in .sdata.
     "pso/misc/CharacterAppearanceTables.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
