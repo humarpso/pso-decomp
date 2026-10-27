@@ -63,7 +63,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *, int);
 extern const f32 lbl_805D8890;
-extern s32 lbl_805D4D1C;
+extern s32 volopt_cage_params;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s16 obj_getField1c(void *);
 s32 TBoss3Volopt__sub_8004816C(s32 i);
@@ -99,10 +99,6 @@ void free_collision_body_parts(void *);
 void draw_chunk_object(void *child);
 s32 push_matrix();
 void __dl__7TObjectFPv(void *);
-
-u8 TObjPlayer::check_flag(s32 arg1) {
-    return (u8) ((this->m_334 & arg1) != 0);
-}
 
 s32 TUnk_80484A94::sub_800495F8() {
     s32 i;
@@ -226,7 +222,7 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
 }
 
 f32 TObjPlayer__sub_800499FC(s32 arg0) {
-    return *(f32 *)((s8 *)(lbl_805D4D1C + (arg0 * 4)) + 0);
+    return *(f32 *)((s8 *)(volopt_cage_params + (arg0 * 4)) + 0);
 }
 
 void TObjPlayer__sub_80049A0C(void* p) { *(u32*)((char*)p + 0x388) &= 0xffefffff; }

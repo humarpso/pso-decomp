@@ -32,7 +32,7 @@ struct TObjEnemy : public TUnk_804806E8 {
     u32 subtype;
     u16 targetId;
     u16 resetTimer;
-    u16 timer;
+    s16 timer;
     s16 referenceHp;
     TObjEnemy* group;
     TObjEnemy* previous;

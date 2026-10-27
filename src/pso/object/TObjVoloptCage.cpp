@@ -1,183 +1,335 @@
-#include "types.h"
-#include "pso/boss/TBoss3VoloptHiraisin.h"
-#include "pso/misc/TQuestColCtrl_8003F3BC.h"
-#include "pso/object/TObject_80019A50.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
+#pragma readonly_strings on
+#pragma fp_contract on
+
 #include "pso/object/TObjVoloptCage.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/enemy/TObjEneLappy.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
+#include "pso/math/AngleLookup.h"
+#include "pso/misc/TBreakUpMdl.h"
 #include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/system/BmlResource.h"
+#include "pso/system/GinjaTextureMatrices.h"
+#include "pso/system/vector.h"
+#include "pso/misc/TQuestColCtrl_8003F3BC.h"
+#include "pso/unk/text_80048118.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 
-struct RecoveredGlobal_8004938C___vt__14TObjVoloptCage { s32 value; u8 remaining[0x14C]; };
-typedef char RecoveredGlobal_8004938C___vt__14TObjVoloptCage_size[sizeof(RecoveredGlobal_8004938C___vt__14TObjVoloptCage) == 0x150 ? 1 : -1];
-
-typedef struct Obj_80049430 {
-    s32 f0;
-    u8 pad4[0x18 - 0x4];
-    void *vt;
-    s16 f1c;
-    u8 pad1e[0x28 - 0x1e];
-    s16 f28;
-    s16 f2a;
-    s16 f2c;
-    u8 pad2e[0x30 - 0x2e];
-    u32 flags;
-    u8 pad34[0x38 - 0x34];
-    f32 pos[1];
-    f32 f3c;
-    u8 pad40[0x80 - 0x40];
-    s32 f80;
-    u8 pad84[0x326 - 0x84];
-    s16 f326;
-    u8 pad328[0x338 - 0x328];
-    u16 f338;
-    u8 pad33a[0x374 - 0x33a];
-    s32 f374;
-    u8 pad378[0x390 - 0x378];
-    s32 f390;
-} Obj_80049430;
+// TBreakUpMdl.h still derives TBreakUpMdl from TObject; the real class keeps
+// its vtable at +0xC, which only this view of it can delete through.
+class TBreakUpMdlPieces {
+public:
+    u8 pad_0[0xC];
+    virtual ~TBreakUpMdlPieces();
+};
 
 extern "C" {
-s32 TObjVoloptCage__sub_800C76F0(void *);
-s32 submit_cursor_candidate(void *, int);
-s32 is_locally_controlled__10TObjPlayerFPv();
-void obj_clear_flag30_20000(void *arg0);
-void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
-s32 free_collision_body_parts(void *);
-void *get_player_by_client_id(s32 i);
-s32 __dl__7TObjectFPv(void *);
-extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
-u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
-void TObjEnemyCustom__ct();
-void init_collision_body_parts(void *, void *, int);
-extern u8 volopt_cage_collision_body_desc[];
-extern s32 lbl_805D2758;
-extern u8 *lbl_805D4CE4;
-extern s32 lbl_805D4D18;
-extern s32 TObjVoloptCage__texture_list;
-extern const f32 lbl_805D8884;
-extern const f32 lbl_805D8888;
-Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg2, s16 arg3, s16 arg4);
-void TLobby__sub_80049568(void);
-void obj_set_flag_20000(void *arg0);
-s32 update_breakup__14TObjVoloptCageFv();
-s32 update_collision_state__14TObjVoloptCageFv();
-s32 sub_80049000__14TObjVoloptCageFv();
-s32 obj_setFlags30(void *, s32);
-s32 update_capture__14TObjVoloptCageFv();
+s32 push_matrix(void);
+void post_translate_matrix(const Vec *v);
+void rotate_matrix_y(s32 matrix, s32 angle);
+s32 rand(void);
+void play_sound_effect(s32 id, const Vec *pos, s32 a2, s32 a3);
+TObjPlayer *get_player_by_client_id(s32 id);
+s32 obj_setFlags30(TUnk_804B9870 *actor, s32 flags);
+void send_6x2C_impose_hold(TObjPlayer *player, const Vec *pos, s32 a2, s32 a3, f32 time);
+void submit_cursor_candidate(TObjVoloptCage *cage, s32 a1);
+void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
+void free_collision_body_parts(TUnk_804AF8A0 *actor);
+TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *enemy);
+void TObjVoloptCage__sub_800C76F0(TObjVoloptCage *cage);
+extern void *__vt__14TObjVoloptCage[];
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
+void create_breakup_mdl__12TBoss3VoloptFlllll(TBreakUpMdlPieces *model, VoloptBreakUpParams *params, s32 textures,
+                                              Vec *pos, s32 angle);
+s32 check_flag__10TObjPlayerFl(void *player, s32 flag);
+void __dt__15TObjEnemyCustomFv(TObjEnemyCustom *enemy, s16 flags);
+}
+
+extern BmlResource *boss3_volopt_resources;
+extern BmlResource *lbl_805D4CE4;
+extern s32 boss3_volopt_cage_flag;
+
+
+static const char *TObjVoloptCage_name = "TObjVoloptCage";
+
+
+static CollisionBody volopt_cage_collision_body[1] = {
+    {{0.0f, 18.0f, 0.0f}, 20.0f, {0}, 0x8003, {0}},
+};
+
+VoloptBreakUpParams volopt_cage_breakup_params = {
+    20, {0.06f, 1.5f, 0.9f, 0.12f, 0.55f, 0.5f},
+};
+
+void *volopt_cage_combat_stats;
+void *volopt_cage_params;
+static TBreakUpMdlPieces *volopt_cage_breakup_model;
+static s32 volopt_cage_model;
+static s32 volopt_cage_textures;
+
+void fn_80048C04(TObjVoloptCage *cage) {
+    DirectAttackPayload attack = {0, 0.0f};
+    TObjPlayer *player;
+    attack.power = TObjVoloptPillar__sub_80048118(2);
+    player = get_player_by_client_id(cage->targetId);
+    if (player != NULL) {
+        DirectAttackPayload hit = attack;
+        player->receive_direct_attack(cage->m_up, &hit, NULL, -1, -1);
+    }
+    cage->status = 15;
+    obj_setFlags30(cage, 0x800);
+    cage->vfunc_63();
+}
+
+void TObjVoloptCage::update_breakup() {
+    Vec pos;
+    s32 angle;
+    switch (state) {
+    case -1:
+        break;
+    case 0:
+        play_sound_effect(0x4001C112, (Vec *)position, 0, 0);
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, &volopt_cage_breakup_params,
+                                                 volopt_cage_textures, (Vec *)&m_2fc, rotation_y);
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, &volopt_cage_breakup_params,
+                                                 volopt_cage_textures, (Vec *)&m_2fc, rotation_y);
+        ((TObjPlayer *)&m_2fc)->trigger_dell_biter_events();
+        timer = 12;
+        disallow_rendering();
+        state = 1;
+        break;
+    case 1:
+        if (timer & 1) {
+            angle = (s32)(182.04445f * (360.0f * (3.0517578e-05f * (f32)rand())));
+            pos.x = 20.0f * cos_table_lookup(angle) + m_2fc;
+            pos.y = 20.0f * (3.0517578e-05f * (f32)rand()) + m_300;
+            pos.z = 20.0f * sin_table_lookup(angle) + m_304;
+            spawn_particle_effect(&pos, 0xFB);
+        }
+        if ((timer -= 1) <= 0) {
+            queue_destruction();
+        }
+        break;
+    }
+}
+
+void TObjVoloptCage::update_collision_state() {
+    s32 count;
+    switch (state) {
+    case -1:
+        break;
+    case 0:
+        actorFlags &= ~0x200000;
+        timer = 30;
+        state = 1;
+    case 1:
+        count = countdown;
+        countdown = count - 1;
+        ((TObjPlayer *)this)->check_object_collisions();
+        if ((timer -= 1) <= 0) {
+            actorFlags &= ~0x200;
+            referenceHp = hp;
+            m_388 &= ~1;
+            vfunc_59();
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+void TObjVoloptCage::update_capture() {
+    TObjPlayer *player;
+    switch (state) {
+    case -1:
+        break;
+    case 0:
+        player = get_player_by_client_id(targetId);
+        if (player != NULL) {
+            if (TObjPlayer::is_locally_controlled(player) != 0) {
+                send_6x2C_impose_hold(player, (Vec *)position, -1, 0, 10.0f);
+                obj_set_flag_20000(player);
+            }
+            set_volopt_cage_flag();
+        }
+        state = 1;
+    case 1:
+        if (--countdown <= 0) {
+            obj_setFlags30(this, 0x800);
+            vfunc_63();
+        }
+        break;
+    }
+}
+
+void TObjVoloptCage::sub_80049000() {
+    switch (state) {
+    case 0:
+        actorFlags |= 0x40000;
+        state = 1;
+        play_sound_effect(0x4003A80A, (Vec *)position, 10, 0);
+        break;
+    case 1:
+        position[1] += 5.0f;
+        if (position[1] >= 0.0f) {
+            position[1] = 0.0f;
+            countdown = TObjVoloptPillar__sub_80048118(4) + 450;
+            m_388 &= ~1;
+            vfunc_59();
+        }
+        break;
+    case -1:
+        actorFlags &= ~0x40000;
+        break;
+    }
+}
+
+void TObjVoloptCage::destroy() {
+    delete volopt_cage_breakup_model;
+    volopt_cage_breakup_model = NULL;
+}
+
+void TObjVoloptCage::init_break_model() {
+    TBreakUpMdl *model;
+    volopt_cage_model = boss3_volopt_resources->models[0x12].model;
+    model = (TBreakUpMdl *)alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    if (model != NULL) {
+        model = (TBreakUpMdl *)model->init_from_model(volopt_cage_model);
+    }
+    volopt_cage_breakup_model = (TBreakUpMdlPieces *)model;
+    volopt_cage_combat_stats = TLobby::register_boss(0x26);
+    volopt_cage_params = TLobby::dispatch_shared_handler_a(0x26);
+}
+
+void TObjVoloptCage::render() {
+    if (update_object_view_visibility(400.0f, 40.0f) != 0) {
+        TObjFish::set_global_param(volopt_cage_textures);
+        push_matrix();
+        model_render_flags &= ~0x400;
+        post_translate_matrix((Vec *)position);
+        rotate_matrix_y(0, rotation_y);
+        draw_chunk_object((void *)volopt_cage_model);
+        pop_matrix();
+    }
+}
 
 void TObjVoloptCage::update_state() {
-
-    switch (this->mode) {
+    switch (mode) {
     case 7:
-        sub_80049000__14TObjVoloptCageFv();
+        sub_80049000();
         return;
     case 1:
-        update_capture__14TObjVoloptCageFv();
+        update_capture();
         return;
     case 4:
-        update_collision_state__14TObjVoloptCageFv();
+        update_collision_state();
         return;
     case 5:
-        update_breakup__14TObjVoloptCageFv();
+        update_breakup();
         return;
     }
 }
-
-    extern int boss3_volopt_cage_flag;
 
 void TObjVoloptCage::run_task() {
-    u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjVoloptCage__sub_800C76F0(arg0);
+        TObjVoloptCage__sub_800C76F0(this);
         return;
     }
-    if ((s16) this->mode != 7) {
-        if (this->has_flag_0x800() != 0) {
-            this->vfunc_63();
-        } else if (this->test_flag30_512() != 0) {
-            this->vfunc_62();
+    if (mode != 7) {
+        if (has_flag_0x800() != 0) {
+            vfunc_63();
+        } else if (test_flag30_512() != 0) {
+            vfunc_62();
         }
     }
-    if ((s16) this->mode != (s32) this->next_action) {
-        if ((s32) this->state != -1) {
-            this->state = -1;
+    if (mode != (s32)next_action) {
+        if ((s32)state != -1) {
+            state = -1;
             update_state();
         }
-        this->mode = (s16) this->next_action;
-        this->state = 0;
+        mode = next_action;
+        state = 0;
     }
     update_state();
-    ((TObjEnemy *)arg0)->update_prev_position();
-    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
-    submit_cursor_candidate(arg0, -1);
+    update_prev_position();
+    ((TBoss3VoloptHiraisin *)this)->copy_position();
+    submit_cursor_candidate(this, -1);
 }
 
-u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
-    s32 player;
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
-        player = (s32)get_player_by_client_id((((TObjVoloptCage *)arg0)->targetId));
-        if ((player != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
+extern "C" TObjVoloptCage *__dt__14TObjVoloptCageFv(TObjVoloptCage *cage, s16 flags) {
+    TObjPlayer *player;
+    if (cage != NULL) {
+        *(void ***)((u8 *)cage + 0x18) = __vt__14TObjVoloptCage;
+        player = get_player_by_client_id(cage->targetId);
+        if (player != NULL && TObjPlayer::is_locally_controlled(player) != 0) {
             if (((TLobby *)player)->check_player_flag1() != 0) {
-                TObjPlayer::send_code_45_1(player);
+                TObjPlayer::send_code_45_1((s32)player);
             }
-            obj_clear_flag30_20000((void *)player);
+            obj_clear_flag30_20000(player);
         }
         clear_volopt_cage_flag();
-        free_collision_body_parts(arg0);
-        __dt__15TObjEnemyCustomFv((arg0), 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+        free_collision_body_parts(cage);
+        __dt__15TObjEnemyCustomFv(cage, 0);
+        if (flags > 0) {
+            TObject::operator delete(cage);
         }
     }
-    return arg0;
+    return cage;
 }
 
-Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg2, s16 arg3, s16 arg4) {
-    u8 *p;
-    TObjEnemyCustom__ct();
-    arg0->vt = &__vt__14TObjVoloptCage.value;
-    arg0->f0 = lbl_805D2758;
-    arg0->f338 = arg2;
-    p = (u8 *)get_player_by_client_id(arg0->f338);
-    if (p != NULL) {
-        VecCopy((Vec *)arg0->pos, (const Vec *)(p + 0x38));
+TObjVoloptCage *TObjVoloptCage__ct(TObjVoloptCage *cage, TObjEnemy *boss, u16 target, s16 id, s16 arg4) {
+    TObjPlayer *player;
+    TObjEnemyCustom__ct(cage);
+    *(void ***)((u8 *)cage + 0x18) = __vt__14TObjVoloptCage;
+    cage->m_name = TObjVoloptCage_name;
+    cage->targetId = target;
+    player = get_player_by_client_id(cage->targetId);
+    if (player != NULL) {
+        VecCopy((Vec *)cage->position, (Vec *)player->position);
     } else {
-        queue_destruction__7TObjectFv(arg0);
-        return arg0;
+        cage->queue_destruction();
+        return cage;
     }
-    init_collision_body_parts(arg0, volopt_cage_collision_body_desc, 1);
-    arg0->f1c = arg3;
-    arg0->f2c = arg4;
-    arg0->f80 = 0;
-    arg0->f28 = arg1->f28;
-    arg0->f2a = arg1->f2a;
-    ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    ((TObjEnemy *)arg0)->set_param(0x2E);
-    arg0->f3c = lbl_805D8884;
-    ((TUnk_804806E8 *)arg0)->recalc_combat_stats((void *)lbl_805D4D18, (void *)0, (void *)0, (f32)lbl_805D8888, (f32)lbl_805D8888);
-    arg0->flags |= 0x40000 | 0x8000;
-    arg0->flags &= ~0xA00;
-    arg0->f374 = 7;
-    arg0->f326 = 7;
-    TObjVoloptCage__texture_list = *(s32 *)(*(u8 **)(lbl_805D4CE4 + 0x42C) + 0x12C);
-    arg0->f390 = 0;
-    return arg0;
+    init_collision_body_parts(cage, volopt_cage_collision_body, 1);
+    cage->m_1c = id;
+    *(s16 *)&cage->m_2c = arg4;
+    cage->m_80 = 0;
+    *(s16 *)&cage->m_28 = *(s16 *)&boss->m_28;
+    *((s16 *)&cage->m_28 + 1) = *((s16 *)&boss->m_28 + 1);
+    ((TBoss3Volopt *)cage)->reset_photon_effect();
+    cage->set_param(0x2E);
+    cage->position[1] = -25.0f;
+    cage->recalc_combat_stats(volopt_cage_combat_stats, NULL, NULL, 1.0f, 1.0f);
+    cage->actorFlags |= 0x40000 | 0x8000;
+    cage->actorFlags &= ~0xA00;
+    cage->next_action = 7;
+    cage->mode = 7;
+    volopt_cage_textures = lbl_805D4CE4->models[0x12].m_c;
+    cage->status = 0;
+    return cage;
 }
 
-void TLobby__sub_80049568(void) { boss3_volopt_cage_flag = 1; }
-
-void obj_set_flag_20000(void *arg0) {
-    obj_setFlags30(arg0, 0x20000);
+void set_volopt_cage_flag() {
+    boss3_volopt_cage_flag = 1;
 }
 
-void obj_clear_flag30_20000(void *arg0) {
-    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x20000);
+void obj_set_flag_20000(TUnk_804B9870 *actor) {
+    obj_setFlags30(actor, 0x20000);
 }
 
+void obj_clear_flag30_20000(TUnk_804B9870 *actor) {
+    actor->obj_clearFlags30(0x20000);
+}
+
+s32 TLobby::check_player_flag1() {
+    return check_flag__10TObjPlayerFl(this, 1);
+}
+
+u8 TObjPlayer::check_flag(s32 flag) {
+    return (m_334 & flag) != 0;
 }

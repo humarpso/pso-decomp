@@ -12,7 +12,7 @@
 struct G_8004816C { u8 pad[0x18]; s32 arr[1]; };
 
 extern "C" {
-extern G_8004816C *lbl_805D4D1C;
+extern G_8004816C *volopt_cage_params;
 int read_be16_field2__10TObjPlayerFv(void*);
 
 f32 TBoss3Volopt__sub_8004812C(s32 index) {
@@ -25,7 +25,7 @@ void TBoss3VoloptP02::load_params_from_table(s32 index) {
 }
 
 s32 TBoss3Volopt__sub_8004816C(s32 i) {
-    return lbl_805D4D1C->arr[i];
+    return volopt_cage_params->arr[i];
 }
 
 void TBoss3Volopt::update_and_send_60() { swap_6x85_fields(); TLobby__send_and_handle_60((u8 *)this); }

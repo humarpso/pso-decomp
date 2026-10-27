@@ -413,6 +413,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void clear_velocity_vectors();
     static void set_com_card_window(s32 arg0);
     static s32 check_demo_mode();
+    static s32 is_locally_controlled(void *player);
     static TObjPlayer *get_player_data(int index);
     int queue_destruction();
     void set_position_xy(f32 a, f32 b);

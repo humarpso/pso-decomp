@@ -445,21 +445,16 @@ pso/boss/TBoss3Volopt_800485C8.cpp:
 	.text       start:0x800485C8 end:0x80048C04
 	.rodata     start:0x804366D0 end:0x804366D8
 
-pso/object/TObjVoloptCage_80048CDC.cpp:
-	.text       start:0x80048C04 end:0x8004912C
-	.rodata     start:0x804366F0 end:0x804366F8
-
-pso/object/TObjVoloptCage_8004912C.cpp:
-	.text       start:0x8004912C end:0x80049210
-
 pso/object/TObjVoloptCage.cpp:
-	.text       start:0x80049210 end:0x800495BC
-
-pso/misc/TLobby_800495BC.cpp:
-	.text       start:0x800495BC end:0x800495E0
+	.text       start:0x80048C04 end:0x800495F8
+	.rodata     start:0x804366D8 end:0x804366F8
+	.data       start:0x804848D0 end:0x80484918
+	.sdata      start:0x805D2758 end:0x805D275C
+	.sbss       start:0x805D4D18 end:0x805D4D2C
+	.sdata2     start:0x805D8860 end:0x805D888C
 
 pso/player/TObjPlayer_800495E0.cpp:
-	.text       start:0x800495E0 end:0x80049C10
+	.text       start:0x800495F8 end:0x80049C10
 	.rodata     start:0x80436718 end:0x80436720
 
 pso/boss/TBoss3Volopt_80049C10.cpp:

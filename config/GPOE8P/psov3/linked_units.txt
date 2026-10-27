@@ -990,7 +990,6 @@ pso/misc/TLobby_8002B058.cpp
 pso/misc/TLobby_8002C140.cpp
 pso/misc/TLobby_8002C838.cpp
 pso/misc/TLobby_8003A95C.cpp
-pso/misc/TLobby_800495BC.cpp
 pso/misc/TLobby_8004A90C.cpp
 pso/misc/TLobby_80067410.cpp
 pso/misc/TLobby_8006F278.cpp
@@ -2238,8 +2237,6 @@ pso/object/TObjTombstone_8007666C.cpp
 pso/object/TObjTradeCollision.cpp
 pso/object/TObjTreeLobby.cpp
 pso/object/TObjVoloptCage.cpp
-pso/object/TObjVoloptCage_80048CDC.cpp
-pso/object/TObjVoloptCage_8004912C.cpp
 pso/object/TObjVoloptPillar.cpp
 pso/object/TObjVoloptShutter.cpp
 pso/object/TObjWaitEntryHairMoveSim.cpp
