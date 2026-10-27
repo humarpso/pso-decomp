@@ -1,4 +1,5 @@
 #include "pso/TMainTask.h"
+#include "pso/quest/QuestVm.h"
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/system/date.h"
@@ -500,8 +501,6 @@ struct VObj_18_f23ffb : VBase_18_f23ffb {
 
 extern "C" {
 void append_string(s32 arg0);
-namespace pf2_p1 { extern "C" { extern s32 *TLobby__script_reg_array; } }
-#define TLobby__script_reg_array pf2_p1::TLobby__script_reg_array
 extern char lbl_805DC4B4[4];
 void append_int_param__6TLobbyFi(s32 arg0);
 extern char lbl_80449C90[];
@@ -570,13 +569,13 @@ void TLobby__sub_801E6A04(void) {
 
 void append_float_value__6TLobbyFi(s32 arg0) {
     char buf[64];
-    sprintf(buf, lbl_805DC4B0, ((f32 *)TLobby__script_reg_array)[arg0]);
+    sprintf(buf, lbl_805DC4B0, ((f32 *)qst_registers)[arg0]);
     append_string((s32)buf);
 }
 
 void append_int_param__6TLobbyFi(s32 arg0) {
     char buf[64];
-    sprintf(buf, lbl_805DC4B4, TLobby__script_reg_array[arg0]);
+    sprintf(buf, lbl_805DC4B4, qst_registers[arg0]);
     append_string((s32)buf);
 }
 
@@ -631,7 +630,6 @@ void append_string(s32 arg0) {
 
 #undef get_class_type_name__6TLobbyFl
 #undef sscanf
-#undef TLobby__script_reg_array
 
 void TLobby__sub_801E6C2C(s8 arg0);
 
@@ -662,8 +660,6 @@ struct RecoveredGlobal_801E6E20_TLobby__data_80512220 {
 struct Tbl_801E6CA4 { u32 w[18]; };
 
 extern "C" {
-namespace pf2_p3 { extern "C" { extern s32 TLobby__script_reg_array; } }
-#define TLobby__script_reg_array pf2_p3::TLobby__script_reg_array
 void qst_op_olga_flow_is_dead(s32 arg0);
 namespace pf2_p3 { extern "C" { u32 find_item_by_id(int); } }
 #define find_item_by_id pf2_p3::find_item_by_id
@@ -692,10 +688,10 @@ void TLobby__sub_801E6C40(int a0, int a1) { TLobby__quest_script_read_ptr = a0; 
 
 void qst_op_olga_flow_is_dead(s32 arg0) {
     if (TBoss6PlotFalz::is_phase_reached() != 0) {
-        *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 typedef char RecoveredGlobal_801E6D18_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6D18_TLobby__data_80512220) == 0x20 ? 1 : -1];
@@ -712,13 +708,13 @@ void qst_op_get_item_stackability() {
     temp_r31 = (u8) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4);
     if (find_item_by_id((int) (*(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 0))) != 0U) {
         if (TObjPlayer__sub_801C1AC8() != 0) {
-            *(s32 *)((s8 *)(TLobby__script_reg_array + ((temp_r31 * 4) & 0x3FC)) + 0) = 1;
+            qst_registers[(u8)temp_r31] = 1;
             return;
         }
-        *(s32 *)((s8 *)(TLobby__script_reg_array + ((temp_r31 * 4) & 0x3FC)) + 0) = 0;
+        qst_registers[(u8)temp_r31] = 0;
         return;
     }
-    *(s32 *)((s8 *)(TLobby__script_reg_array + ((temp_r31 * 4) & 0x3FC)) + 0) = -1;
+    qst_registers[(u8)temp_r31] = -1;
 }
 
 void qst_op_create_symbol_chat_capture_buffer() { create_singleton__6TLobbyFPv((void *)tl_01); }
@@ -729,7 +725,7 @@ void qst_op_get_recent_symbol_chat() {
     u8 idx;
     idx = (u8) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4);
     TLobby::send_slot_entity_or_local((u16) TLobby__quest_argument_stack.value, (s32) buf);
-    memcpy((void *) (TLobby__script_reg_array + ((idx * 4) & 0x3FC)), buf, 0x3C);
+    memcpy(&qst_registers[(u8)idx], buf, 0x3C);
 }
 
 void qst_op_get_guildcard_num(void) {
@@ -738,27 +734,26 @@ void qst_op_get_guildcard_num(void) {
     temp_r31 = (u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E6E20_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
     player = (u8 *)(get_player_by_client_id((s32) (u16) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E6E20_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)));
     if (player != NULL) {
-        *(s32 *)((s8 *)(TLobby__script_reg_array + ((temp_r31 * 4) & 0x3FC)) + 0) = *(s32 *)((s8 *)player + 0xDB0);
+        qst_registers[(u8)temp_r31] = *(s32 *)((s8 *)player + 0xDB0);
         return;
     }
-    *(s32 *)((s8 *)(TLobby__script_reg_array + ((temp_r31 * 4) & 0x3FC)) + 0) = -1;
+    qst_registers[(u8)temp_r31] = -1;
 }
 }
 void qst_op_check_for_keyword(void) {
     u8 idx;
     idx = (u8) TLobby__quest_argument_stack.value;
     if (TOChatSensorCapture::check_keyword((u16) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4), (const char *) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 8)) != 0) {
-        *(s32 *) (TLobby__script_reg_array + ((idx * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)idx] = 1;
         return;
     }
-    *(s32 *) (TLobby__script_reg_array + ((idx * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)idx] = 0;
 }
 
 #undef find_item_by_id
 #undef get_player_by_client_id
 #undef TLobby__quest_argument_stack
 #undef TLobby__quest_script_read_ptr
-#undef TLobby__script_reg_array
 #undef quest_string_append_cursor
 
 struct RecoveredGlobal_801E6F1C_TLobby__data_80512220 {
@@ -791,8 +786,6 @@ namespace pf2_p4 { extern "C" { void push_op_arg__6TLobbyFi(s32); } }
 #define push_op_arg__6TLobbyFi pf2_p4::push_op_arg__6TLobbyFi
 namespace pf2_p4 { extern "C" { extern s32 TLobby__data_805D5E74; } }
 #define TLobby__data_805D5E74 pf2_p4::TLobby__data_805D5E74
-namespace pf2_p4 { extern "C" { extern u8 *TLobby__script_reg_array; } }
-#define TLobby__script_reg_array pf2_p4::TLobby__script_reg_array
 namespace pf2_p4 { extern "C" { extern s32 TLobby__quest_script_pc; } }
 #define TLobby__quest_script_pc pf2_p4::TLobby__quest_script_pc
 extern int TLobby__quest_arg_stack_count;
@@ -826,7 +819,7 @@ void qst_op_arg_pusho(u16 a0) {
 }
 
 void qst_op_arg_pusha(u8 a0) {
-    TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = (int)(TLobby__script_reg_array + a0 * 4);
+    TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = (int)(&qst_registers[a0]);
 }
 }
 
@@ -851,7 +844,7 @@ void qst_op_arg_pushl(int a0)
 }
 extern "C" {
 void qst_op_arg_pushr(u8 a0) {
-    int v = *(int *)(TLobby__script_reg_array + a0 * 4);
+    int v = *(int *)(&qst_registers[a0]);
     int old = TLobby__quest_arg_stack_count;
     TLobby__quest_arg_stack_count = old + 1;
     TLobby__quest_argument_stack[old] = v;
@@ -860,13 +853,13 @@ void qst_op_arg_pushr(u8 a0) {
 void qst_op_va_call(s32 arg0) {
   int new_var;
   (*(s32 *)&TLobby__quest_arg_stack_count) = 0;
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 4)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0)));
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 8)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 4)));
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0xC)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 8)));
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x10)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0xC)));
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x14)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0x10)));
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x18)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0x14)));
-  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x1C)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0x18)));
+  qst_registers[1] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0)));
+  qst_registers[2] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 4)));
+  qst_registers[3] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 8)));
+  qst_registers[4] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0xC)));
+  qst_registers[5] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0x10)));
+  qst_registers[6] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0x14)));
+  qst_registers[7] = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0x18)));
   push_op_arg__6TLobbyFi(TLobby__quest_script_pc);
   new_var = arg0 * 4;
   TLobby__quest_script_pc = *((s32 *) (((s8 *) (TLobby__data_805D5E74 + (new_var & 0x3FFFC))) + 0));
@@ -877,7 +870,6 @@ void qst_op_va_call(s32 arg0) {
 #undef TLobby__quest_argument_stack
 #undef TLobby__data_805D5E74
 #undef TLobby__quest_script_pc
-#undef TLobby__script_reg_array
 
 
 struct Glob_801E8614
@@ -890,7 +882,6 @@ struct Glob_801E8614
 extern "C" {
 s16 obj_getS16_32C(u8 *);
 }
-extern int* TLobby__script_reg_array;
 extern const f32 lbl_805DC4C4;
 extern const f32 lbl_805DC4D0;
 void qst_op_p_hpstat(void);
@@ -2154,7 +2145,7 @@ int is_quest_active(void);
 s32 reset_battle_camera__11TCameraCtrlFv();
 void TCameraCtrl__sub_8006B3B8(Vec_801EE220 *, Vec_801EE220 *);
 int reset_to_local_player__11TCameraCtrlFv(void*);
-void set_override_position_and_angle__11TCameraCtrlFPUcs(Vec_801E9400 *, int, Vec_801E9400 *, int *);
+void set_override_position_and_angle__11TCameraCtrlFPUcs(Vec_801E9400 *, int, Vec_801E9400 *, s32 *);
 void set_fixed_position_and_target__11TCameraCtrlFPUcPUc(Vec_801E945C *, Vec_801E945C *, Vec_801E945C *);
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 int set_active_camera_flag__11TCameraCtrlFv(void*);
@@ -2218,7 +2209,7 @@ void TLobby__sub_80190FD0(int a0);
 int TObjHashiVersus2__sub_801912A4(void*);
 int TObjHashiVersus2__sub_801912B0(void*);
 s32 delete_by_param__13TQuestColCtrlFl(int, void *);
-void * create_quest_col_apc_inw__6TLobbyFPvPv(Spawn_801E8930 *, int *);
+void * create_quest_col_apc_inw__6TLobbyFPvPv(Spawn_801E8930 *, s32 *);
 int fn_8019608C(void*);
 void * fn_80196214(Spawn_801E8C14 *, s32 *);
 void * fn_801963A8(Spawn_801E8D44 *, s32 *);
@@ -2832,7 +2823,7 @@ void qst_op_scroll_text() {
     pos.y = y;
     size.x = lbl_805DC4B8 + (f32)(cols * 0x12);
     size.y = (lbl_805DC4BC + (f32)(rows * 0x14)) - lbl_805DC4C0;
-    win = open_message_scroll_window__6TLobbyFlll(&pos, &size, (void *)((*(s32 *)&TLobby__script_reg_array) + msg * 4));
+    win = open_message_scroll_window__6TLobbyFlll(&pos, &size, &qst_registers[msg]);
     ((TLobby *)win)->set_field_90(field90);
     dispatch_message_window_text(win, arg, 0x13);
     ((TLobby *)win)->set_timer(timer);
@@ -2841,14 +2832,14 @@ void qst_op_scroll_text() {
 
 void qst_op_item_create_multi_cm(u8 i) {
     ItemData_801E72B4 item;
-    s32 mode = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
+    s32 mode = qst_registers[i++];
     ((void (*)(ItemData_801E72B4 *))init__9TItemDataFv)(&item);
-    item.data1[0] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    item.data1[1] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    item.data1[2] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    item.data1[3] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    item.data1[4] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    item.data1[5] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
+    item.data1[0] = qst_registers[i++];
+    item.data1[1] = qst_registers[i++];
+    item.data1[2] = qst_registers[i++];
+    item.data1[3] = qst_registers[i++];
+    item.data1[4] = qst_registers[i++];
+    item.data1[5] = qst_registers[i];
     item.id = ((u32 (*)(u16))advance_item_id_counter)(local_client_id);
     switch (mode) {
     case 0:
@@ -2864,7 +2855,7 @@ void qst_op_item_create_multi_cm(u8 i) {
 }
 
 void qst_op_delayed_switch_episode(s32 arg0) {
-    switch (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))) {
+    switch (qst_registers[(u8)arg0]) {
     case 0:
         request_story_select_state(0);
         return;
@@ -2947,11 +2938,11 @@ void qst_op_add_color_overlay() {
     }
 }
 
-void qst_op_get_chosen_item_id(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = -1; TLobby__active_window_index = a0; TLobby__quest_window_state = 12; TWindowCtrl::set_flag_bit2(); close_window_if_active((void *)((*(int *)&local_client_id))); request_active_window_close(); TWindowCtrl::set_close_flag(); }
+void qst_op_get_chosen_item_id(int a0) { qst_registers[(unsigned char)(a0)] = -1; TLobby__active_window_index = a0; TLobby__quest_window_state = 12; TWindowCtrl::set_flag_bit2(); close_window_if_active((void *)((*(int *)&local_client_id))); request_active_window_close(); TWindowCtrl::set_close_flag(); }
 
 void qst_op_prevent_item_select(s32 arg0) {
     if ((u32) TLobby__quest_state_object_16c != 0U) {
-        fn_80278518((void *)TLobby__quest_state_object_168, (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+        fn_80278518((void *)TLobby__quest_state_object_168, (qst_registers[(u8)arg0]));
     }
 }
 
@@ -2981,9 +2972,9 @@ void qst_op_get_players_present(u8 out) {
     s32 p;
     for (p = 0; p < 4; p++, out++) {
         if (((u8 * (*)(s32))get_player_by_client_id)(p) != NULL) {
-            ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 1;
+            qst_registers[out] = 1;
         } else {
-            ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 0;
+            qst_registers[out] = 0;
         }
     }
 }
@@ -2991,18 +2982,18 @@ void qst_op_get_players_present(u8 out) {
 void qst_op_find_bank_item(u8 i, u8 out) {
     ItemData_801E7810 item;
     s32 card;
-    ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = -1;
+    qst_registers[out] = -1;
     card = get_character_save_record(0xFFFF);
     if (card != 0) {
         ((void (*)(ItemData_801E7810 *))init__9TItemDataFv)(&item);
-        item.data1[0] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-        item.data1[1] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-        item.data1[2] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-        item.data1[4] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
+        item.data1[0] = qst_registers[i++];
+        item.data1[1] = qst_registers[i++];
+        item.data1[2] = qst_registers[i++];
+        item.data1[4] = qst_registers[i];
         if (((TAdSinglePlyChrSelectGC *)card)->find_entry((s32)(&item)) != 0) {
-            ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 1;
+            qst_registers[out] = 1;
         } else {
-            ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 0;
+            qst_registers[out] = 0;
         }
     }
 }
@@ -3029,12 +3020,12 @@ void qst_op_read_counter(void) {
     if ((temp_r31 >= 0) && (temp_r31 < 0x10))
     {
       new_var = character_save_record + (temp_r31 * 4);
-      *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r30 * 4) & 0x3FC))) + 0)) = *((s32 *) (((s8 *) new_var) + 0x2314));
+      qst_registers[(u8)temp_r30] = *((s32 *) (((s8 *) new_var) + 0x2314));
     }
   }
   else
   {
-    *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r30 * 4) & 0x3FC))) + 0)) = -1;
+    qst_registers[(u8)temp_r30] = -1;
   }
 }
 
@@ -3045,17 +3036,17 @@ void qst_op_get_coord_player_detect(u8 i, u8 out) {
     s32 p;
     u8 *player;
 
-    pos.x = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
+    pos.x = qst_registers[i++];
     pos.y = lbl_805DC4C4;
-    pos.z = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    r = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
+    pos.z = qst_registers[i++];
+    r = qst_registers[i];
     r2 = r * r;
     for (p = 0; p < 4; p++, out++) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 0;
+        qst_registers[out] = 0;
         player = ((u8 * (*)(s32))get_player_by_client_id)(p);
         if (player != NULL) {
             if (xz_distance_squared((Vec3_801E79BC *)(player + 0x38), &pos) < r2) {
-                ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 1;
+                qst_registers[out] = 1;
             }
         }
     }
@@ -3065,11 +3056,11 @@ void qst_op_get_player_room(void) {
     u8 *player = ((u8 * (*)(s32))get_player_by_client_id)((*(struct Glob_80512220 *)&TLobby__quest_argument_stack).field0);
     u8 i = *(s32 *)&(*(struct Glob_80512220 *)&TLobby__quest_argument_stack).pad[0];
     if (player != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = ((TObjPlayer *)player)->get_field_3e4();
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = ((TUnk_804B9870 *)player)->get_stat_by_key_state();
+        qst_registers[i++] = ((TObjPlayer *)player)->get_field_3e4();
+        qst_registers[i] = ((TUnk_804B9870 *)player)->get_stat_by_key_state();
     } else {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = -1;
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = -1;
+        qst_registers[i++] = -1;
+        qst_registers[i] = -1;
     }
 }
 
@@ -3077,15 +3068,15 @@ void qst_op_get_player_hp_tp(void) {
     u8 *player = ((u8 * (*)(s32))get_player_by_client_id)((*(struct Glob_80512220 *)&TLobby__quest_argument_stack).field0);
     u8 i = *(s32 *)&(*(struct Glob_80512220 *)&TLobby__quest_argument_stack).pad[0];
     if (player != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = ((TItemProShield *)player)->get_field_2b8();
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = obj_getS16_32C(player);
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = obj_getS16_2BA(player);
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = obj_getS16_32E(player);
+        qst_registers[i++] = ((TItemProShield *)player)->get_field_2b8();
+        qst_registers[i++] = obj_getS16_32C(player);
+        qst_registers[i++] = obj_getS16_2BA(player);
+        qst_registers[i] = obj_getS16_32E(player);
     } else {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = -1;
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = -1;
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = -1;
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = -1;
+        qst_registers[i++] = -1;
+        qst_registers[i++] = -1;
+        qst_registers[i++] = -1;
+        qst_registers[i] = -1;
     }
 }
 
@@ -3096,10 +3087,10 @@ void qst_op_get_section_id() {
   temp_r31 = (u8) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7C5C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 4)));
   if (temp_r3 != 0U)
   {
-    *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC))) + 0)) = get_actor_section_id__15TPlyPhotonChairFv((int) temp_r3);
+    qst_registers[(u8)temp_r31] = get_actor_section_id__15TPlyPhotonChairFv((int) temp_r3);
     return;
   }
-  *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC))) + 0)) = -1;
+  qst_registers[(u8)temp_r31] = -1;
 }
 
 void qst_op_gba_write_identifiers(void) {
@@ -3112,42 +3103,42 @@ void qst_op_get_player_level(void) {
     temp_r3 = (u8 *)(((u8 * (*)(s32))get_player_by_client_id)(*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E7CFC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)));
     temp_r31 = (u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E7CFC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)) + 0) = ((VObj_18_eecf68 *)(temp_r3))->m14() + 1;
+        qst_registers[(u8)temp_r31] = ((VObj_18_eecf68 *)(temp_r3))->m14() + 1;
         return;
     }
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)) + 0) = -1;
+    qst_registers[(u8)temp_r31] = -1;
 }
 
 void qst_op_get_slot_meseta(u8 i) {
     Card_801E7D7C *w;
     if (((u32)((u8 * (*)(s32))get_player_by_client_id)((s32)((*(void * *)&local_client_id)))) != 0) {
-        (*(s32 * *)&TLobby__script_reg_array)[i] = obj_getPtr2B0_20();
+        qst_registers[i] = obj_getPtr2B0_20();
     } else {
-        (*(s32 * *)&TLobby__script_reg_array)[i] = -1;
+        qst_registers[i] = -1;
     }
     w = ((Card_801E7D7C *)get_character_save_record(0xFFFF));
     if (w != 0) {
-        (&(*(s32 * *)&TLobby__script_reg_array)[i])[1] = w->v;
+        (&qst_registers[i])[1] = w->v;
     } else {
-        (&(*(s32 * *)&TLobby__script_reg_array)[i])[1] = -1;
+        (&qst_registers[i])[1] = -1;
     }
 }
 
-void qst_op_get_guildcard_total(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TWindowSubComCard::count_active_cards(); }
+void qst_op_get_guildcard_total(int a0) { qst_registers[(unsigned char)(a0)] = TWindowSubComCard::count_active_cards(); }
 
 void qst_op_get_time_played(s32 arg0) {
     u8 *character_save_record;
     character_save_record = (u8 *)(get_character_save_record(0xFFFFU));
     if (character_save_record != NULL) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = *(s32 *)((s8 *)character_save_record + 0xC);
+        qst_registers[(u8)arg0] = *(s32 *)((s8 *)character_save_record + 0xC);
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = -1;
+    qst_registers[(u8)arg0] = -1;
 }
 }
 
 void qst_op_get_lang_setting(void) {
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(RecoveredGlobal_801E7EB0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)) + 0) = current_language;
+    qst_registers[(*(RecoveredGlobal_801E7EB0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value] = current_language;
 }
 extern "C" {
 
@@ -3206,20 +3197,20 @@ void qst_op_get_item_info() {
     item = find_item_by_id(((s32 *)&TLobby__quest_argument_stack)[0]);
     if (item != NULL) {
         ((TItem *)item)->copy_to_item_data(&d);
-        TLobby__script_reg_array[r++] = d.b0;
-        TLobby__script_reg_array[r++] = d.b1;
-        TLobby__script_reg_array[r++] = d.b2;
-        TLobby__script_reg_array[r++] = d.b3;
-        TLobby__script_reg_array[r++] = d.b4;
-        TLobby__script_reg_array[r++] = d.b5;
-        TLobby__script_reg_array[r++] = d.b6;
-        TLobby__script_reg_array[r++] = d.b7;
-        TLobby__script_reg_array[r++] = d.b8;
-        TLobby__script_reg_array[r++] = d.b9;
-        TLobby__script_reg_array[r++] = d.b10;
-        TLobby__script_reg_array[r++] = d.b11;
+        qst_registers[r++] = d.b0;
+        qst_registers[r++] = d.b1;
+        qst_registers[r++] = d.b2;
+        qst_registers[r++] = d.b3;
+        qst_registers[r++] = d.b4;
+        qst_registers[r++] = d.b5;
+        qst_registers[r++] = d.b6;
+        qst_registers[r++] = d.b7;
+        qst_registers[r++] = d.b8;
+        qst_registers[r++] = d.b9;
+        qst_registers[r++] = d.b10;
+        qst_registers[r++] = d.b11;
     } else {
-        TLobby__script_reg_array[r] = -1;
+        qst_registers[r] = -1;
     }
 }
 
@@ -3264,13 +3255,13 @@ void qst_op_disable_movement2() {
 s32 TObjPlayer__sub_80354C7C(u16, void *);
 void qst_op_get_palettex_enabled(void) {
     u8 idx = ((s32 *)&TLobby__quest_argument_stack)[2];
-    TLobby__script_reg_array[idx] = TObjPlayer__sub_80354C7C(((s32 *)&TLobby__quest_argument_stack)[0], &TLobby__quest_argument_stack);
+    qst_registers[idx] = TObjPlayer__sub_80354C7C(((s32 *)&TLobby__quest_argument_stack)[0], &TLobby__quest_argument_stack);
 }
 
 s32 TObjPlayer__sub_80354D5C(u16, void *);
 void qst_op_get_palettex_activated(void) {
     u8 idx = ((s32 *)&TLobby__quest_argument_stack)[1];
-    TLobby__script_reg_array[idx] = TObjPlayer__sub_80354D5C(((s32 *)&TLobby__quest_argument_stack)[0], &TLobby__quest_argument_stack);
+    qst_registers[idx] = TObjPlayer__sub_80354D5C(((s32 *)&TLobby__quest_argument_stack)[0], &TLobby__quest_argument_stack);
 }
 
 void qst_op_disable_palettex(void) {
@@ -3310,13 +3301,13 @@ void qst_op_toggle_freeze_and_hide_equip() {
 
 s32 count_items_of_type__10TObjPlayerFScScSc(u32, u8, u8, u8);
 void qst_op_get_stackable_item_count(s32 i, s32 dst) {
-    u16 a = TLobby__script_reg_array[(u8)i++];
-    u8 b = TLobby__script_reg_array[(u8)i++];
-    u8 c = TLobby__script_reg_array[(u8)i++];
-    u8 d = TLobby__script_reg_array[(u8)i];
+    u16 a = qst_registers[(u8)i++];
+    u8 b = qst_registers[(u8)i++];
+    u8 c = qst_registers[(u8)i++];
+    u8 d = qst_registers[(u8)i];
     u32 p = get_player_by_client_id(a);
     if (p != 0) {
-        TLobby__script_reg_array[(u8)dst] = count_items_of_type__10TObjPlayerFScScSc(p, b, c, d);
+        qst_registers[(u8)dst] = count_items_of_type__10TObjPlayerFScScSc(p, b, c, d);
     }
 }
 
@@ -3324,14 +3315,14 @@ void qst_op_get_total_deaths() {
     u8 temp_r31;
     temp_r31 = (u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E8560_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
     if (((u32 (*)(int))get_player_by_client_id)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E8560_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0))) != 0U) {
-        *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)) + 0) = get_card_window_field_244__10TObjPlayerFv();
+        qst_registers[(u8)temp_r31] = get_card_window_field_244__10TObjPlayerFv();
     }
 }
 
 void qst_op_atan2_int(void) {
     u8 temp_r31;
     temp_r31 = (u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0);
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)) + 0) = (s32) (lbl_80449CC0 * atan2_float((void *) (&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 8))));
+    qst_registers[(u8)temp_r31] = (s32) (lbl_80449CC0 * atan2_float((void *) (&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 8))));
 }
 
 typedef struct Glob_801E8614 Glob_801E8614;
@@ -3341,94 +3332,93 @@ void qst_op_tan() {
   idx = (*(Glob_801E8614 *)&TLobby__quest_argument_stack).f0 & 0xFFu;
   arg = (*(Glob_801E8614 *)&TLobby__quest_argument_stack).f4;
   f32 v = sin_table_lookup(arg) / cos_table_lookup(arg);
-  (*(s32 * *)&TLobby__script_reg_array)[idx] = *((s32 *) (&v));
+  qst_registers[idx] = *((s32 *) (&v));
 }
 
 void qst_op_cos() {
     u8 idx = (*(Glob_801E8684 *)&TLobby__quest_argument_stack).f0;
     f32 v = cos_table_lookup((*(Glob_801E8684 *)&TLobby__quest_argument_stack).f4);
-    (*(s32 * *)&TLobby__script_reg_array)[idx] = *(s32 *)&v;
+    qst_registers[idx] = *(s32 *)&v;
 }
 
 void qst_op_sin() {
     u8 idx = (*(Glob_801E86D0 *)&TLobby__quest_argument_stack).f0;
     f32 v = sin_table_lookup((*(Glob_801E86D0 *)&TLobby__quest_argument_stack).f4);
-    (*(s32 * *)&TLobby__script_reg_array)[idx] = *(s32 *)&v;
+    qst_registers[idx] = *(s32 *)&v;
 }
 
 void qst_op_fdivi(u8 reg, s32 val) {
     U_801E871C b;
     U_801E871C a;
     a.i = val;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
+    b.f = *(f32 *)&qst_registers[reg];
     b.f /= a.f;
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_fdiv(u8 reg, u8 src) {
     U_801E8750 b;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
-    b.f /= *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    b.f = *(f32 *)&qst_registers[reg];
+    b.f /= *(f32 *)&qst_registers[src];
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_fmuli(u8 reg, s32 val) {
     U_801E8784 b;
     U_801E8784 a;
     a.i = val;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
+    b.f = *(f32 *)&qst_registers[reg];
     b.f *= a.f;
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_fmul(u8 reg, u8 src) {
     U_801E87B8 b;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
-    b.f *= *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    b.f = *(f32 *)&qst_registers[reg];
+    b.f *= *(f32 *)&qst_registers[src];
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_fsubi(u8 reg, s32 val) {
     U_801E87EC b;
     U_801E87EC a;
     a.i = val;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
+    b.f = *(f32 *)&qst_registers[reg];
     b.f -= a.f;
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_fsub(u8 reg, u8 src) {
     U_801E8820 b;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
-    b.f -= *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    b.f = *(f32 *)&qst_registers[reg];
+    b.f -= *(f32 *)&qst_registers[src];
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_faddi(u8 reg, s32 val) {
     U_801E8854 b;
     U_801E8854 a;
     a.i = val;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
+    b.f = *(f32 *)&qst_registers[reg];
     b.f += a.f;
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_fadd(u8 reg, u8 src) {
     U_801E8888 b;
-    b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
-    b.f += *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
+    b.f = *(f32 *)&qst_registers[reg];
+    b.f += *(f32 *)&qst_registers[src];
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_float2dec(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) + 0) = (s32) *(f32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) + 0);
+    qst_registers[(u8)arg0] = (s32) *(f32 *)&qst_registers[(u8)arg1];
 }
 
-#define REGS_801E8930 (*(int **)&TLobby__script_reg_array)
 void qst_op_dec2float(u8 reg, u8 src) {
     U_801E8888 b;
-    b.f = (f32)TLobby__script_reg_array[src];
-    TLobby__script_reg_array[reg] = b.i;
+    b.f = (f32)qst_registers[src];
+    qst_registers[reg] = b.i;
 }
 
 void qst_op_check_npc_straggle_ex(u8 i, u8 slot) {
@@ -3438,36 +3428,35 @@ void qst_op_check_npc_straggle_ex(u8 i, u8 slot) {
     void *obj;
 
     ((void (*)(Spawn_801E8930 *))TLobby__sub_80207F30)(&s);
-    s.x = REGS_801E8930[i++];
-    s.y = REGS_801E8930[i++];
-    s.z = REGS_801E8930[i++];
-    s.a = REGS_801E8930[i++];
-    s.c = REGS_801E8930[i++];
-    s.b = REGS_801E8930[i++];
-    obj = create_quest_col_apc_inw__6TLobbyFPvPv(&s, &REGS_801E8930[start]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i++];
+    s.b = qst_registers[i++];
+    obj = create_quest_col_apc_inw__6TLobbyFPvPv(&s, &qst_registers[start]);
     if (obj != NULL) {
-        v.x = REGS_801E8930[i++];
-        v.y = REGS_801E8930[i++];
-        v.z = REGS_801E8930[i];
+        v.x = qst_registers[i++];
+        v.y = qst_registers[i++];
+        v.z = qst_registers[i];
         TLobby__sub_801F3500(obj, &v);
-        REGS_801E8930[slot] = (u16)((int (*)(int))obj_getField1c)((int)obj);
+        qst_registers[slot] = (u16)((int (*)(int))obj_getField1c)((int)obj);
     }
 }
 
-#undef REGS_801E8930
 void qst_op_set_obj_param_ex(u8 i, u8 out) {
     Spawn_801E8AE8 s;
     void *obj;
     ((void (*)(Spawn_801E8AE8 *))TLobby__sub_80207F30)(&s);
-    s.x = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.y = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.z = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.a = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.c = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.b = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
-    obj = create_quest_col_alock(&s, &((s32 *)(*(s32 *)&TLobby__script_reg_array))[out]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i++];
+    s.b = qst_registers[i];
+    obj = create_quest_col_alock(&s, &qst_registers[out]);
     if (obj != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = obj_getField1c(obj);
+        qst_registers[out] = obj_getField1c(obj);
     }
 }
 
@@ -3476,15 +3465,15 @@ void qst_op_party_coords_call_ex(u8 i, u8 out) {
     void *obj;
     u8 first = i;
     ((void (*)(Spawn_801E8C14 *))TLobby__sub_80207F30)(&s);
-    s.x = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.y = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.z = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.a = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.b = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.c = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
-    obj = fn_80196214(&s, &((s32 *)(*(s32 *)&TLobby__script_reg_array))[first]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.b = qst_registers[i++];
+    s.c = qst_registers[i];
+    obj = fn_80196214(&s, &qst_registers[first]);
     if (obj != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = obj_getField1c(obj);
+        qst_registers[out] = obj_getField1c(obj);
     }
 }
 
@@ -3493,14 +3482,14 @@ void qst_op_npc_coords_call_ex(u8 i, u8 out) {
     void *obj;
     u8 first = i;
     ((void (*)(Spawn_801E8D44 *))TLobby__sub_80207F30)(&s);
-    s.x = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.y = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.z = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.a = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.c = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
-    obj = fn_801963A8(&s, &((s32 *)(*(s32 *)&TLobby__script_reg_array))[first]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i];
+    obj = fn_801963A8(&s, &qst_registers[first]);
     if (obj != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = obj_getField1c(obj);
+        qst_registers[out] = obj_getField1c(obj);
     }
 }
 
@@ -3509,14 +3498,14 @@ void qst_op_at_coords_talk_ex(u8 i, u8 out) {
     void *obj;
     u8 first = i;
     ((void (*)(Spawn_801E8E4C *))TLobby__sub_80207F30)(&s);
-    s.x = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.y = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.z = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.a = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.c = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
-    obj = fn_80196814(&s, &((s32 *)(*(s32 *)&TLobby__script_reg_array))[first]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i];
+    obj = fn_80196814(&s, &qst_registers[first]);
     if (obj != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = obj_getField1c(obj);
+        qst_registers[out] = obj_getField1c(obj);
     }
 }
 
@@ -3525,14 +3514,14 @@ void qst_op_at_coords_call_ex(u8 i, u8 out) {
     void *obj;
     u8 first = i;
     ((void (*)(Spawn_801E8F54 *))TLobby__sub_80207F30)(&s);
-    s.x = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.y = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.z = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.a = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
-    s.c = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
-    obj = create_quest_col(&s, &((s32 *)(*(s32 *)&TLobby__script_reg_array))[first]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i];
+    obj = create_quest_col(&s, &qst_registers[first]);
     if (obj != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = obj_getField1c(obj);
+        qst_registers[out] = obj_getField1c(obj);
     }
 }
 
@@ -3559,8 +3548,8 @@ void qst_op_toggle_freeze_enemies() {
 }
 
 void qst_op_npc_text_id(u8 a0, u8 a1, void *a2) {
-    s32 x = (*(s32 * *)&TLobby__script_reg_array)[a0];
-    s32 v = (*(s32 * *)&TLobby__script_reg_array)[a1];
+    s32 x = qst_registers[a0];
+    s32 v = qst_registers[a1];
     u16 y = x;
     u32 r = get_indexed_offset__6TLobbyFi(a2, x);
     if (r != 0U) {
@@ -3589,11 +3578,11 @@ void qst_op_compute_bezier_curve_point() {
         ((TLobby *)(pts + i * 0x10))->bswap_4x32();
     }
     ret = fn_8034D3D0(pts, f4, count, f8, fC, &v, 100);
-    dst = (Vec3_801E915C *)&((s32 *)(*(s32 *)&TLobby__script_reg_array))[out];
+    dst = (Vec3_801E915C *)&qst_registers[out];
     dst->x = v.x;
     dst->y = v.y;
     dst->z = v.z;
-    *(s32 *)&((f32 *)(*(s32 *)&TLobby__script_reg_array))[out + 3] = ret;
+    *(s32 *)&((f32 *)qst_registers)[out + 3] = ret;
     for (j = 0; j < count; j++) {
         ((TLobby *)(pts + j * 0x10))->bswap_4x32();
     }
@@ -3621,11 +3610,11 @@ void qst_op_get_vector_from_path() {
         ((TLobby *)(pts + i * 0x10))->bswap_4x32();
     }
     ret = fn_8034D790(pts, f4, count, f8, fC, &v);
-    dst = (Vec3_801E9274 *)&((s32 *)(*(s32 *)&TLobby__script_reg_array))[out];
+    dst = (Vec3_801E9274 *)&qst_registers[out];
     dst->x = v.x;
     dst->y = v.y;
     dst->z = v.z;
-    *(s32 *)&((f32 *)(*(s32 *)&TLobby__script_reg_array))[out + 3] = ret;
+    *(s32 *)&((f32 *)qst_registers)[out + 3] = ret;
     for (j = 0; j < count; j++) {
         ((TLobby *)(pts + j * 0x10))->bswap_4x32();
     }
@@ -3633,28 +3622,28 @@ void qst_op_get_vector_from_path() {
 }
 
 void qst_op_get_pressed_buttons(u8 a0, u8 a1) {
-    ((s32 *)(*(s32 *)&TLobby__script_reg_array))[a1] = controller_input_state[((s32 *)(*(s32 *)&TLobby__script_reg_array))[a0]].f28;
+    qst_registers[a1] = controller_input_state[qst_registers[a0]].f28;
 }
 
 void qst_op_get_held_buttons(u8 src, u8 dst) {
-    *(s32 *)((*(s32 *)&TLobby__script_reg_array) + dst * 4) = controller_input_state[*(s32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4)].f20;
+    qst_registers[dst] = controller_input_state[qst_registers[src]].f20;
 }
 
 int qst_op_default_camera_pos2(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
 
 void qst_op_fleti_locked_camera(void) {
-    Vec_801E9400 *p = (Vec_801E9400 *)((*(int * *)&TLobby__script_reg_array) + (*(Glob_801E9400 *)&TLobby__quest_argument_stack).f4);
+    Vec_801E9400 *p = (Vec_801E9400 *)(qst_registers + (*(Glob_801E9400 *)&TLobby__quest_argument_stack).f4);
     Vec_801E9400 v;
     v.x = p->x;
     v.y = p->y;
     v.z = p->z;
-    set_override_position_and_angle__11TCameraCtrlFPUcs(&v, (u16)(*(Glob_801E9400 *)&TLobby__quest_argument_stack).f0, p, (*(int * *)&TLobby__script_reg_array));
+    set_override_position_and_angle__11TCameraCtrlFPUcs(&v, (u16)(*(Glob_801E9400 *)&TLobby__quest_argument_stack).f0, p, qst_registers);
 }
 
 void qst_op_fleti_fixed_camera() {
     Vec_801E945C a;
     Vec_801E945C b;
-    Vec_801E945C *p = (Vec_801E945C *)((*(int * *)&TLobby__script_reg_array) + ((s32 *)&TLobby__quest_argument_stack)[0]);
+    Vec_801E945C *p = (Vec_801E945C *)(qst_registers + ((s32 *)&TLobby__quest_argument_stack)[0]);
     a.x = p[0].x;
     a.y = p[0].y;
     a.z = p[0].z;
@@ -3668,17 +3657,17 @@ struct Vec3_801E94CC { f32 x, y, z; };
 u32 find_by_id__13TQuestColCtrlFUs(u16);
 void qst_op_move_coords_object(s32 i, s32 k) {
     Vec3_801E94CC v;
-    v.x = TLobby__script_reg_array[(u8)k++];
-    v.y = TLobby__script_reg_array[(u8)k++];
-    v.z = TLobby__script_reg_array[(u8)k];
-    u32 r = find_by_id__13TQuestColCtrlFUs((u16)TLobby__script_reg_array[(u8)i]);
+    v.x = qst_registers[(u8)k++];
+    v.y = qst_registers[(u8)k++];
+    v.z = qst_registers[(u8)k];
+    u32 r = find_by_id__13TQuestColCtrlFUs((u16)qst_registers[(u8)i]);
     if (r != 0) {
         ((TUnk_804B9870 *)r)->set_position_from(&v);
     }
 }
 
 void qst_op_close_chat_bubble(s32 arg0) {
-    close_windows_by_flags__11TWindowCtrlFUs((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    close_windows_by_flags__11TWindowCtrlFUs((int) ((u16) qst_registers[(u8)arg0]), qst_registers);
 }
 
 int qst_op_set_screen_bw(void* p) { return TLobby__sub_801F3568(p); }
@@ -3686,59 +3675,59 @@ int qst_op_set_screen_bw(void* p) { return TLobby__sub_801F3568(p); }
 int qst_op_set_motion_blur() { return set_camera_capture_overlay_alpha((void*)(143)); }
 
 void qst_op_restore_tp(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 0xB, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 0xB, qst_registers);
 }
 
 void qst_op_restore_hp(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 0xA, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 0xA, qst_registers);
 }
 
 void qst_op_set_slot_zalure(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 9, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 9, qst_registers);
 }
 
 void qst_op_set_slot_jellen(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 8, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 8, qst_registers);
 }
 
 void qst_op_set_slot_deband(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 7, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 7, qst_registers);
 }
 
 void qst_op_set_slot_shifta(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 6, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 6, qst_registers);
 }
 
 void qst_op_set_slot_confuse(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 5, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 5, qst_registers);
 }
 
 void qst_op_set_slot_slow(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 4, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 4, qst_registers);
 }
 
 void qst_op_set_slot_freeze(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 3, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 3, qst_registers);
 }
 
 void qst_op_set_slot_shock(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 2, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 2, qst_registers);
 }
 
 void qst_op_set_slot_paralyze(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 1, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 1, qst_registers);
 }
 
 void qst_op_set_slot_poison(s32 arg0) {
-    TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 0, (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    TLobby__sub_8034DAA0((int) (qst_registers[(u8)arg0]), 0, qst_registers);
 }
 
 void qst_op_clear_slot_invincible(s32 arg0) {
-    reset_player_lobby_model__10TNpcPlayerFUs((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    reset_player_lobby_model__10TNpcPlayerFUs((int) ((u16) qst_registers[(u8)arg0]), qst_registers);
 }
 
 void qst_op_set_slot_invincible(s32 arg0, s32 arg1) {
-    update_player_field__10TNpcPlayerFUsl((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    update_player_field__10TNpcPlayerFUsl((int) ((u16) qst_registers[(u8)arg0]), (int) (qst_registers[(u8)arg1]), qst_registers);
 }
 
 struct Move_801E989C {
@@ -3756,10 +3745,10 @@ void qst_op_run_to_coord(u8 arg0) {
     s32 i;
 
     i = arg0;
-    x = TLobby__script_reg_array[i++];
+    x = qst_registers[i++];
     i++;
-    z = TLobby__script_reg_array[i++];
-    id = TLobby__script_reg_array[i];
+    z = qst_registers[i++];
+    id = qst_registers[i];
     if (get_player_by_client_id(id) != 0) {
         ((TNpcPlayer *)(&m))->reset_move_state();
         m.id = id;
@@ -3770,11 +3759,11 @@ void qst_op_run_to_coord(u8 arg0) {
 }
 
 void qst_op_stop_animation(s32 arg0) {
-    end_camera_pan_for_client__10TNpcPlayerFUs((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    end_camera_pan_for_client__10TNpcPlayerFUs((int) ((u16) qst_registers[(u8)arg0]), qst_registers);
 }
 
 void qst_op_use_animation(s32 arg0, s32 arg1) {
-    apply_to_battle_player_slot__10TNpcPlayerFUss((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (int) ((s16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    apply_to_battle_player_slot__10TNpcPlayerFUss((int) ((u16) qst_registers[(u8)arg0]), (int) ((s16) qst_registers[(u8)arg1]), qst_registers);
 }
 
 void reset_random_enemies_mode__6TLobbyFv(void) { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
@@ -3788,10 +3777,10 @@ void qst_op_qexit() {
 
 void qst_op_results_window_visible_multi_cm(s32 arg0) {
     if (update_challenge_result_player_locks() != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_congrats_msg_multi_cm(u8 arg0) {
@@ -3799,7 +3788,7 @@ void qst_op_congrats_msg_multi_cm(u8 arg0) {
     TChallenge4PResult::clear_slot_entries();
     i = 0;
     do {
-        TChallenge4PResult::create((u16)i, (*(s32 * *)&TLobby__script_reg_array)[arg0]);
+        TChallenge4PResult::create((u16)i, qst_registers[arg0]);
         i += 1;
     } while (i < 4);
 }
@@ -3811,9 +3800,9 @@ void qst_op_start_or_update_gba_joyboot(s32 idx) {
     update_gba_joyboot_transfer();
     n = TLobby__sub_801F34F8();
     if (n >= 0 && n < 5) {
-        (*(s32 * *)&TLobby__script_reg_array)[(u8)idx] = tbl[n];
+        qst_registers[(u8)idx] = tbl[n];
     } else {
-        (*(s32 * *)&TLobby__script_reg_array)[(u8)idx] = 2;
+        qst_registers[(u8)idx] = 2;
     }
 }
 
@@ -3821,14 +3810,14 @@ void qst_op_prepare_gba_rom_from_download() { update_alloc_size__6TLobbyFv((void
 
 void qst_op_get_dl_status(s32 arg0) {
     if (TLobby::get_lobby_count() != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+        qst_registers[(u8)arg0] = 0;
         return;
     }
     if (TLobby::get_field_6CE8() != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 2;
+        qst_registers[(u8)arg0] = 2;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+    qst_registers[(u8)arg0] = 1;
 }
 
 void qst_op_file_dl_req(void) {
@@ -3884,35 +3873,35 @@ void qst_op_disable_retry_menu() {
 
 void qst_op_chl_set_min_time_online(s32 arg0) {
     if (is_split_screen() == 1) {
-        TLobby__sub_80291DF8((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+        TLobby__sub_80291DF8((int) (qst_registers[(u8)arg0]));
         return;
     }
-    TLobby__sub_80070B34((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+    TLobby__sub_80070B34((int) (qst_registers[(u8)arg0]));
 }
 
 void qst_op_check_for_hacking(u8 out) {
     u32 *p;
     s16 i;
     u8 *player;
-    ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 0;
+    qst_registers[out] = 0;
     p = (u32 *)0x8C007220;
     for (i = 0; i < 0xC0U; i++) {
         if (*p++ != 0) {
-            ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 1;
+            qst_registers[out] |= 1;
         }
     }
     if (fn_80077790() == 1) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 2;
+        qst_registers[out] |= 2;
     }
     if (fn_80077788() == 1) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 4;
+        qst_registers[out] |= 4;
     }
     if (TLobby::get_drop_flag() == 1) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 8;
+        qst_registers[out] |= 8;
     }
     player = ((u8 *)((u32 (*)(int))get_player_by_client_id)(local_client_id));
     if (player != NULL && TObjPlayer__sub_801BFFA0(player + 0x41C) != 0) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 0x10;
+        qst_registers[out] |= 0x10;
     }
 }
 }
@@ -3930,35 +3919,35 @@ void qst_op_write1(void) {
 }
 
 void qst_op_read4(void) {
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) * 4) & 0x3FC)) + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
+    qst_registers[(u8)*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)] = *(s32 *)((s8 *)(*(s32 **)((s8 *)(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
 }
 
 void qst_op_read2(void) {
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) * 4) & 0x3FC)) + 0) = (s32) *(s16 *)((s8 *)(*(s16 **)((s8 *)(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
+    qst_registers[(u8)*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)] = (s32) *(s16 *)((s8 *)(*(s16 **)((s8 *)(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
 }
 
 extern "C" {
 void qst_op_read1() {
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) * 4) & 0x3FC)) + 0) = (s32) (s8) *(u8 *)((s8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
+    qst_registers[(u8)*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)] = (s32) (s8) *(u8 *)((s8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
 }
 
 void qst_op_someone_has_spoken(s32 arg0) {
     if (strcmp((void *)(get_unit_list__6TLobbyFv()), (void *) (&TLobby__data_805DC4A0)) == 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+        qst_registers[(u8)arg0] = 0;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+    qst_registers[(u8)arg0] = 1;
 }
 
 void qst_op_party_has_name(s32 arg0) {
     if (strcmp((void *)(TLobby__sub_80070ACC()), (void *) (&TLobby__data_805DC4A0)) == 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+        qst_registers[(u8)arg0] = 0;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+    qst_registers[(u8)arg0] = 1;
 }
 
-void qst_op_get_number_of_players2(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::get_game_mode(); }
+void qst_op_get_number_of_players2(int a0) { qst_registers[(unsigned char)(a0)] = TLobby::get_game_mode(); }
 
 u8 *TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 get_slot_clamped__6TLobbyFv(int);
@@ -3967,20 +3956,20 @@ void qst_op_get_cmode_prize_rank(s32 arg0) {
 
     character_save_record = get_character_save_record(0xFFFF);
     if (character_save_record != 0U) {
-        *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = get_slot_clamped__6TLobbyFv((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F134(character_save_record + 0x21C4, -1)) + 4)));
+        qst_registers[(u8)arg0] = get_slot_clamped__6TLobbyFv((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F134(character_save_record + 0x21C4, -1)) + 4)));
     }
 }
 
 void qst_op_get_ba_record(u8 i) {
     Card_801EA0F0 *card = (Card_801EA0F0 *)get_character_save_record(0xFFFF);
     if (card != NULL) {
-        (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[0];
-        (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[1];
-        (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[2];
-        (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[3];
-        (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[4];
-        (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[5];
-        (*(int * *)&TLobby__script_reg_array)[i] = card->stats[6];
+        qst_registers[i++] = card->stats[0];
+        qst_registers[i++] = card->stats[1];
+        qst_registers[i++] = card->stats[2];
+        qst_registers[i++] = card->stats[3];
+        qst_registers[i++] = card->stats[4];
+        qst_registers[i++] = card->stats[5];
+        qst_registers[i] = card->stats[6];
     }
 }
 
@@ -3989,21 +3978,21 @@ void qst_op_is_there_grave_message(s32 arg0) {
     character_save_record = get_character_save_record(0xFFFFU);
     if (character_save_record != 0U) {
         if (strncmp((void *) (character_save_record + 0x2254), (void *) (&TLobby__data_805DC4A0), 0x20) == 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+            qst_registers[(u8)arg0] = 0;
             return;
         }
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_vol_opt_is_dead(s32 arg0) {
     if ((s32) volopt_death_active != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_ba_death_tech_level_up(void) {
@@ -4014,11 +4003,11 @@ void qst_op_ba_death_tech_level_up(void) {
 }
 
 void qst_op_set_shrink_size(s32 player_variable, s32 size_variable) {
-    TObjPlayer* player = ((TObjPlayer*)((s32 (*)(int, void *))get_player_by_client_id)((int)((*(s32* *)&TLobby__script_reg_array)[(u8)player_variable]), (void *)size_variable));
+    TObjPlayer* player = ((TObjPlayer*)((s32 (*)(int, void *))get_player_by_client_id)((int)(qst_registers[(u8)player_variable]), (void *)size_variable));
     if (player && !obj_isState2_324__13TUnk_804806E8Fv(player)) {
-        s32 whole = (*(s32* *)&TLobby__script_reg_array)[(u8)size_variable++];
-        s32 numerator = (*(s32* *)&TLobby__script_reg_array)[(u8)size_variable++];
-        s32 denominator = (*(s32* *)&TLobby__script_reg_array)[(u8)size_variable];
+        s32 whole = qst_registers[(u8)size_variable++];
+        s32 numerator = qst_registers[(u8)size_variable++];
+        s32 denominator = qst_registers[(u8)size_variable];
         ((TObjPlayer *)(&player->scale_state))->set_speed(denominator > 0 ? (f32)whole + (f32)numerator / (f32)denominator : (f32)whole);
     }
 }
@@ -4027,16 +4016,16 @@ extern "C" {
 void qst_op_set_symbol_chat_collision(u8 i) {
     Spawn_801EA388 s;
     TLobby__sub_80207F30((Spawn_801EA508 *)&s);
-    s.x = TLobby__script_reg_array[i++];
-    s.y = TLobby__script_reg_array[i++];
-    s.z = TLobby__script_reg_array[i++];
-    s.a = TLobby__script_reg_array[i++];
-    s.c = TLobby__script_reg_array[i++];
-    s.d = TLobby__script_reg_array[i++];
-    s.e = TLobby__script_reg_array[i++];
-    symbolchat_colli_param_table[0] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)TLobby__script_reg_array[i++]);
-    symbolchat_colli_param_table[1] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)TLobby__script_reg_array[i++]);
-    symbolchat_colli_param_table[2] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)TLobby__script_reg_array[i]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i++];
+    s.d = qst_registers[i++];
+    s.e = qst_registers[i++];
+    symbolchat_colli_param_table[0] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)qst_registers[i++]);
+    symbolchat_colli_param_table[1] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)qst_registers[i++]);
+    symbolchat_colli_param_table[2] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)qst_registers[i]);
     TOSymbolchatColli::create(&s);
     symbolchat_colli_param_table[1] = 0;
     symbolchat_colli_param_table[0] = 0;
@@ -4048,16 +4037,16 @@ void qst_op_set_chat_callback_no_filter(u8 i) {
     TLobby__sub_80207F30(&s);
     s.f18 = 0;
     s.f1c = 1;
-    s.x = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.y = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.z = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.a = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.c = (*(int * *)&TLobby__script_reg_array)[i];
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i];
     TOChatSensor__create((s32)&s);
 }
 
 void qst_op_write_flag_buf_to_event_flags(u8 arg0) {
-    s32 idx = (*(int * *)&TLobby__script_reg_array)[arg0];
+    s32 idx = qst_registers[arg0];
     Ctx_801EA5FC *w = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (w != NULL && idx >= 0 && idx < 0xFD) {
         ((TLobby *)(&w->buf[idx]))->move_data(&TLobby__data_805D5EC4, 4);
@@ -4077,17 +4066,17 @@ void qst_op_load_serial_number_to_flag_buf() {
 void qst_op_is_bosswarp_opt_disabled(s32 arg0) {
     if (is_split_screen() == 1) {
         if (TLobby::get_normalized_mode() != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+            qst_registers[(u8)arg0] = 1;
             return;
         }
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+        qst_registers[(u8)arg0] = 0;
         return;
     }
     if (TLobby::get_state() != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_enable_bosswarp_option() {
@@ -4108,7 +4097,7 @@ void qst_op_disable_bosswarp_option() {
 
 void qst_op_player_recovery(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int) (qst_registers[(u8)arg0]), qst_registers);
     if (temp_r3 != 0) {
         send_code_49_1__10TObjPlayerFi();
         send_code50_packet__10TObjPlayerFi((temp_r3));
@@ -4139,13 +4128,13 @@ void qst_op_get_chl_retry_choice(s32 arg0) {
     }
     switch (var_r3) {
     case -1:
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+        qst_registers[(u8)arg0] = 0;
         return;
     case 0:
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     case 1:
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 2;
+        qst_registers[(u8)arg0] = 2;
         return;
     }
 }
@@ -4172,52 +4161,48 @@ void qst_op_get_random(s32 arg0, s32 arg1) {
   s32 temp_r31;
   s32 var_r4;
   s32 temp_r30;
-  temp_r31 = *((s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + ((arg0 * 4) & 0x3FC)));
-  temp_r30 = *((s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + (((arg0 + 1) * 4) & 0x3FC)));
+  temp_r31 = qst_registers[(u8)arg0];
+  temp_r30 = qst_registers[(u8)(arg0 + 1)];
   var_r4 = (s32) (((f32) temp_r30) * (lbl_805DC4C8 * ((f32) rand())));
   if (var_r4 < temp_r31)
   {
     var_r4 = temp_r31;
   }
-  *((s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + ((arg1 * 4) & 0x3FC))) = var_r4;
+  qst_registers[(u8)arg1] = var_r4;
 }
 }
 
 void qst_op_shift_right(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) >> *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] >>= qst_registers[(u8)arg1];
 }
 
 void qst_op_shift_left(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) << *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] <<= qst_registers[(u8)arg1];
 }
 
 extern "C" {
 void qst_op_get_eventflag32(u8 a0, u8 a1) {
     s32 v;
-    (*(int * *)&TLobby__script_reg_array)[a1] = 0;
+    qst_registers[a1] = 0;
     Ctx_801EAA34 *w = ((Ctx_801EAA34 *)get_global_state__23TAdSinglePlyChrSelectGCFv());
     if (w != NULL) {
-        s32 i = (*(int * *)&TLobby__script_reg_array)[a0];
+        s32 i = qst_registers[a0];
         if (i >= 0 && i < 0xFD) {
             memcpy(&v, &w->buf[i], 4);
-            (*(int * *)&TLobby__script_reg_array)[a1] = v;
+            qst_registers[a1] = v;
         }
     }
 }
 
 void qst_op_get_eventflag16(u8 a0, u8 a1) {
     s16 v;
-    (*(int * *)&TLobby__script_reg_array)[a1] = 0;
+    qst_registers[a1] = 0;
     Ctx_801EAAB4 *w = ((Ctx_801EAAB4 *)get_global_state__23TAdSinglePlyChrSelectGCFv());
     if (w != NULL) {
-        s32 i = (*(int * *)&TLobby__script_reg_array)[a0];
+        s32 i = qst_registers[a0];
         if (i >= 0 && i < 0xFF) {
             memcpy(&v, &w->buf[i], 2);
-            (*(int * *)&TLobby__script_reg_array)[a1] = v;
+            qst_registers[a1] = v;
         }
     }
 }
@@ -4277,11 +4262,11 @@ void qst_op_set_chat_callback() {
     s32 arg = *(s32 *)&(*(RecoveredGlobal_801EA274_TLobby__data_80512220 *)&TLobby__quest_argument_stack).remaining[0];
     void *sensor;
     TLobby__sub_80207F30((Spawn_801EA508 *)(&s));
-    s.x = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.y = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.z = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.a = (*(int * *)&TLobby__script_reg_array)[i++];
-    s.c = (*(int * *)&TLobby__script_reg_array)[i];
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i];
     sensor = (void *)TOChatSensor__create((s32)((Spawn_801EA508 *)(&s)));
     if (sensor != NULL) {
         ((TOChatSensor *)sensor)->set_trigger_text((void *)arg);
@@ -4290,7 +4275,7 @@ void qst_op_set_chat_callback() {
 
 void qst_op_set_cmode_grave_rates(s32 reg) {
     f32 params[10];
-    int *p = &(*(int **)&TLobby__script_reg_array)[(u8)reg];
+    s32 *p = &qst_registers[(u8)reg];
     f32 num, den, ratio;
     num = p[0];
     den = p[1];
@@ -4337,22 +4322,22 @@ void qst_op_set_cmode_grave_rates(s32 reg) {
 
 void qst_op_chl_get_timerecord(s32 arg0) {
     if (is_split_screen() == 1) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = TLobby__sub_8029204C();
+        qst_registers[(u8)arg0] = TLobby__sub_8029204C();
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = TLobby::get_max_challenge_time();
+    qst_registers[(u8)arg0] = TLobby::get_max_challenge_time();
 }
 
 void qst_op_chl_set_timerecord(s32 arg0) {
     if (is_split_screen() == 1) {
-        TLobby__sub_80292200((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+        TLobby__sub_80292200((int) (qst_registers[(u8)arg0]));
         return;
     }
-    TLobby__sub_80070EE4((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+    TLobby__sub_80070EE4((int) (qst_registers[(u8)arg0]));
 }
 
 void qst_op_get_game_version(s32 arg0) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 3;
+    qst_registers[(u8)arg0] = 3;
 }
 
 void qst_op_send_mail(void) {
@@ -4374,7 +4359,7 @@ void qst_op_send_mail(void) {
             card->m0(1);
         }
     } else {
-        tag.id = (*(int * *)&TLobby__script_reg_array)[i];
+        tag.id = qst_registers[i];
         strncpy(tag.name, (int)((u8 *)card + 0x1C), 0xF);
         tag.name[0xF] = 0;
         strncpy(tag.text, (int)((u8 *)card + 0x3C), 0x1FF);
@@ -4394,60 +4379,60 @@ s32 TLobby::init_guild_card_tag() {
 
 void qst_op_get_player_state(s32 arg0, s32 arg1) {
     s32 temp_r3;
-    temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))), (void *)arg1);
+    temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int)((int) (qst_registers[(u8)arg0])), (void *)arg1);
     if (temp_r3 != 0) {
         if (TLobby__sub_801F345C() != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 1;
+            qst_registers[(u8)arg1] = 1;
             return;
         }
         if (set_flag_4__6TLobbyFPv((void *)temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 2;
+            qst_registers[(u8)arg1] = 2;
             return;
         }
         if (((TLobby *)temp_r3)->test_flag_16() != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 3;
+            qst_registers[(u8)arg1] = 3;
             return;
         }
         if (TLobby__sub_801F33F0((void *)temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 4;
+            qst_registers[(u8)arg1] = 4;
             return;
         }
         if (TLobby__sub_801F33CC((void *)temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 5;
+            qst_registers[(u8)arg1] = 5;
             return;
         }
         if (TLobby__sub_801F33A8((void *)temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 6;
+            qst_registers[(u8)arg1] = 6;
             return;
         }
         if (TLobby__sub_801F3384((void *)temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 7;
+            qst_registers[(u8)arg1] = 7;
             return;
         }
         if (((TLobby *)temp_r3)->check_flag_24576() != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 8;
+            qst_registers[(u8)arg1] = 8;
             return;
         }
         if (set_flag_8000__6TLobbyFv(temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 9;
+            qst_registers[(u8)arg1] = 9;
             return;
         }
         if (TLobby__sub_801F3314(temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0xA;
+            qst_registers[(u8)arg1] = 0xA;
             return;
         }
         if (set_flag_40000__6TLobbyFv(temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0xB;
+            qst_registers[(u8)arg1] = 0xB;
             return;
         }
         if (set_flag_80000__6TLobbyFv(temp_r3) != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0xC;
+            qst_registers[(u8)arg1] = 0xC;
             return;
         }
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
+        qst_registers[(u8)arg1] = 0;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg1] = 0;
 }
 
 void qst_op_disable_win_pfx(void) { TLobby__battle_ctrl_default_value = 0; }
@@ -4455,13 +4440,13 @@ void qst_op_disable_win_pfx(void) { TLobby__battle_ctrl_default_value = 0; }
 void qst_op_enable_win_pfx(void) { TLobby__battle_ctrl_default_value = 1; }
 
 void qst_op_ba_get_score(u8 src, u8 dst) {
-    E_801EB484 e = TLobby__duel_result_table[(*(int * *)&TLobby__script_reg_array)[src]];
-    (*(int * *)&TLobby__script_reg_array)[dst] = e.b;
+    E_801EB484 e = TLobby__duel_result_table[qst_registers[src]];
+    qst_registers[dst] = e.b;
 }
 
 void qst_op_ba_get_place(u8 a0, u8 a1) {
-    E_801EB4C4 e = ((E_801EB4C4 *)&TLobby__duel_result_table)[(*(int * *)&TLobby__script_reg_array)[a0]];
-    (*(int * *)&TLobby__script_reg_array)[a1] = e.b;
+    E_801EB4C4 e = ((E_801EB4C4 *)&TLobby__duel_result_table)[qst_registers[a0]];
+    qst_registers[a1] = e.b;
 }
 
 void qst_op_set_eventflag32() {
@@ -4492,9 +4477,9 @@ void qst_op_call_image_data() {
 
 void qst_op_animation_check(s32 arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((u32) (u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))), (int)(arg1))));
+    temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((u32) (u16) qst_registers[(u8)arg0])), (int)(arg1))));
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = TLobby__sub_80142944(temp_r3);
+        qst_registers[(u8)arg1] = TLobby__sub_80142944(temp_r3);
     }
 }
 
@@ -4508,68 +4493,57 @@ void qst_op_set_eventflag16() {
 }
 
 void qst_op_get_pl_job(s32 arg0) {
-    s32 temp_r31;
     u8 *temp_r3;
-    temp_r31 = (arg0 * 4) & 0x3FC;
-    temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0)), (int)((*(s32 *)&TLobby__script_reg_array)))));
+    temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)qst_registers[(u8)arg0], (int)qst_registers)));
     if (temp_r3 != NULL) {
         strncpy((void *) (&quest_player_class_name_buffer.value), (int) (get_class_type_name__6TLobbyFl((int) (((TObjPlayer *)temp_r3)->class_flags))), 0xF);
         *(s8 *)((s8 *)(&quest_player_class_name_buffer.value) + 0xF) = 0;
-        *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_get_pl_name(s32 arg0) {
-    s32 temp_r31;
     u8 *temp_r3;
-    temp_r31 = (arg0 * 4) & 0x3FC;
-    temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0)), (int)((*(s32 *)&TLobby__script_reg_array)))));
+    temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)qst_registers[(u8)arg0], (int)qst_registers)));
     if (temp_r3 != NULL) {
         strncpy((void *)((void *) (&quest_player_name_buffer.value)), (int)((void *) (((VObj_18_26c590 *)(temp_r3))->m10())), 0xF);
         *(s8 *)((s8 *)(&quest_player_name_buffer.value) + 0xF) = 0;
-        *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_set_trap_damage(s32 i) {
     s32 j = i + 1;
-    TOMineTrap__sub_80171368((f32)(*(s32 * *)&TLobby__script_reg_array)[(u8)i] + (f32)(*(s32 * *)&TLobby__script_reg_array)[(u8)j] / (f32)(*(s32 * *)&TLobby__script_reg_array)[(u8)++j]);
+    TOMineTrap__sub_80171368((f32)qst_registers[(u8)i] + (f32)qst_registers[(u8)j] / (f32)qst_registers[(u8)++j]);
 }
 
 void qst_op_get_eventflag(s32 arg0, s32 arg1) {
-    s32 temp_r0;
-    s32 var_r30;
-    s32 var_r31;
-    s32 var_r4;
-    u32 temp_r3;
-    u8 *var_r3;
-    var_r30 = arg0;
-    var_r31 = arg1;
-    temp_r3 = ((s32 (*)(void))get_global_state__23TAdSinglePlyChrSelectGCFv)();
-    if (temp_r3 != 0U) {
-        var_r4 = (*(s32 *)&TLobby__script_reg_array);
-        temp_r0 = *(s32 *)((s8 *)var_r4 + ((var_r30 * 4) & 0x3FC));
-        if ((temp_r0 >= 0) && (temp_r0 < 0x100)) {
-            var_r3 = (u8 *)(temp_r3 + temp_r0);
-            var_r3 = (u8 *)((void *) *(u8 *)((s8 *)var_r3 + 0x10));
-            *(s32 *)((s8 *)var_r4 + ((var_r31 * 4) & 0x3FC)) = (long) (var_r3);
+    u8 *flags;
+    s32 *regs;
+    s32 index;
+    flags = (u8 *)((s32 (*)(void))get_global_state__23TAdSinglePlyChrSelectGCFv)();
+    if (flags != NULL) {
+        regs = qst_registers;
+        index = regs[(u8)arg0];
+        if (index >= 0 && index < 0x100) {
+            regs[(u8)arg1] = flags[index + 0x10];
         }
     }
 }
 
 void qst_op_get_serial_number(u8 arg0) {
-    (*(int * *)&TLobby__script_reg_array)[arg0] = ((s32 (*)(void))get_serial_access__22TQuestVmDownLoadServerFv)();
-    if ((*(int * *)&TLobby__script_reg_array)[arg0] == 0) {
-        (*(int * *)&TLobby__script_reg_array)[arg0] = ((s32 (*)(void))poll_serial_access__22TQuestVmDownLoadServerFv)();
+    qst_registers[arg0] = ((s32 (*)(void))get_serial_access__22TQuestVmDownLoadServerFv)();
+    if (qst_registers[arg0] == 0) {
+        qst_registers[arg0] = ((s32 (*)(void))poll_serial_access__22TQuestVmDownLoadServerFv)();
     }
 }
 
 void qst_op_kill_player(s32 arg0) {
-    if (((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))) != 0U) {
+    if (((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers) != 0U) {
         TObjPlayer__sub_801AF904();
     }
 }
@@ -4578,77 +4552,77 @@ void qst_op_get_guild_card_file_creation_time(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = ((u8 * (*)(void))get_state__23TAdSinglePlyChrSelectGCFv)();
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = *(s32 *)((s8 *)temp_r3 + 0xE284);
+        qst_registers[(u8)arg0] = *(s32 *)((s8 *)temp_r3 + 0xE284);
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 void qst_op_take_slot_meseta(s32 arg0, s32 arg1) {
-    u32 p = get_player_by_client_id(TLobby__script_reg_array[(u8)arg0++]);
+    u32 p = get_player_by_client_id(qst_registers[(u8)arg0++]);
     if (p != 0) {
-        if (try_spend_actor_meseta((u8 *)p, TLobby__script_reg_array[(u8)arg0]) != 0) {
-            TLobby__script_reg_array[(u8)arg1] = 1;
+        if (try_spend_actor_meseta((u8 *)p, qst_registers[(u8)arg0]) != 0) {
+            qst_registers[(u8)arg1] = 1;
         } else {
-            TLobby__script_reg_array[(u8)arg1] = 0;
+            qst_registers[(u8)arg1] = 0;
         }
     } else {
-        TLobby__script_reg_array[(u8)((u8)arg1 + 1)] = 0;
+        qst_registers[(u8)((u8)arg1 + 1)] = 0;
     }
 }
 
 void qst_op_get_chara_class(s32 arg0, s32 arg1) {
-    u8 *p = ((u8 * (*)(s32))get_player_by_client_id)(TLobby__script_reg_array[(u8)arg0]);
+    u8 *p = ((u8 * (*)(s32))get_player_by_client_id)(qst_registers[(u8)arg0]);
     if (p != NULL) {
         s32 f = ((TObjPlayer *)p)->class_flags;
         if (f & CLASS_FLAG_HUMAN) {
-            TLobby__script_reg_array[(u8)arg1] = RACE_HUMAN;
+            qst_registers[(u8)arg1] = RACE_HUMAN;
         } else if (f & CLASS_FLAG_NEWMAN) {
-            TLobby__script_reg_array[(u8)arg1] = RACE_NEWMAN;
+            qst_registers[(u8)arg1] = RACE_NEWMAN;
         } else if (f & CLASS_FLAG_ANDROID) {
-            TLobby__script_reg_array[(u8)arg1] = RACE_ANDROID;
+            qst_registers[(u8)arg1] = RACE_ANDROID;
         } else {
-            TLobby__script_reg_array[(u8)arg1] = RACE_NONE;
+            qst_registers[(u8)arg1] = RACE_NONE;
         }
         if (f & CLASS_FLAG_HUNTER) {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_HUNTER;
+            qst_registers[(u8)(arg1 + 1)] = CLASS_TYPE_HUNTER;
         } else if (f & CLASS_FLAG_RANGER) {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_RANGER;
+            qst_registers[(u8)(arg1 + 1)] = CLASS_TYPE_RANGER;
         } else if (f & CLASS_FLAG_FORCE) {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_FORCE;
+            qst_registers[(u8)(arg1 + 1)] = CLASS_TYPE_FORCE;
         } else {
-            TLobby__script_reg_array[(u8)(arg1 + 1)] = CLASS_TYPE_NONE;
+            qst_registers[(u8)(arg1 + 1)] = CLASS_TYPE_NONE;
         }
     } else {
-        TLobby__script_reg_array[(u8)arg1++] = RACE_NONE;
-        TLobby__script_reg_array[(u8)arg1] = CLASS_TYPE_NONE;
+        qst_registers[(u8)arg1++] = RACE_NONE;
+        qst_registers[(u8)arg1] = CLASS_TYPE_NONE;
     }
 }
 
 void qst_op_get_gender(s32 arg0, s32 arg1) {
     s32 temp_r3_2;
     u8 *temp_r3;
-    temp_r3 = ((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)(arg1))));
+    temp_r3 = ((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(qst_registers[(u8)arg0]))), (int)((int)(arg1))));
     if (temp_r3 != NULL) {
         temp_r3_2 = ((TObjPlayer *)temp_r3)->class_flags;
         if (temp_r3_2 & CLASS_FLAG_MALE) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_MALE;
+            qst_registers[(u8)arg1] = GENDER_MALE;
             return;
         }
         if (temp_r3_2 & CLASS_FLAG_FEMALE) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_FEMALE;
+            qst_registers[(u8)arg1] = GENDER_FEMALE;
             return;
         }
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_NONE;
+        qst_registers[(u8)arg1] = GENDER_NONE;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_NONE;
+    qst_registers[(u8)arg1] = GENDER_NONE;
 }
 
 void qst_op_disable_techs(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))));
+    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers);
     if (temp_r3 != 0U) {
         TLobby__sub_801F3694((void *)(temp_r3 + 0x428));
     }
@@ -4656,7 +4630,7 @@ void qst_op_disable_techs(s32 arg0) {
 
 void qst_op_enable_techs(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))));
+    temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers);
     if (temp_r3 != 0U) {
         TFontSmallLobby__sub_801C013C((void *)(temp_r3 + 0x428));
     }
@@ -4664,7 +4638,7 @@ void qst_op_enable_techs(s32 arg0) {
 
 void qst_op_disable_stealth_suit_effect(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))))), (int)((int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))))));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)((int) (qst_registers[(u8)arg0])))), (int)((int)qst_registers)));
     if ((temp_r3 != 0) && (sub_801A1DDC__10TObjPlayerFv() != 0)) {
         draw_small_label__15TFontSmallLobbyFi((temp_r3));
     }
@@ -4672,7 +4646,7 @@ void qst_op_disable_stealth_suit_effect(s32 arg0) {
 
 void qst_op_enable_stealth_suit_effect(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers));
     if ((temp_r3 != 0) && (sub_801A1DDC__10TObjPlayerFv() != 0)) {
         TLobby__sub_801B1254((temp_r3));
     }
@@ -4704,43 +4678,43 @@ void qst_op_set_cmode_rank_override(void) {
 
 void qst_op_dark_falz_is_dead(s32 arg0) {
     if (TLobby::is_boss_phase_reached() != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 int qst_op_ba_clear_trapself(void) { return set_trap_count__10TOMineTrapFi((void*)(0)); }
 
 int qst_op_ba_set_trapself() { return set_trap_count__10TOMineTrapFi((void*)(1)); }
 
-void qst_op_award_item_ok(int a0) { TLobby__menu_state_object = create__16TObjItemOKWindowFPv((void*)tl_01); TLobby__script_reg_array[(unsigned char)(a0)] = 0; TLobby__active_window_index = a0; TLobby__quest_window_state = 11; }
+void qst_op_award_item_ok(int a0) { TLobby__menu_state_object = create__16TObjItemOKWindowFPv((void*)tl_01); qst_registers[(unsigned char)(a0)] = 0; TLobby__active_window_index = a0; TLobby__quest_window_state = 11; }
 
 void qst_op_ba_set_box_drop_area(s32 arg0) {
-    create_instance__12TItemDropSubFl((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    create_instance__12TItemDropSubFl((int) (qst_registers[(u8)arg0]), qst_registers);
 }
 
 void qst_op_item_create_cmode(u8 arg0, u8 arg1) {
     Item_801EBF30 item;
     ((s32 (*)(void *))init__9TItemDataFv)((void *)(&item));
-    item.data[0] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[1] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[2] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[3] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[4] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[5] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0];
+    item.data[0] = qst_registers[(u8)arg0++];
+    item.data[1] = qst_registers[(u8)arg0++];
+    item.data[2] = qst_registers[(u8)arg0++];
+    item.data[3] = qst_registers[(u8)arg0++];
+    item.data[4] = qst_registers[(u8)arg0++];
+    item.data[5] = qst_registers[(u8)arg0];
     item.id = advance_item_id_counter(local_client_id);
     if (is_split_screen() == 1) {
         if (TLobby__sub_802924B4(&item, 0) != 0) {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 1;
+            qst_registers[arg1] = 1;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 0;
+            qst_registers[arg1] = 0;
         }
     } else {
         if (TLobby__sub_800710D8(&item) != 0) {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 1;
+            qst_registers[arg1] = 1;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 0;
+            qst_registers[arg1] = 0;
         }
     }
 }
@@ -4748,32 +4722,32 @@ void qst_op_item_create_cmode(u8 arg0, u8 arg1) {
 void qst_op_check_rank_time(u8 arg0, u8 arg1) {
     s32 r;
     if (is_split_screen() == 1) {
-        r = TLobby__sub_80292270((*(int * *)&TLobby__script_reg_array)[arg0], 0);
+        r = TLobby__sub_80292270(qst_registers[arg0], 0);
     } else {
-        r = TLobby__sub_8007119C((*(int * *)&TLobby__script_reg_array)[arg0]);
+        r = TLobby__sub_8007119C(qst_registers[arg0]);
     }
     switch (r) {
     case 2:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 2;
+        qst_registers[arg1] = 2;
         break;
     case 1:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 1;
+        qst_registers[arg1] = 1;
         break;
     case 0:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 0;
+        qst_registers[arg1] = 0;
         break;
     case -1:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 3;
+        qst_registers[arg1] = 3;
         break;
     case -2:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 4;
+        qst_registers[arg1] = 4;
         break;
     case -3:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 5;
+        qst_registers[arg1] = 5;
         break;
     case -4:
     default:
-        (*(int * *)&TLobby__script_reg_array)[arg1] = 6;
+        qst_registers[arg1] = 6;
         break;
     }
 }
@@ -4785,9 +4759,9 @@ void qst_op_get_player_proximity(u8 arg0, u8 arg1) {
     u8 *other;
     s32 field;
     s32 i;
-    idx = (*(int * *)&TLobby__script_reg_array)[arg0++];
-    range = (*(int * *)&TLobby__script_reg_array)[arg0];
-    (*(int * *)&TLobby__script_reg_array)[arg1] = 0;
+    idx = qst_registers[arg0++];
+    range = qst_registers[arg0];
+    qst_registers[arg1] = 0;
     self = (u8 *)((s32 (*)(int))get_player_by_client_id)(idx);
     if (self != NULL) {
         field = ((TObjPlayer *)self)->get_field_3e4();
@@ -4796,7 +4770,7 @@ void qst_op_get_player_proximity(u8 arg0, u8 arg1) {
                 other = (u8 *)((s32 (*)(int))get_player_by_client_id)(i);
                 if (other != NULL && field == ((TObjPlayer *)other)->get_field_3e4() &&
                     xyz_distance_squared(self + 0x38, other + 0x38) < range * range) {
-                    (*(int * *)&TLobby__script_reg_array)[arg1]++;
+                    qst_registers[arg1]++;
                 }
             }
         }
@@ -4806,20 +4780,20 @@ void qst_op_get_player_proximity(u8 arg0, u8 arg1) {
 s32 TLobby__sub_800712D8(s32, s32, s32);
 s32 TLobby__sub_802923C4(s32, s32, s32);
 void qst_op_set_cmode_rank_threshold(u8 arg0, u8 arg1) {
-    s32 a = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    s32 b = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-    s32 c = (*(int * *)&TLobby__script_reg_array)[(u8)arg0];
+    s32 a = qst_registers[(u8)arg0++];
+    s32 b = qst_registers[(u8)arg0++];
+    s32 c = qst_registers[(u8)arg0];
     if (is_split_screen() == 1) {
         if (TLobby__sub_802923C4(a, b, c) != 0) {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 1;
+            qst_registers[arg1] = 1;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 0;
+            qst_registers[arg1] = 0;
         }
     } else {
         if (TLobby__sub_800712D8(a, b, c) != 0) {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 1;
+            qst_registers[arg1] = 1;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = 0;
+            qst_registers[arg1] = 0;
         }
     }
 }
@@ -4835,15 +4809,15 @@ void qst_op_award_item_give(u8 arg0) {
     TItemData__sub_8010CA08(&item, TObjItemOKWindow__sub_801F3268(), t);
     if (is_split_screen() == 1) {
         if (TLobby__sub_802924B4(&item, 0) != 0) {
-            (*(int * *)&TLobby__script_reg_array)[arg0] = 1;
+            qst_registers[arg0] = 1;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg0] = 0;
+            qst_registers[arg0] = 0;
         }
     } else {
         if (TLobby__sub_800710D8(&item) != 0) {
-            (*(int * *)&TLobby__script_reg_array)[arg0] = 1;
+            qst_registers[arg0] = 1;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg0] = 0;
+            qst_registers[arg0] = 0;
         }
     }
 }
@@ -4869,10 +4843,10 @@ void qst_op_get_mag_levels(s32 i) {
     if (((u32 (*)(void *))get_player_by_client_id)((void *)local_client_id) != 0) {
         r = activate_d04_slot__10TObjPlayerFv();
         if (r != 0) {
-            TLobby__script_reg_array[(u8)i++] = get_mag_item_stat_percent();
-            TLobby__script_reg_array[(u8)i++] = get_mag_item_percent(r);
-            TLobby__script_reg_array[(u8)i++] = get_mag_level(r);
-            TLobby__script_reg_array[(u8)i] = get_mag_item_data(r);
+            qst_registers[(u8)i++] = get_mag_item_stat_percent();
+            qst_registers[(u8)i++] = get_mag_item_percent(r);
+            qst_registers[(u8)i++] = get_mag_level(r);
+            qst_registers[(u8)i] = get_mag_item_data(r);
         }
     }
 }
@@ -4885,7 +4859,7 @@ void qst_op_give_s_rank_weapon() {
     if (id == local_client_id) {
         void *player = (void *)get_player_by_client_id(id);
         if (player != NULL) {
-            TItemData__sub_8010CA08(&item, a, (u8)TLobby__script_reg_array[r]);
+            TItemData__sub_8010CA08(&item, a, (u8)qst_registers[r]);
             if (((TItemData *)(&item))->isValidGroundDrop() == 1 && ((TObjPlayer *)player)->can_inventory_accept_item((u8 *)((Item_801EEE68 *)&item)) > 0) {
                 ((TObjPlayer *)player)->request_inventory_item((TItemData*)((Item_801EEE68 *)&item));
             }
@@ -4937,11 +4911,11 @@ void qst_op_unequip_item() {
 
 void qst_op_equip_item(u8 i) {
     Item_801EC720 item;
-    u16 id = (*(int * *)&TLobby__script_reg_array)[i++];
+    u16 id = qst_registers[i++];
     ((s32 (*)(void *))init__9TItemDataFv)(&item);
-    item.a = (*(int * *)&TLobby__script_reg_array)[i++];
-    item.b = (*(int * *)&TLobby__script_reg_array)[i++];
-    item.c = (*(int * *)&TLobby__script_reg_array)[i++];
+    item.a = qst_registers[i++];
+    item.b = qst_registers[i++];
+    item.c = qst_registers[i++];
     TLobby::forward_to_player(id, &item);
 }
 
@@ -5029,8 +5003,8 @@ void qst_op_ba_hide_target_reticle(void) {
 }
 
 void qst_op_ba_set_trap_count(s32 reg) {
-    s32 slot = TLobby__script_reg_array[(u8)reg++];
-    s32 value = TLobby__script_reg_array[(u8)reg];
+    s32 slot = qst_registers[(u8)reg++];
+    s32 value = qst_registers[(u8)reg];
     if (slot >= 0 && slot <= 3) {
         TLobby__data_80512360.remaining[lbl_80449AEC[slot] + 9] = value;
     }
@@ -5039,75 +5013,75 @@ void qst_op_ba_set_trap_count(s32 reg) {
 extern f32 lbl_805D5DC8;
 void qst_op_ba_meseta_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D5DC8 = v;
 }
 
 extern f32 lbl_805D3550;
 void qst_op_ba_enemy_death_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D3550 = v;
 }
 
 extern f32 lbl_805D354C;
 void qst_op_ba_enemy_kill_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D354C = v;
 }
 
 void qst_op_ba_player_death_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D3544 = v;
 }
 
 void qst_op_ba_player_kill_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D3540 = v;
 }
 
 void qst_op_ba_enemy_take_damage_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D5DC4 = v;
 }
 
 void qst_op_ba_enemy_give_damage_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D3548 = v;
 }
 
 void qst_op_ba_player_take_damage_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D353C = v;
 }
 
 void qst_op_ba_player_give_damage_score(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     lbl_805D3538 = v;
 }
 
 void qst_op_set_cmode_base_time(s32 arg0) {
     if (is_split_screen() == 1) {
-        TLobby::update_challenge_timer((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+        TLobby::update_challenge_timer((int) (qst_registers[(u8)arg0]));
         return;
     }
-    TLobby__sub_80071064((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+    TLobby__sub_80071064((int) (qst_registers[(u8)arg0]));
 }
 
 void qst_op_prepare_npc_visual(s32 arg0) {
@@ -5124,13 +5098,13 @@ void qst_op_set_shrink_cam2(u8 arg0) {
     Vec_801ECFDC pos;
     u8 *player;
     Vec_801ECFDC *cur;
-    player = (u8 *)((s32 (*)(int))get_player_by_client_id)((*(int * *)&TLobby__script_reg_array)[arg0++]);
+    player = (u8 *)((s32 (*)(int))get_player_by_client_id)(qst_registers[arg0++]);
     if (player != NULL) {
         cur = TObjPlayer__sub_801C6FDC(player + 0x5D4);
         if (cur != NULL) {
-            pos.x = cur->x + (f32)(*(int * *)&TLobby__script_reg_array)[arg0++];
-            pos.y = cur->y + (f32)(*(int * *)&TLobby__script_reg_array)[arg0++];
-            pos.z = cur->z + (f32)(*(int * *)&TLobby__script_reg_array)[arg0];
+            pos.x = cur->x + (f32)qst_registers[arg0++];
+            pos.y = cur->y + (f32)qst_registers[arg0++];
+            pos.z = cur->z + (f32)qst_registers[arg0];
             copy_position__6TLobbyFv(player + 0x5D4, &pos);
         }
     }
@@ -5140,13 +5114,13 @@ void qst_op_set_shrink_cam1(u8 arg0) {
     Vec_801ED0CC pos;
     u8 *player;
     Vec_801ED0CC *cur;
-    player = (u8 *)((s32 (*)(int))get_player_by_client_id)((*(int * *)&TLobby__script_reg_array)[arg0++]);
+    player = (u8 *)((s32 (*)(int))get_player_by_client_id)(qst_registers[arg0++]);
     if (player != NULL) {
         cur = ((Vec_801ED0CC *)TObjPlayer__sub_801C6FDC(player + 0x5C8));
         if (cur != NULL) {
-            pos.x = cur->x + (f32)(*(int * *)&TLobby__script_reg_array)[arg0++];
-            pos.y = cur->y + (f32)(*(int * *)&TLobby__script_reg_array)[arg0++];
-            pos.z = cur->z + (f32)(*(int * *)&TLobby__script_reg_array)[arg0];
+            pos.x = cur->x + (f32)qst_registers[arg0++];
+            pos.y = cur->y + (f32)qst_registers[arg0++];
+            pos.z = cur->z + (f32)qst_registers[arg0];
             copy_position__6TLobbyFv((void *)(player + 0x5C8), (Vec_801ECFDC *)(&pos));
         }
     }
@@ -5154,7 +5128,7 @@ void qst_op_set_shrink_cam1(u8 arg0) {
 
 void qst_op_unshrink(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers));
     if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0)) {
         request_player_size_restore((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
@@ -5162,7 +5136,7 @@ void qst_op_unshrink(s32 arg0) {
 
 void qst_op_shrink(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
+    temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (qst_registers[(u8)arg0]))), (int)qst_registers));
     if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0)) {
         request_player_shrink((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
@@ -5177,19 +5151,19 @@ void qst_op_read_switch_flag_on_floor(s32 arg0) {
     s32 var_r4;
     u8 *var_r3;
     var_r31 = (arg0 * 4) & 0x3FC;
-    var_r4 = (*(s32 *)&TLobby__script_reg_array);
+    var_r4 = ((s32)qst_registers);
     var_r3 = (u8 *)(var_r4 + var_r31);
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 4));
     var_r4 = (s32) (s16) *(s32 *)((s8 *)var_r4 + var_r31);
     var_r3 = (u8 *)((void *) (u16) var_r3);
     var_r4 = (s32) is_floor_switch_set((u32)var_r3, (var_r4));
-    var_r3 = (u8 *)((*(s32 *)&TLobby__script_reg_array) + var_r31);
+    var_r3 = (u8 *)(((s32)qst_registers) + var_r31);
     *(s32 *)((s8 *)var_r3 + 8) = var_r4;
 }
 #pragma pop
 
 void qst_op_read_switch_flag(s32 arg0) {
-    TLobby__script_reg_array[(u8)arg0 + 1] = is_current_floor_switch_set((u16)TLobby__script_reg_array[(u8)arg0]);
+    qst_registers[(u8)arg0 + 1] = is_current_floor_switch_set((u16)qst_registers[(u8)arg0]);
 }
 
 void qst_op_clear_switch_flag_sync() {
@@ -5220,7 +5194,7 @@ void qst_op_set_switch_flag_sync() {
 
 void qst_op_reset_kills(s32 arg0) {
     u8 *lobby;
-    lobby = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__script_reg_array)))))));
+    lobby = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(qst_registers[(u8)arg0]))), (int)((int)((int)(((s32)qst_registers)))))));
     if (lobby != NULL) {
         ((TLobby *)lobby)->set_floor(0);
     }
@@ -5228,18 +5202,18 @@ void qst_op_reset_kills(s32 arg0) {
 
 void qst_op_get_num_kills(s32 arg0, s32 arg1) {
     u8 *player;
-    player = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), arg1)));
+    player = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), arg1)));
     if (player != NULL) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = (s32) ((TObjPlayer *)player)->get_kill_count();
+        qst_registers[(u8)arg1] = (s32) ((TObjPlayer *)player)->get_kill_count();
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg1] = 0;
 }
 
 void qst_op_go_floor(s32 a, s32 b) {
-    u32 r = ((u32 (*)(int, int))get_player_by_client_id)((*(s32 * *)&TLobby__script_reg_array)[(u8)a], b);
-    if (r != 0 && local_client_id == (*(s32 * *)&TLobby__script_reg_array)[(u8)a]) {
-        set_area__6TLobbyFl(lbl_80515BA0, (*(s32 * *)&TLobby__script_reg_array)[(u8)b], get_floor_map_terrain((*(s32 * *)&TLobby__script_reg_array)[(u8)b]));
+    u32 r = ((u32 (*)(int, int))get_player_by_client_id)(qst_registers[(u8)a], b);
+    if (r != 0 && local_client_id == qst_registers[(u8)a]) {
+        set_area__6TLobbyFl(lbl_80515BA0, qst_registers[(u8)b], get_floor_map_terrain(qst_registers[(u8)b]));
         mark_area_change_pending();
         ((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();
@@ -5250,29 +5224,29 @@ void qst_op_go_floor(s32 a, s32 b) {
 void qst_op_release_dragon(void* p) { TBoss1Dragon::clearControlOverride(); }
 
 void qst_op_control_dragon(s32 arg0) {
-    setControlOverride__12TBoss1DragonFs((int) ((u16) *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC))), TLobby__script_reg_array);
+    setControlOverride__12TBoss1DragonFs((int) ((u16) qst_registers[(u8)arg0]), qst_registers);
 }
 
 void qst_op_cmode_check_any_player_dead(s32 arg0) {
     if (is_split_screen() == 1) {
-        *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_8029299C();
+        qst_registers[(u8)arg0] = TLobby__sub_8029299C();
         return;
     }
-    *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_80070F4C();
+    qst_registers[(u8)arg0] = TLobby__sub_80070F4C();
 }
 
 void qst_op_cmode_check_all_players_dead(s32 arg0) {
     if (is_split_screen() == 1) {
-        *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_80292A34();
+        qst_registers[(u8)arg0] = TLobby__sub_80292A34();
         return;
     }
-    *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_80070FD8();
+    qst_registers[(u8)arg0] = TLobby__sub_80070FD8();
 }
 
 void qst_op_exp_multiplication(s32 a) {
     s32 b = a + 1;
-    f32 v = (f32)TLobby__script_reg_array[(u8)a];
-    v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
+    f32 v = (f32)qst_registers[(u8)a];
+    v += (f32)qst_registers[(u8)b] / (f32)qst_registers[(u8)++b];
     if (is_split_screen() == 1) {
         TLobby::set_camera_height_if_valid(v);
         return;
@@ -5304,28 +5278,27 @@ void qst_op_set_cmode_char_template() {
 
 void qst_op_nop_F822(s32 arg0) {
     if (is_split_screen() == 1) {
-        TLobby__sub_801F3700((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+        TLobby__sub_801F3700((int) (qst_registers[(u8)arg0]));
         return;
     }
-    TLobby__sub_801F36F0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+    TLobby__sub_801F36F0((int) (qst_registers[(u8)arg0]));
 }
 
-#define REGS_801ED7BC ((s32 *)TLobby__script_reg_array)
 void qst_op_nop_F821(u8 arg0) {
     Item_801ED7BC item;
     s32 a;
     s32 b;
     s32 c;
-    a = REGS_801ED7BC[(u8)arg0++];
-    b = REGS_801ED7BC[(u8)arg0++];
-    c = REGS_801ED7BC[(u8)arg0++];
+    a = qst_registers[(u8)arg0++];
+    b = qst_registers[(u8)arg0++];
+    c = qst_registers[(u8)arg0++];
     ((void (*)(Item_801ED7BC *))init__9TItemDataFv)(&item);
-    item.data[0] = REGS_801ED7BC[(u8)arg0++];
-    item.data[1] = REGS_801ED7BC[(u8)arg0++];
-    item.data[2] = REGS_801ED7BC[(u8)arg0++];
-    item.data[3] = REGS_801ED7BC[(u8)arg0++];
-    item.data[4] = REGS_801ED7BC[(u8)arg0++];
-    item.data[5] = REGS_801ED7BC[(u8)arg0];
+    item.data[0] = qst_registers[(u8)arg0++];
+    item.data[1] = qst_registers[(u8)arg0++];
+    item.data[2] = qst_registers[(u8)arg0++];
+    item.data[3] = qst_registers[(u8)arg0++];
+    item.data[4] = qst_registers[(u8)arg0++];
+    item.data[5] = qst_registers[(u8)arg0];
     item.id = advance_item_id_counter(local_client_id);
     if (is_split_screen() == 1) {
         TLobby__sub_801F3708(a, b, c, &item);
@@ -5334,7 +5307,6 @@ void qst_op_nop_F821(u8 arg0) {
     }
 }
 
-#undef REGS_801ED7BC
 void qst_op_cmode_stage() {
     u32 temp_r30;
     u32 temp_r31;
@@ -5474,11 +5446,11 @@ void qst_op_disable_weapon_drop(int _w0, int _w1) {
 
 void qst_op_map_designate_ex(u32 first) {
     u32 i = first;
-    s32 a = (*(s32 **)&TLobby__script_reg_array)[(u8)i++];
-    s32 b = (*(s32 **)&TLobby__script_reg_array)[(u8)i++];
-    s16 c = (*(s32 **)&TLobby__script_reg_array)[(u8)i++];
-    s32 d = (*(s32 **)&TLobby__script_reg_array)[(u8)i++];
-    s32 e = (*(s32 **)&TLobby__script_reg_array)[(u8)i];
+    s32 a = qst_registers[(u8)i++];
+    s32 b = qst_registers[(u8)i++];
+    s16 c = qst_registers[(u8)i++];
+    s32 d = qst_registers[(u8)i++];
+    s32 e = qst_registers[(u8)i];
     set_quest_floor_designation_ex(c, a, b, d, e);
 }
 
@@ -5488,17 +5460,17 @@ int qst_op_disable_map(void) { return set_mode__13TRaderMapCoreFi((void*)(0)); }
 int qst_op_enable_map(void) { return set_mode__13TRaderMapCoreFi((void*)(1)); }
 
 void qst_op_get_coord_of_player(s32 a, s32 b) {
-    if (((u32 (*)(int, int))get_player_by_client_id)((int)((*(s32 * *)&TLobby__script_reg_array)[(u8)b]), b) != 0) {
+    if (((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)b]), b) != 0) {
         f32 *p = get_position_ptr__10TObjPlayerFv();
         if (p != NULL) {
-            (*(s32 * *)&TLobby__script_reg_array)[(u8)a++] = (s32)p[0];
-            (*(s32 * *)&TLobby__script_reg_array)[(u8)a++] = (s32)p[1];
-            (*(s32 * *)&TLobby__script_reg_array)[(u8)a] = (s32)p[2];
+            qst_registers[(u8)a++] = (s32)p[0];
+            qst_registers[(u8)a++] = (s32)p[1];
+            qst_registers[(u8)a] = (s32)p[2];
         }
     }
 }
 
-void qst_op_get_number_of_players(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::count_members(); }
+void qst_op_get_number_of_players(int a0) { qst_registers[(unsigned char)(a0)] = TLobby::count_members(); }
 
 void qst_op_get_difficulty_level_v2(s32 arg0) {
     s32 var_r5;
@@ -5509,7 +5481,7 @@ void qst_op_get_difficulty_level_v2(s32 arg0) {
     if (var_r5 > 3) {
         var_r5 = 3;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = var_r5;
+    qst_registers[(u8)arg0] = var_r5;
 }
 
 void qst_op_create_bgmctrl() {
@@ -5524,19 +5496,19 @@ void qst_op_update_switch_flag(s32 arg0) {
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
     pkt.b = 0;
     pkt.a = 0xFFFF;
-    pkt.c = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0++];
-    pkt.d = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0++];
-    pkt.e = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0];
+    pkt.c = qst_registers[(u8)arg0++];
+    pkt.d = qst_registers[(u8)arg0++];
+    pkt.e = qst_registers[(u8)arg0];
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 }
 
 void qst_op_get_leader_id(u8 reg) {
-    (*(s32 * *)&TLobby__script_reg_array)[reg] = TLobby__designated_client_id;
+    qst_registers[reg] = TLobby__designated_client_id;
 }
 
 void qst_op_get_client_id(u8 reg) {
-    (*(s32 * *)&TLobby__script_reg_array)[reg] = local_client_id;
+    qst_registers[reg] = local_client_id;
 }
 extern "C" {
 
@@ -5563,16 +5535,16 @@ void qst_op_pad_dragon(void* p) { TBoss1Dragon::requestActionRefresh(); }
 void qst_op_delete_bank_item(u8 arg0, u8 arg1) {
     Item_801EE0BC item;
     ((void (*)(Item_801EE0BC *))init__9TItemDataFv)(&item);
-    item.data[0] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[1] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[2] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[3] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[4] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    item.data[5] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0];
+    item.data[0] = qst_registers[(u8)arg0++];
+    item.data[1] = qst_registers[(u8)arg0++];
+    item.data[2] = qst_registers[(u8)arg0++];
+    item.data[3] = qst_registers[(u8)arg0++];
+    item.data[4] = qst_registers[(u8)arg0++];
+    item.data[5] = qst_registers[(u8)arg0];
     if (TCheckRoomSequence__sub_80210D44((u8 *)&item, 0) != 0) {
-        (*(s32 * *)&TLobby__script_reg_array)[arg1] = 1;
+        qst_registers[arg1] = 1;
     } else {
-        (*(s32 * *)&TLobby__script_reg_array)[arg1] = 0;
+        qst_registers[arg1] = 0;
     }
 }
 
@@ -5601,12 +5573,12 @@ void qst_op_leti_fixed_camera(u8 arg0) {
     Vec_801EE220 eye;
     Vec_801EE220 at;
 
-    eye.x = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    eye.y = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    eye.z = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    at.x = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    at.y = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
-    at.z = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0];
+    eye.x = qst_registers[(u8)arg0++];
+    eye.y = qst_registers[(u8)arg0++];
+    eye.z = qst_registers[(u8)arg0++];
+    at.x = qst_registers[(u8)arg0++];
+    at.y = qst_registers[(u8)arg0++];
+    at.z = qst_registers[(u8)arg0];
     TCameraCtrl__sub_8006B3B8(&eye, &at);
 }
 }
@@ -5679,7 +5651,7 @@ void qst_op_get_difficulty_level_v1(s32 arg0) {
     if (var_r5 > 2) {
         var_r5 = 2;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = var_r5;
+    qst_registers[(u8)arg0] = var_r5;
 }
 
 void qst_op_setevt(void) {
@@ -5712,10 +5684,10 @@ void qst_op_set_quest_board_handler(void) {
 }
 extern "C" {
 
-void qst_op_getmtime(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby__sub_803DF1CC(); }
+void qst_op_getmtime(int a0) { qst_registers[(unsigned char)(a0)] = TLobby__sub_803DF1CC(); }
 
 void qst_op_winset_time(s32 arg0) {
-    set_timer_window_time__11TWindowCtrlFv((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    set_timer_window_time__11TWindowCtrlFv((int) (qst_registers[(u8)arg0]), qst_registers);
 }
 }
 
@@ -5731,10 +5703,10 @@ void qst_op_masterkey_on() { TObjDoor__sub_801F3760(); TObjDoor__sub_801F3754();
 
 void qst_op_map_designate(u32 first) {
     u32 i = first;
-    s32 floor = (*(s32 * *)&TLobby__script_reg_array)[(u8)i++];
-    s16 mode = (*(s32 * *)&TLobby__script_reg_array)[(u8)i++];
-    s32 terrain = (*(s32 * *)&TLobby__script_reg_array)[(u8)i++];
-    s32 extra = (*(s32 * *)&TLobby__script_reg_array)[(u8)i];
+    s32 floor = qst_registers[(u8)i++];
+    s16 mode = qst_registers[(u8)i++];
+    s32 terrain = qst_registers[(u8)i++];
+    s32 extra = qst_registers[(u8)i];
     set_quest_floor_designation(mode, floor, terrain, extra);
 }
 extern "C" {
@@ -5746,23 +5718,23 @@ void qst_op_find_inventory_item_ex(u8 arg0, u8 arg1) {
     player = (Player_801EE77C *)get_player_by_client_id(local_client_id);
     if (player != NULL) {
         init__9TItemDataFv(&item);
-        item.data[0] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-        item.data[1] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-        item.data[2] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-        item.data[4] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0];
+        item.data[0] = qst_registers[(u8)arg0++];
+        item.data[1] = qst_registers[(u8)arg0++];
+        item.data[2] = qst_registers[(u8)arg0++];
+        item.data[4] = qst_registers[(u8)arg0];
         obj = set_mode_and_refresh_object__10TObjPlayerFPvi(player->fD00, &item);
         if (obj != NULL) {
             obj = get_owner_if_alive__10TObjPlayerFv(obj);
             if (obj != NULL) {
-                (*(int * *)&TLobby__script_reg_array)[arg1] = ((TItem *)obj)->get_field_d8();
+                qst_registers[arg1] = ((TItem *)obj)->get_field_d8();
             } else {
-                (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
+                qst_registers[arg1] = -1;
             }
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
+            qst_registers[arg1] = -1;
         }
     } else {
-        (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
+        qst_registers[arg1] = -1;
     }
 }
 }
@@ -5775,23 +5747,23 @@ void qst_op_item_check(u32 first, u32 destination) {
     player = get_player_by_client_id(local_client_id);
     if (player != 0) {
         init__9TItemDataFv(&item);
-        item.data[0] = TLobby__script_reg_array[(u8)first++];
-        item.data[1] = TLobby__script_reg_array[(u8)first++];
-        item.data[2] = TLobby__script_reg_array[(u8)first];
+        item.data[0] = qst_registers[(u8)first++];
+        item.data[1] = qst_registers[(u8)first++];
+        item.data[2] = qst_registers[(u8)first];
         slot = set_mode_and_refresh_object__10TObjPlayerFPvi(*(void **)((s8 *)player + 0xD00), &item);
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
-                TLobby__script_reg_array[(u8) destination] = ((TItem *)owner)->get_field_d8();
+                qst_registers[(u8) destination] = ((TItem *)owner)->get_field_d8();
                 return;
             }
-            TLobby__script_reg_array[(u8) destination] = -1;
+            qst_registers[(u8) destination] = -1;
             return;
         }
-        TLobby__script_reg_array[(u8) destination] = -1;
+        qst_registers[(u8) destination] = -1;
         return;
     }
-    TLobby__script_reg_array[(u8) destination] = -1;
+    qst_registers[(u8) destination] = -1;
 }
 
 void qst_op_item_delete2(u32 src, u32 dst) {
@@ -5805,36 +5777,36 @@ void qst_op_item_delete2(u32 src, u32 dst) {
     player = get_player_by_client_id(local_client_id);
     if (player != 0) {
         init__9TItemDataFv(&item);
-        item.data[0] = TLobby__script_reg_array[(u8)src++];
-        item.data[1] = TLobby__script_reg_array[(u8)src++];
-        item.data[2] = TLobby__script_reg_array[(u8)src];
+        item.data[0] = qst_registers[(u8)src++];
+        item.data[1] = qst_registers[(u8)src++];
+        item.data[2] = qst_registers[(u8)src];
         slot = set_mode_and_refresh_object__10TObjPlayerFPvi(*(void **)((s8 *)player + 0xD00), &item);
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
                 ((TItem *)owner)->copy_to_item_data(&item);
-                TLobby__script_reg_array[(u8)dst++] = item.data[0];
-                TLobby__script_reg_array[(u8)dst++] = item.data[1];
-                TLobby__script_reg_array[(u8)dst++] = item.data[2];
-                TLobby__script_reg_array[(u8)dst++] = item.data[3];
-                TLobby__script_reg_array[(u8)dst++] = item.data[4];
-                TLobby__script_reg_array[(u8)dst++] = item.data[5];
-                TLobby__script_reg_array[(u8)dst++] = item.data[6];
-                TLobby__script_reg_array[(u8)dst++] = (s8)item.data[7];
-                TLobby__script_reg_array[(u8)dst++] = item.data[8];
-                TLobby__script_reg_array[(u8)dst++] = (s8)item.data[9];
-                TLobby__script_reg_array[(u8)dst++] = item.data[10];
-                TLobby__script_reg_array[(u8)dst] = (s8)item.data[11];
+                qst_registers[(u8)dst++] = item.data[0];
+                qst_registers[(u8)dst++] = item.data[1];
+                qst_registers[(u8)dst++] = item.data[2];
+                qst_registers[(u8)dst++] = item.data[3];
+                qst_registers[(u8)dst++] = item.data[4];
+                qst_registers[(u8)dst++] = item.data[5];
+                qst_registers[(u8)dst++] = item.data[6];
+                qst_registers[(u8)dst++] = (s8)item.data[7];
+                qst_registers[(u8)dst++] = item.data[8];
+                qst_registers[(u8)dst++] = (s8)item.data[9];
+                qst_registers[(u8)dst++] = item.data[10];
+                qst_registers[(u8)dst] = (s8)item.data[11];
                 get_item_record__23TShopJudgmentItemWindowFPv((void *)player, item.id, 1);
                 return;
             }
-            TLobby__script_reg_array[(u8)dst] = -1;
+            qst_registers[(u8)dst] = -1;
             return;
         }
-        TLobby__script_reg_array[(u8)dst] = -1;
+        qst_registers[(u8)dst] = -1;
         return;
     }
-    TLobby__script_reg_array[(u8)dst] = -1;
+    qst_registers[(u8)dst] = -1;
 }
 
 void qst_op_item_delete(u32 src, u32 dst) {
@@ -5847,33 +5819,33 @@ void qst_op_item_delete(u32 src, u32 dst) {
     }
     player = get_player_by_client_id(local_client_id);
     if (player != 0) {
-        slot = start_inventory_update__10TObjPlayerFi(*(void **)((s8 *)player + 0xD00), TLobby__script_reg_array[(u8)src]);
+        slot = start_inventory_update__10TObjPlayerFi(*(void **)((s8 *)player + 0xD00), qst_registers[(u8)src]);
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
                 ((TItem *)owner)->copy_to_item_data(&item);
-                TLobby__script_reg_array[(u8)dst++] = item.data[0];
-                TLobby__script_reg_array[(u8)dst++] = item.data[1];
-                TLobby__script_reg_array[(u8)dst++] = item.data[2];
-                TLobby__script_reg_array[(u8)dst++] = item.data[3];
-                TLobby__script_reg_array[(u8)dst++] = item.data[4];
-                TLobby__script_reg_array[(u8)dst++] = item.data[5];
-                TLobby__script_reg_array[(u8)dst++] = item.data[6];
-                TLobby__script_reg_array[(u8)dst++] = (s8)item.data[7];
-                TLobby__script_reg_array[(u8)dst++] = item.data[8];
-                TLobby__script_reg_array[(u8)dst++] = (s8)item.data[9];
-                TLobby__script_reg_array[(u8)dst++] = item.data[10];
-                TLobby__script_reg_array[(u8)dst] = (s8)item.data[11];
-                get_item_record__23TShopJudgmentItemWindowFPv((void *)player, TLobby__script_reg_array[(u8)src], 1);
+                qst_registers[(u8)dst++] = item.data[0];
+                qst_registers[(u8)dst++] = item.data[1];
+                qst_registers[(u8)dst++] = item.data[2];
+                qst_registers[(u8)dst++] = item.data[3];
+                qst_registers[(u8)dst++] = item.data[4];
+                qst_registers[(u8)dst++] = item.data[5];
+                qst_registers[(u8)dst++] = item.data[6];
+                qst_registers[(u8)dst++] = (s8)item.data[7];
+                qst_registers[(u8)dst++] = item.data[8];
+                qst_registers[(u8)dst++] = (s8)item.data[9];
+                qst_registers[(u8)dst++] = item.data[10];
+                qst_registers[(u8)dst] = (s8)item.data[11];
+                get_item_record__23TShopJudgmentItemWindowFPv((void *)player, qst_registers[(u8)src], 1);
                 return;
             }
-            TLobby__script_reg_array[(u8)dst] = -1;
+            qst_registers[(u8)dst] = -1;
             return;
         }
-        TLobby__script_reg_array[(u8)dst] = -1;
+        qst_registers[(u8)dst] = -1;
         return;
     }
-    TLobby__script_reg_array[(u8)dst] = -1;
+    qst_registers[(u8)dst] = -1;
 }
 
 void qst_op_item_create2(u8 arg0, u8 arg1) {
@@ -5882,27 +5854,27 @@ void qst_op_item_create2(u8 arg0, u8 arg1) {
     player = (void *)get_player_by_client_id(local_client_id);
     if (player != NULL) {
         init__9TItemDataFv((Item_801EE77C *)(&item));
-        item.data[0] = TLobby__script_reg_array[arg0++];
-        item.data[1] = TLobby__script_reg_array[arg0++];
-        item.data[2] = TLobby__script_reg_array[arg0++];
-        item.data[3] = TLobby__script_reg_array[arg0++];
-        item.data[4] = TLobby__script_reg_array[arg0++];
-        item.data[5] = TLobby__script_reg_array[arg0++];
+        item.data[0] = qst_registers[arg0++];
+        item.data[1] = qst_registers[arg0++];
+        item.data[2] = qst_registers[arg0++];
+        item.data[3] = qst_registers[arg0++];
+        item.data[4] = qst_registers[arg0++];
+        item.data[5] = qst_registers[arg0++];
         item.id = advance_item_id_counter(local_client_id);
-        item.data[6] = TLobby__script_reg_array[arg0++];
-        item.data[7] = TLobby__script_reg_array[arg0++];
-        item.data[8] = TLobby__script_reg_array[arg0++];
-        item.data[9] = TLobby__script_reg_array[arg0++];
-        item.data[10] = TLobby__script_reg_array[arg0++];
-        item.data[11] = TLobby__script_reg_array[arg0];
+        item.data[6] = qst_registers[arg0++];
+        item.data[7] = qst_registers[arg0++];
+        item.data[8] = qst_registers[arg0++];
+        item.data[9] = qst_registers[arg0++];
+        item.data[10] = qst_registers[arg0++];
+        item.data[11] = qst_registers[arg0];
         if (((TObjPlayer *)player)->can_inventory_accept_item((u8 *)(&item)) > 0) {
             ((TObjPlayer *)player)->request_inventory_item((TItemData*)(&item));
-            TLobby__script_reg_array[arg1] = item.id;
+            qst_registers[arg1] = item.id;
         } else {
-            TLobby__script_reg_array[arg1] = -1;
+            qst_registers[arg1] = -1;
         }
     } else {
-        TLobby__script_reg_array[arg1] = -1;
+        qst_registers[arg1] = -1;
     }
 }
 
@@ -5912,24 +5884,24 @@ void qst_op_item_create(u8 arg0, u8 arg1) {
     player = (void *)get_player_by_client_id(local_client_id);
     if (player != NULL) {
         init__9TItemDataFv((Item_801EE77C *)(&item));
-        item.data[0] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-        item.data[1] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0++];
-        item.data[2] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0];
+        item.data[0] = qst_registers[(u8)arg0++];
+        item.data[1] = qst_registers[(u8)arg0++];
+        item.data[2] = qst_registers[(u8)arg0];
         item.id = advance_item_id_counter(local_client_id);
         if (((TObjPlayer *)player)->can_inventory_accept_item((u8 *)(&item)) > 0) {
             ((TObjPlayer *)player)->request_inventory_item((TItemData*)(&item));
-            (*(int * *)&TLobby__script_reg_array)[arg1] = item.id;
+            qst_registers[arg1] = item.id;
         } else {
-            (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
+            qst_registers[arg1] = -1;
         }
     } else {
-        (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
+        qst_registers[arg1] = -1;
     }
 }
 extern "C" {
 
 void qst_op_del_obj_param(s32 arg0) {
-    delete_by_param__13TQuestColCtrlFl((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
+    delete_by_param__13TQuestColCtrlFl((int) (qst_registers[(u8)arg0]), qst_registers);
 }
 
 void qst_op_pl_add_meseta2() {
@@ -5988,12 +5960,12 @@ void qst_op_pcam_param(u8 arg0) {
     Vec_801EF134 a;
     Vec_801EF134 b;
 
-    a.x = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    a.y = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    a.z = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    b.x = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    b.y = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    b.z = (*(s32 * *)&TLobby__script_reg_array)[i];
+    a.x = qst_registers[i++];
+    a.y = qst_registers[i++];
+    a.z = qst_registers[i++];
+    b.x = qst_registers[i++];
+    b.y = qst_registers[i++];
+    b.z = qst_registers[i];
     request_follow_camera_offsets(&a, &b, 0xFFFF);
 }
 
@@ -6038,14 +6010,14 @@ void qst_op_npc_talk_pl(u8 arg0) {
 
     ((void (*)(NpcSet_801EF3B4 *))TLobby__sub_80207F30)(&set);
     i = arg0;
-    set.x = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.y = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.z = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.f24 = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.f1C = (*(f32 *)&lbl_805DC4CC) * (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.f30 = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.f34 = (*(s32 * *)&TLobby__script_reg_array)[i++];
-    set.f38 = (*(s32 * *)&TLobby__script_reg_array)[i];
+    set.x = qst_registers[i++];
+    set.y = qst_registers[i++];
+    set.z = qst_registers[i++];
+    set.f24 = qst_registers[i++];
+    set.f1C = (*(f32 *)&lbl_805DC4CC) * qst_registers[i++];
+    set.f30 = qst_registers[i++];
+    set.f34 = qst_registers[i++];
+    set.f38 = qst_registers[i];
     TLobby::create_npc(&set);
 }
 
@@ -6115,17 +6087,17 @@ void qst_op_check_npc_straggle(u8 i) {
     void *obj;
 
     ((void (*)(Spawn_801EF7A8 *))TLobby__sub_80207F30)(&s);
-    s.x = TLobby__script_reg_array[i++];
-    s.y = TLobby__script_reg_array[i++];
-    s.z = TLobby__script_reg_array[i++];
-    s.a = TLobby__script_reg_array[i++];
-    s.c = TLobby__script_reg_array[i++];
-    s.b = TLobby__script_reg_array[i++];
-    obj = ((void * (*)(Spawn_801EF7A8 *, int *))create_quest_col_apc_inw__6TLobbyFPvPv)(&s, &TLobby__script_reg_array[start]);
+    s.x = qst_registers[i++];
+    s.y = qst_registers[i++];
+    s.z = qst_registers[i++];
+    s.a = qst_registers[i++];
+    s.c = qst_registers[i++];
+    s.b = qst_registers[i++];
+    obj = ((void * (*)(Spawn_801EF7A8 *, s32 *))create_quest_col_apc_inw__6TLobbyFPvPv)(&s, &qst_registers[start]);
     if (obj != NULL) {
-        v.x = TLobby__script_reg_array[i++];
-        v.y = TLobby__script_reg_array[i++];
-        v.z = TLobby__script_reg_array[i];
+        v.x = qst_registers[i++];
+        v.y = qst_registers[i++];
+        v.z = qst_registers[i];
         ((void (*)(void *, Vec_801EF7A8 *))TLobby__sub_801F3500)(obj, &v);
     }
 }
@@ -6135,13 +6107,13 @@ void qst_op_set_obj_param(u8 arg0, u8 arg1) {
     NpcSet_801EF944 set;
 
     ((void (*)(NpcSet_801EF944 *))TLobby__sub_80207F30)(&set);
-    set.x = TLobby__script_reg_array[(u8)arg0++];
-    set.y = TLobby__script_reg_array[(u8)arg0++];
-    set.z = TLobby__script_reg_array[(u8)arg0++];
-    set.f24 = TLobby__script_reg_array[(u8)arg0++];
-    set.f30 = TLobby__script_reg_array[(u8)arg0++];
-    set.f28 = TLobby__script_reg_array[(u8)arg0];
-    ((void (*)(NpcSet_801EF944 *, int *))create_quest_col_alock)(&set, &TLobby__script_reg_array[arg1]);
+    set.x = qst_registers[(u8)arg0++];
+    set.y = qst_registers[(u8)arg0++];
+    set.z = qst_registers[(u8)arg0++];
+    set.f24 = qst_registers[(u8)arg0++];
+    set.f30 = qst_registers[(u8)arg0++];
+    set.f28 = qst_registers[(u8)arg0];
+    ((void (*)(NpcSet_801EF944 *, s32 *))create_quest_col_alock)(&set, &qst_registers[arg1]);
 }
 
 void qst_op_col_npcinr(u8 arg0) {
@@ -6150,13 +6122,13 @@ void qst_op_col_npcinr(u8 arg0) {
 
     ((void (*)(NpcSet_801EFA5C *))TLobby__sub_80207F30)(&set);
     first = arg0;
-    set.x = TLobby__script_reg_array[(u8)arg0++];
-    set.y = TLobby__script_reg_array[(u8)arg0++];
-    set.z = TLobby__script_reg_array[(u8)arg0++];
-    set.f24 = TLobby__script_reg_array[(u8)arg0++];
-    set.f28 = TLobby__script_reg_array[(u8)arg0++];
-    set.f30 = TLobby__script_reg_array[(u8)arg0];
-    ((void (*)(NpcSet_801EFA5C *, int *))fn_80196214)(&set, &TLobby__script_reg_array[first]);
+    set.x = qst_registers[(u8)arg0++];
+    set.y = qst_registers[(u8)arg0++];
+    set.z = qst_registers[(u8)arg0++];
+    set.f24 = qst_registers[(u8)arg0++];
+    set.f28 = qst_registers[(u8)arg0++];
+    set.f30 = qst_registers[(u8)arg0];
+    ((void (*)(NpcSet_801EFA5C *, s32 *))fn_80196214)(&set, &qst_registers[first]);
 }
 
 void qst_op_npc_coords_call(u8 arg0) {
@@ -6165,12 +6137,12 @@ void qst_op_npc_coords_call(u8 arg0) {
 
     ((void (*)(NpcSet_801EFB6C *))TLobby__sub_80207F30)(&set);
     first = arg0;
-    set.x = TLobby__script_reg_array[(u8)arg0++];
-    set.y = TLobby__script_reg_array[(u8)arg0++];
-    set.z = TLobby__script_reg_array[(u8)arg0++];
-    set.f24 = TLobby__script_reg_array[(u8)arg0++];
-    set.f30 = TLobby__script_reg_array[(u8)arg0];
-    ((void (*)(NpcSet_801EFB6C *, int *))fn_801963A8)(&set, &TLobby__script_reg_array[first]);
+    set.x = qst_registers[(u8)arg0++];
+    set.y = qst_registers[(u8)arg0++];
+    set.z = qst_registers[(u8)arg0++];
+    set.f24 = qst_registers[(u8)arg0++];
+    set.f30 = qst_registers[(u8)arg0];
+    ((void (*)(NpcSet_801EFB6C *, s32 *))fn_801963A8)(&set, &qst_registers[first]);
 }
 
 void qst_op_at_coords_talk(u8 arg0) {
@@ -6179,12 +6151,12 @@ void qst_op_at_coords_talk(u8 arg0) {
 
     ((void (*)(NpcSet_801EFC54 *))TLobby__sub_80207F30)(&set);
     first = arg0;
-    set.x = TLobby__script_reg_array[(u8)arg0++];
-    set.y = TLobby__script_reg_array[(u8)arg0++];
-    set.z = TLobby__script_reg_array[(u8)arg0++];
-    set.f24 = TLobby__script_reg_array[(u8)arg0++];
-    set.f30 = TLobby__script_reg_array[(u8)arg0];
-    ((void (*)(NpcSet_801EFC54 *, int *))fn_80196814)(&set, &TLobby__script_reg_array[first]);
+    set.x = qst_registers[(u8)arg0++];
+    set.y = qst_registers[(u8)arg0++];
+    set.z = qst_registers[(u8)arg0++];
+    set.f24 = qst_registers[(u8)arg0++];
+    set.f30 = qst_registers[(u8)arg0];
+    ((void (*)(NpcSet_801EFC54 *, s32 *))fn_80196814)(&set, &qst_registers[first]);
 }
 
 void qst_op_at_coords_call(u8 arg0) {
@@ -6193,12 +6165,12 @@ void qst_op_at_coords_call(u8 arg0) {
 
     ((void (*)(NpcSet_801EFD3C *))TLobby__sub_80207F30)(&set);
     first = arg0;
-    set.x = TLobby__script_reg_array[(u8)arg0++];
-    set.y = TLobby__script_reg_array[(u8)arg0++];
-    set.z = TLobby__script_reg_array[(u8)arg0++];
-    set.f24 = TLobby__script_reg_array[(u8)arg0++];
-    set.f30 = TLobby__script_reg_array[(u8)arg0];
-    ((void (*)(NpcSet_801EFD3C *, int *))create_quest_col)(&set, &TLobby__script_reg_array[first]);
+    set.x = qst_registers[(u8)arg0++];
+    set.y = qst_registers[(u8)arg0++];
+    set.z = qst_registers[(u8)arg0++];
+    set.f24 = qst_registers[(u8)arg0++];
+    set.f30 = qst_registers[(u8)arg0];
+    ((void (*)(NpcSet_801EFD3C *, s32 *))create_quest_col)(&set, &qst_registers[first]);
 }
 
 #pragma push
@@ -6208,34 +6180,34 @@ void qst_op_gettime(u8 arg0) {
     s32 sp8;
     getDateStamp((DateStamp *)(&spC));
     DateToSeconds((DateStamp *)(&spC), (int *)(&sp8));
-    ((s32 *) (*(s32 *)&TLobby__script_reg_array))[arg0] = sp8;
+    qst_registers[arg0] = sp8;
 }
 #pragma pop
 extern "C" {
 
 void qst_op_unhide_ene(s32 arg0) {
-    s32 v0 = TLobby__script_reg_array[(u8)arg0];
-    s32 v1 = TLobby__script_reg_array[(u8)++arg0];
-    s32 v2 = TLobby__script_reg_array[(u8)++arg0];
+    s32 v0 = qst_registers[(u8)arg0];
+    s32 v1 = qst_registers[(u8)++arg0];
+    s32 v2 = qst_registers[(u8)++arg0];
     unhide_enemies_at__6TLobbyFlll(v0, (s16)v1, (s16)v2, arg0);
 }
 
 void qst_op_unhide_obj(s32 arg0) {
-    s32 v0 = TLobby__script_reg_array[(u8)arg0];
-    s32 v1 = TLobby__script_reg_array[(u8)++arg0];
-    s32 v2 = TLobby__script_reg_array[(u8)++arg0];
+    s32 v0 = qst_registers[(u8)arg0];
+    s32 v1 = qst_registers[(u8)++arg0];
+    s32 v2 = qst_registers[(u8)++arg0];
     unhide_room_set_objects(v0, (s16)v1, (s16)v2, arg0);
 }
 }
 
-void qst_op_chk_ene_num(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::count_quest_enemies_flag8(); }
+void qst_op_chk_ene_num(int a0) { qst_registers[(unsigned char)(a0)] = TLobby::count_quest_enemies_flag8(); }
 
 void qst_op_if_zone_clear(s32 arg0, s32 arg1) {
-    if (is_room_enemy_set_cleared((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))), (int) ((s16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (((arg1 + 1) * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array))) != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+    if (is_room_enemy_set_cleared((int) (qst_registers[(u8)arg1]), (int) ((s16) qst_registers[(u8)(arg1 + 1)]), qst_registers) != 0) {
+        qst_registers[(u8)arg0] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_p_action_enable(void) {
@@ -6261,10 +6233,10 @@ void qst_op_pos_pipe(u8 arg0) {
     s32 i = arg0;
     Vec_801F0034 point;
 
-    point.x = (f32)TLobby__script_reg_array[i++];
-    point.y = (f32)TLobby__script_reg_array[i++];
-    point.z = (f32)TLobby__script_reg_array[i++];
-    TTecLuker::create_for_player((int)((u16)TLobby__script_reg_array[i]), (s32)(&point));
+    point.x = (f32)qst_registers[i++];
+    point.y = (f32)qst_registers[i++];
+    point.z = (f32)qst_registers[i++];
+    TTecLuker::create_for_player((int)((u16)qst_registers[i]), (s32)(&point));
 }
 
 void qst_op_create_pipe(void) {
@@ -6281,10 +6253,10 @@ void qst_op_p_setpos(void) {
     reg = ((s32 *)&TLobby__quest_argument_stack)[1];
     player = ((s32 *)&TLobby__quest_argument_stack)[0];
     i = reg;
-    pos.x = TLobby__script_reg_array[i++];
-    pos.y = TLobby__script_reg_array[i++];
-    pos.z = TLobby__script_reg_array[i++];
-    send_6x24_teleport_player(player, &pos, lbl_805DC4CC * TLobby__script_reg_array[i]);
+    pos.x = qst_registers[i++];
+    pos.y = qst_registers[i++];
+    pos.z = qst_registers[i++];
+    send_6x24_teleport_player(player, &pos, lbl_805DC4CC * qst_registers[i]);
     obj = (void *)((s32 (*)(s32))get_player_by_client_id)(player);
     if (obj != NULL && player == local_client_id) {
         reset_cameras_to_actor(obj, 0);
@@ -6308,19 +6280,19 @@ void qst_op_p_dead(void) {
     if ((lobby != NULL) && (is_script_controlled__10TObjPlayerFv() == 0)) {
         if (obj_isState3_324__13TUnk_804806E8Fv((int)lobby) != 0) {
             if (*(s32 *)((s8 *)lobby + 0x30) & 0x800) {
-                *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (temp_r31 * 4)) = 1;
+                qst_registers[temp_r31] = 1;
                 return;
             }
             goto block_7;
         }
         if (((TLobby *)lobby)->check_player_state_flag_2() != 0) {
-            *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (temp_r31 * 4)) = 1;
+            qst_registers[temp_r31] = 1;
             return;
         }
         goto block_7;
     }
 block_7:
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (temp_r31 * 4)) = 0;
+    qst_registers[temp_r31] = 0;
 }
 
 #pragma push
@@ -6334,12 +6306,12 @@ void qst_op_p_hpstat(void) {
     f32 hp;
     s32 player;
     s32 *args = (s32 *)&TLobby__quest_argument_stack;
-    int *regs = (*(int * *)&TLobby__script_reg_array);
+    s32 *regs = qst_registers;
     reg = args[0];
     pct = regs[reg];
     player = args[1];
     if (lbl_805DC4C4 == pct) {
-        (*(int * *)&TLobby__script_reg_array)[reg] = 0;
+        qst_registers[reg] = 0;
         return;
     }
     limit = lbl_805DC4D0 / pct;
@@ -6347,11 +6319,11 @@ void qst_op_p_hpstat(void) {
     if (obj != NULL) {
         hp = obj_getS16_32C((u8 *)obj);
         if (hp / ((TItemProShield *)obj)->get_field_2b8() < limit) {
-            (*(int * *)&TLobby__script_reg_array)[reg] = 1;
+            qst_registers[reg] = 1;
             return;
         }
     }
-    (*(int * *)&TLobby__script_reg_array)[reg] = 0;
+    qst_registers[reg] = 0;
 }
 #pragma pop
 void qst_op_p_move(u8 arg0) {
@@ -6360,11 +6332,11 @@ void qst_op_p_move(u8 arg0) {
     s32 yaw;
     u16 id;
 
-    pos.x = (f32) TLobby__script_reg_array[i++];
-    pos.y = (f32) TLobby__script_reg_array[i++];
-    pos.z = (f32) TLobby__script_reg_array[i++];
-    yaw = (s32) (lbl_805DC4CC * (f32) TLobby__script_reg_array[i++]);
-    id = TLobby__script_reg_array[i++];
+    pos.x = (f32) qst_registers[i++];
+    pos.y = (f32) qst_registers[i++];
+    pos.z = (f32) qst_registers[i++];
+    yaw = (s32) (lbl_805DC4CC * (f32) qst_registers[i++]);
+    id = qst_registers[i++];
     send_stop_at_position__10TNpcPlayerFUsPvs(id, &pos, yaw);
 }
 
@@ -6384,10 +6356,10 @@ void qst_op_player_effect_nc(u8 arg0) {
     s32 i;
 
     i = arg0;
-    kind = TLobby__script_reg_array[i++];
-    extra = TLobby__script_reg_array[i++];
-    id = TLobby__script_reg_array[i++];
-    dy = TLobby__script_reg_array[i];
+    kind = qst_registers[i++];
+    extra = qst_registers[i++];
+    id = qst_registers[i++];
+    dy = qst_registers[i];
     p = (u8 *)find_entity_by_id(id);
     if (p != NULL) {
         VecCopy__FP3VecPC3Vec(&v, p + 0x38);
@@ -6410,17 +6382,17 @@ void qst_op_has_ep3_save_file() {
     if (ok == 0 && ((TAdPlayerLoadGC *)1)->probe_card_slot() != 0 && find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_80449CC8) == 0 && TAdPlayerLoadGC::get_load_result((void *)1) == 0) {
         ok = 1;
     }
-    TLobby__script_reg_array[reg] = ok;
+    qst_registers[reg] = ok;
 }
 }
 
 void qst_op_particle_id(u8 first) {
     Vec_801F0710 point;
     s32 i = first;
-    s16 effect = (s16) TLobby__script_reg_array[i++];
-    s32 lifetime = TLobby__script_reg_array[i++];
-    u16 id = (u16) TLobby__script_reg_array[i++];
-    f32 height = (f32) TLobby__script_reg_array[i];
+    s16 effect = (s16) qst_registers[i++];
+    s32 lifetime = qst_registers[i++];
+    u16 id = (u16) qst_registers[i++];
+    f32 height = (f32) qst_registers[i];
     s32 actor = (s32)find_entity_by_id(id);
     if (actor != 0) {
         ((void (*)(Vec_801F0710 *, const Vec_801F0710 *))VecCopy__FP3VecPC3Vec)(&point, (const Vec_801F0710 *) (actor + 0x38));
@@ -6441,11 +6413,11 @@ void qst_op_particle_effect_nc(u8 arg0) {
     u32 r;
 
     i = arg0;
-    x = TLobby__script_reg_array[i++];
-    y = TLobby__script_reg_array[i++];
-    z = TLobby__script_reg_array[i++];
-    kind = TLobby__script_reg_array[i++];
-    extra = TLobby__script_reg_array[i];
+    x = qst_registers[i++];
+    y = qst_registers[i++];
+    z = qst_registers[i++];
+    kind = qst_registers[i++];
+    extra = qst_registers[i];
     v.x = x;
     v.y = y;
     v.z = z;
@@ -6465,11 +6437,11 @@ void qst_op_particle(u8 arg0) {
     s32 extra;
 
     i = arg0;
-    x = TLobby__script_reg_array[i++];
-    y = TLobby__script_reg_array[i++];
-    z = TLobby__script_reg_array[i++];
-    kind = TLobby__script_reg_array[i++];
-    extra = TLobby__script_reg_array[i];
+    x = qst_registers[i++];
+    y = qst_registers[i++];
+    z = qst_registers[i++];
+    kind = qst_registers[i++];
+    extra = qst_registers[i];
     v.x = x;
     v.y = y;
     v.z = z;
@@ -6478,7 +6450,7 @@ void qst_op_particle(u8 arg0) {
 
 void qst_op_particle2() {
     Vec3_801F0970 v;
-    f32* p = &((f32*)TLobby__script_reg_array)[(*(Cfg_801F0970 *)&TLobby__quest_argument_stack).i];
+    f32* p = &((f32*)qst_registers)[(*(Cfg_801F0970 *)&TLobby__quest_argument_stack).i];
     v.x = p[0];
     v.y = p[1];
     v.z = p[2];
@@ -6498,10 +6470,10 @@ void qst_op_pl_walk(u8 arg0) {
     s32 i;
 
     i = arg0;
-    x = TLobby__script_reg_array[i++];
+    x = qst_registers[i++];
     i++;
-    z = TLobby__script_reg_array[i++];
-    player = TLobby__script_reg_array[i];
+    z = qst_registers[i++];
+    player = qst_registers[i];
     obj = (Obj_801F09EC *)((s32 (*)(s32))get_player_by_client_id)(player);
     if (obj != NULL) {
         init_6x40_walk_packet(&cmd);
@@ -6542,12 +6514,12 @@ int qst_op_cam_adj(void* p) { return set_active_camera_flag__11TCameraCtrlFv(p);
 void qst_op_cam_pan(u8 reg) {
     s32 r = reg;
     Vec pos;
-    pos.x = TLobby__script_reg_array[r++];
-    pos.y = TLobby__script_reg_array[r++];
-    pos.z = TLobby__script_reg_array[r++];
+    pos.x = qst_registers[r++];
+    pos.y = qst_registers[r++];
+    pos.z = qst_registers[r++];
     {
-        s32 arg1 = TLobby__script_reg_array[r++];
-        s32 arg2 = TLobby__script_reg_array[r];
+        s32 arg1 = qst_registers[r++];
+        s32 arg2 = qst_registers[r];
         TCameraCtrl::create((s32)&pos, arg1, arg2);
     }
 }
@@ -6576,13 +6548,13 @@ void qst_op_npc_crp_id(u8 first) {
     int slot;
     int i = first;
 
-    pos[0] = (f32)TLobby__script_reg_array[i++];
-    pos[1] = (f32)TLobby__script_reg_array[i++];
-    pos[2] = (f32)TLobby__script_reg_array[i++];
-    heading = (int)(lbl_805DC4CC * (f32)TLobby__script_reg_array[i++]);
-    leader = TLobby__script_reg_array[i++];
-    slot = TLobby__script_reg_array[i++];
-    appearance = TLobby__script_reg_array[i++];
+    pos[0] = (f32)qst_registers[i++];
+    pos[1] = (f32)qst_registers[i++];
+    pos[2] = (f32)qst_registers[i++];
+    heading = (int)(lbl_805DC4CC * (f32)qst_registers[i++]);
+    leader = qst_registers[i++];
+    slot = qst_registers[i++];
+    appearance = qst_registers[i++];
     TLobby::free_luker_object();
     TNpcPlayer::create_companion(leader, slot, appearance, pos, heading);
     TLobby::clear_quest_vm_flag();
@@ -6595,12 +6567,12 @@ void qst_op_npc_crp(u8 first) {
     int appearance;
     int i = first;
 
-    pos[0] = (f32)TLobby__script_reg_array[i++];
-    pos[1] = (f32)TLobby__script_reg_array[i++];
-    pos[2] = (f32)TLobby__script_reg_array[i++];
-    heading = (int)(lbl_805DC4CC * (f32)TLobby__script_reg_array[i++]);
-    leader = TLobby__script_reg_array[i++];
-    appearance = TLobby__script_reg_array[i++];
+    pos[0] = (f32)qst_registers[i++];
+    pos[1] = (f32)qst_registers[i++];
+    pos[2] = (f32)qst_registers[i++];
+    heading = (int)(lbl_805DC4CC * (f32)qst_registers[i++]);
+    leader = qst_registers[i++];
+    appearance = qst_registers[i++];
     TLobby::free_luker_object();
     create_default_companion__10TNpcPlayerFssPUcl(leader, appearance, pos, heading);
     TLobby::clear_quest_vm_flag();
@@ -6625,13 +6597,13 @@ void qst_op_npc_crptalk_id(u8 first) {
     int i = first;
     u32 injured;
 
-    pos[0] = (f32)TLobby__script_reg_array[i++];
-    pos[1] = (f32)TLobby__script_reg_array[i++];
-    pos[2] = (f32)TLobby__script_reg_array[i++];
-    heading = (int)(lbl_805DC4CC * (f32)TLobby__script_reg_array[i++]);
-    injured = TLobby__script_reg_array[i++];
-    appearance = TLobby__script_reg_array[i++];
-    slot = TLobby__script_reg_array[i++];
+    pos[0] = (f32)qst_registers[i++];
+    pos[1] = (f32)qst_registers[i++];
+    pos[2] = (f32)qst_registers[i++];
+    heading = (int)(lbl_805DC4CC * (f32)qst_registers[i++]);
+    injured = qst_registers[i++];
+    appearance = qst_registers[i++];
+    slot = qst_registers[i++];
     TLobby::free_luker_object();
     player = (TObjPlayer *)TObject::operator new(0xDB8);
     if (player != NULL) {
@@ -6658,12 +6630,12 @@ void qst_op_npc_crptalk(u8 first) {
     int i = first;
     u32 injured;
 
-    pos[0] = (f32)TLobby__script_reg_array[i++];
-    pos[1] = (f32)TLobby__script_reg_array[i++];
-    pos[2] = (f32)TLobby__script_reg_array[i++];
-    heading = (int)(lbl_805DC4CC * (f32)TLobby__script_reg_array[i++]);
-    injured = TLobby__script_reg_array[i++];
-    appearance = TLobby__script_reg_array[i++];
+    pos[0] = (f32)qst_registers[i++];
+    pos[1] = (f32)qst_registers[i++];
+    pos[2] = (f32)qst_registers[i++];
+    heading = (int)(lbl_805DC4CC * (f32)qst_registers[i++]);
+    injured = qst_registers[i++];
+    appearance = qst_registers[i++];
     TLobby::free_luker_object();
     player = (TObjPlayer *)TObject::operator new(0xDB8);
     if (player != NULL) {
@@ -6691,13 +6663,13 @@ void qst_op_npc_crppk(u8 arg0) {
     s32 i;
 
     i = arg0;
-    v.x = TLobby__script_reg_array[i++];
-    v.y = TLobby__script_reg_array[i++];
-    v.z = TLobby__script_reg_array[i++];
-    angle = lbl_805DC4CC * TLobby__script_reg_array[i++];
-    a = TLobby__script_reg_array[i++];
-    b = TLobby__script_reg_array[i++];
-    c = TLobby__script_reg_array[i];
+    v.x = qst_registers[i++];
+    v.y = qst_registers[i++];
+    v.z = qst_registers[i++];
+    angle = lbl_805DC4CC * qst_registers[i++];
+    a = qst_registers[i++];
+    b = qst_registers[i++];
+    c = qst_registers[i];
     TLobby::free_luker_object();
     send_npc_control_create__10TNpcPlayerFsUssPUcl(a, c, b, &v, angle);
     TLobby::clear_quest_vm_flag();
@@ -6720,9 +6692,9 @@ void qst_op_npc_param() {
 
     i = TLobby__quest_argument_stack.value;
     arg = *(s32 *)TLobby__quest_argument_stack.remaining;
-    s.h0 = TLobby__script_reg_array[i++];
-    s.h2 = TLobby__script_reg_array[i++];
-    switch (TLobby__script_reg_array[i++]) {
+    s.h0 = qst_registers[i++];
+    s.h2 = qst_registers[i++];
+    switch (qst_registers[i++]) {
     case 0:
         flags = 0x40;
         break;
@@ -6747,17 +6719,17 @@ void qst_op_npc_param() {
         break;
     }
     s.flags = flags;
-    s.f8 = TLobby__script_reg_array[i++];
-    s.fC = TLobby__script_reg_array[i++];
-    s.f10 = TLobby__script_reg_array[i++];
-    s.f14 = TLobby__script_reg_array[i++];
-    s.f18 = TLobby__script_reg_array[i++];
-    s.f1C = TLobby__script_reg_array[i++];
-    s.b20 = TLobby__script_reg_array[i++];
-    s.b21 = TLobby__script_reg_array[i++];
-    s.b22 = TLobby__script_reg_array[i++];
-    s.b23 = TLobby__script_reg_array[i++];
-    s.f24 = TLobby__script_reg_array[i];
+    s.f8 = qst_registers[i++];
+    s.fC = qst_registers[i++];
+    s.f10 = qst_registers[i++];
+    s.f14 = qst_registers[i++];
+    s.f18 = qst_registers[i++];
+    s.f1C = qst_registers[i++];
+    s.b20 = qst_registers[i++];
+    s.b21 = qst_registers[i++];
+    s.b22 = qst_registers[i++];
+    s.b23 = qst_registers[i++];
+    s.f24 = qst_registers[i];
     ((TNpcPlayer *)(&s))->copy_entry_by_index(arg);
 }
 }
@@ -6911,7 +6883,7 @@ void qst_op_list(void) {
     align_menu_entry_positions(TLobby__quest_choice_window);
     ((TCheckRoomSequence *)TLobby__quest_choice_window)->set_ready_flag();
     ((TLobby *)TLobby__quest_choice_window)->set_field_1c(lbl_805DC4D8);
-    (*(int * *)&TLobby__script_reg_array)[idx] = 0;
+    qst_registers[idx] = 0;
     TLobby__active_window_index = idx;
     TLobby__quest_window_state = 7;
     close_window_if_active((void *)local_client_id);
@@ -6966,7 +6938,7 @@ void qst_op_stack_popm(s32 arg0, s32 arg1) {
     while (n > 0) {
         int v = pop_stack_value__6TLobbyFv();
         j--;
-        TLobby__script_reg_array[j] = v;
+        qst_registers[j] = v;
         n--;
     }
 }
@@ -6974,20 +6946,20 @@ void qst_op_stack_popm(s32 arg0, s32 arg1) {
 void qst_op_stack_pushm(s32 arg0, s32 arg1) {
     s32 i;
     for (i = 0; i < arg1; i++) {
-        push_op_arg__6TLobbyFi(TLobby__script_reg_array[(u8)arg0++]);
+        push_op_arg__6TLobbyFi(qst_registers[(u8)arg0++]);
     }
 }
 
-void qst_op_stack_pop(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = pop_stack_value__6TLobbyFv(); }
+void qst_op_stack_pop(int a0) { qst_registers[(unsigned char)(a0)] = pop_stack_value__6TLobbyFv(); }
 
 void qst_op_stack_push(s32 arg0) {
-    push_op_arg__6TLobbyFi((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+    push_op_arg__6TLobbyFi((int) (qst_registers[(u8)arg0]));
 }
 }
 
 void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) + 0);
+    temp_r3 = qst_registers[(u8)arg0];
     if ((temp_r3 < (s32) arg1) && (temp_r3 >= 0)) {
         qst_op_call((u16)((int) (*(u16 *)((s8 *)(arg2 + (temp_r3 * 2)) + 0))));
     }
@@ -6995,128 +6967,128 @@ void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2) {
 
 void qst_op_switch_jmp(s32 arg0, u8 arg1, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) + 0);
+    temp_r3 = qst_registers[(u8)arg0];
     if ((temp_r3 < (s32) arg1) && (temp_r3 >= 0)) {
         qst_op_jmp((int) (*(u16 *)((s8 *)(arg2 + (temp_r3 * 2)) + 0)));
     }
 }
 
 void qst_op_jmpi_le(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) <= arg1) {
+    if ((s32) qst_registers[(u8)arg0] <= arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmp_le(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) <= (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((s32) qst_registers[(u8)arg0] <= (s32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmpi_le(s32 arg0, u32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) <= arg1) {
+    if ((u32) qst_registers[(u8)arg0] <= arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmp_le(s32 arg0, s32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) <= (u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((u32) qst_registers[(u8)arg0] <= (u32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmpi_ge(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) >= arg1) {
+    if ((s32) qst_registers[(u8)arg0] >= arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmp_ge(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) >= (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((s32) qst_registers[(u8)arg0] >= (s32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmpi_ge(s32 arg0, u32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) >= arg1) {
+    if ((u32) qst_registers[(u8)arg0] >= arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmp_ge(s32 arg0, s32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) >= (u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((u32) qst_registers[(u8)arg0] >= (u32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmpi_lt(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) < arg1) {
+    if ((s32) qst_registers[(u8)arg0] < arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmp_lt(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) < (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((s32) qst_registers[(u8)arg0] < (s32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmpi_lt(s32 arg0, u32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) < arg1) {
+    if ((u32) qst_registers[(u8)arg0] < arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmp_lt(s32 arg0, s32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) < (u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((u32) qst_registers[(u8)arg0] < (u32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmpi_gt(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) > arg1) {
+    if ((s32) qst_registers[(u8)arg0] > arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmp_gt(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) > (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((s32) qst_registers[(u8)arg0] > (s32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmpi_gt(s32 arg0, u32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) > arg1) {
+    if ((u32) qst_registers[(u8)arg0] > arg1) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_ujmp_gt(s32 arg0, s32 arg1, s32 arg2) {
-    if ((u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) > (u32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((u32) qst_registers[(u8)arg0] > (u32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmpi_ne(s32 arg0, s32 arg1, s32 arg2) {
-    if (arg1 != (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))) {
+    if (arg1 != (s32) qst_registers[(u8)arg0]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmp_ne(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) != (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((s32) qst_registers[(u8)arg0] != (s32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmpi_eq(s32 arg0, s32 arg1, s32 arg2) {
-    if (arg1 == (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))) {
+    if (arg1 == (s32) qst_registers[(u8)arg0]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
 
 void qst_op_jmp_eq(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) == (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))) {
+    if ((s32) qst_registers[(u8)arg0] == (s32) qst_registers[(u8)arg1]) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
@@ -7128,7 +7100,7 @@ void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2) {
         u8 reg = *arg2;
         arg1--;
         arg2++;
-        all_off &= (u8) ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((reg * 4) & 0x3FC)) == 0);
+        all_off &= (u8) ((s32) qst_registers[(u8)reg] == 0);
     }
     if (all_off != 0) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg0 * 4) & 0x3FFFC));
@@ -7138,7 +7110,7 @@ void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2) {
 void qst_op_jmp_on(s32 arg0, u8 arg1, u8 *arg2) {
     s32 i;
     for (i = 0; i < arg1; i++) {
-        if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((*arg2++ * 4) & 0x3FC)) == 0) {
+        if ((s32) qst_registers[(u8)*arg2++] == 0) {
             return;
         }
     }
@@ -7155,106 +7127,84 @@ void qst_op_call(u16 arg0) {
 #pragma pop
 
 void qst_op_modi(s32 arg0, u32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) % arg1;
+    qst_registers[(u8)arg0] %= arg1;
 }
 extern "C" {
 
 void qst_op_mod(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) % *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] %= qst_registers[(u8)arg1];
 }
 }
 
 void qst_op_jmp(int a0) { TLobby__quest_script_pc = TLobby__data_805D5E74[(unsigned short)(a0)]; }
 
 void qst_op_xori(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) ^= arg1;
+    qst_registers[(u8)arg0] ^= arg1;
 }
 
 void qst_op_xor(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) ^ *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] ^= qst_registers[(u8)arg1];
 }
 
 void qst_op_ori(s32 arg0, s32 arg1) {
-  s32 *new_var;
-  new_var = (s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + ((arg0 * 4) & 0x3FC));
-  *new_var = (*new_var) | arg1;
+    qst_registers[(u8)arg0] |= arg1;
 }
 
 void qst_op_or(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) | *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] |= qst_registers[(u8)arg1];
 }
 
 void qst_op_andi(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) &= arg1;
+    qst_registers[(u8)arg0] &= arg1;
 }
 
 void qst_op_and(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) & *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] &= qst_registers[(u8)arg1];
 }
 
 void qst_op_divi(s32 arg0, s32 arg1) {
-    s32 temp_r3;
-    temp_r3 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) = (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) / arg1;
+    qst_registers[(u8)arg0] /= arg1;
 }
 
 void qst_op_div(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) / (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] /= (s32) qst_registers[(u8)arg1];
 }
 
 void qst_op_muli(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) *= arg1;
+    qst_registers[(u8)arg0] *= arg1;
 }
 
 void qst_op_mul(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) * *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] *= qst_registers[(u8)arg1];
 }
 
 void qst_op_subi(s32 arg0, s32 arg1) {
-    s32 temp_r3;
-    temp_r3 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) - arg1;
+    qst_registers[(u8)arg0] -= arg1;
 }
 
 void qst_op_sub(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) -= *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] -= qst_registers[(u8)arg1];
 }
 
 #pragma push
 #pragma scheduling off
-void qst_op_addi(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] += a1; }
+void qst_op_addi(int a0, int a1) { qst_registers[(unsigned char)(a0)] += a1; }
 #pragma pop
 
 void qst_op_add(s32 arg0, s32 arg1) {
-    s32 temp_r5;
-    temp_r5 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) + *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] += qst_registers[(u8)arg1];
 }
 
 void qst_op_gget(u16 flag, s32 arg1) {
     if (get_story_flag((flag)) != 0) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 1;
+        qst_registers[(u8)arg1] = 1;
         return;
     }
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg1] = 0;
 }
 
 void qst_op_glet(u16 flag, s32 arg1) {
-    if ((s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) != 0) {
+    if ((s32) qst_registers[(u8)arg1] != 0) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs((void *)flag);
         return;
     }
@@ -7330,39 +7280,37 @@ void qst_op_gset(u16 arg0) {
 extern "C" {
 
 void qst_op_rev(s32 arg0) {
-    s32 temp_r3;
-    temp_r3 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) = (s32) (u8) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) == 0);
+    qst_registers[(u8)arg0] = qst_registers[(u8)arg0] == 0;
 }
 
 void qst_op_clear(s32 arg0) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
+    qst_registers[(u8)arg0] = 0;
 }
 
 void qst_op_set(s32 arg0) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
+    qst_registers[(u8)arg0] = 1;
 }
 
 void qst_op_leto(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
+    qst_registers[(u8)arg0] = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
 }
 }
 
 void qst_op_leta(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = (*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC);
+    qst_registers[(u8)arg0] = (s32)&qst_registers[(u8)arg1];
 }
 
-void qst_op_letw(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xffff); }
+void qst_op_letw(int a0, int a1) { qst_registers[(unsigned char)(a0)] = (a1 & 0xffff); }
 
-void qst_op_letb(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xff); }
+void qst_op_letb(int a0, int a1) { qst_registers[(unsigned char)(a0)] = (a1 & 0xff); }
 
-void qst_op_leti(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = a1; }
+void qst_op_leti(int a0, int a1) { qst_registers[(unsigned char)(a0)] = a1; }
 
 namespace pf2_p6 { extern "C" { extern s32 TLobby__quest_window_state; } }
 #define TLobby__quest_window_state pf2_p6::TLobby__quest_window_state
 
 void qst_op_let(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+    qst_registers[(u8)arg0] = qst_registers[(u8)arg1];
 }
 
 void qst_op_thread_stg(u16 arg0) {

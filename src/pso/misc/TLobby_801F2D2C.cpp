@@ -1,4 +1,5 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/quest/QuestVm.h"
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TLobby_801F2D2C.h"
@@ -71,7 +72,6 @@ extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_sta
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
 extern unsigned char* TLobby__quest_data_base;
 extern s32 TLobby__data_805D5E74;
-extern s32 TLobby__script_reg_array;
 extern u32 TLobby__quest_message_window;
 extern u32 TLobby__quest_choice_window;
 extern u8 TLobby__active_window_index;
@@ -177,7 +177,7 @@ s32 dispatch_quest_opcode(void) {
 void TLobby::save_quest_state_to_record() {
     *(s32 *)&this->m_name = (s32) (*(s32 *)&TLobby__quest_data_base);
     *(s32 *)&this->m_flags = (s32) TLobby__data_805D5E74;
-    *(s32 *)&this->m_prev = (s32) TLobby__script_reg_array;
+    *(s32 **)&this->m_prev = qst_registers;
     *(s32 *)&this->m_next = (s32) (*(s32 *)&TLobby__quest_message_window);
     *(s32 *)&this->m_up = (s32) (*(s32 *)&TLobby__quest_choice_window);
     *(u8 *)&this->m_down = (u8) TLobby__active_window_index;
@@ -212,7 +212,7 @@ void TLobby::save_quest_state_to_record() {
 void TLobby::load_quest_globals() {
     (*(s32 *)&TLobby__quest_data_base) = *(s32 *)&this->m_name;
     TLobby__data_805D5E74 = *(s32 *)&this->m_flags;
-    TLobby__script_reg_array = *(s32 *)&this->m_prev;
+    qst_registers = *(s32 **)&this->m_prev;
     (*(s32 *)&TLobby__quest_message_window) = *(s32 *)&this->m_next;
     (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)&this->m_up;
     TLobby__active_window_index = *(u8 *)&this->m_down;
