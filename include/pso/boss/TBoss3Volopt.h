@@ -111,13 +111,9 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     u16 find_attack_target();
     void reset_photon_effect();
     s32 get_field_3e0();
-    void swap_6x85_fields();
 
     // Defined in other units; most are helpers of other classes filed under
     // TBoss3Volopt.
-    void update_and_send_60();
-    void swap_6x18_fields();
-    void broadcast_state();
     s32 query_field_30(s32 *arg1);
     static void create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     void play_area_variant_sound();

@@ -1464,6 +1464,7 @@ force_active:
   - __ct__14TObjWarpStringFv
   - __ct__15TAdDrawLineCtrlFP7TObjectPvf
   - __ct__15TBoss3VoloptP01FP7TObjectPv
+  - __ct__15TBoss3VoloptP02FP7TObjectPv
   - __ct__15TBoss6CrushRockFv
   - __ct__15TBoss6SwordWaveFv
   - __ct__15TItemEffBringerFv
@@ -2124,6 +2125,7 @@ force_active:
   - __vt__15TAdSubPlyItemGC
   - __vt__15TBoss2PhotonPad
   - __vt__15TBoss3VoloptP01
+  - __vt__15TBoss3VoloptP02
   - __vt__15TBoss6CrushPtcl
   - __vt__15TBoss6CrushRock
   - __vt__15TBoss6EmptyWarp
@@ -4542,6 +4544,8 @@ force_active:
   - init__17TWindowSubComCardFi
   - init__18TChallenge4PResultFv
   - init__18TObjAreaWarpForestFPvPv
+  - init__18VoloptPartsMessageFv
+  - init__19VoloptPhase2MessageFv
   - init__21TObjEneRe7BeruraPunchFv
   - init__22TAdEnterSerialAccessGCFv
   - init__22TChCrLoadAfsTextureReqFPvPvPv
@@ -4657,6 +4661,7 @@ force_active:
   - init_params__11TBoss6Type1Fv
   - init_params__11TBoss7JointFv
   - init_params__15TBoss3VoloptP01Fv
+  - init_params__15TBoss3VoloptP02Fv
   - init_params__15TOAttackableColFv
   - init_params__16TBoss3VoloptCoreFv
   - init_params__17TObjEneBm3FlyNestFv
@@ -5734,6 +5739,7 @@ force_active:
   - load_object_set_file__Fll
   - load_params__15TObjEneMe1GiGueFv
   - load_params_from_table__14TObjEneDolmOlmFl
+  - load_params_from_table__15TBoss3VoloptP02Fl
   - load_params_from_table__15TObjEneMe1GiGueFl
   - load_params_from_table__20TBoss3VoloptHiraisinFl
   - load_player_by_slot__23TAdSinglePlyChrSelectGCFl
@@ -11526,6 +11532,8 @@ force_active:
   - send_6x71_to_player__6TLobbyFv
   - send_6x7D_set_battle_mode_data
   - send_6x9C_enemy_low_game_flags__9TObjEnemyFl
+  - send__18VoloptPartsMessageFv
+  - send__19VoloptPhase2MessageFv
   - send__24TBoss3VoloptAttackPacketFv
   - send__25TBoss3VoloptTargetsPacketFv
   - send__26TBoss3VoloptPositionPacketFv
@@ -12383,6 +12391,7 @@ force_active:
   - svm_callback_message_buffer
   - svm_callback_single_table
   - svm_callback_table
+  - swap__18VoloptPartsMessageFv
   - swap__24TBoss3VoloptActionPacketFv
   - swap__24TBoss3VoloptAttackPacketFv
   - swap__25TBoss3VoloptTargetsPacketFv
@@ -13184,6 +13193,7 @@ force_active:
   - voiceResetLastStarted
   - volopt_cage_breakup_params
   - volopt_cage_combat_stats
+  - volopt_p02_params
   - vsUpdateBuffer
   - vt0__11TBoss4BishiFv
   - vt0__13TBoss6MagMineFv

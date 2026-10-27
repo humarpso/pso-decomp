@@ -20,6 +20,7 @@
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -28,23 +29,15 @@
 #include "pso/object/obj_band.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/BmlResource.h"
+#include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/boss/TBoss3Volopt_8004812C.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/object/TObjLight_80133568.h"
-#include "pso/unk/text_80048118.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
-
-struct VoloptPartsMessage {
-    u8 command;
-    u8 size;
-    u16 entity_id;
-    s16 part_hp[4];
-};
 
 extern "C" {
 void *find_entity_by_id(u16 id);
@@ -231,6 +224,57 @@ static NjObject *model_node_3f;
 static u8 *node_44_color;
 static u8 *node_27_color;
 static u8 *node_3f_color;
+
+void VoloptPartsMessage::init() {
+    command = 0x18;
+    size = 3;
+}
+
+void VoloptPartsMessage::send() {
+    swap();
+    TLobby__send_and_handle_60((u8 *)this);
+}
+
+void VoloptPartsMessage::swap() {
+    s32 i;
+    ((TObjPlayer *)this)->read_be16_field2();
+    for (i = 0; i < 4; i++) {
+        bswap_16((u16 *)&part_hp[i]);
+    }
+}
+
+void VoloptPhase2Message::init() {
+    command = 0x85;
+    size = 5;
+}
+
+void VoloptPhase2Message::send() {
+    swap();
+    TLobby__send_and_handle_60((u8 *)this);
+}
+
+s32 TObjVoloptCage::get_int_param(s32 index) {
+    return volopt_cage_params->int_params[index];
+}
+
+void TBoss3VoloptP02::load_params_from_table(s32 index) {
+    model = (void *)lbl_805D4CE4->models[index].model;
+    texture_id = lbl_805D4CE4->models[index].m_c;
+}
+
+f32 TBoss3VoloptP02::get_float_param(s32 index) {
+    return volopt_p02_params->float_params[index];
+}
+
+s32 TBoss3VoloptP02::get_int_param(s32 index) {
+    return volopt_p02_params->int_params[index];
+}
+
+TBoss3VoloptP02::TBoss3VoloptP02(TObject *parent, void *set_data) : TObjEnemyCustom(parent) {
+    ((TObjPlayer *)&fade)->init_and_activate();
+    apply_set_data(set_data);
+    init_params();
+}
 
 void TBoss3VoloptP02::init_params() {
     s32 i;
@@ -651,7 +695,7 @@ void TBoss3VoloptP02::fn_80046CB8() {
             vfunc_58();
             break;
         }
-        timer = TObjVoloptPillar__sub_80048118(5);
+        timer = TBoss3VoloptP02::get_int_param(5);
         collect_targets_in_arc();
         for (i = 0; i < arc_target_count; i++) {
             new TObjVoloptPillar(&arc_target_positions[i], this);
@@ -715,7 +759,7 @@ void TBoss3VoloptP02::fn_800465B0() {
     if (m_388 & 0x10000) {
         next_action = 0;
     }
-    duration = max_s32(TObjVoloptPillar__sub_80048118(4) + 120, 10);
+    duration = max_s32(TBoss3VoloptP02::get_int_param(4) + 120, 10);
     target = get_player_by_client_id(targetId);
     switch ((s32)state) {
     case 0:
@@ -1010,7 +1054,7 @@ void TBoss3VoloptP02::update_pillar_heal_state() {
                 heal_emitter->queue_destruction();
                 heal_emitter = NULL;
             }
-            n = TObjVoloptPillar__sub_80048118(3) / 5;
+            n = TBoss3VoloptP02::get_int_param(3) / 5;
             TBoss3Volopt__sub_800FD344((s32)&m_2fc, (s32)(0xFF00FF00), 0x1E, (void *)"HP", (void *)n);
             hp = min_s32(hp + n, hpmax);
             for (s32 i = 0; i < 4; i++) {
@@ -1363,12 +1407,12 @@ u16 TBoss3VoloptP02::find_facing_player() {
 void TBoss3VoloptP02::broadcast_values() {
     VoloptPartsMessage message;
     s32 i;
-    TBoss3Volopt__sub_8004824C(&message);
+    message.init();
     message.entity_id = m_1c;
     for (i = 0; i < 4; i++) {
         message.part_hp[i] = part_hp[i];
     }
-    ((TBoss3Volopt *)&message)->broadcast_state();
+    message.send();
 }
 
 extern "C" void handle_6x18_vol_opt2_boss_actions(VoloptPartsMessage *message) {
@@ -1376,7 +1420,7 @@ extern "C" void handle_6x18_vol_opt2_boss_actions(VoloptPartsMessage *message) {
     s32 i;
     u32 bit;
     s32 j;
-    ((TBoss3Volopt *)message)->swap_6x18_fields();
+    message->swap();
     boss = (TBoss3VoloptP02 *)find_entity_by_id(message->entity_id);
     if (boss != NULL) {
         for (i = 0; i < 4; i++) {
@@ -1539,14 +1583,14 @@ void TBoss3VoloptP02::send_random_params() {
     s32 i;
     f32 base;
     f32 range;
-    TBoss3Volopt__sub_800481B4(&msg);
+    msg.init();
     msg.mode = 0;
     for (i = 0; i < 3; i++) {
-        base = TBoss3Volopt__sub_8004812C(4);
-        range = TBoss3Volopt__sub_8004812C(5);
+        base = TBoss3VoloptP02::get_float_param(4);
+        range = TBoss3VoloptP02::get_float_param(5);
         { f32 r = (1.0f / 32768.0f) * (f32)rand(); msg.delays[i] = (s16)(r * range + base); }
     }
-    ((TBoss3Volopt *)&msg)->update_and_send_60();
+    msg.send();
 }
 #pragma pop
 
@@ -1629,7 +1673,7 @@ void TBoss3VoloptP02::fn_80044680() {
     case 3:
         state = 4;
         push_players_out_of_radius();
-        ring_timer = wave_index == 0 ? TBoss3Volopt__sub_8004816C(1) * 0x180 : 0x1555;
+        ring_timer = wave_index == 0 ? TObjVoloptCage::get_int_param(1) * 0x180 : 0x1555;
     case 4: {
         play_persistent_sound(0x4003C616, this, position, 0, 0);
         ring_angle += 0x180;
@@ -1673,7 +1717,7 @@ void TBoss3VoloptP02::fn_80044680() {
         break;
     }
     case 5:
-        timer = TObjVoloptPillar__sub_80048118(5);
+        timer = TBoss3VoloptP02::get_int_param(5);
         for (k = 0; k < 4; k++) {
             new TObjVoloptPillar(&ring_positions[k], this);
         }
@@ -1775,4 +1819,12 @@ void TBoss3VoloptP02::distribute_part_damage() {
         }
     }
     referenceHp = hp;
+}
+
+void TBoss3VoloptP02::set_flag_08000000() {
+    set_indexed_flags(0, 0x08000000);
+}
+
+void TBoss3VoloptP02::clear_flag_08000000() {
+    clear_player_status_flag(0, 0x08000000);
 }

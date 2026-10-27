@@ -7,12 +7,29 @@
 #include "pso/misc/RenderFadeState.h"
 #include "pso/system/BmlResource.h"
 
+// The 6x85 message: Vol Opt ver.2 phase-2 commands (mode 0 carries the P02 wave delays).
 struct VoloptPhase2Message {
     u8 command;
     u8 size;
     u8 pad_2[0x2];
     s16 mode;
     s16 delays[7];
+
+    void init();
+    void swap();
+    void send();
+};
+
+// The 6x18 message: the P02 part HP, which breaks the parts that reached zero.
+struct VoloptPartsMessage {
+    u8 command;
+    u8 size;
+    u16 entity_id;
+    s16 part_hp[4];
+
+    void init();
+    void swap();
+    void send();
 };
 
 struct VoloptP02Params {
@@ -79,6 +96,8 @@ public:
     static void *create(void *set_data);
     void init_params();
     void load_params_from_table(s32 index);
+    static f32 get_float_param(s32 index);
+    static s32 get_int_param(s32 index);
 
     u16 front_target_ids[4];
     s16 front_target_count;

@@ -1,7 +1,6 @@
 #include "pso/boss/TUnk_80484A94.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/boss/TBoss3Volopt_8004812C.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjGyaranzoMissile.h"
@@ -125,11 +124,11 @@ TUnk_80484A94::TUnk_80484A94(TObjEnemy *owner, Vec *pos, s32 target) : TUnk_804A
         rotate_vector_by_matrix(0, &dir, &velocity);
     }
     pop_matrix();
-    lifetime = TBoss3Volopt__sub_8004816C(0);
+    lifetime = TObjVoloptCage::get_int_param(0);
 }
 
 f32 fn_800499FC(s32 index) {
-    return ((f32 *)volopt_cage_params)[index];
+    return volopt_cage_params->float_params[index];
 }
 
 void fn_80049A0C(TObjEnemyCustom *boss) {

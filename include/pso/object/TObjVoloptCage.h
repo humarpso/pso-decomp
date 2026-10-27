@@ -25,6 +25,7 @@ public:
     void update_state();
     static void destroy();
     static void init_break_model();
+    static s32 get_int_param(s32 index);
 };
 
 typedef char TObjVoloptCage_size[sizeof(TObjVoloptCage) == 0x394 ? 1 : -1];
@@ -37,7 +38,13 @@ struct VoloptBreakUpParams {
 
 extern VoloptBreakUpParams volopt_cage_breakup_params;
 extern void *volopt_cage_combat_stats;
-extern void *volopt_cage_params;
+// Same layout as the P02 table (VoloptP02Params): floats first, ints at 0x18.
+struct VoloptCageParams {
+    f32 float_params[6];
+    s32 int_params[6];
+};
+
+extern VoloptCageParams *volopt_cage_params;
 
 extern "C" {
 void fn_80048C04(TObjVoloptCage *cage);

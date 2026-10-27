@@ -13,10 +13,9 @@
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/system/BmlResource.h"
 #include "pso/system/vector.h"
-#include "pso/unk/text_80048118.h"
+#include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
-#include "pso/boss/TBoss3Volopt_8004812C.h"
 #include "pso/boss/TUnk_80484888.h"
 #include "pso/unk/text_80049FD8.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -80,7 +79,7 @@ void TObjVoloptPillar::run_task() {
     s32 angle;
     switch (state) {
     case 0:
-        timer = TObjVoloptPillar__sub_80048118(5);
+        timer = TBoss3VoloptP02::get_int_param(5);
         state = 1;
     case 1:
         if (--timer <= 0) {
@@ -104,7 +103,7 @@ void TObjVoloptPillar::run_task() {
                     }
                     if (obj_is_hit_receivable(target) != 0) {
                         DirectAttackPayload attack = volopt_pillar_attack;
-                        attack.power = TObjVoloptPillar__sub_80048118(1);
+                        attack.power = TBoss3VoloptP02::get_int_param(1);
                         target->receive_direct_attack(owner, attack, NULL, -1, -1);
                         if (!(target->actorFlags & 0x04000000)) {
                             push_matrix_from(identity_matrix);
@@ -114,7 +113,7 @@ void TObjVoloptPillar::run_task() {
                                 angle = volopt_pillar_rad_to_angle * atan2_float(away.x, away.z);
                                 {
                                     Vec push = volopt_pillar_push;
-                                    push.x = TBoss3Volopt__sub_8004812C(2);
+                                    push.x = TBoss3VoloptP02::get_float_param(2);
                                     rotate_matrix_y(0, angle);
                                     matrix_mult_vec(0, &push, (Vec *)target->unk_308);
                                 }

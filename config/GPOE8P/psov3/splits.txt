@@ -397,26 +397,14 @@ pso/boss/TBoss3VoloptP01.cpp:
 	.sbss       start:0x805D4CB0 end:0x805D4CD0
 	.sdata2     start:0x805D8760 end:0x805D879C
 
-pso/unk/text_80044448.cpp:
-	.text       start:0x80044448 end:0x80044498
-
 pso/boss/TBoss3VoloptP02.cpp:
-	.text       start:0x80044498 end:0x800480B0
+	.text       start:0x80044448 end:0x80048260
 	.rodata     start:0x80436650 end:0x804366B8
 	.data       start:0x804843E0 end:0x80484828
 	.bss        start:0x804FF008 end:0x804FF1B4
 	.sdata      start:0x805D2750 end:0x805D2754
 	.sbss       start:0x805D4CD0 end:0x805D4D0C
 	.sdata2     start:0x805D87A0 end:0x805D8824
-
-pso/unk/text_800480B0.cpp:
-	.text       start:0x800480B0 end:0x80048118
-
-pso/unk/text_80048118.cpp:
-	.text       start:0x80048118 end:0x8004812C
-
-pso/boss/TBoss3Volopt_8004812C.cpp:
-	.text       start:0x8004812C end:0x80048260
 
 pso/boss/TUnk_80484840.cpp:
 	.text       start:0x80048260 end:0x80048560

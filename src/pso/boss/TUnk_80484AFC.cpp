@@ -2,7 +2,7 @@
 
 #include "pso/boss/TUnk_80484AFC.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/boss/TBoss3Volopt_8004812C.h"
+#include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
@@ -13,7 +13,6 @@
 #include "pso/system/BmlResource.h"
 #include "pso/system/GinjaTextureMatrices.h"
 #include "pso/system/vector.h"
-#include "pso/unk/text_80048118.h"
 #include "pso/unk/text_800870BC.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
@@ -48,7 +47,7 @@ void TUnk_80484AFC::explode_and_destroy() {
     DirectAttackPayload attack = {0, 0.0f};
     s32 i;
     TUnk_804806E8 *target;
-    attack.power = TObjVoloptPillar__sub_80048118(0);
+    attack.power = TBoss3VoloptP02::get_int_param(0);
     if (TBoss3Volopt::is_v2_mode() != 0 && 3.0517578e-05f * (f32)rand() < 0.16666667f) {
         attack.kind = 0x11;
     }
@@ -88,9 +87,9 @@ void TUnk_80484AFC::run_task() {
     if (player != NULL) {
         Vec steer = *(Vec *)&player->m_2fc;
         subtract_vector(&steer, (Vec *)position);
-        ((TObjGyaranzoMissile *)&steer)->scale_velocity(TBoss3Volopt__sub_8004812C(1));
+        ((TObjGyaranzoMissile *)&steer)->scale_velocity(TBoss3VoloptP02::get_float_param(1));
         vec3_add_to(&velocity, &steer);
-        ((TObjGyaranzoMissile *)&velocity)->scale_velocity(TBoss3Volopt__sub_8004812C(0));
+        ((TObjGyaranzoMissile *)&velocity)->scale_velocity(TBoss3VoloptP02::get_float_param(0));
     }
     VecCopy((Vec *)&m_44, (Vec *)position);
     vec3_add_to((Vec *)position, &velocity);
@@ -147,7 +146,7 @@ TUnk_80484AFC::TUnk_80484AFC(TObject *parent, Vec *pos, s32 angle, s32 target) :
     rotation_y = angle;
     velocity.x = 0.0f;
     velocity.y = 0.0f;
-    velocity.z = TBoss3Volopt__sub_8004812C(0);
+    velocity.z = TBoss3VoloptP02::get_float_param(0);
     push_matrix_from(identity_matrix);
     rotate_matrix_y(0, rotation_y);
     rotate_matrix_x(0, m_5c);
@@ -160,5 +159,5 @@ TUnk_80484AFC::TUnk_80484AFC(TObject *parent, Vec *pos, s32 angle, s32 target) :
     trail_rotation[1] = 0;
     trail_rotation[0] = 0;
     trail = spawn_particle_effect_with_rotation(position, trail_rotation, 0x112, 2);
-    volopt_missile_expire_tick = (s32)TBoss3Volopt__sub_8004812C(3) + 0xF0;
+    volopt_missile_expire_tick = (s32)TBoss3VoloptP02::get_float_param(3) + 0xF0;
 }

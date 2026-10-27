@@ -363,13 +363,12 @@ void TBoss3VoloptAttackPacket::swap() {
     bswap_16((u16 *)&reserved);
 }
 
-void TBoss3Volopt::swap_6x85_fields() {
-    VoloptPhase2Message *message = (VoloptPhase2Message *)this;
+void VoloptPhase2Message::swap() {
     s32 i;
     ((TObjPlayer *)this)->read_be16_field2();
-    bswap_16((u16 *)&message->mode);
+    bswap_16((u16 *)&mode);
     for (i = 0; i < 7; i++) {
-        bswap_16((u16 *)&message->delays[i]);
+        bswap_16((u16 *)&delays[i]);
     }
 }
 
@@ -1495,7 +1494,7 @@ void handle_6x84_vol_opt_boss_actions(TBoss3VoloptAttackPacket *packet) {
 
 void handle_6x85_vol_opt_phase2_boss_actions(VoloptPhase2Message *message) {
     if (TBoss3Volopt::is_v2_mode() != 0) {
-        ((TBoss3Volopt *)message)->swap_6x85_fields();
+        message->swap();
         switch (message->mode) {
         case 0:
             TBoss3VoloptP02::copy_phase2_positions_to_global(message);

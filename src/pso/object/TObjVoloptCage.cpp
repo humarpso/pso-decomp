@@ -14,7 +14,7 @@
 #include "pso/system/BmlResource.h"
 #include "pso/system/GinjaTextureMatrices.h"
 #include "pso/system/vector.h"
-#include "pso/unk/text_80048118.h"
+#include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
@@ -61,7 +61,7 @@ VoloptBreakUpParams volopt_cage_breakup_params = {
 };
 
 void *volopt_cage_combat_stats;
-void *volopt_cage_params;
+VoloptCageParams *volopt_cage_params;
 static TBreakUpMdlPieces *volopt_cage_breakup_model;
 static s32 volopt_cage_model;
 static s32 volopt_cage_textures;
@@ -69,7 +69,7 @@ static s32 volopt_cage_textures;
 void fn_80048C04(TObjVoloptCage *cage) {
     DirectAttackPayload attack = {0, 0.0f};
     TObjPlayer *player;
-    attack.power = TObjVoloptPillar__sub_80048118(2);
+    attack.power = TBoss3VoloptP02::get_int_param(2);
     player = get_player_by_client_id(cage->targetId);
     if (player != NULL) {
         player->receive_direct_attack(cage->m_up, attack, NULL, -1, -1);
@@ -171,7 +171,7 @@ void TObjVoloptCage::sub_80049000() {
         position[1] += 5.0f;
         if (position[1] >= 0.0f) {
             position[1] = 0.0f;
-            countdown = TObjVoloptPillar__sub_80048118(4) + 450;
+            countdown = TBoss3VoloptP02::get_int_param(4) + 450;
             m_388 &= ~1;
             vfunc_59();
         }
@@ -196,7 +196,7 @@ void TObjVoloptCage::init_break_model() {
     }
     volopt_cage_breakup_model = (TBreakUpMdlPieces *)model;
     volopt_cage_combat_stats = TLobby::register_boss(0x26);
-    volopt_cage_params = TLobby::dispatch_shared_handler_a(0x26);
+    volopt_cage_params = (VoloptCageParams *)TLobby::dispatch_shared_handler_a(0x26);
 }
 
 void TObjVoloptCage::render() {
