@@ -471,7 +471,7 @@ void set_target__19TObjEneEpsilonGuardFlll(u32, V3_8035F970 *, s32, s32);
 extern const f64 lbl_80479E88;
 extern Tbl_8035FFA8 epsilon_guard_attack_pattern_table[];
 extern const f32 lbl_805E0210;
-f32 receive_weapon_special_attack__10TObjPlayerFv(void *, void *, void *);
+f32 receive_weapon_special_attack__13TUnk_804806E8FPvPv(void *, void *, void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
 void play_sound_effect(s32, void *, s32, s32);
@@ -571,7 +571,7 @@ f32 TObjEneEpsilonBody::receive_weapon_special_attack(void *src, void *hit) {
             return lbl_805E0208;
         }
         if (((TObjPlayer *)src)->obj_getS16_116() != ((TObjEneEpsilonBody *)this)->sub_8035F8A8()) {
-            return receive_weapon_special_attack__10TObjPlayerFv(this, src, ((Hit_8035F5C8 *)hit));
+            return receive_weapon_special_attack__13TUnk_804806E8FPvPv(this, src, ((Hit_8035F5C8 *)hit));
         }
     }
     ((TUnk_804806E8 *)((Self_8035F5C8 *)this))->try_apply_damage((u32)((Self_8035F5C8 *)this)->x2FC, 0);

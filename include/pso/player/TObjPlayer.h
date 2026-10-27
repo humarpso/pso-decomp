@@ -38,7 +38,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     virtual void vfunc_73();
     virtual s32 vfunc_37();
     virtual s32 update_attack_stat_status();
-    virtual s32 vfunc_42();
+    virtual s32 update_defense_stat_status();
     virtual s32 is_actor_cadence_frame(s32);
     virtual s32 add_actor_exp(s32);
     virtual void reset_pose();
@@ -364,7 +364,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int get_hp_material_points();
     s32 clamp_hp_value(s16 *arg1);
     void set_hp_clamped(s16 arg1);
-    static void apply_defense_stat_status(s32 arg0, void *arg1);
     void spawn_recovery_effect();
     void set_attribute_entry(s32 i, void *q);
     void copy_entry_bytes(void* q);

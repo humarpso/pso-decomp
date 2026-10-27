@@ -46,11 +46,9 @@ void show_meseta_label(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1);
 void trigger_switch_attack__10TObjPlayerFPvi(void *arg0, s32 arg1);
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *player);
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *player);
-s32 update_defense_stat_status(u8 *player);
 }
 
 #endif

@@ -1099,7 +1099,7 @@ void vfunc_29__13TUnk_804806E8Fv();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
 void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 void apply_switch_attack__13TUnk_804806E8Fv();
 void vfunc_78__13TUnk_804806E8Fl();
@@ -1111,7 +1111,8 @@ void get_actor_level_index__13TUnk_804806E8Fv();
 void consume_timer_field__13TUnk_804806E8Fl();
 void add_actor_exp__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
-void receive_weapon_special_attack__10TObjPlayerFv();
+void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
+void apply_defense_stat_status__13TUnk_804806E8FPv();
 void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void receive_physical_attack__13TUnk_804806E8FPvf();
@@ -1140,7 +1141,7 @@ void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void try_start_action__13TUnk_804806E8Fll();
 void select_melee_contact_body__13TUnk_804806E8FPvf();
-s32 update_defense_stat_status(u8 *arg0);
+s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_shock_clock__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
@@ -1193,7 +1194,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
     (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (s32)receive_weapon_special_attack__10TObjPlayerFv,
+    (s32)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
     (s32)roll_physical_accuracy__13TUnk_804806E8FPvlf,
@@ -1211,7 +1212,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
     (s32)update_attack_stat_status__13TUnk_804806E8Fv,
-    (s32)update_defense_stat_status,
+    (s32)update_defense_stat_status__13TUnk_804806E8Fv,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
     (s32)apply_paralysis__13TUnk_804806E8Fv,
@@ -1221,7 +1222,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)apply_shock_status__13TUnk_804806E8Fv,
     (s32)clear_harmful_statuses__13TUnk_804806E8Fv,
     (s32)apply_attack_stat_status__13TUnk_804806E8FPv,
-    (s32)TObjPlayer::apply_defense_stat_status,
+    (s32)apply_defense_stat_status__13TUnk_804806E8FPv,
     (s32)cure_poison_ailment__13TUnk_804806E8Fv,
     (s32)cure_paralysis__13TUnk_804806E8Fv,
     (s32)clear_all_status_effects__13TUnk_804806E8Fv,
@@ -1240,7 +1241,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)get_pos__13TUnk_804806E8Fl,
     (s32)apply_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (s32)trigger_switch_attack__10TObjPlayerFi,
+    (s32)trigger_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)vfunc_74__9TObjEnemyFl,
@@ -1278,7 +1279,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
     (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (s32)receive_weapon_special_attack__10TObjPlayerFv,
+    (s32)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
     (s32)roll_physical_accuracy__13TUnk_804806E8FPvlf,
@@ -1296,7 +1297,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
     (s32)update_attack_stat_status__13TUnk_804806E8Fv,
-    (s32)update_defense_stat_status,
+    (s32)update_defense_stat_status__13TUnk_804806E8Fv,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
     (s32)apply_paralysis__13TUnk_804806E8Fv,
@@ -1306,7 +1307,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)apply_shock_status__13TUnk_804806E8Fv,
     (s32)clear_harmful_statuses__13TUnk_804806E8Fv,
     (s32)apply_attack_stat_status__13TUnk_804806E8FPv,
-    (s32)TObjPlayer::apply_defense_stat_status,
+    (s32)apply_defense_stat_status__13TUnk_804806E8FPv,
     (s32)cure_poison_ailment__13TUnk_804806E8Fv,
     (s32)cure_paralysis__13TUnk_804806E8Fv,
     (s32)clear_all_status_effects__13TUnk_804806E8Fv,
@@ -1325,7 +1326,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)get_pos__13TUnk_804806E8Fl,
     (s32)apply_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (s32)trigger_switch_attack__10TObjPlayerFi,
+    (s32)trigger_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)vfunc_74__9TObjEnemyFl,
@@ -1363,7 +1364,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
     (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (s32)receive_weapon_special_attack__10TObjPlayerFv,
+    (s32)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
     (s32)roll_physical_accuracy__13TUnk_804806E8FPvlf,
@@ -1381,7 +1382,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
     (s32)update_attack_stat_status__13TUnk_804806E8Fv,
-    (s32)update_defense_stat_status,
+    (s32)update_defense_stat_status__13TUnk_804806E8Fv,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
     (s32)apply_paralysis__13TUnk_804806E8Fv,
@@ -1391,7 +1392,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)apply_shock_status__13TUnk_804806E8Fv,
     (s32)clear_harmful_statuses__13TUnk_804806E8Fv,
     (s32)apply_attack_stat_status__13TUnk_804806E8FPv,
-    (s32)TObjPlayer::apply_defense_stat_status,
+    (s32)apply_defense_stat_status__13TUnk_804806E8FPv,
     (s32)cure_poison_ailment__13TUnk_804806E8Fv,
     (s32)cure_paralysis__13TUnk_804806E8Fv,
     (s32)clear_all_status_effects__13TUnk_804806E8Fv,
@@ -1410,7 +1411,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)get_pos__13TUnk_804806E8Fl,
     (s32)apply_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (s32)trigger_switch_attack__10TObjPlayerFi,
+    (s32)trigger_switch_attack__13TUnk_804806E8Fv,
     (s32)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)vfunc_74__9TObjEnemyFl,
