@@ -24,7 +24,6 @@
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/object/TObjLight_80133568.h"
 #include "pso/object/TObjVoloptShutter.h"
-#include "pso/TObjVoloptShutter.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/vector.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -911,7 +910,6 @@ void TBoss3VoloptP01::init_params() {
 #pragma fp_contract on
 TBoss3VoloptP01 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *self, TBoss3Volopt *parent, s32 index, u16 id, s32 angle_param) {
     s32 angle;
-    TObjVoloptShutter *shutter;
 
     TObjEnemyCustom__ct(self);
     *(void **)((u8 *)self + 0x18) = __vt__15TBoss3VoloptP01;
@@ -928,29 +926,19 @@ TBoss3VoloptP01 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *self, TBoss3Volopt *parent
     self->position[2] = 76.0f * sin_table_lookup(angle) + boss3_volopt_spawn_pos.z;
     self->position[1] = 0.0f;
     self->rotation_y = -0x4000 - angle;
-    shutter = (TObjVoloptShutter *)TObject::operator new(0x34);
-    if (shutter != NULL) {
-        shutter = (TObjVoloptShutter *)__ct__17TObjVoloptShutterFv((u8 *)shutter, index);
-    }
-    self->shutter = shutter;
+    self->shutter = new TObjVoloptShutter(index);
     return self;
 }
 #pragma pop
 
 TBoss3VoloptP01 *TBoss3VoloptP01__sub_800442A0(TBoss3VoloptP01 *self, TObject *parent, void *set_data) {
-    TObjVoloptShutter *shutter;
-
     TObjEnemyCustom__ct(self);
     *(void **)((u8 *)self + 0x18) = __vt__15TBoss3VoloptP01;
     ((TObjPlayer *)&self->targets)->construct_target_cursor_records();
     self->m_name = TBoss3VoloptP01_class_name;
     self->apply_set_data(set_data);
     self->init_params();
-    shutter = (TObjVoloptShutter *)TObject::operator new(0x34);
-    if (shutter != NULL) {
-        shutter = (TObjVoloptShutter *)__ct__17TObjVoloptShutterFv((u8 *)shutter, 0);
-    }
-    self->shutter = shutter;
+    self->shutter = new TObjVoloptShutter(0);
     return self;
 }
 

@@ -474,8 +474,11 @@ pso/object/TObjVoloptPillar.cpp:
 
 pso/object/TObjVoloptShutter.cpp:
 	.text       start:0x8004A634 end:0x8004A90C
-	.rodata     start:0x804367C0 end:0x804367C8
+	.rodata     start:0x804367A8 end:0x804367C8
 	.data       start:0x80484BA0 end:0x80484BB8
+	.sdata      start:0x805D2768 end:0x805D276C
+	.sbss       start:0x805D4D48 end:0x805D4D54
+	.sdata2     start:0x805D88F0 end:0x805D8908
 
 pso/misc/TLobby_8004A90C.cpp:
 	.text       start:0x8004A90C end:0x8004A978
