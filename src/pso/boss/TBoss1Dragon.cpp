@@ -4271,7 +4271,7 @@ void TBoss1Dragon__sub_80025168(void *arg0, void *arg1) {
     case 7: {
         s32 high = (s32)(TBoss1Dragon__data_805D7FC4 * self->savedX) * 0x10000;
         s32 low = (s32)(TBoss1Dragon__data_805D7FC4 * self->savedZ);
-        subtractive_rng_seed((u8 *)self + 0x77C, high | (low - (low & 0xFFFF0000)));
+        subtractive_rng_seed((u8 *)self + 0x77C, high + (low & 0xFFFF));
         break;
     }
     case 6:
@@ -6103,16 +6103,18 @@ void init_air_turn__12TBoss1DragonFv(void *arg0, s32 targetAngle) {
     f32 target;
     f32 difference;
     f32 work;
+    f32 half;
     self->f658 = (s16)self->f658;
     target = (f32)self->f658;
     difference = (f32)angle_diff_s16(self->f60, targetAngle);
-    self->f668 = -(TBoss1Dragon__data_805D7F24 *
-        (difference - (TBoss1Dragon__data_805D7F48 * target) * TBoss1Dragon__data_805D7F50)) / lbl_805D80AC;
+    half = TBoss1Dragon__data_805D7F48;
+    self->f668 = -((difference - (half * target) * TBoss1Dragon__data_805D7F50) *
+        TBoss1Dragon__data_805D7F24) / lbl_805D80AC;
     self->f664 = -(self->f668 * TBoss1Dragon__data_805D7F3C + target) / TBoss1Dragon__data_805D7F50;
     self->f678 = TBoss1Dragon__data_805D7F28;
     self->f66C = target;
     self->f670 = -(self->f668 * TBoss1Dragon__data_805D7F3C);
-    work = TBoss1Dragon__data_805D7F48 * self->f664;
+    work = half * self->f664;
     work = work * TBoss1Dragon__data_805D7F50 + target;
     self->f674 = TBoss1Dragon__data_805D7F50 * work;
     self->f660 = self->f60;
