@@ -5,6 +5,7 @@
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowDD.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_80260304_lbl_804CFAD0 {
     s32 value;
@@ -26,7 +27,6 @@ void __dl__7TObjectFPv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
 
-extern s32 current_language;
 
 void TWindowKeyBoardHard::run_task() {
     s32 temp_r3_2;
@@ -35,7 +35,7 @@ void TWindowKeyBoardHard::run_task() {
     if ((void *) this->m_70 != NULL) {
         if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (((TKeyBoardControl *)(this->m_70))->is_key_active() == 0)) {
             if (has_non_modifier_key__16TKeyBoardControlFv(this) != 0) {
-                if ((s32) current_language == 0) {
+                if (current_language == LANGUAGE_JAPANESE) {
                     this->m_68 = 0x3C;
                 }
                 this->m_60 = (s32) (this->m_60 & 0xFFFFFEFF);

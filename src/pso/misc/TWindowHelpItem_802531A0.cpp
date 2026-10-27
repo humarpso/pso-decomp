@@ -8,6 +8,7 @@
 #include "pso/item/TItemData.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/ui/Language.h"
 struct Stack_80253268 {
     s32 sp8;
     s16 spC;
@@ -59,7 +60,6 @@ s32 format_item_description(u8 *item);
 void text_builder_reset();
 extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 item_help_tech_disk_stats_callback;
-extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
@@ -118,7 +118,7 @@ void TWindowHelpItem::update_tech_disk_details() {
         text_builder_reset();
         format_item_description((u8 *)(*(void **)(((u8 *)this) + 0x68)));
         text_builder_append();
-        if (current_language == 0) {
+        if (current_language == LANGUAGE_JAPANESE) {
             get_help_text_string(*(*(u8 **)(((u8 *)this) + 0x68) + 4));
             text_builder_append();
         }

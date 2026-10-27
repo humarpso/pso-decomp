@@ -3,6 +3,7 @@
 #include "pso/TAdSelectGameModeGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_802A1324_lbl_804DCB64 {
     s32 value;
@@ -17,7 +18,6 @@ extern const s8 *opening_movie_path_table[10];
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_802A1324_lbl_804DCB64 lbl_804DCB64;
 extern s32 opening_movie_selector;
-extern s32 current_language;
 extern u8 *tl_00;
 extern u8 *tl_01;
 extern u8 opening_movie_purpose;

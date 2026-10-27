@@ -19,6 +19,7 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubItem.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 struct VBase18_80218570 { char pad[0x18]; };
 struct VObj18_80218570 : VBase18_80218570 {
@@ -196,7 +197,6 @@ int sprintf(char *, const char *, ...);
 extern char lbl_8044BEE8[];
 extern char lbl_8044BF50[];
 s32 strcmp(const char *, const char *);
-extern s32 current_language;
 s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 *e);
 int obj_getField1c(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
@@ -593,13 +593,13 @@ s32 TQuestListVM::build_download_list(void *p) {
             ((TShopArmorListWindow *)(*(void **)(arg0 + 0x2374)))->reset_list();
         } else {
             switch (current_language) {
-            case 0:
+            case LANGUAGE_JAPANESE:
                 *(u32 *)(arg0 + 0x2374) = create_item_list_window(lbl_8044BF04, 0x40, obj_getField1c(*(s32 *)(arg0 + 0x24)));
                 break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
+            case LANGUAGE_ENGLISH:
+            case LANGUAGE_GERMAN:
+            case LANGUAGE_FRENCH:
+            case LANGUAGE_SPANISH:
             default:
                 *(u32 *)(arg0 + 0x2374) = create_item_list_window(lbl_8044BF14, 0x40, obj_getField1c(*(s32 *)(arg0 + 0x24)));
                 break;

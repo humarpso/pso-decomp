@@ -7,6 +7,7 @@
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_8036E8DC_lbl_804C88C0 { s32 value; u8 remaining[0x50]; };
 typedef char RecoveredGlobal_8036E8DC_lbl_804C88C0_size[sizeof(RecoveredGlobal_8036E8DC_lbl_804C88C0) == 0x54 ? 1 : -1];
@@ -95,7 +96,6 @@ extern const f32 lbl_805D7020;
 s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801FD770();
 void TKeyBoardControl__sub_8000F90C(s32 arg0);
-extern s32 current_language;
 
 typedef char RecoveredGlobal_8036DE10_lbl_804F37A8_size[sizeof(RecoveredGlobal_8036DE10_lbl_804F37A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8036DE10_lbl_804F37D4_size[sizeof(RecoveredGlobal_8036DE10_lbl_804F37D4) == 0x134 ? 1 : -1];

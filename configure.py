@@ -485,6 +485,7 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # Metrowerks' GCN_Mem_Alloc.c (runtime library code at -O4,p); belongs
     # in the runtime lib under its own name.
     "pso/unk/text_8039739C.cpp": {"cflags": _switch(cflags_pso, "-O4,p")},
+    "pso/quest/QuestOpcodeHandlers.cpp": {"cflags": _switch(cflags_pso, "-inline on")},
 }
 
 # MusyX (Factor 5). Its objects carry extab/extabindex for every non-leaf

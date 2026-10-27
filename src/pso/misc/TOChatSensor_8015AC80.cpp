@@ -2,6 +2,7 @@
 #include "pso/misc/TOChatSensor.h"
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/Language.h"
 
 struct Stack_8015AF10
 {
@@ -29,9 +30,8 @@ extern const f32 lbl_805DB38C;
 void *strncpy(void *, void *, s32);
 s32 get_current_floor(void);
 u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
-s32 find_chat_keyword(void *, void *, void *);
+s32 find_chat_keyword(void *, void *, s32);
 void *__nw__7TObjectFUl(u32);
-extern void *current_language;
 extern void *quest_mission_manager;
 extern void *tl_00;
 f32 horizontal_distance_squared(void *, void *);

@@ -2,12 +2,12 @@
 #include "pso/misc/TLobby_80222D24.h"
 #include "pso/unk/text_800F9B84.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/Language.h"
 
 #pragma fp_contract on
 #pragma fp_contract on
 extern "C" {
 extern s32 text_shop_rel_name_table[];
-extern s32 current_language;
 extern s32 lbl_805D6238;
 extern u32 lbl_805D6258;
 s32 is_split_screen();

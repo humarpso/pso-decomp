@@ -1054,7 +1054,6 @@ pso/misc/TLobby_801D726C.cpp
 pso/misc/TLobby_801DA7DC.cpp
 pso/misc/TLobby_801DEFC4.cpp
 pso/misc/TLobby_801E43E4.cpp
-pso/misc/TLobby_801E6544.cpp
 pso/misc/TLobby_801F2D2C.cpp
 pso/misc/TLobby_801F3A24.cpp
 pso/misc/TLobby_801F487C.cpp
@@ -1753,7 +1752,7 @@ pso/misc/TWindowKeyBoardHard_8025EB68.cpp
 pso/misc/TWindowKeyBoardHard_802601D4.cpp
 pso/misc/TWindowKeyBoardHard_8026038C.cpp
 pso/misc/TWindowKeyBoardSoft_80080798.cpp
-pso/misc/TWindowKeyBoardSoft_80132A5C.cpp
+pso/ui/TLanguage_80132A5C.cpp
 pso/misc/TWindowKeyBoardSoft_80228BEC.cpp
 pso/misc/TWindowKeyBoardSoft_8024E68C.cpp
 pso/misc/TWindowKeyBoardSoft_8025B85C.cpp
@@ -2611,6 +2610,7 @@ pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/quest/AreaDialogueScripts.cpp
+pso/quest/QuestOpcodeHandlers.cpp
 pso/quest/QuestOpcodeTables.cpp
 pso/quest/StoryQuestProgress.cpp
 pso/slices/pso_carve_8020bf88.cpp

@@ -18,6 +18,7 @@
 #include "pso/misc/TWindowSubCustomSelect.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjCityMainWarp.h"
+#include "pso/ui/Language.h"
 
 struct Win_802758C8 {
     u8 pad0[0x20];
@@ -181,7 +182,6 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
 }
 void text_builder_reset();
 s32 get_palette_consumable_count(u16, s32);
-extern s32 current_language;
 void TUnk_804D1160::update_customize_help_text(void *ev_arg) {
     Win_802758C8 *self = (Win_802758C8 *)this;
     Ev_802758C8 *ev = (Ev_802758C8 *)ev_arg;
@@ -219,7 +219,7 @@ void TUnk_804D1160::update_customize_help_text(void *ev_arg) {
         text_builder_append();
         if (ev->id != 0x11 && ev->id != 0xE) {
             lvl = get_cast_technique_level(pl + 0x428, ev->id);
-            if (current_language != 0) {
+            if (current_language != LANGUAGE_JAPANESE) {
                 append_text_space();
             }
             get_help_text_string(0x2D);
