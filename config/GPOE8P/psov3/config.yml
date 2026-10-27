@@ -205,9 +205,6 @@ force_active:
   - TBoss2PhotonBullet__name
   - TBoss2PhotonPad__name
   - TBoss3VoloptCore__sub_80040A7C
-  - TBoss3VoloptCore__vtable
-  - TBoss3VoloptCore_name
-  - TBoss3VoloptCtrl_name
   - TBoss3VoloptHiraisin__breakup_model
   - TBoss3VoloptHiraisin__init_param_table
   - TBoss3VoloptHiraisin__resource_bundle

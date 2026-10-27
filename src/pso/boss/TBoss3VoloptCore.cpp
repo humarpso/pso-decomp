@@ -81,10 +81,8 @@ extern Vec volopt_slot_positions[];
 }
 void reset_status_effect_row(u8 *row);
 
-extern void *TBoss3VoloptCore__vtable[83];
-
 #pragma readonly_strings on
-const char *TBoss3VoloptCore_name = "TBoss3VoloptCore";
+static const char *TBoss3VoloptCore_name = "TBoss3VoloptCore";
 static void *core_combat_stats_a;
 static void *core_combat_stats_b;
 static void *core_combat_stats_c;
@@ -192,7 +190,7 @@ void is_target_in_attack_range__16TBoss3VoloptCoreFv();
 
 // Stands in for the vtable the compiler will emit once slots 24, 42, 52 and
 // 71 carry their base-class names.
-void *TBoss3VoloptCore__vtable[83] = {
+static void *TBoss3VoloptCore__vtable[83] = {
     NULL, NULL, (void *)&destroy__16TBoss3VoloptCoreFs, (void *)&run_task__16TBoss3VoloptCoreFv,
     (void *)&render__16TBoss3VoloptCoreFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,

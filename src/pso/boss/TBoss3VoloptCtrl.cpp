@@ -25,7 +25,7 @@ extern int volopt_resources_loaded;
 
 #pragma defer_codegen on
 #pragma readonly_strings on
-const char *TBoss3VoloptCtrl_name = "TBoss3VoloptCtrl";
+static const char *TBoss3VoloptCtrl_name = "TBoss3VoloptCtrl";
 
 TBoss3VoloptCtrl::TBoss3VoloptCtrl() : TObject(tl_02) {
     m_name = TBoss3VoloptCtrl_name;
