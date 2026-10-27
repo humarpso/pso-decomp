@@ -75,6 +75,7 @@ u16 TObjRoomId__sub_801A1DB8(u16 id);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void TObjPlayer__sub_801BA42C(void);
 TBoss3VoloptHiraisin *__ct__20TBoss3VoloptHiraisinFP13TUnk_804B9870Usl(TBoss3VoloptHiraisin *hiraisin, TObject *parent, u16 id, s32 group);
+TBoss3VoloptP01 *__ct__15TBoss3VoloptP01FP12TBoss3VoloptlUsl(TBoss3VoloptP01 *self, TBoss3Volopt *parent, s32 index, u16 id, s32 angle_param);
 TBoss3VoloptMonitor *__ct__19TBoss3VoloptMonitorFP13TUnk_804B9870Uslll(TBoss3VoloptMonitor *monitor, TObject *parent, u16 id,
                                                                      s32 group, s32 slot, s32 timer);
 TBoss3Volopt *TBoss3Volopt__ct(TBoss3Volopt *volopt, s32 set_data);
@@ -476,7 +477,7 @@ void TBoss3Volopt::spawn_parts() {
             volopt_target_entity_ids[i] = get_part_id(i + 1);
             part = (TObject *)TObject::operator new(sizeof(TBoss3VoloptP01));
             if (part != NULL) {
-                TBoss3VoloptP01__ct((TBoss3VoloptP01 *)part, this, i, volopt_target_entity_ids[i], get_part_group(i + 1));
+                __ct__15TBoss3VoloptP01FP12TBoss3VoloptlUsl((TBoss3VoloptP01 *)part, this, i, volopt_target_entity_ids[i], get_part_group(i + 1));
             }
         }
         boss3_volopt_monitor_base_actor_id = get_part_id(7);

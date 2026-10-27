@@ -79,6 +79,8 @@ struct TBoss3VoloptBreakupParams {
 };
 
 struct TBoss3VoloptP01 : public TObjEnemyCustom {
+    TBoss3VoloptP01(TBoss3Volopt *parent, s32 index, u16 id, s32 angle_param);
+    TBoss3VoloptP01(TObject *parent, void *set_data);
     virtual ~TBoss3VoloptP01();
     virtual void run_task();
     virtual void render();
@@ -126,10 +128,6 @@ struct TBoss3VoloptP01 : public TObjEnemyCustom {
     TargetCursorList targets;
 };
 
-extern "C" {
-TBoss3VoloptP01 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *self, TBoss3Volopt *parent, s32 index, u16 id, s32 angle_param);
-TBoss3VoloptP01 *TBoss3VoloptP01__sub_800442A0(TBoss3VoloptP01 *self, TObject *parent, void *set_data);
-}
 
 typedef char TBoss3VoloptP01_size[sizeof(TBoss3VoloptP01) == 0x418 ? 1 : -1];
 #endif
