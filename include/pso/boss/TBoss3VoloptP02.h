@@ -22,13 +22,13 @@ struct VoloptP02Params {
 
 class TBoss3VoloptP02 : public TObjEnemyCustom {
 public:
+    TBoss3VoloptP02(TObject *parent, void *set_data);
     virtual ~TBoss3VoloptP02();
     virtual void run_task();
     virtual void render();
     virtual f32 receive_physical_attack(void *, f32);
+    virtual f32 receive_direct_attack(void *source, void *payload, void *collider, s32 technique, s32 flags);
     virtual void vfunc_79();
-
-    f32 receive_direct_attack(void *source, DirectAttackPayload payload, void *collider, s32 technique, s32 flags);
 
     void clear_flag_08000000();
     void set_flag_08000000();
@@ -76,7 +76,6 @@ public:
     static void free_resources();
     static void load_resources();
     static void *create(void *set_data);
-    TBoss3VoloptP02 *destroy(s16 flags);
     void init_params();
     void load_params_from_table(s32 index);
 

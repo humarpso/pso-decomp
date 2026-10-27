@@ -32,7 +32,6 @@
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/object/TObjLight_80133568.h"
-#include "pso/unk/text_800480B0.h"
 #include "pso/unk/text_80048118.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
@@ -54,7 +53,6 @@ extern s32 model_render_flags;
 void free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
-void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 play_persistent_sound(s32, void *, void *, s16, s32);
 s32 rand(void);
 extern s32 actor_frame_tick;
@@ -63,7 +61,6 @@ s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 play_sound_effect(s32, void *, s16, s32);
 void advance_animation_playback(void *);
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, void *, DirectAttackPayload, void *, s32, s32);
 u16 obj_getField1c(void *);
 f32 atan2_float(f32, f32);
 f32 fabs_float(f32);
@@ -204,114 +201,6 @@ static VoloptBreakupParams death_breakup_params = {0x14, {0.06f, 3.0f, 0.9f, 0.2
 static VoloptBreakupParams part_breakup_params = {0x14, {0.06f, 1.5f, 0.9f, 0.12f, 0.55f, 0.5f}};
 static s16 part_breakup_node_ids[5] = {2, 0x12, 0x32, 0x22, 0x29};
 
-extern "C" {
-void add_actor_exp__13TUnk_804806E8Fl();
-void apply_action_hold_status__13TUnk_804806E8Ff();
-void apply_anti_technique__13TUnk_804806E8Fl();
-void apply_attack_stat_status__13TUnk_804806E8FPv();
-void apply_confusion_status__13TUnk_804806E8Fv();
-void apply_defense_stat_status__13TUnk_804806E8FPv();
-void apply_hit_message_flags__9TObjEnemyFPv();
-void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
-void apply_movement_ailment__13TUnk_804806E8Fl();
-void apply_object_set_data__13TUnk_804B9870FPv();
-void apply_paralysis__13TUnk_804806E8Fv();
-void apply_poison_status__13TUnk_804806E8Fv();
-void apply_set_data__9TObjEnemyFPv();
-void apply_shock_status__13TUnk_804806E8Fv();
-void apply_slow_status__13TUnk_804806E8Fv();
-void apply_switch_attack__13TUnk_804806E8Fv();
-void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
-void classify_actor_view_detail__13TUnk_804B9870Ffff();
-void clear_all_status_effects__13TUnk_804806E8Fv();
-void clear_harmful_statuses__13TUnk_804806E8Fv();
-void clear_lobby_object_state__9TObjEnemyFv();
-void consume_timer_field__13TUnk_804806E8Fl();
-void cure_paralysis__13TUnk_804806E8Fv();
-void cure_poison_ailment__13TUnk_804806E8Fv();
-void destroy__15TBoss3VoloptP02Fs();
-void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
-void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
-void get_actor_level_index__13TUnk_804806E8Fv();
-void get_pos__13TUnk_804806E8Fl();
-void has_flag_0x800__13TUnk_804806E8Fv();
-void is_actor_cadence_frame__13TUnk_804806E8Fl();
-void is_target_in_attack_range__13TUnk_804806E8Fv();
-void receive_direct_attack__15TBoss3VoloptP02FPv19DirectAttackPayloadPvll();
-void receive_physical_attack__15TBoss3VoloptP02FPvf();
-void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
-void trigger_switch_attack__13TUnk_804806E8Fv();
-void update_defense_stat_status__13TUnk_804806E8Fv();
-void render__15TBoss3VoloptP02Fv();
-void render_shadows__9TObjEnemyFv();
-void reset_motion_fields__13TUnk_804806E8Fv();
-void reset_pose__13TUnk_804806E8Fv();
-void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-void run_task__15TBoss3VoloptP02Fv();
-void select_melee_contact_body__13TUnk_804806E8FPvf();
-void test_flag30_512__13TUnk_804806E8Fv();
-void test_flag_1000__13TUnk_804806E8Fv();
-void test_flag_256__13TUnk_804806E8Fv();
-void try_start_action__13TUnk_804806E8Fll();
-void update_action_hold_status__13TUnk_804806E8Fv();
-void update_actor_ground_y__13TUnk_804806E8Fv();
-void update_attack_stat_status__13TUnk_804806E8Fv();
-void update_flag30_timer__13TUnk_804806E8Fv();
-void update_movement_status__13TUnk_804806E8Fv();
-void update_object_view_visibility__13TUnk_804B9870Fff();
-void update_poison_status__13TUnk_804806E8Fv();
-void update_shock_clock__13TUnk_804806E8Fv();
-void vfunc_12__9TObjEnemyFv();
-void vfunc_13__13TUnk_804AF8A0Fl();
-void vfunc_18__13TUnk_804806E8FPUc();
-void vfunc_28__15TObjEnemyCustomFv();
-void vfunc_29__13TUnk_804806E8Fv();
-void vfunc_37__13TUnk_804806E8Fv();
-void vfunc_43__13TUnk_804806E8Fv();
-void vfunc_58__15TObjEnemyCustomFv();
-void vfunc_59__15TObjEnemyCustomFv();
-void vfunc_60__15TObjEnemyCustomFv();
-void vfunc_61__15TObjEnemyCustomFv();
-void vfunc_62__15TObjEnemyCustomFv();
-void vfunc_63__15TObjEnemyCustomFv();
-void vfunc_65__15TObjEnemyCustomFll();
-void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_67__13TUnk_804806E8Ff();
-void vfunc_6__13TUnk_804B9870FPsl();
-void vfunc_73__13TUnk_804806E8Fv();
-void vfunc_74__9TObjEnemyFl();
-void vfunc_75__13TUnk_804806E8Ff();
-void vfunc_76__13TUnk_804806E8Fv();
-void vfunc_77__13TUnk_804806E8Fv();
-void vfunc_78__13TUnk_804806E8Fl();
-void vfunc_79__15TBoss3VoloptP02Fv();
-void vfunc_9__13TUnk_804806E8Fv();
-
-void *__vt__15TBoss3VoloptP02[83] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__15TBoss3VoloptP02Fs, (void *)&run_task__15TBoss3VoloptP02Fv,
-    (void *)&render__15TBoss3VoloptP02Fv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
-    (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__15TBoss3VoloptP02FPvf, (void *)&receive_direct_attack__15TBoss3VoloptP02FPv19DirectAttackPayloadPvll,
-    (void *)&receive_weapon_special_attack__13TUnk_804806E8FPvPv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
-    (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status__13TUnk_804806E8Fv, (void *)&vfunc_43__13TUnk_804806E8Fv,
-    (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
-    (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
-    (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__15TObjEnemyCustomFv, (void *)&vfunc_59__15TObjEnemyCustomFv,
-    (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&vfunc_61__15TObjEnemyCustomFv, (void *)&vfunc_62__15TObjEnemyCustomFv, (void *)&vfunc_63__15TObjEnemyCustomFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
-    (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
-    (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__15TBoss3VoloptP02Fv,
-    (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
-};
-}
-
 static inline f32 max_f32(f32 a, f32 b) { return (a > b) ? a : b; }
 static inline f32 min_f32(f32 a, f32 b) { return (a < b) ? a : b; }
 static inline s32 max_s32(s32 a, s32 b) { return (a > b) ? a : b; }
@@ -389,33 +278,21 @@ void TBoss3VoloptP02::init_params() {
     clear_lobby_object_state();
 }
 
-TBoss3VoloptP02 *TBoss3VoloptP02::destroy(s16 flags) {
-    if (this != NULL) {
-        *(void ***)((u8 *)this + 0x18) = __vt__15TBoss3VoloptP02;
-        free_collision_body_parts(this);
-        if (heal_emitter != NULL) {
-            heal_emitter->queue_destruction();
-        }
-        if (emitter != NULL) {
-            emitter->queue_destruction();
-        }
-        destroy_children();
-        destroy_sub_objects();
-        __dt__13TUnk_804949A8Fv(&fade, -1);
-        __dt__15TObjEnemyCustomFv(this, 0);
-        if (flags > 0) {
-            TObject::operator delete(this);
-        }
+TBoss3VoloptP02::~TBoss3VoloptP02() {
+    free_collision_body_parts(this);
+    if (heal_emitter != NULL) {
+        heal_emitter->queue_destruction();
     }
-    return this;
+    if (emitter != NULL) {
+        emitter->queue_destruction();
+    }
+    destroy_children();
+    destroy_sub_objects();
+    __dt__13TUnk_804949A8Fv(&fade, -1);
 }
 
 void *TBoss3VoloptP02::create(void *set_data) {
-    TBoss3VoloptP02 *o = (TBoss3VoloptP02 *)TObject::operator new(sizeof(TBoss3VoloptP02));
-    if (o != NULL) {
-        o = fn_800480B0(o, tl_04, set_data);
-    }
-    return o;
+    return new TBoss3VoloptP02(tl_04, set_data);
 }
 
 void TBoss3VoloptP02::load_resources() {
@@ -1627,7 +1504,7 @@ f32 TBoss3VoloptP02::receive_physical_attack(void *source, f32 damage) {
     return TUnk_804806E8::receive_physical_attack(source, damage);
 }
 
-f32 TBoss3VoloptP02::receive_direct_attack(void *source, DirectAttackPayload payload, void *collider, s32, s32) {
+f32 TBoss3VoloptP02::receive_direct_attack(void *source, void *payload, void *collider, s32, s32) {
     u32 mask = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1636,7 +1513,8 @@ f32 TBoss3VoloptP02::receive_direct_attack(void *source, DirectAttackPayload pay
         }
         mask <<= 1;
     }
-    return receive_direct_attack__13TUnk_804806E8FPvPvPvll(this, source, payload, collider, -1, -1);
+    DirectAttackPayload hit = *(DirectAttackPayload *)payload;
+    return TUnk_804806E8::receive_direct_attack(source, &hit, collider, -1, -1);
 }
 
 #pragma push
