@@ -11,9 +11,9 @@ class TUnk_804848A0 : public TUnk_804999E8 {
 public:
     VoloptFadeCallback on_done;
 
+    TUnk_804848A0(TObject *parent, VoloptFadeCallback on_done);
     virtual ~TUnk_804848A0();
     virtual void run_task();
-    void *init_fade_color(void *, void *);
 };
 typedef char TUnk_804848A0_size[sizeof(TUnk_804848A0) == 0x28 ? 1 : -1];
 
@@ -23,9 +23,9 @@ class TUnk_804848B8 : public TUnk_804999E8 {
 public:
     VoloptFadeCallback on_done;
 
+    TUnk_804848B8(TObject *parent, VoloptFadeCallback on_done);
     virtual ~TUnk_804848B8();
     virtual void run_task();
-    void *init_fade(void *, void *);
 };
 typedef char TUnk_804848B8_size[sizeof(TUnk_804848B8) == 0x28 ? 1 : -1];
 

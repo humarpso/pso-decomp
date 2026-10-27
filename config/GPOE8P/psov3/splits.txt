@@ -438,6 +438,7 @@ pso/boss/TUnk_80484888.cpp:
 
 pso/boss/TUnk_804848A0.cpp:
 	.text       start:0x80048920 end:0x80048C04
+	.data       start:0x804848A0 end:0x804848D0
 	.sbss       start:0x805D4D10 end:0x805D4D18
 	.sdata2     start:0x805D8850 end:0x805D885C
 
@@ -2190,6 +2191,7 @@ pso/unk/text_800F7D30.cpp:
 pso/unk/text_800F7DAC.cpp:
 	.text       start:0x800F7DAC end:0x800F8A0C
 	.rodata     start:0x8043D798 end:0x8043D7A8
+	.data       start:0x804999E8 end:0x80499A00
 	.sdata2     start:0x805DA8E8 end:0x805DA90C
 
 pso/unk/text_800F8A0C.cpp:

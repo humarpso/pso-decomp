@@ -1082,27 +1082,19 @@ void TBoss3Volopt::update_phase1() {
         spawn_particle_effect(&pos, 0xFB);
         play_persistent_sound(0x4003AD21, this, 0, 0, 0);
         break;
-    case 4: {
-        TUnk_804848B8 *fade_out = (TUnk_804848B8 *)TObject::operator new(sizeof(TUnk_804848B8));
-        if (fade_out != NULL) {
-            fade_out->init_fade(this, NULL);
-        }
+    case 4:
+        new TUnk_804848B8(this, NULL);
         stop_rumble();
         state = 5;
         break;
-    }
     case 5:
         if (volopt_fade_out_done == 1) {
             next_action = 3;
         }
         break;
-    case -1: {
-        TUnk_804848A0 *fade_in = (TUnk_804848A0 *)TObject::operator new(sizeof(TUnk_804848A0));
-        if (fade_in != NULL) {
-            fade_in->init_fade_color(this, NULL);
-        }
+    case -1:
+        new TUnk_804848A0(this, NULL);
         break;
-    }
     }
 }
 #pragma pop

@@ -1615,6 +1615,8 @@ force_active:
   - __dt__13TUnk_80484840Fv
   - __dt__13TUnk_80484870Fv
   - __dt__13TUnk_80484888Fv
+  - __dt__13TUnk_804848A0Fv
+  - __dt__13TUnk_804848B8Fv
   - __dt__13TUnk_80484A94Fv
   - __dt__13TUnk_80484AFCFv
   - __dt__13TUnk_80488AD8Fv
@@ -2055,6 +2057,8 @@ force_active:
   - __vt__13TUnk_80484840
   - __vt__13TUnk_80484870
   - __vt__13TUnk_80484888
+  - __vt__13TUnk_804848A0
+  - __vt__13TUnk_804848B8
   - __vt__13TUnk_80484A94
   - __vt__13TUnk_80484AFC
   - __vt__13TUnk_80488AD8
@@ -11184,6 +11188,8 @@ force_active:
   - run_task__13TUnk_80484840Fv
   - run_task__13TUnk_80484870Fv
   - run_task__13TUnk_80484888Fv
+  - run_task__13TUnk_804848A0Fv
+  - run_task__13TUnk_804848B8Fv
   - run_task__13TUnk_80484A94Fv
   - run_task__13TUnk_80484AFCFv
   - run_task__13TUnk_80488AD8Fv

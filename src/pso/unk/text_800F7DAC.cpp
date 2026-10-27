@@ -63,7 +63,8 @@ struct Fade_800F88D8 {
 extern "C" {
 
 void queue_destruction__7TObjectFv(void *);
-void init_object__13TUnk_804999E8FPv(void *, void *);
+void __ct__13TUnk_804999E8FP7TObject(void *, void *);
+void *__dt__13TUnk_804999E8Fv(void *, s16);
 void TCameraCtrl__sub_80068EF0(void);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 }
@@ -360,7 +361,7 @@ void *__dt__13TUnk_804999A0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999A0;
         TWindowCtrlMain::set_value((s32)(*(void **)((s8 *)arg0 + 0x24)), 0);
-        ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
+        __dt__13TUnk_804999E8Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -368,7 +369,7 @@ void *__dt__13TUnk_804999A0Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void*TLobby::init_entry_fields(int a1, int a2, int a3) { ((int (*)(void))init_object__13TUnk_804999E8FPv)(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_804999A0); *(int*)((char*)this + 0x28) = a2; *(float*)((char*)this + 0x1c) = (0.0f); *(unsigned char*)((char*)this + 0x21) = 0; *(unsigned char*)((char*)this + 0x22) = 0; *(unsigned char*)((char*)this + 0x20) = 255; *(int*)((char*)this + 0x24) = a3; return this; }
+void*TLobby::init_entry_fields(int a1, int a2, int a3) { ((int (*)(void))__ct__13TUnk_804999E8FP7TObject)(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_804999A0); *(int*)((char*)this + 0x28) = a2; *(float*)((char*)this + 0x1c) = (0.0f); *(unsigned char*)((char*)this + 0x21) = 0; *(unsigned char*)((char*)this + 0x22) = 0; *(unsigned char*)((char*)this + 0x20) = 255; *(int*)((char*)this + 0x24) = a3; return this; }
 
 #pragma push
 #pragma opt_common_subs off
@@ -389,7 +390,7 @@ void TUnk_804999B8::run_task() {
 void *__dt__13TUnk_804999B8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999B8;
-        ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
+        __dt__13TUnk_804999E8Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -398,7 +399,7 @@ void *__dt__13TUnk_804999B8Fv(void *arg0, s16 arg1) {
 }
 
 void *TLobby::init_fade(void *arg1, void *arg2) {
-    init_object__13TUnk_804999E8FPv(this, tl_fade);
+    __ct__13TUnk_804999E8FP7TObject(this, tl_fade);
     *(s32 **)((s8 *)this + 0x18) = lbl_804999B8;
     *(void **)((s8 *)this + 0x24) = arg2;
     *(f32 *)((s8 *)this + 0x1C) = (255.0f);
@@ -427,7 +428,7 @@ void TUnk_804999D0::run_task() {
 void *__dt__13TUnk_804999D0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999D0;
-        ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
+        __dt__13TUnk_804999E8Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -436,7 +437,7 @@ void *__dt__13TUnk_804999D0Fv(void *arg0, s16 arg1) {
 }
 
 void *THunterGuildSeqOffline::init(void *arg1, void *arg2) {
-    init_object__13TUnk_804999E8FPv(this, tl_fade);
+    __ct__13TUnk_804999E8FP7TObject(this, tl_fade);
     *(s32 * *)((u8 *)this + 0x18) = lbl_804999D0;
     *(void **)((s8 *)this + 0x24) = arg2;
     *(f32 *)&this->m_38 = (0.0f);

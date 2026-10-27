@@ -462,6 +462,10 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     "pso/enemy/TObjEnemyCustom.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
     "pso/boss/TBoss3VoloptCore.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
     "pso/boss/TBoss3VoloptP01.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    # The Vol Opt fade tasks: deferred like the units above, but nothing is
+    # inlined (the inline TUnk_804999E8 destructor and TObject::queue_destruction
+    # stay calls).
+    "pso/boss/TUnk_804848A0.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
     # Vol Opt's second form also keeps eight-byte tables in .data, a six-byte
     # one in .bss and four-byte pointers in .sbss; its .rodata initializers run
     # from the last function back and its vtable precedes the switch tables.
