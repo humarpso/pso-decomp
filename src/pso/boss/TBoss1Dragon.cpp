@@ -6933,13 +6933,14 @@ u8 *TBoss1Dragon::create(s32 arg0) {
     return var_r0;
 }
 
+#pragma push
+#pragma opt_propagation off
 void TBoss1Dragon::load_resources() {
     RecoveredGlobal_8006435C_lbl_804FF5A0 *stats = &TBoss1Dragon__part_hp_stats;
     u8 *descriptor = (u8 *)TBoss1Dragon__data_80480CE0;
     DragonModelNode *source;
     DragonModelNode *output;
     f32 *capture;
-    f32 *origin;
     f32 *delta;
     f32 *nodes;
     s32 *table;
@@ -6968,17 +6969,16 @@ void TBoss1Dragon::load_resources() {
     TBoss1Dragon::cloneModelHierarchy(source, output, stats->modelState);
 
     capture = stats->capture;
-    origin = stats->origin;
     delta = capture + 3;
     TBoss1Dragon__data_805D4B0C = 0;
     lbl_805D4B10 = 0x3C;
-    origin[0] = TBoss1Dragon__data_805D7F28;
-    origin[1] = TBoss1Dragon__data_805D7F28;
-    origin[2] = TBoss1Dragon__data_805D7F28;
+    stats->origin[0] = TBoss1Dragon__data_805D7F28;
+    stats->origin[1] = TBoss1Dragon__data_805D7F28;
+    stats->origin[2] = TBoss1Dragon__data_805D7F28;
     capture[0] = TBoss1Dragon__data_805D7F28;
     capture[1] = TBoss1Dragon__data_805D7F28;
     capture[2] = TBoss1Dragon__data_805D7FF8;
-    capture[3] = TBoss1Dragon__data_805D7F28;
+    delta[0] = TBoss1Dragon__data_805D7F28;
     capture[4] = sin_table_lookup(-0x1555);
     capture[5] = cos_table_lookup(-0x1555);
     vec3_add_to(delta, capture);
@@ -7039,7 +7039,7 @@ void TBoss1Dragon::load_resources() {
     }
     TBoss1Dragon__data_805D4B04 = (s32)TLobby::register_object(lbl_805D264C);
     descriptor += 0x110;
-    out = stats->handlersA;
+    out += 5;
     for (i = 0; i < 3; i++) {
         out[i] = (s32)TLobby::dispatch_shared_handler_a(((s32 *)descriptor)[i]);
     }
@@ -7050,6 +7050,7 @@ void TBoss1Dragon::load_resources() {
     TBoss1Dragon::select_fireball_particle_table();
 }
 }
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
