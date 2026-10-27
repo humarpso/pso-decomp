@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/camera/CameraViewParams.h"
 #include "pso/misc/TLobby_803360CC.h"
 #include "pso/misc/TUnk_804EE470.h"
 #include "pso/ui/TUnk_804EE458.h"
@@ -57,7 +58,6 @@ extern "C" {
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
     extern int lobby_game_mode_state;
 void queue_destruction__7TObjectFv(void *arg0);
-void TCameraCtrl__sub_800694A8(void);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 extern s32 lbl_804EEF64[];
@@ -71,7 +71,6 @@ void disallow_rendering__7TObjectFv(TObject *arg0);
 void hide_title_layers_and_release(O_8033612C *arg0);
 int TKeyBoardControl__sub_8000F828(void);
 void TKeyBoardControl__sub_8000F90C(int);
-s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0);
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, int, int);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
@@ -199,7 +198,7 @@ void *TUnk_804EEF64::destroy(s16 arg1) {
             queue_destruction__7TObjectFv((this->m_20));
         }
         sub_8033645C();
-        TCameraCtrl__sub_800694A8();
+        end_view_override();
         TLobby::stop_audio_streams();
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
@@ -254,7 +253,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
         cam.f3C = lbl_805DF900;
         cam.f40 = lbl_805DF904;
         cam.f44 = lbl_805DF908;
-        TCameraCtrl__sub_800695A0((TCameraCtrl *)((u8 *)&cam));
+        ((CameraViewParams *)&cam)->begin_override();
     }
     {
         V3_80336520 v = lbl_80477818;

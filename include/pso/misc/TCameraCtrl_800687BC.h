@@ -2,6 +2,7 @@
 #define PSO_MISC_TCAMERACTRL_800687BC_H
 
 #include "types.h"
+#include "pso/camera/CameraViewParams.h"
 
 struct TCameraCtrl;
 extern "C" {
@@ -10,8 +11,6 @@ void TCameraCtrl__sub_800689E8(void);
 bool TCameraCtrl__sub_800689F4(void);
 f32 TCameraCtrl__sub_80068A04(void);
 s32 TCameraCtrl__sub_80069304(void);
-void TCameraCtrl__sub_800694A8(void);
-s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0);
 s32 activate_camera_mode(s32 arg0);
 void quad_80068B34(s32 i);
 s32 restore_player_cameras(void);
