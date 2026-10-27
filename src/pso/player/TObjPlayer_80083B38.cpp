@@ -62,7 +62,7 @@ void TObjPlayer__sub_80084744(void);
 void TObjPlayer__sub_80084754(void);
 void TObjPlayer__sub_80084764(void);
 void TObjPlayer__sub_80084780(void);
-void **TLobby__sub_803DA16C();
+void **release_texture_list();
 extern s32 lbl_8048E5C8[];
 void **TObjPlayer__sub_80083F04(void);
 f32 horizontal_distance_squared(void *, void *);
@@ -245,7 +245,7 @@ void **TObjPlayer__sub_80083F04(void) {
     var_r3 = (void **)(&lbl_8048E5C8);
     phi_r3 = (void **)(&lbl_8048E5C8);
     if ((u32) *(u32 *)((s8 *)var_r4 + 8) != 0U) {
-        phi_r3 = (void **)((void **)(TLobby__sub_803DA16C()));
+        phi_r3 = (void **)((void **)(release_texture_list()));
     }
     return phi_r3;
 }
@@ -421,7 +421,7 @@ void **TObjPlayer__sub_80084694(void) {
     void **var_r3;
     var_r3 = (void **)&shared_capture_texture_list;
     if ((*(G_80084694 *)&shared_capture_texture_list).a->f8 != 0) {
-        var_r3 = TLobby__sub_803DA16C();
+        var_r3 = release_texture_list();
     }
     return var_r3;
 }

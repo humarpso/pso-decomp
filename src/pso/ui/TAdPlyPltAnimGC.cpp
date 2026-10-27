@@ -63,7 +63,7 @@ extern s32 lbl_805D43A0;
 extern const f32 lbl_805DFFDC;
 extern const f32 lbl_805DFFE0;
 s32 __nw__7TObjectFUl(int);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 #pragma push
 #pragma fp_contract on
@@ -183,7 +183,7 @@ s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1) {
 
 void TAdPlyPltAnimGC__sub_8035615C(void) {
     if ((u32) player_prate_texture_list_ptr != 0U) {
-        TLobby__sub_803DA16C((void*)player_prate_texture_list_ptr);
+        release_texture_list((void*)player_prate_texture_list_ptr);
         player_prate_texture_list_ptr = 0U;
     }
 }

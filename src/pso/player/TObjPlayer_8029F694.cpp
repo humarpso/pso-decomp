@@ -3,13 +3,13 @@
 
 extern "C" {
 
-s32 TLobby__sub_803DA16C(void *);
+s32 release_texture_list(void *);
 s32 set_texture_name(s32, s32 *, s32, s32);
 s32 load_texture_list(void *);
 
 void TObjPlayer::reset_lobby_subobject() {
     this->texture_id = 0;
-    TLobby__sub_803DA16C((u8 *)&this->m_1c);
+    release_texture_list((u8 *)&this->m_1c);
 }
 
 void TObjPlayer::init_render_target() {

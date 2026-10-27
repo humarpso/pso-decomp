@@ -313,12 +313,12 @@ extern s32 __vt__16TObjContainerIdo[];
 extern s32 obj_container_ido_class_name;
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 
 void TObjContainerIdo::free_resources() {
     if ((u32) container_ido_texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)container_ido_texture_gvm_handle);
+        release_texture_list((void*)container_ido_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(container_ido_texture_gvm_handle);
         container_ido_texture_gvm_handle = 0U;
     }

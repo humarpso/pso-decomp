@@ -7,11 +7,11 @@ extern "C" {
     u8 *load_gvm_texture_file(s32 arg0);
     extern unsigned char lbl_804766F0[];
 extern u32 inazuma_texture_list;
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TLobby::free_char_select_singleton() {
     if ((u32) inazuma_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)inazuma_texture_list);
+        release_texture_list((void*)inazuma_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(inazuma_texture_list);
         inazuma_texture_list = 0U;
     }

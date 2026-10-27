@@ -24,7 +24,7 @@ void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
 s32 memset(s32, s32, s32);
 extern s32 lbl_805D63C0;
 extern s32 lbl_805D63C4;
-int TLobby__sub_803DA16C();
+int release_texture_list();
 s32 load_texture_list();
 int set_global_param__8TObjFishFl();
 
@@ -101,7 +101,7 @@ s32 free_texture_if_valid(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
-    TLobby__sub_803DA16C();
+    release_texture_list();
     return 1;
 }
 

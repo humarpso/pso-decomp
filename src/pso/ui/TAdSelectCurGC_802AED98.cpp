@@ -67,7 +67,7 @@ extern void *__vt__14TAdSelectCurGC[];
 extern s32 lbl_805D3E70;
 extern const f32 lbl_805DE1E0;
 TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, void *unused, void *a, void *b);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *__nw__7TObjectFUl(int);
 
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
@@ -164,7 +164,7 @@ TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, vo
 
 void TLobby__sub_802AF198(void) {
     if ((u32) menu_selection_cursor_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)menu_selection_cursor_texture_list);
+        release_texture_list((void*)menu_selection_cursor_texture_list);
         menu_selection_cursor_texture_list = 0U;
     }
 }

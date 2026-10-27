@@ -114,7 +114,7 @@ extern const f32 lbl_805DEF08;
 extern const f32 lbl_805DEF0C;
 extern const f32 lbl_805DEF10;
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void __dl__7TObjectFPv(void *);
 int fill_value_array(void*);
 
@@ -218,7 +218,7 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
 
 void TBoss8DragonEffTail::free_statics() {
     if ((u32) dragon_tail_gvm_texture_handle != 0U) {
-        TLobby__sub_803DA16C((void*)dragon_tail_gvm_texture_handle);
+        release_texture_list((void*)dragon_tail_gvm_texture_handle);
         TAdSinglePlyChrSelectGC::safe_free(dragon_tail_gvm_texture_handle);
         dragon_tail_gvm_texture_handle = 0U;
     }

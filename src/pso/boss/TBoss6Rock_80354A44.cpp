@@ -29,7 +29,7 @@ void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
 extern s32 lbl_805D6EFC;
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TBoss6Rock__sub_80354A44(void) { TBoss6Rock__data_805D6EF8 = 0; }
 
@@ -50,7 +50,7 @@ void TBoss6Rock::free_data() {
         TBoss6Rock__data_805D6EF0 = 0U;
     }
     if ((u32) TBoss6Rock__data_805D6EF4 != 0U) {
-        TLobby__sub_803DA16C((void*)TBoss6Rock__data_805D6EF4);
+        release_texture_list((void*)TBoss6Rock__data_805D6EF4);
         TAdSinglePlyChrSelectGC::safe_free(TBoss6Rock__data_805D6EF4);
         TBoss6Rock__data_805D6EF4 = 0U;
     }

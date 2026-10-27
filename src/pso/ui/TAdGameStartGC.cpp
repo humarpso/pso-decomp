@@ -219,13 +219,13 @@ Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0) {
     return arg0;
 }
 
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 extern int multiplay_texture_f512_handle;
 
 void destroy_instance__17TAdGameStartSubGCFv(void) {
     if ((u32) multiplay_texture_f512_handle != 0U) {
-        TLobby__sub_803DA16C((void*)multiplay_texture_f512_handle);
+        release_texture_list((void*)multiplay_texture_f512_handle);
         multiplay_texture_f512_handle = 0U;
     }
 }

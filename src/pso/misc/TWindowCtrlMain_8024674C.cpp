@@ -30,11 +30,11 @@ extern s32 f256_hyouji_texlist[];
 extern u32 lbl_805D63F0;
 extern s16 window_ui_theme_index;
 extern "C" {
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 void TWindowCtrlMain::free_window() {
     if ((u32) lbl_805D63F0 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D63F0);
+        release_texture_list((void*)lbl_805D63F0);
         lbl_805D63F0 = 0U;
     }
 }

@@ -7,7 +7,7 @@
 
 extern "C" {
 
-s32 TLobby__sub_803DA16C(s32);
+s32 release_texture_list(s32);
 s32 set_texture_name(void *, void *, int, int);
 
 void TAdSinglePlyChrSelectGC::advance_wrapped_cursor() {
@@ -27,7 +27,7 @@ extern s32 lbl_804C57E0[];
 void *TAdSinglePlyChrSelectGC::destroy_and_free(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&this->unk_50 = lbl_804C57E0;
-        TLobby__sub_803DA16C(this->m_3c);
+        release_texture_list(this->m_3c);
         TAdSinglePlyChrSelectGC::safe_free(this->m_44);
         if (arg1 > 0) {
             ::operator delete(this);

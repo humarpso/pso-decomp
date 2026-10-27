@@ -2,11 +2,10 @@
 #include "pso/effect/TEffect.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TLobby.h"
+#include "pso/system/GinjaTexture.h"
 #include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/unk/text_800F9B84.h"
-
-extern "C" s32 TLobby__sub_803DA16C(GinjaTextureList *texlist);
 
 struct EffectTextureFile {
     GinjaTextureList *texlist;
@@ -91,7 +90,7 @@ void copy_anim_frame_to_slot(TextureFrameSlot *slot) {
 }
 
 void free_effect_resources() {
-    TLobby__sub_803DA16C(effect_texture_file.texlist);
+    release_texture_list(effect_texture_file.texlist);
     TLobby::free_nodes_with_id(effect_rel);
     effect_rel = 0;
 }

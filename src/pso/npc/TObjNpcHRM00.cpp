@@ -23,14 +23,14 @@ extern u32 TObjNpcHRM00__named_object_resource;
 extern u32 TObjNpcHRM00__body_texture_gvm;
 extern char TObjNpcHRM00__data_filename[];
 extern char TObjNpcHRM00__body_texture_filename[];
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjNpcHRM00::destroy_resources() {
     if ((u32) TObjNpcHRM00__body_texture_gvm != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcHRM00__body_texture_gvm);
+        release_texture_list((void*)TObjNpcHRM00__body_texture_gvm);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcHRM00__body_texture_gvm);
         TObjNpcHRM00__body_texture_gvm = 0U;
     }

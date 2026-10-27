@@ -84,7 +84,7 @@ int fn_8001ED90(void *p);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 int TAdSinglePlyChrSelectGC__sub_802905B8(void);
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0);
-s32 TLobby__sub_803DA16C(void *);
+s32 release_texture_list(void *);
 int set_motion_interpolation_flag__10TObjMotionFv(void*);
 int draw_model_with_callback__10TObjPlayerFv(void*);
 
@@ -1750,13 +1750,13 @@ s32 TAdSinglePlyChrSelectGC::evict_char_entries(s32 arg0) {
 void TAdSinglePlyChrSelectGC::update_char_panels() {
     u8 *arg0 = (u8 *)this;
     if (((s32) this->m_down != 0) && ((s32) this->m_up != 0)) {
-        TLobby__sub_803DA16C(arg0 + 0x178);
+        release_texture_list(arg0 + 0x178);
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x188) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x184) != 0)) {
-        TLobby__sub_803DA16C(arg0 + 0x2EC);
+        release_texture_list(arg0 + 0x2EC);
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x2F8) != 0) {
-        TLobby__sub_803DA16C(arg0 + 0x460);
+        release_texture_list(arg0 + 0x460);
     }
 }
 

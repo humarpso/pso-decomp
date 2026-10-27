@@ -541,7 +541,7 @@ void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void stop_sound_request(s32 idx);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
@@ -618,7 +618,7 @@ void *TOTrapSeabed01::create(void *arg0) {
 
 void TOTrapSeabed01::free_static_resources() {
     if ((u32) (*(u32 *)&TOTrapSeabed01__texture_file) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&TOTrapSeabed01__texture_file));
+        release_texture_list((void*)(*(u32 *)&TOTrapSeabed01__texture_file));
         TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&TOTrapSeabed01__texture_file));
         (*(u32 *)&TOTrapSeabed01__texture_file) = 0U;
     }

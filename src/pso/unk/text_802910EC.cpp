@@ -18,7 +18,7 @@ struct RecoveredGlobal_80291138_lbl_804D9668 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-s32 TLobby__sub_803DA16C(void *);
+s32 release_texture_list(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
 extern u8 creation_chara_sprite_entries[];
@@ -51,7 +51,7 @@ void fn_80291138(void) {
         queue_destruction__7TObjectFv((void *)cmicon_instance);
     }
     cmicon_instance = 0U;
-    TLobby__sub_803DA16C(&creation_sprite_table.value);
+    release_texture_list(&creation_sprite_table.value);
 }
 #pragma push
 #pragma fp_contract on

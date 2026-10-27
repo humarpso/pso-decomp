@@ -47,7 +47,7 @@ extern RecoveredGlobal_8019A880_lbl_804B8F70 tobjtank_collision_body_parts;
 extern s32 __vt__8TObjTank[];
 extern s32 TObjTank__class_name;
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -120,7 +120,7 @@ void *TObjTank__create(void *arg0) {
 
 void TObjTank::free_globals() {
     if ((u32) TObjTank__texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TObjTank__texture_list);
+        release_texture_list((void*)TObjTank__texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TObjTank__texture_list);
         TObjTank__texture_list = 0U;
     }

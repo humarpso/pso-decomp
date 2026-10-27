@@ -579,7 +579,7 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 };
 
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 extern s32 forest_warp_bml_resource;
 extern u32 forest_warp_texture_list;
@@ -591,7 +591,7 @@ extern "C" {
 
 void TObjWarpBase::free_globals() {
     if ((u32) forest_warp_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)forest_warp_texture_list);
+        release_texture_list((void*)forest_warp_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(forest_warp_texture_list);
         forest_warp_texture_list = 0U;
     }

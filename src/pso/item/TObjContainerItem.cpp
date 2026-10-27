@@ -704,11 +704,11 @@ extern u8 seabed_rare_console_texture_filename[];
 extern u8 lbl_80444F48[];
 extern u32 lbl_805D5B8C;
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TLobby::free_chr_select_slot() {
     if ((u32) lbl_805D5B8C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5B8C);
+        release_texture_list((void*)lbl_805D5B8C);
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D5B8C);
         lbl_805D5B8C = 0U;
     }
@@ -747,7 +747,7 @@ s32 get_container_param(s32 index) { return get_bml_model(lbl_805D5B78, index); 
 
 void TLobby::free_char_select_resources() {
     if ((u32) lbl_805D5B7C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5B7C);
+        release_texture_list((void*)lbl_805D5B7C);
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D5B7C);
         lbl_805D5B7C = 0U;
     }

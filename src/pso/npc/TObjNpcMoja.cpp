@@ -116,7 +116,7 @@ extern char lbl_8043FD20[];
 extern char lbl_8043FD34[];
 void * TObjNpcNFM00__create(void *arg0);
 void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMoja__ct(void *, void *, void *);
 u8 *TObjNpcNFM00__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -322,7 +322,7 @@ void * TObjNpcNFM00__create(void *arg0) {
 
 void TObjNpcNFM00::free_resources() {
     if ((u32) TObjNpcNFM00__texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcNFM00__texture_gvm_handle);
+        release_texture_list((void*)TObjNpcNFM00__texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcNFM00__texture_gvm_handle);
         TObjNpcNFM00__texture_gvm_handle = 0U;
     }
