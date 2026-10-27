@@ -215,9 +215,9 @@ force_active:
   - TBoss3VoloptMonitor__ct
   - TBoss3VoloptMonitor__init_param_block
   - TBoss3VoloptMonitor__sub_800420D8
-  - TBoss3VoloptP01__sub_80042FCC
-  - TBoss3VoloptP01__sub_800430D0
-  - TBoss3VoloptP01__sub_80043CA8
+  - update_sink__15TBoss3VoloptP01Fv
+  - update_attack__15TBoss3VoloptP01Fv
+  - sub_80043CA8__15TBoss3VoloptP01Fv
   - TBoss3VoloptP01__sub_800442A0
   - TBoss3VoloptP01_class_name
   - TBoss3Volopt__ct
@@ -1112,7 +1112,7 @@ force_active:
   - TObjPlayer__sub_800401CC
   - TObjPlayer__sub_80040558
   - TObjPlayer__sub_80040AE4
-  - TObjPlayer__sub_80042ED0
+  - get_node_position__15TBoss3VoloptP01FlP3Vec
   - TObjPlayer__sub_800499FC
   - TObjPlayer__sub_80049A0C
   - TObjPlayer__sub_80082C30
@@ -2990,7 +2990,7 @@ force_active:
   - capture_attachment__17TObjEneBm3FlyNestFPv
   - capture_matrix_by_frame__16TObjDFTenchuFuruFv
   - cast_resta__18TObjEneRe4SorcererFv
-  - cast_tech_on_players__10TObjPlayerFv
+  - cast_tech_on_players__15TBoss3VoloptP01Fv
   - cast_technique__18TObjEneMe3SinowZoaFPv
   - cast_technique__18TObjEneRe4SorcererFv
   - cave_door01_resource_descriptor
@@ -3951,7 +3951,7 @@ force_active:
   - fire_attack_a__14TObjEneEpsilonFllf
   - fire_attack_b__14TObjEneEpsilonFllf
   - fire_attack_c__14TObjEneEpsilonFllf
-  - fire_zonde_at_players__10TObjPlayerFv
+  - fire_zonde_at_players__15TBoss3VoloptP01Fv
   - flanking_state__14TObjEneBm5WolfFl
   - floor_lifecycle_callbacks_floor_00
   - floor_lifecycle_callbacks_floor_01
@@ -4509,7 +4509,7 @@ force_active:
   - init_collision_segments__17TBoss8DragonColliFiPviPvf
   - init_conversation_camera__11TCameraCtrlFlll
   - init_ctrl_default__19TPlayerBattleCtrl4PFPv
-  - init_cursor_record__15TBoss3VoloptP01Fv
+  - init_cursor_record__18TargetCursorRecordFv
   - init_default_fields__6TLobbyFv
   - init_dialog__12TAdDialingGCFv
   - init_dice_state__11TBoss6Type1Fv
@@ -4795,8 +4795,8 @@ force_active:
   - lazer_fence_norm_episode1_resource_descriptor
   - lazer_fence_norm_episode2_resource_descriptor
   - lazer_fence_sw_ginja_model_table
-  - lbl_80436630
-  - lbl_8043663C
+  - volopt_p01_node_origin
+  - volopt_p01_zonde_attack
   - lbl_80437384
   - lbl_804373A4
   - lbl_80438528
@@ -10483,7 +10483,7 @@ force_active:
   - push_list_node__14TObjEneBm5WolfFPPvPPv
   - push_list_node__16TObjEneBm5GibonUFPPvPPv
   - push_model_fade_color__10TObjPlayerFv
-  - push_nearby_players__10TObjPlayerFPv
+  - push_nearby_players__15TBoss3VoloptP01Fv
   - push_op_arg__6TLobbyFi
   - push_trail_entry__17TItemEffectWeaponFPCfPCf
   - query_battle_state__17TWindowReturnCityFv
@@ -10954,7 +10954,7 @@ force_active:
   - reset_state
   - reset_state__13TObjLobbyMainFPv
   - reset_state__13TObjWarnChimeFv
-  - reset_state__15TBoss3VoloptP01FPv
+  - start_rise__15TBoss3VoloptP01Fv
   - reset_state__15TFontSmallLobbyFv
   - reset_state__16TKeyBoardControlFi
   - reset_state__19TContainerAncient01Fv
@@ -12617,7 +12617,7 @@ force_active:
   - update_position_history__11TBoss2JointFv
   - update_position_if_changed__19TWindowSubTradeMainFlPUcPUc
   - update_pressed_keys__16TKeyBoardControlFv
-  - update_pulse_scale__15TBoss3VoloptP01FPv
+  - update_rise__15TBoss3VoloptP01Fv
   - update_pulse_state__10TBoss2MineFv
   - update_pulse_value__17TOSensorAncient01Fv
   - update_punch_attack__11TObjEneMojaFPv

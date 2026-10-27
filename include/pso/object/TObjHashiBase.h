@@ -2,7 +2,7 @@
 #define PSO_OBJECT_TOBJHASHIBASE_H
 #include "types.h"
 struct TObjHashiBase {
-    s16 update_object_view_visibility(f32, f32);
+    s32 update_object_view_visibility(f32, f32);
     void run_task();
     u8 unk_0[0x18];
     s32 * m_18;

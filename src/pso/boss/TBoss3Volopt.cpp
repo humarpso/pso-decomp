@@ -90,7 +90,6 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_);
 void fn_8003F468(void *, u16, s32);
 void TBoss3VoloptHiraisin__ct(void *, void *, u16, s32);
 void init_with_slot__19TBoss3VoloptMonitorFPvPviiii(void *, void *, u16, s32, s32, s32);
-void TBoss3VoloptP01__ct(void *, void *, s32, u16, s32);
 extern u16 boss3_volopt_monitor_base_actor_id;
 void request_follow_camera_offsets(void *, void *, int, f32);
 }
@@ -195,8 +194,6 @@ s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void destroy__20TBoss3VoloptHiraisinFv(void);
-s32 TObjPlayer__sub_80042EC0(void *);
-void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
 s32 set_player_view_flag__11TCameraCtrlFl();
 s32 set_flag_08000000__11TCameraCtrlFl();
 void set_motion__12TBoss3VoloptFs(void *, u16);
@@ -418,7 +415,7 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
         for (i = 0; i < 6; i++) {
             p = ((u8 * (*)(u16))find_entity_by_id)(volopt_target_entity_ids[i]);
             if (p != NULL) {
-                TBoss3VoloptP01__sub_80042F84(p);
+                ((TBoss3VoloptP01 *)p)->sub_80042F84();
             }
         }
         break;
@@ -502,14 +499,14 @@ void TCameraCtrl::set_player_targets(s32 n) {
   p = find_entity_by_id(((volatile unsigned short *)&volopt_target_entity_ids)[((s8 *)&boss3_volopt_player_target_ids)[0]]);
   if (p != 0)
   {
-    ((TObjPlayer *)p)->set_target_id(1);
+    ((TBoss3VoloptP01 *)p)->set_primary(1);
   }
   for (i = 1; i < n; i++)
   {
     p = find_entity_by_id(((volatile unsigned short *)&volopt_target_entity_ids)[((s8 *)&boss3_volopt_player_target_ids)[i]]);
     if (p != 0)
     {
-      ((TObjPlayer *)p)->set_target_id(0);
+      ((TBoss3VoloptP01 *)p)->set_primary(0);
     }
   }
 }
@@ -578,7 +575,7 @@ s32 TCameraCtrl__sub_8003D2C4(void) {
     void *p;
     for (i = 0; i < 6; i++) {
         p = find_entity_by_id(volopt_target_entity_ids[i]);
-        if (p != 0 && is_photon_blast_active__11TCameraCtrlFPv() == 0 && TObjPlayer__sub_80042EC0(p) == 0) {
+        if (p != 0 && is_photon_blast_active__11TCameraCtrlFPv() == 0 && ((TBoss3VoloptP01 *)p)->is_mode_0() == 0) {
             return 0;
         }
     }
@@ -606,7 +603,7 @@ void TBoss3Volopt::sub_8003D340() {
             volopt_target_entity_ids[i] = GPO(this, i + 1);
             o = (void *)__nw__7TObjectFUl(0x418);
             if (o != NULL) {
-                TBoss3VoloptP01__ct(o, this, i, volopt_target_entity_ids[i], GAA(this, i + 1));
+                TBoss3VoloptP01__ct((TBoss3VoloptP01 *)o, this, i, volopt_target_entity_ids[i], GAA(this, i + 1));
             }
         }
         boss3_volopt_monitor_base_actor_id = GPO(this, 7);

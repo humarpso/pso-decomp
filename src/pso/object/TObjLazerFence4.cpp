@@ -52,11 +52,11 @@ s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
 f32 xz_distance_squared(void *, s32);
-s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
+s32 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
 
 extern s32 camera_ctrl_instance;
 
-s16 TObjLazerFence4::update_object_view_visibility(f32 farg0, f32 farg1) {
+s32 TObjLazerFence4::update_object_view_visibility(f32 farg0, f32 farg1) {
     u8 *arg0 = (u8 *)this;
     if (TMainTask::get_render_pass() == 1) {
         return this->m_1e;

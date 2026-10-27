@@ -6,7 +6,7 @@
 
 struct TObjContainerIdo : public TUnk_804B97C0 {
     virtual ~TObjContainerIdo();
-    virtual s16 update_object_view_visibility(f32, f32);
+    virtual s32 update_object_view_visibility(f32, f32);
     virtual void render();
     virtual void run_task();
     void* m_b4;

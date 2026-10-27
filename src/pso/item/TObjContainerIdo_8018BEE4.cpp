@@ -33,7 +33,7 @@ s32 __dl__7TObjectFPv(void *);
 
 #pragma push
 #pragma fp_contract on
-s16 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
+s32 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
     u8 *arg0 = (u8 *)this;
     Vec_8018BEE4 p;
     f32 out[2];

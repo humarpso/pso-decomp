@@ -244,7 +244,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_reaction_animation();
     void update_grabbed_state();
     void dispatch_reaction_state();
-    void set_target_id(s32 arg1);
     int construct_target_cursor_records();
     static void draw_area_chunk_objects();
     void save_position();
@@ -1696,8 +1695,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_floor_index(s32 v);
     u8 unk_DB0[0x4];
     s32 m_db4;
-    void cast_tech_on_players();
-    s32 fire_zonde_at_players();
     u16 pick_random_nearby_player(f32 radius);
     void revive_or_spawn_marker();
     static void spawn_dead_spot(s32 point, s32 selector, s32 delay, f32 farg0);

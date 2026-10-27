@@ -38,7 +38,7 @@ void TObjCamera::update_camera_slots() {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-s16 TObjCamera::update_object_view_visibility(f32 r, f32 d) {
+s32 TObjCamera::update_object_view_visibility(f32 r, f32 d) {
     Obj_8017F6C0 *o = (Obj_8017F6C0 *)this;
     Vec_8017F6C0 v;
     Out_8017F6C0 out;

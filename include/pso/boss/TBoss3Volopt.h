@@ -94,5 +94,8 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     static void set_flag8_list(u32 **arg0);
 };
 
+extern s32 volopt_breakup_flag;
+extern u16 lbl_805D271A;
+
 typedef char TBoss3Volopt_size[sizeof(TBoss3Volopt) == 0x408 ? 1 : -1];
 #endif

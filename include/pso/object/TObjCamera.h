@@ -6,7 +6,7 @@
 
 struct TObjCamera : public TUnk_804AFBF8 {
     virtual ~TObjCamera();
-    virtual s16 update_object_view_visibility(f32, f32);
+    virtual s32 update_object_view_visibility(f32, f32);
     virtual void run_task();
     u32 m_c8;
     void queue_target_destruction();
