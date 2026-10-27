@@ -855,7 +855,6 @@ pso/misc/TButterfly_8017F364.cpp
 pso/misc/TCameraCtrl_8002ADD0.cpp
 pso/misc/TCameraCtrl_8003F3A0.cpp
 pso/misc/TCameraCtrl_8003F3EC.cpp
-pso/misc/TCameraCtrl_80044420.cpp
 pso/misc/TCameraCtrl_80067654.cpp
 pso/misc/TCameraCtrl_8006782C.cpp
 pso/misc/TCameraCtrl_80067C88.cpp
@@ -2870,7 +2869,7 @@ pso/unk/text_8002E174.cpp
 pso/unk/text_8003AFBC.cpp
 pso/unk/text_80041E88.cpp
 pso/unk/text_80042960.cpp
-pso/unk/text_800443DC.cpp
+pso/unk/text_80044448.cpp
 pso/unk/text_800480B0.cpp
 pso/unk/text_80048118.cpp
 pso/unk/text_800483F8.cpp

@@ -405,17 +405,15 @@ pso/unk/text_80042960.cpp:
 	.text       start:0x80042960 end:0x80042974
 
 pso/boss/TBoss3VoloptP01.cpp:
-	.text       start:0x80042974 end:0x800443DC
+	.text       start:0x80042974 end:0x80044448
 	.rodata     start:0x80436620 end:0x80436650
 	.data       start:0x80484170 end:0x804843E0
 	.sdata      start:0x805D2748 end:0x805D274C
+	.sbss       start:0x805D4CB0 end:0x805D4CD0
 	.sdata2     start:0x805D8760 end:0x805D879C
 
-pso/unk/text_800443DC.cpp:
-	.text       start:0x800443DC end:0x80044420
-
-pso/misc/TCameraCtrl_80044420.cpp:
-	.text       start:0x80044420 end:0x80044498
+pso/unk/text_80044448.cpp:
+	.text       start:0x80044448 end:0x80044498
 
 pso/boss/TBoss3Volopt_80044498.cpp:
 	.text       start:0x80044498 end:0x800480B0

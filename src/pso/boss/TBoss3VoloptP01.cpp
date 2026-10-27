@@ -543,14 +543,15 @@ void draw_chunk_object(void *child);
 extern RecoveredGlobal_80044174_lbl_804FEE68 boss3_volopt_spawn_pos;
 extern void *boss3_volopt_resources;
 extern s32 volopt_breakup_flag;
-extern s32 volopt_p01_boss_stat_handle_a;
-extern s32 volopt_p01_shared_handler_b;
-extern s32 volopt_p01_object_handle;
-extern s32 volopt_p01_shared_handler_handle;
-extern void *TBoss3VoloptP01__resource_bundle;
-extern s32 TBoss3VoloptP01__breakup_model;
-extern void *lbl_805D4CC8;
-extern u8 *volopt_p01_breakup_color_ptr;
+s32 volopt_p01_boss_stat_handle_a;
+s32 volopt_p01_shared_handler_b;
+s32 volopt_p01_object_handle;
+struct G_800443DC { u8 pad[0x18]; s32 arr[1]; };
+G_800443DC *volopt_p01_shared_handler_handle;
+void *TBoss3VoloptP01__resource_bundle;
+s32 TBoss3VoloptP01__breakup_model;
+void *lbl_805D4CC8;
+u8 *volopt_p01_breakup_color_ptr;
 extern void *tl_04;
 
 extern "C" void vfunc_65__15TObjEnemyCustomFll();
@@ -1249,7 +1250,7 @@ void TBoss3VoloptP01::init_breakup_effect() {
     volopt_p01_boss_stat_handle_a = register_boss__6TLobbyFl(0x22);
     volopt_p01_shared_handler_b = dispatch_shared_handler_b__6TLobbyFl(0x22);
     volopt_p01_object_handle = register_object__6TLobbyFl(0x22);
-    volopt_p01_shared_handler_handle = dispatch_shared_handler_a__6TLobbyFl(0x22);
+    volopt_p01_shared_handler_handle = (G_800443DC *)dispatch_shared_handler_a__6TLobbyFl(0x22);
     (*(s32 *)&volopt_p01_breakup_color_ptr) = *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4CC8 + 4)) + 4);
 }
 
@@ -1369,6 +1370,23 @@ void TBoss3VoloptP01::init_cursor_record() {
     self->c = (0.0f);
 }
 }
+struct E_800443F0 { s32 a; s32 b; s32 c; s32 d; };
+
+struct G_800443F0 { u8 pad[0x42c]; E_800443F0 *entries; };
+
+struct O_800443F0 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
+extern "C" s32 fn_800443DC(void *self, s32 i) {
+    return volopt_p01_shared_handler_handle->arr[i];
+}
+void TBoss3VoloptP01::load_volopt_param_entry(s32 i) {
+    O_800443F0 *self = (O_800443F0 *)this;
+    self->f34 = ((G_800443F0 *)TBoss3VoloptP01__resource_bundle)->entries[i].c;
+    self->f24 = ((G_800443F0 *)TBoss3VoloptP01__resource_bundle)->entries[i].d;
+}
+#include "pso/misc/TCameraCtrl.h"
+void TCameraCtrl::reset_look_state() { this->m_20 = 1; this->m_24 = 0; }
+void TCameraCtrl::set_mode() { this->m_20 = 2; this->m_24 = 0; }
 
 #undef TObjPlayer__sub_80042ED0
 #undef play_sound_effect
