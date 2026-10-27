@@ -12,29 +12,20 @@
 #include "pso/system/vector.h"
 #include "pso/TMainTask.h"
 
-// Slots 10 and 25 as this file calls them: the base declarations
-// (s16 update_object_view_visibility(f32, f32) and
-// apply_knockback_from_attacker(u8 *)) differ from these calls.
-struct TBoss3VoloptCoreTarget : public TObject {
-    virtual void vfunc_6();
-    virtual void vfunc_7();
-    virtual void vfunc_8();
-    virtual void vfunc_9();
-    virtual s32 update_object_view_visibility(f32 range, f32 margin);
-    virtual void vfunc_11();
-    virtual void vfunc_12();
-    virtual void vfunc_13();
-    virtual void vfunc_14();
-    virtual void vfunc_15();
-    virtual void vfunc_16();
-    virtual void vfunc_17();
-    virtual void vfunc_18();
-    virtual void vfunc_19();
+// The actors check_target_collision hits, with slot 25 as it is called here:
+// the base declares apply_knockback_from_attacker(u8 *) without the strength.
+struct TBoss3VoloptCoreTarget : public TUnk_804AF8A0 {
+    virtual s32 add_actor_exp(s32 exp);
+    virtual s32 consume_timer_field(s32 frames);
+    virtual s32 get_actor_level_index();
+    virtual u8 *update_actor_ground_y();
+    virtual u8 *vfunc_18(u8 *arg0);
+    virtual s32 is_actor_cadence_frame(s32 frame);
     virtual s32 select_melee_contact_body(TObject *attacker, f32 range);
-    virtual void vfunc_21();
+    virtual int calc_distance_accuracy_penalty(void *arg0, void *arg1, void *arg2, f32 arg3);
     virtual f32 receive_physical_attack(TObject *attacker, f32 scale);
-    virtual void vfunc_23();
-    virtual void vfunc_24();
+    virtual f32 receive_direct_attack(void *arg0, void *arg1, void *arg2, s32 arg3, s32 arg4);
+    virtual f32 receive_weapon_special_attack(void *arg0, void *arg1);
     virtual void apply_knockback_from_attacker(TObject *attacker, f32 strength);
 };
 
@@ -656,7 +647,7 @@ void TBoss3VoloptCore::update_charge_state() {
 }
 
 void TBoss3VoloptCore::render() {
-    if (!(actorFlags & 0x02000000) && ((TBoss3VoloptCoreTarget *)this)->update_object_view_visibility(400.0f, 40.0f) != 0) {
+    if (!(actorFlags & 0x02000000) && update_object_view_visibility(400.0f, 40.0f) != 0) {
         TObjFish::set_global_param(texture_id);
         push_matrix();
         model_render_flags &= ~0x400;
