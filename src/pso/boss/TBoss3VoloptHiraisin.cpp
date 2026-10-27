@@ -36,7 +36,6 @@ void update_collisions__10TObjPlayerFv(TObjEnemy *obj);
 extern u32 model_render_flags;
 extern u32 lbl_805D5660;
 extern TObject *tl_04;
-void init_params__20TBoss3VoloptHiraisinFv(TBoss3VoloptHiraisin *hiraisin, Vec *spawn, const char *name);
 }
 
 struct BreakupParams {
@@ -79,13 +78,6 @@ struct CollisionState {
     u32 flags;
 };
 
-struct HiraisinParams {
-    BreakupParams breakup;
-    MotionAction actions[5];
-    EnemyMovementParams movement;
-    CollisionBodyPart collision;
-};
-
 // A model node: evaluation flags, then the node's rotation at 0x14.
 struct ModelNode {
     u32 flags;
@@ -97,16 +89,16 @@ struct ModelNode {
 
 static const char *TBoss3VoloptHiraisin_name = "TBoss3VoloptHiraisin";
 
-static HiraisinParams volopt_hiraisin_params = {
-    { 0x14, 0.06f, 1.5f, 0.9f, 0.12f, 0.55f, 0.5f },
-    {
-        { 0x10000, 6, 0.7f, 0 },
-        { 0x10000, 6, 0.7f, 1 },
-        { 0x20000, 6, 0.7f, 4 },
-        { 0x20000, 8, 0.7f, 8 },
-        { 0x30004, 7, 0.5f, 0x10 },
-    },
-    { 150.0f, 0.5555555f, 0x400, 0x1E0000, 0, 1, 0 },
+static BreakupParams volopt_hiraisin_breakup_params = { 0x14, 0.06f, 1.5f, 0.9f, 0.12f, 0.55f, 0.5f };
+static MotionAction volopt_hiraisin_motions[5] = {
+    { 0x10000, 6, 0.7f, 0 },
+    { 0x10000, 6, 0.7f, 1 },
+    { 0x20000, 6, 0.7f, 4 },
+    { 0x20000, 8, 0.7f, 8 },
+    { 0x30004, 7, 0.5f, 0x10 },
+};
+static EnemyMovementParams volopt_hiraisin_movement = { 150.0f, 0.5555555f, 0x400, 0x1E0000, 0, 1, 0 };
+static CollisionBodyPart volopt_hiraisin_body_parts[1] = {
     { { 0.0f, -5.0f, 0.0f }, 6.0f, { 0 }, 0x8005 },
 };
 
@@ -161,7 +153,7 @@ void TBoss3VoloptHiraisin::sub_80040FDC() {
 void TBoss3VoloptHiraisin::start_attack() {
     s16 max_hp;
     u32 flags;
-    TBoss3Volopt::create_breakup_mdl((s32)volopt_hiraisin_breakup_model, (s32)&volopt_hiraisin_params,
+    TBoss3Volopt::create_breakup_mdl((s32)volopt_hiraisin_breakup_model, (s32)&volopt_hiraisin_breakup_params,
                                      TObjFish__sub_8001EDB0(volopt_hiraisin_resources, 0x10), (s32)&m_2fc, rotation_y);
     trigger_dell_biter_events__10TObjPlayerFv((Vec *)&m_2fc);
     play_sound_effect(0x4001C112, (Vec *)position, 0, 0);
@@ -360,19 +352,16 @@ TBoss3VoloptHiraisin::~TBoss3VoloptHiraisin() {
     free_collision_body_parts(this);
 }
 
-#pragma push
-#pragma opt_propagation off
 void TBoss3VoloptHiraisin::init_params() {
-    HiraisinParams *params = &volopt_hiraisin_params;
     VecCopy((Vec *)&m_2fc, (Vec *)position);
     m_300 -= 30.0f;
     copy_position();
     motion_list = volopt_hiraisin_resources->motions;
-    action_table = params->actions;
+    action_table = volopt_hiraisin_motions;
     set_field_d8((s32)action_table);
-    init_collision_body_parts(this, &params->collision, 1);
+    init_collision_body_parts(this, volopt_hiraisin_body_parts, 1);
     variant = 0;
-    movementParameters = &params->movement;
+    movementParameters = &volopt_hiraisin_movement;
     recalc_combat_stats(volopt_hiraisin_stats, volopt_hiraisin_stats_b, volopt_hiraisin_object_params, 1.0f, 1.0f);
     m_b8 = 0;
     set_animation(m_b8);
@@ -390,9 +379,7 @@ void TBoss3VoloptHiraisin::init_params() {
 }
 
 TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TUnk_804B9870 *parent, u16 id, s32 group) : TObjEnemyCustom(parent) {
-    const char *name;
-    name = TBoss3VoloptHiraisin_name;
-    m_name = name;
+    m_name = TBoss3VoloptHiraisin_name;
     m_1c = id;
     group_index = group;
     m_80 = NULL;
@@ -401,9 +388,8 @@ TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TUnk_804B9870 *parent, u16 id, s32 gr
     position[1] = 80.0f;
     position[0] = boss3_volopt_spawn_pos.x;
     position[2] = boss3_volopt_spawn_pos.z;
-    init_params__20TBoss3VoloptHiraisinFv(this, &boss3_volopt_spawn_pos, name);
+    init_params();
 }
-#pragma pop
 
 TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TObject *parent, void *set_data) : TObjEnemyCustom(parent) {
     m_name = TBoss3VoloptHiraisin_name;
