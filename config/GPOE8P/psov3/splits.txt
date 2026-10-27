@@ -430,20 +430,28 @@ pso/unk/text_80048118.cpp:
 pso/boss/TBoss3Volopt_8004812C.cpp:
 	.text       start:0x8004812C end:0x80048260
 
-pso/boss/TBoss3Volopt_80048260.cpp:
-	.text       start:0x80048260 end:0x80048360
+pso/boss/TUnk_80484840.cpp:
+	.text       start:0x80048260 end:0x80048560
+	.rodata     start:0x804366B8 end:0x804366D0
+	.data       start:0x80484828 end:0x80484858
+	.bss        start:0x804FF1B8 end:0x804FF1D0
+	.sdata2     start:0x805D8828 end:0x805D8838
 
-pso/player/TObjPlayer_80048360.cpp:
-	.text       start:0x80048360 end:0x800483F8
-	.data       start:0x80484840 end:0x80484858
+pso/boss/TUnk_80484870.cpp:
+	.text       start:0x80048560 end:0x80048674
+	.data       start:0x80484858 end:0x80484888
+	.bss        start:0x804FF1D0 end:0x804FF1E8
 
-pso/unk/text_800483F8.cpp:
-	.text       start:0x800483F8 end:0x800485C8
-	.rodata     start:0x804366C8 end:0x804366D0
-
-pso/boss/TBoss3Volopt_800485C8.cpp:
-	.text       start:0x800485C8 end:0x80048C04
+pso/boss/TUnk_80484888.cpp:
+	.text       start:0x80048674 end:0x80048920
 	.rodata     start:0x804366D0 end:0x804366D8
+	.data       start:0x80484888 end:0x804848A0
+	.sdata2     start:0x805D8838 end:0x805D884C
+
+pso/boss/TUnk_804848A0.cpp:
+	.text       start:0x80048920 end:0x80048C04
+	.sbss       start:0x805D4D10 end:0x805D4D18
+	.sdata2     start:0x805D8850 end:0x805D885C
 
 pso/object/TObjVoloptCage.cpp:
 	.text       start:0x80048C04 end:0x800495F8

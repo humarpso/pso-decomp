@@ -3,7 +3,7 @@
 #include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/boss/TBoss3Volopt_800485C8.h"
+#include "pso/boss/TUnk_80484888.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjGyaranzoMissile.h"
@@ -567,7 +567,6 @@ void TBoss3VoloptCore::update_charge_state() {
     s32 angles[3];
     f32 distance;
     TObjPlayer *player;
-    void *shot;
     target = (u8 *)get_player_by_client_id(targetId);
     switch (state) {
     case 0:
@@ -594,10 +593,7 @@ void TBoss3VoloptCore::update_charge_state() {
             angles[1] = facing_angle;
             angles[0] = 0;
             angles[2] = 0x4000;
-            shot = TObject::operator new(0x48);
-            if (shot != NULL) {
-                TBoss3Volopt__sub_8004885C((u8 *)shot, (u8 *)&volopt_slot_positions[slot_index], 0x11B, 8, (u8 *)angles, 0.5f, 0.0f);
-            }
+            new TUnk_80484888(&volopt_slot_positions[slot_index], 0x11B, 8, angles, 0.5f, 0.0f);
         }
         break;
     case 2:

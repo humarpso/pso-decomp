@@ -4,7 +4,6 @@
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_804848A0.h"
-#include "pso/boss/TUnk_804848B8.h"
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -74,7 +73,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u16 volopt_target_entity_ids[];
 extern u16 lbl_805D271C;
-extern s32 TBoss3Volopt__fade_active_flag;
 void TBoss3Volopt__sub_8003D7BC(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 int TBoss3Volopt__sub_8003F398(void);
@@ -227,7 +225,6 @@ extern int volopt_resources_loaded;
 extern int lbl_805D4C40;
 extern u32 volopt_active_player_id;
 extern s32 lbl_805D4C48;
-extern s32 lbl_805D4D14;
 extern s32 volopt_shutter_model_a;
 extern s32 volopt_shutter_model_b;
 extern s32 volopt_shutter_global_param;
@@ -677,7 +674,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         return;
     case 1:
-        if ((s32) lbl_805D4D14 == 1) {
+        if (volopt_fade_in_done == 1) {
             *(s32 *)((s8 *)arg0 + 0x384) = 0x96;
             *(s32 *)((s8 *)arg0 + 0x37C) = 2;
         }
@@ -784,7 +781,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x37C) = 5;
         break;
     case 5:
-        if (TBoss3Volopt__fade_active_flag == 1) {
+        if (volopt_fade_out_done == 1) {
             *(s32 *)((s8 *)arg0 + 0x374) = 3;
         }
         break;

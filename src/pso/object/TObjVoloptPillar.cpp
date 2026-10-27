@@ -17,7 +17,7 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
 #include "pso/boss/TBoss3Volopt_8004812C.h"
-#include "pso/boss/TBoss3Volopt_800485C8.h"
+#include "pso/boss/TUnk_80484888.h"
 #include "pso/unk/text_80049FD8.h"
 
 extern "C" {
@@ -82,7 +82,6 @@ void TObjVoloptPillar::run_task() {
     s32 i;
     TUnk_804806E8 *target;
     s32 angle;
-    u8 *emitter;
     switch (state) {
     case 0:
         timer = TObjVoloptPillar__sub_80048118(5);
@@ -136,10 +135,7 @@ void TObjVoloptPillar::run_task() {
             {
                 Vec pos = *(Vec *)position;
                 pos.y = 5.0f;
-                emitter = (u8 *)TObject::operator new(0x48);
-                if (emitter != NULL) {
-                    TBoss3Volopt__sub_8004885C(emitter, (u8 *)&pos, 0x11E, 0xF, NULL, 0.25f, 40.0f);
-                }
+                new TUnk_80484888(&pos, 0x11E, 0xF, NULL, 0.25f, 40.0f);
             }
             TCameraCtrl::set_shake_preset(1);
             play_sound_effect(0x4003AD09, (Vec *)position, 0, 0);

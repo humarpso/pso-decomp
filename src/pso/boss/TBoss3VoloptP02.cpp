@@ -11,6 +11,7 @@
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/boss/TUnk_80484A94.h"
+#include "pso/boss/TUnk_80484840.h"
 #include "pso/boss/TUnk_80484870.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -92,7 +93,6 @@ u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
 extern u8 identity_matrix[];
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
-void fn_800483F8(void *, Vec *, void *, s32, s16);
 void obj_setFlags30(void *, s32);
 extern s32 lbl_805D2714;
 extern u16 lbl_805D2718;
@@ -976,12 +976,8 @@ void TBoss3VoloptP02::fn_800465B0() {
                 ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
                 for (i = 0; i < 10; i++) {
                     s32 dir = i < 5 ? 1 : -1;
-                    void *p;
                     vfunc_65(chain_node_ids[i], (s32)&chain_positions[i]);
-                    p = TObject::operator new(0x44);
-                    if (p != NULL) {
-                        fn_800483F8(p, &chain_positions[i], &cage->m_2fc, dir, *(s16 *)&timer);
-                    }
+                    new TUnk_80484840(&chain_positions[i], (Vec *)&cage->m_2fc, dir, timer);
                 }
                 play_sound_effect(0x4003B20D, position, -10, 0);
             } else {
