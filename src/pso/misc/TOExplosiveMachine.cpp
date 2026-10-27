@@ -7,6 +7,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct Base1_80166568 { char pad[0x18]; };
 struct VObj1_80166568 : Base1_80166568 {
@@ -124,7 +125,7 @@ O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1) {
             arg0->a[i] = 0;
             arg0->b[i] = 0;
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

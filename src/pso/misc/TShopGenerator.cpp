@@ -11,6 +11,7 @@ struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TMedicalCenterMes.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 struct Stack_8021DC30 {
     s32 sp8;
     s32 spC;
@@ -181,7 +182,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

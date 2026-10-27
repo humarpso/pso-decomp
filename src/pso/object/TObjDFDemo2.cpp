@@ -19,6 +19,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 #pragma readonly_strings on
 
 typedef struct Rec_8004E918 {
@@ -166,7 +167,7 @@ void TObjDFDemo2::run_task() {
 void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFDemo2;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

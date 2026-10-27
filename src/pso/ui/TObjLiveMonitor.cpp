@@ -10,6 +10,7 @@
 #include "pso/TObjLiveCameraCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TCameraCtrl.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct O_8030B370 { u8 pad[0x24]; u32 a; s32 t; };
 
@@ -132,7 +133,7 @@ void run_task__14TObjLiveCameraFv(void) {  }
 void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjLiveCamera;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

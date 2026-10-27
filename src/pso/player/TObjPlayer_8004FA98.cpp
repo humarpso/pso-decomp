@@ -12,6 +12,7 @@
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 extern "C" {
 s32 post_translate_matrix(void *);
@@ -137,7 +138,7 @@ Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1) {
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             restore_player_cameras();
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

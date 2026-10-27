@@ -14,6 +14,7 @@
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/object/TObjAreaWarpQuest.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct Win_801A0DB4 { u8 pad[4]; u16 flags; };
 
@@ -484,7 +485,7 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
                 arg0->wins[i] = 0;
             }
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

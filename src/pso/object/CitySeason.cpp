@@ -26,6 +26,7 @@
 #include "pso/object/TObjCity_Season_SonicAdv2.h"
 #include "pso/object/TObjCity_Season_Board.h"
 #include "pso/object/TObjCity_Season_FireWorkCtrl.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 struct RecoveredGlobal_80184B44_lbl_804440B0 { s32 value; u8 remaining[0x28]; };
 extern "C" {
 const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template = {0, {
@@ -373,7 +374,7 @@ extern s32 __vt__28TObjCity_Season_FireWorkCtrl[];
 void *TObjCity_Season_FireWorkCtrl::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__28TObjCity_Season_FireWorkCtrl;
-        TParticleCtrl::destroy_particle(this, 0);
+        __dt__13TUnk_804B9870Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -506,7 +507,7 @@ extern s32 __vt__21TObjCity_Season_Board[];
 void *TObjCity_Season_Board::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__21TObjCity_Season_Board;
-        TParticleCtrl::destroy_particle(this, 0);
+        __dt__13TUnk_804B9870Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -959,7 +960,7 @@ extern s32 __vt__32TObjCity_Season_HalloweenPumpkin[];
 void *TObjCity_Season_HalloweenPumpkin::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__32TObjCity_Season_HalloweenPumpkin;
-        TParticleCtrl::destroy_particle(this, 0);
+        __dt__13TUnk_804B9870Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -1120,7 +1121,7 @@ extern s32 __vt__26TObjCity_Season_XmasWreath[];
 void *TObjCity_Season_XmasWreath::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__26TObjCity_Season_XmasWreath;
-        TParticleCtrl::destroy_particle(this, 0);
+        __dt__13TUnk_804B9870Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

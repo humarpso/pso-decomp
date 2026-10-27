@@ -17,6 +17,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 #pragma readonly_strings on
 
 extern "C" {
@@ -180,7 +181,7 @@ S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             restore_player_cameras();
         }
-        TParticleCtrl::destroy_particle(o, 0);
+        __dt__13TUnk_804B9870Fv(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

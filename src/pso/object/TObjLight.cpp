@@ -11,6 +11,7 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_80194528___vt__9TObjLight {
     s32 value;
@@ -195,7 +196,7 @@ void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjLight;
         ((TUnk_804B9870 *)arg0)->mask_object_set_row_flags(-3);
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

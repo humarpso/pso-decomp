@@ -2,6 +2,7 @@
 #include "pso/unk/TEF_PvrWave.h"
 #include "pso/misc/TEF_LensFlare.h"
 #include "pso/TParticleCtrl.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct Base_8008194C_80081278 { char pad[0x50]; };
 struct VObj_8008194C_80081278 : Base_8008194C_80081278 {
@@ -31,7 +32,7 @@ void __dl__7TObjectFPv(void *);
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E130;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -4,6 +4,7 @@
 #include "pso/object/TObjRaderHideCol.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_80197490___vt__16TObjRaderHideCol {
     s32 value;
@@ -43,7 +44,7 @@ void TObjRaderHideCol::run_task() {
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRaderHideCol;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

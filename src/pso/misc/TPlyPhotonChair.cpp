@@ -14,6 +14,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 extern char lbl_804796E0[];
 extern char lbl_804796F4[];
@@ -259,7 +260,7 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
         ((TMainCursor *)((s8 *)arg0 + 0xD0))->destroy(-1);
         ((TUnk_804A7478 *)((s8 *)arg0 + 0xB4))->destroy(-1);
         ((TUnk_804A7478 *)((s8 *)arg0 + 0x98))->destroy(-1);
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

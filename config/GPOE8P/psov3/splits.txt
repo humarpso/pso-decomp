@@ -6071,12 +6071,6 @@ pso/unk/text_801A0520.cpp:
 	.text       start:0x801A0520 end:0x801A069C
 	.data       start:0x804B9628 end:0x804B964C
 
-pso/map/FloorLifecycleTables.cpp:
-	.data       start:0x804B98A8 end:0x804BB1A8
-
-pso/object/ObjectFactoryTables.cpp:
-	.data       start:0x804BB1A8 end:0x804C1F68
-
 pso/unk/text_801A069C.cpp:
 	.text       start:0x801A069C end:0x801A0760
 
@@ -6124,6 +6118,13 @@ pso/player/TObjPlayer_801A2570.cpp:
 
 pso/misc/TParticleCtrl_801A25B4.cpp:
 	.text       start:0x801A25B4 end:0x801A2640
+	.data       start:0x804B9870 end:0x804B98A8
+
+pso/map/FloorLifecycleTables.cpp:
+	.data       start:0x804B98A8 end:0x804BB1A8
+
+pso/object/ObjectFactoryTables.cpp:
+	.data       start:0x804BB1A8 end:0x804C1F68
 
 pso/unk/text_801A2640.cpp:
 	.text       start:0x801A2640 end:0x801A2AEC

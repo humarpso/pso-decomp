@@ -222,6 +222,7 @@ void TObjDFDemo1::render() { draw_fading_model(); sub_8004E068(); }
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/unk/text_80087278.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct DFDemo1Emitter {
     s32 effect;
@@ -330,7 +331,7 @@ S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
             }
         }
         restore_player_cameras();
-        TParticleCtrl::destroy_particle(o, 0);
+        __dt__13TUnk_804B9870Fv(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

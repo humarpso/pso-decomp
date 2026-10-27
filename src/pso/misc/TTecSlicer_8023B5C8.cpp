@@ -7,6 +7,7 @@
 #include "pso/TItemAttacker.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_8023B770_lbl_8044DC20
 {
@@ -399,7 +400,7 @@ void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
         if (((TTecSlicer *)arg0)->star != NULL) { queue_destruction__7TObjectFv((s32)((void *)(((TTecSlicer *)arg0)->star))); }
         dt__10TTecSlicerFls((s8 *)arg0 + 0xE8, -1);
         dt__10TTecSlicerFls((s8 *)arg0 + 0xC8, -1);
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

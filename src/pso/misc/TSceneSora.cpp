@@ -12,6 +12,7 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TScene.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_802072E0___vt__10TSceneSora {
     s32 value;
@@ -120,7 +121,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TSceneSora.value;
         TSceneSora__instance = 0;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

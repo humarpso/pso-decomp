@@ -8,6 +8,7 @@
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/misc/TCameraCtrl.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 extern "C" {
 
@@ -68,7 +69,7 @@ void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFDemoF;
         restore_player_cameras();
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

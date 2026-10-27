@@ -121,6 +121,7 @@ struct Vec_80155294 { f32 x, y, z; };
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 union ObjectSavedState_801548A8 {
     u32 word;
     struct { s16 flags; s16 source; } halves;
@@ -1169,7 +1170,7 @@ void *TUnk_804AF8A0::destroy_particle_controller(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804AF8A0;
         *(s32 *)((s8 *)this + 0xA8) = 0;
         *(s32 *)((s8 *)this + 0xA4) = 0;
-        TParticleCtrl::destroy_particle(this, 0);
+        __dt__13TUnk_804B9870Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

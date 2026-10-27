@@ -15,6 +15,7 @@
 #include "pso/object/TObjCityDoor_Warp.h"
 #include "pso/object/TObjCityDoor_Med.h"
 #include "pso/object/TObjCityDoor_Lobby.h"
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
 
 struct RecoveredGlobal_8018289C_lbl_80443F4C
 {
@@ -361,7 +362,7 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
         if (((s32) ((TObjCityDoor_Lobby *)arg0)->m_250 != 0) && (get_map_count__10TObjMapCsnFv() != 0U)) {
             remove_value_from_id_list(get_map_count__10TObjMapCsnFv(), (u32)(arg0 + 0x90));
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
