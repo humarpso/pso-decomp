@@ -349,8 +349,8 @@ pso/boss/TObjBoss2Tunnel_8003B138.cpp:
 
 pso/boss/TBoss3Volopt.cpp:
 	.text       start:0x8003C804 end:0x8003F4C0
-	.rodata     start:0x80436300 end:0x80436338
-	.data       start:0x80483938 end:0x80483974
+	.rodata     start:0x80435ED0 end:0x80436338
+	.data       start:0x804835F0 end:0x80483974
 	.bss        start:0x804FEE68 end:0x804FEEC0
 	.sdata      start:0x805D2710 end:0x805D2724
 	.sbss       start:0x805D4C10 end:0x805D4C4C

@@ -68,6 +68,7 @@ struct TBoss3VoloptPositionPacket {
 };
 
 struct TBoss3Volopt : public TObjEnemyCustom {
+    TBoss3Volopt(void *set_data);
     virtual ~TBoss3Volopt();
     virtual void render();
     virtual void run_task();
@@ -181,13 +182,5 @@ extern s32 volopt_resources_loaded;
 extern s32 boss3_volopt_cage_flag;
 extern s32 volopt_p01_tech;
 extern Vec boss3_volopt_spawn_pos;
-
-// TBoss3Volopt.cpp's .data, still in an unclaimed range ahead of its vtable.
-extern u16 volopt_target_entity_ids[6];
-extern u8 bm_boss3_volopt_resource_descriptor[];
-extern u8 boss3_volopt_resource_desc[];
-extern Vec boss3_volopt_intro_camera_poses[];
-extern Vec volopt_phase2_player_positions[4];
-extern s32 volopt_phase2_player_angles[4];
 
 #endif

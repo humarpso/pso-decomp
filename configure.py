@@ -466,8 +466,8 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # but four-byte pointer lists in .sdata.
     "pso/misc/CharacterAppearanceTables.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
     # Vol Opt keeps its six-byte P01 order in .bss and its four-byte globals
-    # in .sbss.
-    "pso/boss/TBoss3Volopt.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
+    # in .sbss; its vtable precedes the switch tables in .data.
+    "pso/boss/TBoss3Volopt.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
     # Vol Opt's monitors keep their eight-byte texture lists in .data but the
     # four-byte class-name pointer in .sdata.
     "pso/boss/TBoss3VoloptMonitor.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
