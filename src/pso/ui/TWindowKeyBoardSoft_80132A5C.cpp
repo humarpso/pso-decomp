@@ -1,16 +1,14 @@
 #include "types.h"
 #include "pso/misc/TLobby_800F9690.h"
-#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/ui/Language.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
-struct Inner_80132A5C { char pad8[0x8]; u32 f8; };
-struct Outer_80132A5C { struct Inner_80132A5C *f0; };
+struct GvmTextureInner { char pad8[0x8]; u32 f8; };
+struct GvmTexture { struct GvmTextureInner *f0; };
 
-struct Outer_80132A5C;
 extern const char TLanguage__class_name[];
 extern const char f256_alphabet_gvp[];
 extern const char f256_symbolsetumei_jpn_gvp[];
@@ -39,7 +37,7 @@ extern const char TextSpanish[];
 extern const char TextEnglish[];
 int TWindowKeyBoardSoft__text_resource;
 int text_language_group_table;
-struct Outer_80132A5C *localized_alphabet_list;
+struct GvmTexture *localized_alphabet_list;
 language current_language;
 int TWindowKeyBoardSoft__language_text_resources;
 
@@ -48,9 +46,9 @@ u8 *load_gvm_texture_file(s32 arg0);
 s32 TLobby__sub_803DA16C(void *);
 }
 
-void TWindowKeyBoardSoft::free_instance() {
+void TLanguage::free_alphabet_textures() {
     if (localized_alphabet_list != NULL) {
-        struct Inner_80132A5C *inner = localized_alphabet_list->f0;
+        struct GvmTextureInner *inner = localized_alphabet_list->f0;
         if (inner->f8 != 0U) {
             TLobby__sub_803DA16C(localized_alphabet_list);
         }
@@ -59,7 +57,7 @@ void TWindowKeyBoardSoft::free_instance() {
     }
 }
 
-void TWindowKeyBoardSoft::free_resources() {
+void TLanguage::free_text_resources() {
     TLobby::free_nodes_with_id(TWindowKeyBoardSoft__text_resource);
     TWindowKeyBoardSoft__language_text_resources = 0;
     text_language_group_table = 0;
@@ -68,7 +66,7 @@ void TWindowKeyBoardSoft::free_resources() {
 
 void TLanguage::load_fonts(s32 language) {
     s32 sp8;
-    Outer_80132A5C *alphabet;
+    GvmTexture *alphabet;
     sp8 = TLobby::tmp_buf_use_req(TLanguage__class_name);
     TLanguage::draw_string((void *)f256_alphabet_gvp, &sp8, 0x48);
     ((TLobby *)TLanguage__class_name)->tmp_buf_release();
@@ -79,7 +77,7 @@ void TLanguage::load_fonts(s32 language) {
             TLanguage::draw_string((void *)f128_keyjpn_gvp, &sp8, 2);
             TLanguage::draw_string((void *)f064_wordmojitex_jpn_gvp, &sp8, 3);
             TLanguage::decode_font_data((void *)b256_menutext01_j_gvp, &sp8, 0x4B, 0x4C);
-            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureJapanese_gvm);
+            alphabet = (GvmTexture *)load_gvm_texture_file((s32)TextureJapanese_gvm);
             localized_alphabet_list = alphabet;
             break;
 
@@ -88,7 +86,7 @@ void TLanguage::load_fonts(s32 language) {
             TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
             TLanguage::draw_string((void *)f064_wordmojitex_ger_gvp, &sp8, 3);
             TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureGerman_gvm);
+            alphabet = (GvmTexture *)load_gvm_texture_file((s32)TextureGerman_gvm);
             localized_alphabet_list = alphabet;
             break;
 
@@ -97,7 +95,7 @@ void TLanguage::load_fonts(s32 language) {
             TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
             TLanguage::draw_string((void *)f064_wordmojitex_fre_gvp, &sp8, 3);
             TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureFrench_gvm);
+            alphabet = (GvmTexture *)load_gvm_texture_file((s32)TextureFrench_gvm);
             localized_alphabet_list = alphabet;
             break;
 
@@ -106,7 +104,7 @@ void TLanguage::load_fonts(s32 language) {
             TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
             TLanguage::draw_string((void *)f064_wordmojitex_spa_gvp, &sp8, 3);
             TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureSpanish_gvm);
+            alphabet = (GvmTexture *)load_gvm_texture_file((s32)TextureSpanish_gvm);
             localized_alphabet_list = alphabet;
             break;
 
@@ -115,7 +113,7 @@ void TLanguage::load_fonts(s32 language) {
             TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
             TLanguage::draw_string((void *)f064_wordmojitex_eng_gvp, &sp8, 3);
             TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
-            alphabet = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureEnglish_gvm);
+            alphabet = (GvmTexture *)load_gvm_texture_file((s32)TextureEnglish_gvm);
             localized_alphabet_list = alphabet;
             break;
     }
@@ -129,7 +127,7 @@ void TLanguage::load_fonts(s32 language) {
     TLanguage::set_entry_index(LANGUAGE_SPANISH, 3);
 }
 
-void select_language_text_resources(s32 arg0) {
+void TLanguage::load_text_resources(s32 arg0) {
     switch (arg0) {
     case LANGUAGE_JAPANESE:
         (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = (u8 *)load_text_resource_pair((s32)TextJapanese);
@@ -178,15 +176,15 @@ __declspec(section ".rodata") extern const char TextFrench[] = "TextFrench";
 __declspec(section ".rodata") extern const char TextSpanish[] = "TextSpanish";
 __declspec(section ".rodata") extern const char TextEnglish[] = "TextEnglish";
 
-s32 TWindowKeyBoardSoft::set_language(s8 language) {
+s32 TLanguage::set_language(s8 language) {
     u8 *save_payload;
 
     if ((s32) current_language == language) {
         return 0;
     }
 
-    TWindowKeyBoardSoft::free_instance();
-    TWindowKeyBoardSoft::free_resources();
+    TLanguage::free_alphabet_textures();
+    TLanguage::free_text_resources();
 
     save_payload = TAdSinglePlyChrSelectGC::get_global_state();
     if (save_payload != NULL) {
@@ -194,7 +192,7 @@ s32 TWindowKeyBoardSoft::set_language(s8 language) {
     }
 
     current_language = (enum language)(s8) language;
-    select_language_text_resources((s8) current_language);
+    TLanguage::load_text_resources((s8) current_language);
     TLanguage::load_fonts(current_language);
 
     return 1;

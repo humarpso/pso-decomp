@@ -69,7 +69,6 @@ struct TWindowKeyBoardSoft
     s32 measure_char_overflow(u16 code, u32 *x, u32 *y, u32 *count);
     s32 check_text_overflow(u16 *arg1);
     void reset_state();
-    static s32 set_language(s8 arg0);
     static s32 strnlen(s8 *str, u32 max);
     void scale_point_about_pivot(f32 *q);
     void set_open_tick(s32 arg1);
@@ -131,8 +130,6 @@ struct TWindowKeyBoardSoft
     static void dispatch_request_0x13(s32 arg0, s32 arg1, s32 arg2);
     static void dispatch_request_0x10(s32 a, s32 b);
     static void dispatch_request_0f(s32 a, s32 b);
-    static void free_instance();
-    static void free_resources();
 };
 
 typedef char TWindowKeyBoardSoft_depth_offset[offsetof(TWindowKeyBoardSoft, depth) == 0x38 ? 1 : -1];

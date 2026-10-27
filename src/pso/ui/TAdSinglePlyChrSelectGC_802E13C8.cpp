@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLanguage.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
@@ -105,7 +106,6 @@ void *__nw__7TObjectFUl(int);
 void fn_8023F160(void);
 void fn_8023F18C(void);
 void * get_global_state__23TAdSinglePlyChrSelectGCFv(void);
-s32 set_language__19TWindowKeyBoardSoftFSc(u8 a0 = 0);
 
 extern s32 lbl_804E34FC[];
 
@@ -286,7 +286,7 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
         ((s32 (*)(s32, s32))change_state__12TAdTimeSetGCFl)(arg0, 1);
         return;
     }
-    set_language__19TWindowKeyBoardSoftFSc(*(u8 *)((s8 *)temp_r3 + 7));
+    TLanguage::set_language(*(s8 *)((s8 *)temp_r3 + 7));
     update_music_stream_gain(*(s16 *)((s8 *)temp_r3 + 4));
     TLobby__sub_8022614C(*(s8 *)((s8 *)temp_r3 + 6));
     init_sound_mode__6TLobbyFPv();

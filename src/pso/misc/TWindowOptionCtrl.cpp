@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLanguage.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_8023F160.h"
@@ -49,8 +50,8 @@ void TWindowOptionCtrl::apply_and_close(s32 arg1) {
     this->m_1d = (u8) (this->m_1d | 2);
 }
 
-s32 TWindowOptionCtrl::handle_input(s32 arg1) {
-    if (TWindowKeyBoardSoft::set_language((s8) arg1) != 0) {
+s32 TWindowOptionCtrl::handle_input(s32 language) {
+    if (TLanguage::set_language((s8) language) != 0) {
         fn_8023F160();
         fn_8023F18C();
         if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {

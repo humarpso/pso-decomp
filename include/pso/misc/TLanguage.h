@@ -5,7 +5,11 @@
 
 struct TLanguage
 {
+    static void free_alphabet_textures();
+    static void free_text_resources();
     static void load_fonts(s32 language);
+    static void load_text_resources(s32 language);
+    static s32 set_language(s8 language);
     static s8 get_default_language();
     static void draw_string(void *arg0, void *arg1, s32 arg2);
     static void decode_font_data(void *arg0, void *arg1, s32 arg2, s32 arg3);

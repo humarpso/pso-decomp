@@ -1,5 +1,4 @@
 #include "types.h"
-#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/ui/Language.h"
@@ -8,7 +7,6 @@ extern s32 text_language_group_table;
 extern "C" {
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
 }
-void select_language_text_resources(s32 arg0);
 extern "C" {
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 
@@ -28,6 +26,15 @@ void TLobby::update_menu_cursor() {
 s32 get_localized_text_entry(s32 arg0, s32 arg1) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)(text_language_group_table + (arg0 * 4)) + 0) + (arg1 * 4)) + 0);
 }
-void TLobby::free_keyboard_soft_resources() { TWindowKeyBoardSoft::free_instance(); TWindowKeyBoardSoft::free_resources(); }
-void TLobby::update_keyboard_menu() { TLobby::update_menu_cursor(); select_language_text_resources(current_language); TLanguage::load_fonts(current_language); }
+void TLobby::free_keyboard_soft_resources() {
+    TLanguage::free_alphabet_textures();
+    TLanguage::free_text_resources();
+}
+
+void TLobby::update_keyboard_menu() {
+    TLobby::update_menu_cursor();
+    TLanguage::load_text_resources(current_language);
+    TLanguage::load_fonts(current_language);
+}
+
 }
