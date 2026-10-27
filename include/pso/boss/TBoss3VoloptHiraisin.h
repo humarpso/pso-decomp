@@ -21,6 +21,8 @@ struct TBoss3VoloptHiraisin : public TObjEnemyCustom {
     void init_params();
     void copy_position();
     void load_params_from_table(s32 index);
+    void clear_flag_08000000();
+    void set_flag_08000000();
 
     s32 hover_angle;
 };
