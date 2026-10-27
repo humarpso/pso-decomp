@@ -447,7 +447,12 @@ struct RecoveredGlobal_8006435C_lbl_80437D2C {
 
 struct RecoveredGlobal_8006435C_lbl_804FF5A0 {
     s32 value;
-    u8 remaining[0x10];
+    s32 handlersB[4];
+    s32 handlersA[3];
+    f32 origin[3];
+    f32 capture[9];
+    s32 modelState[2];
+    f32 modelParams[4];
 };
 
 struct RecoveredGlobal_80064CFC_lbl_80487848 {
@@ -6047,7 +6052,7 @@ void handle_6x10_dragon_boss_actions(void *arg0) {
 typedef char RecoveredGlobal_800646F0_lbl_80437944_size[sizeof(RecoveredGlobal_800646F0_lbl_80437944) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_800646F0_lbl_804FF5B4_size[sizeof(RecoveredGlobal_800646F0_lbl_804FF5B4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006435C_lbl_80437D2C_size[sizeof(RecoveredGlobal_8006435C_lbl_80437D2C) == 0x14 ? 1 : -1];
-typedef char RecoveredGlobal_8006435C_lbl_804FF5A0_size[sizeof(RecoveredGlobal_8006435C_lbl_804FF5A0) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_8006435C_lbl_804FF5A0_size[sizeof(RecoveredGlobal_8006435C_lbl_804FF5A0) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80064CFC_lbl_80487848_size[sizeof(RecoveredGlobal_80064CFC_lbl_80487848) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80064CFC_lbl_804FF5A0_size[sizeof(RecoveredGlobal_80064CFC_lbl_804FF5A0) == 0x14 ? 1 : -1];
 
@@ -6929,11 +6934,10 @@ u8 *TBoss1Dragon::create(s32 arg0) {
 }
 
 void TBoss1Dragon::load_resources() {
-    u8 *stats = (u8 *)&TBoss1Dragon__part_hp_stats;
+    RecoveredGlobal_8006435C_lbl_804FF5A0 *stats = &TBoss1Dragon__part_hp_stats;
     u8 *descriptor = (u8 *)TBoss1Dragon__data_80480CE0;
     DragonModelNode *source;
     DragonModelNode *output;
-    f32 *model;
     f32 *capture;
     f32 *origin;
     f32 *delta;
@@ -6954,18 +6958,17 @@ void TBoss1Dragon::load_resources() {
     lbl_805D4B24 = TBoss1Dragon::countModelNodes(source);
     output = (DragonModelNode *)alloc__22TQuestVmDownLoadServerFv(lbl_805D4B24 * 0x50);
     TBoss1Dragon__data_805D4B28 = (u32)output;
-    model = (f32 *)(stats + 0x50);
-    *(s32 *)model = 0;
-    *(s32 *)(model + 1) = 0;
-    model[2] = TBoss1Dragon__data_805D7F28;
-    model[3] = TBoss1Dragon__data_805D7F28;
-    model[4] = TBoss1Dragon__data_805D7F28;
-    model[5] = TBoss1Dragon__data_805D7F28;
+    stats->modelState[0] = 0;
+    stats->modelState[1] = 0;
+    stats->modelParams[0] = TBoss1Dragon__data_805D7F28;
+    stats->modelParams[1] = TBoss1Dragon__data_805D7F28;
+    stats->modelParams[2] = TBoss1Dragon__data_805D7F28;
+    stats->modelParams[3] = TBoss1Dragon__data_805D7F28;
     source = *(DragonModelNode **)(*(u8 **)(TBoss1Dragon__data_805D4B08 + 0x42C) + 8);
-    TBoss1Dragon::cloneModelHierarchy(source, output, model);
+    TBoss1Dragon::cloneModelHierarchy(source, output, stats->modelState);
 
-    capture = (f32 *)(stats + 0x2C);
-    origin = (f32 *)(stats + 0x20);
+    capture = stats->capture;
+    origin = stats->origin;
     delta = capture + 3;
     TBoss1Dragon__data_805D4B0C = 0;
     lbl_805D4B10 = 0x3C;
@@ -7036,7 +7039,7 @@ void TBoss1Dragon::load_resources() {
     }
     TBoss1Dragon__data_805D4B04 = (s32)TLobby::register_object(lbl_805D264C);
     descriptor += 0x110;
-    out = (s32 *)(stats + 0x14);
+    out = stats->handlersA;
     for (i = 0; i < 3; i++) {
         out[i] = (s32)TLobby::dispatch_shared_handler_a(((s32 *)descriptor)[i]);
     }
