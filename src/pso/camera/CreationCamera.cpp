@@ -1,96 +1,54 @@
-#include "pso/menu/CreationInput.h"
-#include "types.h"
-#include "pso/TObject.h"
-#include "pso/misc/TUnk_80488A28.h"
 #include "pso/camera/CreationCamera.h"
-#include "pso/misc/TCameraCtrl_80067654.h"
-#include "pso/misc/TCameraCtrl_80067FC0.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
-#include "pso/camera/TUnk_804DAB08.h"
-#include "pso/object/TObjCMProportion.h"
-struct CreationCameraVTable { void* reserved[2]; void (*methods[10])(); };
+#include "pso/camera/CameraViewParams.h"
+#include "pso/math/AngleLookup.h"
+#include "pso/menu/CreationInput.h"
 #include "pso/misc/CharacterAppearance.h"
+#include "pso/misc/CharacterCreationModels.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjCMMainMenu.h"
+#include "pso/object/TObjCMProportion.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 
-struct CreationHeightBounds { f32 minimum, maximum; };
-
-struct Cam_80291784 {
-    u8 pad[0x78];
-    s32 mode;
-    s32 timer;
+// Per class, the range (in tens of units) the review camera's look-at height
+// is picked from by the character's height setting.
+struct CreationHeightBounds {
+    f32 minimum;
+    f32 maximum;
 };
 
-extern "C" {
-f32 cos_table_lookup(s32);
-}
-extern int creation_camera_mode;
-extern const f32 lbl_805DD990;
-extern const f32 lbl_805DD994;
-f32 calc_character_height(void *);
-extern CreationHeightBounds creation_camera_height_bounds_table[12];
-extern CharacterAppearanceFields *creation_player_character;
-extern const f32 lbl_805DD978;
-extern const f32 lbl_805DD99C;
-extern const f32 lbl_805DD9A0;
-extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
-void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
-extern const f32 lbl_805DD96C;
-extern const f32 lbl_805DD998;
-extern const f32 lbl_805DD9A4;
-extern const f32 lbl_805DD9A8;
-extern const f32 lbl_805DD9AC;
-extern const f32 lbl_805DD9B0;
-extern "C" {
-void update_creation_camera_auto(Cam_80291784 *arg0);
-f32 TObjCMProportion::get_ratio(void),TObjCMProportion::get_right_trigger_ratio(void);
-f32 sin_table_lookup(s32),cos_table_lookup(s32);
-extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
-void *__nw__7TObjectFUl(int);
-void update_creation_camera_auto(Cam_80291784*);
+static char split_screen_character_name[12];
+
+char *get_split_screen_character_name() {
+    s32 record = get_character_save_record(0xFFFF);
+    ((TLobby *)split_screen_character_name)->decode_obfuscated_string((void *)(record + 0x229C), 12);
+    return split_screen_character_name;
 }
 
-#include "pso/misc/TCameraCtrl.h"
-
-struct RecoveredGlobal_80291D4C_lbl_80540958 {
-    s32 value;
-    u8 remaining[0xC];
-};
-
-extern "C" {
-int __ct__13TUnk_80488A28Fv(void);
-extern CreationCameraVTable lbl_804DAB08;
-    extern const float lbl_805DD974;
-    extern const float lbl_805DD9C4;
-    extern const float lbl_805DD9C8;
-    extern int TObjCMMainMenu__selected_entry_id;
-s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int, int);
-extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
-void calc_spherical_camera_position__13TUnk_804DAB08Fv(CreationCamera*);
-int creation_camera_mode;
-void __dl__7TObjectFPv(void *);
-
-typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_80291D4C_lbl_80540958) == 0x10 ? 1 : -1];
-
-#pragma defer_codegen on
-s32 *TLobby__sub_80291D4C(void) {
-    s32 character_save_record;
-    character_save_record = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *)&lbl_80540958.value, (void *)(character_save_record + 0x229C), 0xC, character_save_record);
-    return &lbl_80540958.value;
+u32 get_character_creation_selected_entry_id() {
+    return creation_menu_selected_entry;
 }
-}
-u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
-void* construct_creation_camera(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); ((TUnk_804DAB08 *)a0)->m_38 = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; ((TUnk_804DAB08 *)a0)->m_4c = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; ((TUnk_804DAB08 *)a0)->m_70 = 0; ((TUnk_804DAB08 *)a0)->m_78 = 2; *(int*)((char*)a0 + 0x7c) = 0; ((TUnk_804DAB08 *)a0)->m_88 = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; ((TUnk_804DAB08 *)a0)->m_54 = 17294; return a0; }
 
-void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&lbl_804DAB08;
-        __dt__13TUnk_80488A28Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+CreationCamera::CreationCamera() {
+    m_38 = 0;
+    target.x = 0.0f;
+    target.y = 10.5f;
+    target.z = 0.0f;
+    distance = 30.0f;
+    yaw = 0;
+    pitch = 0;
+    shot = 2;
+    shot_timer = 0;
+    distance_speed = 0.0f;
+    height_speed = 0.0f;
+    creation_camera_mode = CREATION_CAMERA_AUTO;
+    projection_angle = 17294;
 }
+
+CreationCamera::~CreationCamera() {
+}
+
+s32 creation_camera_mode;
 
 void CreationCamera::run_task() {
     static void (CreationCamera::*modes[5])() = {
@@ -99,255 +57,271 @@ void CreationCamera::run_task() {
         &CreationCamera::advance_manual,
     };
     (this->*modes[creation_camera_mode])();
-    calc_spherical_camera_position__13TUnk_804DAB08Fv(this);
+    calc_spherical_camera_position();
 }
 
-extern "C" {
-CreationHeightBounds creation_camera_height_bounds_table[12] = {
-    {1.04999995f, 1.58000004f},
-    {1.17999995f, 1.52999997f},
+static CreationHeightBounds creation_camera_height_bounds_table[12] = {
+    {1.05f, 1.58f},
+    {1.18f, 1.53f},
     {1.5f, 1.88f},
-    {1.23000002f, 1.63f},
-    {1.29999995f, 1.64999998f},
-    {1.13f, 1.58000004f},
-    {1.08000004f, 1.38f},
-    {1.27999997f, 1.67999995f},
-    {1.08000004f, 1.48000002f},
-    {1.08000004f, 1.5f},
-    {1.20000005f, 1.70000005f},
-    {1.13f, 1.5f}
+    {1.23f, 1.63f},
+    {1.3f, 1.65f},
+    {1.13f, 1.58f},
+    {1.08f, 1.38f},
+    {1.28f, 1.68f},
+    {1.08f, 1.48f},
+    {1.08f, 1.5f},
+    {1.2f, 1.7f},
+    {1.13f, 1.5f},
 };
-struct CreationViewParameters { f32 values[18]; };
-CreationViewParameters creation_view_parameters[2] = {
-    {{1.0f, 1.0f, 320.0f, 240.0f, 1.0f, 1.0f, 500.0f, 1.0f, 1.0f, 1.0f, 640.0f, 480.0f, 0.0f, 0.0f, 20.0f, 15.0f, 1.0f, 1.0f}},
-    {{1.0f, 1.0f, 460.800018f, 240.0f, 1.0f, 1.0f, 500.0f, 1.0f, 1.0f, 1.0f, 640.0f, 480.0f, 0.0f, 0.0f, 20.0f, 15.0f, 1.0f, 1.0f}}
+
+// The view with the character centred, and the one shifted right for a
+// panel open on the left.
+static CameraViewParams creation_view_parameters[2] = {
+    {{1.0f, 1.0f}, 320.0f, 240.0f, {1.0f, 1.0f, 500.0f, 1.0f, 1.0f, 1.0f}, 640.0f, 480.0f, {0.0f, 0.0f, 20.0f, 15.0f, 1.0f, 1.0f}},
+    {{1.0f, 1.0f}, 640.0f * 0.72f, 240.0f, {1.0f, 1.0f, 500.0f, 1.0f, 1.0f, 1.0f}, 640.0f, 480.0f, {0.0f, 0.0f, 20.0f, 15.0f, 1.0f, 1.0f}},
 };
-void run_task__14CreationCameraFv();
-void render__7TObjectFv(); void render_shadows__7TObjectFv();
-void TCameraCtrl::post_update_view();
-CreationCameraVTable lbl_804DAB08 = {{0,0}, {
-    (void(*)())TCameraCtrl__sub_80291C64, run_task__14CreationCameraFv,
-    render__7TObjectFv, render_shadows__7TObjectFv,
-    vfunc_6__13TUnk_80488A28Fv, vfunc_7__13TUnk_80488A28Fv,
-    vfunc_8__13TUnk_80488A28FPv, vfunc_9__13TUnk_80488A28FPUcPUc,
-    vfunc_10__13TUnk_80488A28Fv, TCameraCtrl::post_update_view,
-}};
-void *TCameraCtrl__vt8(void) {
-    void *o = __nw__7TObjectFUl(0x90);
-    if (o != NULL) {
-        o = construct_creation_camera(o);
-    }
-    return o;
-}
+
+CreationCamera *CreationCamera::create() {
+    return new CreationCamera;
 }
 
-#pragma push
-#pragma fp_contract on
-#pragma opt_common_subs off
-void CreationCamera::advance_manual(){
-  s32 new_var;
-  s32 sp10;
-  f32 spC;
-  f32 sp8;
-  f32 temp_f1;
-  f32 temp_f1_2;
-  f32 temp_f1_3;
-  s32 temp_r0;
-  s32 temp_r0_2;
-  s32 var_r4;
+void CreationCamera::advance_manual() {
+    s32 stick_angle;
+    f32 stick;
+    f32 still;
+    s32 min_pitch;
 
-  if (creation_buttons_held(0x10) != 0)
-  {
-    temp_f1 = this->height;
-    temp_f1 = temp_f1;
-    temp_f1 = temp_f1 + lbl_805DD9B4;
-    this->height = temp_f1;
-    if (temp_f1 > lbl_805DD9B8)
-    {
-      this->height = (f32) lbl_805DD9B8;
+    if (creation_buttons_held(0x10)) {
+        if ((target.y += 0.6333333f) > 20.0f) {
+            target.y = 20.0f;
+        }
+    } else if (creation_buttons_held(0x20)) {
+        if ((target.y -= 0.6333333f) < 1.0f) {
+            target.y = 1.0f;
+        }
     }
-  }
-  else
-    if (creation_buttons_held(0x20) != 0)
-  {
-    temp_f1_2 = this->height;
-    temp_f1_2 = temp_f1_2;
-    temp_f1_2 = temp_f1_2 - lbl_805DD9B4;
-    this->height = temp_f1_2;
-    if (temp_f1_2 < lbl_805DD978)
-    {
-      this->height = (f32) lbl_805DD978;
-    }
-  }
 
-  get_creation_pad_stick(&sp10, &spC);
-  if (lbl_805DD974 != spC)
-  {
-    this->yaw = (s32) (((lbl_805DD9BC * spC) * sin_table_lookup(sp10)) + ((f32) this->yaw));
-    new_var = (s32) (((lbl_805DD9BC * spC) * cos_table_lookup(sp10)) + ((f32) this->pitch));
-    var_r4 = -0x2BBC;
-    this->pitch = new_var;
-    if ((((void *) creation_player_character) != 0) && ((((s32) creation_player_character->classId) == 0xA) || (creation_player_character->classFlags & 2)))
-    {
-      var_r4 = 0;
+    get_creation_pad_stick(&stick_angle, &stick);
+    if (0.0f != stick) {
+        yaw = 1092.0f * stick * sin_table_lookup(stick_angle) + yaw;
+        pitch = 1092.0f * stick * cos_table_lookup(stick_angle) + pitch;
+        // Classes that cannot be looked at from below.
+        min_pitch = -0x2BBC;
+        if (creation_player_character != NULL &&
+            (creation_player_character->classId == 10 || (creation_player_character->classFlags & 2))) {
+            min_pitch = 0;
+        }
+        if (pitch > 0x2BBC) {
+            pitch = 0x2BBC;
+        } else if (pitch < min_pitch) {
+            pitch = min_pitch;
+        }
+    } else if (creation_buttons_held(0x80)) {
+        yaw += 0x444;
+    } else if (creation_buttons_held(0x40)) {
+        yaw -= 0x444;
     }
-    temp_r0 = this->pitch;
-    if (temp_r0 > 0x2BBC)
-    {
-      this->pitch = 0x2BBC;
+
+    distance += TObjCMProportion::get_right_trigger_ratio();
+    distance -= TObjCMProportion::get_ratio();
+    if (distance > 80.0f) {
+        distance = 80.0f;
+    } else if (distance < 20.0f) {
+        distance = 20.0f;
     }
-    else
-      if (temp_r0 < var_r4)
-    {
-      this->pitch = var_r4;
+
+    get_creation_pad_stick(NULL, &still);
+    if (still > 0.0f || creation_buttons_held(0x300F0)) {
+        timer = 0;
+        return;
     }
-  }
-  else
-    if (creation_buttons_held(0x80) != 0)
-  {
-    this->yaw = (this->yaw + 0x444);
-  }
-  else
-    if (creation_buttons_held(0x40) != 0)
-  {
-    this->yaw = (this->yaw - 0x444);
-  }
-  this->distance = (f32) (this->distance + TObjCMProportion::get_right_trigger_ratio());
-  this->distance = (f32) (this->distance - TObjCMProportion::get_ratio());
-  temp_f1_3 = this->distance;
-  if (temp_f1_3 > lbl_805DD9C0)
-  {
-    this->distance = (f32) lbl_805DD9C0;
-  }
-  else
-    if (temp_f1_3 < lbl_805DD9B8)
-  {
-    this->distance = (f32) lbl_805DD9B8;
-  }
-  get_creation_pad_stick(0, &sp8);
-  if ((sp8 > lbl_805DD974) || (creation_buttons_held(0x300F0) != 0))
-  {
-    this->ticks = 0;
-    return;
-  }
-  temp_r0_2 = this->ticks + 1;
-  this->ticks = temp_r0_2;
-  if (temp_r0_2 > 0x96)
-  {
-    creation_camera_mode = 3;
-  }
+    if (++timer > 150) {
+        creation_camera_mode = CREATION_CAMERA_IDLE;
+    }
 }
-#pragma pop
 
-void CreationCamera::update_auto(){ update_creation_camera_auto((Cam_80291784*)this); }
+void CreationCamera::update_auto() {
+    frame_menu_selection();
+}
 
-void update_creation_camera_auto(Cam_80291784 *arg0) {
-    s32 want;
+void CreationCamera::frame_menu_selection() {
+    s32 wanted;
     switch (get_character_creation_selected_entry_id()) {
     case 0:
     case 1:
     case 2:
     case 4:
-        want = 0;
+        wanted = 0;
         break;
     case 6:
     case 8:
-        want = 1;
+        wanted = 1;
         break;
     default:
-        want = 2;
+        wanted = 2;
         break;
     }
-    if (arg0->mode == want) {
-        arg0->timer = 0;
-    } else if (++arg0->timer > 30) {
-        arg0->mode = want;
-        arg0->timer = 0;
+    if (shot == wanted) {
+        shot_timer = 0;
+    } else if (++shot_timer > 30) {
+        shot = wanted;
+        shot_timer = 0;
     }
+
     if (creation_player_character != NULL) {
-        f32 s = calc_character_height(creation_player_character);
-        switch (arg0->mode) {
+        f32 height = calc_character_height(creation_player_character);
+        switch (shot) {
         case 0:
-            approach_creation_camera_target((u8 *)arg0, 0, 0, (f32)(lbl_805DD96C * s), (f32)(lbl_805DD9A4 * s));
+            approach_target(0, 0, 0.5f * height, 0.91f * height);
             break;
         case 1:
-            approach_creation_camera_target((u8 *)arg0, 0, 0, (f32)((f32)lbl_805DD998), (f32)((f32)lbl_805DD9A8));
+            approach_target(0, 0, 25.0f, 11.0f);
             break;
         case 2:
-            approach_creation_camera_target((u8 *)arg0, 0, 0, (f32)(lbl_805DD9AC * s), (f32)(lbl_805DD9B0 * s));
+            approach_target(0, 0, 1.25f * height, 0.55f * height);
             break;
         }
     }
 }
 
-#pragma push
-#pragma opt_common_subs off
-#pragma fp_contract on
-void CreationCamera::begin_review(){
-    f32 temp_f2;
-    s32 temp_r7;
-    if ((void *) creation_player_character != NULL) {
-        *(f32 *)((s8 *)this + 0x6C) = (f32) (lbl_805DD99C * calc_character_height(creation_player_character));
-        *(f32 *)((s8 *)this + 0x80) = (f32) *(f32 *)((s8 *)this + 0x6C);
-        temp_r7 = (s8) *(u8 *)((s8 *)creation_player_character + 0x31) * 8;
-        temp_f2 = *(f32 *)((s8 *)((u8 *)creation_camera_height_bounds_table + temp_r7) + 0);
-        *(f32 *)((s8 *)this + 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - *(f32 *)((s8 *)creation_player_character + 0x4C)) * (*(f32 *)((s8 *)((u8 *)creation_camera_height_bounds_table + temp_r7) + 4) - temp_f2)) + temp_f2));
-        *(s32 *)((s8 *)this + 0x74) = 0;
-        *(s32 *)((s8 *)this + 0x70) = 0;
-        creation_camera_mode = 2;
-        *(s32 *)((s8 *)this + 0x84) = 0x78;
+void CreationCamera::begin_review() {
+    if (creation_player_character != NULL) {
+        distance = 0.375f * calc_character_height(creation_player_character);
+        review_start_distance = distance;
+        f32 minimum = creation_camera_height_bounds_table[creation_player_character->classId].minimum;
+        target.y = 10.0f * ((1.0f - creation_player_character->height) * (creation_camera_height_bounds_table[creation_player_character->classId].maximum - minimum) + minimum);
+        yaw = 0;
+        pitch = 0;
+        creation_camera_mode = CREATION_CAMERA_REVIEW;
+        timer = 120;
     }
 }
-#pragma pop
 
-#pragma push
-#pragma opt_common_subs off
-#pragma fp_contract on
-void CreationCamera::advance_review(){
- if(--this->ticks<=0) {this->ticks=0;creation_camera_mode=3;return;}
- const f32 weight=lbl_805DD96C*(lbl_805DD978+cos_table_lookup((this->ticks<<15)/120));
- const f32 start=this->startDistance;
- this->distance=weight*(lbl_805DD998-start)+start;
-}
-#pragma pop
-
-#pragma push
-#pragma fp_contract on
-void CreationCamera::update_idle(){
-    s32 temp_r0;
-    if (creation_buttons_pressed(0x6F0) != 0) {
-        *(u32 *)((s8 *)this + 0x84) = 0U;
-        creation_camera_mode = 4;
+void CreationCamera::advance_review() {
+    if (--timer <= 0) {
+        timer = 0;
+        creation_camera_mode = CREATION_CAMERA_IDLE;
         return;
     }
-    *(u32 *)((s8 *)this + 0x84) = (u32) (*(u32 *)((s8 *)this + 0x84) + 1);
-    if (*(u32 *)((s8 *)this + 0x84) & 0x100) {
-        if ((*(s32 *)((s8 *)this + 0x70) > -0x6D) && (*(s32 *)((s8 *)this + 0x70) < 0x6D)) {
-            *(s32 *)((s8 *)this + 0x70) = 0;
+    f32 weight = 0.5f * (1.0f + cos_table_lookup((timer << 15) / 120));
+    f32 start = review_start_distance;
+    distance = weight * (25.0f - start) + start;
+}
+
+void CreationCamera::update_idle() {
+    if (creation_buttons_pressed(0x6F0)) {
+        timer = 0;
+        creation_camera_mode = CREATION_CAMERA_MANUAL;
+        return;
+    }
+    timer++;
+    if (timer & 0x100) {
+        // Level the camera out.
+        if (pitch > -109 && pitch < 109) {
+            pitch = 0;
         } else {
-            temp_r0 = *(s32 *)((s8 *)this + 0x70);
-            if (temp_r0 < 0) {
-                *(s32 *)((s8 *)this + 0x70) = temp_r0 + 0x6D;
+            s32 tilt = pitch;
+            if (tilt < 0) {
+                pitch = tilt + 109;
             } else {
-                *(s32 *)((s8 *)this + 0x70) = temp_r0 - 0x6D;
+                pitch = tilt - 109;
             }
         }
-        switch (((u32) *(u32 *)((s8 *)this + 0x84) >> 9U) & 3) {
+        switch ((timer >> 9) & 3) {
         case 0:
-            *(s32 *)((s8 *)this + 0x74) = (s32) (*(s32 *)((s8 *)this + 0x74) + 0xDA);
-            return;
+            yaw += 218;
+            break;
         case 1:
-            *(f32 *)((s8 *)this + 0x6C) = (f32) (*(f32 *)((s8 *)this + 0x6C) + lbl_805DD990);
-            return;
+            distance += -1.0f / 30.0f;
+            break;
         case 2:
-            *(s32 *)((s8 *)this + 0x74) = (s32) (*(s32 *)((s8 *)this + 0x74) - 0xDA);
-            return;
+            yaw -= 218;
+            break;
         case 3:
-            *(f32 *)((s8 *)this + 0x6C) = (f32) (*(f32 *)((s8 *)this + 0x6C) + lbl_805DD994);
+            distance += 1.0f / 30.0f;
             break;
         }
     }
 }
-#pragma pop
 
-#pragma defer_codegen off
+void CreationCamera::calc_spherical_camera_position() {
+    position.y = distance * sin_table_lookup(pitch) + target.y;
+    f32 ground = distance * cos_table_lookup(pitch);
+    position.x = ground * sin_table_lookup(yaw);
+    position.z = ground * cos_table_lookup(yaw);
+}
+
+// Moves the distance and height toward the wanted ones with a speed that
+// grows while far off (up to 0.1 a frame) and stops inside a 1/150 band.
+void CreationCamera::approach_target(s32 wanted_pitch, s32 wanted_yaw, f32 wanted_distance, f32 wanted_height) {
+    f32 gap = wanted_distance - distance;
+    if (gap > 0.1f) {
+        if ((distance_speed += 0.003f) > 0.1f) {
+            distance_speed = 0.1f;
+        }
+    } else if (gap > 1.0f / 150.0f) {
+        if ((distance_speed -= 0.003f) < 1.0f / 150.0f) {
+            distance_speed = 1.0f / 150.0f;
+        }
+    } else if (gap < -0.1f) {
+        if ((distance_speed -= 0.003f) < -0.1f) {
+            distance_speed = -0.1f;
+        }
+    } else if (gap < -1.0f / 150.0f) {
+        if ((distance_speed += 0.003f) > -1.0f / 150.0f) {
+            distance_speed = -1.0f / 150.0f;
+        }
+    } else {
+        distance_speed = 0.0f;
+    }
+    distance += distance_speed;
+
+    gap = wanted_height - target.y;
+    if (gap > 0.1f) {
+        if ((height_speed += 0.003f) > 0.1f) {
+            height_speed = 0.1f;
+        }
+    } else if (gap > 1.0f / 150.0f) {
+        if ((height_speed -= 0.003f) < 1.0f / 150.0f) {
+            height_speed = 1.0f / 150.0f;
+        }
+    } else if (gap < -0.1f) {
+        if ((height_speed -= 0.003f) < -0.1f) {
+            height_speed = -0.1f;
+        }
+    } else if (gap < -1.0f / 150.0f) {
+        if ((height_speed += 0.003f) > -1.0f / 150.0f) {
+            height_speed = -1.0f / 150.0f;
+        }
+    } else {
+        height_speed = 0.0f;
+    }
+    target.y += height_speed;
+
+    yaw = approach_angle_limited(yaw, wanted_yaw, 0xC0);
+    pitch = approach_angle_limited(pitch, wanted_pitch, 0xC0);
+}
+
+// The creation screens' own projection: the shifted parameters while a
+// panel is open, the defaults again when they close.
+void begin_creation_view() {
+    creation_view_parameters[1].begin_override();
+    set_creation_projection_center(1.0f);
+}
+
+void end_creation_view() {
+    end_view_override();
+    creation_view_shift = 0.0f;
+}
+
+f32 creation_view_shift = 1.0f;
+
+// Slides the projection centre from the middle of the screen (shift 0) to
+// 72% across (shift 1), keeping the character beside an open panel.
+void set_creation_projection_center(f32 shift) {
+    CameraViewParams params = creation_view_parameters[0];
+    params.center_x = 640.0f * (0.5f + (0.72f - 0.5f) * shift);
+    params.apply_if_overridden();
+    creation_view_shift = shift;
+}

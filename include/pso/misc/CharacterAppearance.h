@@ -5,7 +5,9 @@
 
 struct CharacterAppearanceFields {
     u8 name[0x30];
-    u8 section, classId, flags, spare;
+    u8 section;
+    s8 classId;
+    u8 flags, spare;
     u32 classFlags;
     s16 costume, skin, face, head, hair, red, green, blue;
     f32 width, height;
@@ -19,6 +21,8 @@ struct CreationHeadModelStates { CreationModelNodeState nodes[5]; };
 struct CreationBodyModelStates { CreationModelNodeState nodes[65]; };
 typedef char CreationHeadModelStates_size[sizeof(CreationHeadModelStates) == 0x28 ? 1 : -1];
 typedef char CreationBodyModelStates_size[sizeof(CreationBodyModelStates) == 0x208 ? 1 : -1];
+
+f32 calc_character_height(CharacterAppearanceFields *appearance);
 
 extern "C" {
 void TCharaMaking__draw_colored_hair(f32 alpha, s32 model, CharacterAppearanceFields *appearance, s32 specialColor);

@@ -369,7 +369,7 @@ s32 TUnk_80488E00::sub_8006CDD0() {
             player = (u8 *)(get_player_by_client_id((u32) TCameraCtrl__camera_override_client_id));
             if (player != NULL) {
                 *(f32 *)((s8 *)((u8 *)this) + 0x48) = (f32) *(f32 *)((s8 *)player + 0x38);
-                this->m_4c = (f32) ((19.8f) + *(f32 *)((s8 *)player + 0x3C));
+                this->target.y = (f32) ((19.8f) + *(f32 *)((s8 *)player + 0x3C));
                 *(f32 *)((s8 *)((u8 *)this) + 0x50) = (f32) *(f32 *)((s8 *)player + 0x40);
             }
         } else {

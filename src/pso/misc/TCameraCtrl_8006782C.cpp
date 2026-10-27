@@ -122,8 +122,8 @@ void TUnk_804887F8::update_follow_flags() {
     Stack_80067AB0 stack;
     this->m_38 = 0x15;
     this->m_58 = (f32) lbl_805D8F50;
-    stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - *(f32 *)&this->unk_48;
-    stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - this->m_4c;
+    stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - this->target.x;
+    stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - this->target.y;
     stack.sp10 = *(f32 *)((s8 *)camera_ctrl_instance + 0x18C) - *(f32 *)((s8 *)arg0 + 0x50);
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length(&stack.sp8)) / lbl_805D8F4C);
     if (((TUnk_80488E00 *)arg0)->predict_obstruction() != 0) {

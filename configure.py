@@ -479,6 +479,9 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # Vol Opt's monitors keep their eight-byte texture lists in .data but the
     # four-byte class-name pointer in .sdata.
     "pso/boss/TBoss3VoloptMonitor.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
+    # The character creation camera: deferred with nothing inlined, and its
+    # multiply-adds contracted into fmadds.
+    "pso/camera/CreationCamera.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred", "-fp_contract on")},
     # The pad rumble and Ninja helper code contract multiply-adds into fmadds/fnmsubs.
     "pso/system/PadRumble.cpp": {"cflags": _switch(cflags_pso, "-fp_contract on")},
     "pso/system/NinjaUtil.cpp": {"cflags": _switch(cflags_pso, "-fp_contract on")},

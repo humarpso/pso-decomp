@@ -3435,9 +3435,6 @@ pso/unk/text_80290FEC.cpp
 pso/unk/text_802910A4.cpp
 pso/unk/text_802910C8.cpp
 pso/unk/text_802910EC.cpp
-pso/unk/text_80291268.cpp
-pso/unk/text_80291290.cpp
-pso/unk/text_802914B8.cpp
 pso/unk/text_80293D84.cpp
 pso/unk/text_802948A8.cpp
 pso/unk/text_80298F8C.cpp

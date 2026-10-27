@@ -2,6 +2,7 @@
 #define PSO_MISC_TUNK_80488A28_H
 #include "types.h"
 #include "pso/TObject.h"
+#include <dolphin/mtx.h>
 
 class TUnk_80488A28 : public TObject {
 public:
@@ -24,13 +25,9 @@ public:
     u8 unk_30[0x4];
     s32 m_34;
     s32 m_38;
-    f32 m_3c;
-    u8 unk_40[0x4];
-    f32 m_44;
-    u8 unk_48[0x4];
-    f32 m_4c;
-    u8 unk_50[0x4];
-    s32 m_54;
+    Vec position;
+    Vec target;
+    s32 projection_angle;
     f32 m_58;
     u8 unk_5C[0x4];
     f32 m_60;

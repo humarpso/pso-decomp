@@ -76,7 +76,6 @@ struct TCameraCtrl : public TObject {
     void init_state();
     void reset_behind_player();
     void reset_state();
-    static void post_update_view();
     void*get_target_ptr();
     static void copy_vec_to_default(u8 *arg0);
     static void sync_split_view_slots(s32 arg0, s32 arg1);
@@ -96,8 +95,6 @@ struct TCameraCtrl : public TObject {
     static void reset_default_view();
     static void init_default_view();
     static void reset_viewport_scissor();
-    void apply_view_params_if_flagged();
-    void set_view_params();
     void*get_target();
     void resolve_anchor_obstruction();
     void clamp_to_target_obstruction();
