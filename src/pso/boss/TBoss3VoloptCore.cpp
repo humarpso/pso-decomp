@@ -19,13 +19,13 @@ struct TBoss3VoloptCoreTarget : public TUnk_804AF8A0 {
     virtual s32 consume_timer_field(s32 frames);
     virtual s32 get_actor_level_index();
     virtual u8 *update_actor_ground_y();
-    virtual u8 *vfunc_18(u8 *arg0);
+    virtual u8 *vfunc_18(u8 *);
     virtual s32 is_actor_cadence_frame(s32 frame);
     virtual s32 select_melee_contact_body(TObject *attacker, f32 range);
-    virtual int calc_distance_accuracy_penalty(void *arg0, void *arg1, void *arg2, f32 arg3);
+    virtual int calc_distance_accuracy_penalty(void *, void *, void *, f32);
     virtual f32 receive_physical_attack(TObject *attacker, f32 scale);
-    virtual f32 receive_direct_attack(void *arg0, void *arg1, void *arg2, s32 arg3, s32 arg4);
-    virtual f32 receive_weapon_special_attack(void *arg0, void *arg1);
+    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_weapon_special_attack(void *, void *);
     virtual void apply_knockback_from_attacker(TObject *attacker, f32 strength);
 };
 
@@ -45,16 +45,16 @@ extern u32 model_render_flags;
 void *find_entity_by_id(u16 id);
 TObjPlayer *get_player_by_client_id(s32 client_id);
 void advance_animation_playback(TObjMotion *motion);
-void minimap_render_dot(f32 *pos, s32 color, s32 arg2, s32 arg3);
-void play_persistent_sound(u32 id, TObject *source, f32 *pos, s32 arg3, s32 arg4);
-void play_sound_effect(u32 id, f32 *pos, s32 arg2, s32 arg3);
+void minimap_render_dot(f32 *pos, s32 color, s32, s32);
+void play_persistent_sound(u32 id, TObject *source, f32 *pos, s32, s32);
+void play_sound_effect(u32 id, f32 *pos, s32, s32);
 s32 angle_difference_abs(s32 a, s32 b);
 s32 approach_angle_limited(s32 angle, s32 target, s32 step);
 TObject *create_particle_emitter(Vec *pos, s32 id);
 f32 cos_table_lookup(s32 angle);
 void push_matrix(void);
 void pop_matrix(void);
-void set_matrix_identity(s32 matrix, f32 arg1);
+void set_matrix_identity(s32 matrix, f32 scale);
 void rotate_matrix_x(s32 matrix, s32 angle);
 void rotate_matrix_y(s32 matrix, s32 angle);
 void scale_matrix(s32 matrix, f32 x, f32 y, f32 z);
@@ -806,11 +806,11 @@ void TBoss3VoloptCore::init_params() {
     clear_lobby_object_state();
 }
 
-TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, s16 id, s16 arg3) {
+TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, s16 id, s16 param) {
     TObjEnemyCustom__ct(core, parent);
     *(void ***)((u8 *)core + 0x18) = TBoss3VoloptCore__vtable;
     core->m_1c = id;
-    *(s16 *)((u8 *)core + 0x2C) = arg3;
+    *(s16 *)((u8 *)core + 0x2C) = param;
     core->m_80 = 0;
     *(s16 *)((u8 *)core + 0x28) = *(s16 *)((u8 *)parent + 0x28);
     *(s16 *)((u8 *)core + 0x2A) = *(s16 *)((u8 *)parent + 0x2A);

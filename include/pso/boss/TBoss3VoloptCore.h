@@ -22,8 +22,6 @@ struct TBoss3VoloptCoreBodyPart {
     u8 pad_1C[0x10];
 };
 
-// The core of Vol Opt's first form: moves between the screen slots around the
-// arena (volopt_slot_positions) and charges at a player.
 class TBoss3VoloptCore : public TObjEnemyCustom {
 public:
     virtual ~TBoss3VoloptCore();
@@ -77,7 +75,7 @@ public:
 typedef char TBoss3VoloptCore_size[sizeof(TBoss3VoloptCore) == 0x3D4 ? 1 : -1];
 
 extern "C" {
-TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, s16 id, s16 arg3);
+TBoss3VoloptCore *create_TBoss3VoloptCore(TBoss3VoloptCore *core, TObject *parent, s16 id, s16 param);
 TBoss3VoloptCore *TBoss3VoloptCore__sub_80040A7C(TBoss3VoloptCore *core, TObject *parent, void *set_data);
 }
 

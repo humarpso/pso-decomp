@@ -16,8 +16,8 @@
 extern "C" {
 extern s32 local_client_id;
 TObjPlayer *get_player_by_client_id(s32 client_id);
-s32 unhide_room_set_objects(s32 floor, s32 arg1, s32 arg2);
-void TLobby__sub_8020C07C(s32 floor, s16 arg1, s16 arg2, s32 mask, s32 set);
+s32 unhide_room_set_objects(s32 floor, s32, s32);
+void TLobby__sub_8020C07C(s32 floor, s16, s16, s32 mask, s32 set);
 void TObjPlayer__sub_801BA42C(void);
 void TBoss3Volopt__sub_8003EA2C(s32 phase2);
 extern int volopt_resources_loaded;
