@@ -2,44 +2,118 @@
 #define PSO_BOSS_TBOSS3VOLOPT_H
 
 #include "types.h"
+#include <dolphin/mtx.h>
 #include "pso/enemy/TObjEnemyCustom.h"
+
+struct BmlResource;
+class TBoss3VoloptCore;
+struct TObjPlayer;
+struct VoloptPhase2Message;
+
+// The 6x15 Vol Opt boss action message: action selects what the part with the
+// matching id does (see handle_6x15_vol_opt_boss_actions).
+struct TBoss3VoloptActionPacket {
+    u8 command;
+    u8 size;
+    u16 id;
+    s16 action;
+    u16 target_id;
+    s16 param;
+    s16 param2;
+
+    void init();
+    void swap();
+    void send();
+};
+
+// The 6x16 message: the shuffled P01 order and how many of them to make primary.
+struct TBoss3VoloptTargetsPacket {
+    u8 command;
+    u8 size;
+    u16 id;
+    s8 order[6];
+    s16 count;
+
+    void init();
+    void swap();
+    void send();
+};
+
+// The 6x84 message: the 6x16 targets plus the technique the primary P01s cast.
+struct TBoss3VoloptAttackPacket {
+    u8 command;
+    u8 size;
+    u16 id;
+    s8 order[6];
+    s16 count;
+    s16 tech;
+    s16 reserved;
+
+    void init();
+    void swap();
+    void send();
+};
+
+// The 6x17 message: moves the entity id to pos facing rotation_y.
+struct TBoss3VoloptPositionPacket {
+    u8 command;
+    u8 size;
+    u16 id;
+    Vec pos;
+    s32 rotation_y;
+
+    void init();
+    void swap();
+    void send();
+};
 
 struct TBoss3Volopt : public TObjEnemyCustom {
     virtual ~TBoss3Volopt();
-    void sub_8003D340();
-    u16 get_param_offset(s32);
-    s32 get_adjusted_angle(s32);
-    u8 unk_38C[0x4];
-    s32 m_390;
-    u8 unk_394[0x4];
-    s32 m_398;
-    u8 unk_39C[0x4];
-    s32 m_3a0;
-    u8 unk_3A4[0x4];
-    s32 m_3a8;
-    u8 unk_3AC[0x10];
-    u32 m_3bc;
-    static void update_phase();
-    static void alloc_idle_event();
-    void update_intro_cutscene();
-    void start_phase2();
     virtual void render();
-    void update_camera_seq();
     virtual void run_task();
-    static void *create(void *arg0);
+
+    static void *create(void *set_data);
     static void free_parts();
     static void load_resources();
-    int reset_photon_effect();
+
+    static u16 find_strongest_player();
+    static u16 find_random_player();
+    static s32 collect_candidate_players();
+    static void update_phase();
+    static void stop_rumble();
+    static void start_rumble();
+    static BOOL is_death_active();
+    static void send_position(TObjPlayer *player, Vec *pos, s32 rotation_y);
+    static void push_actors_out(s32 phase2);
+    static void set_camera_focus(Vec *pos);
+    static Vec *get_camera_focus();
+    static void set_primary_p01s(s32 count);
+    s32 shuffle_p01_order();
+    BOOL is_dead();
+    BOOL are_p01s_broken();
+    static BOOL is_p02_idle();
+    static BOOL are_p01s_idle();
+    void spawn_parts();
+    void update_phase2();
+    void update_phase2_intro();
+    void update_phase1();
+    void update_intro_cutscene();
+    void start_phase2();
+    void start_phase1();
+    void select_phase2_attack();
+    void select_phase1_attack();
+    static void move_to_arena(s32 phase2);
+    void dispatch_mode();
+    static BOOL is_v2_mode();
+    s32 get_part_group(s32 index);
+    u16 get_part_id(s32 index);
+    u16 find_attack_target();
+    void reset_photon_effect();
     s32 get_field_3e0();
     void swap_6x85_fields();
-    void bswap_actions();
-    void send_state();
-    void swap_6x16_fields();
-    void swap_6x15_fields();
-    void finalize_and_send_60();
-    void set_type();
-    void send_6x16();
-    void send_update_60();
+
+    // Defined in other units; most are helpers of other classes filed under
+    // TBoss3Volopt.
     void update_and_send_60();
     void swap_6x18_fields();
     void broadcast_state();
@@ -51,30 +125,69 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     static s32 collect_and_count(u32 arg0, s32 arg1);
     void call_vt21();
     int is_active();
-    static void update_if_active(s32 _w0);
-    static void alloc_event(s16 arg0, s32 arg1);
+    static void update_if_active(s32 id);
+    static void alloc_event(s16 frames, s32 id);
     static void alloc_effect_node(u32 arg0, s16 arg1, s32 arg2);
     static void queue_event_1D(s16 arg0, s16 arg1);
     static s32 remap_area_sound_id(s32 arg0);
-    u8 unk_3C0[0x8];
-    f32 m_3c8;
-    u8 unk_3CC[0x14];
-    s32 m_3e0;
-    u8 unk_3E4[0xC];
-    s16 m_3f0;
-    u8 unk_3F2[0x12];
-    s32 m_404;
-    void create_cage(u16 arg1);
+    void create_cage(u16 target_id);
     static void clear_flag8_all(u32 **arg0);
     static void set_flag8_list(u32 **arg0);
+
+    u8 pad_38C[0x18];
+    s32 core_slot;
+    s32 in_phase2;
+    u8 pad_3AC[0x10];
+    u32 m_3bc;
+    u8 pad_3C0[0x20];
+    s32 m_3e0;
+    u8 pad_3E4[0xC];
+    s16 attack_step;
+    s16 attack_delay;
+    s16 pad_3f4;
+    u8 pad_3F6[0x2];
+    s16 breakup_tries;
+    s16 pad_3fa;
+    s16 max_targets;
+    u8 pad_3FE[0x2];
+    s32 pad_400;
+    s32 attack_count;
+
+    static TObjPlayer *candidate_players[5];
 };
 
-extern s32 volopt_breakup_flag;
+typedef char TBoss3Volopt_size[sizeof(TBoss3Volopt) == 0x408 ? 1 : -1];
 
+void handle_6x85_vol_opt_phase2_boss_actions(VoloptPhase2Message *message);
+void handle_6x84_vol_opt_boss_actions(TBoss3VoloptAttackPacket *packet);
+void handle_6x17_set_entity_position_and_angle(TBoss3VoloptPositionPacket *packet);
+void handle_6x16_vol_opt_boss_actions(TBoss3VoloptTargetsPacket *packet);
+void handle_6x15_vol_opt_boss_actions(TBoss3VoloptActionPacket *packet);
 void clear_volopt_cage_flag();
 
-class TBoss3VoloptCore;
-extern "C" TBoss3VoloptCore *fn_8003F468(TBoss3Volopt *parent, u16 id, s32 param);
+extern "C" TBoss3VoloptCore *fn_8003F468(TBoss3Volopt *parent, u16 id, s32 group);
 
-typedef char TBoss3Volopt_size[sizeof(TBoss3Volopt) == 0x408 ? 1 : -1];
+extern u16 volopt_cage_id;
+extern s32 volopt_cage_group;
+extern u16 volopt_p02_id;
+extern u16 volopt_hiraisin_id;
+extern u16 volopt_core_id;
+extern BmlResource *boss3_volopt_resources;
+extern s32 vol_opt_active_hit_zone;
+extern u16 boss3_volopt_monitor_base_actor_id;
+extern s32 volopt_death_active;
+extern s32 volopt_breakup_flag;
+extern s32 volopt_resources_loaded;
+extern s32 boss3_volopt_cage_flag;
+extern s32 volopt_p01_tech;
+extern Vec boss3_volopt_spawn_pos;
+
+// TBoss3Volopt.cpp's .data, still in an unclaimed range ahead of its vtable.
+extern u16 volopt_target_entity_ids[6];
+extern u8 bm_boss3_volopt_resource_descriptor[];
+extern u8 boss3_volopt_resource_desc[];
+extern Vec boss3_volopt_intro_camera_poses[];
+extern Vec volopt_phase2_player_positions[4];
+extern s32 volopt_phase2_player_angles[4];
+
 #endif

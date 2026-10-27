@@ -37,12 +37,10 @@ void check_enemy_body_collisions(TUnk_804AF8A0 *actor);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
 TUnk_804AF8A0 *construct_collider_proxy__13TUnk_804AF8A0Fv(TUnk_804AF8A0 *actor, TObject *parent);
-s32 TBoss3Volopt__sub_8003F398(void);
 extern GC_Mtx identity_matrix;
 extern void *__vt__13TUnk_80484AFC[];
 }
 
-extern BmlResource *boss3_volopt_resources;
 
 static CollisionBody volopt_missile_collision_body[1] = {
     {{0.0f, 0.0f, 0.0f}, 0.0f, {0}, 0x8101, {0}},
@@ -55,7 +53,7 @@ void TUnk_80484AFC::explode_and_destroy() {
     s32 i;
     TUnk_804806E8 *target;
     attack.power = TObjVoloptPillar__sub_80048118(0);
-    if (TBoss3Volopt__sub_8003F398() != 0 && 3.0517578e-05f * (f32)rand() < 0.16666667f) {
+    if (TBoss3Volopt::is_v2_mode() != 0 && 3.0517578e-05f * (f32)rand() < 0.16666667f) {
         attack.kind = 0x11;
     }
     play_sound_effect(0x4003AD15, (Vec *)position, 0, 0);

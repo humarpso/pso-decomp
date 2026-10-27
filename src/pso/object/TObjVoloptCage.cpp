@@ -49,9 +49,7 @@ s32 check_flag__10TObjPlayerFl(void *player, s32 flag);
 void __dt__15TObjEnemyCustomFv(TObjEnemyCustom *enemy, s16 flags);
 }
 
-extern BmlResource *boss3_volopt_resources;
 extern BmlResource *lbl_805D4CE4;
-extern s32 boss3_volopt_cage_flag;
 
 
 static const char *TObjVoloptCage_name = "TObjVoloptCage";

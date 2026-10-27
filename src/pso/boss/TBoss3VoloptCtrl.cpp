@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TUnk_80483B88.h"
 #include "pso/boss/TBoss3VoloptCtrl.h"
 #include "pso/TMainTask.h"
@@ -19,8 +20,6 @@ TObjPlayer *get_player_by_client_id(s32 client_id);
 s32 unhide_room_set_objects(s32 floor, s32, s32);
 void TLobby__sub_8020C07C(s32 floor, s16, s16, s32 mask, s32 set);
 void TObjPlayer__sub_801BA42C(void);
-void TBoss3Volopt__sub_8003EA2C(s32 phase2);
-extern int volopt_resources_loaded;
 }
 
 #pragma defer_codegen on
@@ -44,7 +43,7 @@ void TBoss3VoloptCtrl::run_task() {
     case 1:
         if (countdown <= 0) {
             if (volopt_resources_loaded == 0) {
-                TBoss3Volopt__sub_8003EA2C(1);
+                TBoss3Volopt::move_to_arena(1);
                 activate_camera_mode(9);
                 TObjPlayer::freeze_all_players();
                 play_area_music("vol_opt2.adx");

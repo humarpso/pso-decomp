@@ -54,11 +54,6 @@ extern Mtx34 *anim_model_matrix_array;
 extern s32 lbl_805D586C;
 
 // TBoss3Volopt.cpp defines these; its header does not declare them yet.
-extern Vec boss3_volopt_spawn_pos;
-extern BmlResource *boss3_volopt_resources;
-extern s32 volopt_active_player_id;
-extern u16 lbl_805D271A;
-s32 TBoss3Volopt__sub_8003F398(void);
 void TObjEnemyCustom__ct(void *obj);
 void *__dt__15TObjEnemyCustomFv(void *obj, s16 flags);
 void *__dt__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *self, s16 flags);
@@ -207,7 +202,7 @@ void TBoss3VoloptP01::cast_tech_on_players() {
     s32 k;
 
     get_node_position(12, &pos);
-    switch (volopt_active_player_id) {
+    switch (volopt_p01_tech) {
     case 0:
         fn_80044330(&targets);
         n = 0;
@@ -288,7 +283,7 @@ s32 TBoss3VoloptP01::fire_zonde_at_players() {
                 target->receive_direct_attack(this, &hit, NULL, -1, -1);
             }
         }
-        hiraisin = (TBoss3VoloptHiraisin *)find_entity_by_id(lbl_805D271A);
+        hiraisin = (TBoss3VoloptHiraisin *)find_entity_by_id(volopt_hiraisin_id);
         if (hiraisin != NULL) {
             Vec to_hiraisin = *(Vec *)hiraisin->position;
             subtract_vector(&to_hiraisin, &pos);
@@ -299,10 +294,10 @@ s32 TBoss3VoloptP01::fire_zonde_at_players() {
             }
             if (hiraisin->sub_80040FCC() != 0) {
                 TBoss3VoloptActionPacket packet;
-                ((TBoss3Volopt *)&packet)->set_type();
+                packet.init();
                 packet.id = m_1c;
                 packet.action = 2;
-                ((TBoss3Volopt *)&packet)->finalize_and_send_60();
+                packet.send();
             }
         }
         play_sound_effect(0x4002A509, NULL, 0, 0);
@@ -507,7 +502,7 @@ void TBoss3VoloptP01::update_attack() {
         break;
     case 7:
         if (is_primary != 0) {
-            if (TBoss3Volopt__sub_8003F398() != 0) {
+            if (TBoss3Volopt::is_v2_mode() != 0) {
                 cast_tech_on_players();
             } else {
                 fire_zonde_at_players();
@@ -701,7 +696,7 @@ void TBoss3VoloptP01::update_state() {
             TBoss3VoloptCore::link_photon(m_2d4, 0);
             TBoss3VoloptCore::set_grabbed_state(0x12C);
         }
-        if (TBoss3Volopt__sub_8003F398() != 0) {
+        if (TBoss3Volopt::is_v2_mode() != 0) {
             flags = m_388;
             if (flags & 0x10000) {
                 m_388 = flags & ~1;

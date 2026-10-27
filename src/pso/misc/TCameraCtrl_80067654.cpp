@@ -5,6 +5,7 @@
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804887C8.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct Stack_800676A0 {
     f32 sp8;
@@ -19,7 +20,6 @@ struct RecoveredGlobal_800677D4_lbl_804887C8 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-int TCameraCtrl__sub_8003CFF4(void);
 f32 vector_length(void *, int, f32, f32);
 s32 normalize_vector(void *);
 extern const f32 lbl_805D8F28;
@@ -57,7 +57,7 @@ void TUnk_804887C8::run_task() {
     u8 *temp_r4;
     this->m_58 = (f32) lbl_805D8F28;
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) != NULL) {
-        temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
+        temp_r3 = (u8 *)TBoss3Volopt::get_camera_focus();
         if (temp_r3 != NULL) {
             VecCopy((Vec *)(arg0 + 0x48), (const Vec *)(temp_r3));
             temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));

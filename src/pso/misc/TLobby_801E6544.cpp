@@ -33,6 +33,7 @@
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 #pragma push
 
@@ -2609,7 +2610,6 @@ extern f32 lbl_805D3540;
 extern f32 lbl_805D3544;
 extern f32 lbl_805D3548;
 extern s32 resource_decompress_buffer;
-extern s32 volopt_death_active;
 extern s32 current_language;
 extern s32 game_difficulty_selection;
 extern f32 lbl_805D5DC4;

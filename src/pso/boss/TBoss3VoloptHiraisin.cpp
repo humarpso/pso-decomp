@@ -37,8 +37,6 @@ void trigger_dell_biter_events__10TObjPlayerFv(Vec *pos);
 void update_collisions__10TObjPlayerFv(TObjEnemy *obj);
 void init_params__20TBoss3VoloptHiraisinFv(TBoss3VoloptHiraisin *hiraisin, Vec *spawn, const char *name);
 
-extern BmlResource *boss3_volopt_resources;
-extern Vec boss3_volopt_spawn_pos;
 extern u32 model_render_flags;
 extern u32 lbl_805D5660;
 extern TObject *tl_04;

@@ -38,9 +38,6 @@ void TLobby__sub_803DA16C(GinjaTextureList *list);
 TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *obj, TObject *parent);
 TObjEnemyCustom *__dt__15TObjEnemyCustomFv(TObjEnemyCustom *obj, s16 flag);
 
-extern BmlResource *boss3_volopt_resources;
-extern s32 vol_opt_active_hit_zone;
-extern u16 boss3_volopt_monitor_base_actor_id;
 extern u32 model_render_flags;
 extern s32 actor_frame_tick;
 extern TObject *tl_04;

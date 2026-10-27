@@ -7,6 +7,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
 struct Stack_80067AB0 {
     f32 sp8;
     f32 spC;
@@ -32,7 +33,6 @@ extern const f32 lbl_805D8F50;
 extern const f32 lbl_805D8F54;
 extern const f32 lbl_805D8F58;
 extern const f32 lbl_805D8F5C;
-int TCameraCtrl__sub_8003CFF4(void);
 void normalize_vector(void *);
 extern const f32 lbl_805D8F3C;
 extern const f32 lbl_805D8F40;
@@ -62,7 +62,7 @@ void TCameraCtrl::update_target_follow() {
     f32 temp_f1_2;
     u8 *temp_r3;
     u8 *temp_r4;
-    temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
+    temp_r3 = (u8 *)TBoss3Volopt::get_camera_focus();
     if (temp_r3 != NULL) {
         temp_r4 = *(u8 **)((s8 *)arg0 + 0x1C);
         stack.sp8 = *(f32 *)((s8 *)temp_r4 + 0x38) - *(f32 *)((s8 *)temp_r3 + 0);

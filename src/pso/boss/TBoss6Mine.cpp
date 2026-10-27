@@ -442,21 +442,21 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     ((TBoss3Volopt *)THIS)->referenceHp = ((TBoss3Volopt *)THIS)->hp;
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
     ((TObjEnemy *)THIS)->set_param(0);
-    ((TBoss3Volopt *)THIS)->m_3a0 = 136.0f * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + 7.0f;
-    *(s32 *)((s8 *)THIS + 0x3A4) = 0x96 - ((TBoss3Volopt *)THIS)->m_3a0;
-    ((TBoss3Volopt *)THIS)->m_3a8 = 57.0f * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + 3.0f;
+    ((TBoss6Mine *)THIS)->rise_delay = (s32)(136.0f * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + 7.0f);
+    *(s32 *)((s8 *)THIS + 0x3A4) = 0x96 - ((TBoss6Mine *)THIS)->rise_delay;
+    ((TBoss6Mine *)THIS)->arm_delay = (s32)(57.0f * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + 3.0f);
     *(f32 *)((s8 *)THIS + 0x3AC) = 80.0f * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + 120.0f;
     f = *dispatch_shared_handler_a__6TLobbyFl(0x2D);
     ((TBoss3Volopt *)THIS)->m_384 = f;
     if (0.0f == f) {
         ((TBoss3Volopt *)THIS)->m_384 = 0x14;
     }
-    ((TBoss3Volopt *)THIS)->m_3c8 = 0.0f;
+    ((TBoss6Mine *)THIS)->fade_amount = 0.0f;
     VecCopyP(THIS + 0x3B0, THIS + 0x38);
     *(f32 *)((s8 *)THIS + 0x39C) = (1.0f);
-    ((TBoss3Volopt *)THIS)->m_390 = 0;
+    ((TBoss6Mine *)THIS)->m_390 = 0;
     *(s32 *)((s8 *)THIS + 0x394) = 0;
-    ((TBoss3Volopt *)THIS)->m_398 = 0;
+    ((TBoss6Mine *)THIS)->m_398 = 0;
     *(s32 *)((s8 *)THIS + 0x38C) = 0;
     ((TBoss3Volopt *)THIS)->m_380 = 0;
     *(u32 *)((s8 *)THIS + 0x3CC) = (u32)create_particle_emitter(THIS + 0x38, 0x146);

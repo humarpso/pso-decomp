@@ -12,8 +12,7 @@ struct VoloptPhase2Message {
     u8 size;
     u8 pad_2[0x2];
     s16 mode;
-    s16 delays[3];
-    u8 pad_C[0x8];
+    s16 delays[7];
 };
 
 struct VoloptP02Params {

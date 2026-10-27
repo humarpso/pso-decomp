@@ -66,12 +66,6 @@ s32 obj_is_hit_receivable(TBoss3VoloptCoreTarget *object);
 void TCameraCtrl__sub_8006A044(s32 id, f32 strength);
 TObjEnemyCustom *TObjEnemyCustom__ct(TObjEnemyCustom *object, TObject *parent);
 void __dt__15TObjEnemyCustomFv(TObjEnemyCustom *object, s16 flags);
-int TBoss3Volopt__sub_8003F398(void);
-void fn_8003CFEC(void *pos);
-extern u16 lbl_805D271C;
-extern u16 boss3_volopt_monitor_base_actor_id;
-extern int vol_opt_active_hit_zone;
-extern BmlResource *boss3_volopt_resources;
 }
 void reset_status_effect_row(u8 *row);
 
@@ -209,7 +203,7 @@ static void *TBoss3VoloptCore__vtable[83] = {
 };
 
 void TBoss3VoloptCore::set_grabbed_state(s32 delay) {
-    TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(lbl_805D271C);
+    TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(volopt_core_id);
     if (core != NULL && core->mode != 10) {
         ((TObjEneMe1GiGue *)core)->update_if_active(10);
         core->delay = delay;
@@ -259,7 +253,7 @@ void TBoss3VoloptCore::update_topple_state() {
 }
 
 void TBoss3VoloptCore::link_photon(u16 id, s32) {
-    TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(lbl_805D271C);
+    TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(volopt_core_id);
     if (core != NULL && core->hit_cooldown <= 0) {
         TObject *source = (TObject *)find_entity_by_id(id);
         if (source != NULL) {
@@ -300,7 +294,7 @@ void TBoss3VoloptCore::sub_8003F81C() {
     case 1:
         rotation_y = approach_angle_limited(rotation_y, facing_angle - 0x8000, core_turn_angle_limit);
         if (angle_difference_abs(rotation_y, facing_angle - 0x8000) <= core_turn_angle_limit) {
-            *(s16 *)&timer = (TBoss3Volopt__sub_8003F398() != 0) ? 5 : 0x1E;
+            *(s16 *)&timer = (TBoss3Volopt::is_v2_mode() != 0) ? 5 : 0x1E;
             state = 2;
         }
         break;
@@ -724,7 +718,7 @@ void TBoss3VoloptCore::run_task() {
         dispatch_reaction_state();
         position[1] = (position[1] > 7.0f) ? position[1] : 7.0f;
         update_prev_position();
-        fn_8003CFEC(&m_2fc);
+        TBoss3Volopt::set_camera_focus((Vec *)&m_2fc);
         clear_all_status_effects();
     }
 }
@@ -751,7 +745,7 @@ void *TBoss3VoloptCore::destroy(s16 flags) {
     if (this != NULL) {
         *(void ***)((u8 *)this + 0x18) = TBoss3VoloptCore__vtable;
         free_collision_body_parts(this);
-        fn_8003CFEC(NULL);
+        TBoss3Volopt::set_camera_focus(NULL);
         __dt__15TObjEnemyCustomFv(this, 0);
         if (flags > 0) {
             TObject::operator delete(this);
@@ -786,7 +780,7 @@ void TBoss3VoloptCore::init_params() {
     add_flags_2e4(4);
     hit_cooldown = 0;
     obj_setFlags30(this, 0x8000);
-    if (TBoss3Volopt__sub_8003F398() != 0) {
+    if (TBoss3Volopt::is_v2_mode() != 0) {
         core_turn_angle_limit = 0xA00;
     } else {
         core_turn_angle_limit = 0x200;

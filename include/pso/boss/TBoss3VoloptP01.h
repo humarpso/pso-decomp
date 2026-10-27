@@ -18,14 +18,6 @@ struct TBoss3VoloptP01Collision {
     u32 flags;
 };
 
-// The 6x15 Vol Opt boss action message.
-struct TBoss3VoloptActionPacket {
-    u8 pad_0[0x2];
-    u16 id;
-    s16 action;
-    u8 pad_6[0x6];
-};
-
 // Pieces built by TBreakUpMdl::init_from_model (vtable TBreakUpMdl__vtable).
 struct TBoss3VoloptBreakupPieces {
     u8 pad_0[0xC];

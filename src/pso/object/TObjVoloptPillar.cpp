@@ -19,6 +19,7 @@
 #include "pso/boss/TBoss3Volopt_8004812C.h"
 #include "pso/boss/TUnk_80484888.h"
 #include "pso/unk/text_80049FD8.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
@@ -38,8 +39,6 @@ extern GC_Mtx identity_matrix;
 extern void *__vt__16TObjVoloptPillar[];
 }
 
-extern BmlResource *boss3_volopt_resources;
-extern Vec boss3_volopt_spawn_pos;
 
 static s32 volopt_pillar_model;
 static s32 volopt_pillar_base_model;
