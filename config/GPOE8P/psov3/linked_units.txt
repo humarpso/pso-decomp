@@ -217,7 +217,7 @@ pso/boss/TBoss3Volopt_8003F3F8.cpp
 pso/boss/TBoss3Volopt_8004812C.cpp
 pso/boss/TBoss3Volopt_80048260.cpp
 pso/boss/TBoss3Volopt_800485C8.cpp
-pso/boss/TBoss3Volopt_80049C10.cpp
+pso/boss/TUnk_80484AFC.cpp
 pso/boss/TBoss3Volopt_800C7458.cpp
 pso/boss/TBoss3Volopt_800D8ACC.cpp
 pso/boss/TBoss3Volopt_80131700.cpp
@@ -2270,7 +2270,7 @@ pso/player/TObjPlayer_8002AE7C.cpp
 pso/player/TObjPlayer_8002E784.cpp
 pso/player/TObjPlayer_80036824.cpp
 pso/player/TObjPlayer_80048360.cpp
-pso/player/TObjPlayer_800495E0.cpp
+pso/boss/TUnk_80484A94.cpp
 pso/player/TObjPlayer_8004FA98.cpp
 pso/player/TObjPlayer_80052374.cpp
 pso/player/TObjPlayer_80055678.cpp

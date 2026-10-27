@@ -1,25 +1,34 @@
 #ifndef PSO_BOSS_TUNK_80484AFC_H
 #define PSO_BOSS_TUNK_80484AFC_H
+
 #include "types.h"
 #include "pso/object/TObjMotion.h"
+#include <dolphin/mtx.h>
 
+// A homing missile of Vol Opt: it steers towards a player and explodes on
+// contact, on the floor or when its time runs out, damaging what it hits.
 class TUnk_80484AFC : public TUnk_804AF8A0 {
 public:
+    s32 model;
+    s32 textures;
+    Vec velocity;
+    u8 pad_c0[0xC];
+    s32 target_id;
+    s32 age;
+    u8 pad_d4[0xC];
+    void *trail;
+    s32 trail_rotation[3];
+
     virtual ~TUnk_80484AFC();
-    virtual void render();
     virtual void run_task();
-    u8 unk_AC[0x4];
-    s32 m_b0;
-    u8 unk_B4[0x4];
-    f32 m_b8;
-    u8 unk_BC[0x10];
-    s32 m_cc;
-    u8 unk_D0[0x10];
-    s32 m_e0;
-    u8 unk_E4[0x4];
-    s32 m_e8;
-    u8 unk_EC[0x4];
+    virtual void render();
+
+    void explode_and_destroy();
 };
+
 typedef char TUnk_80484AFC_size[sizeof(TUnk_80484AFC) == 0xF0 ? 1 : -1];
+
+extern "C" TUnk_80484AFC *TBoss3Volopt__sub_80049E9C(TUnk_80484AFC *missile, TObject *parent, Vec *pos,
+                                                       s32 rotation_y, s32 target_id);
 
 #endif

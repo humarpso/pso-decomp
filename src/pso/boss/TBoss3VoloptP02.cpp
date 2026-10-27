@@ -10,6 +10,7 @@
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3VoloptP02.h"
+#include "pso/boss/TUnk_80484A94.h"
 #include "pso/boss/TUnk_80484870.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -91,7 +92,6 @@ u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
 extern u8 identity_matrix[];
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
-void TObjPlayer__sub_800498E8(void *, void *, Vec *, u16);
 void fn_800483F8(void *, Vec *, void *, s32, s16);
 void obj_setFlags30(void *, s32);
 extern s32 lbl_805D2714;
@@ -900,7 +900,7 @@ void TBoss3VoloptP02::fn_800465B0() {
             }
             p = TObject::operator new(0xE0);
             if (p != NULL) {
-                TObjPlayer__sub_800498E8(p, this, &v, targetId);
+                TUnk_80484A94__ct((TUnk_80484A94 *)p, this, &v, targetId);
             }
             m_388 |= 0x100000;
             m_b8 = 6;
