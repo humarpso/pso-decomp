@@ -189,8 +189,8 @@ s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
 void TBoss3VoloptCore__sub_80040788(void);
 s32 __ct__13TUnk_80483B88Fv();
-s32 set_player_flag_08000000__12TBoss3VoloptFv();
-s32 set_flag_08000000__12TBoss3VoloptFv();
+s32 clear_flag_08000000__20TBoss3VoloptHiraisinFv();
+s32 set_flag_08000000__20TBoss3VoloptHiraisinFv();
 void set_motion__12TBoss3VoloptFs(void *, u16);
 void set_action__12TBoss3VoloptFs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
@@ -813,7 +813,7 @@ void TBoss3Volopt::update_intro_cutscene() {
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
         if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A) != NULL) {
-            set_flag_08000000__12TBoss3VoloptFv();
+            set_flag_08000000__20TBoss3VoloptHiraisinFv();
         }
         this->m_384 = 0xD2;
         TFogCtrl::apply_all(0xA, 0);
@@ -856,7 +856,7 @@ void TBoss3Volopt::update_intro_cutscene() {
         break;
     case -1:
         if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A) != NULL) {
-            set_player_flag_08000000__12TBoss3VoloptFv();
+            clear_flag_08000000__20TBoss3VoloptHiraisinFv();
         }
         TWindowCtrl::init_all_slots2();
         restore_player_cameras();

@@ -40,8 +40,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void set_type();
     void send_6x16();
     void send_update_60();
-    void set_player_flag_08000000();
-    void set_flag_08000000();
     void update_and_send_60();
     void swap_6x18_fields();
     void broadcast_state();

@@ -57,6 +57,12 @@ public:
     u8 * m_88;
     u32 m_8c;
 };
+// What TUnk_804AF8A0::m_a4 points to.
+struct ActorCollisionState {
+    u8 pad_0[0x18];
+    u32 flags;
+};
+
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();

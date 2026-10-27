@@ -3,14 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
-s32 TBoss3Volopt__sub_80040FCC(void *arg0);
-}
+struct TBoss3VoloptHiraisin;
 
-// --- C functions defined in TBoss3Volopt_80040F7C.cpp ---
-extern "C" {
-s32 TBoss3Volopt__sub_80040FCC(void *arg0);
-}
-// --- end of C functions
+extern "C" s32 TBoss3Volopt__sub_80040FCC(TBoss3VoloptHiraisin *hiraisin);
 
 #endif
