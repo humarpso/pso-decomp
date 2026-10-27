@@ -75,7 +75,7 @@ u16 TObjRoomId__sub_801A1DB8(u16 id);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void TObjPlayer__sub_801BA42C(void);
 TBoss3VoloptHiraisin *__ct__20TBoss3VoloptHiraisinFP13TUnk_804B9870Usl(TBoss3VoloptHiraisin *hiraisin, TObject *parent, u16 id, s32 group);
-TBoss3VoloptMonitor *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(TBoss3VoloptMonitor *monitor, TObject *parent, u16 id,
+TBoss3VoloptMonitor *__ct__19TBoss3VoloptMonitorFP13TUnk_804B9870Uslll(TBoss3VoloptMonitor *monitor, TObject *parent, u16 id,
                                                                      s32 group, s32 slot, s32 timer);
 TBoss3Volopt *TBoss3Volopt__ct(TBoss3Volopt *volopt, s32 set_data);
 void __ct__15TObjEnemyCustomFP7TObject(void *, TObject *);
@@ -484,7 +484,7 @@ void TBoss3Volopt::spawn_parts() {
             timer = (s32)(30.0f * (5.0f * (3.0517578e-05f * (f32)rand())) + 90.0f);
             part = (TObject *)TObject::operator new(sizeof(TBoss3VoloptMonitor));
             if (part != NULL) {
-                init_with_slot__19TBoss3VoloptMonitorFPvPviiii((TBoss3VoloptMonitor *)part, this,
+                __ct__19TBoss3VoloptMonitorFP13TUnk_804B9870Uslll((TBoss3VoloptMonitor *)part, this,
                                                                boss3_volopt_monitor_base_actor_id + j,
                                                                get_part_group(j + 7), j, timer);
             }
