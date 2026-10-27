@@ -1273,6 +1273,33 @@ void TBoss3VoloptP02::trigger_breakup() {
     }
 }
 
+// Not called anywhere in the game, so the linker drops it. It is the per-part
+// form of TObjEneDubchik::sub_800A8A7C (same m_388 broken-part bits, same
+// set_flag8_list/clear_flag8_all pair), and its use of three .bss statics is
+// what makes this file's .bss pool before load_resources does.
+void TBoss3VoloptP02::apply_broken_part_visibility() {
+    if (m_388 & 0x10000) {
+        TBoss3Volopt::set_flag8_list(breakup_flags_a);
+    } else {
+        TBoss3Volopt::clear_flag8_all(breakup_flags_a);
+    }
+    if (m_388 & 0x20000) {
+        TBoss3Volopt::set_flag8_list(breakup_flags_b);
+    } else {
+        TBoss3Volopt::clear_flag8_all(breakup_flags_b);
+    }
+    if (m_388 & 0x40000) {
+        TBoss3Volopt::set_flag8_list(breakup_flags_c);
+    } else {
+        TBoss3Volopt::clear_flag8_all(breakup_flags_c);
+    }
+    if (m_388 & 0x80000) {
+        TBoss3Volopt::set_flag8_list(breakup_flags_d);
+    } else {
+        TBoss3Volopt::clear_flag8_all(breakup_flags_d);
+    }
+}
+
 s16 TBoss3VoloptP02::collect_targets_in_front() {
     s32 i;
     TObjPlayer *player;

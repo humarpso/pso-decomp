@@ -213,6 +213,7 @@ pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin.cpp
 pso/boss/TBoss3VoloptMonitor.cpp
 pso/boss/TBoss3VoloptP01.cpp
+pso/boss/TBoss3VoloptP02.cpp
 pso/boss/TBoss3Volopt_8004812C.cpp
 pso/boss/TBoss3Volopt_800C7458.cpp
 pso/boss/TBoss3Volopt_800D8ACC.cpp

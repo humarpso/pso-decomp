@@ -48,6 +48,7 @@ public:
     u16 find_facing_player();
     s16 collect_targets_in_front();
     void trigger_breakup();
+    void apply_broken_part_visibility();
     void fn_800456E4();
     void fn_800457A0();
     void spawn_breakup_models();
