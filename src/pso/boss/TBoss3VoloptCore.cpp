@@ -1,6 +1,7 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/boss/TBoss3VoloptCore.h"
+#include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3Volopt_800485C8.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -32,11 +33,6 @@ struct TBoss3VoloptCoreTarget : public TUnk_804AF8A0 {
 struct TBoss3VoloptOrbitSpeeds {
     u8 pad_0[0x18];
     s32 speeds[1];
-};
-
-struct TBoss3VoloptTargetSlot {
-    s8 used;
-    u8 pad_1[3];
 };
 
 extern "C" {
@@ -76,8 +72,6 @@ extern u16 lbl_805D271C;
 extern u16 boss3_volopt_monitor_base_actor_id;
 extern int vol_opt_active_hit_zone;
 extern BmlResource *boss3_volopt_resources;
-extern TBoss3VoloptTargetSlot volopt_target_slot_used[6];
-extern Vec volopt_slot_positions[];
 }
 void reset_status_effect_row(u8 *row);
 
@@ -280,7 +274,7 @@ s32 TBoss3VoloptCore::alloc_boss_target_slot() {
     s32 slot;
     for (i = 0; i < 6; i++) {
         slot = (target_slot + 6 - i) % 6;
-        if (volopt_target_slot_used[slot].used == 0) {
+        if (volopt_target_slot_used[slot * 4] == 0) {
             target_slot = slot;
             break;
         }
