@@ -5,7 +5,7 @@
 #include "pso/TObject.h"
 #include <dolphin/mtx.h>
 
-// Sprays particle effect effect_id around pos for lifetime frames: rate
+// Sprays the particle effect effect_id around pos for lifetime frames: rate
 // particles per frame, each up to spread away in a random direction.
 class TUnk_80484888 : public TObject {
 public:
