@@ -4268,8 +4268,10 @@ pso/misc/TLobby_8013292C.cpp:
 pso/object/TObjLuker_801329B0.cpp:
 	.text       start:0x801329B0 end:0x80132A5C
 
-pso/misc/TWindowKeyBoardSoft_80132A5C.cpp:
+pso/ui/TWindowKeyBoardSoft_80132A5C.cpp:
 	.text       start:0x80132A5C end:0x80132ED0
+	.rodata     start:0x8043EAE8 end:0x8043ED18
+	.sbss       start:0x805D5538 end:0x805D5550
 
 pso/misc/TLobby_80132ED0.cpp:
 	.text       start:0x80132ED0 end:0x80132F98

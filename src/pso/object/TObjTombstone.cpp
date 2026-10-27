@@ -3,6 +3,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjTombstone.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/Language.h"
 
 struct E_80075D68 { u8 f0; u8 pad[0x2f]; };
 
@@ -52,7 +53,6 @@ unsigned long strlen(const char *);
 extern char lbl_80438810[];
 extern char lbl_804387C8[];
 extern char lbl_804387E0[];
-extern s32 current_language;
 s32 check_height_ready__13TObjTombstoneFv();
 
 void TObjTombstone::render() {
@@ -109,7 +109,7 @@ void TObjTombstone::format_date_text() {
         return;
     }
     switch (current_language) {
-    case 0:
+    case LANGUAGE_JAPANESE:
         sprintf(text, lbl_804387C8, year + 2000, month, day, hour, minute);
         break;
     default:

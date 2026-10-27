@@ -12,6 +12,7 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/Language.h"
 struct CardFileInfo_804C88C0 {
     char filename[0x20];
     char comment[0x20];
@@ -2976,7 +2977,6 @@ u32 check_flag__23TAdSinglePlyChrSelectGCFl(s32);
 void reset_character_data__23TAdSinglePlyChrSelectGCFv(void);
 void init_class_starting_inventory(void *arg0);
 extern RecoveredGlobal_801FFF14_lbl_80513910 chr_select_serial_seeds;
-extern s32 current_language;
 extern s32 card_character_save_buffer;
 extern void *selected_character_data;
 extern void *active_character_save_record;
@@ -3183,7 +3183,6 @@ void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
     build_default_save_file__23TAdSinglePlyChrSelectGCFv();
 }
 
-extern s32 current_language;
 extern s32 card_character_save_buffer;
 extern void *selected_character_data;
 extern void *active_character_save_record;

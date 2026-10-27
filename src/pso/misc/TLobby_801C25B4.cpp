@@ -15,6 +15,7 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #include "types.h"
+#include "pso/ui/Language.h"
 
 typedef struct Lobby_801C2898 {
     u8 pad0[0x268];
@@ -50,7 +51,6 @@ extern u8 __vt__17TPlayerBattleCtrl[];
 extern u8 player_battle_ctrl_text_japanese[];
 extern u8 player_battle_ctrl_text_english[];
 extern s32 TPlayerBattleCtrl__name;
-extern s32 current_language;
 void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1);
 struct S801C295C_801C25B4 { s32 f0; s8 f4; s8 pad[0x13]; };
 
@@ -1885,7 +1885,7 @@ void *TPlayerBattleCtrl__ct(void *player_battle_ctrl, s32 _w1) {
     *(s32 *)((s8 *)player_battle_ctrl + 0x4C) = 0;
     *(s32 *)((s8 *)player_battle_ctrl + 0x50) = 0;
     *(s32 *)((s8 *)player_battle_ctrl + 0x54) = 0;
-    *(u8 **)((s8 *)player_battle_ctrl + 0x40) = (current_language == 0) ? player_battle_ctrl_text_japanese : player_battle_ctrl_text_english;
+    *(u8 **)((s8 *)player_battle_ctrl + 0x40) = (current_language == LANGUAGE_JAPANESE) ? player_battle_ctrl_text_japanese : player_battle_ctrl_text_english;
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 != 0) {
         export_character_data__10TObjPlayerFPvPv(temp_r3, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));

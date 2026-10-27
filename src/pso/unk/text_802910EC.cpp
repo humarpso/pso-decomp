@@ -4,6 +4,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/TObjCMIcon.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_80291138_lbl_804D9668 {
     s32 value;
@@ -35,7 +36,6 @@ extern s32 creation_sprite_table_index;
 s32 create__10TObjCMIconFPv(int);
 extern s32 ccconsole_pvm_file_name_table[];
 extern f32 ui_sprite_scale;
-extern s32 current_language;
 extern s32 tl_06;
 typedef char RecoveredGlobal_80291138_lbl_804D9668_size[sizeof(RecoveredGlobal_80291138_lbl_804D9668) == 0x12DC ? 1 : -1];
 
@@ -70,7 +70,7 @@ typedef char RecoveredGlobal_802911E8_lbl_804DAA78_size[sizeof(RecoveredGlobal_8
 void fn_80291178(void) {
     creation_sprite_table_index = 0;
     ui_sprite_scale = ui_sprite_unit_scale;
-    if (current_language != 0) {
+    if (current_language != LANGUAGE_JAPANESE) {
         creation_sprite_table_index = 1;
     }
     TObjCMIcon::init_icon_table();

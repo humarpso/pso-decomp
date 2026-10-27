@@ -2,6 +2,7 @@
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/unk/text_8026A14C.h"
 #include "pso/THeap.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 extern void *chat_log_lines[];
@@ -9,7 +10,6 @@ extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern s32 current_language;
 void fn_8026A14C(void) {
     s32 i;
     for (i = 0x1D; i >= 0; i--) {
@@ -36,7 +36,7 @@ void fn_8026A1C4(char *dst, char *src, s32 size) {
             return;
         }
         len = strlen(src) + 1;
-        if (current_language == 0) {
+        if (current_language == LANGUAGE_JAPANESE) {
             sjis = 1;
         }
         while (size < len) {

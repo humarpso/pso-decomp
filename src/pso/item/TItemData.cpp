@@ -6,6 +6,7 @@
 #include "pso/misc/TShopEquipmentListWindow.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/Language.h"
 
 struct Parm_8010C1E0;
 struct Item_8010C498;
@@ -905,7 +906,6 @@ extern char lbl_8043E374[];
 extern char lbl_8043E37C[];
 extern char lbl_8043E384[];
 extern char lbl_8043E390[];
-extern s32 current_language;
 extern char lbl_805DAB8C;
 void TItemData__clear_unidentified_flag(void *arg0);
 void add_mag_stat_bonuses__9TItemDataFv(u8 *item, s32 player, u8 *a, u8 *b, EquipStats *st, s32 w5);
@@ -1840,14 +1840,14 @@ void TItemData::format_item_name(char *buf) {
             switch (f) {
             case 0xE:
             case 0x11:
-                if (current_language == 0) {
+                if (current_language == LANGUAGE_JAPANESE) {
                     sprintf(buf, lbl_8043E37C, get_technique_name(f), name);
                 } else {
                     sprintf(buf, lbl_8043E37C, name, get_technique_name(f));
                 }
                 break;
             default:
-                if (current_language == 0) {
+                if (current_language == LANGUAGE_JAPANESE) {
                     sprintf(buf, lbl_8043E384, get_technique_name(f), item->b2 + 1, name);
                 } else {
                     sprintf(buf, lbl_8043E390, name, get_technique_name(f), item->b2 + 1);

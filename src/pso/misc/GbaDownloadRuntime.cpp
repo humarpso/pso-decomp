@@ -5,6 +5,7 @@
 #include "pso/system/date.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TDLGraph.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 void TLobby__sub_8032CB6C(void);
@@ -143,7 +144,6 @@ extern "C" {
 void *memmove(void *, const void *, u32);
 s32 rand();
 void *memset(void *, int, u32);
-extern s32 current_language;
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern const f32 lbl_805DF7A8;
 extern const f32 lbl_805DF7AC;

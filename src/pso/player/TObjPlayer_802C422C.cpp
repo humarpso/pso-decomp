@@ -6,6 +6,7 @@
 #include "pso/TAdSelectGameModeGC.h"
 #include "pso/TPlyOnCreated.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 
@@ -88,7 +89,6 @@ u8 get_field_374__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C0124(void *, s16);
 void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
-extern s32 current_language;
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
 int init_action_config__10TObjPlayerFv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);

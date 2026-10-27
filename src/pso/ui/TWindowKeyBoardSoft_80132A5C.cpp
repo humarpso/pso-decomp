@@ -1,0 +1,185 @@
+#include "types.h"
+#include "pso/misc/TLobby_800F9690.h"
+#include "pso/ui/TWindowKeyBoardSoft_80132A5C.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
+
+struct Inner_80132A5C { char pad8[0x8]; u32 f8; };
+struct Outer_80132A5C { struct Inner_80132A5C *f0; };
+
+struct Outer_80132A5C;
+extern const char TLanguage__class_name[];
+extern const char f256_alphabet_gvp[];
+extern const char f256_symbolsetumei_jpn_gvp[];
+extern const char f128_keyjpn_gvp[];
+extern const char f064_wordmojitex_jpn_gvp[];
+extern const char b256_menutext01_j_gvp[];
+extern const char TextureJapanese_gvm[];
+extern const char f256_symbolsetumei_ger_gvp[];
+extern const char f128_keyeng_gvp[];
+extern const char f064_wordmojitex_ger_gvp[];
+extern const char b256_menutext01_e_gvp[];
+extern const char TextureGerman_gvm[];
+extern const char f256_symbolsetumei_fre_gvp[];
+extern const char f064_wordmojitex_fre_gvp[];
+extern const char TextureFrench_gvm[];
+extern const char f256_symbolsetumei_spa_gvp[];
+extern const char f064_wordmojitex_spa_gvp[];
+extern const char TextureSpanish_gvm[];
+extern const char f256_symbolsetumei_eng_gvp[];
+extern const char f064_wordmojitex_eng_gvp[];
+extern const char TextureEnglish_gvm[];
+extern const char TextJapanese[];
+extern const char TextGerman[];
+extern const char TextFrench[];
+extern const char TextSpanish[];
+extern const char TextEnglish[];
+int TWindowKeyBoardSoft__text_resource;
+int text_language_group_table;
+struct Outer_80132A5C *localized_alphabet_list;
+language current_language;
+int TWindowKeyBoardSoft__language_text_resources;
+extern "C" {
+s32 begin_render__20TWindowSubStatusDispFl();
+u8 *load_gvm_texture_file(s32 arg0);
+s32 TLobby__sub_803DA16C(void *);
+
+void TWindowKeyBoardSoft::free_instance() {
+    if (localized_alphabet_list != NULL) {
+        struct Inner_80132A5C *inner = localized_alphabet_list->f0;
+        if (inner->f8 != 0U) {
+            TLobby__sub_803DA16C(localized_alphabet_list);
+        }
+        TAdSinglePlyChrSelectGC::safe_free((u32)localized_alphabet_list);
+        localized_alphabet_list = NULL;
+    }
+}
+
+void TWindowKeyBoardSoft::free_resources() { TLobby::free_nodes_with_id(TWindowKeyBoardSoft__text_resource); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
+
+void TLanguage__ct(s32 arg0) {
+    s32 sp8;
+    sp8 = TLobby::tmp_buf_use_req(TLanguage__class_name);
+    TLanguage::draw_string((void *)f256_alphabet_gvp, &sp8, 0x48);
+    ((TLobby *)TLanguage__class_name)->tmp_buf_release();
+    switch (arg0) {
+    case LANGUAGE_JAPANESE:
+        TLanguage::draw_string((void *)f256_symbolsetumei_jpn_gvp, &sp8, 0x49);
+        TLanguage::draw_string((void *)f128_keyjpn_gvp, &sp8, 2);
+        TLanguage::draw_string((void *)f064_wordmojitex_jpn_gvp, &sp8, 3);
+        TLanguage::decode_font_data((void *)b256_menutext01_j_gvp, &sp8, 0x4B, 0x4C);
+        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureJapanese_gvm);
+        break;
+    case LANGUAGE_GERMAN:
+        TLanguage::draw_string((void *)f256_symbolsetumei_ger_gvp, &sp8, 0x49);
+        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+        TLanguage::draw_string((void *)f064_wordmojitex_ger_gvp, &sp8, 3);
+        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureGerman_gvm);
+        break;
+    case LANGUAGE_FRENCH:
+        TLanguage::draw_string((void *)f256_symbolsetumei_fre_gvp, &sp8, 0x49);
+        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+        TLanguage::draw_string((void *)f064_wordmojitex_fre_gvp, &sp8, 3);
+        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureFrench_gvm);
+        break;
+    case LANGUAGE_SPANISH:
+        TLanguage::draw_string((void *)f256_symbolsetumei_spa_gvp, &sp8, 0x49);
+        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+        TLanguage::draw_string((void *)f064_wordmojitex_spa_gvp, &sp8, 3);
+        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureSpanish_gvm);
+        break;
+    default:
+        TLanguage::draw_string((void *)f256_symbolsetumei_eng_gvp, &sp8, 0x49);
+        TLanguage::draw_string((void *)f128_keyeng_gvp, &sp8, 2);
+        TLanguage::draw_string((void *)f064_wordmojitex_eng_gvp, &sp8, 3);
+        TLanguage::decode_font_data((void *)b256_menutext01_e_gvp, &sp8, 0x4B, 0x4C);
+        localized_alphabet_list = (Outer_80132A5C *)load_gvm_texture_file((s32)TextureEnglish_gvm);
+        break;
+    }
+    begin_render__20TWindowSubStatusDispFl();
+    TLanguage::set_entry_index(0, 0x48);
+    TLanguage::set_entry_index(2, 0x4B);
+    TLanguage::set_entry_index(1, 0x49);
+    TLanguage::set_entry_index(3, 2);
+    TLanguage::set_entry_index(4, 3);
+}
+}
+
+void select_language_text_resources(s32 arg0) {
+    switch (arg0) {
+    case LANGUAGE_JAPANESE:
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = (u8 *)load_text_resource_pair((s32)TextJapanese);
+        break;
+    case LANGUAGE_GERMAN:
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = (u8 *)load_text_resource_pair((s32)TextGerman);
+        break;
+    case LANGUAGE_FRENCH:
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = (u8 *)load_text_resource_pair((s32)TextFrench);
+        break;
+    case LANGUAGE_SPANISH:
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = (u8 *)load_text_resource_pair((s32)TextSpanish);
+        break;
+    default:
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = (u8 *)load_text_resource_pair((s32)TextEnglish);
+        break;
+    }
+    (*(s32 *)&TWindowKeyBoardSoft__language_text_resources) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 0);
+    (*(s32 *)&text_language_group_table) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 4);
+}
+
+__declspec(section ".rodata") extern const char TLanguage__class_name[] = "TLanguage";
+__declspec(section ".rodata") extern const char f256_alphabet_gvp[] = "f256_alphabet.gvp";
+__declspec(section ".rodata") extern const char f256_symbolsetumei_jpn_gvp[] = "f256_symbolsetumei_jpn.gvp";
+__declspec(section ".rodata") extern const char f128_keyjpn_gvp[] = "f128_keyjpn.gvp";
+__declspec(section ".rodata") extern const char f064_wordmojitex_jpn_gvp[] = "f064_wordmojitex_jpn.gvp";
+__declspec(section ".rodata") extern const char b256_menutext01_j_gvp[] = "b256_menutext01_j.gvp";
+__declspec(section ".rodata") extern const char TextureJapanese_gvm[] = "TextureJapanese.gvm";
+__declspec(section ".rodata") extern const char f256_symbolsetumei_ger_gvp[] = "f256_symbolsetumei_ger.gvp";
+__declspec(section ".rodata") extern const char f128_keyeng_gvp[] = "f128_keyeng.gvp";
+__declspec(section ".rodata") extern const char f064_wordmojitex_ger_gvp[] = "f064_wordmojitex_ger.gvp";
+__declspec(section ".rodata") extern const char b256_menutext01_e_gvp[] = "b256_menutext01_e.gvp";
+__declspec(section ".rodata") extern const char TextureGerman_gvm[] = "TextureGerman.gvm";
+__declspec(section ".rodata") extern const char f256_symbolsetumei_fre_gvp[] = "f256_symbolsetumei_fre.gvp";
+__declspec(section ".rodata") extern const char f064_wordmojitex_fre_gvp[] = "f064_wordmojitex_fre.gvp";
+__declspec(section ".rodata") extern const char TextureFrench_gvm[] = "TextureFrench.gvm";
+__declspec(section ".rodata") extern const char f256_symbolsetumei_spa_gvp[] = "f256_symbolsetumei_spa.gvp";
+__declspec(section ".rodata") extern const char f064_wordmojitex_spa_gvp[] = "f064_wordmojitex_spa.gvp";
+__declspec(section ".rodata") extern const char TextureSpanish_gvm[] = "TextureSpanish.gvm";
+__declspec(section ".rodata") extern const char f256_symbolsetumei_eng_gvp[] = "f256_symbolsetumei_eng.gvp";
+__declspec(section ".rodata") extern const char f064_wordmojitex_eng_gvp[] = "f064_wordmojitex_eng.gvp";
+__declspec(section ".rodata") extern const char TextureEnglish_gvm[] = "TextureEnglish.gvm";
+__declspec(section ".rodata") extern const char TextJapanese[] = "TextJapanese";
+__declspec(section ".rodata") extern const char TextGerman[] = "TextGerman";
+__declspec(section ".rodata") extern const char TextFrench[] = "TextFrench";
+__declspec(section ".rodata") extern const char TextSpanish[] = "TextSpanish";
+__declspec(section ".rodata") extern const char TextEnglish[] = "TextEnglish";
+extern "C" {
+
+void *get_global_state__23TAdSinglePlyChrSelectGCFv();
+
+s32 TWindowKeyBoardSoft::set_language(s8 arg0) {
+    void *temp_r3;
+
+    if ((s32) current_language == arg0) {
+        return 0;
+    }
+    TWindowKeyBoardSoft::free_instance();
+    TWindowKeyBoardSoft::free_resources();
+    temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
+    if (temp_r3 != NULL) {
+        *(s8 *)((s8 *)temp_r3 + 7) = arg0;
+    }
+    current_language = (language)(s8) arg0;
+    select_language_text_resources((s8) current_language);
+    TLanguage__ct(current_language);
+    return 1;
+}
+
+int TLobby__sub_80132EC8(void) { return 1; }
+}

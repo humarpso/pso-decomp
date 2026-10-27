@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/ui/Language.h"
 
 struct Quad_8024FBB0 {
     f32 x;
@@ -46,7 +47,6 @@ void TWindowSubStatusDisp::set_input_mode(u8 v) { *(u8*)((char*)this + 0x64) = v
 extern const f32 lbl_805DCCD8;
 extern const f32 lbl_805DCCDC;
 s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width);
-extern s32 current_language;
 extern const f32 lbl_805DCCE0;
 extern const f32 lbl_805DCCE4;
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
@@ -123,7 +123,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
     if (*s == 0) {
         return 1;
     }
-    if (current_language == 0) {
+    if (current_language == LANGUAGE_JAPANESE) {
         flag = 1;
     }
     x = pos[0];

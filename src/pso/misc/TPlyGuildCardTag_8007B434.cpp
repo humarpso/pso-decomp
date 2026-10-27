@@ -2,10 +2,10 @@
 #include "pso/misc/TPlyGuildCardTag_8007B434.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 s32 strncpy(void *, int, int);
-extern s32 current_language;
 extern u8 *TLobby__protocol_instance;
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1) {
     *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
