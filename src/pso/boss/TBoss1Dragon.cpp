@@ -4263,11 +4263,12 @@ void TBoss1Dragon__sub_80025168(void *arg0, void *arg1) {
             next_sequence_action__12TBoss1DragonFv(self);
         }
         break;
-    case 7:
-        subtractive_rng_seed((u8 *)self + 0x77C,
-            ((s32)(TBoss1Dragon__data_805D7FC4 * self->savedX) * 0x10000) |
-            (u32)(u16)(s32)(TBoss1Dragon__data_805D7FC4 * self->savedZ));
+    case 7: {
+        s32 high = (s32)(TBoss1Dragon__data_805D7FC4 * self->savedX) * 0x10000;
+        s32 low = (s32)(TBoss1Dragon__data_805D7FC4 * self->savedZ);
+        subtractive_rng_seed((u8 *)self + 0x77C, high | (low - (low & 0xFFFF0000)));
         break;
+    }
     case 6:
         self->saveCurrentDestination();
         break;
