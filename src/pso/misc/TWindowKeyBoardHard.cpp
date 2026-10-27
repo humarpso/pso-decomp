@@ -3,6 +3,7 @@
 #include "pso/misc/TKeyBoardControl_8025CB70.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowDD.h"
+#include "pso/ui/Language.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -22,7 +23,6 @@ extern s32 keyboard_hard_status_text_a[];
 extern s32 keyboard_hard_status_text_b[];
 extern s32 lbl_8044F0FC[];
 extern s32 lbl_8044F104[];
-extern s32 current_language;
 extern const f32 lbl_805DD068;
 extern const f32 lbl_805DD06C;
 extern const f32 lbl_805DD070;
@@ -32,7 +32,7 @@ void TWindowKeyBoardHard::release_keyboard() { void* m = *(void* *)&this->m_70; 
 
 void TWindowKeyBoardHard::draw_status_text(void *ctx) {
     s32 flags;
-    if (((Win_80260020 *)this)->state != NULL && current_language == 0) {
+    if (((Win_80260020 *)this)->state != NULL && current_language == LANGUAGE_JAPANESE) {
         f32 inv = lbl_805DD068 / ((Ctx_80260020 *)ctx)->scale;
         Pt_80260020 pt;
         pt.x = ((Ctx_80260020 *)ctx)->pos.x;

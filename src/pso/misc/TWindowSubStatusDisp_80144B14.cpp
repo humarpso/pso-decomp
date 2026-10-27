@@ -4,6 +4,7 @@
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -92,7 +93,6 @@ u32 calc_text_width(char *s);
 u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
 int end_render_forward__20TWindowSubStatusDispFPv(void* p);
-extern s32 current_language;
 extern const f32 lbl_805DB1A0;
 extern const f32 lbl_805DB1A4;
 void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
@@ -474,7 +474,7 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
   {
     return;
   }
-  if (current_language == 0)
+  if (current_language == LANGUAGE_JAPANESE)
   {
     mb = 1;
   }

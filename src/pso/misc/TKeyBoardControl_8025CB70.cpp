@@ -3,8 +3,8 @@
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/ui/Language.h"
 
-extern s32 current_language;
 
 void TWindowChat::reset_input() {
     u8 *arg0 = (u8 *)this;
@@ -31,7 +31,7 @@ void TKeyBoardControl__sub_8025CC04(u8 *arg0) {
 void TKeyBoardControl__sub_8025CC3C(void* p) { *(s32*)((char*)p + 0xb4) = 18; }
 void TWindowKeyBoardHard__sub_8025CC48(void *arg0) {
     switch (current_language) {
-    case 0:
+    case LANGUAGE_JAPANESE:
         *(s32 *)((s8 *)arg0 + 0xB4) = 0;
         if (((TWindowKeyBoardHard *)(*(s16 *)((s8 *)arg0 + 0x20)))->test_card_flag_16() != 0) {
             *(s32 *)((s8 *)arg0 + 0xB4) = (s32) (*(s32 *)((s8 *)arg0 + 0xB4) | 1);
@@ -46,10 +46,10 @@ void TWindowKeyBoardHard__sub_8025CC48(void *arg0) {
             *(s32 *)((s8 *)arg0 + 0xB4) = (s32) (*(s32 *)((s8 *)arg0 + 0xB4) | 8);
         }
         break;
-    case 1:
-    case 2:
-    case 3:
-    case 4:
+    case LANGUAGE_ENGLISH:
+    case LANGUAGE_GERMAN:
+    case LANGUAGE_FRENCH:
+    case LANGUAGE_SPANISH:
         *(s32 *)((s8 *)arg0 + 0xB4) = 6;
         break;
     }

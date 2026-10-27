@@ -2,12 +2,12 @@
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 s32 refresh_with_default_list__20TWindowSubStatusDispFll(int, void *);
 int get_option_entry__17TWindowOptionCtrlFi(int);
 extern s32 lbl_8044F48C[];
-extern s32 current_language;
 s32 TWindowOptionCtrl::create_select_menu_window() {
     s32 temp_r31;
     temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFll(get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_8044F48C);

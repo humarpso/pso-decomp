@@ -1,4 +1,5 @@
 #include "pso/system/TOChatSensorCapture.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 s32 find_chat_keyword(char *, char (*)[0x20], s32);
@@ -6,7 +7,6 @@ char *strncpy(char *, const char *, size_t);
 void *memset(void *, int, size_t);
 void mem_free(void *);
 void *mem_alloc(u32 size);
-extern s32 current_language;
 TOChatSensorCapture *TOChatSensorCapture__instance;
 extern const char lbl_8044049C[];
 const char *TOChatSensorCapture__class_name = lbl_8044049C;

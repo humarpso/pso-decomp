@@ -12,6 +12,8 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/ui/Language.h"
 struct CardFileInfo_804C88C0 {
     char filename[0x20];
     char comment[0x20];
@@ -2976,7 +2978,6 @@ u32 check_flag__23TAdSinglePlyChrSelectGCFl(s32);
 void reset_character_data__23TAdSinglePlyChrSelectGCFv(void);
 void init_class_starting_inventory(void *arg0);
 extern RecoveredGlobal_801FFF14_lbl_80513910 chr_select_serial_seeds;
-extern s32 current_language;
 extern s32 card_character_save_buffer;
 extern void *selected_character_data;
 extern void *active_character_save_record;
@@ -3183,7 +3184,6 @@ void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
     build_default_save_file__23TAdSinglePlyChrSelectGCFv();
 }
 
-extern s32 current_language;
 extern s32 card_character_save_buffer;
 extern void *selected_character_data;
 extern void *active_character_save_record;
@@ -3676,7 +3676,6 @@ struct Card_80201354 {
 
 extern "C" {
 s32 default_clock_offset_frames(void);
-int TLobby__sub_80132EC8(void);
 s32 memmove(void *, void *, int);
 s32 memset(s32, s32, s32);
 extern u8 *system_save_payload;
@@ -3865,7 +3864,7 @@ void reset_save_header__23TAdSinglePlyChrSelectGCFv(void) {
   memset((s32)((void *) system_save_payload), 0, 0x11C);
   *((s16 *) (((s8 *) system_save_payload) + 4)) = -0x32;
   *((s8 *) (((s8 *) system_save_payload) + 6)) = 0;
-  *((s8 *) (((s8 *) system_save_payload) + 7)) = TLobby__sub_80132EC8();
+  *((s8 *) (((s8 *) system_save_payload) + 7)) = TLanguage::get_default_language();
   *((s32 *) (((s8 *) system_save_payload) + 8)) = default_clock_offset_frames();
   *((s16 *) (((s8 *) system_save_payload) + 0xC)) = 0;
   *((s16 *) (((s8 *) system_save_payload) + 0xE)) = 0;

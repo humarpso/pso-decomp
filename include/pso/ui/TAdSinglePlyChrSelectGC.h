@@ -41,7 +41,7 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void cleanup();
     virtual void run_task();
     static u8 get_chr_select_state();
-    static s32 get_global_state();
+    static u8 *get_global_state();
     static int get_state();
     int alloc();
     static void safe_free(u32 arg0);

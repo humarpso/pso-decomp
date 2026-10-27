@@ -4,6 +4,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdScrollWinGC.h"
 #include "pso/THeap.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
     s32 value;
@@ -14,7 +15,6 @@ extern "C" {
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFv(void *);
 s32 strncpy(int, void *, int);
-extern s32 current_language;
 extern s32 TAdScrollWinGC__chat_log_heap;
 extern u8 *chat_last_line_buffer;
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
@@ -104,7 +104,7 @@ void cache_last_chat_line(u32 text) {
         chat_last_line_buffer = var_r3;
         if (temp_r31 != 0) {
             *(s8 *)((s8 *)var_r3 + 0) = 9;
-            if ((s32) current_language == 0) {
+            if (current_language == LANGUAGE_JAPANESE) {
                 *(s8 *)((s8 *)var_r3 + 1) = 0x4A;
                 var_r3 += 2;
             } else {
