@@ -255,7 +255,7 @@ s32 TBoss3VoloptP01::fire_zonde_at_players() {
     TObjPlayer *target;
     s32 i;
     s32 j;
-    TObject *hiraisin;
+    TBoss3VoloptHiraisin *hiraisin;
     f32 len;
     TTecZondeEff *bolt;
     DirectAttackPayload attack = volopt_p01_zonde_attack;
@@ -290,9 +290,9 @@ s32 TBoss3VoloptP01::fire_zonde_at_players() {
                 target->receive_direct_attack(this, &hit, NULL, -1, -1);
             }
         }
-        hiraisin = (TObject *)find_entity_by_id(lbl_805D271A);
+        hiraisin = (TBoss3VoloptHiraisin *)find_entity_by_id(lbl_805D271A);
         if (hiraisin != NULL) {
-            Vec to_hiraisin = *(Vec *)((TBoss3VoloptHiraisin *)hiraisin)->position;
+            Vec to_hiraisin = *(Vec *)hiraisin->position;
             subtract_vector(&to_hiraisin, &pos);
             len = normalize_vector(&to_hiraisin);
             bolt = (TTecZondeEff *)TObject::operator new(0x260);
