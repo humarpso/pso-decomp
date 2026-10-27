@@ -239,7 +239,7 @@ void TBoss3VoloptHiraisin::set_flag_08000000() {
 }
 
 s32 TBoss3VoloptHiraisin::sub_80040FCC() {
-    return (((ActorCollisionState *)m_a4)->flags >> 1) & 1;
+    return (m_a4->flags >> 1) & 1;
 }
 
 void TBoss3VoloptHiraisin::sub_80040FDC() {

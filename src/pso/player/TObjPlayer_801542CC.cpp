@@ -1098,7 +1098,7 @@ void TObjPlayer::check_object_collisions() {
 }
 void TObjPlayer::update_collisions() { check_object_collisions(); check_enemy_body_collisions(this); }
 void TUnk_804AF8A0::clear_obj_links() { *(s32*)((char*)this + 0x9c) = 0; *(s32*)((char*)this + 0xa4) = 0; }
-void*TUnk_804AF8A0::initialize_linked_object_reference(void*a1) { *(int*)((char*)this + 0xa8) = 1; this->m_a4 = a1; *(void**)((char*)this + 0x9c) = (char*)this + 0xa0; refresh_collision_body_centers(); return this->m_a4; }
+void*TUnk_804AF8A0::initialize_linked_object_reference(void*a1) { *(int*)((char*)this + 0xa8) = 1; this->m_a4 = (CollisionBody *)a1; *(void**)((char*)this + 0x9c) = (char*)this + 0xa0; refresh_collision_body_centers(); return this->m_a4; }
 
 void free_collision_body_parts(G_80156720 *arg0) {
     u8 *p = arg0->f9c;

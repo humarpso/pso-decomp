@@ -57,10 +57,14 @@ public:
     u8 * m_88;
     u32 m_8c;
 };
-// What TUnk_804AF8A0::m_a4 points to.
-struct ActorCollisionState {
-    u8 pad_0[0x18];
+// One collision sphere of an actor (TUnk_804AF8A0::m_a4 points at the actor's
+// array of them); init_collision_body_parts copies a static table of these.
+struct CollisionBody {
+    f32 offset[3];
+    f32 radius;
+    u8 pad_10[0x8];
     u32 flags;
+    u8 pad_1c[0x10];
 };
 
 class TUnk_804AF8A0 : public TUnk_804B9870 {
@@ -94,7 +98,7 @@ public:
     s16 m_9c;
     u8 unk_9E[0x2];
     u32 m_a0;
-    void * m_a4;
+    CollisionBody *m_a4;
     u8 unk_A8[0x4];
 };
 // One entry of TObjMotion::action_table.
@@ -150,6 +154,7 @@ public:
 };
 typedef char TUnk_804B9870Size[sizeof(TUnk_804B9870)==0x90?1:-1];
 typedef char TUnk_804AF8A0Size[sizeof(TUnk_804AF8A0)==0xAC?1:-1];
+typedef char CollisionBodySize[sizeof(CollisionBody)==0x2C?1:-1];
 typedef char TObjMotionSize[sizeof(TObjMotion)==0xFC?1:-1];
 typedef char WorldActorModelOffset[offsetof(TUnk_804B9870,model)==0x34?1:-1];
 typedef char MotionActionsOffset[offsetof(TObjMotion,action_table)==0xD8?1:-1];

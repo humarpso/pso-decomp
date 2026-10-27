@@ -3,6 +3,19 @@
 
 #include "types.h"
 
+// What TObjChip::construct_debris copies into a new debris chip.
+struct TObjChipParams {
+    f32 pad_0[3];
+    f32 pos[3];
+    f32 pad_18[3];
+    s32 pad_24[3];
+    s32 pad_30[2];
+    f32 pad_38[2];
+    s32 model;
+    s32 textures;
+    s32 pad_48;
+};
+
 extern "C" {
 int TObjChip__vt6(void *p);
 u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2);

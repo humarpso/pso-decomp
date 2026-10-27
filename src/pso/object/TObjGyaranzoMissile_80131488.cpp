@@ -42,7 +42,7 @@ f32 TObjGyaranzoMissile::scale_velocity(f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer::horizontal_distance(u8 *arg1) {
+f32 TObjPlayer::horizontal_distance(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f2;
@@ -50,6 +50,6 @@ void TObjPlayer::horizontal_distance(u8 *arg1) {
     temp_f2 = *(f32 *)((s8 *)arg0 + 0);
     temp_f3 = *(f32 *)((s8 *)arg0 + 8) - *(f32 *)((s8 *)arg1 + 8);
     temp_f1 = temp_f2 - *(f32 *)((s8 *)arg1 + 0);
-    ((f32 (*)(f32, f32, f32))newton_sqrtf)((temp_f1 * temp_f1) + (temp_f3 * temp_f3), temp_f2, temp_f3);
+    return ((f32 (*)(f32, f32, f32))newton_sqrtf)((temp_f1 * temp_f1) + (temp_f3 * temp_f3), temp_f2, temp_f3);
 }
 #pragma pop

@@ -155,12 +155,6 @@ struct VoloptCameraCommand {
     f32 e;
 };
 
-struct CollisionBody {
-    u8 pad_0[0x18];
-    u32 flags;
-    u8 pad_1C[0x10];
-};
-
 class ViewCulledObject {
 public:
     u8 pad_0[0x18];
@@ -1386,7 +1380,7 @@ void TBoss3VoloptP02::fn_800457A0() {
     u32 flags = m_388;
     if (!(flags & 0x20000)) {
         m_388 = flags | 0x20000;
-        ((CollisionBody *)m_a4)[1].flags &= ~0x10000001;
+        m_a4[1].flags &= ~0x10000001;
         ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
         vfunc_65(0x32, (s32)&pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[2], (s32)&part_breakup_params, texture_id, (s32)&pos, rotation_y);
@@ -1405,7 +1399,7 @@ void TBoss3VoloptP02::fn_800456E4() {
     u32 flags = m_388;
     if (!(flags & 0x40000)) {
         m_388 = flags | 0x40000;
-        ((CollisionBody *)m_a4)[2].flags &= ~0x10000001;
+        m_a4[2].flags &= ~0x10000001;
         ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
         vfunc_65(0x22, (s32)&pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[3], (s32)&part_breakup_params, texture_id, (s32)&pos, rotation_y);
@@ -1420,7 +1414,7 @@ void TBoss3VoloptP02::trigger_breakup() {
     u32 flags = m_388;
     if (!(flags & 0x80000)) {
         m_388 = flags | 0x80000;
-        ((CollisionBody *)m_a4)[3].flags &= ~0x10000001;
+        m_a4[3].flags &= ~0x10000001;
         ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
         vfunc_65(0x29, (s32)&pos);
         TBoss3Volopt::create_breakup_mdl((s32)breakup_models[4], (s32)&part_breakup_params, texture_id, (s32)&m_2fc, rotation_y);
@@ -1641,7 +1635,7 @@ f32 TBoss3VoloptP02::receive_physical_attack(void *source, f32 damage) {
     u32 mask = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {
-        if (((CollisionBody *)m_a4)[i].flags & 0x04000000) {
+        if (m_a4[i].flags & 0x04000000) {
             m_388 |= mask;
         }
         mask <<= 1;
@@ -1653,7 +1647,7 @@ f32 TBoss3VoloptP02::receive_direct_attack(void *source, DirectAttackPayload pay
     u32 mask = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {
-        if (((CollisionBody *)m_a4)[i].flags & 0x04000000) {
+        if (m_a4[i].flags & 0x04000000) {
             m_388 |= mask;
         }
         mask <<= 1;
