@@ -22,6 +22,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
+#include "pso/object/TObjVoloptCage.h"
 #include "pso/object/obj_band.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/BmlResource.h"
@@ -46,7 +47,6 @@ struct VoloptPartsMessage {
 
 extern "C" {
 void *find_entity_by_id(u16 id);
-s32 fn_80048C04();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -82,7 +82,6 @@ s32 TObjPlayer__sub_801BA42C();
 s32 TBoss3Volopt__sub_80049E9C(void *, void *, Vec *, s32, u16);
 s32 approach_angle_limited(s32, s32, s32);
 s32 TObjVoloptPillar__ct(void *, void *, void *);
-s32 TObjVoloptCage__ct(void *, void *, u16, u16, s32);
 s32 turn_toward_point__12TBoss3VoloptFPvPvPvi(void *, void *, int, int);
 u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
@@ -961,7 +960,7 @@ void TBoss3VoloptP02::fn_800465B0() {
             }
             cage = (TObjEnemy *)find_entity_by_id(volopt_cage_id);
             if (cage != NULL) {
-                fn_80048C04();
+                fn_80048C04((TObjVoloptCage *)cage);
                 timer = 30;
                 state = 7;
                 ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
@@ -1002,8 +1001,9 @@ void TBoss3VoloptP02::fn_800465B0() {
 #pragma pop
 
 void TBoss3VoloptP02::check_and_notify() {
-    if (find_entity_by_id(volopt_cage_id) != NULL) {
-        fn_80048C04();
+    TObjVoloptCage *cage = (TObjVoloptCage *)find_entity_by_id(volopt_cage_id);
+    if (cage != NULL) {
+        fn_80048C04(cage);
     }
 }
 
@@ -1320,10 +1320,7 @@ void TBoss3Volopt::create_cage(u16 target_id) {
     targetId = target_id;
     target = get_player_by_client_id(targetId);
     if (target != 0) {
-        void *cage = TObject::operator new(0x394);
-        if (cage != 0) {
-            TObjVoloptCage__ct(cage, this, target_id, volopt_cage_id, volopt_cage_group);
-        }
+        new TObjVoloptCage(this, target_id, volopt_cage_id, volopt_cage_group);
         m_388 |= 0x200000;
     }
 }

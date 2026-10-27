@@ -12,6 +12,7 @@ public:
     s32 countdown;
     s32 status;
 
+    TObjVoloptCage(TObjEnemy *boss, u16 target, u16 id, s32 group);
     virtual ~TObjVoloptCage();
     virtual void run_task();
     virtual void render();
@@ -41,7 +42,6 @@ extern void *volopt_cage_params;
 extern "C" {
 void fn_80048C04(TObjVoloptCage *cage);
 
-TObjVoloptCage *TObjVoloptCage__ct(TObjVoloptCage *cage, TObjEnemy *boss, u16 target, s16 id, s16 arg4);
 void obj_set_flag_20000(TUnk_804B9870 *actor);
 void obj_clear_flag30_20000(TUnk_804B9870 *actor);
 }

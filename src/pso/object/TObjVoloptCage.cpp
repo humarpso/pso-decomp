@@ -39,14 +39,11 @@ void send_6x2C_impose_hold(TObjPlayer *player, const Vec *pos, s32 a2, s32 a3, f
 void submit_cursor_candidate(TObjVoloptCage *cage, s32 a1);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TObjEnemyCustom *__ct__15TObjEnemyCustomFP7TObject(TObjEnemyCustom *enemy);
 void TObjVoloptCage__sub_800C76F0(TObjVoloptCage *cage);
-extern void *__vt__14TObjVoloptCage[];
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void create_breakup_mdl__12TBoss3VoloptFlllll(TBreakUpMdlPieces *model, VoloptBreakUpParams *params, s32 textures,
                                               Vec *pos, s32 angle);
 s32 check_flag__10TObjPlayerFl(void *player, s32 flag);
-void __dt__15TObjEnemyCustomFv(TObjEnemyCustom *enemy, s16 flags);
 }
 
 extern BmlResource *lbl_805D4CE4;
@@ -258,57 +255,45 @@ void TObjVoloptCage::run_task() {
     submit_cursor_candidate(this, -1);
 }
 
-extern "C" TObjVoloptCage *__dt__14TObjVoloptCageFv(TObjVoloptCage *cage, s16 flags) {
-    TObjPlayer *player;
-    if (cage != NULL) {
-        *(void ***)((u8 *)cage + 0x18) = __vt__14TObjVoloptCage;
-        player = get_player_by_client_id(cage->targetId);
-        if (player != NULL && TObjPlayer::is_locally_controlled(player) != 0) {
-            if (((TLobby *)player)->check_player_flag1() != 0) {
-                TObjPlayer::send_code_45_1((s32)player);
-            }
-            obj_clear_flag30_20000(player);
+TObjVoloptCage::~TObjVoloptCage() {
+    TObjPlayer *player = get_player_by_client_id(targetId);
+    if (player != NULL && TObjPlayer::is_locally_controlled(player) != 0) {
+        if (((TLobby *)player)->check_player_flag1() != 0) {
+            TObjPlayer::send_code_45_1((s32)player);
         }
-        clear_volopt_cage_flag();
-        free_collision_body_parts(cage);
-        __dt__15TObjEnemyCustomFv(cage, 0);
-        if (flags > 0) {
-            TObject::operator delete(cage);
-        }
+        obj_clear_flag30_20000(player);
     }
-    return cage;
+    clear_volopt_cage_flag();
+    free_collision_body_parts(this);
 }
 
-TObjVoloptCage *TObjVoloptCage__ct(TObjVoloptCage *cage, TObjEnemy *boss, u16 target, s16 id, s16 arg4) {
+TObjVoloptCage::TObjVoloptCage(TObjEnemy *boss, u16 target, u16 id, s32 group) : TObjEnemyCustom(boss) {
     TObjPlayer *player;
-    __ct__15TObjEnemyCustomFP7TObject(cage);
-    *(void ***)((u8 *)cage + 0x18) = __vt__14TObjVoloptCage;
-    cage->m_name = TObjVoloptCage_name;
-    cage->targetId = target;
-    player = get_player_by_client_id(cage->targetId);
+    m_name = TObjVoloptCage_name;
+    targetId = target;
+    player = get_player_by_client_id(targetId);
     if (player != NULL) {
-        VecCopy((Vec *)cage->position, (Vec *)player->position);
+        VecCopy((Vec *)position, (Vec *)player->position);
     } else {
-        cage->queue_destruction();
-        return cage;
+        queue_destruction();
+        return;
     }
-    init_collision_body_parts(cage, volopt_cage_collision_body, 1);
-    cage->m_1c = id;
-    *(s16 *)&cage->m_2c = arg4;
-    cage->m_80 = 0;
-    *(s16 *)&cage->m_28 = *(s16 *)&boss->m_28;
-    *((s16 *)&cage->m_28 + 1) = *((s16 *)&boss->m_28 + 1);
-    ((TBoss3Volopt *)cage)->reset_photon_effect();
-    cage->set_param(0x2E);
-    cage->position[1] = -25.0f;
-    cage->recalc_combat_stats(volopt_cage_combat_stats, NULL, NULL, 1.0f, 1.0f);
-    cage->actorFlags |= 0x40000 | 0x8000;
-    cage->actorFlags &= ~0xA00;
-    cage->next_action = 7;
-    cage->mode = 7;
+    init_collision_body_parts(this, volopt_cage_collision_body, 1);
+    m_1c = id;
+    *(s16 *)&m_2c = group;
+    m_80 = 0;
+    *(s16 *)&m_28 = *(s16 *)&boss->m_28;
+    *((s16 *)&m_28 + 1) = *((s16 *)&boss->m_28 + 1);
+    ((TBoss3Volopt *)this)->reset_photon_effect();
+    set_param(0x2E);
+    position[1] = -25.0f;
+    recalc_combat_stats(volopt_cage_combat_stats, NULL, NULL, 1.0f, 1.0f);
+    actorFlags |= 0x40000 | 0x8000;
+    actorFlags &= ~0xA00;
+    next_action = 7;
+    mode = 7;
     volopt_cage_textures = lbl_805D4CE4->models[0x12].m_c;
-    cage->status = 0;
-    return cage;
+    status = 0;
 }
 
 void set_volopt_cage_flag() {
