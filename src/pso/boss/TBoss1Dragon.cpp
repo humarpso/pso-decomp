@@ -1250,22 +1250,22 @@ extern const f32 lbl_805D8054;
 extern const f32 lbl_805D8058;
 extern const f32 lbl_805D805C;
 extern const f32 lbl_805D8060;
-extern volatile const f32 lbl_805D80C0;
-extern volatile const f32 lbl_805D80C4;
-extern volatile const f32 lbl_805D80C8;
-extern volatile const f32 lbl_805D80CC;
-extern volatile const f32 lbl_805D80D0;
-extern volatile const f32 lbl_805D80D4;
-extern volatile const f32 lbl_805D80D8;
+extern const f32 lbl_805D80C0;
+extern const f32 lbl_805D80C4;
+extern const f32 lbl_805D80C8;
+extern const f32 lbl_805D80CC;
+extern const f32 lbl_805D80D0;
+extern const f32 lbl_805D80D4;
+extern const f32 lbl_805D80D8;
 extern volatile const f32 lbl_805D80DC;
 extern volatile const f32 lbl_805D80E0;
 extern volatile const f32 lbl_805D80E4;
 extern volatile const f32 lbl_805D80E8;
-extern volatile const f32 lbl_805D80EC;
-extern volatile const f32 lbl_805D80F0;
-extern volatile const f32 lbl_805D80F4;
+extern const f32 lbl_805D80EC;
+extern const f32 lbl_805D80F0;
+extern const f32 lbl_805D80F4;
 extern const f32 lbl_805D80F8;
-extern volatile const f32 lbl_805D80FC;
+extern const f32 lbl_805D80FC;
 extern const f32 lbl_805D8100;
 extern "C" {
 f32 sample_acceleration_curve(void *, f32);
@@ -1363,8 +1363,8 @@ extern const f32 TBoss1Dragon__data_805D7FAC;
 extern const f32 TBoss1Dragon__data_805D7FF8;
 extern const f32 lbl_805D8078;
 extern const f32 lbl_805D807C;
-extern volatile const f32 lbl_805D8080;
-extern volatile const f32 lbl_805D8084;
+extern const f32 lbl_805D8080;
+extern const f32 lbl_805D8084;
 s32 is_split_screen();
 s32 check_parts_visible__12TBoss1DragonFiPv(s32 arg0, Obj_80021260 *arg1);
 s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0);
@@ -1426,7 +1426,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern s32 TBoss1Dragon__data_805D4B38;
 extern s32 local_client_id;
-extern volatile const f32 lbl_805D80C0;
+extern const f32 lbl_805D80C0;
 void run_task__12TBoss1DragonFv(u8 *arg0);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 void update_camera_sequence__9TObjEneDDFv(void);
@@ -6938,7 +6938,7 @@ void TBoss1Dragon::load_resources() {
     f32 *delta;
     f32 *nodes;
     s32 *table;
-    volatile s32 *out;
+    s32 *out;
     s32 i;
 
     switch (isV2Mode__12TBoss1DragonFv()) {
@@ -7029,16 +7029,14 @@ void TBoss1Dragon::load_resources() {
 
     TBoss1Dragon__data_805D4B00 = (s32)TLobby::register_boss(lbl_805D2648);
     table = (s32 *)(descriptor + 0xFC);
-    i = 0;
-    out = (s32 *)(stats + i);
-    for (; i < 5; i++) {
+    out = (s32 *)stats;
+    for (i = 0; i < 5; i++) {
         out[i] = (s32)TLobby::dispatch_shared_handler_b(table[i]);
     }
     TBoss1Dragon__data_805D4B04 = (s32)TLobby::register_object(lbl_805D264C);
-    i = 0;
-    descriptor += 0x110 + i;
-    out = (s32 *)((u8 *)out + 0x14);
-    for (; i < 3; i++) {
+    descriptor += 0x110;
+    out = (s32 *)(stats + 0x14);
+    for (i = 0; i < 3; i++) {
         out[i] = (s32)TLobby::dispatch_shared_handler_a(((s32 *)descriptor)[i]);
     }
     lbl_805D4B34 = 0;
