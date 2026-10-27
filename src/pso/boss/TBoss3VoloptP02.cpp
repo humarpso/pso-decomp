@@ -11,6 +11,7 @@
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/boss/TUnk_80484A94.h"
+#include "pso/boss/TUnk_80484AFC.h"
 #include "pso/boss/TUnk_80484840.h"
 #include "pso/boss/TUnk_80484870.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
@@ -23,6 +24,7 @@
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjVoloptCage.h"
+#include "pso/object/TObjVoloptPillar.h"
 #include "pso/object/obj_band.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/system/BmlResource.h"
@@ -76,9 +78,7 @@ s32 TCameraCtrl__sub_8006A044(int, f32);
 s32 set_scripted_camera_pose(void *, void *, void *);
 u8 *get_scripted_camera_playback(s16);
 s32 TObjPlayer__sub_801BA42C();
-s32 TBoss3Volopt__sub_80049E9C(void *, void *, Vec *, s32, u16);
 s32 approach_angle_limited(s32, s32, s32);
-s32 TObjVoloptPillar__ct(void *, void *, void *);
 s32 turn_toward_point__12TBoss3VoloptFPvPvPvi(void *, void *, int, int);
 u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
@@ -654,10 +654,7 @@ void TBoss3VoloptP02::fn_80046CB8() {
         timer = TObjVoloptPillar__sub_80048118(5);
         collect_targets_in_arc();
         for (i = 0; i < arc_target_count; i++) {
-            void *p = TObject::operator new(0xC0);
-            if (p != NULL) {
-                TObjVoloptPillar__ct(p, &arc_target_positions[i], this);
-            }
+            new TObjVoloptPillar(&arc_target_positions[i], this);
         }
         play_sound_effect(0x4003B722, position, 0, 0);
         state = 6;
@@ -760,15 +757,11 @@ void TBoss3VoloptP02::fn_800465B0() {
             ((TNowLoading *)emitter)->copy_pos(&v);
         }
         if (--*(s16 *)&timer <= 0) {
-            void *p;
             if (emitter != NULL) {
                 emitter->queue_destruction();
                 emitter = NULL;
             }
-            p = TObject::operator new(0xE0);
-            if (p != NULL) {
-                TUnk_80484A94__ct((TUnk_80484A94 *)p, this, &v, targetId);
-            }
+            new TUnk_80484A94(this, &v, targetId);
             m_388 |= 0x100000;
             m_b8 = 6;
             state = 3;
@@ -934,12 +927,8 @@ void TBoss3VoloptP02::fn_80046260() {
         ((TObjEneGyaranzo *)this)->render_anim_model_at_pos();
         collect_targets_in_front();
         for (i = 0; i < (count = front_target_count); i++) {
-            void *o;
             vfunc_65(volley_node_ids[i], (s32)&pos);
-            o = TObject::operator new(0xF0);
-            if (o != NULL) {
-                TBoss3Volopt__sub_80049E9C(o, this, &pos, rotation_y + 0x8000, front_target_ids[i]);
-            }
+            new TUnk_80484AFC(this, &pos, rotation_y + 0x8000, front_target_ids[i]);
         }
         if (count > 0) {
             play_sound_effect(0x4003AD13, position, 0, 0);
@@ -1659,10 +1648,7 @@ void TBoss3VoloptP02::fn_80044680() {
     case 5:
         timer = TObjVoloptPillar__sub_80048118(5);
         for (k = 0; k < 4; k++) {
-            void *p = TObject::operator new(0xC0);
-            if (p != NULL) {
-                TObjVoloptPillar__ct(p, &ring_positions[k], this);
-            }
+            new TObjVoloptPillar(&ring_positions[k], this);
         }
         play_sound_effect(0x4003B722, position, 0, 0);
         state = 6;

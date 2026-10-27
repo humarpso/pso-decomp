@@ -452,13 +452,13 @@ pso/object/TObjVoloptCage.cpp:
 pso/boss/TUnk_80484A94.cpp:
 	.text       start:0x800495F8 end:0x80049A1C
 	.rodata     start:0x804366F8 end:0x8043670C
-	.data       start:0x80484A68 end:0x80484A94
+	.data       start:0x80484A68 end:0x80484AD0
 	.sdata2     start:0x805D8890 end:0x805D8894
 
 pso/boss/TUnk_80484AFC.cpp:
 	.text       start:0x80049A1C end:0x80049FD8
 	.rodata     start:0x80436710 end:0x80436720
-	.data       start:0x80484AD0 end:0x80484AFC
+	.data       start:0x80484AD0 end:0x80484B38
 	.sbss       start:0x805D4D30 end:0x805D4D34
 	.sdata2     start:0x805D8898 end:0x805D88B4
 
@@ -468,7 +468,7 @@ pso/unk/text_80049FD8.cpp:
 pso/object/TObjVoloptPillar.cpp:
 	.text       start:0x8004A0AC end:0x8004A634
 	.rodata     start:0x804367A0 end:0x804367A8
-	.data       start:0x80484B38 end:0x80484B64
+	.data       start:0x80484B38 end:0x80484BA0
 	.sbss       start:0x805D4D38 end:0x805D4D48
 	.sdata2     start:0x805D88B8 end:0x805D88EC
 

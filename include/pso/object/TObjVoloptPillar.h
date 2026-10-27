@@ -17,6 +17,7 @@ public:
     f32 start_y;
     TObject *owner;
 
+    TObjVoloptPillar(Vec *pos, TObject *owner);
     virtual ~TObjVoloptPillar();
     virtual void run_task();
     virtual void render();
@@ -32,6 +33,5 @@ extern const Vec volopt_pillar_push;
 extern const TObjChipParams volopt_pillar_chip_params;
 extern const f64 volopt_pillar_rad_to_angle;
 
-extern "C" TObjVoloptPillar *TObjVoloptPillar__ct(TObjVoloptPillar *pillar, Vec *pos, TObject *owner);
 
 #endif

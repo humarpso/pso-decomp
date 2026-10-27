@@ -21,6 +21,7 @@ public:
     void *glow;
     s16 entity_id;
 
+    TUnk_80484A94(TObjEnemy *owner, Vec *pos, s32 target);
     virtual ~TUnk_80484A94();
     virtual void run_task();
     virtual void render();
@@ -31,7 +32,6 @@ public:
 typedef char TUnk_80484A94_size[sizeof(TUnk_80484A94) == 0xE0 ? 1 : -1];
 
 extern "C" {
-TUnk_80484A94 *TUnk_80484A94__ct(TUnk_80484A94 *shot, TObjEnemy *owner, Vec *pos, s32 target_id);
 f32 fn_800499FC(s32 index);
 void fn_80049A0C(TObjEnemyCustom *boss);
 }

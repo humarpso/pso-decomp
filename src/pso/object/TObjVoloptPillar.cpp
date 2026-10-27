@@ -34,9 +34,7 @@ void subtract_vector(Vec *v, const Vec *sub);
 void play_sound_effect(s32 id, const Vec *pos, s32 a2, s32 a3);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TUnk_804AF8A0 *__ct__13TUnk_804AF8A0FP7TObject(TUnk_804AF8A0 *actor, TObject *parent);
 extern GC_Mtx identity_matrix;
-extern void *__vt__16TObjVoloptPillar[];
 }
 
 
@@ -158,33 +156,22 @@ void TObjVoloptPillar::cache_target_values() {
     volopt_pillar_base_textures = boss3_volopt_resources->models[0x15].m_c;
 }
 
-extern "C" TObjVoloptPillar *__dt__16TObjVoloptPillarFv(TObjVoloptPillar *pillar, s16 flags) {
-    if (pillar != NULL) {
-        *(void ***)((u8 *)pillar + 0x18) = __vt__16TObjVoloptPillar;
-        free_collision_body_parts(pillar);
-        __dt__13TUnk_804AF8A0Fv(pillar, 0);
-        if (flags > 0) {
-            TObject::operator delete(pillar);
-        }
-    }
-    return pillar;
+TObjVoloptPillar::~TObjVoloptPillar() {
+    free_collision_body_parts(this);
 }
 
-TObjVoloptPillar *TObjVoloptPillar__ct(TObjVoloptPillar *pillar, Vec *pos, TObject *owner) {
+TObjVoloptPillar::TObjVoloptPillar(Vec *pos, TObject *owner) : TUnk_804AF8A0(tl_04) {
     f32 dist;
-    __ct__13TUnk_804AF8A0FP7TObject(pillar, tl_04);
-    *(void ***)((u8 *)pillar + 0x18) = __vt__16TObjVoloptPillar;
-    pillar->m_name = TObjVoloptPillar_name;
-    init_collision_body_parts(pillar, volopt_pillar_collision_body, 1);
-    VecCopy((Vec *)pillar->position, pos);
-    dist = ((TObjPlayer *)pillar->position)->horizontal_distance((u8 *)&boss3_volopt_spawn_pos);
+    m_name = TObjVoloptPillar_name;
+    init_collision_body_parts(this, volopt_pillar_collision_body, 1);
+    VecCopy((Vec *)position, pos);
+    dist = ((TObjPlayer *)position)->horizontal_distance((u8 *)&boss3_volopt_spawn_pos);
     if (dist < 60.0f) {
-        pillar->position[1] = 90.0f;
+        position[1] = 90.0f;
     } else {
-        pillar->position[1] = 90.0f - 0.33333334f * (dist - 60.0f);
+        position[1] = 90.0f - 0.33333334f * (dist - 60.0f);
     }
-    pillar->start_y = pillar->position[1];
-    pillar->state = 0;
-    pillar->owner = owner;
-    return pillar;
+    start_y = position[1];
+    state = 0;
+    this->owner = owner;
 }

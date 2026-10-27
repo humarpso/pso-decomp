@@ -1,4 +1,5 @@
 #include "pso/boss/TUnk_80484A94.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3Volopt_8004812C.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -24,9 +25,7 @@ s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
 u16 obj_getField1c(TObject *object);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TUnk_804AF8A0 *__ct__13TUnk_804AF8A0FP7TObject(TUnk_804AF8A0 *actor, TObject *parent);
 extern GC_Mtx identity_matrix;
-extern void *__vt__13TUnk_80484A94[];
 }
 
 static const Vec volopt_shot_forward = {0.0f, 0.0f, 0.0f};
@@ -98,47 +97,36 @@ void TUnk_80484A94::run_task() {
     play_persistent_sound(0x4003C11D, this, (Vec *)position, 0, 0);
 }
 
-extern "C" TUnk_80484A94 *__dt__13TUnk_80484A94Fv(TUnk_80484A94 *shot, s16 flags) {
-    if (shot != NULL) {
-        *(void ***)((u8 *)shot + 0x18) = __vt__13TUnk_80484A94;
-        free_collision_body_parts(shot);
-        if (shot->trail != NULL) {
-            ((TObject *)shot->trail)->queue_destruction();
-        }
-        if (shot->glow != NULL) {
-            ((TObject *)shot->glow)->queue_destruction();
-        }
-        if (shot->m_up != NULL) {
-            fn_80049A0C((TObjEnemyCustom *)shot->m_up);
-        }
-        __dt__13TUnk_804AF8A0Fv(shot, 0);
-        if (flags > 0) {
-            TObject::operator delete(shot);
-        }
+TUnk_80484A94::~TUnk_80484A94() {
+    free_collision_body_parts(this);
+    if (trail != NULL) {
+        ((TObject *)trail)->queue_destruction();
     }
-    return shot;
+    if (glow != NULL) {
+        ((TObject *)glow)->queue_destruction();
+    }
+    if (m_up != NULL) {
+        fn_80049A0C((TObjEnemyCustom *)m_up);
+    }
 }
 
-TUnk_80484A94 *TUnk_80484A94__ct(TUnk_80484A94 *shot, TObjEnemy *owner, Vec *pos, s32 target_id) {
-    __ct__13TUnk_804AF8A0FP7TObject(shot, (TObject *)owner);
-    *(void ***)((u8 *)shot + 0x18) = __vt__13TUnk_80484A94;
-    init_collision_body_parts(shot, volopt_shot_collision_body, 1);
-    shot->entity_id = obj_getField1c((TObject *)owner);
-    VecCopy((Vec *)shot->position, pos);
-    shot->target_id = target_id;
-    shot->m_5c = 0;
-    shot->trail = spawn_particle_effect_with_rotation(shot->position, &shot->m_5c, 0x11C, 2);
-    shot->glow = spawn_particle_effect_with_rotation(shot->position, &shot->m_5c, 0x11D, 2);
+TUnk_80484A94::TUnk_80484A94(TObjEnemy *owner, Vec *pos, s32 target) : TUnk_804AF8A0(owner) {
+    init_collision_body_parts(this, volopt_shot_collision_body, 1);
+    entity_id = obj_getField1c(owner);
+    VecCopy((Vec *)position, pos);
+    target_id = target;
+    m_5c = 0;
+    trail = spawn_particle_effect_with_rotation(position, &m_5c, 0x11C, 2);
+    glow = spawn_particle_effect_with_rotation(position, &m_5c, 0x11D, 2);
     push_matrix_from(identity_matrix);
     {
         Vec dir = volopt_shot_forward;
         dir.z = fn_800499FC(0);
         rotate_matrix_y(0, ((TUnk_804B9870 *)owner)->rotation_y);
-        rotate_vector_by_matrix(0, &dir, &shot->velocity);
+        rotate_vector_by_matrix(0, &dir, &velocity);
     }
     pop_matrix();
-    shot->lifetime = TBoss3Volopt__sub_8004816C(0);
-    return shot;
+    lifetime = TBoss3Volopt__sub_8004816C(0);
 }
 
 f32 fn_800499FC(s32 index) {

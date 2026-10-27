@@ -19,6 +19,7 @@ public:
     void *trail;
     s32 trail_rotation[3];
 
+    TUnk_80484AFC(TObject *parent, Vec *pos, s32 angle, s32 target);
     virtual ~TUnk_80484AFC();
     virtual void run_task();
     virtual void render();
@@ -28,7 +29,5 @@ public:
 
 typedef char TUnk_80484AFC_size[sizeof(TUnk_80484AFC) == 0xF0 ? 1 : -1];
 
-extern "C" TUnk_80484AFC *TBoss3Volopt__sub_80049E9C(TUnk_80484AFC *missile, TObject *parent, Vec *pos,
-                                                       s32 rotation_y, s32 target_id);
 
 #endif

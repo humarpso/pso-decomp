@@ -1615,6 +1615,8 @@ force_active:
   - __dt__13TUnk_80484840Fv
   - __dt__13TUnk_80484870Fv
   - __dt__13TUnk_80484888Fv
+  - __dt__13TUnk_80484A94Fv
+  - __dt__13TUnk_80484AFCFv
   - __dt__13TUnk_80488AD8Fv
   - __dt__13TUnk_8048DF58Fv
   - __dt__13TUnk_8049387CFv
@@ -1751,6 +1753,7 @@ force_active:
   - __dt__16TObjEvtCollisionFv
   - __dt__16TObjItemOKWindowFv
   - __dt__16TObjTagChallengeFv
+  - __dt__16TObjVoloptPillarFv
   - __dt__17TAdExNetConfirmGCFv
   - __dt__17TAdFloorLoadCamGCFv
   - __dt__17TAdFloorLoadPrtGCFv
@@ -2052,6 +2055,8 @@ force_active:
   - __vt__13TUnk_80484840
   - __vt__13TUnk_80484870
   - __vt__13TUnk_80484888
+  - __vt__13TUnk_80484A94
+  - __vt__13TUnk_80484AFC
   - __vt__13TUnk_80488AD8
   - __vt__13TUnk_8048DF58
   - __vt__13TUnk_80494E10
@@ -2162,6 +2167,7 @@ force_active:
   - __vt__16TObjItemOKWindow
   - __vt__16TObjOnlineEnding
   - __vt__16TObjTagChallenge
+  - __vt__16TObjVoloptPillar
   - __vt__17TAdExNetConfirmGC
   - __vt__17TAdFloorLoadCamGC
   - __vt__17TAdFloorLoadPrtGC
@@ -10753,6 +10759,8 @@ force_active:
   - render__13TQuestColCtrlFv
   - render__13TUnk_80484840Fv
   - render__13TUnk_80484870Fv
+  - render__13TUnk_80484A94Fv
+  - render__13TUnk_80484AFCFv
   - render__13TUnk_804A2148Fv
   - render__13TUnk_804B5C08Fv
   - render__13TUnk_804CC870Fv
@@ -10818,6 +10826,7 @@ force_active:
   - render__16TObjEneMorfosArmFv
   - render__16TObjEvtCollisionFv
   - render__16TObjOnlineEndingFv
+  - render__16TObjVoloptPillarFv
   - render__17TAdExNetConfirmGCFv
   - render__17TAdFloorLoadCamGCFv
   - render__17TAdGameStartSubGCFv
@@ -11175,6 +11184,8 @@ force_active:
   - run_task__13TUnk_80484840Fv
   - run_task__13TUnk_80484870Fv
   - run_task__13TUnk_80484888Fv
+  - run_task__13TUnk_80484A94Fv
+  - run_task__13TUnk_80484AFCFv
   - run_task__13TUnk_80488AD8Fv
   - run_task__13TUnk_80494E10Fv
   - run_task__13TUnk_8049EFB8Fv
@@ -11279,6 +11290,7 @@ force_active:
   - run_task__16TObjEvtCollisionFv
   - run_task__16TObjOnlineEndingFv
   - run_task__16TObjTagChallengeFv
+  - run_task__16TObjVoloptPillarFv
   - run_task__17TAdExNetConfirmGCFv
   - run_task__17TAdFloorLoadCamGCFv
   - run_task__17TAdGameStartSubGCFv

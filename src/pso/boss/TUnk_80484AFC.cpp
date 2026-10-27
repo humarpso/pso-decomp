@@ -36,9 +36,7 @@ s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
 void check_enemy_body_collisions(TUnk_804AF8A0 *actor);
 void init_collision_body_parts(TUnk_804AF8A0 *actor, const CollisionBody *bodies, s32 count);
 void free_collision_body_parts(TUnk_804AF8A0 *actor);
-TUnk_804AF8A0 *__ct__13TUnk_804AF8A0FP7TObject(TUnk_804AF8A0 *actor, TObject *parent);
 extern GC_Mtx identity_matrix;
-extern void *__vt__13TUnk_80484AFC[];
 }
 
 
@@ -135,46 +133,34 @@ void TUnk_80484AFC::run_task() {
     play_persistent_sound(0x4003C114, this, (Vec *)position, 0, 0);
 }
 
-extern "C" TUnk_80484AFC *__dt__13TUnk_80484AFCFv(TUnk_80484AFC *missile, s16 flags) {
-    if (missile != NULL) {
-        *(void ***)((u8 *)missile + 0x18) = __vt__13TUnk_80484AFC;
-        free_collision_body_parts(missile);
-        if (missile->trail != NULL) {
-            ((TObject *)missile->trail)->queue_destruction();
-        }
-        __dt__13TUnk_804AF8A0Fv(missile, 0);
-        if (flags > 0) {
-            TObject::operator delete(missile);
-        }
+TUnk_80484AFC::~TUnk_80484AFC() {
+    free_collision_body_parts(this);
+    if (trail != NULL) {
+        ((TObject *)trail)->queue_destruction();
     }
-    return missile;
 }
 
-TUnk_80484AFC *TBoss3Volopt__sub_80049E9C(TUnk_80484AFC *missile, TObject *parent, Vec *pos, s32 rotation_y,
-                                          s32 target_id) {
-    __ct__13TUnk_804AF8A0FP7TObject(missile, parent);
-    *(void ***)((u8 *)missile + 0x18) = __vt__13TUnk_80484AFC;
-    init_collision_body_parts(missile, volopt_missile_collision_body, 1);
-    missile->m_a4->radius = 5.0f;
-    VecCopy((Vec *)missile->position, pos);
-    missile->target_id = target_id;
-    missile->m_5c = 0;
-    missile->rotation_y = rotation_y;
-    missile->velocity.x = 0.0f;
-    missile->velocity.y = 0.0f;
-    missile->velocity.z = TBoss3Volopt__sub_8004812C(0);
+TUnk_80484AFC::TUnk_80484AFC(TObject *parent, Vec *pos, s32 angle, s32 target) : TUnk_804AF8A0(parent) {
+    init_collision_body_parts(this, volopt_missile_collision_body, 1);
+    m_a4->radius = 5.0f;
+    VecCopy((Vec *)position, pos);
+    target_id = target;
+    m_5c = 0;
+    rotation_y = angle;
+    velocity.x = 0.0f;
+    velocity.y = 0.0f;
+    velocity.z = TBoss3Volopt__sub_8004812C(0);
     push_matrix_from(identity_matrix);
-    rotate_matrix_y(0, missile->rotation_y);
-    rotate_matrix_x(0, missile->m_5c);
-    matrix_mult_vec(0, &missile->velocity, &missile->velocity);
+    rotate_matrix_y(0, rotation_y);
+    rotate_matrix_x(0, m_5c);
+    matrix_mult_vec(0, &velocity, &velocity);
     pop_matrix();
-    missile->model = boss3_volopt_resources->models[0x16].model;
-    missile->textures = boss3_volopt_resources->models[0x16].m_c;
-    missile->age = 0;
-    missile->trail_rotation[2] = 0;
-    missile->trail_rotation[1] = 0;
-    missile->trail_rotation[0] = 0;
-    missile->trail = spawn_particle_effect_with_rotation(missile->position, missile->trail_rotation, 0x112, 2);
+    model = boss3_volopt_resources->models[0x16].model;
+    textures = boss3_volopt_resources->models[0x16].m_c;
+    age = 0;
+    trail_rotation[2] = 0;
+    trail_rotation[1] = 0;
+    trail_rotation[0] = 0;
+    trail = spawn_particle_effect_with_rotation(position, trail_rotation, 0x112, 2);
     volopt_missile_expire_tick = (s32)TBoss3Volopt__sub_8004812C(3) + 0xF0;
-    return missile;
 }
