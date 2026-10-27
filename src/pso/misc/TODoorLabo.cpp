@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TODoorFourLightBase.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -227,7 +228,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     tbl = door_labo_link_table;
     for (i = 0; i < 8; i++) {
         if (tbl.v[i] != -1) {
-            arg0->sw[i] = ((TObjSeabedSuisoBrakable *)(arg0->fD4))->count_linked_switches(tbl.v[i]);
+            arg0->sw[i] = (s32)find_object_node((NJS_OBJECT *)(arg0->fD4), tbl.v[i]);
         }
     }
     arg0->fF8 = 1;
@@ -332,7 +333,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     {
         Tbl_8029FD70 tbl = door_four_light_seabed_u_table;
         for (i = 0; i < 8; i++) {
-            self->fD8[i] = ((TObjSeabedSuisoBrakable *)(self->fD4))->count_linked_switches(tbl.w[i]);
+            self->fD8[i] = (s32)find_object_node((NJS_OBJECT *)(self->fD4), tbl.w[i]);
         }
     }
     ((TODoorFourLightBase *)arg0)->clamp_light_index();
@@ -456,7 +457,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     {
         Tbl_802A0068 tbl = door_four_light_seabed_index_table;
         for (i = 0; i < 8; i++) {
-            self->fD8[i] = ((TObjSeabedSuisoBrakable *)(self->fD4))->count_linked_switches(tbl.w[i]);
+            self->fD8[i] = (s32)find_object_node((NJS_OBJECT *)(self->fD4), tbl.w[i]);
         }
     }
     ((TODoorFourLightBase *)arg0)->clamp_light_index();

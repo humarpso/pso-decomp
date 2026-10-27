@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOChatSensor.h"
-#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOChatSensor.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
@@ -17,16 +17,11 @@ u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2);
 void *__dt__12TOChatSensorFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
-void *__dt__12TOChatSensorFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOChatSensor::~TOChatSensor() {
+
+}
+extern "C" {
 
 u32 TOChatSensor__ct(int arg0, void *parent, void *arg2) {
     s32 n;

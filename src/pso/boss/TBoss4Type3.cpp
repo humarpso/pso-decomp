@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -55,6 +56,7 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/object/TObjFish.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 #pragma defer_codegen on
 
 struct Vec_8005A1AC { f32 x, y, z; };
@@ -489,10 +491,10 @@ extern "C" {
 extern u8 is_actor_cadence_frame__13TUnk_804806E8Fl[];
 }
 extern "C" {
-extern u8 receive_weapon_special_attack__10TObjPlayerFv[];
+extern u8 receive_weapon_special_attack__13TUnk_804806E8FPvPv[];
 }
 extern "C" {
-extern u8 receive_direct_attack__13TUnk_804806E8FPvPvPvll[];
+extern u8 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll[];
 }
 extern "C" {
 extern u8 apply_knockback_from_attacker__13TUnk_804806E8FPUc[];
@@ -507,7 +509,7 @@ extern "C" {
 void vfunc_66__13TUnk_804806E8Fv();
 }
 extern "C" {
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 }
 extern "C" {
 void vfunc_61__13TUnk_804806E8Fv();
@@ -534,7 +536,7 @@ extern "C" {
 extern u8 cure_poison_ailment__13TUnk_804806E8Fv[];
 }
 extern "C" {
-extern u8 apply_defense_stat_status__10TObjPlayerFlPv[];
+extern u8 apply_defense_stat_status__13TUnk_804806E8FPv[];
 }
 extern "C" {
 extern u8 apply_attack_stat_status__13TUnk_804806E8FPv[];
@@ -549,7 +551,7 @@ extern "C" {
 extern u8 select_melee_contact_body__13TUnk_804806E8FPvf[];
 }
 extern "C" {
-extern u8 update_defense_stat_status[];
+extern u8 update_defense_stat_status__13TUnk_804806E8Fv[];
 }
 extern "C" {
 extern u8 update_attack_stat_status__13TUnk_804806E8Fv[];
@@ -639,7 +641,7 @@ extern "C" {
 void reset_pose__13TUnk_804806E8Fv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -736,19 +738,19 @@ void *__vt__11TBoss4Type3[83] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
+    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
+    (void *)&receive_weapon_special_attack__13TUnk_804806E8FPvPv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__13TUnk_804806E8Fv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status__13TUnk_804806E8Fv, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__11TBoss4Type3Fv, (void *)&apply_paralysis__11TBoss4Type3Fv, (void *)&apply_slow_status__11TBoss4Type3Fv, (void *)&apply_confusion_status__11TBoss4Type3Fv,
     (void *)&apply_movement_ailment__11TBoss4Type3Fl, (void *)&apply_shock_status__11TBoss4Type3Fv, (void *)&clear_harmful_statuses__11TBoss4Type3Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TUnk_804806E8Fv, (void *)&init_effect__11TBoss4Type3FPv, (void *)&reset_action_to_3__11TBoss4Type3FPv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&get_anim_node_position__13TUnk_804806E8FlP3Vec, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
+    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
@@ -878,7 +880,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     s32 model;
     s32 p;
 
-    ((TObjEnemy *)self)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(self, (void*)parent);
     self->vt = __vt__11TBoss4Type3;
     self->f0 = (s32)TBoss4Type3_name;
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);
@@ -1619,7 +1621,7 @@ void TBoss4Type3::update_target_effect_timer() {
     static s32 sound_frame = (s32)8.0f;
     temp_r30 = *(s32 *)((s8 *)this + 0x3D8) % 39;
     if (temp_r30 == 0) {
-        TBoss4Type3::spawn_effect(0x60, 0xF, (s16) *(u16 *)((s8 *)this + 0x3BA));
+        start_pad_rumble_client(0x60, 0xF, (s16) *(u16 *)((s8 *)this + 0x3BA));
     }
     if (temp_r30 == sound_frame) {
         ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003C133, 0, 0, 0);
@@ -1955,7 +1957,7 @@ void TBoss4Type3::update_light_magic() {
                 TTecGrants::create((void *)arg0, (void *)sub, &g, (void *)r29);
             }
         }
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (--*(s32 *)((s8 *)arg0 + 0x398) < 0) {
         ((TBoss4Type3 *)arg0)->set_action_from_table(1);
@@ -2005,7 +2007,7 @@ void TBoss4Type3::update_dark_magic() {
                 create__9TTecMegidFllll(o, &v, (u8 *)p, r30);
             }
         }
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (--o->f398 < 0) {
         ((TBoss4Type3 *)o)->set_action_from_table(1);
@@ -2056,7 +2058,7 @@ void TBoss4Type3::update_capture() {
     ((TBoss4Type3 *)arg0)->turn_toward_player(this->m_3b8);
     if (this->m_398 == 0x31) {
         play_sound_effect(0x4003AA2E, 0, 0, 0);
-        TBoss4Type3::spawn_effect(0xC0, 0xF, (s16)this->m_3b8);
+        start_pad_rumble_client(0xC0, 0xF, (s16)this->m_3b8);
         ((TBoss4Type3 *)arg0)->set_anim_state(5);
     }
     pos = (u8 *)&this->m_474;
@@ -2189,7 +2191,7 @@ void TBoss4Type3::update_libera() {
     }
     ((TBoss4Type3 *)o)->turn_toward_player(id);
     if (o->f398 == 0x31) {
-        TBoss4Type3::spawn_effect(0xC0, 0xF, (s16)o->f3ba);
+        start_pad_rumble_client(0xC0, 0xF, (s16)o->f3ba);
         o->f3b8 = 0xFFFF;
         o->f3ba = 0xFFFF;
     }

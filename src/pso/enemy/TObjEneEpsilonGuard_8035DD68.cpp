@@ -480,7 +480,7 @@ void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 // (moved from TBoss6DPB: these three EpsilonGuard methods at 0x8035DCC0-0x8035DD68 use this unit's pool)
 struct Msg_8035DD18 { s32 type; s32 value; };
 extern "C" {
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, s32, Msg_8035DD18, void *, s32, s32);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, s32, Msg_8035DD18, void *, s32, s32);
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
 }
 
@@ -496,7 +496,7 @@ f32 TObjEneEpsilonGuard::receive_physical_attack(void *, f32) {
 }
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 att, Msg_8035DD18 *msg, void *coll, s32 tech, s32 arg5) {
     if (msg->type == 0x14) {
-        return receive_direct_attack__13TUnk_804806E8FPvPvPvll((void *)arg0, att, *msg, coll, tech, arg5);
+        return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll((void *)arg0, att, *msg, coll, tech, arg5);
     }
     ((TUnk_804806E8 *)arg0)->try_apply_damage(arg0 + 0x2FC, 0);
     return 0.0f;
@@ -1095,7 +1095,7 @@ s32 reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, int);
 extern s32 epsilon_guard_boss_stat_handle;
 extern s32 epsilon_guard_shared_handler_b;
 extern s32 epsilon_guard_registered_object_handle;
@@ -1147,7 +1147,7 @@ extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
 extern "C" void vfunc_67__13TUnk_804806E8Ff();
 extern "C" void vfunc_66__13TUnk_804806E8Fv();
-extern "C" void vfunc_65__13TUnk_804806E8Fll();
+extern "C" void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 extern "C" void vfunc_60__13TUnk_804806E8Fv();
 extern "C" void vfunc_59__13TUnk_804806E8Fv();
 extern "C" void vfunc_58__13TUnk_804806E8Fv();
@@ -1177,6 +1177,7 @@ extern "C" void clear_all_status_effects__13TUnk_804806E8Fv();
 extern "C" void clear_harmful_statuses__13TUnk_804806E8Fv();
 extern "C" void cure_paralysis__13TUnk_804806E8Fv();
 extern "C" void cure_poison_ailment__13TUnk_804806E8Fv();
+extern "C" void apply_defense_stat_status__13TUnk_804806E8FPv();
 extern "C" void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 extern "C" void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 extern "C" void vfunc_78__13TUnk_804806E8Fl();
@@ -1194,13 +1195,13 @@ extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__13TUnk_804806E8FPvf();
-extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+extern "C" void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
 extern "C" s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
 extern "C" s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-extern "C" s32 update_defense_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
@@ -1230,14 +1231,14 @@ void *__vt__19TObjEneEpsilonGuard[105] = {
     (void *)&vfunc_28__19TObjEneEpsilonGuardFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__14TObjEneEpsilonFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__14TObjEneEpsilonFv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status__13TUnk_804806E8Fv, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__19TObjEneEpsilonGuardFv, (void *)&vfunc_62__19TObjEneEpsilonGuardFv, (void *)&vfunc_63__19TObjEneEpsilonGuardFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&get_anim_node_position__13TUnk_804806E8FlP3Vec, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
+    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
@@ -1389,7 +1390,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     ((VObj_18_b345b0 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = construct_collider_proxy__13TUnk_804AF8A0Fv(o, 0);
+        o = __ct__13TUnk_804AF8A0FP7TObject(o, 0);
     }
     *(void **)((s8 *)arg0 + 0x45C) = o;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x45C), (u8 *) TObjEneEpsilonGuard__model_desc + 0x2C, 1);

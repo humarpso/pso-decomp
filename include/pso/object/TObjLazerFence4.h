@@ -7,7 +7,7 @@
 struct TObjLazerFence4 : public TUnk_804AF8A0 {
     virtual ~TObjLazerFence4();
     void sub_801933C8();
-    virtual s16 update_object_view_visibility(f32, f32);
+    virtual s32 update_object_view_visibility(f32, f32);
     u32 m_ac;
     u8 _padB0[0x8];
     u16 m_b8;

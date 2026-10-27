@@ -1,1037 +1,446 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
-#include "pso/enemy/TObjEnemyCustom.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEneMe1GiGue.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/boss/TUnk_80483A10.h"
-extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
-extern "C" void test_flag30_512__13TUnk_804806E8Fv();
-extern "C" void test_flag_1000__13TUnk_804806E8Fv();
-extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/system/vector.h"
-
+#include "pso/system/NinjaUtil.h"
+#include "pso/boss/TBoss3VoloptCore.h"
+#include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/enemy/TObjEneLappy.h"
-#include "pso/enemy/TObjEnePanarms.h"
-#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/boss/TUnk_80484888.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/system/BmlResource.h"
+#include "pso/system/vector.h"
+#include "pso/TMainTask.h"
 
-struct VBase_18_c44252 { char pad[0x18]; };
-
-struct VObj_18_c44252 : VBase_18_c44252 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual s32 m18(void *, f32);
-    virtual void m19();
-    virtual s32 m20(void *, f32);
-    virtual void m21();
-    virtual void m22();
-    virtual s32 m23(void *, f32);
+// The actors check_target_collision hits, with slot 25 as it is called here:
+// the base declares apply_knockback_from_attacker(u8 *) without the strength.
+struct TBoss3VoloptCoreTarget : public TUnk_804AF8A0 {
+    virtual s32 add_actor_exp(s32 exp);
+    virtual s32 consume_timer_field(s32 frames);
+    virtual s32 get_actor_level_index();
+    virtual u8 *update_actor_ground_y();
+    virtual u8 *vfunc_18(u8 *);
+    virtual s32 is_actor_cadence_frame(s32 frame);
+    virtual s32 select_melee_contact_body(TObject *attacker, f32 range);
+    virtual int calc_distance_accuracy_penalty(void *, void *, void *, f32);
+    virtual f32 receive_physical_attack(TObject *attacker, f32 scale);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
+    virtual f32 receive_weapon_special_attack(void *, void *);
+    virtual void apply_knockback_from_attacker(TObject *attacker, f32 strength);
 };
 
-struct S_800401CC { s32 a; s32 b; s32 c; };
+struct TBoss3VoloptOrbitSpeeds {
+    u8 pad_0[0x18];
+    s32 speeds[1];
+};
 
 extern "C" {
-u8 obj_is_hit_receivable(void *);
-extern const f32 lbl_805D86B0;
-extern const f32 lbl_805D86D4;
-f32 cos_table_lookup(s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 set_matrix_identity(int, f32);
-s32 rotate_vector_by_matrix(int, int, int);
-s32 rotate_matrix_y(s32, s32);
-extern const f32 lbl_805D86C0;
-extern const f32 lbl_805D86C4;
-extern const f32 lbl_805D86C8;
-extern const f32 lbl_805D86CC;
-extern const f32 lbl_805D86D0;
-void TObjPlayer__sub_8003FCD0(u8 *arg0);
-s32 TObjPlayer__sub_80040AE4(s32 i);
-void update_if_active__15TObjEneMe1GiGueFl(void*, s32);
-s32 advance_animation_playback(void *);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
-extern s32 vol_opt_active_hit_zone;
-void TObjPlayer__sub_8003F9D4(void *arg0_);
-u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
-void *get_player_by_client_id(s32 i);
-void * __nw__7TObjectFUl(int);
-s32 vec3_add_to(void *, void *);
-s32 subtract_vector(void *, void *);
-extern s32 volopt_slot_positions[];
-extern const f32 lbl_805D86DC;
-extern const f32 lbl_805D86E0;
-extern const f32 lbl_805D86E4;
-void TObjPlayer__sub_800401CC(u8 *arg0);
-}
-struct Base_8003F6B4_8003F4C0 { char pad[0x18]; };
-
-struct VObj_8003F6B4_8003F4C0 : Base_8003F6B4_8003F4C0 {
-    virtual void m0();    virtual void m1();    virtual void m2();    virtual void m3();
-    virtual void m4();    virtual void m5();    virtual void m6();    virtual void m7();
-    virtual void m8();    virtual void m9();    virtual void m10();    virtual void m11();
-    virtual void m12();    virtual void m13();    virtual void m14();    virtual void m15();
-    virtual void m16();    virtual void m17();    virtual void m18();    virtual void m19();
-    virtual void m20(void *second, f32 c);
-};
-
-struct Fn80040464Base_80040464_8003F4C0 { char pad[0x18]; };
-
-struct Fn80040464VObj_80040464_8003F4C0 : Fn80040464Base_80040464_8003F4C0 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
-struct VBase_18_b8f5cb
-{
-  char pad[0x18];
-};
-
-struct VObj_18_b8f5cb : VBase_18_b8f5cb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual s32 m30();
-    virtual s32 m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual s32 m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual s32 m60();
-    virtual s32 m61();
-};
-
-struct Obj_80040038 { u8 pad[0xb8]; s16 anim; u8 pad2[0x37c - 0xba]; s32 state; };
-
-struct Obj_8003FFE4 { u8 pad[0x30]; u32 flags; u8 pad2[0x37c - 0x34]; s32 state; };
-
-struct Obj_8004055C { u8 pad0[0x326]; s16 state; };
-
-struct Base_8003F730 { char pad[0x18]; };
-
-struct Obj_8003F730 : Base_8003F730 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
-    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
-    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
-    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
-    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
-    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
-    virtual void m55(); virtual void m56();
-    u8 pad1C[0x390 - 0x1C];
-    s32 unk390;
-    s32 unk394;
-    u8 pad398[0x3BC - 0x398];
-    s32 slot;
-};
-
-typedef struct Slot_8003F730 {
-    s8 used;
-    u8 pad[3];
-} Slot_8003F730;
-
-typedef struct Obj_8003FBC8 {
-    u8 pad0[0x3C];
-    f32 y;
-    u8 pad40[0x326 - 0x40];
-    s16 unk326;
-    u8 pad328[0x390 - 0x328];
-    s32 angle;
-} Obj_8003FBC8;
-
-typedef struct Ent_8003FBC8 {
-    u8 pad0[0x30];
-    u32 flags;
-} Ent_8003FBC8;
-
-struct VBase_18_62ff9d { char pad[0x18]; };
-
-struct VObj_18_62ff9d : VBase_18_62ff9d {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual s32 m56();
-};
-
-struct Vec_8003F81C { f32 x, y, z; };
-
-typedef struct VBase_18_b8f5cb VBase_18_b8f5cb;
-
-typedef struct VObj_18_b8f5cb VObj_18_b8f5cb;
-
-struct G_80040AE4 { u8 pad[0x18]; s32 arr[1]; };
-
-struct E_80040AF8 { s32 f0; s32 f4; s32 f8; s32 fc; };
-
-struct G_80040AF8 { u8 pad[0x42c]; E_80040AF8 *entries; };
-
-struct O_80040AF8 { u8 pad[0x24]; s32 f24; u8 pad2[0x34 - 0x28]; s32 f34; };
-
-struct VBase_80040894 { u8 pad[0x18]; };
-
-struct VObj_80040894 : VBase_80040894 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-};
-
-void reset_status_effect_row(u8 *arg0);
-extern "C" {
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
-s32 obj_setFlags30(void *, s32);
-s32 queue_destruction__7TObjectFv(void *);
-int dispatch_shared_handler_a__6TLobbyFl(void*);
-int register_object__6TLobbyFl(void*);
-int dispatch_shared_handler_b__6TLobbyFl(void*);
-int register_boss__6TLobbyFl(void*);
-void fn_8003CFEC(int a0);
-s32 TBoss3Volopt__sub_8003F398();
-s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
-void TObjPlayer__sub_8003F81C(u8 *arg0);
-void render__13TUnk_80483A10Fv(u8 *arg0);
-void TObjPlayer__sub_80040558(void * _w0);
-void run_task__13TUnk_80483A10Fv(u8 *arg0);
-void TBoss3VoloptCore__sub_80040788(void);
-void * TBoss3VoloptCore__sub_800407E0(void *arg0);
-void * destroy__13TUnk_80483A10Fs(void *arg0, s16 arg1);
-void sub_80040894__13TUnk_80483A10Fv(VObj_80040894 *arg0);
-void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
-void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
-int is_target_in_attack_range__13TUnk_80483A10Fv(void);
-void TCameraCtrl__sub_8006A044(s32 id, f32 v);
-u32 create_particle_emitter(void *, int);
-void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
-s32 TObjEnemyCustom__ct();
-s32 angle_difference_abs(s32, s32);
-s32 approach_angle_limited(s32, s32, s32);
-void * find_entity_by_id(u16);
-s32 free_collision_body_parts(void *);
-s32 init_collision_body_parts(void *, void *, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 __dl__7TObjectFPv(void *);
-s32 scale_matrix(s32, f32, f32, f32);
-s32 rotate_matrix_x(s32, s32);
-s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
-
-extern Slot_8003F730 volopt_target_slot_used[];
-extern u16 lbl_805D271C;
-extern s32 lbl_805D2728;
-extern int boss3_volopt_resources;
-extern u16 boss3_volopt_monitor_base_actor_id;
-extern int lbl_805D4C50;
-extern int lbl_805D4C54;
-extern int lbl_805D4C58;
-extern int volopt_array_resource_ptr;
-extern int volopt_resource_table_ptr;
-extern s32 boss3_volopt_core_active_flag;
-extern s32 boss3_volopt_turn_angle_limit;
 extern s32 local_client_id;
-extern const f32 lbl_805D86B4;
-extern const f32 lbl_805D86B8;
-extern const f32 lbl_805D86BC;
-extern const f32 lbl_805D86D8;
-extern const f32 lbl_805D86E8;
-extern const f32 lbl_805D86EC;
-extern const f32 lbl_805D86F0;
-extern const f32 lbl_805D86F4;
-extern s32 model_render_flags;
-extern void *tl_04;
+extern u32 model_render_flags;
+void *find_entity_by_id(u16 id);
+TObjPlayer *get_player_by_client_id(s32 client_id);
+void advance_animation_playback(TObjMotion *motion);
+void minimap_render_dot(f32 *pos, s32 color, s32, s32);
+void play_persistent_sound(u32 id, TObject *source, f32 *pos, s32, s32);
+void play_sound_effect(u32 id, f32 *pos, s32, s32);
+s32 angle_difference_abs(s32 a, s32 b);
+s32 approach_angle_limited(s32 angle, s32 target, s32 step);
+TObject *create_particle_emitter(Vec *pos, s32 id);
+f32 cos_table_lookup(s32 angle);
+void push_matrix(void);
+void pop_matrix(void);
+void set_matrix_identity(s32 matrix, f32 scale);
+void rotate_matrix_x(s32 matrix, s32 angle);
+void rotate_matrix_y(s32 matrix, s32 angle);
+void scale_matrix(s32 matrix, f32 x, f32 y, f32 z);
+void post_translate_matrix(f32 *pos);
+void rotate_vector_by_matrix(s32 matrix, Vec *src, Vec *dst);
+void vec3_add_to(Vec *dst, Vec *add);
+void subtract_vector(Vec *dst, Vec *sub);
+void draw_chunk_object(void *object);
+void free_collision_body_parts(TObjEnemyCustom *object);
+void init_collision_body_parts(TObjEnemyCustom *object, TBoss3VoloptCoreBodyPart *parts, s32 count);
+void obj_setFlags30(TObjEnemyCustom *object, u32 flags);
+s32 obj_is_hit_receivable(TBoss3VoloptCoreTarget *object);
+void TCameraCtrl__sub_8006A044(s32 id, f32 strength);
+}
+void reset_status_effect_row(u8 *row);
 
-extern "C" {
-void vfunc_65__15TObjEnemyCustomFll();
-}
-extern "C" {
-void vfunc_6__13TUnk_804B9870FPsl();
-}
-extern "C" {
-void vfunc_63__15TObjEnemyCustomFv();
-}
-extern "C" {
-void vfunc_62__15TObjEnemyCustomFv();
-}
-extern "C" {
-void vfunc_61__15TObjEnemyCustomFv();
-}
-extern "C" {
-void vfunc_58__15TObjEnemyCustomFv();
-}
-extern "C" {
-void vfunc_28__15TObjEnemyCustomFv();
-}
-extern "C" {
-void vfunc_29__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_73__13TUnk_804806E8Fv();
-}
-extern "C" {
-void consume_timer_field__13TUnk_804806E8Fl();
-}
-extern "C" {
-void vfunc_67__13TUnk_804806E8Ff();
-}
-extern "C" {
-void vfunc_66__13TUnk_804806E8Fv();
-}
-extern "C" {
-void apply_slow_status__13TUnk_804806E8Fv();
-}
-extern "C" {
-void update_shock_clock__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_43__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_18__13TUnk_804806E8FPUc();
-}
-extern "C" {
-void vfunc_13__13TUnk_804AF8A0Fl();
-}
-extern "C" {
-void vfunc_74__9TObjEnemyFl();
-}
-extern "C" {
-void apply_hit_message_flags__9TObjEnemyFPv();
-}
-extern "C" {
-void add_actor_exp__13TUnk_804806E8Fl();
-}
-extern "C" {
-void apply_action_hold_status__13TUnk_804806E8Ff();
-}
-extern "C" {
-void apply_anti_technique__13TUnk_804806E8Fl();
-}
-extern "C" {
-void apply_attack_stat_status__13TUnk_804806E8FPv();
-}
-extern "C" {
-void apply_confusion_status__13TUnk_804806E8Fv();
-}
-extern "C" {
-void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
-}
-extern "C" {
-void apply_movement_ailment__13TUnk_804806E8Fl();
-}
-extern "C" {
-void apply_object_set_data__13TUnk_804B9870FPv();
-}
-extern "C" {
-void apply_paralysis__13TUnk_804806E8Fv();
-}
-extern "C" {
-void apply_poison_status__13TUnk_804806E8Fv();
-}
-extern "C" {
-void apply_set_data__9TObjEnemyFPv();
-}
-extern "C" {
-void apply_shock_status__13TUnk_804806E8Fv();
-}
-extern "C" {
-void apply_switch_attack__13TUnk_804806E8Fv();
-}
-extern "C" {
-void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
-}
-extern "C" {
-void vfunc_79__15TObjEnemyCustomFv();
-}
-extern "C" {
-void classify_actor_view_detail__13TUnk_804B9870Ffff();
-}
-extern "C" {
-void clear_all_status_effects__13TUnk_804806E8Fv();
-}
-extern "C" {
-void clear_harmful_statuses__13TUnk_804806E8Fv();
-}
-extern "C" {
-void cure_paralysis__13TUnk_804806E8Fv();
-}
-extern "C" {
-void cure_poison_ailment__13TUnk_804806E8Fv();
-}
-extern "C" {
-void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
-}
-extern "C" {
-void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_78__13TUnk_804806E8Fl();
-}
-extern "C" {
-void vfunc_77__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_76__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_75__13TUnk_804806E8Ff();
-}
-extern "C" {
-void clear_lobby_object_state__9TObjEnemyFv();
-}
-extern "C" {
-void vfunc_9__13TUnk_804806E8Fv();
-}
-extern "C" {
-void get_actor_level_index__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_12__9TObjEnemyFv();
-}
-extern "C" {
-void get_pos__13TUnk_804806E8Fl();
-}
-extern "C" {
-void is_actor_cadence_frame__13TUnk_804806E8Fl();
-}
-extern "C" {
-void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
-}
-extern "C" {
-void receive_physical_attack__13TUnk_804806E8FPvf();
-}
-extern "C" {
-void receive_weapon_special_attack__10TObjPlayerFv();
-}
-extern "C" {
-void render_shadows__9TObjEnemyFv(u8 *arg0);
-}
-extern "C" {
-void reset_motion_fields__13TUnk_804806E8Fv();
-}
-extern "C" {
-void reset_pose__13TUnk_804806E8Fv();
-}
-extern "C" {
-void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-}
-extern "C" {
-void select_melee_contact_body__13TUnk_804806E8FPvf();
-}
-extern "C" {
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
-}
-extern "C" {
-void try_start_action__13TUnk_804806E8Fll();
-}
-extern "C" {
-void update_action_hold_status__13TUnk_804806E8Fv();
-}
-extern "C" {
-s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
-}
-extern "C" {
-void update_actor_ground_y__13TUnk_804806E8Fv();
-}
-extern "C" {
-s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-}
-extern "C" {
-s32 update_defense_stat_status(u8 *arg0);
-}
-extern "C" {
-void update_flag30_timer__13TUnk_804806E8Fv();
-}
-extern "C" {
-void vfunc_60__15TObjEnemyCustomFv();
-}
-extern "C" {
-void vfunc_59__15TObjEnemyCustomFv();
-}
-extern "C" {
-void update_movement_status__13TUnk_804806E8Fv();
-}
-extern "C" {
-void update_object_view_visibility__13TUnk_804B9870Fff();
-}
-extern "C" {
-void update_poison_status__13TUnk_804806E8Fv();
-}
-void *boss3_volopt_core_hit_table[20] = {
-    (void *)0x10000, (void *)0xe, (void *)0x3f333333, (void *)0x0,
-    (void *)0x10000, (void *)0xe, (void *)0x3f333333, (void *)0x1,
-    (void *)0x20000, (void *)0xe, (void *)0x3f333333, (void *)0x4,
-    (void *)0x20000, (void *)0x2, (void *)0x3f4ccccd, (void *)0x8,
-    (void *)0x10000, (void *)0x2, (void *)0x3f4ccccd, (void *)0x10,
+#pragma readonly_strings on
+static const char *TBoss3VoloptCore_name = "TBoss3VoloptCore";
+static void *core_combat_stats_a;
+static void *core_combat_stats_b;
+static void *core_combat_stats_c;
+static TBoss3VoloptOrbitSpeeds *core_orbit_speeds;
+static BmlResource *core_resources;
+s32 boss3_volopt_core_active_flag;
+static s32 core_turn_angle_limit;
+
+static TObjMotionAction core_motions[5] = {
+    { 1, 0, 0xE, 0.7f, 0x0 },
+    { 1, 0, 0xE, 0.7f, 0x1 },
+    { 2, 0, 0xE, 0.7f, 0x4 },
+    { 2, 0, 0x2, 0.8f, 0x8 },
+    { 1, 0, 0x2, 0.8f, 0x10 },
 };
-void *lbl_804839C8[7] = {
-    (void *)0x43160000, (void *)0x3f0e38e3, (void *)0x400, (void *)0x1e0000,
-    (void *)0x0, (void *)0x1, (void *)0x0,
+static TBoss3VoloptCoreMovement core_movement = {
+    150.0f, 0.55555552f, 0x400, { 0x1E0000, 0, 1, 0 },
 };
-void *lbl_804839E4[11] = {
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x3a83126f,
-    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0,
+static TBoss3VoloptCoreBodyPart core_body_parts[1] = {
+    { { 0 }, 0.001f, { 0 }, 0x8003, { 0 } },
 };
-void *TBoss3VoloptCore__vtable[83] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__13TUnk_80483A10Fs, (void *)&run_task__13TUnk_80483A10Fv,
-    (void *)&render__13TUnk_80483A10Fv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
-    (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_80483A10Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
-    (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
-    (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
-    (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
-    (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__15TObjEnemyCustomFv, (void *)&vfunc_59__15TObjEnemyCustomFv,
-    (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&vfunc_61__15TObjEnemyCustomFv, (void *)&vfunc_62__15TObjEnemyCustomFv, (void *)&vfunc_63__15TObjEnemyCustomFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
-    (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__15TObjEnemyCustomFv,
-    (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
-};
-#define TBoss3VoloptCore__vtable ((s32 *)TBoss3VoloptCore__vtable)
 
-void TObjPlayer::set_grabbed_state(s32 arg0) {
-    void *entity;
+extern int player_battle_param_table[];
 
-    entity = find_entity_by_id(lbl_805D271C);
-    if ((entity != NULL) && ((s16) ((TObjEneMe1GiGue *)entity)->mode != 0xA)) {
-        update_if_active__15TObjEneMe1GiGueFl(entity, 0xA);
-        ((TObjEneMe1GiGue *)entity)->m_3c4 = arg0;
+void TObjEneMe1GiGue::set_state(s32 action) {
+    s16 current = mode;
+    if (current != action) {
+        m_380 = current;
+        next_action = action;
     }
 }
 
-void TObjPlayer::update_topple_state() {
-    u8 *arg0 = (u8 *)this;
-    s32 temp_r0_2;
-
-    switch (this->m_37c) {
-    case -1:
-        break;
-    case 0:
-        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
-        this->m_b8 = 0;
-        if (angle_difference_abs(this->rotation_y, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
-            this->m_37c = 3;
-        } else {
-            this->m_37c = 1;
-        }
-        break;
-    case 1:
-        temp_r0_2 = this->m_3c4 - 1;
-        this->m_3c4 = temp_r0_2;
-        if (temp_r0_2 <= 0) {
-            this->m_37c = 2;
-        }
-        break;
-    case 2:
-        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)&this->unk_398 - 0x4000, boss3_volopt_turn_angle_limit);
-        if (angle_difference_abs(this->rotation_y, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
-            this->m_37c = 3;
-        }
-        break;
-    case 3:
-        play_persistent_sound(0x4003BC05, arg0, (u8 *)&this->position, 0, 0);
-        advance_animation_playback(arg0);
-        *(s32 *)&this->unk_390 = (s32) (*(s32 *)&this->unk_390 - TObjPlayer__sub_80040AE4(0));
-        this->m_394 = (s32) (this->m_394 - TObjPlayer__sub_80040AE4(0));
-        TObjPlayer__sub_8003FCD0(arg0);
-        *(s32 *)&this->unk_398 = calc_spin_value();
-        if ((s32) this->m_394 <= -0x238E) {
-            this->vfunc_58();
-        }
-        break;
-    }
-    advance_animation_playback(arg0);
-    if ((s32) vol_opt_active_hit_zone >= 0) {
-        minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
+void TObjEneMe1GiGue::update_if_active(s32 action) {
+    if (!(m_388 & 1)) {
+        set_state(action);
     }
 }
 
-void TObjPlayer::link_photon(u16 arg0) {
-    void *entity;
-    void *temp_r4;
-    void *temp_r5;
-
-    entity = find_entity_by_id(lbl_805D271C);
-    if ((entity != NULL) && ((s32) *(s32 *)((s8 *)entity + 0x3C8) <= 0)) {
-        temp_r4 = find_entity_by_id(arg0);
-        if (temp_r4 != NULL) {
-            f32 temp_f1 = (*(f32 *)&lbl_805D86B0);
-            temp_r5 = *(void **)((s8 *)entity + 0xA4);
-            *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 0x04000000);
-            ((VObj_8003F6B4_8003F4C0*)entity)->m20(temp_r4, temp_f1);
-        }
-    }
+int TObjPlayer::get_battle_param(int index) {
+    return player_battle_param_table[index];
 }
 
-s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1) {
-    s32 i;
-    s32 idx;
-    for (i = 0; i < 6; i++) {
-        idx = (self->slot + 6 - i) % 6;
-        if (volopt_target_slot_used[idx].used == 0) {
-            self->slot = idx;
-            break;
-        }
-    }
-    if (i == 6) {
-        boss3_volopt_core_active_flag = 1;
-        self->m56();
-        return 0;
-    }
-    self->unk390 = (s32)(lbl_805D86B4 * (f32)((self->slot + 2) * 60 - 10));
-    self->unk394 = -0x71C;
-    return 1;
+void TBoss3VoloptCore::load_entry_params_volopt(s32 index) {
+    model = (void *)core_resources->models[index].model;
+    texture_id = core_resources->models[index].m_c;
 }
 
-void TObjPlayer__sub_8003F81C(u8 *arg0) {
-    s32 sp10;
-    f32 spC;
-    s32 sp8;
-    f32 temp_f1;
-    s16 temp_r3;
-    s16 temp_r4;
-    s16 var_r0;
-    s32 temp_r5;
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
-    case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x10000);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        *(s16 *)((s8 *)arg0 + 0x33C) = 5;
-        *(u32 *)((s8 *)arg0 + 0x3CC) = 0U;
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
-    case 1:
-        *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x398) - 0x8000), boss3_volopt_turn_angle_limit);
-        if (angle_difference_abs((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x398) - 0x8000)) <= (s32) boss3_volopt_turn_angle_limit) {
-            *(s16 *)((s8 *)arg0 + 0x33C) = (TBoss3Volopt__sub_8003F398() != 0) ? 5 : 0x1E;
-            *(s32 *)((s8 *)arg0 + 0x37C) = 2;
-        }
-        break;
-    case 2:
-        if (--*(s16 *)((s8 *)arg0 + 0x33C) <= 0) {
-            Vec_8003F81C v = *(Vec_8003F81C *)(arg0 + 0x38);
-            v.y -= lbl_805D86B8;
-            *(u32 *)((s8 *)arg0 + 0x3CC) = create_particle_emitter(&v, 0x31);
-            play_sound_effect(0x4003AD1E, (s32)(arg0 + 0x38), 0, 0);
-            *(s32 *)((s8 *)arg0 + 0x37C) = 3;
-        }
-        break;
-    case 3:
-        if (--*(s16 *)((s8 *)arg0 + 0x33C) < 0) {
-            boss3_volopt_core_active_flag = 1;
-            ((VObj_18_62ff9d *)(arg0))->m56();
-        }
-        break;
-    case -1:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x3CC) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3CC));
-            *(u32 *)((s8 *)arg0 + 0x3CC) = 0U;
-        }
-        break;
-    }
-    advance_animation_playback(arg0);
-    if ((s32) vol_opt_active_hit_zone >= 0) {
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
-    }
+s32 TBoss3VoloptCore::get_orbit_speed(s32 index) {
+    return core_orbit_speeds->speeds[index];
 }
 
-struct Obj_8003F730;
-void TObjPlayer__sub_8003F9D4(void *arg0_) {
-    u8 *arg0 = (u8 *)arg0_;
-    s32 temp_r0;
-    s32 temp_r0_2;
-    s32 temp_r3;
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
-    case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x10000);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
-        break;
-    case 1:
-        advance_animation_playback(arg0);
-        *(s32 *)((s8 *)arg0 + 0x390) = (s32) (*(s32 *)((s8 *)arg0 + 0x390) - TObjPlayer__sub_80040AE4(0));
-        *(s32 *)((s8 *)arg0 + 0x394) = (s32) (*(s32 *)((s8 *)arg0 + 0x394) - TObjPlayer__sub_80040AE4(0));
-        TObjPlayer__sub_8003FCD0(arg0);
-        *(s32 *)((s8 *)arg0 + 0x398) = ((TObjPlayer *)arg0)->calc_spin_value();
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x398) - 0x4000);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x3C0);
-        if (temp_r3 > 1) {
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x394) <= -0x238E) {
-                *(s32 *)((s8 *)arg0 + 0x3C0) = (temp_r3 - 1);
-                temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3BC) - 1;
-                *(s32 *)((s8 *)arg0 + 0x3BC) = temp_r0_2;
-                if (temp_r0_2 < 0) {
-                    *(s32 *)((s8 *)arg0 + 0x3BC) = 5;
-                }
-                if (((s32 (*)(void *))alloc_boss_target_slot__10TObjPlayerFPvi)(arg0) == 1) {
-                    *(s32 *)((s8 *)arg0 + 0x37C) = 0;
-                }
-            } else {
-                goto block_14;
-            }
-        } else {
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x394) < -0x1555) {
-                *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) *(s32 *)((s8 *)arg0 + 0x390);
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 9);
-            }
-block_14:
-            play_persistent_sound(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
-        }
-        break;
-    case -1:
-        break;
-    }
-    if ((s32) vol_opt_active_hit_zone >= 0) {
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
-    }
+s32 TBoss3VoloptCore::is_target_in_attack_range() {
+    return 0;
 }
 
-void TObjPlayer::set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3) {
-    s32 temp_r4;
-
-    if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) {
-        temp_r4 = *(s32 *)&this->unk_388 | 0x20000;
-        *(s32 *)&this->unk_388 = temp_r4;
-        this->m_3bc = arg1;
-        *(s32 *)&this->unk_3C0 = arg2;
-        this->m_3c4 = arg3;
-        boss3_volopt_core_active_flag = 0;
-        alloc_boss_target_slot__10TObjPlayerFPvi((Obj_8003F730 *)(this), temp_r4);
-        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
-        this->vfunc_59();
-    }
+TBoss3VoloptCore::TBoss3VoloptCore(TObject *parent, void *set_data) : TObjEnemyCustom(parent) {
+    apply_set_data(set_data);
+    init_params();
 }
 
-s32 TUnk_80483A10::calc_hit_zone_index() {
-    Obj_8003FBC8 *self = (Obj_8003FBC8 *)this;
-    s32 r;
-    s32 d;
-    s32 angle;
-    Ent_8003FBC8 *e;
-    if (self->unk326 == 0) {
-        return -1;
-    }
-    angle = self->angle;
-    r = -1;
-    d = (u16)angle % 0x2AAA - 0x1555;
-    if (self->y >= lbl_805D86BC) {
-        if (__abs(d) <= 0x8DC) {
-            r = 0;
-        }
-    } else if (d <= 0xDB2) {
-        if (d >= 0x510) {
-            r = 1;
-        } else if (d >= -0x510) {
-            r = 2;
-        } else if (d >= -0xDB2) {
-            r = 3;
-        }
-    }
-    if (r >= 0) {
-        r += ((u16)(angle - 0x2AAA) / 0x2AAA) * 4;
-        e = (Ent_8003FBC8 *)find_entity_by_id(boss3_volopt_monitor_base_actor_id + r);
-        if (e == NULL || (e->flags & 0x800)) {
-            r = -1;
-        }
-    }
-    return r;
+TBoss3VoloptCore::TBoss3VoloptCore(TObject *parent, u16 id, s32 param) : TObjEnemyCustom(parent) {
+    m_1c = id;
+    *(s16 *)((u8 *)this + 0x2C) = param;
+    m_80 = 0;
+    *(s16 *)((u8 *)this + 0x28) = *(s16 *)((u8 *)parent + 0x28);
+    *(s16 *)((u8 *)this + 0x2A) = *(s16 *)((u8 *)parent + 0x2A);
+    init_params();
 }
 
-void TObjPlayer__sub_8003FCD0(u8 *arg0) {
-    f32 temp_f1;
-    s32 temp_r3;
-    u8 *temp_r4;
-    temp_r3 = ((u16)*(s32 *)((s8 *)arg0 + 0x390) % 10922) - 0x1555;
-    if (*(s32 *)((s8 *)arg0 + 0x388) & 0x20000) {
-        *(f32 *)((s8 *)arg0 + 0x38C) = (f32) (lbl_805D86C0 / cos_table_lookup(temp_r3));
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D86C4;
+void TBoss3VoloptCore::init_params() {
+    m_name = TBoss3VoloptCore_name;
+    motion_list = core_resources->motions;
+    action_table = core_motions;
+    set_field_d8((s32)action_table);
+    init_collision_body_parts(this, core_body_parts, 1);
+    variant = 0;
+    movementParameters = &core_movement;
+    recalc_combat_stats(core_combat_stats_a, core_combat_stats_b, core_combat_stats_c, 1.0f, 1.0f);
+    m_b8 = 0;
+    set_animation(m_b8);
+    set_field_b8(m_b8);
+    hp = hpmax;
+    m_32e = m_2ba;
+    referenceHp = hp;
+    set_param(0x2E);
+    update_prev_position();
+    ((TBoss3Volopt *)this)->reset_photon_effect();
+    load_entry_params_volopt(0x18);
+    m_388 |= 0x10000;
+    orbit_angle = 0;
+    m_a4->flags |= 0xC00;
+    vfunc_58();
+    add_flags_2e4(4);
+    hit_cooldown = 0;
+    obj_setFlags30(this, 0x8000);
+    if (TBoss3Volopt::is_v2_mode() != 0) {
+        core_turn_angle_limit = 0xA00;
     } else {
-        *(f32 *)((s8 *)arg0 + 0x38C) = (f32) (lbl_805D86C8 / cos_table_lookup(temp_r3));
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D86CC;
+        core_turn_angle_limit = 0x200;
     }
-    push_matrix();
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x38C);
-    *(f32 *)((s8 *)arg0 + 0x38) = temp_f1;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D86D0;
-    set_matrix_identity(0, temp_f1);
-    rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
-    temp_r4 = (arg0 + 0x38);
-    rotate_vector_by_matrix(0, (int)temp_r4, (int)temp_r4);
-    pop_matrix();
+    clear_lobby_object_state();
 }
 
-s32 TObjPlayer::calc_spin_value() {
-    return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) *(s32 *)&this->unk_390 / 10922) * 0x3C) + 0x78));
+TBoss3VoloptCore::~TBoss3VoloptCore() {
+    free_collision_body_parts(this);
+    TBoss3Volopt::set_camera_focus(NULL);
 }
 
-void TObjPlayer::update_state_spin() {
-    s32 temp_r3;
+void *TBoss3VoloptCore::create(void *set_data) {
+    return new TBoss3VoloptCore(tl_04, set_data);
+}
 
-    switch (this->m_37c) {
+void TBoss3VoloptCore::load_resources() {
+    core_resources = boss3_volopt_resources;
+    core_combat_stats_a = TLobby::register_boss(0x21);
+    core_combat_stats_b = TLobby::dispatch_shared_handler_b(0x21);
+    core_combat_stats_c = TLobby::register_object(0x21);
+    core_orbit_speeds = (TBoss3VoloptOrbitSpeeds *)TLobby::dispatch_shared_handler_a(0x21);
+}
+
+void TBoss3VoloptCore::release() {}
+
+void TBoss3VoloptCore::run_task() {
+    vol_opt_active_hit_zone = calc_hit_zone_index();
+    if (TObjPlayer::check_demo_mode() == 1) {
+        sub_80040558();
+        return;
+    }
+    VecCopy((Vec *)&m_44, (Vec *)position);
+    if (hit_cooldown > 0) {
+        hit_cooldown--;
+    }
+    if (has_flag_0x800() != 0) {
+        vfunc_63();
+    } else if (test_flag30_512() != 0) {
+        if (hit_cooldown > 0) {
+            obj_clearFlags30(0x200);
+        } else {
+            vfunc_62();
+        }
+    }
+    if (obj_testFlags30(0x4000) != 0) {
+        if (((TObjPlayer *)this)->add_status_effect_timer(4, -1) <= 0) {
+            reset_status_effect_row(unk_284);
+            obj_clearFlags30(0x4000);
+        }
+    } else {
+        if (mode != (s32)next_action) {
+            if ((s32)state != -1) {
+                state = -1;
+                dispatch_reaction_state();
+            }
+            mode = next_action;
+            state = 0;
+        }
+        dispatch_reaction_state();
+        position[1] = (position[1] > 7.0f) ? position[1] : 7.0f;
+        update_prev_position();
+        TBoss3Volopt::set_camera_focus((Vec *)&m_2fc);
+        clear_all_status_effects();
+    }
+}
+
+void TBoss3VoloptCore::dispatch_reaction_state() {
+    switch (mode) {
     case 0:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
-        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
-        *(s32 *)&this->unk_390 = 0x4000;
-        this->m_394 = -0x1555;
-        *(u16 *)((s8 *)this + 0x338) = 0xFFFF;
-        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
-        *(s16 *)&this->m_b8 = 0;
-        *(s32 *)&this->m_5c = 0;
-        TObjPlayer__sub_8003FCD0((u8 *)this);
-        *(s32 *)&this->unk_398 = calc_spin_value();
-        this->rotation_y = (s32) *(s32 *)&this->unk_398;
-        *(s16 *)&this->unk_33C = 0x5A;
-        this->m_37c = 1;
+        run_freeze_state();
+        return;
+    case 1:
+        update_orbit_state();
+        return;
+    case 2:
+        update_charge_state();
+        return;
+    case 4:
+        update_grabbed_state();
+        return;
+    case 5:
+        update_reaction_animation();
+        return;
+    case 7:
+        update_state_spin();
+        return;
+    case 9:
+        sub_8003F81C();
+        return;
+    case 10:
+        update_topple_state();
+        break;
+    }
+}
+
+void TBoss3VoloptCore::sub_80040558() {}
+
+void TBoss3VoloptCore::render() {
+    if (!(actorFlags & 0x02000000) && update_object_view_visibility(400.0f, 40.0f) != 0) {
+        TObjFish::set_global_param(texture_id);
+        push_matrix();
+        model_render_flags &= ~0x400;
+        post_translate_matrix(position);
+        rotate_matrix_x(0, m_5c);
+        if (m_388 & 0x10000) {
+            rotate_matrix_y(0, facing_angle);
+            scale_matrix(0, 1.0f, 1.0f, 0.05f);
+            rotate_matrix_y(0, rotation_y - facing_angle);
+        } else {
+            rotate_matrix_y(0, rotation_y);
+        }
+        if (TObjPlayer::check_demo_mode() == 1) {
+            draw_chunk_object(model);
+        } else {
+            draw();
+        }
+        pop_matrix();
+    }
+}
+
+void TBoss3VoloptCore::update_charge_state() {
+    s32 angles[3];
+    f32 distance;
+    TObjPlayer *player;
+    target = (u8 *)get_player_by_client_id(targetId);
+    switch (state) {
+    case 0:
+        m_388 &= ~0x10000;
+        m_b8 = 0;
+        m_5c = 0;
+        if ((s32)m_380 == 4) {
+            state = charge_step;
+        } else {
+            VecCopy(&home_pos, (Vec *)position);
+            charge_step = 1;
+            state = 1;
+            charge_timer = 0x1E;
+        }
+        break;
+    case 1:
+        VecCopy((Vec *)unk_308, (Vec *)((TObjPlayer *)target)->position);
+        subtract_vector((Vec *)unk_308, (Vec *)position);
+        ((TObjPlayer *)this)->update_angle(0x800, unk_308);
+        if (--charge_timer <= 0) {
+            charge_timer = 0x96;
+            charge_step = 2;
+            state = 2;
+            angles[1] = facing_angle;
+            angles[0] = 0;
+            angles[2] = 0x4000;
+            new TUnk_80484888(&volopt_slot_positions[slot_index], 0x11B, 8, angles, 0.5f, 0.0f);
+        }
+        break;
+    case 2:
+        player = (TObjPlayer *)target;
+        if (player == NULL) {
+            charge_step = 4;
+            state = 4;
+            return;
+        }
+        VecCopy((Vec *)unk_308, (Vec *)&player->m_2fc);
+        subtract_vector((Vec *)unk_308, (Vec *)position);
+        vec_set_length((Vec *)unk_308, 5.0f);
+        ((TObjPlayer *)this)->update_angle(0x800, unk_308);
+        vec3_add_to((Vec *)position, (Vec *)unk_308);
+        if (check_target_collision() != 0) {
+            charge_step = 4;
+            state = 4;
+        }
+        if (--charge_timer <= 0) {
+            charge_step = 4;
+            state = 4;
+        }
+        break;
+    case 4:
+        VecCopy((Vec *)unk_308, &home_pos);
+        subtract_vector((Vec *)unk_308, (Vec *)position);
+        distance = vec_set_length((Vec *)unk_308, 5.0f);
+        ((TObjPlayer *)this)->update_angle(0x800, unk_308);
+        vec3_add_to((Vec *)position, (Vec *)unk_308);
+        check_target_collision();
+        if (distance < 10.0f) {
+            targetId = 0xFFFF;
+            vfunc_59();
+        }
+        break;
+    }
+    advance_animation_playback(this);
+    minimap_render_dot(position, -0x5DB4, 1, 0);
+}
+
+void TBoss3VoloptCore::update_grabbed_state() {
+    switch (state) {
+    case 0:
+        if (obj_testFlags30(0x02000000) != 0) {
+            m_388 |= 0x40000;
+        }
+        obj_clearFlags30(0x02200200);
+        referenceHp = hp;
+        m_b8 = 3;
+        play_sound_effect(0x4003A81F, NULL, 0, 0);
+        play_sound_effect(0x4003BC20, NULL, 0, 0);
+        if (local_client_id == m_2d4) {
+            TCameraCtrl__sub_8006A044(0x1E, 0.08f);
+        }
+        hit_cooldown = 0x14;
+        state = 1;
     case 1:
         advance_animation_playback(this);
-        temp_r3 = *(s16 *)&this->unk_33C - 1;
-        *(s16 *)&this->unk_33C = temp_r3;
-        if ((s16) temp_r3 <= 0) {
-            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
-            *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
-            this->vfunc_58();
+        if (m_b4 != 8) {
+            m_388 &= ~1;
+            if (m_388 & 0x40000) {
+                set_grabbed_state(0xF);
+            } else {
+                ((TObjEneMe1GiGue *)this)->update_if_active(m_380);
+            }
         }
-        break;
+        return;
     case -1:
+        m_388 &= ~0x40000;
         break;
     }
 }
 
-s32 TObjPlayer::check_target_collision() {
+void TBoss3VoloptCore::update_reaction_animation() {
+    switch (state) {
+    case 0:
+        m_b8 = 4;
+        state = 1;
+    case 1:
+        advance_animation_playback(this);
+        break;
+    case -1:
+        return;
+    }
+}
+
+void TBoss3VoloptCore::run_freeze_state() {
+    switch (state) {
+    case 0:
+        boss3_volopt_core_active_flag = 1;
+        actorFlags |= 0x02040000;
+        state = 1;
+        break;
+    case 1:
+        break;
+    case -1:
+        actorFlags &= ~0x02040000;
+        break;
+    }
+}
+
+s32 TBoss3VoloptCore::check_target_collision() {
     s32 found;
     s32 i;
-    VObj_18_c44252 *obj;
-    if ((u32) this->target == 0U) {
+    TBoss3VoloptCoreTarget *object;
+    if (target == NULL) {
         return 0;
     }
     found = 0;
     TObjPlayer::init_all_slots();
-    this->check_object_collisions();
-    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x80000) {
+    ((TObjPlayer *)this)->check_object_collisions();
+    if (m_a4->flags & 0x80000) {
         for (i = 0; i < 0x10; i++) {
-            obj = (VObj_18_c44252 *)TObjPlayer::get_battle_param(i);
-            if (obj == NULL) {
+            object = (TBoss3VoloptCoreTarget *)TObjPlayer::get_battle_param(i);
+            if (object == NULL) {
                 break;
             }
-            if (((s32 (*)(void *))obj_is_hit_receivable)(obj) != 0) {
-                if (obj->m18(this, lbl_805D86B0) != 0) {
-                    obj->m23(this, lbl_805D86D4);
-                    obj->m20(this, lbl_805D86B0);
+            if (obj_is_hit_receivable(object) != 0) {
+                if (object->select_melee_contact_body(this, 1.0f) != 0) {
+                    object->apply_knockback_from_attacker(this, 3.0f);
+                    object->receive_physical_attack(this, 1.0f);
                 }
-                if ((u32) obj == (u32) this->target) {
+                if ((u8 *)object == target) {
                     found = 1;
                 }
             }
@@ -1040,344 +449,266 @@ s32 TObjPlayer::check_target_collision() {
     return found;
 }
 
-void TObjPlayer::run_freeze_state() {
-    Obj_8003FFE4 *self = (Obj_8003FFE4 *)this;
-    switch (self->state) {
+void TBoss3VoloptCore::update_state_spin() {
+    switch (state) {
     case 0:
-        boss3_volopt_core_active_flag = 1;
-        self->flags |= 0x02040000;
-        self->state = 1;
-        break;
-    case 1:
-        break;
-    case -1:
-        self->flags &= ~0x02040000;
-        break;
-    }
-}
-
-void TObjPlayer::update_reaction_animation() {
-    Obj_80040038 *self = (Obj_80040038 *)this;
-    switch (self->state) {
-    case 0:
-        self->anim = 4;
-        self->state = 1;
-    case 1:
-        ((s32)advance_animation_playback(self));
-        break;
-    case -1:
-        return;
-    }
-}
-
-void TObjPlayer::update_grabbed_state() {
-    switch (this->m_37c) {
-    case 0:
-        if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x02000000) != 0) {
-            *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
-        }
-        obj_clearFlags30(0x02200200);
-        this->m_33e = (s16) this->hp;
-        *(s16 *)&this->m_b8 = 3;
-        play_sound_effect(0x4003A81F, 0, 0, 0);
-        play_sound_effect(0x4003BC20, 0, 0, 0);
-        if ((s32) local_client_id == (s32) this->m_2d4) {
-            TCameraCtrl__sub_8006A044(0x1E, lbl_805D86D8);
-        }
-        *(s32 *)((s8 *)this + 0x3C8) = 0x14;
-        this->m_37c = 1;
+        actorFlags |= 0x40000;
+        m_388 |= 0x20000;
+        orbit_angle = 0x4000;
+        sweep_angle = -0x1555;
+        targetId = 0xFFFF;
+        m_388 |= 0x10000;
+        m_b8 = 0;
+        m_5c = 0;
+        update_orbit_position();
+        facing_angle = calc_spin_value();
+        rotation_y = facing_angle;
+        *(s16 *)&timer = 0x5A;
+        state = 1;
     case 1:
         advance_animation_playback(this);
-        if ((u32) this->m_b4 != 8U) {
-            *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
-            if (*(s32 *)&this->unk_388 & 0x40000) {
-                TObjPlayer::set_grabbed_state(0xF);
-            } else {
-                update_if_active__15TObjEneMe1GiGueFl(this, (s32)(*(s32 *)&this->unk_380));
-            }
+        if (--*(s16 *)&timer <= 0) {
+            actorFlags &= ~0x40000;
+            m_388 &= ~1;
+            vfunc_58();
         }
-        return;
+        break;
     case -1:
-        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFBFFFF);
         break;
     }
 }
 
-void TObjPlayer__sub_800401CC(u8 *player) {
-    S_800401CC sp8;
-    f32 temp_f31;
-    u32 temp_r4;
-    void *obj;
-    *(u32 *)((s8 *)player + 0x2A8) = (u32)get_player_by_client_id(*(u16 *)((s8 *)player + 0x338));
-    switch (((TObjPlayer *)player)->m_37c) {
-    case 0:
-        *(s32 *)((s8 *)player + 0x388) &= ~0x10000;
-        ((TObjPlayer *)player)->m_b8 = 0;
-        *(s32 *)((s8 *)player + 0x5C) = 0;
-        if (*(s32 *)((s8 *)player + 0x380) == 4) {
-            ((TObjPlayer *)player)->m_37c = ((TObjPlayer *)player)->m_3b4;
-        } else {
-            VecCopy((Vec *)(player + 0x39C), (const Vec *)(player + 0x38));
-            ((TObjPlayer *)player)->m_3b4 = 1;
-            ((TObjPlayer *)player)->m_37c = 1;
-            *(s32 *)((s8 *)player + 0x3B8) = 0x1E;
+s32 TBoss3VoloptCore::calc_spin_value() {
+    return (s32)(182.04445f * (f32)((((s32)(u16)orbit_angle / 10922) * 0x3C) + 0x78));
+}
+
+void TBoss3VoloptCore::update_orbit_position() {
+    f32 radius;
+    s32 offset = ((u16)orbit_angle % 10922) - 0x1555;
+    if (m_388 & 0x20000) {
+        orbit_radius = 134.0f / cos_table_lookup(offset);
+        position[1] = 50.0f;
+    } else {
+        orbit_radius = 128.0f / cos_table_lookup(offset);
+        position[1] = 15.0f;
+    }
+    push_matrix();
+    radius = orbit_radius;
+    position[0] = radius;
+    position[2] = 0.0f;
+    set_matrix_identity(0, radius);
+    rotate_matrix_y(0, orbit_angle);
+    rotate_vector_by_matrix(0, (Vec *)position, (Vec *)position);
+    pop_matrix();
+}
+
+s32 TBoss3VoloptCore::calc_hit_zone_index() {
+    s32 zone;
+    s32 offset;
+    s32 angle;
+    TObjEnemyCustom *monitor;
+    if (mode == 0) {
+        return -1;
+    }
+    angle = orbit_angle;
+    zone = -1;
+    offset = (u16)angle % 0x2AAA - 0x1555;
+    if (position[1] >= 25.0f) {
+        if (__abs(offset) <= 0x8DC) {
+            zone = 0;
         }
+    } else if (offset <= 0xDB2) {
+        if (offset >= 0x510) {
+            zone = 1;
+        } else if (offset >= -0x510) {
+            zone = 2;
+        } else if (offset >= -0xDB2) {
+            zone = 3;
+        }
+    }
+    if (zone >= 0) {
+        zone += ((u16)(angle - 0x2AAA) / 0x2AAA) * 4;
+        monitor = (TObjEnemyCustom *)find_entity_by_id(boss3_volopt_monitor_base_actor_id + zone);
+        if (monitor == NULL || (monitor->actorFlags & 0x800)) {
+            zone = -1;
+        }
+    }
+    return zone;
+}
+
+void TBoss3VoloptCore::set_boss_target_pos(s32 slot, s32 moves, s32 delay_frames) {
+    if (obj_testFlags30(0x800) == 0) {
+        m_388 |= 0x20000;
+        target_slot = slot;
+        moves_left = moves;
+        delay = delay_frames;
+        boss3_volopt_core_active_flag = 0;
+        alloc_boss_target_slot();
+        m_388 &= ~1;
+        vfunc_59();
+    }
+}
+
+void TBoss3VoloptCore::update_orbit_state() {
+    switch (state) {
+    case 0:
+        m_388 |= 0x10000;
+        m_b8 = 0;
+        m_5c = 0;
+        state = 1;
         break;
     case 1:
-        VecCopy((Vec *)(player + 0x308), (const Vec *)(*(u32 *)((s8 *)player + 0x2A8) + 0x38));
-        subtract_vector(player + 0x308, player + 0x38);
-        ((TObjPlayer *)player)->update_angle(0x800, player + 0x308);
-        if (--*(s32 *)((s8 *)player + 0x3B8) <= 0) {
-            *(s32 *)((s8 *)player + 0x3B8) = 0x96;
-            ((TObjPlayer *)player)->m_3b4 = 2;
-            ((TObjPlayer *)player)->m_37c = 2;
-            sp8.b = *(s32 *)((s8 *)player + 0x398);
-            sp8.a = 0;
-            sp8.c = 0x4000;
-            obj = __nw__7TObjectFUl(0x48);
-            if (obj != 0) {
-                TBoss3Volopt__sub_8004885C((u8 *)obj, (u8 *)((u8 *)volopt_slot_positions + ((TObjPlayer *)player)->m_3a8 * 0xC), 0x11B, 8, (u8 *)&sp8, (f32)lbl_805D86DC, (f32)lbl_805D86D0);
+        advance_animation_playback(this);
+        orbit_angle -= get_orbit_speed(0);
+        sweep_angle -= get_orbit_speed(0);
+        update_orbit_position();
+        facing_angle = calc_spin_value();
+        rotation_y = facing_angle - 0x4000;
+        if (moves_left > 1) {
+            if (sweep_angle <= -0x238E) {
+                moves_left--;
+                if (--target_slot < 0) {
+                    target_slot = 5;
+                }
+                if (alloc_boss_target_slot() == 1) {
+                    state = 0;
+                }
+                break;
             }
+        } else if (sweep_angle < -0x1555) {
+            drop_angle = orbit_angle;
+            ((TObjEneMe1GiGue *)this)->update_if_active(9);
+        }
+        play_persistent_sound(0x4003BC05, this, position, 0, 0);
+        break;
+    case -1:
+        break;
+    }
+    if (vol_opt_active_hit_zone >= 0) {
+        minimap_render_dot(position, -0x5DB4, 1, 0);
+    }
+}
+
+void TBoss3VoloptCore::sub_8003F81C() {
+    switch (state) {
+    case 0:
+        m_388 |= 0x10000;
+        m_b8 = 0;
+        *(s16 *)&timer = 5;
+        effect = NULL;
+        state = 1;
+    case 1:
+        rotation_y = approach_angle_limited(rotation_y, facing_angle - 0x8000, core_turn_angle_limit);
+        if (angle_difference_abs(rotation_y, facing_angle - 0x8000) <= core_turn_angle_limit) {
+            *(s16 *)&timer = (TBoss3Volopt::is_v2_mode() != 0) ? 5 : 0x1E;
+            state = 2;
         }
         break;
     case 2:
-        temp_r4 = *(u32 *)((s8 *)player + 0x2A8);
-        if (temp_r4 == 0U) {
-            ((TObjPlayer *)player)->m_3b4 = 4;
-            ((TObjPlayer *)player)->m_37c = 4;
-            return;
-        }
-        VecCopy((Vec *)(player + 0x308), (const Vec *)(temp_r4 + 0x2FC));
-        subtract_vector(player + 0x308, player + 0x38);
-        ((TObjGyaranzoMissile *)(player + 0x308))->scale_velocity(lbl_805D86E0);
-        ((TObjPlayer *)player)->update_angle(0x800, player + 0x308);
-        vec3_add_to(player + 0x38, player + 0x308);
-        if (((TObjPlayer *)player)->check_target_collision() != 0) {
-            ((TObjPlayer *)player)->m_3b4 = 4;
-            ((TObjPlayer *)player)->m_37c = 4;
-        }
-        if (--*(s32 *)((s8 *)player + 0x3B8) <= 0) {
-            ((TObjPlayer *)player)->m_3b4 = 4;
-            ((TObjPlayer *)player)->m_37c = 4;
+        if (--*(s16 *)&timer <= 0) {
+            Vec pos = *(Vec *)position;
+            pos.y -= 20.0f;
+            effect = create_particle_emitter(&pos, 0x31);
+            play_sound_effect(0x4003AD1E, position, 0, 0);
+            state = 3;
         }
         break;
-    case 4:
-        VecCopy((Vec *)(player + 0x308), (const Vec *)(player + 0x39C));
-        subtract_vector(player + 0x308, player + 0x38);
-        temp_f31 = ((TObjGyaranzoMissile *)(player + 0x308))->scale_velocity(lbl_805D86E0);
-        ((TObjPlayer *)player)->update_angle(0x800, player + 0x308);
-        vec3_add_to(player + 0x38, player + 0x308);
-        ((TObjPlayer *)player)->check_target_collision();
-        if (temp_f31 < lbl_805D86E4) {
-            *(u16 *)((s8 *)player + 0x338) = 0xFFFF;
-            ((TObjPlayer *)player)->vfunc_59();
+    case 3:
+        if (--*(s16 *)&timer < 0) {
+            boss3_volopt_core_active_flag = 1;
+            vfunc_58();
+        }
+        break;
+    case -1:
+        if (effect != NULL) {
+            effect->queue_destruction();
+            effect = NULL;
         }
         break;
     }
-    advance_animation_playback(player);
-    minimap_render_dot(player + 0x38, -0x5DB4, 1, 0);
+    advance_animation_playback(this);
+    if (vol_opt_active_hit_zone >= 0) {
+        minimap_render_dot(position, -0x5DB4, 1, 0);
+    }
 }
 
-void TUnk_80483A10::render() {
-    u8 *arg0 = (u8 *)this;
-    if (!(this->actorFlags & 0x02000000) && (((Fn80040464VObj_80040464_8003F4C0*)arg0)->m8(lbl_805D86E8, lbl_805D86EC) != 0)) {
-        TObjFish::set_global_param(this->texture_id);
-        push_matrix();
-        model_render_flags &= 0xFFFFFBFF;
-        post_translate_matrix((u8 *)&this->position);
-        rotate_matrix_x(0, *(s32 *)&this->m_5c);
-        if (this->m_388 & 0x10000) {
-            rotate_matrix_y(0, this->m_398);
-            scale_matrix(0, (*(const f32 *)&(*(f32 *)&lbl_805D86B0)), (*(const f32 *)&(*(f32 *)&lbl_805D86B0)), lbl_805D86F0);
-            rotate_matrix_y(0, this->rotation_y - this->m_398);
+s32 TBoss3VoloptCore::alloc_boss_target_slot() {
+    s32 i;
+    s32 slot;
+    for (i = 0; i < 6; i++) {
+        slot = (target_slot + 6 - i) % 6;
+        if (volopt_target_slot_used[slot * 4] == 0) {
+            target_slot = slot;
+            break;
+        }
+    }
+    if (i == 6) {
+        boss3_volopt_core_active_flag = 1;
+        vfunc_58();
+        return 0;
+    }
+    orbit_angle = (s32)(182.04445f * (f32)((target_slot + 2) * 60 - 10));
+    sweep_angle = -0x71C;
+    return 1;
+}
+
+void TBoss3VoloptCore::link_photon(u16 id, s32) {
+    TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(volopt_core_id);
+    if (core != NULL && core->hit_cooldown <= 0) {
+        TObject *source = (TObject *)find_entity_by_id(id);
+        if (source != NULL) {
+            core->m_a4->flags |= 0x04000000;
+            core->receive_physical_attack(source, 1.0f);
+        }
+    }
+}
+
+void TBoss3VoloptCore::update_topple_state() {
+    switch (state) {
+    case -1:
+        break;
+    case 0:
+        m_388 |= 0x10000;
+        m_b8 = 0;
+        if (angle_difference_abs(rotation_y, facing_angle - 0x4000) <= core_turn_angle_limit) {
+            state = 3;
         } else {
-            rotate_matrix_y(0, this->rotation_y);
+            state = 1;
         }
-        if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object(this->model);
-        } else {
-            ((TObjMotion *)arg0)->draw();
+        break;
+    case 1:
+        if (--delay <= 0) {
+            state = 2;
         }
-        pop_matrix();
-    }
-}
-
-void TObjPlayer__sub_80040558(void * _w0) {  }
-
-void TObjPlayer::dispatch_reaction_state() {
-    Obj_8004055C *arg0 = (Obj_8004055C *)this;
-    switch (arg0->state) {
-    case 0: run_freeze_state(); return;
-    case 1: TObjPlayer__sub_8003F9D4(arg0); return;
-    case 2: TObjPlayer__sub_800401CC((u8 *)arg0); return;
-    case 4: update_grabbed_state(); return;
-    case 5: update_reaction_animation(); return;
-    case 7: update_state_spin(); return;
-    case 9: TObjPlayer__sub_8003F81C((u8 *)arg0); return;
-    case 10: update_topple_state(); break;
-    }
-}
-
-void TUnk_80483A10::run_task() {
-    u8 *arg0 = (u8 *)this;
-  f32 var_f1;
-  s32 temp_r3;
-  vol_opt_active_hit_zone = ((TUnk_80483A10 *)arg0)->calc_hit_zone_index();
-  if (TObjPlayer::check_demo_mode() == 1)
-  {
-    TObjPlayer__sub_80040558((void *)((void *)((void *) arg0)));
-    return;
-  }
-  VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
-  temp_r3 = this->m_3c8;
-  if (temp_r3 > 0)
-  {
-    this->m_3c8 = (temp_r3 - 1);
-  }
-  if ((this->has_flag_0x800()) != 0)
-  {
-    (this->vfunc_63());
-  }
-  else
-    if ((this->test_flag30_512()) != 0)
-  {
-    if (((s32) (*((s32 *) (0x3C8 + ((s8 *) arg0))))) > 0)
-    {
-      ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200);
-    }
-    else
-    {
-      (this->vfunc_62());
-    }
-  }
-  if (obj_testFlags30__13TUnk_804AF8A0FUl((void *)((void *)((void *) arg0)), 0x4000) != 0)
-  {
-    if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0)
-    {
-      reset_status_effect_row(((u8 *)&this->unk_284));
-      ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);
-    }
-  }
-  else
-  {
-    if ((this->mode) != ((s32)this->next_action))
-    {
-      if (((s32)this->state) != (-1))
-      {
-        this->state = -1;
-        ((TObjPlayer *)arg0)->dispatch_reaction_state();
-      }
-      this->mode = (s16)this->next_action;
-      this->state = 0;
-    }
-    ((TObjPlayer *)arg0)->dispatch_reaction_state();
-    var_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
-    if (var_f1 > lbl_805D86F4)
-    {
-      if ((arg0 && arg0) && arg0)
-      {
-      }
-    }
-    else
-    {
-      var_f1 = lbl_805D86F4;
-    }
-    *((f32 *) (((s8 *) arg0) + 0x3C)) = var_f1;
-    ((TObjEnemy *)arg0)->update_prev_position();
-    fn_8003CFEC((int)(arg0 + 0x2FC));
-    (this->clear_all_status_effects());
-  }
-}
-
-void TBoss3VoloptCore__sub_80040788(void) {  }
-}
-void cache_volopt_resource_ptrs(void);
-void cache_volopt_resource_ptrs(void) { volopt_resource_table_ptr = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFl((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFl((void*)33); lbl_805D4C58 = register_object__6TLobbyFl((void*)33); volopt_array_resource_ptr = dispatch_shared_handler_a__6TLobbyFl((void*)33); }
-
-void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
-    void *o = __nw__7TObjectFUl(0x3D4);
-    if (o != NULL) {
-        o = TBoss3VoloptCore__sub_80040A7C(o, tl_04, arg0);
-    }
-    return o;
-}
-
-void *TUnk_80483A10::destroy(s16 arg1) {
-    if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = TBoss3VoloptCore__vtable;
-        free_collision_body_parts(this);
-        fn_8003CFEC(0);
-        __dt__15TObjEnemyCustomFv(this, 0);
-        if ((s16) arg1 > 0) {
-            __dl__7TObjectFPv(this);
+        break;
+    case 2:
+        rotation_y = approach_angle_limited(rotation_y, facing_angle - 0x4000, core_turn_angle_limit);
+        if (angle_difference_abs(rotation_y, facing_angle - 0x4000) <= core_turn_angle_limit) {
+            state = 3;
         }
+        break;
+    case 3:
+        play_persistent_sound(0x4003BC05, this, position, 0, 0);
+        advance_animation_playback(this);
+        orbit_angle -= get_orbit_speed(0);
+        sweep_angle -= get_orbit_speed(0);
+        update_orbit_position();
+        facing_angle = calc_spin_value();
+        if (sweep_angle <= -0x238E) {
+            vfunc_58();
+        }
+        break;
     }
-    return this;
-}
-
-void TUnk_80483A10::sub_80040894() {
-
-    *(s32 *)((s8 *)this + 0) = lbl_805D2728;
-    *(s32 *)((s8 *)this + 0xDC) = *(s32 *)((s8 *)(*(void * *)&volopt_resource_table_ptr) + 0x430);
-    this->action_table = boss3_volopt_core_hit_table;
-    this->set_field_d8((s32)this->action_table);
-    init_collision_body_parts(this, lbl_804839E4, 1);
-    this->variant = 0;
-    this->movementParameters = lbl_804839C8;
-    this->recalc_combat_stats((void *)(*(s32 *)&lbl_805D4C50), (void *)(*(s32 *)&lbl_805D4C54), (void *)(*(s32 *)&lbl_805D4C58), (f32)lbl_805D86B0, (f32)lbl_805D86B0);
-    this->m_b8 = 0;
-    set_animation(this->m_b8);
-    this->set_field_b8(this->m_b8);
-    this->hp = this->hpmax;
-    this->m_32e = this->m_2ba;
-    this->referenceHp = this->hp;
-    this->set_param(0x2E);
-    this->update_prev_position();
-    ((TBoss3Volopt *)this)->reset_photon_effect();
-    this->load_entry_params_volopt(0x18);
-    this->m_388 |= 0x10000;
-    this->m_390 = 0;
-    *(s32 *)((s8 *)this->m_a4 + 0x18) |= 0xC00;
-    this->vfunc_58();
-    this->add_flags_2e4(4);
-    this->m_3c8 = 0;
-    obj_setFlags30(this, 0x8000);
-    if (TBoss3Volopt__sub_8003F398() != 0) {
-        boss3_volopt_turn_angle_limit = 0xA00;
-    } else {
-        boss3_volopt_turn_angle_limit = 0x200;
+    advance_animation_playback(this);
+    if (vol_opt_active_hit_zone >= 0) {
+        minimap_render_dot(position, -0x5DB4, 1, 0);
     }
-    this->clear_lobby_object_state();
 }
 
-void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
-    TObjEnemyCustom__ct();
-    *(s32 **)((s8 *)arg0 + 0x18) = TBoss3VoloptCore__vtable;
-    ((TUnk_80483A10 *)arg0)->m_1c = arg2;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x80) = 0;
-    *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
-    *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    ((s32 (*)(void *, s32 *))sub_80040894__13TUnk_80483A10Fv)(arg0, TBoss3VoloptCore__vtable);
-    return arg0;
-}
-
-void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg1_arg) {
-    ((s32 (*)(void *, void *))TObjEnemyCustom__ct)(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = TBoss3VoloptCore__vtable;
-    ((TUnk_80483A10 *)arg0)->apply_set_data(arg1_arg);
-    ((s32 (*)(void *))sub_80040894__13TUnk_80483A10Fv)(arg0);
-    return arg0;
-}
-
-s32 TUnk_80483A10::is_target_in_attack_range() { return 0; }
-
-s32 TObjPlayer__sub_80040AE4(s32 i) {
-    return (*(G_80040AE4 * *)&volopt_array_resource_ptr)->arr[i];
-}
-
-void TUnk_80483A10::load_entry_params_volopt(s32 i) {
-    O_80040AF8 *self = (O_80040AF8 *)this;
-    self->f34 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].f8;
-    self->f24 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].fc;
+void TBoss3VoloptCore::set_grabbed_state(s32 delay) {
+    TBoss3VoloptCore *core = (TBoss3VoloptCore *)find_entity_by_id(volopt_core_id);
+    if (core != NULL && core->mode != 10) {
+        ((TObjEneMe1GiGue *)core)->update_if_active(10);
+        core->delay = delay;
+    }
 }

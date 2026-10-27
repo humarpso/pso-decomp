@@ -275,7 +275,7 @@ void TOTrap::render() {
 struct Self_80179244 { s32 type; u8 pad4[0x18 - 4]; s32 *vt; u8 pad1c[0x334 - 0x1C]; f32 f334; f32 f338; u16 s33c; u8 pad33e[2]; s32 f340; };
 
 extern "C" {
-void *construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
+void *__ct__13TUnk_804806E8FP7TObject(void *, void *, void *);
 extern s32 __vt__6TOTrap[];
 extern s32 lbl_805D3198;
 
@@ -294,7 +294,7 @@ void *__dt__6TOTrapFv(void *arg0, s16 arg1) {
 }
 
 Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b) {
-    construct_actor_base__10TObjPlayerFPvPv(self, a, b);
+    __ct__13TUnk_804806E8FP7TObject(self, a, b);
     self->vt = __vt__6TOTrap;
     self->type = lbl_805D3198;
     self->f334 = self->f338 = 0.0f;

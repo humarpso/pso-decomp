@@ -4,6 +4,8 @@ struct TBoss8Dragon;
 struct TLobby;
 struct TObjPlayer;
 #include "pso/misc/TPacket.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/unk/text_800C7FEC.h"
 
 extern s32 game_protocol_instance;
 
@@ -36,7 +38,6 @@ void handle_6x04_legacy_activate_switch_by_token(void *arg0);
 void handle_6x05_write_switch_flag(void *arg0);
 void handle_6x06_send_guild_card(s32 arg0);
 extern "C" void handle_6x07_symbol_chat();
-void handle_6x09_legacy_kill_enemy(s32 arg0);
 extern "C" void handle_6x0A_update_enemy_state();
 extern "C" void handle_6x0B_update_object_state();
 extern "C" void handle_6x0C_add_or_remove_status_effect(void *arg0);
@@ -47,9 +48,6 @@ void handle_6x11_dragon_boss_actions(void *arg0);
 void handle_6x12_dragon_boss_actions(TObjPlayer *arg0);
 extern "C" void handle_6x13_de_rol_le_boss_actions(void *arg0);
 extern "C" void handle_6x14_de_rol_le_boss_actions_with_target(void *arg0);
-void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0);
-void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0);
-void handle_6x17_set_entity_position_and_angle(u8 *arg0);
 extern "C" void handle_6x18_vol_opt2_boss_actions();
 extern "C" void handle_6x19_dark_falz_actions();
 extern "C" void handle_6x1B_enable_pk_mode_for_player(void *arg0);
@@ -150,8 +148,6 @@ extern "C" void handle_6x80_trigger_trap();
 extern "C" void handle_6x81_disable_drop_weapon_on_death(void *arg0);
 extern "C" void handle_6x82_enable_drop_weapon_on_death(void *arg0);
 extern "C" void handle_6x83_place_trap(void *arg0);
-void handle_6x84_vol_opt_boss_actions(TBoss3Volopt *arg0);
-extern "C" void handle_6x85_vol_opt_phase2_boss_actions();
 extern "C" void handle_6x86_hit_destructible_object();
 extern "C" void handle_6x87_shrink_player();
 extern "C" void handle_6x88_restore_shrunken_player();

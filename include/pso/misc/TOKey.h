@@ -21,7 +21,7 @@ struct TOKey : public TUnk_804AFBF8 {
     virtual void debug_draw_key_id();
     virtual void handle_switch_trigger(void *);
     void vfunc_13(s32);
-    s16 update_object_view_visibility(f32, f32);
+    s32 update_object_view_visibility(f32, f32);
     u32 m_e4;
     void reset_and_notify();
     void init_switch_id();

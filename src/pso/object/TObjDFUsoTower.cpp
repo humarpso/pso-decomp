@@ -2,7 +2,7 @@
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjDFUsoTower.h"
-#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_80052200_lbl_804858A8 {
     s32 value;
@@ -31,7 +31,7 @@ void *__nw__7TObjectFUl(int);
 void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjDFUsoTower;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

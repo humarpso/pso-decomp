@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/misc/TLockOnCursor.h"
@@ -1971,7 +1972,6 @@ s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 set_hp_clamped__10TObjPlayerFs(void * a0 = 0, s16 a1 = 0);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
 f32 receive_physical_attack__13TUnk_804806E8FPvf(s32, s32, f32);
-s32 update_defense_stat_status(s32);
 s32 update_attack_stat_status__13TUnk_804806E8Fv(s32);
 s32 update_shock_clock__13TUnk_804806E8Fv(s32);
 s32 update_movement_status__13TUnk_804806E8Fv(s32);
@@ -3574,7 +3574,7 @@ void TObjPlayer::send_field_state() {
 
 void TObjPlayer::spawn_effect(s32 arg0) {
     if (((s32 (*)(void))is_locally_controlled__10TObjPlayerFPv)() != 0) {
-        TBoss4Type3::spawn_effect(0xC0, 0xF, ((s32 (*)(s32))obj_getField1c)(arg0));
+        start_pad_rumble_client(0xC0, 0xF, ((s32 (*)(s32))obj_getField1c)(arg0));
     }
 }
 
@@ -4044,10 +4044,9 @@ void TObjPlayer::sync_status_effect_flags() {
     }
 }
 
-s32 TObjPlayer::vfunc_42() {
-    s32 player = (s32)this;
+s32 TObjPlayer::update_defense_stat_status() {
     if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() != 0) {
-        return update_defense_stat_status(player);
+        return TUnk_804806E8::update_defense_stat_status();
     }
     return 0;
 }
@@ -5969,7 +5968,7 @@ void TObjPlayer::update_status_effects() {
   (this->update_movement_status());
   (this->update_shock_clock());
   (this->update_attack_stat_status());
-  (this->vfunc_42());
+  (this->update_defense_stat_status());
   if (((TItemMag *)(arg0 + 0x644))->get_mag_id() <= 0)
   {
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)(0x04000100));
@@ -6018,7 +6017,7 @@ void TObjPlayer::init_effect_5f0() {
 }
 
 void TObjPlayer::get_hand_joint_position(s32 arg1) {
-    this->vfunc_65(*(s32 *)((s8 *)(TObjPlayer__sub_801D8DCC()) + 0x10), arg1);
+    this->get_anim_node_position(*(s32 *)((s8 *)(TObjPlayer__sub_801D8DCC()) + 0x10), (Vec *)arg1);
 }
 
 void TObjPlayer::calc_move(void* a1, void* a2) { vector_length(this); ((int (*)(void*, void*))calc_move_velocity__10TObjPlayerFPvPvf)(a1, a2); }
@@ -6832,7 +6831,7 @@ block_17:
     return 0;
 }
 
-void TObjPlayer::vfunc_65(s32 arg1, s32 arg2) {
+void TObjPlayer::get_anim_node_position(s32 arg1, Vec *arg2) {
     Stack_801B9544 stack;
     s32 arg0 = (s32)this;
     stack.sp10 = TObjPlayer__data_805DC278;
@@ -6854,7 +6853,7 @@ void TObjPlayer::use_current_item() {
         ((VObj_801B95C8*)temp_r3)->m28();
         return;
     }
-    this->vfunc_65(0x24, (s32)&sp8);
+    this->get_anim_node_position(0x24, (Vec *)&sp8);
     TEffGuard::create((const Vec*)(&sp8));
 }
 

@@ -16,7 +16,7 @@ extern "C" {
 void *TORockCaveSimple__ct(void *arg0);
 void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void *TORockCave__ct(void *arg0);
+void *__ct__10TORockCaveFv(void *arg0);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 void __dl__7TObjectFPv(void *);
@@ -51,7 +51,7 @@ void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1) {
 extern void *TORockCaveSimple__class_name;
 
 void *TORockCaveSimple__ct(void *rock_cave_simple) {
-    TORockCave__ct(rock_cave_simple);
+    __ct__10TORockCaveFv(rock_cave_simple);
     *(s32 **)((s8 *)rock_cave_simple + 0x18) = __vt__16TORockCaveSimple;
     *(void * *)&((TORockCaveSimple *)rock_cave_simple)->m_name = TORockCaveSimple__class_name;
     return rock_cave_simple;

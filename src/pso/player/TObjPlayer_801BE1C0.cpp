@@ -22,7 +22,7 @@ s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {
 }
 
 void TObjPlayer::get_pos(s32 arg1) {
-    this->vfunc_65(0x3A, arg1);
+    this->get_anim_node_position(0x3A, (Vec *)arg1);
 }
 
 void TObjPlayer::vfunc_76() { subtract_photon_blast_charge((char*)this + 0x4ac); }

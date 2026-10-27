@@ -137,7 +137,7 @@ struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-void *TORockCave__ct(void *arg0);
+void *__ct__10TORockCaveFv(void *arg0);
 extern "C" void vfunc_15__15TORockJungleL01Fv();
 extern "C" void vfunc_14__15TORockJungleL01Fv();
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
@@ -193,7 +193,7 @@ void *lbl_804DC448[16] = {
 };
 #define rock_jungle_collision_body_parts (*(Inner_8029C214 *)rock_jungle_collision_body_parts)
 u8 *TORockJungleL01__ct(u8 *rock_cave, s32 arg1) {
-    TORockCave__ct(rock_cave);
+    __ct__10TORockCaveFv(rock_cave);
     *(s32 **)((s8 *)rock_cave + 0x18) = (s32 *)lbl_804DC448;
     ((TObjPlayer *)(rock_cave + 0xB4))->init_and_activate();
     *(s32 *)((s8 *)rock_cave + 0) = TORockJungleL01_name_ref;

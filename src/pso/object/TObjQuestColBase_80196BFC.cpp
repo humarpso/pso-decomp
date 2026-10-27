@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObjQuestColBase_80196BFC.h"
-#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 
 struct VBase_18_551843 { char pad[0x18]; };
 
@@ -108,7 +109,7 @@ s32 TObjQuestColBase::is_within_range(f32 farg0) {
     u32 player;
 
     player = (u32)get_player_by_client_id(local_client_id);
-    if ((player != 0U) && (xyz_distance_squared((u8 *)(player + 0x38), (u8 *)(arg0 + 0x38)) < farg0)) {
+    if ((player != 0U) && (xyz_distance_squared((Vec *)(player + 0x38), (Vec *)(arg0 + 0x38)) < farg0)) {
         return 1;
     }
     return 0;
@@ -138,7 +139,7 @@ u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjQuestColBase.value;
         TObjQuestColBase__instance_count -= 1;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -152,7 +153,7 @@ typedef struct VObj_18_1a504b VObj_18_1a504b;
 typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase)) == 0x48) ? (1) : (-1)];
 u8 *TObjQuestColBase__ct(u8 *quest_col_base, s32 arg1, s32 arg2) {
   u16 temp_r6;
-  ((TUnk_804AF8A0 *)quest_col_base)->construct_collider_proxy();
+  __ct__13TUnk_804AF8A0FP7TObject(quest_col_base, arg1);
   ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_0 = quest_col_base_class_name;
   (((TObjQuestColBase *)(quest_col_base))->apply_object_set_data((void *)arg2));

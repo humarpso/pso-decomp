@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMesBase.h"
 #include "pso/misc/TMotorcycle.h"
 #include "pso/object/TObjMesBase.h"
 #include "pso/object/TObjMotion.h"
@@ -29,7 +30,7 @@ extern u8 lbl_80445DAC[];
 s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
 void *TObjMesBase__ct(TObjMesBase *arg0, s32 arg1, s32 arg2);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
+s32 __ct__13TUnk_804AF8A0FP7TObject();
 void __dl__7TObjectFPv(void *);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
@@ -96,21 +97,16 @@ void TObjMesBase::run_task() {
 
 extern s32 __vt__11TObjMesBase[];
 
-void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjMesBase::~TObjMesBase() {
+
+}
+extern "C" {
 
 extern s32 TObjMesBase__class_name;
 
 void *TObjMesBase__ct(TObjMesBase *mes_base, s32 arg1, s32 arg2) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv();
+    __ct__13TUnk_804AF8A0FP7TObject();
     *(s32 **)((s8 *)mes_base + 0x18) = __vt__11TObjMesBase;
     *(s32 *)((s8 *)mes_base + 0) = (s32) TObjMesBase__class_name;
     mes_base->apply_object_set_data((void *)arg2);

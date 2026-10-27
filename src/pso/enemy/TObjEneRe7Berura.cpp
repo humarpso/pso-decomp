@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -492,7 +493,6 @@ s32 create__12TObjEneSaverFPvPv(s32, s32);
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
 void mem_free(void*);
 void *mem_alloc(u32 size);
@@ -602,7 +602,7 @@ extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
 extern "C" void vfunc_67__13TUnk_804806E8Ff();
 extern "C" void vfunc_66__13TUnk_804806E8Fv();
-extern "C" void vfunc_65__13TUnk_804806E8Fll();
+extern "C" void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 extern "C" void vfunc_60__13TUnk_804806E8Fv();
 extern "C" void vfunc_59__13TUnk_804806E8Fv();
 extern "C" void vfunc_58__13TUnk_804806E8Fv();
@@ -655,22 +655,23 @@ extern "C" u8 lbl_80439E48[];
 extern "C" u8 lbl_80439E60[];
 extern "C" u8 lbl_80439E74[];
 extern "C" u8 lbl_80439E88[];
-extern "C" void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
+extern "C" void receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll();
 extern "C" void receive_physical_attack__13TUnk_804806E8FPvf();
-extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
+extern "C" void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
+extern "C" void apply_defense_stat_status__13TUnk_804806E8FPv();
 extern "C" void render__16TObjEneRe7BeruraFv();
 extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__13TUnk_804806E8FPvf();
-extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+extern "C" void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
 extern "C" s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
 extern "C" s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-extern "C" s32 update_defense_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -713,19 +714,19 @@ void *__vt__16TObjEneRe7Berura[107] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
+    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
+    (void *)&receive_weapon_special_attack__13TUnk_804806E8FPvPv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__16TObjEneRe7BeruraFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status__13TUnk_804806E8Fv, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__16TObjEneRe7BeruraFv, (void *)&vfunc_62__16TObjEneRe7BeruraFv, (void *)&vfunc_63__16TObjEneRe7BeruraFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&get_anim_node_position__13TUnk_804806E8FlP3Vec, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
+    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
@@ -1301,8 +1302,8 @@ void TObjEneRe7Berura::load_static_resources() {
         bind_motion_context((s32)ent, e->f14);
         ((void (*)(u32, void *))apply_attack_params__16TObjEneRe7BeruraFiPv)(m, e);
         TObjPlayer::clear_global_state();
-        e->f18 = collect_and_count__12TBoss3VoloptFUll(m, e->f4);
-        e->f1C = (s32)collect_and_count__12TBoss3VoloptFUll(m, e->f8);
+        e->f18 = (s32 *)find_model_node(m, e->f4);
+        e->f1C = (s32)find_model_node(m, e->f8);
         e->f20 = 7;
         e->f24 = e->f18[1];
         e->f28 = TObjEneRe7Berura__data_805D972C;
@@ -1317,8 +1318,8 @@ void TObjEneRe7Berura::load_static_resources() {
         e->f4C = e->f18[0x2C / 4];
         e->f50 = 0;
     }
-    berura_node_matrix_ptr_a = ((s32 *)collect_and_count__12TBoss3VoloptFUll(m, 2)[1])[1] + 8;
-    berura_node_matrix_ptr_b = ((s32 *)collect_and_count__12TBoss3VoloptFUll(m, 1)[1])[1] + 8;
+    berura_node_matrix_ptr_a = ((s32 *)((NJS_OBJECT *)find_model_node(m, 2))->model)[1] + 8;
+    berura_node_matrix_ptr_b = ((s32 *)((NJS_OBJECT *)find_model_node(m, 1))->model)[1] + 8;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
     if (p != NULL) {
         p = ((TLobby *)p)->alloc_tables(*(s32 *)(RES->f42C + 8), 2);

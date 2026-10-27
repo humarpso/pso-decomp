@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_80052374.h"
 #include "pso/player/TObjPlayer_803E4954.h"
@@ -125,7 +126,7 @@ void TObjDFDemo4::run_task() {
       ((TBoss4Type2 *)r)->set_flags(0x40);
     }
     play_sound_effect(0x40039E09, &self->pos, 0, 1);
-    TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+    start_pad_rumble_all(0xC0, 0xF);
   }
   if (self->fF8 == 0x72)
   {

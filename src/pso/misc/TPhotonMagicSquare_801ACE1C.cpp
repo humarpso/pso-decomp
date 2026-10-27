@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonMagicSquare.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -157,16 +158,11 @@ s32 find_entity_by_id(void *);
 s32 play_sound_effect(int, int, int, int);
 void __dl__7TObjectFPv(void *);
 
-void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&__vt__18TPhotonMagicSquare;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TPhotonMagicSquare::~TPhotonMagicSquare() {
+
+}
+extern "C" {
 
 u8 *TPhotonMagicSquare__ct(u8 *photon_magic_square, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     __ct__13TUnk_804B9870FP7TObject(photon_magic_square);

@@ -10,6 +10,7 @@
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 {
     s32 value;
@@ -256,7 +257,7 @@ void TUnk_8048E6A8::run_task() {
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6A8;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -426,7 +427,7 @@ void TUnk_8048E6DC::run_task() {
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6DC;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

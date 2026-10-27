@@ -32,13 +32,13 @@ struct TObjPlayer : public TUnk_804806E8 {
     void sub_801BB950();
     void handle_state2_transitions();
     void sub_8011E204(s32);
-    virtual void vfunc_65(s32, s32);
+    virtual void get_anim_node_position(s32 node, Vec *out);
     virtual u8 *update_actor_ground_y();
     virtual u8 *vfunc_18(u8 *);
     virtual void vfunc_73();
     virtual s32 vfunc_37();
     virtual s32 update_attack_stat_status();
-    virtual s32 vfunc_42();
+    virtual s32 update_defense_stat_status();
     virtual s32 is_actor_cadence_frame(s32);
     virtual s32 add_actor_exp(s32);
     virtual void reset_pose();
@@ -234,17 +234,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     f32 m_d48;
     u8 unk_D4C[0x60];
     void* m_dac;
-    static void set_grabbed_state(s32 arg0);
-    void update_topple_state();
-    static void link_photon(u16 arg0);
-    void set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3);
-    s32 calc_spin_value();
-    void update_state_spin();
-    void run_freeze_state();
-    void update_reaction_animation();
-    void update_grabbed_state();
-    void dispatch_reaction_state();
-    void set_target_id(s32 arg1);
     int construct_target_cursor_records();
     static void draw_area_chunk_objects();
     void save_position();
@@ -334,7 +323,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void refresh_lobby_state();
     int query_lobby_state();
     s32 is_action_available();
-    void horizontal_distance(u8 *arg1);
     void draw_trail_strip(void *arg1, s32 arg2);
     f32 calc_photon_blast_power(s32 arg1, f32 farg0);
     static s32 is_any_teammate_in_state();
@@ -375,7 +363,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int get_hp_material_points();
     s32 clamp_hp_value(s16 *arg1);
     void set_hp_clamped(s16 arg1);
-    static void apply_defense_stat_status(s32 arg0, void *arg1);
     void spawn_recovery_effect();
     void set_attribute_entry(s32 i, void *q);
     void copy_entry_bytes(void* q);
@@ -424,6 +411,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void clear_velocity_vectors();
     static void set_com_card_window(s32 arg0);
     static s32 check_demo_mode();
+    static s32 is_locally_controlled(void *player);
     static TObjPlayer *get_player_data(int index);
     int queue_destruction();
     void set_position_xy(f32 a, f32 b);
@@ -1271,7 +1259,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void draw_player_model_by_id(s32 arg0, f32 farg0);
     void draw_shadowed_node_tree();
     static void rebuild_players_for_stage(s32 arg0);
-    void pick_open_direction(f32 *dir, f32 a, f32 b);
     static s32 snap_to_ground(s32 arg0, s32 arg1);
     static void spawn_appearance_effect(s32 idx);
     static u8 *create_vtable_804A08B8(u8 *arg0);
@@ -1354,7 +1341,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void advance_render_counters();
     static void notify_fish_obj(void* a0);
     static void draw_effect();
-    s32 check_target_collision();
     void draw_trail_pair();
     s32 apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
     void update_aim_and_fire();
@@ -1696,9 +1682,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_floor_index(s32 v);
     u8 unk_DB0[0x4];
     s32 m_db4;
-    void cast_tech_on_players();
-    s32 fire_zonde_at_players();
-    u16 pick_random_nearby_player(f32 radius);
     void revive_or_spawn_marker();
     static void spawn_dead_spot(s32 point, s32 selector, s32 delay, f32 farg0);
     void update_homing_shot();

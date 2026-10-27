@@ -97,7 +97,7 @@ u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-f32 TObjNpcCloakroomBase::receive_direct_attack(void *, void *, void *, s32, s32) {
+f32 TObjNpcCloakroomBase::receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32) {
     return lbl_805DB1E8;
 }
 

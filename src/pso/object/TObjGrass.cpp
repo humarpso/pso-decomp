@@ -364,7 +364,7 @@ s32 is_split_screen();
 extern s32 local_client_id;
 s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__9TObjEnemyFl(void *, int, int);
-s32 initialize__9TObjEnemyFPv(void *, s32, s32);
+s32 __ct__9TObjEnemyFP7TObject(void *, s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
 extern "C" u8 lbl_8043B6A0[];
 extern "C" u8 lbl_8043B6B4[];
@@ -1109,7 +1109,7 @@ void TObjGrass::vfunc_60() {
 }
 
 struct Vec_800BE1CC { f32 x, y, z; };
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
+f32 calc_xz_distance_sq(void *, void *, Vec_800BE1CC *);
 #define TBL ((u32 *)TObjGrass__bml_resource)
 #define T318 (*(u32 *)((s8 *)(((u8 *)this)) + 0x318))
 #define IN_RANGE() (dist <= (r + ((TObjPlayer *)T318)->get_pos_x()) * (r + ((TObjPlayer *)T318)->get_pos_x()) && ang <= ((TObjPlayer *)T318)->get_field_0c())
@@ -1130,7 +1130,7 @@ s32 TObjGrass::is_target_in_attack_range() {
     if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x2000) != 0) {
         BIND(2)
     }
-    dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, this->target, &v);
+    dist = calc_xz_distance_sq(this, this->target, &v);
     ang = angle_difference_abs(this->rotation_y, (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
     t = this->target;
     if (*(u8 **)((s8 *)t + 0xA4) != NULL) {
@@ -1801,7 +1801,7 @@ Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1) {
 
 u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 t;
-    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__9TObjGrass;
     ((TUnk_80494938 *)(arg0 + 0x3B0))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A38;

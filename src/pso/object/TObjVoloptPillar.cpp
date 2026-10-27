@@ -1,231 +1,122 @@
-#include "types.h"
-#include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
+#pragma fp_contract on
+
 #include "pso/object/TObjVoloptPillar.h"
+#include "pso/system/NinjaUtil.h"
+#include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
+#include "pso/math/MatrixTransforms.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObjFish.h"
+#include "pso/object/TObjLight_80133568.h"
 #include "pso/player/TObjPlayer.h"
-
-struct S_8004A574 {
-    s32 f0;
-    u8 pad4[0x14];
-    void *vt;
-    u8 pad1c[0x1c];
-    u8 v38[4];
-    f32 f3c;
-    u8 pad40[0x6c];
-    s32 fac;
-    u8 padb0[8];
-    f32 fb8;
-    s32 fbc;
-};
-
-struct VBase_8004A0AC { u8 pad[0x18]; };
-
-struct VObj_8004A0AC : VBase_8004A0AC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
-struct Obj_8004A0AC : VObj_8004A0AC {
-    u8 pad1c[0x38 - 0x1c];
-    f32 f38;
-    f32 f3c;
-    f32 f40;
-    u8 pad44[0x60 - 0x44];
-    s32 f60;
-    u8 pad64[0xb8 - 0x64];
-    f32 fb8;
-};
-
-struct Vec_8004A1CC { f32 x, y, z; };
-
-struct Pair_8004A1CC { s32 a; f32 b; };
-
-struct VBase_8004A1CC { u8 pad[0x18]; };
-
-struct BP_8004A1CC : VBase_8004A1CC {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20();
-    virtual void m21(s32, Pair_8004A1CC *, s32, s32, s32);
-    u8 pad1c[0x30 - 0x1c];
-    u32 f30;
-    u8 pad34[4];
-    Vec_8004A1CC pos;
-    u8 pad44[0x308 - 0x44];
-    u8 f308[4];
-};
-
-struct Flags_8004A1CC { u8 pad[0x18]; u32 f18; };
-
-struct Self_8004A1CC {
-    u8 pad0[0x38];
-    Vec_8004A1CC pos;
-    u8 pad44[0xa4 - 0x44];
-    Flags_8004A1CC *fa4;
-    u8 pada8[4];
-    s32 state;
-    u8 padb0[4];
-    s32 timer;
-    u8 padb8[4];
-    s32 fbc;
-};
+#include "pso/player/TObjPlayer_800F0810.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/system/BmlResource.h"
+#include "pso/system/vector.h"
+#include "pso/boss/TBoss3VoloptP02.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
+#include "pso/boss/TUnk_80484888.h"
+#include "pso/unk/text_80049FD8.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/player/TObjPlayer_801542CC.h"
+#include "pso/unk/text_803D8F74.h"
 
 extern "C" {
-f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
-void init_collision_body_parts(void *, void *, s32);
-void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
-extern u8 volopt_pillar_collision_body[];
-extern s32 __vt__16TObjVoloptPillar[];
-extern u8 boss3_volopt_spawn_pos[];
-extern s32 lbl_805D2760;
-extern s32 tl_04;
-extern const f32 TObjVoloptPillar__data_805D88C8;
-extern const f32 lbl_805D88E4;
-extern const f32 lbl_805D88E8;
-S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2);
-void draw_blob_shadow(s32);
-void restore_scene_lighting();
-void select_actor_lighting(s32 obj);
-void scale_matrix(s32, f32, f32, f32);
-void rotate_matrix_y(s32, s32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-void rotate_matrix_x(s32, s32);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_chunk_object(void *child);
-extern s32 volopt_pillar_chunk_model_handle;
-extern s32 volopt_pillar_secondary_chunk_model;
-extern s32 volopt_pillar_texture_param_a;
-extern s32 volopt_pillar_texture_param_b;
-extern const f32 lbl_805D88B8;
-extern const f32 lbl_805D88BC;
-extern const f32 lbl_805D88C0;
-extern const f32 lbl_805D88C4;
-extern const f32 lbl_805D88CC;
-s32 obj_is_hit_receivable(void *);
-f32 atan2_float(f32, f32);
-void queue_destruction__7TObjectFv();
-BP_8004A1CC *get_battle_param__10TObjPlayerFi(s32);
-s32 TObjVoloptPillar__sub_80048118(s32);
-f32 TBoss3Volopt__sub_8004812C(s32);
-void TBoss3Volopt__sub_8004885C(void *, Vec_8004A1CC *, s32, s32, s32, f32, f32);
-void fn_80049FD8(void *);
-void init_all_slots__10TObjPlayerFv(void *);
-void play_sound_effect(s32, void *, s32, s32);
-void *__nw__7TObjectFUl(u32);
-void matrix_mult_vec(s32, void *, void *);
-void subtract_vector(void *, void *);
-void push_matrix_from(void *);
-extern Pair_8004A1CC lbl_80436734[];
-extern Vec_8004A1CC lbl_8043673C[];
-extern const f64 lbl_80436798[];
-extern u8 identity_matrix[];
-extern const f32 lbl_805D88D0;
-extern const f32 lbl_805D88D4;
-extern const f32 lbl_805D88D8;
-extern const f32 lbl_805D88DC;
-extern const f32 lbl_805D88E0;
-void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self);
-void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1);
-void free_collision_body_parts(void *);
-void __dl__7TObjectFPv(void *);
+f32 atan2_float(f32 y, f32 x);
+s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
+s32 push_matrix(void);
+void post_translate_matrix(const Vec *v);
+void rotate_matrix_x(s32 matrix, s32 angle);
+void scale_matrix(s32 matrix, f32 x, f32 y, f32 z);
+void matrix_mult_vec(s32 matrix, const Vec *src, Vec *dst);
+void subtract_vector(Vec *v, const Vec *sub);
+void play_sound_effect(s32 id, const Vec *pos, s32 a2, s32 a3);
+extern GC_Mtx identity_matrix;
+}
 
-extern u8 *boss3_volopt_resources;
 
-#pragma fp_contract on
+static s32 volopt_pillar_model;
+static s32 volopt_pillar_base_model;
+static s32 volopt_pillar_textures;
+static s32 volopt_pillar_base_textures;
+
+static CollisionBody volopt_pillar_collision_body[1] = {
+    {{0.0f, 18.0f, 0.0f}, 5.0f, {0}, 0x8005, {0}},
+};
+
 void TObjVoloptPillar::render() {
-    Obj_8004A0AC *arg0 = (Obj_8004A0AC *)this;
-    f32 s;
-    if (arg0->m8(lbl_805D88B8, lbl_805D88BC) != 0) {
-        select_actor_lighting((s32)arg0);
+    f32 scale;
+    if (update_object_view_visibility(400.0f, 40.0f) != 0) {
+        select_actor_lighting((s32)this);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
-        post_translate_matrix(&arg0->f38);
-        TObjFish::set_global_param(volopt_pillar_texture_param_a);
-        draw_chunk_object((void *)volopt_pillar_chunk_model_handle);
+        post_translate_matrix((Vec *)position);
+        TObjFish::set_global_param(volopt_pillar_textures);
+        draw_chunk_object((void *)volopt_pillar_model);
         pop_matrix();
         push_matrix();
-        translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
-        TObjFish::set_global_param(volopt_pillar_texture_param_b);
-        draw_chunk_object((void *)volopt_pillar_secondary_chunk_model);
+        translate_matrix(0, position[0], start_y, position[2]);
+        TObjFish::set_global_param(volopt_pillar_base_textures);
+        draw_chunk_object((void *)volopt_pillar_base_model);
         pop_matrix();
         restore_scene_lighting();
         TParticleCtrl::end_effect_render();
-        s = lbl_805D88C4 * (TObjVoloptPillar__data_805D88C8 - arg0->f3c) + lbl_805D88C0;
+        scale = 0.011111111f * (90.0f - position[1]) + 1.0f;
         push_matrix();
-        translate_matrix(0, arg0->f38, lbl_805D88CC, arg0->f40);
-        rotate_matrix_y(0, arg0->f60);
+        translate_matrix(0, position[0], 0.3f, position[2]);
+        rotate_matrix_y(0, rotation_y);
         rotate_matrix_x(0, -0x4000);
-        scale_matrix(0, s, s, s);
+        scale_matrix(0, scale, scale, scale);
         draw_blob_shadow(0);
         pop_matrix();
     }
 }
 
-void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
+void TObjVoloptPillar::run_task() {
     s32 i;
-    BP_8004A1CC *bp;
-    s32 ang;
-    void *p;
-    switch (self->state) {
+    TUnk_804806E8 *target;
+    s32 angle;
+    switch (state) {
     case 0:
-        self->timer = TObjVoloptPillar__sub_80048118(5);
-        self->state = 1;
+        timer = TBoss3VoloptP02::get_int_param(5);
+        state = 1;
     case 1:
-        if (--self->timer <= 0) {
-            fn_80049FD8(self);
-            self->state = 2;
+        if (--timer <= 0) {
+            fn_80049FD8(this);
+            state = 2;
         }
         break;
     case 2:
-        self->pos.y += lbl_805D88D0;
-        if (self->pos.y <= lbl_805D88D4) {
-            self->timer = 0xF;
-            self->state = 3;
-            {
-                Flags_8004A1CC *fl = self->fa4;
-                fl->f18 |= 2;
-                init_all_slots__10TObjPlayerFv(fl);
-            }
-            ((TObjPlayer *)self)->check_object_collisions();
-            if (self->fa4->f18 & 0x80000) {
-                for (i = 0; i < 0x10; i++) {
-                    bp = get_battle_param__10TObjPlayerFi(i);
-                    if (bp == NULL) {
+        position[1] += -16.0f;
+        if (position[1] <= 0.0f) {
+            timer = 15;
+            state = 3;
+            m_a4->flags |= 2;
+            TObjPlayer::init_all_slots();
+            ((TObjPlayer *)this)->check_object_collisions();
+            if (m_a4->flags & 0x80000) {
+                for (i = 0; i < 16; i++) {
+                    target = (TUnk_804806E8 *)TObjPlayer::get_battle_param(i);
+                    if (target == NULL) {
                         break;
                     }
-                    if (obj_is_hit_receivable(bp) != 0) {
-                        Pair_8004A1CC tmp = lbl_80436734[0];
-                        tmp.b = TObjVoloptPillar__sub_80048118(1);
-                        {
-                            Pair_8004A1CC arg = tmp;
-                            bp->m21(self->fbc, &arg, 0, -1, -1);
-                        }
-                        if (!(bp->f30 & 0x04000000)) {
+                    if (obj_is_hit_receivable(target) != 0) {
+                        DirectAttackPayload attack = volopt_pillar_attack;
+                        attack.power = TBoss3VoloptP02::get_int_param(1);
+                        target->receive_direct_attack(owner, attack, NULL, -1, -1);
+                        if (!(target->actorFlags & 0x04000000)) {
                             push_matrix_from(identity_matrix);
                             {
-                                Vec_8004A1CC v = bp->pos;
-                                subtract_vector(&v, boss3_volopt_spawn_pos);
-                                ang = lbl_80436798[0] * atan2_float(v.x, v.z);
+                                Vec away = *(Vec *)target->position;
+                                subtract_vector(&away, &boss3_volopt_spawn_pos);
+                                angle = volopt_pillar_rad_to_angle * atan2_float(away.x, away.z);
                                 {
-                                    Vec_8004A1CC w = lbl_8043673C[0];
-                                    w.x = TBoss3Volopt__sub_8004812C(2);
-                                    rotate_matrix_y(0, ang);
-                                    matrix_mult_vec(0, &w, bp->f308);
+                                    Vec push = volopt_pillar_push;
+                                    push.x = TBoss3VoloptP02::get_float_param(2);
+                                    rotate_matrix_y(0, angle);
+                                    matrix_mult_vec(0, &push, (Vec *)target->unk_308);
                                 }
                             }
                             pop_matrix();
@@ -233,71 +124,53 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                     }
                 }
             }
-            self->fa4->f18 &= ~1;
+            m_a4->flags &= ~1;
             {
-                Vec_8004A1CC pos = self->pos;
-                pos.y = lbl_805D88D8;
-                p = __nw__7TObjectFUl(0x48);
-                if (p != NULL) {
-                    TBoss3Volopt__sub_8004885C(p, &pos, 0x11E, 0xF, 0, lbl_805D88DC, lbl_805D88BC);
-                }
+                Vec pos = *(Vec *)position;
+                pos.y = 5.0f;
+                new TUnk_80484888(&pos, 0x11E, 0xF, NULL, 0.25f, 40.0f);
             }
             TCameraCtrl::set_shake_preset(1);
-            play_sound_effect(0x4003AD09, &self->pos, 0, 0);
+            play_sound_effect(0x4003AD09, (Vec *)position, 0, 0);
         }
         break;
     case 3:
-        if (--self->timer <= 0) {
-            self->state = 4;
+        if (--timer <= 0) {
+            state = 4;
         }
         break;
     case 4:
-        self->pos.y += lbl_805D88E0;
-        if (self->pos.y >= TObjVoloptPillar__data_805D88C8) {
-            queue_destruction__7TObjectFv();
+        position[1] += 16.0f;
+        if (position[1] >= 90.0f) {
+            queue_destruction();
         }
         break;
     }
 }
 
 void TObjVoloptPillar::cache_target_values() {
-    volopt_pillar_chunk_model_handle = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x178);
-    volopt_pillar_texture_param_a = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x17C);
-    volopt_pillar_secondary_chunk_model = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x158);
-    volopt_pillar_texture_param_b = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x15C);
+    volopt_pillar_model = boss3_volopt_resources->models[0x17].model;
+    volopt_pillar_textures = boss3_volopt_resources->models[0x17].m_c;
+    volopt_pillar_base_model = boss3_volopt_resources->models[0x15].model;
+    volopt_pillar_base_textures = boss3_volopt_resources->models[0x15].m_c;
 }
 
-void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjVoloptPillar;
-        free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+TObjVoloptPillar::~TObjVoloptPillar() {
+    free_collision_body_parts(this);
 }
-#pragma push
-#pragma fp_contract on
-S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
-    f32 d;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(o, tl_04);
-    o->vt = ((u8 *)&__vt__16TObjVoloptPillar);
-    o->f0 = lbl_805D2760;
-    init_collision_body_parts(o, volopt_pillar_collision_body, 1);
-    VecCopy((Vec *)o->v38, (const Vec *)pos);
-    d = horizontal_distance__10TObjPlayerFPUc(o->v38, boss3_volopt_spawn_pos);
-    if (d < lbl_805D88E4) {
-        o->f3c = TObjVoloptPillar__data_805D88C8;
+
+TObjVoloptPillar::TObjVoloptPillar(Vec *pos, TObject *owner) : TUnk_804AF8A0(tl_04) {
+    f32 dist;
+    m_name = TObjVoloptPillar_name;
+    init_collision_body_parts(this, volopt_pillar_collision_body, 1);
+    VecCopy((Vec *)position, pos);
+    dist = vec_xz_distance((Vec *)position, (Vec *)(u8 *)&boss3_volopt_spawn_pos);
+    if (dist < 60.0f) {
+        position[1] = 90.0f;
     } else {
-        o->f3c = TObjVoloptPillar__data_805D88C8 - lbl_805D88E8 * (d - lbl_805D88E4);
+        position[1] = 90.0f - 0.33333334f * (dist - 60.0f);
     }
-    o->fb8 = o->f3c;
-    o->fac = 0;
-    o->fbc = arg2;
-    return o;
-}
-#pragma pop
-
+    start_y = position[1];
+    state = 0;
+    this->owner = owner;
 }

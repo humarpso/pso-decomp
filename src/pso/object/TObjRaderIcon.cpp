@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/object/TObjRaderIcon.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjRaderIcon.h"
-#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_8019733C___vt__13TObjRaderIcon {
     s32 value;
@@ -90,16 +90,11 @@ void TObjRaderIcon::initialize_from_placement() {
     }
 }
 
-void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjRaderIcon;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjRaderIcon::~TObjRaderIcon() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_8019733C___vt__13TObjRaderIcon_size[sizeof(RecoveredGlobal_8019733C___vt__13TObjRaderIcon) == 0x34 ? 1 : -1];
 u8 *TObjRaderIcon__ct(u8 *rader_icon, s32 arg1, s32 arg2) {
     __ct__13TUnk_804B9870FP7TObject(rader_icon);

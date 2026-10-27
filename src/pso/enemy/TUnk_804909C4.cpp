@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
+#include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
@@ -71,20 +73,18 @@ s32 vec3_add_to(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s16 obj_getField1c(void *, f32);
 s32 subtract_vector(void *, void *);
 f32 atan2_float(f32, f32);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 u8 *csnVector(void *, Vec_800A34E8 *, s32);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
 extern void *tl_04;
 extern f32 player_scale_factor;
-extern s32 lbl_804909C4[];
+extern s32 __vt__13TUnk_804909C4[];
 extern s32 lbl_80490998[];
 void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
-u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 
 s32 TUnk_804909C4::sub_800A3290(s32 id) {
     Obj_800A3290 *other;
@@ -141,56 +141,49 @@ void TUnk_804909C4::run_task() {
     }
 }
 
-void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
-        free_collision_body_parts(arg0);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xD0) != 0U) {
-            queue_destruction__7TObjectFv(((TUnk_804909C4 *)arg0)->m_d0);
-        }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804909C4::~TUnk_804909C4() {
+    free_collision_body_parts(this);
+    if ((u32) *(u32 *)((s8 *)this + 0xD0) != 0U) {
+        queue_destruction__7TObjectFv(this->m_d0);
+    }
+}
+extern "C" {
 
-u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *player, s32 arg2, s32 arg3) {
+}
+TUnk_804909C4::TUnk_804909C4(u8 *player, s32 arg2, s32 arg3) : TUnk_804AF8A0((TObject *)tl_04) {
     s32 var_r0;
     u8 *temp_r3;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
-    init_collision_body_parts(arg0, lbl_80490998, 1);
-    *(f32 *)((s8 *)(((TUnk_804909C4 *)arg0)->m_a4) + 0xC) = 0.75f * player_scale_factor;
-    *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(player, 0.75f);
+    init_collision_body_parts(((u8 *)this), lbl_80490998, 1);
+    *(f32 *)((s8 *)(this->m_a4) + 0xC) = 0.75f * player_scale_factor;
+    *(s16 *)((s8 *)this + 0xC8) = obj_getField1c(player, 0.75f);
     if (((TObjPlayer *)player)->is_flag_set_388_bit26() != 0) {
         var_r0 = 0xDA;
     } else {
         var_r0 = 0xD5;
     }
-    ((TUnk_804909C4 *)arg0)->m_cc = var_r0;
-    *(s16 *)((s8 *)arg0 + 0x28) = *(s16 *)((s8 *)player + 0x28);
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
-    VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)(arg3));
-    subtract_vector(arg0 + 0xAC, (void *)arg2);
-    ((TUnk_804909C4 *)arg0)->m_b0 = 0.0f;
-    ((TObjGyaranzoMissile *)(arg0 + 0xAC))->scale_velocity(player_scale_factor);
-    ((TUnk_804909C4 *)arg0)->m_b8 = 0;
-    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) (10430.38043493439 * atan2_float(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB4))) + 0x4000;
-    ((TUnk_804909C4 *)arg0)->m_c0 = 0x4000;
-    *(s32 *)((s8 *)arg0 + 0xD0) = (s32)spawn_particle_effect_with_rotation((arg0 + 0x38), (arg0 + 0xB8), ((TUnk_804909C4 *)arg0)->m_cc, 0x42);
+    this->m_cc = var_r0;
+    *(s16 *)((s8 *)this + 0x28) = *(s16 *)((s8 *)player + 0x28);
+    VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg2));
+    VecCopy((Vec *)(((u8 *)this) + 0xAC), (const Vec *)(arg3));
+    subtract_vector(((u8 *)this) + 0xAC, (void *)arg2);
+    this->m_b0 = 0.0f;
+    vec_set_length((Vec *)(((u8 *)this) + 0xAC), player_scale_factor);
+    this->m_b8 = 0;
+    *(s32 *)((s8 *)this + 0xBC) = (s32) (10430.38043493439 * atan2_float(*(f32 *)((s8 *)this + 0xAC), *(f32 *)((s8 *)this + 0xB4))) + 0x4000;
+    this->m_c0 = 0x4000;
+    *(s32 *)((s8 *)this + 0xD0) = (s32)spawn_particle_effect_with_rotation((((u8 *)this) + 0x38), (((u8 *)this) + 0xB8), this->m_cc, 0x42);
     {
-    Vec_800A34E8 v = *(Vec_800A34E8 *)(arg0 + 0xAC);
-    ((TObjGyaranzoMissile *)(&v))->scale_velocity(500.0f);
-    vec3_add_to(&v, arg0 + 0x38);
-    temp_r3 = csnVector(arg0 + 0x38, &v, -1);
+    Vec_800A34E8 v = *(Vec_800A34E8 *)(((u8 *)this) + 0xAC);
+    vec_set_length((Vec *)(&v), 500.0f);
+    vec3_add_to(&v, ((u8 *)this) + 0x38);
+    temp_r3 = csnVector(((u8 *)this) + 0x38, &v, -1);
     }
     if (temp_r3 != NULL) {
-        ((TUnk_804909C4 *)arg0)->m_c4 = (s32) (horizontal_distance__10TObjPlayerFPUc(arg0 + 0x38, *(s32 *)((s8 *)temp_r3 + 4)) / player_scale_factor);
+        this->m_c4 = (s32) (vec_xz_distance((Vec *)(((u8 *)this) + 0x38), *(Vec **)((s8 *)temp_r3 + 4)) / player_scale_factor);
     } else {
-        ((TUnk_804909C4 *)arg0)->m_c4 = (s32) (500.0f / player_scale_factor);
+        this->m_c4 = (s32) (500.0f / player_scale_factor);
     }
-    return arg0;
 }
+extern "C" {
 }

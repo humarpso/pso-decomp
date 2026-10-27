@@ -27,7 +27,7 @@ s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 set_field_b8__10TObjMotionFs(void *, int);
-s32 initialize__9TObjEnemyFPv();
+s32 __ct__9TObjEnemyFP7TObject();
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 extern s32 crawfish_collision_body_desc[];
 extern s32 lbl_804E7380[];
@@ -97,7 +97,7 @@ void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
 
 u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     Vec_8030920C v;
-    initialize__9TObjEnemyFPv();
+    __ct__9TObjEnemyFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
     ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0(TBoss7Crawfish__shared_resource, 0);

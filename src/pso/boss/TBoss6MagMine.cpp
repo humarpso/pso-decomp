@@ -17,6 +17,7 @@ struct Mine_80368C14 { u8 pad[0x38]; Vec_80368C14 pos; };
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 struct VBase_18_5673ef { char pad[0x18]; };
 
 struct VObj_18_5673ef : VBase_18_5673ef {
@@ -425,7 +426,7 @@ extern s32 tl_04;
 s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
     Key_80369228 key;
     u8 *d;
-    ((TObjEnemy *)self)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(self, (void*)parent);
     *(s32 **)((s8 *)self + 0x18) = lbl_804F322C;
     *(s32 *)((s8 *)self + 0) = lbl_805D44B0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);

@@ -58,7 +58,7 @@ extern s32 TOVS2Wall01__class_name;
 extern Ent_8017B9B0 *TLobby__data_805D6140;
 void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
 
-f32 TOTrapAncient02R::receive_direct_attack(void *, void *, void *, s32, s32) {
+f32 TOTrapAncient02R::receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32) {
     Obj_8017B8A0 *self = (Obj_8017B8A0 *)this;
     self->m20(0, lbl_805DBA78);
 }

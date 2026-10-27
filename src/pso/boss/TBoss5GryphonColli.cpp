@@ -11,6 +11,7 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 
 extern "C" {
 s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
@@ -142,7 +143,7 @@ void *TBoss5GryphonColli_C::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804886AC;
         unregister_object_by_id();
         free_collision_body_parts(this);
-        destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(this, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -157,7 +158,7 @@ TBoss5GryphonColli_C *TBoss5GryphonDemo__sub_800663DC(TBoss5GryphonColli_C *self
     f32 z;
     Seg_800663DC *s;
     s32 i;
-    self->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(self, arg1);
     obj->vt = lbl_804886AC;
     obj->f0 = lbl_805D2808;
     obj->f1c = TLobby::alloc_actor_ids(0);

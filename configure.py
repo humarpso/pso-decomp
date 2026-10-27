@@ -439,6 +439,10 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # (`xoris/xori 0xFFFF`; 2.x always emits `li -1; xor`), and five others.
     "pso/object/TObjComputer.cpp": {"mw_version": "GC/1.3.2"},
     "pso/item/TObjContainerJung.cpp": {"mw_version": "GC/1.3.2"},
+    # The two below also schedule the by-value DirectAttackPayload read of
+    # their receive_direct_attack overrides only the way 1.3.2 does.
+    "pso/item/TObjContainerItem.cpp": {"mw_version": "GC/1.3.2"},
+    "pso/misc/TContainerAncient01.cpp": {"mw_version": "GC/1.3.2"},
     "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp": {"mw_version": "GC/1.3.2"},
     "pso/misc/TQuestVmDownLoadServer.cpp": {"mw_version": "GC/1.3.2", "cflags": _switch(cflags_pso, "-inline deferred")},
     "pso/misc/TCameraCtrl.cpp": {"mw_version": "GC/1.3.2"},
@@ -455,9 +459,29 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # vtables before the switch tables in .data.
     "pso/misc/TMedicalCenterSequence.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
     "pso/boss/TBoss7LaserLight.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    "pso/enemy/TObjEnemyCustom.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-pool off", "-str reuse,readonly")},
+    "pso/boss/TBoss3VoloptCore.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    "pso/boss/TBoss3VoloptP01.cpp": {"cflags": _switch(cflags_pso, "-inline deferred")},
+    # The Vol Opt fade tasks: deferred like the units above, but nothing is
+    # inlined (the inline TUnk_804999E8 destructor and TObject::queue_destruction
+    # stay calls).
+    "pso/boss/TUnk_804848A0.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # Vol Opt's second form also keeps eight-byte tables in .data, a six-byte
+    # one in .bss and four-byte pointers in .sbss; its .rodata initializers run
+    # from the last function back and its vtable precedes the switch tables.
+    "pso/boss/TBoss3VoloptP02.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
     # The character appearance tables keep eight-byte descriptors in .data
     # but four-byte pointer lists in .sdata.
     "pso/misc/CharacterAppearanceTables.cpp": {"cflags": _switch(cflags_pso, "-sdata 4")},
+    # Vol Opt keeps its six-byte P01 order in .bss and its four-byte globals
+    # in .sbss; its vtable precedes the switch tables in .data.
+    "pso/boss/TBoss3Volopt.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
+    # Vol Opt's monitors keep their eight-byte texture lists in .data but the
+    # four-byte class-name pointer in .sdata.
+    "pso/boss/TBoss3VoloptMonitor.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
+    # The pad rumble and Ninja helper code contract multiply-adds into fmadds/fnmsubs.
+    "pso/system/PadRumble.cpp": {"cflags": _switch(cflags_pso, "-fp_contract on")},
+    "pso/system/NinjaUtil.cpp": {"cflags": _switch(cflags_pso, "-fp_contract on")},
     # Metrowerks' GCN_Mem_Alloc.c (runtime library code at -O4,p); belongs
     # in the runtime lib under its own name.
     "pso/unk/text_8039739C.cpp": {"cflags": _switch(cflags_pso, "-O4,p")},

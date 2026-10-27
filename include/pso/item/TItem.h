@@ -6,6 +6,7 @@
 #include "pso/object/TObjMotion.h"
 
 struct TItem : public TUnk_804AF8A0 {
+    TItem(TObject *parent, u8 *item);
     virtual ~TItem();
     virtual int vfunc_12();
     u8 get_slot_count();

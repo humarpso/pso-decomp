@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/player/TUnk_80491460.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_80491478.h"
@@ -208,7 +209,6 @@ extern s32 __vt__13TUnk_80491460[];
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
 void *spawn_particle_effect(void *pos, s32 id);
-f32 xz_distance_squared(void *, void *);
 extern Pair_800AB0EC lbl_8043ACEC[];
 extern const f32 lbl_805D9B58;
 f32 newton_sqrtf();
@@ -218,8 +218,7 @@ s32 subtract_vector(void *, void *);
 s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 player_sub_800ab7a0_id_table[];
 extern void *lbl_805D5090;
@@ -276,7 +275,7 @@ s32 TObjEneDubchik::sub_800AB068() {
 s32 TUnk_80491460::try_hit_target(int arg1) {
     u8 *e = (u8 *)arg1;
     Obj_800AB0EC *o = (Obj_800AB0EC *)this;
-    if (e != NULL && !(*(s32 *)(e + 0x30) & 0xA00) && !(xz_distance_squared(o->pos, e + 0x2FC) > lbl_805D9B58)) {
+    if (e != NULL && !(*(s32 *)(e + 0x30) & 0xA00) && !(xz_distance_squared((Vec *)o->pos, (Vec *)(e + 0x2FC)) > lbl_805D9B58)) {
         Pair_800AB0EC tmp = lbl_8043ACEC[0];
         tmp.b = (f32)this->m_68;
         Pair_800AB0EC arg = tmp;
@@ -409,7 +408,7 @@ void TUnk_80491478::run_task() {
                 ((TUnk_80491478 *)arg0)->m_e8 = v.y;
             }
         }
-        if (xz_distance_squared((u8 *)&this->m_f0, (u8 *)&this->unk_DC) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
+        if (xz_distance_squared((Vec *)&this->m_f0, (Vec *)&this->unk_DC) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
             ((TUnk_80491478 *)arg0)->m_ae = 1;
         }
     }
@@ -450,7 +449,7 @@ void *TUnk_80491478::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
         if (*(void * *)&(this->m_d0) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_d0)); (this->m_d0) = 0; }
-        destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -464,14 +463,14 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     void *obj;
     u8 *temp_r3;
     s32 t;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80491478;
     *(s16 *)((s8 *)arg0 + 0xAC) = arg1;
     *(s16 *)((s8 *)arg0 + 0xD4) = obj_getField1c(arg2);
     ((TUnk_80491478 *)arg0)->m_ae = 0;
     t = player_sub_800ab7a0_id_table[arg1];
     ((TUnk_80491478 *)arg0)->m_d8 = arg3;
-    ((TUnk_80491478 *)arg0)->m_c8 = TBoss3Volopt::collect_and_count((u32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18))), (s32)t);
+    ((TUnk_80491478 *)arg0)->m_c8 = (s32)find_model_node(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18), (s32)t);
     *(Vec_800AB7A0 **)((s8 *)arg0 + 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];
     VecCopy__FP3VecPC3Vec(arg0 + 0xF0, (void *) VecCopy__FP3VecPC3Vec(arg0 + 0xDC, (void *)arg4));
     ((TUnk_80491478 *)arg0)->m_e8 = 3.0f + *(f32 *)((s8 *)arg2 + 0x3C);
@@ -485,7 +484,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     vec3_add_to(&out, arg0 + 0xF0);
     temp_r3 = csnLookAt(arg0 + 0xF0, &out);
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)arg0 + 0xEC) = (10.0f > horizontal_distance__10TObjPlayerFPUc(arg0 + 0xF0, *(s32 *)((s8 *)temp_r3 + 4)) - 5.0f) ? 10.0f : horizontal_distance__10TObjPlayerFPUc(arg0 + 0xF0, *(s32 *)((s8 *)temp_r3 + 4)) - 5.0f;
+        *(f32 *)((s8 *)arg0 + 0xEC) = (10.0f > vec_xz_distance((Vec *)(arg0 + 0xF0), *(Vec **)((s8 *)temp_r3 + 4)) - 5.0f) ? 10.0f : vec_xz_distance((Vec *)(arg0 + 0xF0), *(Vec **)((s8 *)temp_r3 + 4)) - 5.0f;
     }
     pop_matrix();
     ((TUnk_80491478 *)arg0)->m_b4 = 0.0f;

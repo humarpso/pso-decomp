@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/object/TObjFish.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -105,7 +106,6 @@ void TLobby__sub_8020E3C0(void);
 s32 TLobby__sub_80226BA4();
 void TLobby__sub_8022780C(void);
 void init_buffers(void);
-int TAdSinglePlyChrSelectGC__sub_802431D0(void);
 void TCharaMaking__sub_8028E6B4(void);
 void TCharaMaking__sub_8028E790(void);
 s32 fn_802A1020();
@@ -137,7 +137,6 @@ extern s32 keyboard_active_flag;
 void activate_keyboard(void);
 void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
-void update_pad_rumble(void);
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern u8 gx_default_light_obj[];
 extern void *video_initial_draw_framebuffer;
@@ -358,7 +357,7 @@ void init_game_systems(void) {
     set_matrix_identity(0);
     init_pad_slots_and_read__16TKeyBoardControlFv(0, 0, 0);
     TObjBoss2Tunnel::enable_and_trigger();
-    TAdSinglePlyChrSelectGC__sub_802431D0();
+    init_pad_rumble();
     TKeyBoardControl::init_pad_state();
     TObjPlayer::set_global_7778((s32)((void *)(*(s32 *)&lbl_805D5680)));
     keyboard_input_buffer = xmalloc__FUl(0x1000);

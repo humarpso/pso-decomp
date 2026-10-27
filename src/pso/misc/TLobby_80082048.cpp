@@ -67,7 +67,7 @@ struct RecoveredFields_8008213C_temp_r3 {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 freeze_shell_bml_resource;
-s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
+s32 __ct__13TUnk_804806E8FP7TObject(void *, void *);
 s16 obj_getField1c(void *);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFv(void *);
@@ -135,7 +135,7 @@ typedef char RecoveredFields_8008213C_arg1_A4_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8008213C_temp_r3_10_offset[offsetof(RecoveredFields_8008213C_temp_r3, field_10) == 0x10 ? 1 : -1];
 u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
-    construct_actor_base__10TObjPlayerFPvPv(this, (void *)tl_05);
+    __ct__13TUnk_804806E8FP7TObject(this, (void *)tl_05);
     ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_18 = lbl_8048E1A4;
     ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34 = get_bml_model((void *) ((*(s32 *)&freeze_shell_bml_resource)), 1);
     if (arg1 != NULL) {
@@ -180,7 +180,7 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
 s32 TUnk_8048E1A4::select_melee_contact_body(void *, f32) { return 1; }
 int TUnk_8048E1A4::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-f32 TUnk_8048E1A4::receive_direct_attack(void *, void *, void *, s32, s32) {
+f32 TUnk_8048E1A4::receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32) {
     return lbl_805D9378;
 }
 

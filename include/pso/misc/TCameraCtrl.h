@@ -71,15 +71,7 @@ struct TCameraCtrl : public TObject {
     u8 unk_1B8[0x4];
     f32 m_1bc;
     u32 m_1c0;
-    static void set_player_targets(s32 n);
-    static s32 is_photon_ready();
-    void update_volopt_seq();
-    void run_intro_camera_sequence();
     static s32 get_camera_mode();
-    void reset_look_state();
-    void set_mode();
-    static void set_player_view_flag(s32 arg0);
-    static void set_flag_08000000(s32 arg0);
     void update_target_follow();
     void init_state();
     void reset_behind_player();

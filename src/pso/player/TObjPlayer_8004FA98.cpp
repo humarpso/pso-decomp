@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/misc/TLobby_802268F4.h"
 #include "pso/object/TObject_80019A50.h"
@@ -8,10 +9,10 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDFDemo5.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 s32 post_translate_matrix(void *);
@@ -56,7 +57,7 @@ int TObjPlayer::draw_fading_motion() {
     TObjPlayer::set_global_flag();
     post_translate_matrix((u8 *)&this->unk_D4);
     rotate_matrix_y(0, (*(s32 *)&this->motion_buffer));
-    TObjFish::set_global_param(*(s32 *)&this->unk_A8);
+    TObjFish::set_global_param(this->body_count);
     ((TObjFish *)(this->m_ec))->set_draw_callback_list();
     draw_model_motion((void *)(*(s32 *)&this->m_a4), (void *)(*(s32 *)&this->unknownAC), *(f32 *)&this->unk_E8);
     clear_render_callback__8TObjFishFv(this->m_ec);
@@ -101,7 +102,7 @@ void TObjDFDemo5::run_task() {
     this->update_particle_emitters();
     if ((s32) this->m_e4 == 0x8C) {
         play_cue_stream_file((s32) "dfdeath.adx");
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     { f32 k = 0.5f; temp_f1 = *(f32 *)((s8 *)this + 0xE8) + k; }
     *(f32 *)((s8 *)this + 0xE8) = temp_f1;
@@ -137,7 +138,7 @@ Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1) {
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             restore_player_cameras();
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

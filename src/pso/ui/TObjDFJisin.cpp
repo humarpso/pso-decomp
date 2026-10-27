@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/player/PlayerClassFlags.h"
 #include "pso/object/TObjDFHorming.h"
 #include "pso/TObjDFTenchuFuru.h"
@@ -176,7 +177,7 @@ struct Ball_8005123C {
 
 struct Obj_80050AF8 { u8 pad[0x358]; u32 objs[2]; };
 
-s32 construct_actor_base__10TObjPlayerFPvPv(void *, s32);
+s32 __ct__13TUnk_804806E8FP7TObject(void *, s32);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
 f32 atan2_float(f32 y, f32 x);
@@ -334,7 +335,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 parent, s32 arg2, u16 arg3) {
     u8 *p;
     s32 i;
 
-    construct_actor_base__10TObjPlayerFPvPv(arg0, parent);
+    __ct__13TUnk_804806E8FP7TObject(arg0, parent);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)__vt__13TObjDFHorming;
     *(s32 *)((s8 *)arg0 + 0) = TObjDFHorming__name;
     ((TObjDFHorming *)arg0)->m_334 = arg3;
@@ -580,7 +581,7 @@ void vfunc_28__13TUnk_804806E8Fv();
 void consume_timer_field__13TUnk_804806E8Fl();
 void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 void vfunc_63__13TUnk_804806E8Fv();
 void vfunc_62__13TUnk_804806E8Fv();
 void vfunc_61__13TUnk_804806E8Fv();
@@ -625,9 +626,10 @@ void get_actor_level_index__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_target_in_attack_range__13TUnk_804806E8Fv();
-void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
+void receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll();
 void receive_physical_attack__13TUnk_804806E8FPvf();
-void receive_weapon_special_attack__10TObjPlayerFv();
+void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
+void apply_defense_stat_status__13TUnk_804806E8FPv();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -636,13 +638,13 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void run_task__11TObjDFJisinFv();
 void run_task__13TObjDFRecBallFv();
 void select_melee_contact_body__13TUnk_804806E8FPvf();
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-s32 update_defense_stat_status(u8 *arg0);
+s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -671,8 +673,8 @@ void *__vt__13TObjDFHorming[] = {
     (void *)select_melee_contact_body__13TUnk_804806E8FPvf,
     (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (void *)receive_physical_attack__13TUnk_804806E8FPvf,
-    (void *)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (void *)receive_weapon_special_attack__10TObjPlayerFv,
+    (void *)receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
+    (void *)receive_weapon_special_attack__13TUnk_804806E8FPvPv,
     (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (void *)try_start_action__13TUnk_804806E8Fll,
     (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
@@ -690,7 +692,7 @@ void *__vt__13TObjDFHorming[] = {
     (void *)update_movement_status__13TUnk_804806E8Fv,
     (void *)update_shock_clock__13TUnk_804806E8Fv,
     (void *)update_attack_stat_status__13TUnk_804806E8Fv,
-    (void *)update_defense_stat_status,
+    (void *)update_defense_stat_status__13TUnk_804806E8Fv,
     (void *)vfunc_43__13TUnk_804806E8Fv,
     (void *)apply_poison_status__13TUnk_804806E8Fv,
     (void *)apply_paralysis__13TUnk_804806E8Fv,
@@ -700,7 +702,7 @@ void *__vt__13TObjDFHorming[] = {
     (void *)apply_shock_status__13TUnk_804806E8Fv,
     (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)TObjPlayer::apply_defense_stat_status,
+    (void *)apply_defense_stat_status__13TUnk_804806E8FPv,
     (void *)cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)cure_paralysis__13TUnk_804806E8Fv,
     (void *)clear_all_status_effects__13TUnk_804806E8Fv,
@@ -713,13 +715,13 @@ void *__vt__13TObjDFHorming[] = {
     (void *)vfunc_62__13TUnk_804806E8Fv,
     (void *)vfunc_63__13TUnk_804806E8Fv,
     (void *)reset_pose__13TUnk_804806E8Fv,
-    (void *)vfunc_65__13TUnk_804806E8Fll,
+    (void *)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (void *)trigger_switch_attack__10TObjPlayerFi,
+    (void *)trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (void *)vfunc_73__13TUnk_804806E8Fv,
     (void *)vfunc_74__13TUnk_804806E8Fl,
@@ -806,7 +808,7 @@ void TObjDFRecover::run_task() {
         if (countdown <= 0) {
             TBoss4Type2::request_destroy((u32)effect);
             effect = NULL;
-            TBoss4Type3::spawn_effect(0xC0, 0xF, (int) ((s16) target_id));
+            start_pad_rumble_client(0xC0, 0xF, (int) ((s16) target_id));
             countdown = 0xB;
             phase = 2;
             return;

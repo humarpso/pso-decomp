@@ -3,6 +3,7 @@
 #include "types.h"
 #include "pso/player/TUnk_804806E8.h"
 struct TObjEnemy : public TUnk_804806E8 {
+    TObjEnemy(TObject *parent);
     virtual ~TObjEnemy();
     void send_6x0A_enemy_state(void *);
     s32 bind_enemy_combat_stats(u8 *, u8 *, u8 *);
@@ -27,12 +28,11 @@ struct TObjEnemy : public TUnk_804806E8 {
     s32 exchange_object_state(s32, s16);
     void sub_8002AE64();
     virtual int vfunc_12();
-    TObjEnemy* initialize(void* parent);
     TObjEnemy* groupRoot();
     u32 subtype;
     u16 targetId;
-    u16 resetTimer;
-    u16 timer;
+    s16 resetTimer;
+    s16 timer;
     s16 referenceHp;
     TObjEnemy* group;
     TObjEnemy* previous;

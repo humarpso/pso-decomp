@@ -74,7 +74,7 @@ void *TUnk_804B27D8::init() {
 }
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-s16 TOKey::update_object_view_visibility(f32, f32) {
+s32 TOKey::update_object_view_visibility(f32, f32) {
     if (update_object_view_visibility__13TUnk_804B9870Fff() == 1) {
         *(s32 *)((s8 *)this + 0xE4) = 1;
         return 1;

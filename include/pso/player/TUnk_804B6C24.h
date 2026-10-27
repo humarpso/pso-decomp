@@ -6,13 +6,13 @@
 class TUnk_804B6C24 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B6C24();
-    u8 check_value_equals(s32);
+    BOOL check_value_equals(s32);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual void vfunc_81();
     virtual void debug_print_item_box_info();
     void *destroy_container_object(s16);
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
     virtual f32 receive_physical_attack(void *, f32);
     void spawn_item(s32);
     virtual void vfunc_6(s16 *, s32);

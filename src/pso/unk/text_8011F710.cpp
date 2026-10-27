@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/unk/text_80121180.h"
 #include "pso/player/TObjPlayer.h"
@@ -214,9 +215,9 @@ void TItemWeapon::vfunc_30() {
         packet.player=self->player;
         play_weapon_owner_sounds(&packet);
         if(test_flags_1b8__11TItemWeaponFUl(self,0x40000)) {
-            TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c(self->player));
+            start_pad_rumble_client(0x80, 5, (s16)obj_getField1c(self->player));
         } else if(test_flags_1b8__11TItemWeaponFUl(self,0x80000) && ((TObjPlayer *)self)->is_mode_two_and_ready()) {
-            TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c(self->player));
+            start_pad_rumble_client(0x80, 5, (s16)obj_getField1c(self->player));
         }
         self->emit_marker_effects();
         ((TObjPlayer *)self)->set_status_flags(0x1000000);

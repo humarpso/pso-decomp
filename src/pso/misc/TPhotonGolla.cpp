@@ -136,7 +136,7 @@ extern void *golla_photon_blast_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
+u8 *__ct__18TPhotonConcentrateFPUcll(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 u32 __cvt_fp2unsigned(f32);
 int rand(void);
 void vec3_add_to(void *, void *);
@@ -224,7 +224,7 @@ s32 TPhotonGolla::spawn_concentrate(void *arg0) {
     packet.angle = angle;
     beam = __nw__7TObjectFUl(0x10C);
     if (beam != 0) {
-        TPhotonConcentrate__ct((u8 *)beam, (u8 *)&packet, (s32)self, (s32)self->owner_id);
+        __ct__18TPhotonConcentrateFPUcll((u8 *)beam, (u8 *)&packet, (s32)self, (s32)self->owner_id);
     }
 }
 #undef self

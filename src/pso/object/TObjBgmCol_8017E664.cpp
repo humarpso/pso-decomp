@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/unk/text_8013157C.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObjBgmCol.h"
 
 extern "C" {
@@ -13,7 +13,7 @@ s32 TObjBgmCol::is_within_distance(f32 farg0) {
     u32 player;
 
     player = (u32)get_player_by_client_id(local_client_id);
-    if ((player != 0U) && (xyz_distance_squared((u8 *)(player + 0x38), (u8 *)(arg0 + 0x38)) < farg0)) {
+    if ((player != 0U) && (xyz_distance_squared((Vec *)(player + 0x38), (Vec *)(arg0 + 0x38)) < farg0)) {
         return 1;
     }
     return 0;

@@ -3,14 +3,20 @@
 #include "types.h"
 #include "pso/TObject.h"
 
+// Base of the screen fade tasks: alpha moves towards its end value and the
+// fade fills the screen with color.
 class TUnk_804999E8 : public TObject {
 public:
-    virtual ~TUnk_804999E8();
+    TUnk_804999E8(TObject *parent);
+    // render comes first: it is the key function, so the vtable is emitted
+    // with it while the destructor is defined with the Vol Opt fades.
     virtual void render();
-    void *init_object(void *);
-    void *destroy_task_object(s16);
-    u8 unk_1C[0x4];
-    s32 m_20;
+    virtual ~TUnk_804999E8();
+    f32 alpha;
+    union {
+        s32 m_20;
+        u8 color[3];
+    };
 };
 
 #endif

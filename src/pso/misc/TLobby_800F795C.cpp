@@ -117,6 +117,7 @@
 #include "pso/object/TObjCGrass.h"
 #include "pso/object/TObjGrass.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/unk/text_800C7FEC.h"
 
 struct RecoveredGlobal_800F7A6C_lbl_804DB1F0 {
     s32 value;
@@ -277,7 +278,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_02[10] = {
     { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
     { TObjEneBeast::load_resources, free_boss4_rock_pool },
     { load_and_spawn_chao_npc, TPlyPhotonChair::free_instance },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -290,7 +291,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_03[10] = {
     { TLobby__sub_800DC028, TLobby::free_global_window },
     { TLobby::load_shark_resources, TObjEneShark::free_resources },
     { TObjEnePanarms::load_and_spawn_npc, TObjEnePanarms::free_data },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -303,7 +304,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_04[10] = {
     { TLobby__sub_800DC028, TLobby::free_global_window },
     { TLobby::load_shark_resources, TObjEneShark::free_resources },
     { TObjEneSlime::spawn_pair, TObjEneSlime::free_instance },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -318,7 +319,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_05[12] = {
     { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcCloakroomBase::load_shared_resource, TObjNpcCloakroomBase::destroy_static_instance },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -330,7 +331,7 @@ FloorResourceCallbacks floor_resource_callbacks_selectors_06_07[9] = {
     { TObjEneMe3ShinowaMirage__sub_800E7B94, TObjEneMe3ShinowaMirage::free_shared_resources },
     { fn_8009F554, fn_8009F410 },
     { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -344,7 +345,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_08[11] = {
     { TObjEneBalClaw__sub_8008D924, TObjEneBalClaw::release_global_805D4F20 },
     { TObjEneBalClawClaw::spawn_child_enemy, TObjEneBalClawClaw__sub_8008DC14 },
     { spawn_lobby_npc_enemy, fn_80090488 },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -357,7 +358,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_09[10] = {
     { TObjEneDf2Bringer::load_resources, TObjEneDf2Bringer::free_resources },
     { TLobby::load_dimedian_resources, TObjEneDimedian::free_boss_objects },
     { TObjEneBalClaw__sub_8008D924, TObjEneBalClaw::release_global_805D4F20 },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -371,7 +372,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_10[11] = {
     { TObjEneRe7Berura::load_static_resources, TObjEneRe7Berura::destroy_children },
     { TLobby::load_dimedian_resources, TObjEneDimedian::free_boss_objects },
     { TObjEneBalClaw__sub_8008D924, TObjEneBalClaw::release_global_805D4F20 },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -380,7 +381,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_11[6] = {
     { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TBoss1DragonDemo__sub_8002B690, TBoss1DragonDemo__sub_8002B68C },
     { load_resources__12TBoss1DragonFv, TBoss1Dragon::free_resources },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -388,14 +389,14 @@ FloorResourceCallbacks floor_resource_callbacks_selector_12[5] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
     { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { load_resources__13TBoss2DeRolLeFv, reset_parts__13TBoss2DeRolLeFv },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_13[4] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
     { TBoss3Volopt::load_resources, TBoss3Volopt::free_parts },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -413,7 +414,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_32[5] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
     { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjPlayer__sub_802EE574, TBoss7DeRolLeC::run_exit_callbacks },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 
@@ -422,7 +423,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_33[6] = {
     { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { clear_boss8_dragon_leader_part, TBoss8Dragon__sub_802F3C74 },
     { TBoss8Dragon__sub_802FDA78, TBoss8Dragon::free_static },
-    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
+    { reset_camera_override, restore_cameras_if_overridden },
     { 0, 0 },
 };
 

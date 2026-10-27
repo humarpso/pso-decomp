@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjDFDemoF.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/unk/text_80050134.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -68,7 +68,7 @@ void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFDemoF;
         restore_player_cameras();
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -113,7 +113,7 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *parent) {
   set_scripted_camera_pose(lbl_80485840, lbl_80485840, lbl_8048584C);
   ((TCameraCtrl *)lbl_80485858)->cache_target_and_forward(0x392D);
   play_sound_effect(0x3A802, 0, 0, 0);
-  TBoss3Volopt::queue_event_1D(0x20, 0xF);
+  start_pad_rumble_all(0x20, 0xF);
   arg0->f90 = 0;
   return new_var;
 }

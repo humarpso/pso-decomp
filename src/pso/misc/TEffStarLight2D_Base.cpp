@@ -2,8 +2,8 @@
 #include "pso/misc/TEffStarLight2D_Base.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TEffStarLight2D.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TUnk_8048E640.h"
+#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 struct Stack_80084C10 {
@@ -110,7 +110,7 @@ void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E640;
         if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x90)); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

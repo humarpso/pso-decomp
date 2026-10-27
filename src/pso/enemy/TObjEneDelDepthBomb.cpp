@@ -328,7 +328,7 @@ struct Dep_8031551C {
 
 typedef char RecoveredGlobal_80315A40___vt__15TObjEneDelDepth_size[sizeof(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth) == 0x150 ? 1 : -1];
 
-s32 construct_actor_base__10TObjPlayerFPvPv(void *);
+s32 __ct__13TUnk_804806E8FP7TObject(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(u8 *, int);
 s32 get_bml_model(int, int);
@@ -336,7 +336,7 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 void draw_blob_shadow(s32 arg0);
 s32 refresh_lobby_state__10TObjPlayerFv();
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
-s32 initialize__9TObjEnemyFPv(void *);
+s32 __ct__9TObjEnemyFP7TObject(void *);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void __dl__7TObjectFPv(void *);
@@ -520,7 +520,7 @@ void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1) {
 u8 *TObjEneDelDepthBomb__ct(TObjEneDelDepthBomb *ene_del_depth_bomb, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 temp_f30;
     f32 temp_f31;
-    construct_actor_base__10TObjPlayerFPvPv(ene_del_depth_bomb);
+    __ct__13TUnk_804806E8FP7TObject(ene_del_depth_bomb);
     *(s32 **)((s8 *)ene_del_depth_bomb + 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
     *(s32 *)((s8 *)ene_del_depth_bomb + 0) = (s32) TObjEneDelDepthBomb__name;
     ene_del_depth_bomb->m_348 = arg2;
@@ -1449,7 +1449,7 @@ void TObjEneDelDepth::init() {
 }
 
 u8 *TObjEneDelDepth__ct(u8 *ene_del_depth, s32 arg1, s32 arg2) {
-    initialize__9TObjEnemyFPv(ene_del_depth);
+    __ct__9TObjEnemyFP7TObject(ene_del_depth);
     *(s32 **)((s8 *)ene_del_depth + 0x18) = &(*(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth *)&__vt__15TObjEneDelDepth).value;
     *(s32 *)((s8 *)ene_del_depth + 0) = (s32) TObjEneDelDepth__name;
     ((TUnk_804806E8 *)ene_del_depth)->add_flags_2e4(8);

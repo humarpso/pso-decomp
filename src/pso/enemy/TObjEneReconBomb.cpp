@@ -112,7 +112,7 @@ s32 calc_scaled_value__12TObjEneReconFv(int);
 f32 TObjEneRecon__sub_8031C2BC(int);
 f32 TObjEneRecon__sub_8031C2C8(int);
 f32 TObjEneRecon__sub_8031C2D4(int);
-s32 construct_actor_base__10TObjPlayerFPvPv();
+s32 __ct__13TUnk_804806E8FP7TObject();
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__16TObjEneReconBomb[];
@@ -262,7 +262,7 @@ u8 *TObjEneReconBomb__ct(TObjEneReconBomb *ene_recon_bomb, s32 arg1, s32 arg2, s
     f32 temp_f31;
     u8 *temp_r5;
 
-    construct_actor_base__10TObjPlayerFPvPv();
+    __ct__13TUnk_804806E8FP7TObject();
     *(s32 **)((s8 *)ene_recon_bomb + 0x18) = (s32 *) __vt__16TObjEneReconBomb;
     *(s32 *)((s8 *)ene_recon_bomb + 0) = (s32) TObjEneReconBomb__name;
     ene_recon_bomb->m_334 = arg2;

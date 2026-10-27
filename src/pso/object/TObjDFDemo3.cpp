@@ -10,7 +10,6 @@
 #include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo3.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -180,7 +179,7 @@ S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             restore_player_cameras();
         }
-        TParticleCtrl::destroy_particle(o, 0);
+        __dt__13TUnk_804B9870Fv(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

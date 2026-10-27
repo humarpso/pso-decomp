@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TOComputerMachine01_8023DD0C.h"
 #include "pso/player/TObjPlayer_800A0408.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -78,7 +79,7 @@ struct O_8008D700 { u8 pad0[0x30]; u32 flags; u8 pad34[0x378]; f32 f3ac; f32 f3b
 struct Obj_8008D79C { u8 pad0[0x388]; s32 flags; u8 pad38C[0x3B8 - 0x38C]; s32 f3B8; f32 f3BC; };
 
 extern "C" {
-u8 *TObjEnemyCustom__ct(u8 *arg0);
+u8 *__ct__15TObjEnemyCustomFP7TObject(u8 *arg0);
 extern s32 __vt__14TObjEneBalClaw[];
 extern s32 balclaw_last_shared_update_frame;
 extern s32 actor_frame_tick;
@@ -203,7 +204,7 @@ void TObjEneBalClaw__sub_8008D924(void) {
         base = balclaw_part_base[k];
         count = 0;
         for (j = 0; j < 10; j++) {
-            part = (BalClawObject *)TBoss3Volopt::collect_and_count(model, base + j);
+            part = (BalClawObject *)find_model_node(model, base + j);
             if (part != NULL && !(part->evalflags & 8)) {
                 lbl_805006F8[k][count] = part;
                 count++;
@@ -213,7 +214,7 @@ void TObjEneBalClaw__sub_8008D924(void) {
     }
     for (m = 0; m < 7; m++) {
         e = &balclaw_parts[m];
-        e->plist = ((BalClawObject *)TBoss3Volopt::collect_and_count(get_bml_model(lbl_805D4F20, e->model_index), e->part_index))->model->plist;
+        e->plist = ((BalClawObject *)find_model_node(get_bml_model(lbl_805D4F20, e->model_index), e->part_index))->model->plist;
     }
     for (n = 0; n < 2; n++) {
         lbl_805007A8[n] = TLobby::register_boss(31);
@@ -242,7 +243,7 @@ void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
 }
 
 u8 *TObjEneBalClaw__ct(TObjEneBalClaw *ene_bal_claw) {
-    TObjEnemyCustom__ct((u8 *)ene_bal_claw);
+    __ct__15TObjEnemyCustomFP7TObject((u8 *)ene_bal_claw);
     *(s32 **)((s8 *)ene_bal_claw + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
     ((TUnk_80490470 *)((u8 *)ene_bal_claw + 0x390))->init_vtable_and_field18();
     ene_bal_claw->m_name = balclaw_class_name;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804E3BD8.h"
@@ -316,7 +317,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
         n = -1;
     }
     if (n > 0) {
-        ((TUnk_804E3BD8 *)arg0)->alloc_breakup_model(TBoss3Volopt::collect_and_count(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
+        ((TUnk_804E3BD8 *)arg0)->alloc_breakup_model((s32)find_model_node((u32)queue_boss_effect__10TObjPlayerFPv(3), n));
         TObjPlayer__sub_802E7640(arg0);
         p = arg0->pieces;
         for (i = 0; i < arg0->count; i++, p++) {

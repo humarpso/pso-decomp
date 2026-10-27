@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/boss/Boss6Type1Appearance.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
@@ -111,7 +112,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *boss6_de
     case 0xFA:
     case 0x13F:
     case 0x1B8:
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     }
     temp_r0_3 = boss6_demo10_type1_appear->m_38;

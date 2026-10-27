@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -1735,7 +1736,7 @@ extern "C" {
 void vfunc_66__13TUnk_804806E8Fv();
 }
 extern "C" {
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 }
 extern "C" {
 void vfunc_60__13TUnk_804806E8Fv();
@@ -1948,7 +1949,7 @@ extern "C" {
 void reset_pose__13TUnk_804806E8Fv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -2167,8 +2168,8 @@ void *__vt__12TBoss8Dragon[107] = {
     (void *)&TObjPlayer__sub_80014C78, (void *)&TObjPlayer__sub_80014C1C, (void *)&TObjPlayer__sub_80014B5C, (void *)&TObjPlayer__sub_80014900,
     (void *)&TObjPlayer__sub_8001489C, (void *)&TObjPlayer__sub_800105E4, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__12TBoss8DragonFv, (void *)&vfunc_62__12TBoss8DragonFv, (void *)&vfunc_63__12TBoss8DragonFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_80010B44, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&get_anim_node_position__13TUnk_804806E8FlP3Vec, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
+    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_80010B44, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)&TObjPlayer__sub_80010A84, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&TObjPlayer__sub_800F698C, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
@@ -3677,7 +3678,7 @@ void TBoss8Dragon__sub_802F6838(u8 *arg0, u32 arg1) {
         case 0:
             if (objInBand__FP7GameObjf(arg0, TBoss8Dragon__data_805DEDAC) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DEDE8) != 0) {
                 play_sound_effect(0x4003AD07, 0, 0, 0);
-                TBoss3Volopt::queue_event_1D(0xA0, 0xF);
+                start_pad_rumble_all(0xA0, 0xF);
             }
             if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEDEC && *(f32 *)((s8 *)arg0 + 0xC0) < lbl_805DEDF0) {
                 direction_to_rotation_xz(arg0 + 0x41C, &r.x, &r.z);
@@ -6009,7 +6010,7 @@ void TBoss8Dragon__sub_802FB828(u8 *arg0, s32 arg1) {
 
 void TBoss8Dragon::spawn_effect() {
     s32 arg0 = (s32)this;
-    TBoss3Volopt::alloc_effect_node(arg0 + 0x38, 0xE0, arg0);
+    start_pad_rumble_at((Vec *)(arg0 + 0x38), 0xE0, arg0);
 }
 
 #pragma push

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
+#include "pso/system/PadRumble.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -922,7 +924,7 @@ void TBoss6PlotFalz::apply_radial_effect_to_players(void *pos, s16 amount, s16 k
         if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0 && is_locally_controlled__10TObjPlayerFPv(p) != 0) {
             d = xyz_distance((void *)(p + 0x38), pos);
             if (!(d >= range)) {
-                TBoss4Type3::spawn_effect((s16)((f32)amount * (1.0f - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
+                start_pad_rumble_client((s16)((f32)amount * (1.0f - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
             }
         }
     }
@@ -1153,7 +1155,7 @@ void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1
     }
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
-        t = TBoss3Volopt::collect_and_count(get_bml_model(h, r->a), r->b);
+        t = (s32)find_model_node(get_bml_model(h, r->a), r->b);
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
         if (p != 0) {
             p = alloc_tables__6TLobbyFll(p, t, r->c);
@@ -1342,7 +1344,7 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 initialize__9TObjEnemyFPv();
+s32 __ct__9TObjEnemyFP7TObject();
 u16 register_entity_by_id(void *ov);
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 void TItemEffOrgaFlowShot__sub_80357204(void);
@@ -1472,7 +1474,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     s32 temp_r29;
     s32 temp_r6;
 
-    initialize__9TObjEnemyFPv();
+    __ct__9TObjEnemyFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TBoss6PlotFalz.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E50;
     ((TBoss6PlotFalz *)arg0)->sub_802AAC98();

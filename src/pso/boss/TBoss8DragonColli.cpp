@@ -37,7 +37,7 @@ void set_all_flags__17TBoss8DragonColliFPv(O_802F3144 *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 void *mem_alloc(u32 size);
 u16 register_entity_by_id(void *ov);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 extern u8 boss8_collision_segment_desc[];
 extern s32 lbl_804E4BB4[];
 extern s32 lbl_805D4000;
@@ -156,7 +156,7 @@ void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4BB4;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -170,7 +170,7 @@ s32 init_collision_segments__17TBoss8DragonColliFiPviPvf(int arg0, void *arg1, i
     f32 zero;
     f32 step;
     f32 z;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(self, arg1);
+    __ct__13TUnk_804AF8A0FP7TObject(self, arg1);
     self->vt = ((u8 *)&lbl_804E4BB4);
     self->f0 = lbl_805D4000;
     VecCopy((Vec *)self->pos, (const Vec *)arg3);

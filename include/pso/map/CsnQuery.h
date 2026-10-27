@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include <stddef.h>
+#include <dolphin/mtx.h>
 
 struct CsnModel;
 struct CsnVector {
@@ -23,6 +24,23 @@ typedef char CsnGroupRadiusOffset[offsetof(CsnGroup, radius) == 0x10 ? 1 : -1];
 typedef char CsnGroupFlagsOffset[offsetof(CsnGroup, flags) == 0x14 ? 1 : -1];
 
 CsnGroup* select_ground_query_groups(CsnVector* origin, u32 mask);
+
+// The polygon a segment query hit: the hit point and the polygon normal.
+struct CsnContact {
+    Vec point;
+    Vec normal;
+};
+
+// The result csnVector returns (one static record, NULL when nothing is hit).
+struct CsnHit {
+    u8 pad_0[0x4];
+    CsnContact *contact;
+    u8 pad_8[0x38];
+};
+
+extern "C" {
+CsnHit *csnVector(const Vec *from, const Vec *to, u32 mask);
+}
 
 extern "C" {
 void TObjPlayer__sub_80079108(void);

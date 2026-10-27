@@ -21,7 +21,6 @@ public:
     void generate_child_default(s32 arg1, s32 arg2);
     static s32 get_particle_model(s32 arg0);
     static int get_instance();
-    static void *destroy_particle(void *arg0, s16 arg1);
     u32 validate_ctrl();
     void destroy_particle();
     static void begin_effect_render();

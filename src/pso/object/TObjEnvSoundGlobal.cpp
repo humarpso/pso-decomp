@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjEnvSoundEx.h"
 #include "pso/object/TObjEnvSoundGlobal.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal {
     s32 value;
@@ -88,7 +88,7 @@ void TObjEnvSoundGlobal::run_task() {
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEnvSoundGlobal;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -205,7 +205,7 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEnvSoundEx;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -296,7 +296,6 @@ void * TObjEnvSound__create(void *rader_map_core) {
 
 #include "types.h"
 #include "pso/object/TObjEnvSound.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
@@ -344,7 +343,7 @@ void TObjEnvSound::run_task() {
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEnvSound;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

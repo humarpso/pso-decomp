@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
@@ -87,14 +88,14 @@ void TObjSeabedSuisoBrakable::load_resources() {
         break;
     }
     if ((item = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xC)) != NULL) {
-        TObjSeabedSuisoBrakable__model12_render_nodes[0] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(1);
-        TObjSeabedSuisoBrakable__model12_render_nodes[1] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(2);
-        TObjSeabedSuisoBrakable__model12_render_nodes[2] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(4);
+        TObjSeabedSuisoBrakable__model12_render_nodes[0] = (int)find_object_node((NJS_OBJECT *)item, 1);
+        TObjSeabedSuisoBrakable__model12_render_nodes[1] = (int)find_object_node((NJS_OBJECT *)item, 2);
+        TObjSeabedSuisoBrakable__model12_render_nodes[2] = (int)find_object_node((NJS_OBJECT *)item, 4);
     }
     if ((p = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xD)) != NULL) {
-        suiso_brakable_linked_switch_counts[0] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(1);
-        suiso_brakable_linked_switch_counts[1] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(2);
-        suiso_brakable_linked_switch_counts[2] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(3);
+        suiso_brakable_linked_switch_counts[0] = (int) find_object_node((NJS_OBJECT *)p, 1);
+        suiso_brakable_linked_switch_counts[1] = (int) find_object_node((NJS_OBJECT *)p, 2);
+        suiso_brakable_linked_switch_counts[2] = (int) find_object_node((NJS_OBJECT *)p, 3);
         ptrs = (s32 **)suiso_brakable_linked_switch_counts;
         for (i = 0; i < 3; i++) {
             if (ptrs[i] != NULL) {
