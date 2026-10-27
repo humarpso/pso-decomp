@@ -1,6 +1,6 @@
-#include "pso/TEffStarLight2D.h"
+#include "pso/effect/TEffStarLight2D.h"
 #include "pso/system/vector.h"
-#include "pso/TEffStarLightChild.h"
+#include "pso/effect/TEffStarLightChild.h"
 #include "types.h"
 
 struct Vec_800851B0 { f32 x; f32 y; f32 z; };

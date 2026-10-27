@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 #include "pso/unk/TUnk_804CCA78.h"
 #include "pso/misc/TTecMegid.h"
 #include "pso/misc/TNowLoading.h"

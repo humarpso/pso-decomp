@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowKeyBoardBase_8008102C.h"
 #include "pso/system/memory.h"
-#include "pso/misc/TEF_LensFlare.h"
+#include "pso/effect/TEF_LensFlare.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 

@@ -913,8 +913,8 @@ pso/misc/TDLGraph_8007F85C.cpp
 pso/misc/TDeadSpot.cpp
 pso/misc/TDuelEffectNumber.cpp
 pso/misc/TDuelEffectNumber_80080460.cpp
-pso/misc/TEffIndirectCtrl.cpp
-pso/misc/TEffIndirectCtrl_802A9284.cpp
+pso/effect/TEffIndirectCtrl.cpp
+pso/effect/TEffIndirectCtrl_802A9284.cpp
 pso/misc/TEnding.cpp
 pso/misc/TEndingAB.cpp
 pso/misc/TEndingAB_8008C9FC.cpp
@@ -2602,7 +2602,7 @@ pso/player/TObjPlayer_803E5470.cpp
 pso/player/TPlyItem.cpp
 pso/player/TUnk_80490470.cpp
 pso/player/TUnk_804A5D28.cpp
-pso/player/TUnk_804CCC68.cpp
+pso/effect/TUnk_804CCC68.cpp
 pso/protocol/TradeSession.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp

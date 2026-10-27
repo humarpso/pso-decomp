@@ -1,6 +1,6 @@
 #include "types.h"
-#include "pso/misc/TEffIndirectCtrl.h"
-#include "pso/misc/TEffIndirectCtrl_802A88AC.h"
+#include "pso/effect/TEffIndirectCtrl.h"
+#include "pso/effect/TEffIndirectCtrl_802A88AC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/memory.h"
 

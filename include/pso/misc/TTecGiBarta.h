@@ -2,7 +2,7 @@
 #define PSO_MISC_TTECGIBARTA_H
 
 #include "types.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 
 struct TTecGiBarta : public TUnk_804CCC68 {
     virtual ~TTecGiBarta();

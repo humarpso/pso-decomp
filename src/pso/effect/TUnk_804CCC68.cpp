@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 #include <stddef.h>
 #include "pso/misc/TTecGiZonde.h"
 #include "pso/player/TObjPlayer.h"

@@ -2,7 +2,7 @@
 #define PSO_MISC_TTECRABARTA_H
 
 #include "types.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 
 struct TTecRaBarta : public TUnk_804CC148 {
     virtual ~TTecRaBarta();

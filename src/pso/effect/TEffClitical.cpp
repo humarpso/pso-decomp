@@ -1,6 +1,5 @@
-#include "pso/TEffClitical.h"
-#include "pso/player/TUnk_80494AE0.h"
 #include "pso/effect/TEffClitical.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/unk/text_80087278.h"

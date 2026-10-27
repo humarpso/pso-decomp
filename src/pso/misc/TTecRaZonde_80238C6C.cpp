@@ -3,7 +3,7 @@
 #include "pso/system/vector.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/misc/TUnk_804CCB28.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 #pragma readonly_strings on
 
 #include <stddef.h>

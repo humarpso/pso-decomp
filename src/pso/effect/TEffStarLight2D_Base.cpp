@@ -1,7 +1,7 @@
 #include "types.h"
-#include "pso/misc/TEffStarLight2D_Base.h"
+#include "pso/effect/TEffStarLight2D_Base.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/TEffStarLight2D.h"
+#include "pso/effect/TEffStarLight2D.h"
 #include "pso/misc/TUnk_8048E640.h"
 #include "pso/object/TObjMotion.h"
 

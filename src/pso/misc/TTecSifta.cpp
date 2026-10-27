@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TTecSifta.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"

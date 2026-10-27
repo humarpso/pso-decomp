@@ -2,7 +2,7 @@
 #define PSO_MISC_TTECFOIE_H
 
 #include "types.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 
 struct TTecFoie : public TUnk_804CCC68 {
     virtual ~TTecFoie();

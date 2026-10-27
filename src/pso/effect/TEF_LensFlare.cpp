@@ -1,7 +1,7 @@
 #include "types.h"
-#include "pso/misc/TEF_LensFlare.h"
-#include "pso/unk/TEF_PvrWave.h"
-#include "pso/misc/TEF_LensFlare.h"
+#include "pso/effect/TEF_LensFlare.h"
+#include "pso/effect/TEF_PvrWave.h"
+#include "pso/effect/TEF_LensFlare.h"
 
 struct Base_8008194C_80081278 { char pad[0x50]; };
 struct VObj_8008194C_80081278 : Base_8008194C_80081278 {
