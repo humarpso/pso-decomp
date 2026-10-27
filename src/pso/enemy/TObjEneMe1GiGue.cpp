@@ -21,6 +21,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TUnk_80494938.h"
 #include <stddef.h>
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 
 struct V_802CAAF0 { s32 x; s32 y; };
 struct S_802CAAF0 {
@@ -541,7 +542,6 @@ int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D586C;
 f64 atan2_float(f32, f32);
 u8 *csnVector(void *, void *, s32);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, s32);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(int, Vec_802CAD98 *, void *);
 extern Vec_802CAD98 lbl_80472280;
@@ -618,7 +618,7 @@ void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1) {
             pop_matrix();
             return;
         }
-        d = horizontal_distance__10TObjPlayerFPUc(arg0 + 0x38, *(s32 *)((s8 *)hit + 4)) - 20.0f;
+        d = vec_xz_distance((Vec *)(arg0 + 0x38), *(Vec **)((s8 *)hit + 4)) - 20.0f;
         if (best < d) {
             best = d;
             bestAng = ang;
@@ -853,7 +853,6 @@ void move_with_wall_slide(u8 *arg0);
 extern "C" {
 s32 enemy_set_heading_velocity(void *, f32, s32);
 s32 enemy_turn_toward_dest(void *, s32);
-f32 xz_distance_squared(void *, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 u16 find_nearest_visible_player(void *, int, f32);
@@ -948,7 +947,7 @@ void TObjEneMe1GiGue__sub_802CB824(void *arg0_, s32 arg1) {
 #undef arg0
 
 void move_around_center__15TObjEneMe1GiGueFPvPvf(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r) {
-    if (xz_distance_squared(&o->pos, &o->v390) < 400.0f) {
+    if (xz_distance_squared((Vec *)&o->pos, (Vec *)&o->v390) < 400.0f) {
         s32 k = (s32)(182.04445f * (360.0f * calc_boss4_scale__10TObjPlayerFi(o)));
         f32 d = 0.4f * (r * (1.0f + calc_boss4_scale__10TObjPlayerFi(o)));
         o->v390.x = d * cos_table_lookup(k) + c->x;
@@ -1024,7 +1023,7 @@ void TObjEneMe1GiGue::update_hit_reaction() {
             entity = (s32)find_entity_by_id(this->m_2d4);
             if (entity != 0) {
                 var_r30 = 1;
-                if ((this->actorFlags & 0x01000000) && (xz_distance_squared(((u8 *)this) + 0x38, (u8 *)entity + 0x38) > 400.0f)) {
+                if ((this->actorFlags & 0x01000000) && (xz_distance_squared((Vec *)(((u8 *)this) + 0x38), (Vec *)((u8 *)entity + 0x38)) > 400.0f)) {
                     var_r30 = 0;
                 }
             }
@@ -1177,7 +1176,7 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
             o->state = 4;
             o->v308.x = o->v308.z = 0.0f;
         } else {
-            if (xz_distance_squared(&o->pos, &o->dest) <= (10.0f + o->f3E4) * (10.0f + o->f3E4)) {
+            if (xz_distance_squared((Vec *)&o->pos, (Vec *)&o->dest) <= (10.0f + o->f3E4) * (10.0f + o->f3E4)) {
                 o->state = 4;
                 o->v308.x = o->v308.z = 0.0f;
             }
@@ -2011,7 +2010,7 @@ void TObjEneMe1GiGue::run_task() {
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
     update_obstruction_fade((u8 *)&this->m_418);
-    if (xz_distance_squared((u8 *)&this->position, (u8 *)&this->m_44) > 2500.0f) {
+    if (xz_distance_squared((Vec *)&this->position, (Vec *)&this->m_44) > 2500.0f) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));

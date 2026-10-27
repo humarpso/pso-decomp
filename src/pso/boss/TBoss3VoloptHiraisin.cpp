@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/math/AngleLookup.h"
@@ -331,7 +332,7 @@ void TBoss3VoloptHiraisin::destroy() {
 void TBoss3VoloptHiraisin::init_models() {
     TUnk_8048FA00 *breakup;
     volopt_hiraisin_resources = boss3_volopt_resources;
-    volopt_hiraisin_spin_node = (ModelNode *)TBoss3Volopt::collect_and_count(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
+    volopt_hiraisin_spin_node = (ModelNode *)find_model_node(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
     volopt_hiraisin_spin_node->flags &= ~2;
     breakup = (TUnk_8048FA00 *)alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (breakup != NULL) {

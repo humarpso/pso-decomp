@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/PadRumble.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
@@ -1154,7 +1155,7 @@ void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1
     }
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
-        t = TBoss3Volopt::collect_and_count(get_bml_model(h, r->a), r->b);
+        t = (s32)find_model_node(get_bml_model(h, r->a), r->b);
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
         if (p != 0) {
             p = alloc_tables__6TLobbyFll(p, t, r->c);

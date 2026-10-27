@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/PadRumble.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -5182,7 +5183,6 @@ void TBoss2Mine__sub_80038D88(void);
 void TBoss2Tentacle__sub_8003A0AC(void);
 u8 *load_enemy_bml_resource_named(void *, void *);
 s32 load_enemy_bml_resource(u8 *arg0);
-u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 extern u8 lbl_804356C0[];
 extern u8 lbl_80435A18[];
 extern s32 TBoss2DeRolLe__shared_handler_id_table[];
@@ -6076,7 +6076,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     m = n->next;
     ((s32 *)boss2_derolle_primary_color_targets)[1] = m->h->v + 8;
     ((s32 *)boss2_derolle_primary_color_targets)[2] = m->next->h->v + 8;
-    derolle_texture_list_handle = collect_and_count__12TBoss3VoloptFUll(*(s32 *)(*(u8 **)(res + 0x42C) + 0x28), 0x4D);
+    derolle_texture_list_handle = (u8 *)find_model_node(*(s32 *)(*(u8 **)(res + 0x42C) + 0x28), 0x4D);
     lbl_805D4BCC = *(s32 *)(derolle_texture_list_handle + 0x2C);
     for (m2 = 0; m2 < 11; m2++) {
         p = &derolle_segment_texture_slots[m2];

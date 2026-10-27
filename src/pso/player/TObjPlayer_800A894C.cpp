@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -147,7 +148,6 @@ void TObjPlayer__sub_800A4294(void);
 Res_800AA82C *load_enemy_bml_resource_named(void *, void *);
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
-Node_800AA82C *collect_and_count__12TBoss3VoloptFUll(s32, int);
 u8 *load_gvm_texture_file(s32 arg0);
 void spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043ACA4[];
@@ -253,7 +253,6 @@ void TObjPlayer__sub_800A9718(void *);
 void move_with_wall_slide(u8 *arg0);
 extern "C" {
 s32 calc_velocity_toward_destination(void *, Vec_800A8C4C, Vec_800A8C4C, f32);
-f32 xz_distance_squared(void *, void *);
 extern s32 lbl_804910E4[];
 extern s32 lbl_804910EC[];
 void TObjPlayer__sub_800A8C4C(u8 *arg0);
@@ -442,7 +441,7 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
         calc_velocity_toward_destination((void *)arg0, *(Vec_800A8C4C *)(arg0 + 0x290), *(Vec_800A8C4C *)(arg0 + 0x29C), var_f31);
         ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8))), (void *)((u8 *)arg0 + 0x308));
         move_with_wall_slide((arg0));
-        if (xz_distance_squared((void *) ((u8 *)arg0 + 0x38), (void *) ((u8 *)arg0 + 0x50)) < lbl_805D9AE4) {
+        if (xz_distance_squared((Vec *)((u8 *)arg0 + 0x38), (Vec *)((u8 *)arg0 + 0x50)) < lbl_805D9AE4) {
             *(s16 *)((s8 *)arg0 + 0xB8) = 5;
             advance_animation_playback((void *)arg0);
             *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFE7FFFFF);
@@ -952,7 +951,7 @@ void TObjEneDubchik::sub_800AA10C() {
                 return;
             }
         } else if (temp_r0_2 != 0U) {
-            if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (*(u32 *)((s8 *)((u8 *)this) + 0x2A8) + 0x38)) < (((TObjPlayer *)(this->m_318))->get_pos_x() * ((TObjPlayer *)(this->m_318))->get_pos_x())) {
+            if (xz_distance_squared((Vec *)(((u8 *)this) + 0x38), (Vec *)(*(u32 *)((s8 *)((u8 *)this) + 0x2A8) + 0x38)) < (((TObjPlayer *)(this->m_318))->get_pos_x() * ((TObjPlayer *)(this->m_318))->get_pos_x())) {
                 this->m_390 = (this->m_390 + 1);
                 if ((s16) this->m_390 > 3) {
                     this->m_390 = 0;
@@ -1127,7 +1126,7 @@ void TObjPlayer__sub_800AA82C(void) {
     void *p;
     s32 m;
     s32 i;
-    s32 mdl;
+    u32 mdl;
     Node_800AA82C *n;
     if (TObjEneDD::check_v2_mode() != 0) {
         lbl_805D5090 = load_enemy_bml_resource_named(bm_ene_dubchik_resource_descriptor, lbl_8043ACA4);
@@ -1144,12 +1143,12 @@ void TObjPlayer__sub_800AA82C(void) {
     } else {
         lbl_805D5098 = (s32)load_gvm_texture_file((s32)lbl_8043ACD0);
     }
-    n = collect_and_count__12TBoss3VoloptFUll(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x17);
+    n = (Node_800AA82C *)find_model_node(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x17);
     n->f30 = 0;
     TObjPlayer__sub_800A4294();
-    lbl_805D509C = collect_and_count__12TBoss3VoloptFUll(lbl_805D5090->mdl->f8, 0x15);
-    lbl_805D50A0 = collect_and_count__12TBoss3VoloptFUll(lbl_805D5090->mdl->f8, 0x2A);
-    collect_and_count__12TBoss3VoloptFUll(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x15)->flags |= 8;
+    lbl_805D509C = (Node_800AA82C *)find_model_node(lbl_805D5090->mdl->f8, 0x15);
+    lbl_805D50A0 = (Node_800AA82C *)find_model_node(lbl_805D5090->mdl->f8, 0x2A);
+    ((NJS_OBJECT *)find_model_node(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x15))->evalflags |= 8;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
         p = ((TBreakUpMdl *)p)->init_from_model(lbl_805D5090->mdl->f8);
@@ -1189,7 +1188,7 @@ void TObjPlayer__sub_800AA82C(void) {
     }
     mdl = lbl_805D5090->mdl->f8;
     for (i = 0; i < 3; i++) {
-        nodes[i] = collect_and_count__12TBoss3VoloptFUll(mdl, player_model_node_index_pair[i]);
+        nodes[i] = (Node_800AA82C *)find_model_node(mdl, player_model_node_index_pair[i]);
     }
     ((TBoss3Volopt *)(nodes[0]))->query_field_30((s32 *)lbl_80500A08);
     ((TBoss3Volopt *)(nodes[1]))->query_field_30((s32 *)lbl_80500A18);

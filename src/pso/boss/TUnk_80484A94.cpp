@@ -1,5 +1,6 @@
 #include "pso/boss/TUnk_80484A94.h"
 #include "pso/enemy/TObjEnemy.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -65,9 +66,9 @@ void TUnk_80484A94::run_task() {
     if (player != NULL) {
         Vec steer = *(Vec *)&player->m_2fc;
         subtract_vector(&steer, (Vec *)position);
-        ((TObjGyaranzoMissile *)&steer)->scale_velocity(fn_800499FC(1));
+        vec_set_length(&steer, fn_800499FC(1));
         vec3_add_to(&velocity, &steer);
-        ((TObjGyaranzoMissile *)&velocity)->scale_velocity(fn_800499FC(0));
+        vec_set_length(&velocity, fn_800499FC(0));
     }
     VecCopy((Vec *)&m_44, (Vec *)position);
     vec3_add_to((Vec *)position, &velocity);

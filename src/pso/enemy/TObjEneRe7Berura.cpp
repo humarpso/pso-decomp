@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -492,7 +493,6 @@ s32 create__12TObjEneSaverFPvPv(s32, s32);
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
 void mem_free(void*);
 void *mem_alloc(u32 size);
@@ -1302,8 +1302,8 @@ void TObjEneRe7Berura::load_static_resources() {
         bind_motion_context((s32)ent, e->f14);
         ((void (*)(u32, void *))apply_attack_params__16TObjEneRe7BeruraFiPv)(m, e);
         TObjPlayer::clear_global_state();
-        e->f18 = collect_and_count__12TBoss3VoloptFUll(m, e->f4);
-        e->f1C = (s32)collect_and_count__12TBoss3VoloptFUll(m, e->f8);
+        e->f18 = (s32 *)find_model_node(m, e->f4);
+        e->f1C = (s32)find_model_node(m, e->f8);
         e->f20 = 7;
         e->f24 = e->f18[1];
         e->f28 = TObjEneRe7Berura__data_805D972C;
@@ -1318,8 +1318,8 @@ void TObjEneRe7Berura::load_static_resources() {
         e->f4C = e->f18[0x2C / 4];
         e->f50 = 0;
     }
-    berura_node_matrix_ptr_a = ((s32 *)collect_and_count__12TBoss3VoloptFUll(m, 2)[1])[1] + 8;
-    berura_node_matrix_ptr_b = ((s32 *)collect_and_count__12TBoss3VoloptFUll(m, 1)[1])[1] + 8;
+    berura_node_matrix_ptr_a = ((s32 *)((NJS_OBJECT *)find_model_node(m, 2))->model)[1] + 8;
+    berura_node_matrix_ptr_b = ((s32 *)((NJS_OBJECT *)find_model_node(m, 1))->model)[1] + 8;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
     if (p != NULL) {
         p = ((TLobby *)p)->alloc_tables(*(s32 *)(RES->f42C + 8), 2);

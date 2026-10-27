@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TUnk_804909C4.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/player/TObjPlayer.h"
@@ -251,7 +252,6 @@ u8 * __ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 u8 *get_enemy_entity(u16 arg0);
 s32 __ct__9TObjEnemyFP7TObject(void *);
-f32 xz_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -705,7 +705,7 @@ void TObjPlayer::step_along_ground() {
     VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
     VecCopy((Vec *)&pos, (const Vec *)&this->m_2fc);
     vel = *(Raw_800A10A0 *)(arg0 + 0x308);
-    ((TObjGyaranzoMissile *)(&vel))->scale_velocity(10.0f + ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
+    vec_set_length((Vec *)&vel, 10.0f + ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
     ((void (*)(void *, void *))vec3_add_to)(&pos, &vel);
     hit = ((u8 * (*)(void *, void *, s32))csnVector)(arg0 + 0x2FC, &pos, -1);
     if (hit != NULL) {
@@ -762,7 +762,7 @@ void TObjPlayer::update_move_to_destination() {
         }
         calc_velocity_toward_destination(o, o->pos, o->dest, ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
         move_with_wall_slide((u8 *)o);
-        if (xz_distance_squared(&o->pos, &o->dest) <= 100.0f) {
+        if (xz_distance_squared((Vec *)&o->pos, (Vec *)&o->dest) <= 100.0f) {
             o->flags388 &= ~0x80000;
             apply_fall_damage_flag();
         }
@@ -1489,7 +1489,7 @@ inline f32 fmin_800A28A4(f32 a, f32 b) {
 void TObjPlayer::apply_fall_damage_flag() {
     s32 arg0 = (s32)this;
     s32 var_r4;
-    if (((f32 (*)(s32, s32))xz_distance_squared)(arg0 + 0x38, arg0 + 0x50) > 100.0f) {
+    if (xz_distance_squared((Vec *)(arg0 + 0x38), (Vec *)(arg0 + 0x50)) > 100.0f) {
         var_r4 = 8;
     } else {
         var_r4 = 0;

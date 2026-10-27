@@ -1,6 +1,7 @@
 #pragma fp_contract on
 
 #include "pso/object/TObjVoloptPillar.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/math/MatrixTransforms.h"
@@ -163,7 +164,7 @@ TObjVoloptPillar::TObjVoloptPillar(Vec *pos, TObject *owner) : TUnk_804AF8A0(tl_
     m_name = TObjVoloptPillar_name;
     init_collision_body_parts(this, volopt_pillar_collision_body, 1);
     VecCopy((Vec *)position, pos);
-    dist = ((TObjPlayer *)position)->horizontal_distance((u8 *)&boss3_volopt_spawn_pos);
+    dist = vec_xz_distance((Vec *)position, (Vec *)(u8 *)&boss3_volopt_spawn_pos);
     if (dist < 60.0f) {
         position[1] = 90.0f;
     } else {

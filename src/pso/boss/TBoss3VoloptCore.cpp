@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -328,7 +329,7 @@ void TBoss3VoloptCore::update_charge_state() {
         }
         VecCopy((Vec *)unk_308, (Vec *)&player->m_2fc);
         subtract_vector((Vec *)unk_308, (Vec *)position);
-        ((TObjGyaranzoMissile *)unk_308)->scale_velocity(5.0f);
+        vec_set_length((Vec *)unk_308, 5.0f);
         ((TObjPlayer *)this)->update_angle(0x800, unk_308);
         vec3_add_to((Vec *)position, (Vec *)unk_308);
         if (check_target_collision() != 0) {
@@ -343,7 +344,7 @@ void TBoss3VoloptCore::update_charge_state() {
     case 4:
         VecCopy((Vec *)unk_308, &home_pos);
         subtract_vector((Vec *)unk_308, (Vec *)position);
-        distance = ((TObjGyaranzoMissile *)unk_308)->scale_velocity(5.0f);
+        distance = vec_set_length((Vec *)unk_308, 5.0f);
         ((TObjPlayer *)this)->update_angle(0x800, unk_308);
         vec3_add_to((Vec *)position, (Vec *)unk_308);
         check_target_collision();

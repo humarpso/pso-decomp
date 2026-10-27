@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TObjPlayer.h"
@@ -4001,7 +4002,6 @@ s32 register_boss__6TLobbyFl(s32);
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 s32 load_enemy_bml_resource(u8 *arg0);
 s32 TObjPlayer__sub_800F0928(s32);
-u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 extern s32 lbl_8043BCD8[];
 extern s32 lbl_8043BCE4[];
 extern s32 lbl_8043BCF0[];
@@ -4024,7 +4024,7 @@ void TObjEneMe1Gee::load_resources() {
         TObjEneMe1Gee__resource_bundle = (D_800CC950 *)load_enemy_bml_resource(bm_ene_me1_gee_resource_descriptor);
     }
     TObjEneMe1Gee::cache_result_805D6660();
-    lbl_805D51B4 = collect_and_count__12TBoss3VoloptFUll(TObjEneMe1Gee__resource_bundle->f42c->f8, 7);
+    lbl_805D51B4 = (u8 *)find_model_node(TObjEneMe1Gee__resource_bundle->f42c->f8, 7);
     for (i = 0; i < 3; i++) {
         gee_boss_stat_handle_table[i] = register_boss__6TLobbyFl(lbl_8043BCD8[i]);
         gee_shared_handler_b_table[i] = dispatch_shared_handler_b__6TLobbyFl(lbl_8043BCE4[i]);
@@ -4042,7 +4042,7 @@ void TObjEneMe1Gee::load_resources() {
         p = init_from_model__11TBreakUpMdlFl(p, TObjEneMe1Gee__resource_bundle->f42c->f8);
     }
     TObjEneMe1Gee__data_805D51C4 = p;
-    t = *(s32 *)((s8 *)(*(u8 **)((s8 *)(collect_and_count__12TBoss3VoloptFUll(TObjEneMe1Gee__resource_bundle->f42c->f8, 4)) + 4)) + 4);
+    t = *(s32 *)((s8 *)(*(u8 **)((s8 *)(find_model_node(TObjEneMe1Gee__resource_bundle->f42c->f8, 4)) + 4)) + 4);
     gee_resource_bundle_ptr = t + 4;
     TObjPlayer__sub_800F0928(t);
     {

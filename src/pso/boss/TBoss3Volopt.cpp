@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/PadRumble.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptCore.h"
@@ -1345,7 +1346,7 @@ void TBoss3Volopt::push_actors_out(s32 phase2) {
                 offset.y = 0.0f;
                 offset.z = pos.z - center_z;
                 if (newton_sqrtf(offset.x * offset.x + offset.z * offset.z) < 50.0f) {
-                    ((TObjGyaranzoMissile *)&offset)->scale_velocity(50.0f);
+                    vec_set_length((Vec *)&offset, 50.0f);
                     pos.x = offset.x;
                     pos.z = offset.z + center_z;
                 }

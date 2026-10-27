@@ -323,7 +323,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void refresh_lobby_state();
     int query_lobby_state();
     s32 is_action_available();
-    f32 horizontal_distance(u8 *arg1);
     void draw_trail_strip(void *arg1, s32 arg2);
     f32 calc_photon_blast_power(s32 arg1, f32 farg0);
     static s32 is_any_teammate_in_state();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TUnk_8049442C.h"
@@ -142,9 +143,9 @@ void TObjGyaranzoMissile::run_task() {
         subtract_vector(&d, position);
         dist = vector_length(&d);
         if (timer >= 15 && dist > TObjGyaranzoMissile__max_range) {
-            ((TObjGyaranzoMissile *)(&d))->scale_velocity(TObjGyaranzoMissile__max_range);
+            vec_set_length(&d, TObjGyaranzoMissile__max_range);
             vec3_add_to(&velocity, &d);
-            ((TObjGyaranzoMissile *)(&velocity))->scale_velocity(TObjGyaranzoMissile__speed_scale);
+            vec_set_length(&velocity, TObjGyaranzoMissile__speed_scale);
         }
     }
     VecCopy((Vec *)&m_44, (const Vec *)position);

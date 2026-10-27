@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TUnk_804E14E8.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -51,8 +52,6 @@ struct Shot_802CDB1C {
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
-f32 horizontal_distance__10TObjPlayerFPUc(Vec_802CDEB4 *, Vec_802CDEB4 *);
-f32 xz_distance_squared(Vec_802CDEB4 *, Vec_802CDEB4 *);
 u8 *find_entity_by_id(s16);
 s32 __ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 s32 matrix_mult_vec(void *, Vec_802CDEB4 *, void *);
@@ -75,7 +74,6 @@ void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
 VEnt_802CDB1C *find_active_entity_by_id(u16);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
@@ -130,10 +128,10 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
         if (tgt != NULL) {
             VecCopy((Vec *)&v, (const Vec *)((u8 *)tgt + 0x2FC));
             subtract_vector(&v, &self->pos);
-            ((TObjGyaranzoMissile *)(&v))->scale_velocity(self->speed);
+            vec_set_length((Vec *)&v, self->speed);
             self->speed += lbl_805D684C;
             vec3_add_to(&self->vel, &v);
-            ((TObjGyaranzoMissile *)(&self->vel))->scale_velocity(lbl_805D6844);
+            vec_set_length((Vec *)&self->vel, lbl_805D6844);
         }
         VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
         vec3_add_to(&self->pos, &self->vel);
@@ -148,7 +146,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
             return;
         }
         if (tgt != NULL && !(*(s32 *)((s8 *)tgt + 0x30) & 0x04000A00) &&
-            xyz_distance_squared((u8 *)&self->pos, (u8 *)tgt + 0x2FC) <= lbl_805D6844 * lbl_805D6844) {
+            xyz_distance_squared((Vec *)&self->pos, (Vec *)((u8 *)tgt + 0x2FC)) <= lbl_805D6844 * lbl_805D6844) {
             Hit_802CDB1C h = lbl_804722B4[0];
             h.power = (f32)lbl_805D6854;
             {
@@ -208,12 +206,12 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     Ang_802CDEB4 ang;
     ang.x = 0;
     ang.y = (s32)(lbl_804722C8[0] * atan2_float(pos->x - arg1->x, pos->z - arg1->z)) + 0x4000;
-    ang.z = 0x4000 - (s32)(lbl_804722C8[0] * atan2_float(pos->y - arg1->y, horizontal_distance__10TObjPlayerFPUc(pos, arg1)));
+    ang.z = 0x4000 - (s32)(lbl_804722C8[0] * atan2_float(pos->y - arg1->y, vec_xz_distance((Vec *)pos, (Vec *)arg1)));
     ((TUnk_804E14E8 *)arg0)->m_f8 = (s32)spawn_particle_effect_with_rotation(arg1, &ang, 0x201, 2);
     *(s32 *)((s8 *)arg0 + 0xFC) = (s32)spawn_particle_effect_with_rotation(arg1, &ang, 0x202, 2);
     }
     *(f32 *)((s8 *)arg0 + 0xF4) = lbl_805D6848;
-    if (xz_distance_squared(pos, arg1) < lbl_805DE6C4) {
+    if (xz_distance_squared((Vec *)pos, (Vec *)arg1) < lbl_805DE6C4) {
         *(f32 *)((s8 *)arg0 + 0xF4) *= lbl_805DE6C8;
     }
     ((TUnk_804E14E8 *)arg0)->m_100 = 0;

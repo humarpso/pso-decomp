@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
@@ -1182,7 +1183,7 @@ void TOTrapAncient02::load_resources() {
             obj = load_resource_from_descriptor(obj, 1, base + 0x20, 0, 0, 0);
         }
         TOTrapAncient02__shared_resource = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(((TObjSeabedSuisoBrakable *)(get_bml_model(obj, 0)))->count_linked_switches(2) + 4);
+        lbl_805D5AE0 = (u32)find_object_node((NJS_OBJECT *)get_bml_model(obj, 0), 2)->model;
         lbl_805D5AE4 = 2;
         lbl_805D5ADC = 0;
         break;
@@ -1200,7 +1201,7 @@ void TOTrapAncient02::load_resources() {
             obj = load_resource_from_descriptor(obj, 1, base + 0x38, 0, 0, 0);
         }
         TOTrapAncient02__shared_resource = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(((TObjSeabedSuisoBrakable *)(get_bml_model(obj, 0)))->count_linked_switches(2) + 4);
+        lbl_805D5AE0 = (u32)find_object_node((NJS_OBJECT *)get_bml_model(obj, 0), 2)->model;
         lbl_805D5AE4 = 1;
         lbl_805D5ADC = 0;
         break;

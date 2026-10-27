@@ -4223,18 +4223,11 @@ pso/object/TUnk_804A6DC0.cpp:
 	.text       start:0x801311D8 end:0x80131488
 	.sdata2     start:0x805DB050 end:0x805DB064
 
-pso/object/TObjGyaranzoMissile_80131488.cpp:
-	.text       start:0x80131488 end:0x8013157C
+pso/system/NinjaUtil.cpp:
+	.text       start:0x80131488 end:0x80131794
+	.bss        start:0x80506250 end:0x80506270
+	.sbss       start:0x805D5520 end:0x805D5538
 	.sdata2     start:0x805DB068 end:0x805DB070
-
-pso/unk/text_8013157C.cpp:
-	.text       start:0x8013157C end:0x801315D4
-
-pso/object/TObjSeabedSuisoBrakable_801315D4.cpp:
-	.text       start:0x801315D4 end:0x80131700
-
-pso/boss/TBoss3Volopt_80131700.cpp:
-	.text       start:0x80131700 end:0x80131794
 
 pso/misc/TLobby_80131794.cpp:
 	.text       start:0x80131794 end:0x80131998

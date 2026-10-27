@@ -1,6 +1,7 @@
 #pragma fp_contract on
 
 #include "pso/boss/TUnk_80484AFC.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptP02.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -87,9 +88,9 @@ void TUnk_80484AFC::run_task() {
     if (player != NULL) {
         Vec steer = *(Vec *)&player->m_2fc;
         subtract_vector(&steer, (Vec *)position);
-        ((TObjGyaranzoMissile *)&steer)->scale_velocity(TBoss3VoloptP02::get_float_param(1));
+        vec_set_length((Vec *)&steer, TBoss3VoloptP02::get_float_param(1));
         vec3_add_to(&velocity, &steer);
-        ((TObjGyaranzoMissile *)&velocity)->scale_velocity(TBoss3VoloptP02::get_float_param(0));
+        vec_set_length((Vec *)&velocity, TBoss3VoloptP02::get_float_param(0));
     }
     VecCopy((Vec *)&m_44, (Vec *)position);
     vec3_add_to((Vec *)position, &velocity);
@@ -102,7 +103,7 @@ void TUnk_80484AFC::run_task() {
         direction_to_rotation_yx((u8 *)&back, &trail_rotation[1], &trail_rotation[2]);
         trail_rotation[2] -= 0x4000;
         ((TBoss4Type2 *)trail)->copy_vec3(trail_rotation);
-        ((TObjGyaranzoMissile *)&back)->scale_velocity(10.0f);
+        vec_set_length(&back, 10.0f);
         vec3_add_to(&back, (Vec *)position);
         ((TNowLoading *)trail)->copy_pos(&back);
     }

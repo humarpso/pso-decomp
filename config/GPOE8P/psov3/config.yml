@@ -2352,6 +2352,7 @@ force_active:
   - abort_download__22TQuestVmDownLoadServerFv
   - accept_meseta_deposit__18TCheckRoomSequenceFPv
   - accept_meseta_withdrawal__18TCheckRoomSequenceFPv
+  - accumulate__14PadRumbleLevelFll
   - accumulate_key_bits__FlPl
   - accumulate_mag_axis_oscillation__FPfPlPv
   - action__13TObjEneBm3FlyFPvi
@@ -3002,8 +3003,6 @@ force_active:
   - calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv
   - calc_rotated_vector__14TObjEneBm5WolfFPviPvPv
   - calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv
-  - calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPs
-  - calc_rumble_strength__23TAdSinglePlyChrSelectGCFPs
   - calc_segment_uvs__25TBoss5GryphonLightningEffFPv
   - calc_shock_chance__FP10TObjPlayerP10TObjPlayerP10TObjPlayer
   - calc_slot_offset_position__10TObjPlayerFPviPvPv
@@ -3232,6 +3231,8 @@ force_active:
   - cleanup__17TWindowSubComCardFPv
   - cleanup__23TAdSinglePlyChrSelectGCFv
   - clear_30_slots__10TObjPlayerFv
+  - clear__14PadRumbleLevelFv
+  - clear__15PadRumbleEffectFv
   - clear_active_flag__8TFogCtrlFv
   - clear_all_entries__6TLobbyFPv
   - clear_alt_model_flag__10TObjPlayerFv
@@ -3978,6 +3979,7 @@ force_active:
   - fields_equal__23TAdSinglePlyChrSelectGCFPv
   - fill_list_entry__6TLobbyFPvPv
   - fill_range__15TBoss6SwordWaveFPvPv
+  - find_active_pad_rumble_effect_by_id__FUl
   - find_archive_entry__6TLobbyFPvPvPvPv
   - find_area_technique_contact__FPviPvPv
   - find_attack_target__13TObjEneMe1GeeFPvPv
@@ -3988,6 +3990,7 @@ force_active:
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_free_chat_log_slot__6TLobbyFv
   - find_free_file_names__22TQuestVmDownLoadServerFv
+  - find_free_pad_rumble_effect_slot__Fv
   - find_free_pool_entry__6TLobbyFPv
   - find_free_slot__6TLobbyFv
   - find_gsl_entry__FPv
@@ -4308,6 +4311,8 @@ force_active:
   - get_node_world_y__16TObjEneMe3StelthFv
   - get_obj_type__10TObjPlayerFPv
   - get_orbit_speed__16TBoss3VoloptCoreFl
+  - get_pad_rumble_client__Fl
+  - get_pad_rumble_effect_slots__Fv
   - get_param__6TLobbyFv
   - get_param__8TFogCtrlFv
   - get_part_group__12TBoss3VoloptFl
@@ -4746,6 +4751,7 @@ force_active:
   - invoke_menu_callback__10TObjPlayerFPv
   - ipv6_interface_config
   - is_action_ready__9TBoss6MagFv
+  - is_active__15PadRumbleEffectFv
   - is_active__16TObjEneBm5GibonUFPv
   - is_angle_in_range__16TObjEneMe3StelthFv
   - is_any_player_in_range__16TObjEvtCollisionFf
@@ -6001,12 +6007,14 @@ force_active:
   - object_factories_floors_19_20
   - object_factories_floors_21_22
   - ofence_ancient01_resource_descriptor
+  - off_rate__14PadRumbleLevelFv
   - offline_quest_catalog_ep1
   - ograss_jungle_resource_descriptor
   - old_render_flags
   - old_render_shadow_flags
   - old_update_flags
   - on_lobby_player_add__6TLobbyFii
+  - on_rate__14PadRumbleLevelFv
   - online_ending_hex_line_param
   - online_ending_quad_vertices
   - onlineending_dat_model_names
@@ -11059,6 +11067,7 @@ force_active:
   - reset_leader_selection__FPv
   - reset_leader_selection_static__6TLobbyFv
   - reset_oscillation__11TItemMagSubFv
+  - reset_pad_rumble_effects_and_channels__Fs
   - reset_placement_search_ring__13TUnk_804C4498Fv
   - reset_quest_list_vm__22THunterGuildSeqOfflineFv
   - reset_random_enemies_mode__19TPlayerBattleCtrl4PFv
@@ -12509,7 +12518,9 @@ force_active:
   - update__13TObjEneBm3FlyFv
   - update__13TObjEneMe1GeeFv
   - update__14TObjEneBm5WolfFPv
+  - update__15PadRumbleEffectFv
   - update__15TShopWindowBaseFPv
+  - update__16PadRumbleChannelFP14PadRumbleLevel
   - update__17TObjWarpBossMultiFv
   - update__17TWindowDuelResultFPv
   - update__20TShopArmorListWindowFv
@@ -13210,7 +13221,6 @@ force_active:
   - wait_for_quest__10TChallengeFv
   - wait_for_vi_retrace__Fv
   - wait_next_idle__11TBoss4Type2Fv
-  - walk_linked_switches__23TObjSeabedSuisoBrakableFv
   - warp_boss_handle_window__12TObjWarpBossFv
   - warp_nearby_players__14TBoss6PlotFalzFv
   - warp_player__12TObjWarpBossFl

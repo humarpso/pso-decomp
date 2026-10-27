@@ -216,7 +216,6 @@ pso/boss/TBoss3VoloptP01.cpp
 pso/boss/TBoss3VoloptP02.cpp
 pso/boss/TBoss3Volopt_800C7458.cpp
 pso/boss/TBoss3Volopt_800D8ACC.cpp
-pso/boss/TBoss3Volopt_80131700.cpp
 pso/boss/TBoss3Volopt_8016A47C.cpp
 pso/boss/TBoss4CheckEmpty.cpp
 pso/boss/TBoss4CheckEmpty_8034A8B0.cpp
@@ -2150,7 +2149,6 @@ pso/object/TObjGrass.cpp
 pso/object/TObjGrassWeb.cpp
 pso/object/TObjGyaranzoMissile.cpp
 pso/object/TObjGyaranzoMissile_800D40D8.cpp
-pso/object/TObjGyaranzoMissile_80131488.cpp
 pso/object/TObjHashi.cpp
 pso/object/TObjHashiBase.cpp
 pso/object/TObjHashiVersus1.cpp
@@ -2216,7 +2214,6 @@ pso/object/TObjResultWin.cpp
 pso/object/TObjRoomId.cpp
 pso/object/TObjRoomId_800FD8C8.cpp
 pso/object/TObjSeabedSuisoBrakable.cpp
-pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
 pso/object/TObjSinBoard.cpp
 pso/object/TObjSoloPlayWin.cpp
 pso/object/TObjStendGlassLobby.cpp
@@ -2634,6 +2631,7 @@ pso/system/MaterialAlphaCompare.cpp
 pso/system/Mfci.cpp
 pso/system/MiddlewareInterruptLock.cpp
 pso/system/ModelDrawContext.cpp
+pso/system/NinjaUtil.cpp
 pso/system/PadRumble.cpp
 pso/system/RefCountedWorkBuffer.cpp
 pso/system/SjMemoryBuffer.cpp
@@ -3117,7 +3115,6 @@ pso/unk/text_80130720.cpp
 pso/unk/text_80130B98.cpp
 pso/unk/text_80130E48.cpp
 pso/unk/text_80130EA0.cpp
-pso/unk/text_8013157C.cpp
 pso/unk/text_8013AAD4.cpp
 pso/unk/text_8013ADD0.cpp
 pso/unk/text_8013ADE4.cpp

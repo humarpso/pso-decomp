@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TOComputerMachine01_8023DD0C.h"
 #include "pso/player/TObjPlayer_800A0408.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -203,7 +204,7 @@ void TObjEneBalClaw__sub_8008D924(void) {
         base = balclaw_part_base[k];
         count = 0;
         for (j = 0; j < 10; j++) {
-            part = (BalClawObject *)TBoss3Volopt::collect_and_count(model, base + j);
+            part = (BalClawObject *)find_model_node(model, base + j);
             if (part != NULL && !(part->evalflags & 8)) {
                 lbl_805006F8[k][count] = part;
                 count++;
@@ -213,7 +214,7 @@ void TObjEneBalClaw__sub_8008D924(void) {
     }
     for (m = 0; m < 7; m++) {
         e = &balclaw_parts[m];
-        e->plist = ((BalClawObject *)TBoss3Volopt::collect_and_count(get_bml_model(lbl_805D4F20, e->model_index), e->part_index))->model->plist;
+        e->plist = ((BalClawObject *)find_model_node(get_bml_model(lbl_805D4F20, e->model_index), e->part_index))->model->plist;
     }
     for (n = 0; n < 2; n++) {
         lbl_805007A8[n] = TLobby::register_boss(31);

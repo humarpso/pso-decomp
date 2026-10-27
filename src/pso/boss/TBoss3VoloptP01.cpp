@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptP01.h"
 #include "pso/TMainTask.h"
@@ -198,7 +199,7 @@ void TBoss3VoloptP01::init_breakup_effect() {
         pieces = (TBoss3VoloptBreakupPieces *)((TBreakUpMdl *)pieces)->init_from_model(TBoss3VoloptP01__resource_bundle->models[17].model);
     }
     TBoss3VoloptP01__breakup_model = pieces;
-    volopt_p01_chunk_list = (TBoss3VoloptChunkList *)TBoss3Volopt::collect_and_count(TBoss3VoloptP01__resource_bundle->models[17].model, 0xD);
+    volopt_p01_chunk_list = (TBoss3VoloptChunkList *)find_model_node(TBoss3VoloptP01__resource_bundle->models[17].model, 0xD);
     volopt_p01_boss_stat_handle_a = TLobby::register_boss(0x22);
     volopt_p01_shared_handler_b = TLobby::dispatch_shared_handler_b(0x22);
     volopt_p01_object_handle = TLobby::register_object(0x22);
@@ -723,7 +724,7 @@ void TBoss3VoloptP01::push_nearby_players() {
             subtract_vector(&v, (Vec *)position);
             if (v.x * v.x + v.z * v.z <= radius_sq) {
                 v.y = 0.0f;
-                ((TObjGyaranzoMissile *)&v)->scale_velocity(13.0f);
+                vec_set_length(&v, 13.0f);
                 vec3_add_to((Vec *)player->position, &v);
             }
         }

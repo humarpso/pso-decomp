@@ -19,7 +19,6 @@ struct TObjGyaranzoMissile : public TUnk_804AF8A0 {
     u16 owner_id;
     virtual void render();
     virtual void run_task();
-    f32 scale_velocity(f32 farg0);
     u8 pad_DA[0x2];
     void copy_from(void* q);
 };

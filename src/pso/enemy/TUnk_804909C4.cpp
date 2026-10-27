@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -79,7 +80,6 @@ s32 subtract_vector(void *, void *);
 f32 atan2_float(f32, f32);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 u8 *csnVector(void *, Vec_800A34E8 *, s32);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
 extern void *tl_04;
 extern f32 player_scale_factor;
 extern s32 __vt__13TUnk_804909C4[];
@@ -168,19 +168,19 @@ TUnk_804909C4::TUnk_804909C4(u8 *player, s32 arg2, s32 arg3) : TUnk_804AF8A0((TO
     VecCopy((Vec *)(((u8 *)this) + 0xAC), (const Vec *)(arg3));
     subtract_vector(((u8 *)this) + 0xAC, (void *)arg2);
     this->m_b0 = 0.0f;
-    ((TObjGyaranzoMissile *)(((u8 *)this) + 0xAC))->scale_velocity(player_scale_factor);
+    vec_set_length((Vec *)(((u8 *)this) + 0xAC), player_scale_factor);
     this->m_b8 = 0;
     *(s32 *)((s8 *)this + 0xBC) = (s32) (10430.38043493439 * atan2_float(*(f32 *)((s8 *)this + 0xAC), *(f32 *)((s8 *)this + 0xB4))) + 0x4000;
     this->m_c0 = 0x4000;
     *(s32 *)((s8 *)this + 0xD0) = (s32)spawn_particle_effect_with_rotation((((u8 *)this) + 0x38), (((u8 *)this) + 0xB8), this->m_cc, 0x42);
     {
     Vec_800A34E8 v = *(Vec_800A34E8 *)(((u8 *)this) + 0xAC);
-    ((TObjGyaranzoMissile *)(&v))->scale_velocity(500.0f);
+    vec_set_length((Vec *)(&v), 500.0f);
     vec3_add_to(&v, ((u8 *)this) + 0x38);
     temp_r3 = csnVector(((u8 *)this) + 0x38, &v, -1);
     }
     if (temp_r3 != NULL) {
-        this->m_c4 = (s32) (horizontal_distance__10TObjPlayerFPUc(((u8 *)this) + 0x38, *(s32 *)((s8 *)temp_r3 + 4)) / player_scale_factor);
+        this->m_c4 = (s32) (vec_xz_distance((Vec *)(((u8 *)this) + 0x38), *(Vec **)((s8 *)temp_r3 + 4)) / player_scale_factor);
     } else {
         this->m_c4 = (s32) (500.0f / player_scale_factor);
     }

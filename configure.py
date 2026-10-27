@@ -479,8 +479,9 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # Vol Opt's monitors keep their eight-byte texture lists in .data but the
     # four-byte class-name pointer in .sdata.
     "pso/boss/TBoss3VoloptMonitor.cpp": {"cflags": _switch(cflags_pso, "-inline deferred", "-sdata 4")},
-    # The pad rumble code contracts multiply-subtracts into fnmsubs.
+    # The pad rumble and Ninja helper code contract multiply-adds into fmadds/fnmsubs.
     "pso/system/PadRumble.cpp": {"cflags": _switch(cflags_pso, "-fp_contract on")},
+    "pso/system/NinjaUtil.cpp": {"cflags": _switch(cflags_pso, "-fp_contract on")},
     # Metrowerks' GCN_Mem_Alloc.c (runtime library code at -O4,p); belongs
     # in the runtime lib under its own name.
     "pso/unk/text_8039739C.cpp": {"cflags": _switch(cflags_pso, "-O4,p")},

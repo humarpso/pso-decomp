@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/system/MaterialAlphaCompare.h"
@@ -101,7 +102,6 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *load_gvm_texture_file(s32 arg0);
 
-u8 *count_linked_switches__23TObjSeabedSuisoBrakableFl(u32, int);
 extern void *lazer_fence_switch_bml_resource;
 extern s32 TLazerFenceSw__texture_list;
 extern u8 *lazer_fence_switch_scroll_node;
@@ -330,7 +330,7 @@ void TLazerFenceSw::load_resources() {
             n = n->next;
         }
     }
-    lazer_fence_switch_scroll_node = count_linked_switches__23TObjSeabedSuisoBrakableFl(lazer_fence_sw_ginja_model_table[1], 3);
+    lazer_fence_switch_scroll_node = (u8 *)find_object_node((NJS_OBJECT *)lazer_fence_sw_ginja_model_table[1], 3);
 }
 #pragma pop
 

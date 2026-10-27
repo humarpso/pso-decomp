@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneBm5GibonU.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -173,7 +174,6 @@ void move_with_wall_slide(u8 *arg0);
 extern "C" {
 void calc_velocity_toward_destination(void *, Vec_800D1E4C, Vec_800D1E4C, f32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, int);
-f32 xz_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA25C;
@@ -197,7 +197,7 @@ void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0) {
         update_angle__10TObjPlayerFlPv(arg0, arg0->param->turn, arg0->v308);
         move_with_wall_slide((u8 *)arg0);
         update_collisions__10TObjPlayerFv(arg0);
-        if (xz_distance_squared(&arg0->pos, &arg0->target) <= lbl_805DA25C) {
+        if (xz_distance_squared((Vec *)&arg0->pos, (Vec *)&arg0->target) <= lbl_805DA25C) {
             update_if_active__15TObjEneMe1GiGueFl(arg0, 0);
         }
         break;
@@ -1520,7 +1520,7 @@ void TObjEneGyaranzo::sub_800D37F4() {
                     break;
                 }
             } else if (this->is_actor_cadence_frame(0x1E) != 0 &&
-                       xz_distance_squared(((u8 *)this) + 0x38, ((u8 *)this) + 0x50) > lbl_805DA25C) {
+                       xz_distance_squared((Vec *)(((u8 *)this) + 0x38), (Vec *)(((u8 *)this) + 0x50)) > lbl_805DA25C) {
                 update_if_active__15TObjEneMe1GiGueFl(this, 8);
             }
         }
@@ -1644,16 +1644,16 @@ void TLobby::load_gyaranzo_resources() {
         gyaranzo_bml_resource = (u32)p;
     }
     for (i = 0; i < 0x16; i++) {
-        ((s32 *)gyaranzo_model_resources)[i] = TBoss3Volopt::collect_and_count(AREA->res->r38, gyaranzo_resource_index_table[i]);
+        ((s32 *)gyaranzo_model_resources)[i] = (s32)find_model_node(AREA->res->r38, gyaranzo_resource_index_table[i]);
     }
     for (i = 0; i < 0xD; i++) {
-        gyaranzo_resource_ptrs[i] = (u8 *)TBoss3Volopt::collect_and_count(AREA->res->r48, gyaranzo_resource_index_table[i]);
+        gyaranzo_resource_ptrs[i] = (u8 *)find_model_node(AREA->res->r48, gyaranzo_resource_index_table[i]);
     }
     for (i = 0; i < 0xD; i++) {
         *(s32 *)((s8 *)gyaranzo_resource_ptrs[i] + 0x30) = 0;
     }
-    (*(s32 *)&lbl_805D5200) = TBoss3Volopt::collect_and_count(AREA->res->r38, 0x19);
-    (*(s32 *)&lbl_805D5204) = TBoss3Volopt::collect_and_count(AREA->res->r38, 0xD);
+    (*(s32 *)&lbl_805D5200) = (s32)find_model_node(AREA->res->r38, 0x19);
+    (*(s32 *)&lbl_805D5204) = (s32)find_model_node(AREA->res->r38, 0xD);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
         p = init__11TBreakUpMdlFPviif(p, AREA->res->r38, get_bml_motion(gyaranzo_bml_resource, 3), lbl_805DA294);

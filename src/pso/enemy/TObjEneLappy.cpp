@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
@@ -295,7 +296,6 @@ void sub_800C20B0__12TObjEneLappyFv(void *arg0);
 s32 play_sound_effect(s32, u32, s32, s32);
 void vfunc_63__12TObjEneLappyFv(u8 *arg0);
 void *get_player_by_client_id(s32 i);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 void vfunc_62__12TObjEneLappyFv(u8 *arg0);
 void vfunc_61__12TObjEneLappyFv(void *arg0);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
@@ -333,7 +333,6 @@ void apply_variant_speeds__12TObjEneLappyFv(Obj_800BFCD4 *self);
 s32 check_path_obstructed(void *, void *);
 int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *);
-f32 xz_distance_squared(void *, void *);
 s32 subtract_vector(void *, void *);
 extern s32 lappy_target_zero_vec[];
 extern s32 lbl_805D586C;
@@ -619,7 +618,7 @@ void TObjEneLappy::vfunc_62() {
         this->mode = 4;
         this->m_b8 = 6;
         temp_r3 = (s32)get_player_by_client_id(this->m_2d4);
-        if ((temp_r3 != 0) && !(xyz_distance_squared(((u8 *)this) + 0x38, (u8 *)(temp_r3 + 0x38)) < lbl_805D9F50)) {
+        if ((temp_r3 != 0) && !(xyz_distance_squared((Vec *)(((u8 *)this) + 0x38), (Vec *)(temp_r3 + 0x38)) < lbl_805D9F50)) {
             this->m_374 = (s16) (this->m_374 | 2);
             ((TObjPlayer *)((u8 *)this))->set_flag_and_notify();
         }
@@ -901,7 +900,7 @@ void TObjEneLappy::update_idle_state(void *ov) {
         } else {
             range = lbl_805D9F68;
         }
-        if (xz_distance_squared(arg0 + 0x38, arg0 + 0x50) > range * range) {
+        if (xz_distance_squared((Vec *)(arg0 + 0x38), (Vec *)(arg0 + 0x50)) > range * range) {
             *(u8 *)((s8 *)arg0 + 0x378) = 2;
             ((TObjPlayer *)arg0)->m_b8 = 3;
         } else if ((s8) *(u8 *)((s8 *)arg0 + 0x378) != (s8) ((TObjPlayer *)arg0)->m_379) {
@@ -1045,7 +1044,7 @@ void TObjEneLappy::vfunc_28() {
         for (j = 0; j < lbl_805D586C; j++) {
             q = (u8 *)get_player_data__10TObjPlayerFi(j);
             if (q != NULL && *(s16 *)((s8 *)arg0 + 0x382) != (u16) obj_getField1c(q) && !(*(s32 *)((s8 *)q + 0x30) & 0x800)) {
-                if (xz_distance_squared(q + 0x2FC, arg0 + 0x2FC) < lbl_805D9F88) {
+                if (xz_distance_squared((Vec *)(q + 0x2FC), (Vec *)(arg0 + 0x2FC)) < lbl_805D9F88) {
                     *(u16 *)((s8 *)arg0 + 0x338) = j;
                 }
                 break;
@@ -1813,7 +1812,7 @@ void TObjEneLappy::load_resources() {
     } else {
         (*(u32 *)&rappy_alternate_texture_list) = *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x1C);
     }
-    (*(s32 *)&rappy_visibility_node) = TBoss3Volopt::collect_and_count((u32)(*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8)), 0x12);
+    (*(s32 *)&rappy_visibility_node) = (s32)find_model_node((*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8)), 0x12);
     for (i = 0; i < 2; i++) {
         lappy_boss_stats_handles[i] = register_boss__6TLobbyFl(i + 0x18);
         lappy_boss_stats_ptrs_b[i] = dispatch_shared_handler_b__6TLobbyFl(i + 0x18);
@@ -1870,7 +1869,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     if (calc_boss4_scale__10TObjPlayerFi(self) < lbl_805D9F94) {
         *(s32 *)(self + 0x368) = 1;
         if (TLobby::get_instance() == 1) {
-            (*(s32 *)&rappy_visibility_node) = TBoss3Volopt::collect_and_count((u32)(*(void **)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18)), 0x12);
+            (*(s32 *)&rappy_visibility_node) = (s32)find_model_node(*(u32 *)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18), 0x12);
         }
     }
     if (*(s32 *)(self + 0x368) == 0) {

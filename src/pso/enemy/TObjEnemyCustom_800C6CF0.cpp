@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneDubchik.h"
 #include "pso/enemy/TObjEnemyCustom_800C6CF0.h"
 #include "pso/unk/text_803D96A8.h"
@@ -56,7 +57,6 @@ extern "C" {
 int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u8 *find_active_entity_by_id(int);
-f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
@@ -116,7 +116,7 @@ u16 TObjPlayer::pick_random_nearby_player(f32 radius) {
         if (p == NULL) {
             break;
         }
-        if (xz_distance_squared(p + 0x2FC, (u8 *)&this->m_2fc) < r2) {
+        if (xz_distance_squared((Vec *)(p + 0x2FC), (Vec *)&this->m_2fc) < r2) {
             list[count++] = i;
             if (count >= 0x20) {
                 break;
@@ -147,7 +147,7 @@ void TObjEneDubchik::target_nearest_player(f32 radius) {
     for (i = 0; i < n; i++) {
         p = (Plr_800C6E34 *)get_player_data__10TObjPlayerFi(i);
         if (p != arg0 && p != NULL && arg0->target != (u8 *)p) {
-            d = xz_distance_squared(p->pos, arg0->pos);
+            d = xz_distance_squared((Vec *)p->pos, (Vec *)arg0->pos);
             if (d < bestDist) {
                 bestDist = d;
                 best = i;
@@ -207,8 +207,8 @@ BOOL TObjEnemyCustom::select_nearest_target(f32 radius) {
     } else if ((u16)b == 0xFFFF) {
         this->targetId = a;
     } else {
-        da = xz_distance_squared(arg0->pos, find_entity_by_id(a)->pos);
-        this->targetId = da < xz_distance_squared(arg0->pos, find_entity_by_id(b)->pos) ? a : b;
+        da = xz_distance_squared((Vec *)arg0->pos, (Vec *)find_entity_by_id(a)->pos);
+        this->targetId = da < xz_distance_squared((Vec *)arg0->pos, (Vec *)find_entity_by_id(b)->pos) ? a : b;
     }
     this->target = find_active_entity_by_id(this->targetId);
     if (this->target != NULL) {
@@ -248,7 +248,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
     Vec_800C7168 out;
     Vec_800C7168 dir;
     Vec_800C7168 tmp;
-    ((TObjGyaranzoMissile *)(&v))->scale_velocity(farg0 + farg1);
+    vec_set_length((Vec *)&v, farg0 + farg1);
     vec3_add_to(&a, &v);
     hit = csnVector(&self->base, &a, -1);
     if (hit != NULL) {
@@ -291,7 +291,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 }
 
 void TObjEneBalClawBody::sub_800C73F4() {
-    if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (((u8 *)this) + 0x50)) > lbl_805DA080) {
+    if (xz_distance_squared((Vec *)(((u8 *)this) + 0x38), (Vec *)(((u8 *)this) + 0x50)) > lbl_805DA080) {
         ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(8);
         return;
     }

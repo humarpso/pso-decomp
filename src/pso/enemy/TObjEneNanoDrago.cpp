@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -69,7 +70,6 @@ int get_player_data__10TObjPlayerFi(int a0);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f32 atan2_float(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, s32);
 void vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, Vec_800D9C7C *, void *);
 extern Vec_800D9C7C lbl_8043C8E4;
@@ -118,7 +118,7 @@ void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1) {
                 pop_matrix();
                 return;
             }
-            d = horizontal_distance__10TObjPlayerFPUc(arg0 + 0x38, h->x4) - bias;
+            d = vec_xz_distance((Vec *)(arg0 + 0x38), (Vec *)h->x4) - bias;
             if (bestv < d) {
                 bestv = d;
                 best = ang;
@@ -433,7 +433,6 @@ u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void enemy_turn_toward_dest(void *, s32);
-f32 xz_distance_squared(void *, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
@@ -495,7 +494,7 @@ void TObjPlayer::spawn_directional_particle_at_slot(s32 i) {
 void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *actor, Vec_800DA508 *center, f32 radius) {
     s32 ang;
     f32 r;
-    if (xz_distance_squared(&actor->pos, &actor->dest) < 400.0f) {
+    if (xz_distance_squared((Vec *)&actor->pos, (Vec *)&actor->dest) < 400.0f) {
         ang = (s32)(182.04445f * (360.0f * calc_boss4_scale__10TObjPlayerFi(actor)));
         r = 0.4f * (radius * (1.0f + calc_boss4_scale__10TObjPlayerFi(actor)));
         actor->dest.x = r * cos_table_lookup(ang) + center->x;
@@ -630,7 +629,7 @@ void TObjPlayer__sub_800DA7E4(u8 *player) {
             entity = (u32)find_entity_by_id(((TObjPlayer *)player)->m_2d4);
             if (entity != 0) {
                 var_r30 = 1;
-                if ((((TObjPlayer *)player)->actorFlags & 0x01000000) && (xz_distance_squared(player + 0x38, (u8 *)entity + 0x38) > 400.0f)) {
+                if ((((TObjPlayer *)player)->actorFlags & 0x01000000) && (xz_distance_squared((Vec *)(player + 0x38), (Vec *)((u8 *)entity + 0x38)) > 400.0f)) {
                     var_r30 = 0;
                 }
             }
@@ -752,7 +751,7 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
             F(f32, 0x30C) = 0.0f;
             VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
             vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-            if (xz_distance_squared(arg0 + 0x38, arg0 + 0x390) <= (10.0f + F(f32, 0x3D8)) * (10.0f + F(f32, 0x3D8))) {
+            if (xz_distance_squared((Vec *)(arg0 + 0x38), (Vec *)(arg0 + 0x390)) <= (10.0f + F(f32, 0x3D8)) * (10.0f + F(f32, 0x3D8))) {
                 F(s32, 0x37C) = 2;
                 F(f32, 0x310) = 0.0f;
                 F(f32, 0x308) = 0.0f;
@@ -1710,7 +1709,7 @@ void TObjEneNanoDrago::run_task() {
         temp_r3_4 = (unsigned char *) (((TObjEneNanoDrago *)arg0)->m_a4);
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
-    if (xz_distance_squared((u8 *)&this->position, (u8 *)&this->m_44) > 2500.0f) {
+    if (xz_distance_squared((Vec *)&this->position, (Vec *)&this->m_44) > 2500.0f) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));

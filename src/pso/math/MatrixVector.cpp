@@ -6,13 +6,10 @@ struct Vec_803D8D1C { f32 x, y, z; };
 extern "C" {
 f32 matrix_identity(void *);
 extern u8 *current_matrix;
-s32 PSMTXMultVecSR(int);
 void GXGetProjectionv(f32 *p);
 void GXGetViewportv(f32 *vp);
 void GXProject(f32 x, f32 y, f32 z, u8 *mtx, f32 *pm, f32 *vp, f32 *sx, f32 *sy, f32 *sz);
 void project_world_to_screen(u8 *mtx, Vec_803D8D1C *pos, f32 *out);
-void PSMTXConcat(void *, void *, void *);
-void PSMTXRotAxisRad(void *, void *, f32);
 extern f64 lbl_805E0ED8;
 s32 scale_matrix(f32, f32, f32);
 s32 translate_matrix(f32, f32, f32);
@@ -32,8 +29,8 @@ void rotate_matrix_about_axis(u8 *arg0, s32 arg1, s32 arg2) {
         m = arg0;
     }
     if (arg2 != 0) {
-        PSMTXRotAxisRad(sp8, (void *)arg1, lbl_805E0ED8 * arg2);
-        PSMTXConcat(m, sp8, m);
+        PSMTXRotAxisRad((MtxP)sp8, (Vec *)arg1, lbl_805E0ED8 * arg2);
+        PSMTXConcat((MtxP)m, (MtxP)sp8, (MtxP)m);
     }
 }
 #pragma pop
@@ -56,11 +53,11 @@ void set_matrix_identity(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-f32 vec_squared_length(u8 *arg0) {
-    f32 x = *(f32 *)((s8 *)arg0 + 0);
-    f32 y = *(f32 *)((s8 *)arg0 + 4);
+f32 vec_squared_length(const Vec *v) {
+    f32 x = v->x;
+    f32 y = v->y;
     f32 sum = x * x;
-    f32 z = *(f32 *)((s8 *)arg0 + 8);
+    f32 z = v->z;
     sum = (y * y) + sum;
     return (z * z) + sum;
 }
@@ -90,13 +87,13 @@ void project_world_to_screen(u8 *mtx, Vec_803D8D1C *pos, f32 *out) {
 
 #pragma push
 #pragma scheduling off
-void rotate_vector_by_matrix(u32 arg0) {
+void rotate_vector_by_matrix(u32 arg0, const Vec *src, Vec *dst) {
     u32 var_r3;
     var_r3 = arg0;
     if (var_r3 == 0U) {
         var_r3 = (*(u32 *)&current_matrix);
     }
-    PSMTXMultVecSR(var_r3);
+    PSMTXMultVecSR((MtxP)var_r3, src, dst);
 }
 #pragma pop
 

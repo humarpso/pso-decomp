@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneMe3StelthReal.h"
 #include "pso/player/TObjPlayer.h"
@@ -3875,19 +3876,19 @@ void TObjEneMe3Stelth::load_shared_resources() {
     lbl_80501114[1] = TObjEneMe3Stelth__data_805DA840;
     lbl_80501114[2] = TObjEneMe3Stelth__data_805DA840;
     m = *(u32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 8);
-    q = *(s32 **)(TBoss3Volopt::collect_and_count(m, 9) + 4);
+    q = (s32 *)((NJS_OBJECT *)find_model_node(m, 9))->model;
     if (q != NULL) {
         TObjEneMe3Stelth__material_color_pointers[0] = q[1] + 4;
     } else {
         TObjEneMe3Stelth__material_color_pointers[0] = 0;
     }
-    q = *(s32 **)(TBoss3Volopt::collect_and_count(m, 0xD) + 4);
+    q = (s32 *)((NJS_OBJECT *)find_model_node(m, 0xD))->model;
     if (q != NULL) {
         TObjEneMe3Stelth__material_color_pointers[1] = q[1] + 4;
     } else {
         TObjEneMe3Stelth__material_color_pointers[1] = 0;
     }
-    q = *(s32 **)(TBoss3Volopt::collect_and_count(m, 0x26) + 4);
+    q = (s32 *)((NJS_OBJECT *)find_model_node(m, 0x26))->model;
     if (q != NULL) {
         TObjEneMe3Stelth__material_color_pointers[2] = q[1] + 4;
     } else {

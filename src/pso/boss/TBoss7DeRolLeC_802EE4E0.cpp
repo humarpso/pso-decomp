@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss7DeRolLeC_802EE4E0.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -33,7 +34,6 @@ extern u8 *lbl_805D6918;
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void run_load_callback_table(void *, int);
-u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 extern s32 lbl_804E3D1C[];
 extern Light_802EE574 boss7_derolle_light_pool[];
 extern s32 boss7_derolle_c_motion_id;
@@ -85,7 +85,7 @@ void TObjPlayer__sub_802EE574(void) {
     lbl_805D6934 = 0;
     boss7_joint_state = 0;
     run_load_callback_table(&lbl_804E3C5C.value, 0x30);
-    lbl_805D693C = collect_and_count__12TBoss3VoloptFUll(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D6918 + 0x42C)) + 8), 0x4D);
+    lbl_805D693C = (u8 *)find_model_node(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D6918 + 0x42C)) + 8), 0x4D);
     lbl_805D6940 = *(s32 *)((s8 *)lbl_805D693C + 0x2C);
     for (i = 0; i < 11; i++) {
         Light_802EE574 *l = &boss7_derolle_light_pool[i];

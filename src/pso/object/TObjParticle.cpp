@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjParticle.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/object/TObject_8001A448.h"
-#include "pso/unk/text_8013157C.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjParticle.h"
@@ -78,7 +78,7 @@ void TObjParticle::run_task() {
     if (((s32) this->m_8c == 1) && ((s32) this->m_84 == 1)) {
         var_f31 = lbl_805DBEE8;
     }
-    if (xyz_distance_squared((u8 *)&this->position, (u8 *)(camera_ctrl_instance + 0x178)) > var_f31) {
+    if (xyz_distance_squared((Vec *)&this->position, (Vec *)(camera_ctrl_instance + 0x178)) > var_f31) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

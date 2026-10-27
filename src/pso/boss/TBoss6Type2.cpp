@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss6Mag.h"
@@ -972,7 +973,7 @@ void TBoss6Type2::init_collected_entries() {
     T2_802BA000 *arg0 = (T2_802BA000 *)this;
     s32 i;
     for (i = 0; i < 2; i++) {
-        arg0->e[i].p = (s32 *)(TBoss3Volopt::collect_and_count(arg0->o[i].h, 0x28) + 0x18);
+        arg0->e[i].p = (s32 *)((u8 *)find_model_node(arg0->o[i].h, 0x28) + 0x18);
         arg0->e[i].a = *arg0->e[i].p;
         arg0->e[i].b = 0;
     }
@@ -2501,7 +2502,7 @@ void TBoss6Type2::run_task() {
     ((TBoss6Type2 *)arg0)->sub_802BB498();
     ((TBoss6Type2 *)arg0)->sub_802BC124();
     ((TBoss6PlotFalz *)(arg0 + 0x768))->scroll_strips_uv(8, 0);
-    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(TBoss3Volopt::collect_and_count(get_bml_model(this->m_3fc, 1), 1)) + 4)) + 4)), 8, 0, 0);
+    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(find_model_node(get_bml_model(this->m_3fc, 1), 1)) + 4)) + 4)), 8, 0, 0);
     ((TBoss6Type2 *)arg0)->sub_802BB554();
     copy_vec_array();
     if ((s32) this->m_418 != 0) {

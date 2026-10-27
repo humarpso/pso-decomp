@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObject_8001A448.h"
-#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjRaderHideCol.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjMotion.h"
@@ -28,7 +28,7 @@ void TObjRaderHideCol::run_task() {
     Hide_801973B0 *arg0 = (Hide_801973B0 *)this;
     Pl_801973B0 *p = (Pl_801973B0 *)get_player_by_client_id(local_client_id);
     if (p != 0) {
-        if (xyz_distance_squared((u8 *)arg0->pos, (u8 *)p->pos) < arg0->f90 * arg0->f90) {
+        if (xyz_distance_squared((Vec *)arg0->pos, (Vec *)p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {
                 TRaderMapCore::hide_radar();
                 arg0->f94 = 1;

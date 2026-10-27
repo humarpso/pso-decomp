@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
@@ -634,7 +635,7 @@ void TOTrapSeabed01::load_resources() {
     }
     (*(u32 *)&TOTrapSeabed01__bml_resource) = (u32)p;
     (*(u32 *)&TOTrapSeabed01__texture_file) = (u32)load_gvm_texture_file((s32)lbl_804720E8);
-    s32 n = ((TObjSeabedSuisoBrakable *)(get_bml_model((*(u32 *)&TOTrapSeabed01__bml_resource), 0)))->count_linked_switches(5);
+    s32 n = (s32)find_object_node((NJS_OBJECT *)(get_bml_model((*(u32 *)&TOTrapSeabed01__bml_resource), 0)), 5);
     u32 t = (*(u32 *)&TOTrapSeabed01__texture_file);
     (*(s32 *)&TOTrapSeabed01__ginja_model) = n;
     lbl_805D681C = 0;

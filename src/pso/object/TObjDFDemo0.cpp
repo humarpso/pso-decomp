@@ -3,6 +3,7 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/object/TObjDFDemo1.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/PadRumble.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/player/TObjPlayer_80052374.h"
@@ -70,7 +71,6 @@ extern "C" {
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void post_translate_matrix(void *);
-Outer_8004E068 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 extern Tbl_8004E068 lbl_8048561C[];
 extern s32 model_render_flags;
@@ -112,7 +112,7 @@ void TObjDFDemo1::sub_8004E068() {
   {
     alpha = (t - 0x7C) / 12.0f;
   }
-  col = collect_and_count__12TBoss3VoloptFUll(self->recs[1].a, 0x6A)->in->col;
+  col = ((Outer_8004E068 *)find_model_node(self->recs[1].a, 0x6A))->in->col;
   t = self->f110;
   f = 0.0f;
   if (t >= 0xF0)
@@ -140,7 +140,7 @@ void TObjDFDemo1::sub_8004E068() {
   for (i = 0; i < 3; i++)
   {
     e = &lbl_8048561C[i];
-    col = collect_and_count__12TBoss3VoloptFUll(self->recs[e->idx].a, e->id)->in->col;
+    col = ((Outer_8004E068 *)find_model_node(self->recs[e->idx].a, e->id))->in->col;
     new_var = col;
     new_var2 = new_var[e->slot];
     col[e->slot] = (new_var2 & 0xFF) | hi;

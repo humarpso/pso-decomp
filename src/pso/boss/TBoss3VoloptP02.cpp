@@ -5,6 +5,7 @@
 // in reverse source order: bodies here run from the highest address down.
 
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -62,7 +63,6 @@ f32 fabs_float(f32);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(void *, void *);
 extern s32 lbl_805D586C;
-f32 xz_distance_squared(Vec *, Vec *);
 u16 TObjRoomId__sub_801A1DB8(void);
 void vec3_add_to(void *, void *);
 s32 restore_player_cameras(void);
@@ -355,13 +355,13 @@ void TBoss3VoloptP02::load_resources() {
     }
     breakup_model = model;
     root = lbl_805D4CE4->models[20].model;
-    ((NjObject *)TBoss3Volopt::collect_and_count(root, 0x44))->evalflags |= 8;
-    ((NjObject *)TBoss3Volopt::collect_and_count(root, 0x39))->evalflags |= 8;
-    ((NjObject *)TBoss3Volopt::collect_and_count(root, 0x27))->evalflags |= 8;
-    ((NjObject *)TBoss3Volopt::collect_and_count(root, 0x3C))->evalflags |= 8;
-    ((NjObject *)TBoss3Volopt::collect_and_count(root, 0x3F))->evalflags |= 8;
+    ((NjObject *)find_model_node(root, 0x44))->evalflags |= 8;
+    ((NjObject *)find_model_node(root, 0x39))->evalflags |= 8;
+    ((NjObject *)find_model_node(root, 0x27))->evalflags |= 8;
+    ((NjObject *)find_model_node(root, 0x3C))->evalflags |= 8;
+    ((NjObject *)find_model_node(root, 0x3F))->evalflags |= 8;
     for (i = 0; i < 5; i++) {
-        nodes[i] = (NjObject *)TBoss3Volopt::collect_and_count(root, part_breakup_node_ids[i]);
+        nodes[i] = (NjObject *)find_model_node(root, part_breakup_node_ids[i]);
     }
     for (j = 0; j < 5; j++) {
         nodes[j]->sibling = NULL;
@@ -373,28 +373,28 @@ void TBoss3VoloptP02::load_resources() {
     }
     root = lbl_805D4CE4->models[19].model;
     for (i = 0; i < 5; i++) {
-        parts[i] = (NjObject *)TBoss3Volopt::collect_and_count(root, part_breakup_node_ids[i]);
+        parts[i] = (NjObject *)find_model_node(root, part_breakup_node_ids[i]);
     }
     n = ((TBoss3Volopt *)parts[0])->query_field_30((s32 *)breakup_flags_a);
     ((TBoss3Volopt *)parts[1])->query_field_30((s32 *)&breakup_flags_a[n]);
     n = ((TBoss3Volopt *)parts[2])->query_field_30((s32 *)breakup_flags_b);
-    breakup_flags_b[n] = (u32 *)TBoss3Volopt::collect_and_count(root, 0x3B);
-    breakup_flags_b[n + 1] = (u32 *)TBoss3Volopt::collect_and_count(root, 0x3C);
+    breakup_flags_b[n] = (u32 *)find_model_node(root, 0x3B);
+    breakup_flags_b[n + 1] = (u32 *)find_model_node(root, 0x3C);
     breakup_flags_b[n + 2] = NULL;
     n = ((TBoss3Volopt *)parts[3])->query_field_30((s32 *)breakup_flags_c);
-    breakup_flags_c[n] = (u32 *)TBoss3Volopt::collect_and_count(root, 0x3A);
+    breakup_flags_c[n] = (u32 *)find_model_node(root, 0x3A);
     breakup_flags_c[n + 1] = NULL;
     ((TBoss3Volopt *)parts[4])->query_field_30((s32 *)breakup_flags_d);
-    model_node_44 = (NjObject *)TBoss3Volopt::collect_and_count(root, 0x44);
-    model_node_39 = (NjObject *)TBoss3Volopt::collect_and_count(root, 0x39);
-    model_node_27 = (NjObject *)TBoss3Volopt::collect_and_count(root, 0x27);
-    model_node_3c = (NjObject *)TBoss3Volopt::collect_and_count(root, 0x3C);
-    model_node_3f = (NjObject *)TBoss3Volopt::collect_and_count(root, 0x3F);
+    model_node_44 = (NjObject *)find_model_node(root, 0x44);
+    model_node_39 = (NjObject *)find_model_node(root, 0x39);
+    model_node_27 = (NjObject *)find_model_node(root, 0x27);
+    model_node_3c = (NjObject *)find_model_node(root, 0x3C);
+    model_node_3f = (NjObject *)find_model_node(root, 0x3F);
     for (j = 0; j < 5; j++) {
-        chain_nodes_a[j] = (NjObject *)TBoss3Volopt::collect_and_count(root, chain_node_ids_a[j]);
+        chain_nodes_a[j] = (NjObject *)find_model_node(root, chain_node_ids_a[j]);
     }
     for (j = 0; j < 5; j++) {
-        chain_nodes_b[j] = (NjObject *)TBoss3Volopt::collect_and_count(root, chain_node_ids_b[j]);
+        chain_nodes_b[j] = (NjObject *)find_model_node(root, chain_node_ids_b[j]);
     }
     node_44_color = model_node_44->model->plist;
     node_27_color = model_node_27->model->plist;

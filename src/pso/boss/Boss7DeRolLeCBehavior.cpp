@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/obj_band.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
@@ -445,8 +446,8 @@ void TObjPlayer__sub_802E7EA0(void *arg0) {
     s32 i;
     effect = queue_boss_effect__10TObjPlayerFPv(0);
     for (i = 0; i != 10; i++) {
-        ((Saved_802E7EA0 *)arg0)->a[i] = ((EffectRef_802E7EA0 *)TBoss3Volopt::collect_and_count(effect, (&lbl_804739AC.value)[i]))->node->value;
-        ((Saved_802E7EA0 *)arg0)->b[i] = ((EffectRef_802E7EA0 *)TBoss3Volopt::collect_and_count(effect, (&lbl_804739D4.value)[i]))->node->value;
+        ((Saved_802E7EA0 *)arg0)->a[i] = ((EffectRef_802E7EA0 *)find_model_node(effect, (&lbl_804739AC.value)[i]))->node->value;
+        ((Saved_802E7EA0 *)arg0)->b[i] = ((EffectRef_802E7EA0 *)find_model_node(effect, (&lbl_804739D4.value)[i]))->node->value;
     }
 }
 
@@ -466,7 +467,7 @@ void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
     {
       var_r4 = (s32 *)&lbl_804739AC.value;
       var_r4 = (s32 *) (*((s32 *) (((s8 *)&lbl_804739AC.value) + var_r31)));
-      temp_r3 = (u8 *) TBoss3Volopt::collect_and_count(queue_boss_effect__10TObjPlayerFPv(0), (s32) var_r4);
+      temp_r3 = (u8 *) find_model_node(queue_boss_effect__10TObjPlayerFPv(0), (s32) var_r4);
     }
     if (temp_r3 != 0)
     {
@@ -477,7 +478,7 @@ void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
     var_r4 = (s32 *)&lbl_804739D4.value;
     var_r4 = (s32 *)&lbl_804739D4.value;
     var_r4 = (s32 *) (*((s32 *) (((s8 *)&lbl_804739D4.value) + var_r31)));
-    temp_r3_2 = (u8 *) TBoss3Volopt::collect_and_count(queue_boss_effect__10TObjPlayerFPv(0), (s32) var_r4);
+    temp_r3_2 = (u8 *) find_model_node(queue_boss_effect__10TObjPlayerFPv(0), (s32) var_r4);
     if (temp_r3_2 != 0)
     {
       var_r3 = (u8 *) ((RecoveredFields_802E7F30_temp_r3_2 *) temp_r3_2)->field_4;
@@ -492,9 +493,9 @@ void TObjPlayer__sub_802E7FC0(void *arg0) {
     EffectRef_802E7EA0 *ref;
     effect = queue_boss_effect__10TObjPlayerFPv(0);
     for (i = 0; i != 10; i++) {
-        ref = (EffectRef_802E7EA0 *)TBoss3Volopt::collect_and_count(effect, (&lbl_804739AC.value)[i]);
+        ref = (EffectRef_802E7EA0 *)find_model_node(effect, (&lbl_804739AC.value)[i]);
         ref->node->value = ((Saved_802E7EA0 *)arg0)->a[i];
-        ref = (EffectRef_802E7EA0 *)TBoss3Volopt::collect_and_count(effect, (&lbl_804739D4.value)[i]);
+        ref = (EffectRef_802E7EA0 *)find_model_node(effect, (&lbl_804739D4.value)[i]);
         ref->node->value = ((Saved_802E7EA0 *)arg0)->b[i];
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -32,7 +33,6 @@ void matrix_mult_vec(void *mtx, const Vec *src, Vec *dst);
 void scroll_ginja_mesh_uvs(void *mesh, s16 du, s16 dv, u16 cmd, s32 rewrite);
 void PPCSync(void);
 int rand(void);
-void TObjGyaranzoMissile__sub_80131488(GinjaTextureList *list);
 void TLobby__sub_803DA16C(GinjaTextureList *list);
 
 
@@ -235,7 +235,7 @@ void TBoss3VoloptMonitor::load_resources() {
     s32 i;
     volopt_monitor_textures = &volopt_monitor_texture_table;
     volopt_monitor_resources = boss3_volopt_resources;
-    TObjGyaranzoMissile__sub_80131488(&volopt_monitor_texture_table);
+    clear_texlist_names((NJS_TEXLIST *)&volopt_monitor_texture_table);
     TLobby::load_texture_pvm_file("fe_obj_vo_momitor.gvm", (s32)volopt_monitor_textures);
     for (i = 0; i < 4; i++) {
         volopt_monitor_screen_meshes[i] = ((void **)get_bml_model(volopt_monitor_resources, volopt_monitor_models[2][i]))[1];
