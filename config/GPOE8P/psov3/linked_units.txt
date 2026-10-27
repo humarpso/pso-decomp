@@ -1067,7 +1067,6 @@ pso/misc/TLobby_801D726C.cpp
 pso/misc/TLobby_801DA7DC.cpp
 pso/misc/TLobby_801DEFC4.cpp
 pso/misc/TLobby_801E43E4.cpp
-pso/misc/TLobby_801E6544.cpp
 pso/misc/TLobby_801F2D2C.cpp
 pso/misc/TLobby_801F3A24.cpp
 pso/misc/TLobby_801F487C.cpp
@@ -2634,6 +2633,7 @@ pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/quest/AreaDialogueScripts.cpp
+pso/quest/QuestOpcodeHandlers.cpp
 pso/quest/QuestOpcodeTables.cpp
 pso/quest/StoryQuestProgress.cpp
 pso/slices/pso_carve_8020bf88.cpp

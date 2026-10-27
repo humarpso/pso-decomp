@@ -236,8 +236,6 @@ void qst_op_player_effect_nc(u8 arg0);
 void qst_op_has_ep3_save_file(void);
 }
 
-#pragma push
-
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
     u8 remaining[0xAC];
@@ -483,9 +481,6 @@ s32 parse_f_index(s32 a0) {
 #undef strcmp
 #undef quest_player_name_buffer
 #undef quest_player_class_name_buffer
-#pragma pop
-
-#pragma push
 
 struct VBase_18_f23ffb { char pad[0x18]; };
 
@@ -637,9 +632,7 @@ void append_string(s32 arg0) {
 #undef get_class_type_name__6TLobbyFl
 #undef sscanf
 #undef TLobby__script_reg_array
-#pragma pop
 
-#pragma push
 void TLobby__sub_801E6C2C(s8 arg0);
 
 namespace pf2_p2 { extern "C" { extern s8 *quest_string_append_cursor; } }
@@ -655,9 +648,6 @@ void TLobby__sub_801E6C2C(s8 arg0) {
 }
 
 #undef quest_string_append_cursor
-#pragma pop
-
-#pragma push
 
 struct RecoveredGlobal_801E6D18_TLobby__data_80512220 {
     s32 value;
@@ -669,9 +659,6 @@ struct RecoveredGlobal_801E6E20_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 struct Tbl_801E6CA4 { u32 w[18]; };
 
 extern "C" {
@@ -702,7 +689,6 @@ namespace pf2_p3 { extern "C" { extern int TLobby__quest_script_read_ptr; } }
 namespace pf2_p3 { extern "C" { extern int quest_string_append_cursor; } }
 #define quest_string_append_cursor pf2_p3::quest_string_append_cursor
 void TLobby__sub_801E6C40(int a0, int a1) { TLobby__quest_script_read_ptr = a0; quest_string_append_cursor = a1; }
-
 
 void qst_op_olga_flow_is_dead(s32 arg0) {
     if (TBoss6PlotFalz::is_phase_reached() != 0) {
@@ -774,9 +760,6 @@ void qst_op_check_for_keyword(void) {
 #undef TLobby__quest_script_read_ptr
 #undef TLobby__script_reg_array
 #undef quest_string_append_cursor
-#pragma pop
-
-#pragma push
 
 struct RecoveredGlobal_801E6F1C_TLobby__data_80512220 {
     s32 value;
@@ -895,9 +878,7 @@ void qst_op_va_call(s32 arg0) {
 #undef TLobby__data_805D5E74
 #undef TLobby__quest_script_pc
 #undef TLobby__script_reg_array
-#pragma pop
 
-#pragma push
 
 struct Glob_801E8614
 {
@@ -3313,29 +3294,19 @@ void qst_op_set_palettex_callback(void) {
     TObjPlayer__sub_80354C2C(((s32 *)&TLobby__quest_argument_stack)[0], (u16)((s32 *)&TLobby__quest_argument_stack)[1]);
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_thaw_and_show_equip() {
     void *self = tl_03;
     if (self != NULL) {
         resume_update__7TObjectFv(self);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_toggle_freeze_and_hide_equip() {
     void *temp = tl_03;
     if (temp != 0) {
         ((TObject *)temp)->toggle_pause();
     }
 }
-#pragma pop
 
 s32 count_items_of_type__10TObjPlayerFScScSc(u32, u8, u8, u8);
 void qst_op_get_stackable_item_count(s32 i, s32 dst) {
@@ -3349,10 +3320,6 @@ void qst_op_get_stackable_item_count(s32 i, s32 dst) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_total_deaths() {
     u8 temp_r31;
     temp_r31 = (u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E8560_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
@@ -3360,23 +3327,12 @@ void qst_op_get_total_deaths() {
         *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)) + 0) = get_card_window_field_244__10TObjPlayerFv();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_atan2_int(void) {
     u8 temp_r31;
     temp_r31 = (u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0);
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)) + 0) = (s32) (lbl_80449CC0 * atan2_float((void *) (&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 8))));
 }
-#pragma pop
-
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 
 typedef struct Glob_801E8614 Glob_801E8614;
 void qst_op_tan() {
@@ -3393,23 +3349,13 @@ void qst_op_cos() {
     f32 v = cos_table_lookup((*(Glob_801E8684 *)&TLobby__quest_argument_stack).f4);
     (*(s32 * *)&TLobby__script_reg_array)[idx] = *(s32 *)&v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_sin() {
     u8 idx = (*(Glob_801E86D0 *)&TLobby__quest_argument_stack).f0;
     f32 v = sin_table_lookup((*(Glob_801E86D0 *)&TLobby__quest_argument_stack).f4);
     (*(s32 * *)&TLobby__script_reg_array)[idx] = *(s32 *)&v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fdivi(u8 reg, s32 val) {
     U_801E871C b;
     U_801E871C a;
@@ -3418,24 +3364,14 @@ void qst_op_fdivi(u8 reg, s32 val) {
     b.f /= a.f;
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fdiv(u8 reg, u8 src) {
     U_801E8750 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
     b.f /= *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fmuli(u8 reg, s32 val) {
     U_801E8784 b;
     U_801E8784 a;
@@ -3444,24 +3380,14 @@ void qst_op_fmuli(u8 reg, s32 val) {
     b.f *= a.f;
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fmul(u8 reg, u8 src) {
     U_801E87B8 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
     b.f *= *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fsubi(u8 reg, s32 val) {
     U_801E87EC b;
     U_801E87EC a;
@@ -3470,24 +3396,14 @@ void qst_op_fsubi(u8 reg, s32 val) {
     b.f -= a.f;
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fsub(u8 reg, u8 src) {
     U_801E8820 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
     b.f -= *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_faddi(u8 reg, s32 val) {
     U_801E8854 b;
     U_801E8854 a;
@@ -3496,28 +3412,17 @@ void qst_op_faddi(u8 reg, s32 val) {
     b.f += a.f;
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fadd(u8 reg, u8 src) {
     U_801E8888 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4);
     b.f += *(f32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4);
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + reg * 4) = b.i;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_float2dec(s32 arg0, s32 arg1) {
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) + 0) = (s32) *(f32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) + 0);
 }
-#pragma pop
 
 #define REGS_801E8930 (*(int **)&TLobby__script_reg_array)
 void qst_op_dec2float(u8 reg, u8 src) {
@@ -3631,52 +3536,28 @@ void qst_op_at_coords_call_ex(u8 i, u8 out) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_unfreeze_everything(void) {
     main_task.resume_game_layers();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_toggle_freeze_everything(void) {
     main_task.toggle_pause_game_layers();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_unfreeze_enemies() {
     void *temp = tl_04;
     if (temp != 0) {
         resume_update__7TObjectFv(temp);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_toggle_freeze_enemies() {
     void *temp = tl_04;
     if (temp != 0) {
         ((TObject *)temp)->toggle_pause();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_npc_text_id(u8 a0, u8 a1, void *a2) {
     s32 x = (*(s32 * *)&TLobby__script_reg_array)[a0];
     s32 v = (*(s32 * *)&TLobby__script_reg_array)[a1];
@@ -3686,12 +3567,7 @@ void qst_op_npc_text_id(u8 a0, u8 a1, void *a2) {
         set_partner_dialogue_override((const char *)r, v, (u16)y);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_compute_bezier_curve_point() {
     Vec3_801E915C v;
     Glob_801E915C *g = (Glob_801E915C *)&TLobby__quest_argument_stack;
@@ -3723,12 +3599,7 @@ void qst_op_compute_bezier_curve_point() {
     }
     return;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_vector_from_path() {
     Vec3_801E9274 v;
     Glob_801E9274 *g = (Glob_801E9274 *)&TLobby__quest_argument_stack;
@@ -3760,37 +3631,17 @@ void qst_op_get_vector_from_path() {
     }
     return;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_pressed_buttons(u8 a0, u8 a1) {
     ((s32 *)(*(s32 *)&TLobby__script_reg_array))[a1] = controller_input_state[((s32 *)(*(s32 *)&TLobby__script_reg_array))[a0]].f28;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_held_buttons(u8 src, u8 dst) {
     *(s32 *)((*(s32 *)&TLobby__script_reg_array) + dst * 4) = controller_input_state[*(s32 *)((*(s32 *)&TLobby__script_reg_array) + src * 4)].f20;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_default_camera_pos2(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fleti_locked_camera(void) {
     Vec_801E9400 *p = (Vec_801E9400 *)((*(int * *)&TLobby__script_reg_array) + (*(Glob_801E9400 *)&TLobby__quest_argument_stack).f4);
     Vec_801E9400 v;
@@ -3799,12 +3650,7 @@ void qst_op_fleti_locked_camera(void) {
     v.z = p->z;
     set_override_position_and_angle__11TCameraCtrlFPUcs(&v, (u16)(*(Glob_801E9400 *)&TLobby__quest_argument_stack).f0, p, (*(int * *)&TLobby__script_reg_array));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_fleti_fixed_camera() {
     Vec_801E945C a;
     Vec_801E945C b;
@@ -3817,7 +3663,6 @@ void qst_op_fleti_fixed_camera() {
     b.z = p[1].z;
     set_fixed_position_and_target__11TCameraCtrlFPUcPUc(&a, &b, p);
 }
-#pragma pop
 
 struct Vec3_801E94CC { f32 x, y, z; };
 u32 find_by_id__13TQuestColCtrlFUs(u16);
@@ -3832,154 +3677,69 @@ void qst_op_move_coords_object(s32 i, s32 k) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_close_chat_bubble(s32 arg0) {
     close_windows_by_flags__11TWindowCtrlFUs((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_set_screen_bw(void* p) { return TLobby__sub_801F3568(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_set_motion_blur() { return set_camera_capture_overlay_alpha((void*)(143)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_restore_tp(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 0xB, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_restore_hp(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 0xA, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_zalure(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 9, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_jellen(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 8, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_deband(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 7, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_shifta(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 6, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_confuse(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 5, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_slow(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 4, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_freeze(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 3, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_shock(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 2, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_paralyze(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 1, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_poison(s32 arg0) {
     TLobby__sub_8034DAA0((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), 0, (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_clear_slot_invincible(s32 arg0) {
     reset_player_lobby_model__10TNpcPlayerFUs((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_slot_invincible(s32 arg0, s32 arg1) {
     update_player_field__10TNpcPlayerFUsl((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
 struct Move_801E989C {
     u16 f0;
@@ -4009,47 +3769,23 @@ void qst_op_run_to_coord(u8 arg0) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_stop_animation(s32 arg0) {
     end_camera_pan_for_client__10TNpcPlayerFUs((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_use_animation(s32 arg0, s32 arg1) {
     apply_to_battle_player_slot__10TNpcPlayerFUss((int) ((u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (int) ((s16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void reset_random_enemies_mode__6TLobbyFv(void) { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_qexit() {
     void *hunter_guild_seq_offline;
     if ((is_quest_active() == 1) && ((hunter_guild_seq_offline = (void*)((u32 (*)(s32))__nw__7TObjectFUl)(0x28)) != 0U)) {
         ((THunterGuildSeqOffline *)hunter_guild_seq_offline)->init((void *)tl_00, (void *)reset_random_enemies_mode__6TLobbyFv);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_results_window_visible_multi_cm(s32 arg0) {
     if (update_challenge_result_player_locks() != 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
@@ -4057,12 +3793,7 @@ void qst_op_results_window_visible_multi_cm(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_congrats_msg_multi_cm(u8 arg0) {
     s32 i;
     TChallenge4PResult::clear_slot_entries();
@@ -4072,12 +3803,7 @@ void qst_op_congrats_msg_multi_cm(u8 arg0) {
         i += 1;
     } while (i < 4);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_start_or_update_gba_joyboot(s32 idx) {
     s32 tbl[5];
     s32 n;
@@ -4090,19 +3816,9 @@ void qst_op_start_or_update_gba_joyboot(s32 idx) {
         (*(s32 * *)&TLobby__script_reg_array)[(u8)idx] = 2;
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_prepare_gba_rom_from_download() { update_alloc_size__6TLobbyFv((void*)0); TLobby::set_send_buffer((u8 *)(*(int *)&gba_download_data_buffer), (s32)((void*)((*(int *)&gba_download_data_size)))); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_dl_status(s32 arg0) {
     if (TLobby::get_lobby_count() != 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
@@ -4114,23 +3830,13 @@ void qst_op_get_dl_status(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_file_dl_req(void) {
     fn_801DA140(TLobby__protocol_instance, (int) ((u8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9C40_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9C40_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)));
     TLobby__sub_801F3614();
     TLobby__sub_8032CDEC();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_episode(s32 arg0) {
     switch (arg0) {
     case 0:
@@ -4144,19 +3850,9 @@ void qst_op_set_episode(s32 arg0) {
         return;
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_write_flag_buf_to_event_flags2(void* p) { return ((int (*)(void*))qst_op_write_flag_buf_to_event_flags)(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_load_guild_card_file_creation_time_to_flag_buf() {
     s32 var_r0;
     void *temp_r3;
@@ -4169,12 +3865,7 @@ void qst_op_load_guild_card_file_creation_time_to_flag_buf() {
     }
     (*(s32 *)&TLobby__data_805D5EC4) = var_r0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_chl_show_dead_player_list() {
     if (is_split_screen() == 1) {
         update_screen__6TLobbyFv();
@@ -4182,12 +3873,7 @@ void qst_op_chl_show_dead_player_list() {
     }
     TLobby::update_dead_list_win();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_disable_retry_menu() {
     if (is_split_screen() == 1) {
         set_challenge_split_flag__6TLobbyFv();
@@ -4195,12 +3881,7 @@ void qst_op_disable_retry_menu() {
     }
     set_split_screen_flag__6TLobbyFv();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_chl_set_min_time_online(s32 arg0) {
     if (is_split_screen() == 1) {
         TLobby__sub_80291DF8((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
@@ -4208,12 +3889,7 @@ void qst_op_chl_set_min_time_online(s32 arg0) {
     }
     TLobby__sub_80070B34((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_check_for_hacking(u8 out) {
     u32 *p;
     s16 i;
@@ -4240,67 +3916,32 @@ void qst_op_check_for_hacking(u8 out) {
     }
 }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_write4(void) {
     **(s32 **)((s8 *)(&(*(RecoveredGlobal_801E9EE4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9EE4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_write2(void) {
     **(s16 **)((s8 *)(&(*(RecoveredGlobal_801E9EFC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) = (s16) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9EFC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_write1(void) {
     **(s8 **)((s8 *)(&(*(RecoveredGlobal_801E9F14_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) = (s8) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F14_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_read4(void) {
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) * 4) & 0x3FC)) + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_read2(void) {
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) * 4) & 0x3FC)) + 0) = (s32) *(s16 *)((s8 *)(*(s16 **)((s8 *)(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 extern "C" {
 void qst_op_read1() {
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0) * 4) & 0x3FC)) + 0) = (s32) (s8) *(u8 *)((s8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)) + 0);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_someone_has_spoken(s32 arg0) {
     if (strcmp((void *)(get_unit_list__6TLobbyFv()), (void *) (&TLobby__data_805DC4A0)) == 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
@@ -4308,12 +3949,7 @@ void qst_op_someone_has_spoken(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_party_has_name(s32 arg0) {
     if (strcmp((void *)(TLobby__sub_80070ACC()), (void *) (&TLobby__data_805DC4A0)) == 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
@@ -4321,23 +3957,8 @@ void qst_op_party_has_name(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_number_of_players2(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::get_game_mode(); }
-#pragma pop
 
 u8 *TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 get_slot_clamped__6TLobbyFv(int);
@@ -4350,19 +3971,6 @@ void qst_op_get_cmode_prize_rank(s32 arg0) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_ba_record(u8 i) {
     Card_801EA0F0 *card = (Card_801EA0F0 *)get_character_save_record(0xFFFF);
     if (card != NULL) {
@@ -4375,21 +3983,7 @@ void qst_op_get_ba_record(u8 i) {
         (*(int * *)&TLobby__script_reg_array)[i] = card->stats[6];
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_is_there_grave_message(s32 arg0) {
     u32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
@@ -4403,21 +3997,7 @@ void qst_op_is_there_grave_message(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_vol_opt_is_dead(s32 arg0) {
     if ((s32) volopt_death_active != 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
@@ -4425,42 +4005,14 @@ void qst_op_vol_opt_is_dead(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_death_tech_level_up(void) {
     if ((u32) (*(RecoveredGlobal_801EA274_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1DU) {
         *(s16 *)((s8 *)(&(*(RecoveredGlobal_801EA274_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x28) = (s16) (*(RecoveredGlobal_801EA274_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
     }
 }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_shrink_size(s32 player_variable, s32 size_variable) {
     TObjPlayer* player = ((TObjPlayer*)((s32 (*)(int, void *))get_player_by_client_id)((int)((*(s32* *)&TLobby__script_reg_array)[(u8)player_variable]), (void *)size_variable));
     if (player && !obj_isState2_324__13TUnk_804806E8Fv(player)) {
@@ -4470,21 +4022,7 @@ void qst_op_set_shrink_size(s32 player_variable, s32 size_variable) {
         ((TObjPlayer *)(&player->scale_state))->set_speed(denominator > 0 ? (f32)whole + (f32)numerator / (f32)denominator : (f32)whole);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 extern "C" {
 void qst_op_set_symbol_chat_collision(u8 i) {
     Spawn_801EA388 s;
@@ -4504,21 +4042,7 @@ void qst_op_set_symbol_chat_collision(u8 i) {
     symbolchat_colli_param_table[0] = 0;
     symbolchat_colli_param_table[2] = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_chat_callback_no_filter(u8 i) {
     Spawn_801EA508 s;
     TLobby__sub_80207F30(&s);
@@ -4531,21 +4055,7 @@ void qst_op_set_chat_callback_no_filter(u8 i) {
     s.c = (*(int * *)&TLobby__script_reg_array)[i];
     TOChatSensor__create((s32)&s);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_write_flag_buf_to_event_flags(u8 arg0) {
     s32 idx = (*(int * *)&TLobby__script_reg_array)[arg0];
     Ctx_801EA5FC *w = get_global_state__23TAdSinglePlyChrSelectGCFv();
@@ -4553,21 +4063,7 @@ void qst_op_write_flag_buf_to_event_flags(u8 arg0) {
         ((TLobby *)(&w->buf[idx]))->move_data(&TLobby__data_805D5EC4, 4);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_load_serial_number_to_flag_buf() {
     u32 temp_r3;
 
@@ -4577,21 +4073,7 @@ void qst_op_load_serial_number_to_flag_buf() {
         TLobby__data_805D5EC4 = poll_serial_access__22TQuestVmDownLoadServerFv();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_is_bosswarp_opt_disabled(s32 arg0) {
     if (is_split_screen() == 1) {
         if (TLobby::get_normalized_mode() != 0) {
@@ -4607,21 +4089,7 @@ void qst_op_is_bosswarp_opt_disabled(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_enable_bosswarp_option() {
     if (is_split_screen() == 1) {
         TLobby__sub_80291EAC(0);
@@ -4629,21 +4097,7 @@ void qst_op_enable_bosswarp_option() {
     }
     TLobby__sub_80070BE8(0);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_disable_bosswarp_option() {
     if (is_split_screen() == 1) {
         TLobby__sub_80291EAC(1);
@@ -4651,21 +4105,7 @@ void qst_op_disable_bosswarp_option() {
     }
     TLobby__sub_80070BE8(1);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_player_recovery(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
@@ -4674,42 +4114,14 @@ void qst_op_player_recovery(s32 arg0) {
         send_code50_packet__10TObjPlayerFi((temp_r3));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_forbid_scape_dolls() {
     u32 v = ((u32 *)&TLobby__quest_argument_stack)[0];
     if (v < 2) {
         (*(G_801EA7E8 *)&TLobby__data_80512360).f13 = lbl_80449B10[v];
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_chl_create_retry_menu() {
     if (is_split_screen() == 1) {
         TLobby::draw_if_ready2();
@@ -4717,21 +4129,7 @@ void qst_op_chl_create_retry_menu() {
     }
     TLobby::draw_if_ready();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_chl_retry_choice(s32 arg0) {
     s32 var_r3;
     if (is_split_screen() == 1) {
@@ -4751,21 +4149,7 @@ void qst_op_get_chl_retry_choice(s32 arg0) {
         return;
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_reset_map(void) {
     TLobby__sub_801036CC();
     if ((u32) quest_mission_manager != 0U) {
@@ -4783,21 +4167,7 @@ void qst_op_reset_map(void) {
     }
     TLobby__sub_80070C50();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_random(s32 arg0, s32 arg1) {
   s32 temp_r31;
   s32 var_r4;
@@ -4812,61 +4182,19 @@ void qst_op_get_random(s32 arg0, s32 arg1) {
   *((s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + ((arg1 * 4) & 0x3FC))) = var_r4;
 }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_shift_right(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = (s32) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) >> *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_shift_left(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) << *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 extern "C" {
 void qst_op_get_eventflag32(u8 a0, u8 a1) {
     s32 v;
@@ -4880,21 +4208,7 @@ void qst_op_get_eventflag32(u8 a0, u8 a1) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_eventflag16(u8 a0, u8 a1) {
     s16 v;
     (*(int * *)&TLobby__script_reg_array)[a1] = 0;
@@ -4907,21 +4221,7 @@ void qst_op_get_eventflag16(u8 a0, u8 a1) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_enemy_movement_data(s32 arg0) {
     ByteBlock_30 sp8;
     u32 temp_r3;
@@ -4932,21 +4232,7 @@ void qst_op_set_enemy_movement_data(s32 arg0) {
         TLobby::broadcast(&sp8);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_enemy_resist_data(s32 arg0) {
     ByteBlock_20 sp8;
     u32 temp_r3;
@@ -4957,21 +4243,7 @@ void qst_op_set_enemy_resist_data(s32 arg0) {
         TLobby__sub_8001DE30(&sp8);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_enemy_attack_data(s32 arg0) {
     ByteBlock_30 sp8;
     u32 temp_r3;
@@ -4982,21 +4254,7 @@ void qst_op_set_enemy_attack_data(s32 arg0) {
         TLobby::copy_all_entries(&sp8);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_enemy_physical_data(int _w0) {
     struct CopyStack_801EAC48 { u8 bytes[0x24]; };
     CopyStack_801EAC48 copy_storage_801EAC48;
@@ -5008,39 +4266,11 @@ void qst_op_set_enemy_physical_data(int _w0) {
         TLobby::copy_data((void *) ((copy_storage_801EAC48.bytes)));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_override_enemy_bp_index() {
     TLobby__sub_8001DEA8((*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_chat_callback() {
     Spawn_801EACD8 s;
     u8 i = (*(RecoveredGlobal_801EA274_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
@@ -5057,7 +4287,6 @@ void qst_op_set_chat_callback() {
         ((TOChatSensor *)sensor)->set_trigger_text((void *)arg);
     }
 }
-#pragma pop
 
 void qst_op_set_cmode_grave_rates(s32 reg) {
     f32 params[10];
@@ -5106,19 +4335,6 @@ void qst_op_set_cmode_grave_rates(s32 reg) {
     TObjTombstone__sub_80074E74(params);
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_chl_get_timerecord(s32 arg0) {
     if (is_split_screen() == 1) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = TLobby__sub_8029204C();
@@ -5126,21 +4342,7 @@ void qst_op_chl_get_timerecord(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = TLobby::get_max_challenge_time();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_chl_set_timerecord(s32 arg0) {
     if (is_split_screen() == 1) {
         TLobby__sub_80292200((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
@@ -5148,39 +4350,11 @@ void qst_op_chl_set_timerecord(s32 arg0) {
     }
     TLobby__sub_80070EE4((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_game_version(s32 arg0) {
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 3;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_send_mail(void) {
     Tag_801EB10C tag;
     char buf[0x400];
@@ -5211,41 +4385,13 @@ void qst_op_send_mail(void) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 s32 TLobby::init_guild_card_tag() {
     s32 arg0 = (s32)this;
     __ct__16TPlyGuildCardTagFv(arg0 + 4);
     return arg0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_player_state(s32 arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))), (void *)arg1);
@@ -5303,91 +4449,21 @@ void qst_op_get_player_state(s32 arg0, s32 arg1) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_disable_win_pfx(void) { TLobby__battle_ctrl_default_value = 0; }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_enable_win_pfx(void) { TLobby__battle_ctrl_default_value = 1; }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_get_score(u8 src, u8 dst) {
     E_801EB484 e = TLobby__duel_result_table[(*(int * *)&TLobby__script_reg_array)[src]];
     (*(int * *)&TLobby__script_reg_array)[dst] = e.b;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_get_place(u8 a0, u8 a1) {
     E_801EB4C4 e = ((E_801EB4C4 *)&TLobby__duel_result_table)[(*(int * *)&TLobby__script_reg_array)[a0]];
     (*(int * *)&TLobby__script_reg_array)[a1] = e.b;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_eventflag32() {
     u32 i = (*(Glob_801EB508 *)&TLobby__quest_argument_stack).f0;
     s32 v = (*(Glob_801EB508 *)&TLobby__quest_argument_stack).f4;
@@ -5396,69 +4472,13 @@ void qst_op_set_eventflag32() {
         ((TLobby *)(&w->buf[i]))->move_data(&v, 4);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_turn_on_bgm_p2(void *p) { return TLobby__sub_802272B4(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_turn_off_bgm_p2(void* p) { return TLobby__sub_8022733C(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_nop_F8EF(void) {  }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_call_image_data() {
     s32 quest_vm_down_load_server;
     u32 temp_r3;
@@ -5469,21 +4489,7 @@ void qst_op_call_image_data() {
         fn_80197FD0((void *)resource_decompress_buffer, (void *)quest_vm_down_load_server);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_animation_check(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((u32) (u16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))), (int)(arg1))));
@@ -5491,21 +4497,7 @@ void qst_op_animation_check(s32 arg0, s32 arg1) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = TLobby__sub_80142944(temp_r3);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_eventflag16() {
     u32 i = (*(Glob_801EB658 *)&TLobby__quest_argument_stack).f0;
     s16 v = (*(Glob_801EB658 *)&TLobby__quest_argument_stack).f4;
@@ -5514,21 +4506,7 @@ void qst_op_set_eventflag16() {
         ((TLobby *)(&w->buf[i]))->move_data(&v, 2);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_pl_job(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
@@ -5542,21 +4520,7 @@ void qst_op_get_pl_job(s32 arg0) {
     }
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_pl_name(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
@@ -5570,40 +4534,12 @@ void qst_op_get_pl_name(s32 arg0) {
     }
     *(s32 *)((s8 *)((*(s32 *)&TLobby__script_reg_array) + temp_r31) + 0) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_trap_damage(s32 i) {
     s32 j = i + 1;
     TOMineTrap__sub_80171368((f32)(*(s32 * *)&TLobby__script_reg_array)[(u8)i] + (f32)(*(s32 * *)&TLobby__script_reg_array)[(u8)j] / (f32)(*(s32 * *)&TLobby__script_reg_array)[(u8)++j]);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_eventflag(s32 arg0, s32 arg1) {
     s32 temp_r0;
     s32 var_r30;
@@ -5624,62 +4560,20 @@ void qst_op_get_eventflag(s32 arg0, s32 arg1) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_serial_number(u8 arg0) {
     (*(int * *)&TLobby__script_reg_array)[arg0] = ((s32 (*)(void))get_serial_access__22TQuestVmDownLoadServerFv)();
     if ((*(int * *)&TLobby__script_reg_array)[arg0] == 0) {
         (*(int * *)&TLobby__script_reg_array)[arg0] = ((s32 (*)(void))poll_serial_access__22TQuestVmDownLoadServerFv)();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_kill_player(s32 arg0) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))) != 0U) {
         TObjPlayer__sub_801AF904();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_guild_card_file_creation_time(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = ((u8 * (*)(void))get_state__23TAdSinglePlyChrSelectGCFv)();
@@ -5689,7 +4583,6 @@ void qst_op_get_guild_card_file_creation_time(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 void qst_op_take_slot_meseta(s32 arg0, s32 arg1) {
@@ -5733,19 +4626,6 @@ void qst_op_get_chara_class(s32 arg0, s32 arg1) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_gender(s32 arg0, s32 arg1) {
     s32 temp_r3_2;
     u8 *temp_r3;
@@ -5765,21 +4645,7 @@ void qst_op_get_gender(s32 arg0, s32 arg1) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = GENDER_NONE;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_disable_techs(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))));
@@ -5787,21 +4653,7 @@ void qst_op_disable_techs(s32 arg0) {
         TLobby__sub_801F3694((void *)(temp_r3 + 0x428));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_enable_techs(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))));
@@ -5809,21 +4661,7 @@ void qst_op_enable_techs(s32 arg0) {
         TFontSmallLobby__sub_801C013C((void *)(temp_r3 + 0x428));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_disable_stealth_suit_effect(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))))), (int)((int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))))));
@@ -5831,21 +4669,7 @@ void qst_op_disable_stealth_suit_effect(s32 arg0) {
         draw_small_label__15TFontSmallLobbyFi((temp_r3));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_enable_stealth_suit_effect(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
@@ -5853,21 +4677,7 @@ void qst_op_enable_stealth_suit_effect(s32 arg0) {
         TLobby__sub_801B1254((temp_r3));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_cmode_rank_override(void) {
     char buf[0x200];
     Card_801EBD40 *card;
@@ -5891,21 +4701,7 @@ void qst_op_set_cmode_rank_override(void) {
         card->m0(1);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_dark_falz_is_dead(s32 arg0) {
     if (TLobby::is_boss_phase_reached() != 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
@@ -5913,87 +4709,17 @@ void qst_op_dark_falz_is_dead(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_ba_clear_trapself(void) { return set_trap_count__10TOMineTrapFi((void*)(0)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_ba_set_trapself() { return set_trap_count__10TOMineTrapFi((void*)(1)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_award_item_ok(int a0) { TLobby__menu_state_object = create__16TObjItemOKWindowFPv((void*)tl_01); TLobby__script_reg_array[(unsigned char)(a0)] = 0; TLobby__active_window_index = a0; TLobby__quest_window_state = 11; }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_box_drop_area(s32 arg0) {
     create_instance__12TItemDropSubFl((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_item_create_cmode(u8 arg0, u8 arg1) {
     Item_801EBF30 item;
     ((s32 (*)(void *))init__9TItemDataFv)((void *)(&item));
@@ -6018,21 +4744,7 @@ void qst_op_item_create_cmode(u8 arg0, u8 arg1) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_check_rank_time(u8 arg0, u8 arg1) {
     s32 r;
     if (is_split_screen() == 1) {
@@ -6065,21 +4777,7 @@ void qst_op_check_rank_time(u8 arg0, u8 arg1) {
         break;
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_player_proximity(u8 arg0, u8 arg1) {
     s32 idx;
     f32 range;
@@ -6104,7 +4802,6 @@ void qst_op_get_player_proximity(u8 arg0, u8 arg1) {
         }
     }
 }
-#pragma pop
 
 s32 TLobby__sub_800712D8(s32, s32, s32);
 s32 TLobby__sub_802923C4(s32, s32, s32);
@@ -6151,51 +4848,10 @@ void qst_op_award_item_give(u8 arg0) {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_award_item_select() { TLobby__quest_window_object = create__18TObjItemNameSelectFPv((void*)tl_01); TLobby__quest_window_state = 10; }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_award_item_name() { TLobby__data_805D5EB0 = (int)create__17TObjItemNameEntryFPv((void *)tl_01); TLobby__quest_window_state = 9; }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_cmode_rank_result(void) {
     s32 temp_r31;
     u8 *lobby;
@@ -6207,21 +4863,7 @@ void qst_op_set_cmode_rank_result(void) {
     }
     ((TLobby *)lobby)->set_player_name_and_color(temp_r31);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_mag_levels(s32 i) {
     s32 r;
     if (((u32 (*)(void *))get_player_by_client_id)((void *)local_client_id) != 0) {
@@ -6234,7 +4876,6 @@ void qst_op_get_mag_levels(s32 i) {
         }
     }
 }
-#pragma pop
 
 void qst_op_give_s_rank_weapon() {
     Item_801EBF30 item;
@@ -6252,19 +4893,6 @@ void qst_op_give_s_rank_weapon() {
     }
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_score_announce() {
     s32 i;
     s32 v = ((s32 *)&TLobby__quest_argument_stack)[0];
@@ -6275,136 +4903,38 @@ void qst_op_set_score_announce() {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_clear_score_announce() {
     s32 i;
     for (i = 0; i < 8; i++) {
         battle_event_second_table[i] = 0;
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_sonar_count(void) {
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EA274_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x12) = (s8) (*(RecoveredGlobal_801EC64C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_enable_sonar() {
     if ((u32) (*(RecoveredGlobal_801EC90C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EC90C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x11) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449B08.value) + ((*(RecoveredGlobal_801EC90C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)) + 0);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_allow_item_flags(void) {
     TItemMenuCtrl::open_menu((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_p_talk_guild_local(int _w0, int _w1) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((int)(local_client_id)), (int)((int)(_w1))) != 0U) {
         handle_main_phase__6TLobbyFl();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_unequip_item() {
     TLobby::handle_player_event((int) ((u16) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_equip_item(u8 i) {
     Item_801EC720 item;
     u16 id = (*(int * *)&TLobby__script_reg_array)[i++];
@@ -6414,53 +4944,11 @@ void qst_op_equip_item(u8 i) {
     item.c = (*(int * *)&TLobby__script_reg_array)[i++];
     TLobby::forward_to_player(id, &item);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_ba_hide_self_traps(void) { return set_instance__10TOMineTrapFi((void*)(0)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_ba_show_self_traps(void) { return set_instance__10TOMineTrapFi((void*)(1)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_area_title() {
     s32 temp_r31;
 
@@ -6471,159 +4959,33 @@ void qst_op_set_area_title() {
     }
     ((TLobby *)temp_r31)->set_name_string();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_unset_ult_map(void* p) { return clear_quest_state__6TLobbyFv(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_set_ult_map(void* p) { return TLobby__sub_801F36BC(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_restore_warp_dest_floor(void* p) { return reset_quest_counter__6TLobbyFv(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_override_warp_dest_floor(void *p) { return TLobby__sub_801F36D8(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_current_area_number(void) {
     TLobby::set_lobby_id((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_area_total() {
     TLobby::set_global_805D3614((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_meseta_drop_mode(void) {
     if ((u32) (*(RecoveredGlobal_801EC90C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 2U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EC90C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0xB) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AFC.value) + ((*(RecoveredGlobal_801EC90C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)) + 0);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_death_lvl_up(void) {
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EC93C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0xC) = (s8) (*(RecoveredGlobal_801EC93C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_time_limit(void) {
     u32 var_r4;
     var_r4 = (*(RecoveredGlobal_801EC954_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
@@ -6632,21 +4994,7 @@ void qst_op_ba_set_time_limit(void) {
     }
     *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC954_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x24) = var_r4;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_char_level(void) {
     u32 var_r31;
     var_r31 = (*(RecoveredGlobal_801EC984_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
@@ -6655,21 +5003,7 @@ void qst_op_ba_set_char_level(void) {
     }
     *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC984_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x20) = var_r31;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_max_tech_level() {
     u32 var_r0;
     var_r0 = (*(RecoveredGlobal_801EC9CC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
@@ -6678,21 +5012,7 @@ void qst_op_ba_set_max_tech_level() {
     }
     *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC9CC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x1C) = var_r0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_lives(void) {
     u32 var_r0;
     var_r0 = (*(RecoveredGlobal_801EC9F8_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
@@ -6701,27 +5021,12 @@ void qst_op_ba_set_lives(void) {
     }
     *(u32 *)((s8 *)(&(*(RecoveredGlobal_801EC9F8_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x18) = var_r0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_hide_target_reticle(void) {
     if ((u32) (*(RecoveredGlobal_801ECA1C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801ECA1C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0xA) = (s8) (*(RecoveredGlobal_801ECA1C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
     }
 }
-#pragma pop
 
 void qst_op_ba_set_trap_count(s32 reg) {
     s32 slot = TLobby__script_reg_array[(u8)reg++];
@@ -6755,145 +5060,48 @@ void qst_op_ba_enemy_kill_score(s32 a) {
     lbl_805D354C = v;
 }
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_player_death_score(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     lbl_805D3544 = v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_player_kill_score(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     lbl_805D3540 = v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_enemy_take_damage_score(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     lbl_805D5DC4 = v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_enemy_give_damage_score(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     lbl_805D3548 = v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_player_take_damage_score(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     lbl_805D353C = v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_player_give_damage_score(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     lbl_805D3538 = v;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_cmode_base_time(s32 arg0) {
     if (is_split_screen() == 1) {
         TLobby::update_challenge_timer((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
@@ -6901,21 +5109,7 @@ void qst_op_set_cmode_base_time(s32 arg0) {
     }
     TLobby__sub_80071064((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_prepare_npc_visual(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(void *))get_indexed_offset__6TLobbyFi)((void *)arg0);
@@ -6923,37 +5117,9 @@ void qst_op_prepare_npc_visual(s32 arg0) {
         copy_player_visual_record((void *) (&lbl_8050D3E0.value), temp_r3);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_enable_npc_visual(void* p) { return TNpcPlayer__sub_8014DC30(p); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_shrink_cam2(u8 arg0) {
     Vec_801ECFDC pos;
     u8 *player;
@@ -6969,21 +5135,7 @@ void qst_op_set_shrink_cam2(u8 arg0) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_shrink_cam1(u8 arg0) {
     Vec_801ED0CC pos;
     u8 *player;
@@ -6999,21 +5151,7 @@ void qst_op_set_shrink_cam1(u8 arg0) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_unshrink(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
@@ -7021,21 +5159,7 @@ void qst_op_unshrink(s32 arg0) {
         request_player_size_restore((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_shrink(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
@@ -7043,21 +5167,8 @@ void qst_op_shrink(s32 arg0) {
         request_player_shrink((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
 }
-#pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma opt_common_subs on
 #pragma opt_propagation on
 #pragma opt_dead_assignments off
@@ -7077,37 +5188,10 @@ void qst_op_read_switch_flag_on_floor(s32 arg0) {
 }
 #pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_read_switch_flag(s32 arg0) {
     TLobby__script_reg_array[(u8)arg0 + 1] = is_current_floor_switch_set((u16)TLobby__script_reg_array[(u8)arg0]);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_clear_switch_flag_sync() {
     Pkt_801ED300 pkt;
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
@@ -7120,21 +5204,7 @@ void qst_op_clear_switch_flag_sync() {
     pkt.e = 0;
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_set_switch_flag_sync() {
     Pkt_801ED360 pkt;
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
@@ -7147,21 +5217,7 @@ void qst_op_set_switch_flag_sync() {
     pkt.e = 1;
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_reset_kills(s32 arg0) {
     u8 *lobby;
     lobby = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__script_reg_array)))))));
@@ -7169,21 +5225,7 @@ void qst_op_reset_kills(s32 arg0) {
         ((TLobby *)lobby)->set_floor(0);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_num_kills(s32 arg0, s32 arg1) {
     u8 *player;
     player = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), arg1)));
@@ -7193,21 +5235,7 @@ void qst_op_get_num_kills(s32 arg0, s32 arg1) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_go_floor(s32 a, s32 b) {
     u32 r = ((u32 (*)(int, int))get_player_by_client_id)((*(s32 * *)&TLobby__script_reg_array)[(u8)a], b);
     if (r != 0 && local_client_id == (*(s32 * *)&TLobby__script_reg_array)[(u8)a]) {
@@ -7218,55 +5246,13 @@ void qst_op_go_floor(s32 a, s32 b) {
         send_6x21_inter_level_warp((void *)r, (s32)((void *)((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area()));
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_release_dragon(void* p) { TBoss1Dragon::clearControlOverride(); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_control_dragon(s32 arg0) {
     setControlOverride__12TBoss1DragonFs((int) ((u16) *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC))), TLobby__script_reg_array);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_cmode_check_any_player_dead(s32 arg0) {
     if (is_split_screen() == 1) {
         *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_8029299C();
@@ -7274,21 +5260,7 @@ void qst_op_cmode_check_any_player_dead(s32 arg0) {
     }
     *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_80070F4C();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_cmode_check_all_players_dead(s32 arg0) {
     if (is_split_screen() == 1) {
         *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_80292A34();
@@ -7296,21 +5268,7 @@ void qst_op_cmode_check_all_players_dead(s32 arg0) {
     }
     *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = TLobby__sub_80070FD8();
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_exp_multiplication(s32 a) {
     s32 b = a + 1;
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
@@ -7321,7 +5279,6 @@ void qst_op_exp_multiplication(s32 a) {
     }
     TLobby::try_set_value(v);
 }
-#pragma pop
 
 void qst_op_set_cmode_difficulty() {
     s32 temp_r31;
@@ -7378,10 +5335,6 @@ void qst_op_nop_F821(u8 arg0) {
 }
 
 #undef REGS_801ED7BC
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_cmode_stage() {
     u32 temp_r30;
     u32 temp_r31;
@@ -7402,12 +5355,7 @@ void qst_op_cmode_stage() {
     }
     TLobby::set_selected_layout(0U);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_start(void) {
     s32 temp_r31;
     temp_r31 = (*(RecoveredGlobal_801ED938_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
@@ -7417,12 +5365,7 @@ void qst_op_ba_start(void) {
     }
     init_battle_ctrl__6TLobbyFii((s32) &(*(RecoveredGlobal_801ED938_TLobby__data_80512360 *)&TLobby__data_80512360).value, temp_r31);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_teams() {
     if ((u32) (*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x9) = (s8) (&lbl_80449AE4.value)[(*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7430,12 +5373,7 @@ void qst_op_ba_teams() {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x9) = (s8) lbl_80449AE4.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_dropwep() {
     if ((u32) (*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x8) = (s8) (&lbl_80449ADC.value)[(*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7443,12 +5381,7 @@ void qst_op_ba_dropwep() {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x8) = (s8) lbl_80449ADC.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_replace_char() {
     if ((u32) (*(RecoveredGlobal_801EDA70_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 0x7) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AD4.value) + ((*(RecoveredGlobal_801EDA70_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)) + 0);
@@ -7456,12 +5389,7 @@ void qst_op_ba_set_replace_char() {
     }
     *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 0x7) = (s8) *(s32 *)((s8 *)(&lbl_80449AD4.value) + 0x4);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_respawn(void) {
     if ((u32) (*(RecoveredGlobal_801EDA70_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 2U) {
         *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 6) = (s8) *(s32 *)((s8 *)((u8 *)(&lbl_80449AC8.value) + ((*(RecoveredGlobal_801EDA70_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)) + 0);
@@ -7469,12 +5397,7 @@ void qst_op_ba_set_respawn(void) {
     }
     *(s8 *)((s8 *)(&TLobby__data_80512360.value) + 6) = (s8) *(s32 *)((s8 *)(&lbl_80449AC8.value) + 8);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_unused_F817(void) {
     if ((u32) (*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x5) = (s8) (&lbl_80449AC0.value)[(*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7482,12 +5405,7 @@ void qst_op_ba_set_unused_F817(void) {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x5) = (s8) lbl_80449AC0.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_trap_mode(void) {
     if ((u32) (*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x4) = (s8) (&lbl_80449AB8.value)[(*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7495,12 +5413,7 @@ void qst_op_ba_set_trap_mode(void) {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x4) = (s8) lbl_80449AB8.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_tool_mode(void) {
     if ((u32) (*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 2U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 3) = (s8) (&lbl_80449AAC.value)[(*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7508,12 +5421,7 @@ void qst_op_ba_set_tool_mode(void) {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 3) = (s8) lbl_80449AAC.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_forbid_mags() {
     if ((u32) (*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 0x1U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x2) = (s8) (&lbl_80449AA4.value)[(*(RecoveredGlobal_801EDB4C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7521,12 +5429,7 @@ void qst_op_ba_set_forbid_mags() {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDB4C_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x2) = (s8) lbl_80449AA4.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_weapon_and_armor_mode() {
     if ((u32) (*(RecoveredGlobal_801EDBDC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 3U) {
         *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) (&lobby_menu_byte_1_map.value)[(*(RecoveredGlobal_801EDBDC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
@@ -7534,12 +5437,7 @@ void qst_op_ba_set_weapon_and_armor_mode() {
     }
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) lobby_menu_byte_1_map.value;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_set_tech_disk_mode() {
     s8 var_r0;
     if ((u32) (*(RecoveredGlobal_801EDC24_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 2U) {
@@ -7549,56 +5447,31 @@ void qst_op_ba_set_tech_disk_mode() {
     }
     (*(RecoveredGlobal_801EDC24_TLobby__data_80512360 *)&TLobby__data_80512360).value = var_r0;
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_clear_ba_rules() {
     memset((void *) (&(*(RecoveredGlobal_800F8A78_lbl_80501178 *)&TLobby__data_80512360).value), 0, 0x2c);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_ba_initial_floor(void) {
     Tbl_801EDC98 t = lobby_sub_801edc98_id_table;
     if (((u32 *)&TLobby__quest_argument_stack)[0] <= 0x11U) {
         TLobby__sub_80141038(lbl_80515BA0, t.w[((u32 *)&TLobby__quest_argument_stack)[0]], 0);
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_enable_weapon_drop(int _w0, int _w1) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((int) ((*(RecoveredGlobal_801EDD0C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)), _w1) != 0U) {
         send_field1c_packet__6TLobbyFl();
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_disable_weapon_drop(int _w0, int _w1) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((int) ((*(RecoveredGlobal_801EDD44_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)), _w1) != 0U) {
         send_font_state__6TLobbyFl();
     }
 }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_map_designate_ex(u32 first) {
     u32 i = first;
     s32 a = (*(s32 **)&TLobby__script_reg_array)[(u8)i++];
@@ -7608,27 +5481,12 @@ void qst_op_map_designate_ex(u32 first) {
     s32 e = (*(s32 **)&TLobby__script_reg_array)[(u8)i];
     set_quest_floor_designation_ex(c, a, b, d, e);
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 extern "C" {
 int qst_op_disable_map(void) { return set_mode__13TRaderMapCoreFi((void*)(0)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int qst_op_enable_map(void) { return set_mode__13TRaderMapCoreFi((void*)(1)); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_coord_of_player(s32 a, s32 b) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((*(s32 * *)&TLobby__script_reg_array)[(u8)b]), b) != 0) {
         f32 *p = get_position_ptr__10TObjPlayerFv();
@@ -7639,19 +5497,9 @@ void qst_op_get_coord_of_player(s32 a, s32 b) {
         }
     }
 }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_number_of_players(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::count_members(); }
-#pragma pop
 
-#pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void qst_op_get_difficulty_level_v2(s32 arg0) {
     s32 var_r5;
     var_r5 = game_difficulty_selection;
@@ -7663,7 +5511,6 @@ void qst_op_get_difficulty_level_v2(s32 arg0) {
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = var_r5;
 }
-#pragma pop
 
 void qst_op_create_bgmctrl() {
     void* obj = __nw__7TObjectFUl(0x1C);
@@ -9417,9 +7264,6 @@ void qst_op_glet(u16 flag, s32 arg1) {
 #undef get_indexed_offset__6TLobbyFi
 #undef pop_stack_value__6TLobbyFv
 #undef push_op_arg__6TLobbyFi
-#pragma pop
-
-#pragma push
 
 struct Ent_A { s32 a; s32 (*fn)(s32, s32); };
 
@@ -9568,9 +7412,6 @@ void qst_getargs_801F26A8(s32 arg0) {
 #undef TLobby__quest_script_pc
 #undef TLobby__quest_window_state
 #undef local_client_id
-#pragma pop
-
-#pragma push
 
 struct Entry804C69D8_801F2748 {
     u32 field0;
@@ -9680,9 +7521,7 @@ void qst_getargs_801F2910(s32 arg0) {
 #undef read_be_u16
 #undef read_packet_byte__6TLobbyFv
 #undef qst_opcode_table
-#pragma pop
 
-#pragma push
 extern "C" {
 s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 
@@ -9703,9 +7542,7 @@ void TLobby::dispatch_command(s32 arg0) {
 }
 
 #undef read_be_u16
-#pragma pop
 
-#pragma push
 namespace pf2_p9 { extern "C" { s32 read_be_u16(void *); } }
 #define read_be_u16 pf2_p9::read_be_u16
 
@@ -9724,9 +7561,6 @@ void qst_getargs_801F29CC(s32 arg0) {
 
 #undef read_be_u16
 #undef qst_opcode_table
-#pragma pop
-
-#pragma push
 
 typedef struct {
     s32 x0;
@@ -9773,9 +7607,6 @@ void qst_getargs_801F2AB4(s32 arg0) {
 }
 
 #undef qst_opcode_table
-#pragma pop
-
-#pragma push
 
 struct RecoveredGlobal_801F2BCC_TLobby__data_80512240 {
     s32 value;
@@ -9854,9 +7685,7 @@ int get_indexed_offset__6TLobbyFi(int a0) {  return (TLobby__quest_data_base + T
 #undef TLobby__quest_arg_stack_count
 #undef TLobby__quest_data_base
 #undef qst_opcode_table
-#pragma pop
 
-#pragma push
 void append_string_to_buffer(s32 arg0);
 s32 stream_read_be32(void);
 namespace pf2_p12 { extern "C" { s32 expand_message_substitutions(s32, s32, s32); } }
@@ -9894,9 +7723,7 @@ s32 stream_read_be32(void) {
 #undef memcpy
 #undef strlen
 #undef TLobby__quest_script_pc
-#pragma pop
 
-#pragma push
 s32 bswap_16__FPUs(u16 *, s32);
 namespace pf2_p13 { extern "C" { s32 memcpy(u16 *, s32, s32); } }
 #define memcpy pf2_p13::memcpy
@@ -9917,4 +7744,3 @@ u16 read_be_u16(void) {
 
 #undef memcpy
 #undef TLobby__quest_script_pc
-#pragma pop
