@@ -657,6 +657,7 @@ pso/boss/Boss5GryphonBehavior.cpp:
 	.text       start:0x8005D880 end:0x80065BC0
 	.rodata     start:0x80437EB8 end:0x80437EC0
 	.data       start:0x80487848 end:0x80488668
+	.sbss       start:0x805D4DC4 end:0x805D4DC8
 	.sdata2     start:0x805D8D74 end:0x805D8E28
 
 pso/boss/TBoss5Gryphon.cpp:
