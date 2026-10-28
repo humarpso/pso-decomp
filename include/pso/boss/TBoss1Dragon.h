@@ -19,9 +19,15 @@ struct DragonModelNode {
 
 struct DragonEffectResource { u32 unknown00[2]; void* data; };
 
-struct DragonMotion { u32 unknown00; u32 frameCount; };
+struct DragonPositionKey { s32 frame; DragonModelVector value; };
+struct DragonMotionData { DragonPositionKey *positionKeys; };
+struct DragonMotion { DragonMotionData *data; u32 frameCount; };
 struct DragonMotionEntry { u32 unknown00; DragonMotion* motion; };
 struct DragonAnimationEntry { u32 unknown00; s32 motionIndex; u8 unknown08[8]; };
+
+struct DragonModelEntry { u8 unknown00[8]; DragonModelNode *root; };
+struct DragonResource { u8 unknown00[0x42C]; DragonModelEntry *model; DragonMotionEntry *motions; };
+typedef char DragonPositionKeySize[sizeof(DragonPositionKey) == 0x10 ? 1 : -1];
 
 extern "C" void copy_model_node(u8 *dst, u8 *src);
 
@@ -62,7 +68,8 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void setPhase2();
     void setActive();
     void clearState();
-    s32 update_damage_threshold();
+    void update_damage_threshold();
+    void fn_80025168(u32 reason);
     s32 isHpPhaseComplete();
     s32 isHpPhasePending();
     void setHpPhaseValue(int complete);
@@ -79,11 +86,23 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     u32 flags;
     u8 unknown3C4[0x3E4 - 0x3C4];
     s32 phase;
-    u8 unknown3E8[0x5D8 - 0x3E8];
+    u8 unknown3E8[0x40C - 0x3E8];
+    DragonModelVector m_40c;
+    u8 unknown418[0x5D8 - 0x418];
     f32 height;
     f32 heightOffset;
     f32 defaultHeightOffset;
-    u8 unknown5E4[0x67C - 0x5E4];
+    u8 unknown5E4[0x654 - 0x5E4];
+    s32 m_654;
+    s32 airTurnVelocity;
+    s32 airTurnDirection;
+    s32 airTurnStartAngle;
+    f32 airTurnAcceleration;
+    f32 airTurnFinalAcceleration;
+    f32 airTurnInitialVelocity;
+    f32 airTurnFinalVelocity;
+    f32 airTurnMidpointAngle;
+    f32 airTurnTime;
     s32 hpPhaseValue;
     s16 hpThreshold;
     s16 finalHpThreshold;
@@ -97,10 +116,13 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     s32 facingAngle;
     u8 unknown770[0x778 - 0x770];
     DragonEffectResource* effectResource;
-    u8 unknown77C[0x864 - 0x77C];
+    u32 randomState[58];
     s32 stateStep;
     s32 impactAge;
-    u8 unknown86C[0x87C - 0x86C];
+    s32 m_86c;
+    u8 unknown870[0x4];
+    s32 m_874;
+    s32 m_878;
     f32 fallVelocity;
     f32 rootHeight;
     u8 unknown884[0x8BC - 0x884];
@@ -136,6 +158,7 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void reset_tail_hp();
     void reload_difficulty_stats();
     s32 advance_air_turn();
+    void init_air_turn(s32 targetAngle);
     void set_result_flag(s32 arg1, s32 arg2);
     void play_nearby_se();
     s32 select_air_fire_target(void *out_);
@@ -149,7 +172,6 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     static u8 *create(s32 arg0);
     static s32 get_instance();
     static void select_fireball_particle_table();
-    static void init_gravity_globals();
     int get_position();
     void draw();
     void update_burrow_inward_run(u32 arg1, s32 arg2);
@@ -170,6 +192,14 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     typedef char DragonOffset_##member[(offsetof(TBoss1Dragon, member) == offset) ? 1 : -1]
 typedef char DragonModelNodeSize[(sizeof(DragonModelNode) == 0x38) ? 1 : -1];
 typedef char DragonModelNodeChild[(offsetof(DragonModelNode, child) == 0x2C) ? 1 : -1];
+DRAGON_OFFSET(m_40c, 0x40C);
+DRAGON_OFFSET(m_654, 0x654);
+DRAGON_OFFSET(randomState, 0x77C);
+DRAGON_OFFSET(m_86c, 0x86C);
+DRAGON_OFFSET(m_874, 0x874);
+DRAGON_OFFSET(m_878, 0x878);
+DRAGON_OFFSET(airTurnVelocity, 0x658);
+DRAGON_OFFSET(airTurnTime, 0x678);
 DRAGON_OFFSET(controlTimer, 0x768);
 DRAGON_OFFSET(effectResource, 0x778);
 DRAGON_OFFSET(stateStep, 0x864);
