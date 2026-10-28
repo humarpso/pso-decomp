@@ -21,6 +21,14 @@ force_active:
   - set_music_gain__19TWindowSoundBalanceFs
   - set_sound_effect_gain__19TWindowSoundBalanceFs
   - sub_8027095C__19TWindowSoundBalanceFv
+  - __ct__20TItemReverseTechCtrlFP7TObject
+  - __dt__20TItemReverseTechCtrlFv
+  - __vt__20TItemReverseTechCtrl
+  - lbl_804A0440
+  - lbl_804A044C
+  - lbl_804A0458
+  - lbl_804A0468
+  - run_task__20TItemReverseTechCtrlFv
   - "@14"
   - "@28@__dt__17TMedicalCenterMesFv"
   - "@28@__dt__22TQuestVmDownLoadServerFv"

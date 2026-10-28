@@ -754,6 +754,7 @@ pso/item/TItemProShield_801181D0.cpp
 pso/item/TItemProUnit.cpp
 pso/item/TItemReverseTech.cpp
 pso/item/TItemReverseTechBG.cpp
+pso/item/TItemReverseTechCtrl.cpp
 pso/item/TItemReverseTechPart1.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp
 pso/item/TItemShoot.cpp
