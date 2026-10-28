@@ -19,19 +19,19 @@ struct Boss5GryphonMotionEntry {
 
 struct TBoss5Gryphon : public TObjEneDD_ST {
     virtual ~TBoss5Gryphon();
-    void dispatch_state_event(s32 state, s32 event);
+    virtual void dispatch_action(u32 state, s32 event);
     void fn_80063714();
-    void fn_8006369C(u32);
-    void fn_80063570(s32);
-    void update_active_player_count(s32);
+    void update_idle_state(u32);
+    void update_ground_pursuit(s32);
+    void wait_for_players(s32);
     void fn_800627E4(u32);
     void fn_80062BA0(u32);
     void fn_80063320(u32);
     void fn_80063088(u32);
     void fn_80062660(s32);
-    void fn_80062550(s32);
-    void fn_800623E4(s32);
-    void fn_80062E94(u32);
+    void circle_arena(s32);
+    void move_to_motion_destination(s32);
+    void update_landing_attack(u32);
     void fn_80062114(s32);
     void fn_80062018(s32);
     void fn_80061D34(s32);
@@ -47,7 +47,7 @@ struct TBoss5Gryphon : public TObjEneDD_ST {
     void fn_80060BF8(s32);
     void fn_80060B18(s32);
     void fn_80060A58(s32);
-    void fn_8006084C(s32);
+    void update_ground_lightning_attack(s32);
     void fn_80060788(s32);
     void fn_800605E8(s32);
     void fn_80060020(u32);
@@ -87,7 +87,8 @@ struct TBoss5Gryphon : public TObjEneDD_ST {
     f32 m_3a8;
     u8 unk_3AC[0xD4];
     s32 m_480;
-    u8 _pad484[0x10];
+    u8 _pad484[0xC];
+    s32 targetRefreshCounter;
     void* m_494;
     u8 _pad498[0x24];
     Boss5GryphonMotionEntry *motion;
@@ -141,7 +142,16 @@ struct TBoss5Gryphon : public TObjEneDD_ST {
     void set_target_from_action(void *arg1);
     s32 reload_stats_for_phase(void *);
     void reload_stats_for_type();
-    void reset_float_3c();
+    void set_flight_height();
+    void refresh_target_periodically();
+    void update_linked_ground_position();
+    void update_state_or_dispatch_tick();
+    void set_offscreen_height();
+    void set_low_flight_height();
+    void set_ground_height();
+    void enter_offscreen_mode();
+    void enter_low_flight_mode();
+    void enter_ground_mode();
     void play_se(s32 arg1);
     void shift_position_history();
     static void cleanup();
