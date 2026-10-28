@@ -1333,7 +1333,6 @@ pso/misc/TOKeyCave01.cpp
 pso/misc/TOKeyCol.cpp
 pso/misc/TOKeyGenericSw.cpp
 pso/misc/TOKeyJungleMain.cpp
-pso/map/FloorArea.cpp
 pso/misc/TOKeyMachine01_8016D448.cpp
 pso/map/FloorArea_8029E764.cpp
 pso/misc/TOKey_8015845C.cpp
@@ -1553,9 +1552,6 @@ pso/misc/TScene_800838C4.cpp
 pso/misc/TScene_800F9D80.cpp
 pso/misc/TScene_801A7E40.cpp
 pso/misc/TScene_801FBA20.cpp
-pso/misc/TScene_80203304.cpp
-pso/misc/TScene_80205A54.cpp
-pso/misc/TScene_80206494.cpp
 pso/misc/TScene_8029F5B0.cpp
 pso/misc/TScene_802A8140.cpp
 pso/misc/TScene_80327B00.cpp
@@ -3286,7 +3282,6 @@ pso/unk/text_801F4830.cpp
 pso/unk/text_801F498C.cpp
 pso/unk/text_801F6554.cpp
 pso/unk/text_80203284.cpp
-pso/unk/text_802032AC.cpp
 pso/unk/text_80209584.cpp
 pso/unk/text_802097B0.cpp
 pso/unk/text_80209C58.cpp

@@ -7187,35 +7187,13 @@ pso/ui/TAdSinglePlyChrSelectGC_80202A68.cpp:
 pso/unk/text_80203284.cpp:
 	.text       start:0x80203284 end:0x802032AC
 
-pso/unk/text_802032AC.cpp:
-	.text       start:0x802032AC end:0x80203304
-
-pso/misc/TScene_80203304.cpp:
-	.text       start:0x80203304 end:0x802033DC
-
-pso/map/FloorArea.cpp:
-	.text       start:0x802033DC end:0x80203510
-	.sbss       start:0x805D5FC0 end:0x805D5FC8
-
-pso/misc/TScene_80203510.cpp:
-	.text       start:0x80203510 end:0x80205A54
-	.rodata     start:0x8044A928 end:0x8044A938
-	.data       start:0x804C8B08 end:0x804C8C10
-	.sbss       start:0x805D6030 end:0x805D6050
-	.sdata2     start:0x805DC5D4 end:0x805DC5D8
-
-pso/misc/TScene_80205A54.cpp:
-	.text       start:0x80205A54 end:0x80205A6C
-
 pso/misc/TScene.cpp:
-	.text       start:0x80205A6C end:0x80205AE8
-
-pso/misc/TScene_80205AE8.cpp:
-	.text       start:0x80205AE8 end:0x80206494
-
-pso/misc/TScene_80206494.cpp:
-	.text       start:0x80206494 end:0x802071B4
-	.data       start:0x804C8C10 end:0x804C8C28
+	.text       start:0x802032AC end:0x802071B4
+	.rodata     start:0x8044A7E8 end:0x8044A9B8
+	.data       start:0x804C8B08 end:0x804C8C28
+	.sdata      start:0x805D3610 end:0x805D3620
+	.sbss       start:0x805D5FC0 end:0x805D6050
+	.sdata2     start:0x805DC5D0 end:0x805DC608
 
 pso/misc/TSceneSora.cpp:
 	.text       start:0x802071B4 end:0x80207644
