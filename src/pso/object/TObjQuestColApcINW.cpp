@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjQuestColApcINW.h"
 #include "pso/object/TObjQuestColBase.h"

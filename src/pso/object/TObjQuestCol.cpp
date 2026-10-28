@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/object/TObjQuestCol.h"
 
 extern "C" {

@@ -1,10 +1,11 @@
-#ifndef PSO_MISC_TQUESTTHREAD_H
-#define PSO_MISC_TQUESTTHREAD_H
+#ifndef PSO_QUEST_TQUESTTHREAD_H
+#define PSO_QUEST_TQUESTTHREAD_H
 
 #include "types.h"
+#include "pso/quest/QuestVm.h"
 
 extern "C" {
-void *TObjItemNameEntry__ct(void *arg0);
+void *TObjItemNameEntry__ct(void *arg0, void *parent);
 u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TQuestThread__sub_801F5D88(void *p);
 u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
@@ -16,7 +17,7 @@ void clear_floor_handler(s32 i);
 extern "C" {
 void clear_thread_state__12TQuestThreadFv(void);
 }
-void copy_quest_script_context(u8 *arg0, u8 *arg1);
+void copy_quest_script_context(QuestVmContext *dst, QuestVmContext *src);
 extern "C" {
 u32 create__12TQuestThreadFi(s32 arg0);
 void *create__17TObjItemNameEntryFPv(void *arg0);

@@ -1,6 +1,6 @@
 #include "pso/menu/TQuestBgmCtrl.h"
 #include "pso/misc/TLoadCtrl_80227390.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 
 s32 TQuestBgmCtrl__bgm_issued_flag;
 s32 TQuestBgmCtrl__bgm_forced_flag;

@@ -16,7 +16,7 @@
 #include "pso/ui/TAdMcSelectGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TWindowSubComCard_80265410.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 
 struct RecoveredGlobal_8030DE58_lbl_80475808 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030DE58_lbl_80475808_size[sizeof(RecoveredGlobal_8030DE58_lbl_80475808) == 0x10 ? 1 : -1];

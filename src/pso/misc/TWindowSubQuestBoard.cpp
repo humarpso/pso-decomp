@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowSubQuestBoard_8027D148.h"
 #include "pso/misc/TWindowSubQuestBoard_8027D1E8.h"

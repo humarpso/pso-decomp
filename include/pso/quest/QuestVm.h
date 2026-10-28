@@ -26,7 +26,7 @@ struct QuestVmContext {
     void *message_window;
     void *list_window;
     u8 result_register;
-    u8 pad15[7];
+    s32 unk18;
     s32 call_stack_depth;
     s32 pc;
     s32 unk24;

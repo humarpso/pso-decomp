@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayerSet.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjQuestCol2.h"
 #include "pso/player/TObjPlayerSet.h"

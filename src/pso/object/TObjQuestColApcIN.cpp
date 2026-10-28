@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/system/NinjaUtil.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/object/TObjQuestColApcIN.h"
 
 struct Pl_801962B4 { u8 pad0[0x38]; f32 pos[3]; };

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/system/NinjaUtil.h"
-#include "pso/misc/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/object/TObjQuestColApc.h"
 
 struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radius; };
