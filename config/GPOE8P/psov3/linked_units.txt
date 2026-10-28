@@ -1498,6 +1498,7 @@ pso/misc/TPlyPtclObjectRightHand.cpp
 pso/misc/TPlyRecvLogin.cpp
 pso/misc/TPlySmth.cpp
 pso/misc/TPlyStartGame.cpp
+pso/misc/TPsoDataBuf.cpp
 pso/misc/TQuadSpriteCol.cpp
 pso/misc/TQuadSpriteNormal.cpp
 pso/misc/TQuadSpriteScl.cpp
