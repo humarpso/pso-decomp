@@ -6944,7 +6944,7 @@ void TBoss1Dragon::load_resources() {
     DragonModelNode *output;
     f32 *capture;
     f32 *delta;
-    f32 *nodes;
+    volatile f32 *nodes;
     s32 *table;
     s32 *out;
     s32 i;
