@@ -2,7 +2,10 @@
 #define PSO_BOSS_TBOSS1DRAGON_H
 
 #include "types.h"
+#include "pso/misc/CameraObstructionFade.h"
 #include "pso/enemy/TObjEneDD_ST.h"
+
+class TBoss1DragonEffTail;
 
 struct DragonModelVector { f32 x, y, z; };
 struct DragonModelAngles { s32 x, y, z; };
@@ -34,6 +37,8 @@ extern "C" void copy_model_node(u8 *dst, u8 *src);
 struct TBoss1Dragon : public TObjEneDD_ST {
     virtual ~TBoss1Dragon();
     void load_resources();
+    void request_state_change(u32 state);
+    virtual void dispatch_action(u32 state, s32 reason);
     virtual void run_task();
     virtual void vfunc_88();
     virtual void render();
@@ -106,12 +111,15 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     s32 hpPhaseValue;
     s16 hpThreshold;
     s16 finalHpThreshold;
-    u8 unknown684[0x690 - 0x684];
+    TBoss1DragonEffTail *tail;
+    u8 unknown688[0x690 - 0x688];
     f32 destinationX;
     f32 destinationZ;
     f32 savedX;
     f32 savedZ;
-    u8 unknown6A0[0x768 - 0x6A0];
+    u8 unknown6A0[0x6E8 - 0x6A0];
+    CameraObstructionFade viewFade[4];
+    u8 unknown758[0x768 - 0x758];
     s32 controlTimer;
     s32 facingAngle;
     u8 unknown770[0x778 - 0x770];
