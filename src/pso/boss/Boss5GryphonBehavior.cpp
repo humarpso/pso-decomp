@@ -1431,6 +1431,13 @@ extern const f32 lbl_805D8EC8;
 extern s32 model_render_flags;
 extern s32 tl_01;
 
+struct MemberPointerWords { u32 words[3]; };
+extern "C" {
+extern MemberPointerWords __ptmf_null;
+extern s8 lbl_805D4DC4;
+extern s8 lbl_805D4DC5;
+}
+
 #pragma push
 #pragma fp_contract on
 extern "C" {
@@ -1517,7 +1524,7 @@ extern "C" {
 void TBoss8Dragon__sub_80062660(TBoss5Gryphon *self, s32 event);
 }
 extern "C" {
-void dispatch_state_event__13TBoss5GryphonFPvii();
+void dispatch_state_event__13TBoss5GryphonFPvii(TBoss5Gryphon *self, void *state, int event);
 }
 extern "C" {
 void apply_poison_status__13TBoss5GryphonFv();
@@ -2025,33 +2032,6 @@ void *lbl_80487CD8[213] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FEF8, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FE18, (void *)0x0, (void *)0xffffffff,
     (void *)&TBoss8Dragon__sub_8005FD34, (void *)0x0, (void *)0xffffffff, (void *)&handle_message__13TBoss5GryphonFPvi,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0,
 };
 void *lbl_8048802C[16] = {
     (void *)0x0, (void *)0x42860000, (void *)0x0, (void *)0x0,
@@ -2069,38 +2049,13 @@ void *lbl_804880AC[3] = {
     (void *)0xc1c80000, (void *)0x0, (void *)0x428a0000,
 };
 void *lbl_804880B8[126] = {
-    (void *)0x41980000, (void *)0x0, (void *)0x428a0000, (void *)0x0,
-    (void *)0xffffffff, (void *)&calc_product_and_ratio__12TBoss8DragonFiPvi, (void *)0x0, (void *)0xffffffff,
-    (void *)&TBoss8Dragon::calc_params, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EBDC,
-    (void *)0x0, (void *)0xffffffff, (void *)&calc_attack_params__12TBoss8DragonFiPvi, (void *)0x0,
-    (void *)0xffffffff, (void *)&TBoss8Dragon::set_random_param, (void *)0x0, (void *)0xffffffff,
-    (void *)&TBoss8Dragon::set_random_param, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0,
+    (void *)0x41980000, (void *)0x0, (void *)0x428a0000,
+    (void *)0x0, (void *)0xffffffff, (void *)&calc_product_and_ratio__12TBoss8DragonFiPvi,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon::calc_params,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EBDC,
+    (void *)0x0, (void *)0xffffffff, (void *)&calc_attack_params__12TBoss8DragonFiPvi,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon::set_random_param,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon::set_random_param,
 };
 void *gryphon_particle_enable_pos[3] = {
     (void *)0x0, (void *)0xc61c4000, (void *)0x0,
@@ -2665,6 +2620,96 @@ void calc_product_and_ratio__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2) {
 void TBoss8Dragon::copy_angle_state(void *arg0, void *dst, void *src) {
     *(s16 *)((s8 *)dst + 0) = (s16) *(s32 *)((s8 *)src + 0);
     *(s16 *)((s8 *)dst + 2) = ((s16 (*)(void *, s16, s16))rand_scaled_offset__12TBoss8DragonFiii)(arg0, *(s16 *)((s8 *)src + 4), *(s16 *)((s8 *)src + 6));
+}
+
+s32 TBoss8Dragon__sub_8005EE04(TBoss8Dragon *self, void *out, u32 *entry) {
+    typedef void (TBoss8Dragon::*Action)(void *, void *);
+    u8 *base = (u8 *)&lbl_80487848;
+    MemberPointerWords *actions = (MemberPointerWords *)(base + 0x87C);
+    u32 index;
+    Action *action;
+
+    if (lbl_805D4DC5 == 0) {
+        MemberPointerWords *dynamic = (MemberPointerWords *)(base + 0x8C4);
+        MemberPointerWords null = __ptmf_null;
+        u32 source00 = actions[0].words[0];
+        u32 source01 = actions[0].words[1];
+        u32 source02 = actions[0].words[2];
+        u32 source10 = actions[1].words[0];
+        u32 source11 = actions[1].words[1];
+        u32 source12 = actions[1].words[2];
+        u32 source20 = actions[2].words[0];
+        u32 source21 = actions[2].words[1];
+        u32 source22 = actions[2].words[2];
+        dynamic[0] = null;
+        dynamic[1] = null;
+        dynamic[2] = null;
+        dynamic[3] = null;
+        dynamic[4] = null;
+        dynamic[5] = null;
+        dynamic[6] = null;
+        dynamic[7] = null;
+        dynamic[8].words[0] = source00;
+        dynamic[8].words[1] = source01;
+        dynamic[8].words[2] = source02;
+        dynamic[9].words[0] = source10;
+        dynamic[9].words[1] = source11;
+        dynamic[9].words[2] = source12;
+        dynamic[10].words[0] = source20;
+        dynamic[10].words[1] = source21;
+        dynamic[10].words[2] = source22;
+        dynamic[11] = null;
+        dynamic[12] = null;
+        dynamic[13] = null;
+        u32 source30 = actions[3].words[0];
+        u32 source31 = actions[3].words[1];
+        u32 source32 = actions[3].words[2];
+        u32 source40 = actions[4].words[0];
+        u32 source41 = actions[4].words[1];
+        u32 source42 = actions[4].words[2];
+        u32 source50 = actions[5].words[0];
+        u32 source51 = actions[5].words[1];
+        u32 source52 = actions[5].words[2];
+        dynamic[14].words[0] = source30;
+        dynamic[14].words[1] = source31;
+        dynamic[14].words[2] = source32;
+        dynamic[15] = null;
+        dynamic[16] = null;
+        dynamic[17] = null;
+        dynamic[18] = null;
+        dynamic[19] = null;
+        dynamic[20] = null;
+        dynamic[21] = null;
+        dynamic[22] = null;
+        dynamic[23] = null;
+        dynamic[24] = null;
+        dynamic[25] = null;
+        dynamic[26] = null;
+        dynamic[27].words[0] = source40;
+        dynamic[27].words[1] = source41;
+        dynamic[27].words[2] = source42;
+        dynamic[28] = null;
+        dynamic[29] = null;
+        dynamic[30].words[0] = source50;
+        dynamic[30].words[1] = source51;
+        dynamic[30].words[2] = source52;
+        dynamic[31] = null;
+        dynamic[32] = null;
+        dynamic[33] = null;
+        dynamic[34] = null;
+        dynamic[35] = null;
+        lbl_805D4DC5 = 1;
+    }
+    index = *entry;
+    TBoss8Dragon::copy_angle_state(self, out, entry);
+    action = (Action *)(base + 0x8C4) + index;
+    if (*action != NULL) {
+        (self->**action)(out, entry);
+    }
+    if (index == 0x22) {
+        return 1;
+    }
+    return 0;
 }
 
 #define F(t, o) (*(t *)(arg0 + (o)))
@@ -3648,8 +3693,8 @@ extern const f32 lbl_805D8E30;
 #pragma fp_contract on
 void handle_takeoff_state__13TBoss5GryphonFPvi(TBoss5Gryphon *self, s32 event) {
     f32 speed;
-    f32 d;
     f32 f;
+    f32 d;
     s32 t;
 
     switch (event) {
@@ -3693,16 +3738,21 @@ void handle_takeoff_state__13TBoss5GryphonFPvi(TBoss5Gryphon *self, s32 event) {
                 self->spawn_ground_splash();
             }
             break;
-        case 1:
+        case 1: {
+            f32 phase_speed;
+            f32 base;
             speed = lbl_805D8E34;
-            f = self->get_speed_or_default() - lbl_805D8E0C;
-            d = *(f32 *)((u8 *)self + 0xC4) - lbl_805D8E0C;
+            phase_speed = self->get_speed_or_default();
+            base = lbl_805D8E0C;
+            phase_speed -= base;
+            d = *(f32 *)((u8 *)self + 0xC4) - base;
             self->position[1] = lbl_805D8E30 - lbl_805D8DD0 *
-                sin_table_lookup((s32)(lbl_805D8E28 * f / d));
+                sin_table_lookup((s32)(lbl_805D8E28 * phase_speed / d));
             if (TBoss8Dragon__sub_8005FAE0((u8 *)self) != 0) {
                 self->advance_motion_entry();
             }
             break;
+        }
         }
         move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, speed);
         break;
@@ -4192,10 +4242,9 @@ struct Motion_800623E4 {
 #pragma push
 #pragma scheduling off
 inline s32 initial_angle_800623E4(TBoss5Gryphon *self) {
-    f32 initial_x = self->position[0];
-    f32 initial_dx = ((Motion_800623E4 *)self->motion)->x;
-    f32 initial_dz = ((Motion_800623E4 *)self->motion)->z;
-    initial_dx -= initial_x;
+    Motion_800623E4 *motion = (Motion_800623E4 *)self->motion;
+    f32 initial_dx = motion->x - self->position[0];
+    f32 initial_dz = motion->z;
     initial_dz -= self->position[2];
     return (s32)(((const f64 *)&lbl_80437EB0)[0] * atan2_float(initial_dx, initial_dz));
 }
@@ -4213,7 +4262,10 @@ void TBoss8Dragon__sub_800623E4(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
         self->reset_float_3c();
+#pragma push
+#pragma scheduling off
         self->m_6ec = initial_angle_800623E4(self);
+#pragma pop
         break;
     case 0:
         advance_animation_playback(self);
@@ -4903,6 +4955,57 @@ void TBoss8Dragon__sub_8006369C(Obj_8006369C *self, u32 arg1) {
 #pragma dont_inline off
 void TBoss8Dragon__sub_80063714(void) {  }
 #pragma pop
+
+void dispatch_state_event__13TBoss5GryphonFPvii(TBoss5Gryphon *self, void *state, int event) {
+    typedef void (TBoss5Gryphon::*StateAction)(int);
+    MemberPointerWords *actions = (MemberPointerWords *)(lbl_80487CD8 + 4);
+    MemberPointerWords *dynamic = actions + 35;
+    StateAction *action;
+
+    if (lbl_805D4DC4 == 0) {
+        dynamic[0] = actions[0];
+        dynamic[1] = actions[1];
+        dynamic[2] = actions[2];
+        dynamic[3] = actions[3];
+        dynamic[4] = actions[4];
+        dynamic[5] = actions[5];
+        dynamic[6] = actions[6];
+        dynamic[7] = actions[7];
+        dynamic[8] = actions[8];
+        dynamic[9] = actions[9];
+        dynamic[10] = actions[10];
+        dynamic[11] = actions[11];
+        dynamic[12] = actions[12];
+        dynamic[13] = actions[13];
+        dynamic[14] = actions[14];
+        dynamic[15] = actions[15];
+        dynamic[16] = actions[16];
+        dynamic[17] = actions[17];
+        dynamic[18] = actions[18];
+        dynamic[19] = actions[19];
+        dynamic[20] = actions[20];
+        dynamic[21] = actions[21];
+        dynamic[22] = actions[22];
+        dynamic[23] = actions[23];
+        dynamic[24] = actions[24];
+        dynamic[25] = actions[25];
+        dynamic[26] = actions[26];
+        dynamic[27] = actions[27];
+        dynamic[28] = actions[28];
+        dynamic[29] = actions[29];
+        dynamic[30] = actions[30];
+        dynamic[31] = actions[31];
+        dynamic[32] = actions[32];
+        dynamic[33] = actions[33];
+        dynamic[34] = actions[34];
+        lbl_805D4DC4 = 1;
+    }
+    action = (StateAction *)dynamic + (s32)state;
+
+    if (*action != NULL) {
+        (self->**action)(event);
+    }
+}
 
 #pragma push
 #pragma inline_depth(1)
