@@ -331,7 +331,7 @@ void THunterGuildSeqOffline__sub_8021339C(void) {
 void THunterGuildSeqOffline::notify_quest_thread() {
     s32 v = THunterGuildSeqOffline__quest_result_callbacks[3];
     if (v != -1) {
-        void *obj = (void *)TQuestThread::create(v);
+        void *obj = TQuestThread::create(v);
         if (obj != NULL) {
             ((VObj_802133C4_80212D9C *)obj)->m1();
         }

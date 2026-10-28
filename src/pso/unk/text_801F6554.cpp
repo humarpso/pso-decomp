@@ -2,7 +2,7 @@
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/unk/text_801F6548.h"
+#include "pso/unk/text_801F6554.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/TMCFormatSequence.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -40,10 +40,6 @@ s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 get_selected_menu_value(u32);
 
 typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
-s32 *TQuestThread__sub_801F6548(void) {
-    return &offline_quest_filename_buffer_a.value;
-}
-
 void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((u8 *)this->m_34); this->m_34 = 0; } }
 
 void TMCFormatSequence::show_message(s32 arg1, s32 arg2) {

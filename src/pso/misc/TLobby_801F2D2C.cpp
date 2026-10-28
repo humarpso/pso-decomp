@@ -39,7 +39,7 @@ extern u8 TLobby__data_805D5EA8;
 extern u8 TLobby__data_805D5EA9;
 extern u16 TLobby__data_805D5EAA;
 extern u16 TLobby__data_805D5EAC;
-extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
+extern RecoveredGlobal_801F3268_lbl_80512B18 entered_item_name;
 extern struct Op_801F2E64 qst_opcode_table[];
 int bswap_16__FPUs(void*);
 void *memset(void *, int, u32);
@@ -226,7 +226,7 @@ void init_quest_script_context(Hdr_801F3124 *h, QuestVmContext *c) {
 }
 
 s32 *TObjItemOKWindow__sub_801F3268(void) {
-    return &lbl_80512B18.value;
+    return &entered_item_name.value;
 }
 
 void TLobby::clear_quest_vm_flag() {

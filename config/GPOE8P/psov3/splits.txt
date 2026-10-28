@@ -7124,34 +7124,17 @@ pso/misc/TLobby_801F487C.cpp:
 pso/unk/text_801F498C.cpp:
 	.text       start:0x801F498C end:0x801F49BC
 
-pso/item/TObjItemOKWindow.cpp:
-	.text       start:0x801F49BC end:0x801F4A04
-
-pso/misc/TQuestThread_801F4A04.cpp:
-	.text       start:0x801F4A04 end:0x801F4A6C
-
-pso/item/TObjItemOKWindow_801F4A6C.cpp:
-	.text       start:0x801F4A6C end:0x801F4C70
-	.data       start:0x804C8510 end:0x804C8528
-
-pso/unk/text_801F4C70.cpp:
-	.text       start:0x801F4C70 end:0x801F4CD8
-
-pso/item/TObjItemNameSelect.cpp:
-	.text       start:0x801F4CD8 end:0x801F4D20
-
-pso/misc/TQuestThread_801F4D20.cpp:
-	.text       start:0x801F4D20 end:0x801F4D70
-
 pso/quest/TQuestThread.cpp:
-	.text       start:0x801F4D70 end:0x801F6530
-	.data       start:0x804C8528 end:0x804C8690
+	.text       start:0x801F49BC end:0x801F6554
+	.rodata     start:0x8044A5D0 end:0x8044A648
+	.data       start:0x804C8410 end:0x804C8690
+	.bss        start:0x805129F8 end:0x80512B28
+	.sdata      start:0x805D35D0 end:0x805D35E8
+	.sbss       start:0x805D5EE8 end:0x805D5F00
+	.sdata2     start:0x805DC4E0 end:0x805DC510
 
-pso/misc/TQuestListOnline_801F6530.cpp:
-	.text       start:0x801F6530 end:0x801F6548
-
-pso/unk/text_801F6548.cpp:
-	.text       start:0x801F6548 end:0x801F69A0
+pso/unk/text_801F6554.cpp:
+	.text       start:0x801F6554 end:0x801F69A0
 
 pso/misc/TQuestVmDownLoadServer.cpp:
 	.text       start:0x801F69A0 end:0x801F8FD4

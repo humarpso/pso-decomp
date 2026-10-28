@@ -5,6 +5,8 @@
 #include "pso/TObject.h"
 #include "pso/quest/QuestVm.h"
 
+class TUnk_804C8678;
+
 class TQuestThread : public TObject {
 public:
     QuestVmContext ctx;
@@ -15,13 +17,13 @@ public:
     virtual ~TQuestThread();
     virtual void run_task();
 
-    static u32 create(int label);
+    static TQuestThread *create(int label);
     static TQuestThread *create_in_root(s32 label);
-    static u8 *create_for_floor();
+    static TQuestThread *create_for_floor();
     static void set_floor_handler(s32 floor, s32 label);
     static void clear_floor_handler(s32 floor);
     static void clear_all_floor_handlers();
-    static s32 create_by_mode();
+    static TUnk_804C8678 *create_by_mode();
     static void destroy_quest_obj();
     static void destroy_all_in(TObject *parent);
     static void clear_buffer(void *root);
@@ -42,7 +44,7 @@ public:
     virtual ~TQuestThreadBoard();
     virtual void run_task();
 
-    static s32 create_instance(int label);
+    static TQuestThreadBoard *create_instance(int label);
     static void destroy_board();
 };
 
@@ -61,6 +63,7 @@ public:
 };
 
 void handle_6x77_sync_quest_register(u8 *packet);
+char *get_offline_quest_filename();
 void load_area_dialogue_script();
 
 extern "C" {

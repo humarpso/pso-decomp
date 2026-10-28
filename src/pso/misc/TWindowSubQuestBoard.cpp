@@ -148,12 +148,12 @@ void TWindowSubQuestBoard::run_task() {
         }
         break;
     case 3:
-        this->m_2c = TQuestThreadBoard::create_instance(
+        this->quest_thread_board = TQuestThreadBoard::create_instance(
             quest_board_handlers[get_page_index__20TWindowSubQuestBoardFv(this->m_28)].f20);
         this->m_1c = 4;
     case 4:
-        if (((TObject *)(this->m_2c))->all_parents_unqueued_for_destruction() == 0) {
-            this->m_2c = 0;
+        if (this->quest_thread_board->all_parents_unqueued_for_destruction() == 0) {
+            this->quest_thread_board = NULL;
             this->m_1c = 1;
         }
         break;

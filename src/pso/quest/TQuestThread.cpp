@@ -21,6 +21,8 @@
 #include "pso/ui/Language.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
+#pragma readonly_strings on
+
 struct ItemNameEntry { s32 text_id; s32 value; };
 struct WindowPos { f32 x; f32 y; };
 struct QuestScriptHeader { u8 pad[0x14]; char name[1]; };
@@ -66,12 +68,22 @@ u32 TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
 void fn_80131ADC(u8 *, u8 *);
 void fn_80131B18(u8 *, u8 *);
 char *fn_8026CB5C(void);
-int TQuestListVM__sub_801F6530(void);
-int TQuestListOnline__sub_801F6540(void);
-s32 *TQuestThread__sub_801F6548(void);
 void TQuestThread__sub_801F5D88(void);
 void fn_801F6520(void *p);
 u32 __nw__7TObjectFUl(s32);
+int sprintf(char *, const char *, ...);
+u8 *init_shop_judgment_window(void *);
+s32 *TObjItemOKWindow__sub_801F3268(void);
+void __dt__16TObjItemOKWindowFv();
+void __dt__18TObjItemNameSelectFv();
+void __dt__17TObjItemNameEntryFv();
+void __dt__17TQuestThreadBoardFv();
+void run_task__17TQuestThreadBoardFv();
+void __dt__12TQuestThreadFv();
+void run_task__12TQuestThreadFv();
+void run_task__7TObjectFv();
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
 
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
@@ -81,33 +93,133 @@ extern s32 tl_00;
 extern s32 tl_04;
 extern s32 tl_su;
 extern u8 controller_input_state[];
+extern int TQuestListVM__decompression_capacity;
+extern int quest_bin_decompressed_size;
+extern int online_quest_bin_data;
+extern char offline_quest_filename_buffer_a[];
 }
 
 extern const char *TQuestThread__class_name;
 extern const char *TQuestThreadBoard__class_name;
 extern const char *TObjItemNameEntry__class_name;
 extern const char *TObjItemNameSelect__class_name;
-extern TUnk_804C8678 *quest_mission_manager;
-extern TUnk_804C8678 *quest_area_manager;
-extern TQuestThreadBoard *quest_thread_board;
-extern s32 TQuestThread__floor_handler_ids[18];
-extern u8 quest_board_handlers[0xD8];
-extern char lbl_80512B18[0x10];
-extern int item_name_selection_index;
-extern ItemNameEntry *item_name_selection_table;
-extern ItemNameEntry lbl_804C8410[];
-extern ItemNameEntry lbl_804C8488[];
-extern char lbl_8044A5D0[];
-extern char lbl_8044A640[];
-extern char lbl_805DC50C[3];
-extern s32 lbl_805DC4FC;
-extern const f32 lbl_805DC4EC;
-extern const f32 lbl_805DC4F0;
-extern const f32 lbl_805DC4F4;
-extern const f32 lbl_805DC4F8;
-extern const f32 lbl_805DC500;
-extern const f32 lbl_805DC504;
-extern const f32 lbl_805DC508;
+extern const char *TObjItemOKWindow__class_name;
+extern const char TObjItemOKWindow__text_format[];
+
+ItemNameEntry item_name_table_a[] = {
+    {0x165, 0x70}, {0x166, 0x71}, {0x167, 0x72}, {0x168, 0x73}, {0x169, 0x74},
+    {0x16A, 0x75}, {0x16B, 0x76}, {0x16C, 0x77}, {0x16D, 0x78}, {0x16E, 0x79},
+    {0x16F, 0x7A}, {0x170, 0x7B}, {0x171, 0x7C}, {0x172, 0x7D}, {-1, -1},
+};
+
+ItemNameEntry item_name_table_b[] = {
+    {0x173, 0x7E}, {0x174, 0x7F}, {0x175, 0x80}, {0x176, 0x81}, {0x177, 0x82},
+    {0x178, 0x83}, {0x179, 0x84}, {0x17A, 0x85}, {0x17B, 0x86}, {0x17C, 0x87},
+    {0x17D, 0x88}, {0x1C7, 0xA5}, {0x1C8, 0xA6}, {0x1C9, 0xA7}, {0x1CA, 0xA8},
+    {0x1CB, 0xA9}, {-1, -1},
+};
+
+void *__vt__16TObjItemOKWindow[] = {
+    0, 0,
+    (void *)__dt__16TObjItemOKWindowFv,
+    (void *)run_task__7TObjectFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+
+TUnk_804C8678 *quest_mission_manager;
+TUnk_804C8678 *quest_area_manager;
+TQuestThreadBoard *quest_thread_board;
+int item_name_selection_index;
+ItemNameEntry *item_name_selection_table;
+u8 quest_board_handlers[0xD8];
+s32 TQuestThread__floor_handler_ids[18];
+char entered_item_name[0x10];
+
+void *TObjItemOKWindow::create(void *parent) {
+    return new TObjItemOKWindow((TObject *)parent);
+}
+
+s32 TObjItemOKWindow::get_result() {
+    void *menu = m_60;
+    if (menu != NULL) {
+        return get_selected_menu_value(menu);
+    }
+    return -1;
+}
+
+s32 TObjItemOKWindow::is_done() {
+    void *menu = m_60;
+    if (menu != NULL) {
+        return ((TWindowMenu *)menu)->is_visible();
+    }
+    return 0;
+}
+
+TObjItemOKWindow::~TObjItemOKWindow() {
+    if (m_64 != nullptr) { TWindow__close(m_64); m_64 = nullptr; }
+    if (m_5c != nullptr) { TWindow__close(m_5c); m_5c = nullptr; }
+    if (m_60 != nullptr) { TWindow__close(m_60); m_60 = nullptr; }
+}
+
+TObjItemOKWindow::TObjItemOKWindow(TObject *parent) : TObject(parent) {
+    WindowPos pos;
+    s32 name;
+
+    m_name = TObjItemOKWindow__class_name;
+    m_60 = init_shop_judgment_window(get_window_layout_position(0x57));
+    if (m_60 != NULL) {
+        ((TWindowSubComCardList *)m_60)->set_scroll_target(104.0f, 74.0f);
+        align_menu_entry_positions((u32)m_60);
+    }
+    m_5c = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x56), 1);
+    if (m_5c != NULL) {
+        name = (s32)TObjItemNameSelect::get_selected_name();
+        if (name != 0) {
+            sprintf(m_text, TObjItemOKWindow__text_format, TObjItemOKWindow__sub_801F3268(), name);
+        } else {
+            sprintf(m_text, "%s", TObjItemOKWindow__sub_801F3268());
+        }
+        m_text[0x3F] = 0;
+        forward_trade_action_default__16TObjCityMainWarpFPviii(m_5c, (int)m_text, 0x81, 0);
+    }
+    ((TWindowSubComCardList *)m_5c)->set_scroll_target(442.0f, 64.0f);
+    align_menu_entry_positions((u32)m_5c);
+    TQuestThread::set_status_flag_80(m_5c);
+    pos.x = 332.0f;
+    pos.y = 80.0f;
+    m_64 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
+    if (m_64 != NULL) {
+        send_and_handle__6TLobbyFii(m_64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
+    }
+}
+
+s32 TObjItemNameSelect::get_selected_value() {
+    if (item_name_selection_index >= 0) {
+        return item_name_selection_table[item_name_selection_index].value;
+    }
+    return -1;
+}
+
+char *TObjItemNameSelect::get_selected_name() {
+    if (item_name_selection_index >= 0) {
+        return (char *)get_text_collection(item_name_selection_table[item_name_selection_index].text_id);
+    }
+    return "";
+}
+
+void *TObjItemNameSelect::create(void *parent) {
+    return new TObjItemNameSelect((TObject *)parent);
+}
+
+s32 TObjItemNameSelect::get_result() {
+    if (m_1c != NULL) {
+        if (((TWindowMenu *)m_1c)->is_visible() != 0) {
+            return get_selected_menu_value(m_1c);
+        }
+    }
+    return -1;
+}
 
 TObjItemNameSelect::~TObjItemNameSelect() {
     if (m_20 != nullptr) { TWindow__close(m_20); m_20 = nullptr; }
@@ -119,16 +231,16 @@ TObjItemNameSelect::TObjItemNameSelect(TObject *parent) : TObject(parent) {
     s32 i;
 
     m_name = TObjItemNameSelect__class_name;
-    item_name_selection_table = TLobby::get_instance() == 0 ? lbl_804C8410 : lbl_804C8488;
+    item_name_selection_table = TLobby::get_instance() == 0 ? item_name_table_a : item_name_table_b;
     m_1c = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x58), 0x19);
     for (i = 0; item_name_selection_table[i].text_id != -1; i++) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(m_1c, get_text_collection(item_name_selection_table[i].text_id), 6, i);
     }
-    ((TWindowSubComCardList *)m_1c)->set_scroll_target(lbl_805DC500, lbl_805DC504);
+    ((TWindowSubComCardList *)m_1c)->set_scroll_target(216.0f, 144.0f);
     TWindowSubComCard__sub_80265500((u8 *)m_1c);
-    ((TLobby *)m_1c)->set_field_1c(lbl_805DC508);
-    pos.x = lbl_805DC4F4;
-    pos.y = lbl_805DC4F8;
+    ((TLobby *)m_1c)->set_field_1c(39000.0f);
+    pos.x = 332.0f;
+    pos.y = 80.0f;
     m_20 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
     if (m_20 != NULL) {
         send_and_handle__6TLobbyFii(m_20, TQuestVmDownLoadServer__sub_8006EF6C(0x46), 0x81);
@@ -136,8 +248,8 @@ TObjItemNameSelect::TObjItemNameSelect(TObject *parent) : TObject(parent) {
 }
 
 void TObjItemNameEntry::set_entered_name(const char *name) {
-    strncpy(lbl_80512B18, (void *)name, 8);
-    lbl_80512B18[8] = 0;
+    strncpy(entered_item_name, (void *)name, 8);
+    entered_item_name[8] = 0;
 }
 
 s32 TObjItemNameEntry::process_keyboard_input() {
@@ -145,7 +257,7 @@ s32 TObjItemNameEntry::process_keyboard_input() {
 
     if (m_1c != NULL && ((TWindowSubComCard *)m_1c)->update_keyboard() != 0) {
         text = ((TWindowSubComCard *)m_1c)->realloc_buffer();
-        if (strcmp(text, &lbl_805DC4FC) == 0) {
+        if (strcmp(text, (s32 *)"") == 0) {
             mem_free((void *)text);
             free_menu_object(m_1c);
             return 0;
@@ -188,20 +300,20 @@ TObjItemNameEntry::TObjItemNameEntry(TObject *parent) : TObject(parent) {
     if (m_20 != NULL) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(m_20, (int)TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }
-    ((TWindowSubComCardList *)m_20)->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
+    ((TWindowSubComCardList *)m_20)->set_scroll_target(442.0f, 64.0f);
     align_menu_entry_positions((u32)m_20);
     TQuestThread::set_status_flag_80(m_20);
 }
 
-s32 TQuestThreadBoard::create_instance(int label) {
+TQuestThreadBoard *TQuestThreadBoard::create_instance(int label) {
     TQuestThreadBoard *board;
 
     if (quest_mission_manager != NULL) {
         board = new TQuestThreadBoard(quest_mission_manager, label);
         board->set_parent((TObject *)tl_00);
-        return (s32)board;
+        return board;
     }
-    return 0;
+    return NULL;
 }
 
 void TQuestThreadBoard::run_task() {
@@ -502,26 +614,26 @@ void TQuestThread::run_task() {
 
 TQuestThread::~TQuestThread() {}
 
-u8 *TQuestThread::create_for_floor() {
+TQuestThread *TQuestThread::create_for_floor() {
     s32 floor = get_current_floor();
     if (TQuestThread__floor_handler_ids[floor] != -1 && quest_mission_manager != NULL) {
-        return (u8 *)new TQuestThread(quest_mission_manager, TQuestThread__floor_handler_ids[floor]);
+        return new TQuestThread(quest_mission_manager, TQuestThread__floor_handler_ids[floor]);
     }
     return NULL;
 }
 
-u32 TQuestThread::create(int label) {
+TQuestThread *TQuestThread::create(int label) {
     TQuestThread *thread;
 
     if (quest_mission_manager != NULL) {
         thread = new TQuestThread(quest_mission_manager, label);
         if (thread != NULL) {
             thread->set_parent((TObject *)tl_00);
-            return (u32)thread;
+            return thread;
         }
-        return 0U;
+        return NULL;
     }
-    return 0U;
+    return NULL;
 }
 
 TQuestThread *TQuestThread::create_in_root(s32 label) {
@@ -589,8 +701,16 @@ char *TQuestThread::get_quest_name() {
     if (quest_mission_manager != NULL) {
         return ((QuestScriptHeader *)quest_mission_manager->script)->name;
     }
-    return lbl_8044A5D0;
+    return "ERROR";
 }
+
+// defined here so their strings follow "ERROR" in .rodata, as in the original
+const char *TQuestThread__class_name = "TQuestThread";
+const char *TQuestThreadBoard__class_name = "TQuestThreadBoard";
+const char *TObjItemNameEntry__class_name = "TObjItemNameEntry";
+const char *TObjItemNameSelect__class_name = "TObjItemNameSelect";
+const char *TObjItemOKWindow__class_name = "TObjItemOKWindow";
+__declspec(section ".rodata") extern const char TObjItemOKWindow__text_format[] = "%s %s";
 
 void TQuestThread::clear_thread_state() {
     memset(quest_board_handlers, (void *)0, (void *)0xD8);
@@ -645,23 +765,23 @@ void load_area_dialogue_script() {
     }
 }
 
-s32 TQuestThread::create_by_mode() {
+TUnk_804C8678 *TQuestThread::create_by_mode() {
     switch (evt2_random_enemies_mode) {
     case 1:
-        return (s32)new TUnk_804C8678((TObject *)tl_su, (const char *)TQuestThread__sub_801F6548());
+        return new TUnk_804C8678((TObject *)tl_su, get_offline_quest_filename());
     case 2:
-        return (s32)new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListOnline__sub_801F6540(), TQuestListOnline::get_quest_count());
+        return new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListOnline::get_quest_data(), TQuestListOnline::get_quest_size());
     case 3: {
-        TUnk_804C8678 *root = new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListVM::get_instance(), TQuestListVM__sub_801F6530());
+        TUnk_804C8678 *root = new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListVM::get_instance(), TQuestListVM::get_quest_size());
         TQuestListVM::reset();
-        return (s32)root;
+        return root;
     }
     case 4:
-        return (s32)new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListOnline__sub_801F6540(), TQuestListOnline::get_quest_count());
+        return new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListOnline::get_quest_data(), TQuestListOnline::get_quest_size());
     case 5:
-        return (s32)new TUnk_804C8678((TObject *)tl_su, (const char *)TQuestThread__sub_801F6548());
+        return new TUnk_804C8678((TObject *)tl_su, get_offline_quest_filename());
     default:
-        return 0;
+        return NULL;
     }
 }
 
@@ -686,14 +806,14 @@ TUnk_804C8678::TUnk_804C8678(TObject *parent, const char *filename, s32 kind) : 
     script = 0;
     switch (this->kind) {
     case 0:
-        copy_name((s32)lbl_8044A640);
+        copy_name((s32)"QUEST");
         size = ((TScene *)filename)->update_lobby_scene();
         if (size < 0) {
             queue_destruction__7TObjectFv(this);
         } else {
             script = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
             read_disc_file((void *)filename, script);
-            copy_name((s32)lbl_805DC50C);
+            copy_name((s32)"..");
             quest_mission_manager = this;
             init_quest_script_context(script, &ctx);
             new TQuestThread(this, 0);
@@ -719,14 +839,14 @@ TUnk_804C8678::TUnk_804C8678(TObject *parent, const char *filename, s32 kind) : 
 
 TUnk_804C8678::TUnk_804C8678(TObject *parent, const char *filename) : TObject(parent) {
     s32 size;
-    copy_name((s32)lbl_8044A640);
+    copy_name((s32)"QUEST");
     size = ((TScene *)filename)->update_lobby_scene();
     if (size < 0) {
         queue_destruction__7TObjectFv(this);
     } else {
         script = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
         read_disc_file((void *)filename, script);
-        copy_name((s32)lbl_805DC50C);
+        copy_name((s32)"..");
         quest_mission_manager = this;
         init_quest_script_context(script, &ctx);
         kind = 0;
@@ -749,17 +869,13 @@ void free_menu_object(void *window) {
 
 void fn_801F6520(void *p) { *(u16 *)((u8 *)p + 0x60) &= 0xfffe; }
 
-extern "C" {
-void __dt__18TObjItemNameSelectFv();
-void __dt__17TObjItemNameEntryFv();
-void __dt__17TQuestThreadBoardFv();
-void run_task__17TQuestThreadBoardFv();
-void __dt__12TQuestThreadFv();
-void run_task__12TQuestThreadFv();
-void run_task__7TObjectFv();
-void render__7TObjectFv();
-void render_shadows__7TObjectFv();
-}
+int TQuestListVM::get_quest_size() { return TQuestListVM__decompression_capacity; }
+
+int TQuestListOnline::get_quest_size() { return quest_bin_decompressed_size; }
+
+int TQuestListOnline::get_quest_data() { return online_quest_bin_data; }
+
+char *get_offline_quest_filename() { return offline_quest_filename_buffer_a; }
 
 void *__vt__18TObjItemNameSelect[] = {
     0, 0,

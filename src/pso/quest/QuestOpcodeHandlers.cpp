@@ -2,6 +2,7 @@
 #include "pso/quest/QuestVm.h"
 #include "pso/quest/BattleRules.h"
 #include "pso/quest/TQuestThread.h"
+#include "pso/TObjItemNameSelect.h"
 
 extern "C" {
 void qst_call_stack_push(s32 value);
@@ -462,7 +463,6 @@ void TLobby__sub_801E6AE0(void);
 extern char lbl_805DC4B0[4];
 void append_float_value__6TLobbyFi(s32 arg0);
 s32 TObjItemOKWindow__sub_801F3268();
-s32 *fn_801F4C98(void);
 extern char lbl_80449C88[];
 void TLobby__sub_801E6A04(void);
 namespace pf2_p1 { extern "C" { s32 get_class_type_name__6TLobbyFl(s32); } }
@@ -512,7 +512,7 @@ void TLobby__sub_801E6998(void) {
 
 void TLobby__sub_801E6A04(void) {
     char buf[64];
-    s32 t = (s32)fn_801F4C98();
+    s32 t = (s32)TObjItemNameSelect::get_selected_name();
     sprintf(buf, lbl_80449C88, TObjItemOKWindow__sub_801F3268(), t);
     buf[63] = 0;
     append_string((s32)buf);
@@ -4044,13 +4044,12 @@ void qst_op_set_cmode_rank_threshold(u8 arg0, u8 arg1) {
 }
 }
 
-s32 get_selected_entry_value(void);
 extern "C" {
 s32 TObjItemOKWindow__sub_801F3268(void);
 void TItemData__sub_8010CA08(Item_801EBF30 *, s32, s32);
 void qst_op_award_item_give(u8 arg0) {
     Item_801EBF30 item;
-    u8 t = get_selected_entry_value();
+    u8 t = TObjItemNameSelect::get_selected_value();
     TItemData__sub_8010CA08(&item, TObjItemOKWindow__sub_801F3268(), t);
     if (is_split_screen() == 1) {
         if (TLobby__sub_802924B4(&item, 0) != 0) {
@@ -6536,7 +6535,7 @@ void qst_op_let(s32 arg0, s32 arg1) {
 }
 
 void qst_op_thread_stg(u16 arg0) {
-    TQuestThread::create((arg0));
+    TQuestThread::create(arg0);
 }
 
 void qst_op_thread(u16 arg0) {
