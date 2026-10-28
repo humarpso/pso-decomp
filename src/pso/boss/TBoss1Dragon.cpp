@@ -4269,9 +4269,11 @@ void TBoss1Dragon__sub_80025168(void *arg0, void *arg1) {
         }
         break;
     case 7: {
-        s32 high = (s32)(TBoss1Dragon__data_805D7FC4 * self->savedX) * 0x10000;
+        u32 seed = (u32)(s32)(TBoss1Dragon__data_805D7FC4 * self->savedX);
         s32 low = (s32)(TBoss1Dragon__data_805D7FC4 * self->savedZ);
-        subtractive_rng_seed((u8 *)self + 0x77C, high + (low & 0xFFFF));
+        seed *= 0x10000UL;
+        seed |= (u32)low & 0xFFFFUL;
+        subtractive_rng_seed((u8 *)self + 0x77C, seed);
         break;
     }
     case 6:
@@ -4320,29 +4322,29 @@ void TBoss1Dragon__sub_80025168(void *arg0, void *arg1) {
                     self->stateStep = 4;
                     *(s32 *)((u8 *)self + 0x654) = 0;
                 }
-            }
-            found = 0;
-            if ((*(s32 *)((u8 *)self + 0x86C) & 1) == 0) {
-                u8 *player = (u8 *)get_player_by_client_id((u16)((*(s32 *)((u8 *)self + 0x86C) >> 1) % 4));
-                if (is_alive__9TObjEneDDFv(player) != 0) {
-                    VecCopy__FP3VecPC3Vec((s32)&position, (s32)(player + 0x38));
-                    position.x += TBoss1Dragon__data_805D7FC4 *
-                        (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
-                    position.z += TBoss1Dragon__data_805D7FC4 *
-                        (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
-                    found = 1;
+                found = 0;
+                if ((*(s32 *)((u8 *)self + 0x86C) & 1) == 0) {
+                    u8 *player = (u8 *)get_player_by_client_id((u16)((*(s32 *)((u8 *)self + 0x86C) >> 1) % 4));
+                    if (is_alive__9TObjEneDDFv(player) != 0) {
+                        VecCopy__FP3VecPC3Vec((s32)&position, (s32)(player + 0x38));
+                        position.x += TBoss1Dragon__data_805D7FC4 *
+                            (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
+                        position.z += TBoss1Dragon__data_805D7FC4 *
+                            (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
+                        found = 1;
+                    }
                 }
-            }
-            if (found == 0) {
-                position.x = lbl_805D8030 *
-                    (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
-                position.y = TBoss1Dragon__data_805D7F28;
-                position.z = lbl_805D8030 *
-                    (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
-            }
-            u8 *bullet = __nw__7TObjectFUl(0x4C);
-            if (bullet != NULL) {
-                TBoss1DragonEffBullet__ct(bullet, (s32)self + 0x3C4, (s32)self + 0x40C, (s32)&position);
+                if (found == 0) {
+                    position.x = lbl_805D8030 *
+                        (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
+                    position.y = TBoss1Dragon__data_805D7F28;
+                    position.z = lbl_805D8030 *
+                        (calc_random_ratio__10TObjPlayerFv((u8 *)self + 0x77C) - TBoss1Dragon__data_805D7F48);
+                }
+                u8 *bullet = __nw__7TObjectFUl(0x4C);
+                if (bullet != NULL) {
+                    TBoss1DragonEffBullet__ct(bullet, (s32)self + 0x3C4, (s32)self + 0x40C, (s32)&position);
+                }
             }
             self->m_5c -= *(s32 *)((u8 *)self + 0x874);
             break;
