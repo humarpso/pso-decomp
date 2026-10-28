@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/quest/TQuestListVM_8007EAF8.h"
 #include "pso/player/TObjPlayer_80354EC8.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 #include "pso/player/TObjPlayer.h"

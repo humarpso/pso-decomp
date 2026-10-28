@@ -10,7 +10,7 @@
 #include "pso/THunterGuildWarning.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/quest/TQuestThread.h"
 

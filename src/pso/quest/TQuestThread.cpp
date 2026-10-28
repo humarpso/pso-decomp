@@ -5,7 +5,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestListOnline.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TScene.h"
 #include "pso/misc/TUnk_804C8678.h"

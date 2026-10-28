@@ -3,7 +3,7 @@
 #include "pso/unk/text_800F7DAC.h"
 #include "pso/system/byteswap.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 
 extern "C" {
 

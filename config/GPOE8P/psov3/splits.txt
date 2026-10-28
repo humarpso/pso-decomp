@@ -913,7 +913,7 @@ pso/misc/TLobby_80073DAC.cpp:
 pso/misc/TWindowSubComCard_80073DB8.cpp:
 	.text       start:0x80073DB8 end:0x80073DC4
 
-pso/misc/TQuestListVM_80073DC4.cpp:
+pso/quest/TQuestListVM_80073DC4.cpp:
 	.text       start:0x80073DC4 end:0x80073F74
 
 pso/ui/TObjNewFloorWin.cpp:
@@ -1185,7 +1185,7 @@ pso/boss/TObjBoss2Tunnel_8007E9EC.cpp:
 pso/boss/TObjBoss2Tunnel_8007EA74.cpp:
 	.text       start:0x8007EA74 end:0x8007EAF8
 
-pso/misc/TQuestListVM_8007EAF8.cpp:
+pso/quest/TQuestListVM_8007EAF8.cpp:
 	.text       start:0x8007EAF8 end:0x8007EB94
 
 pso/ui/TAdSinglePlyChrSelectGC_8007EB94.cpp:
@@ -2188,7 +2188,7 @@ pso/unk/text_800F93B4.cpp:
 pso/item/TItemDrop_800F93F0.cpp:
 	.text       start:0x800F93F0 end:0x800F95F4
 
-pso/misc/TQuestListVM_800F95F4.cpp:
+pso/quest/TQuestListVM_800F95F4.cpp:
 	.text       start:0x800F95F4 end:0x800F9690
 
 pso/misc/TLobby_800F9690.cpp:
@@ -7091,7 +7091,7 @@ pso/unk/text_801F3774.cpp:
 pso/misc/TLobby_801F3A24.cpp:
 	.text       start:0x801F3A24 end:0x801F4398
 
-pso/misc/TQuestListVM_801F4398.cpp:
+pso/quest/TQuestListVM_801F4398.cpp:
 	.text       start:0x801F4398 end:0x801F43A8
 
 pso/unk/text_801F43A8.cpp:
@@ -7594,7 +7594,7 @@ pso/misc/TQuestListOnline_80218310.cpp:
 pso/misc/TWindowSubComCard.cpp:
 	.text       start:0x802183B4 end:0x80218570
 
-pso/misc/TQuestListVM.cpp:
+pso/quest/TQuestListVM.cpp:
 	.text       start:0x80218570 end:0x80219EE8
 	.data       start:0x804C9D80 end:0x804C9DD4
 

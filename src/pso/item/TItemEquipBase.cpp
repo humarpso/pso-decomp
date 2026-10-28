@@ -24,7 +24,7 @@ struct Stack_8010A710 {
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOSwitchItem.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 
 struct VBase_18_8e31a0
 {

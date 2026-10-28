@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
-#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/quest/TQuestListVM_8007EAF8.h"
 #include "pso/misc/TWindowActionPalette_801C1890.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TWindowActionPalette.h"

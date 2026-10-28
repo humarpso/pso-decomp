@@ -1511,11 +1511,11 @@ pso/misc/TQuestListOnline_80217464.cpp
 pso/misc/TQuestListOnline_80218160.cpp
 pso/misc/TQuestListOnline_8021824C.cpp
 pso/misc/TQuestListOnline_80218310.cpp
-pso/misc/TQuestListVM.cpp
-pso/misc/TQuestListVM_80073DC4.cpp
-pso/misc/TQuestListVM_8007EAF8.cpp
-pso/misc/TQuestListVM_800F95F4.cpp
-pso/misc/TQuestListVM_801F4398.cpp
+pso/quest/TQuestListVM.cpp
+pso/quest/TQuestListVM_80073DC4.cpp
+pso/quest/TQuestListVM_8007EAF8.cpp
+pso/quest/TQuestListVM_800F95F4.cpp
+pso/quest/TQuestListVM_801F4398.cpp
 pso/quest/TQuestThread.cpp
 pso/misc/TQuestThreadBoard.cpp
 pso/misc/TQuestVmDownLoadServer.cpp

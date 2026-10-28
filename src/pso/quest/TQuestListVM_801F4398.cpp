@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuestListOnline.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 
     extern int TQuestListVM__quest_data_output_cursor;
 int TQuestListVM::get_data() {  return TQuestListVM__quest_data_output_cursor; }

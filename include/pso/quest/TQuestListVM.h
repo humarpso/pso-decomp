@@ -1,5 +1,5 @@
-#ifndef PSO_MISC_TQUESTLISTVM_H
-#define PSO_MISC_TQUESTLISTVM_H
+#ifndef PSO_QUEST_TQUESTLISTVM_H
+#define PSO_QUEST_TQUESTLISTVM_H
 
 #include "types.h"
 #include "pso/TShopWindowBase.h"

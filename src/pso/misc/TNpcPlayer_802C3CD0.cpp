@@ -2,7 +2,7 @@
 #include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/misc/TNpcPlayer_802C3CD0.h"
 #include "pso/misc/TNpcPlayer.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 #include "pso/player/TObjPlayer.h"
 
 struct EqBase_802C3D38 { u8 pad[0x18]; };

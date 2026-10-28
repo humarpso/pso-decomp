@@ -13,7 +13,7 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLoadCtrl.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
