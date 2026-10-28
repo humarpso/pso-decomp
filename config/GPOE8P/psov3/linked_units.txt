@@ -399,7 +399,10 @@ pso/effect/TDPBShower.cpp
 pso/effect/TEffClitical.cpp
 pso/effect/TEffGuard.cpp
 pso/effect/TEffHit.cpp
+pso/effect/TEffIndirectCtrl.cpp
+pso/effect/TEffIndirectCtrl_802A9284.cpp
 pso/effect/TEffect.cpp
+pso/effect/TUnk_804CCC68.cpp
 pso/encryption/PSOV3Encryption.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/BringerEffects.cpp
@@ -811,6 +814,7 @@ pso/item/TUnk_804F0D34.cpp
 pso/item/TUnk_804F28E0.cpp
 pso/item/WeaponAttackActions.cpp
 pso/item/WeaponSpecialSelection.cpp
+pso/map/FloorArea_8029E764.cpp
 pso/map/FloorLifecycleTables.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
@@ -910,8 +914,6 @@ pso/misc/TDLGraph_8007F85C.cpp
 pso/misc/TDeadSpot.cpp
 pso/misc/TDuelEffectNumber.cpp
 pso/misc/TDuelEffectNumber_80080460.cpp
-pso/effect/TEffIndirectCtrl.cpp
-pso/effect/TEffIndirectCtrl_802A9284.cpp
 pso/misc/TEnding.cpp
 pso/misc/TEndingAB.cpp
 pso/misc/TEndingAB_8008C9FC.cpp
@@ -1331,7 +1333,6 @@ pso/misc/TOKeyCol.cpp
 pso/misc/TOKeyGenericSw.cpp
 pso/misc/TOKeyJungleMain.cpp
 pso/misc/TOKeyMachine01_8016D448.cpp
-pso/map/FloorArea_8029E764.cpp
 pso/misc/TOKey_8015845C.cpp
 pso/misc/TOKey_80169EE4.cpp
 pso/misc/TOKurage.cpp
@@ -1507,12 +1508,6 @@ pso/misc/TQuestListOnline_80217464.cpp
 pso/misc/TQuestListOnline_80218160.cpp
 pso/misc/TQuestListOnline_8021824C.cpp
 pso/misc/TQuestListOnline_80218310.cpp
-pso/quest/TQuestListVM.cpp
-pso/quest/TQuestListVM_80073DC4.cpp
-pso/quest/TQuestListVM_8007EAF8.cpp
-pso/quest/TQuestListVM_800F95F4.cpp
-pso/quest/TQuestListVM_801F4398.cpp
-pso/quest/TQuestThread.cpp
 pso/misc/TQuestThreadBoard.cpp
 pso/misc/TQuestVmDownLoadServer.cpp
 pso/misc/TQuestVmDownLoadServer_8006FC34.cpp
@@ -1692,6 +1687,7 @@ pso/misc/TWindowCtrl_80271DFC.cpp
 pso/misc/TWindowDD_8020C2DC.cpp
 pso/misc/TWindowDD_8024662C.cpp
 pso/misc/TWindowDD_80246F8C.cpp
+pso/misc/TWindowDD_80340EA8.cpp
 pso/misc/TWindowDD_803411E8.cpp
 pso/misc/TWindowDD_80342254.cpp
 pso/misc/TWindowDD_803424EC.cpp
@@ -1742,7 +1738,6 @@ pso/misc/TWindowKeyBoardHard_8025EB68.cpp
 pso/misc/TWindowKeyBoardHard_802601D4.cpp
 pso/misc/TWindowKeyBoardHard_8026038C.cpp
 pso/misc/TWindowKeyBoardSoft_80080798.cpp
-pso/ui/TLanguage_80132A5C.cpp
 pso/misc/TWindowKeyBoardSoft_80228BEC.cpp
 pso/misc/TWindowKeyBoardSoft_8024E68C.cpp
 pso/misc/TWindowKeyBoardSoft_8025B85C.cpp
@@ -2591,7 +2586,6 @@ pso/player/TObjPlayer_803E5470.cpp
 pso/player/TPlyItem.cpp
 pso/player/TUnk_80490470.cpp
 pso/player/TUnk_804A5D28.cpp
-pso/effect/TUnk_804CCC68.cpp
 pso/protocol/TradeSession.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
@@ -2602,6 +2596,12 @@ pso/quest/AreaDialogueScripts.cpp
 pso/quest/QuestOpcodeHandlers.cpp
 pso/quest/QuestOpcodeTables.cpp
 pso/quest/StoryQuestProgress.cpp
+pso/quest/TQuestListVM.cpp
+pso/quest/TQuestListVM_80073DC4.cpp
+pso/quest/TQuestListVM_8007EAF8.cpp
+pso/quest/TQuestListVM_800F95F4.cpp
+pso/quest/TQuestListVM_801F4398.cpp
+pso/quest/TQuestThread.cpp
 pso/slices/pso_carve_8020bf88.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/ChunkTextureStripCollector.cpp
@@ -2802,6 +2802,7 @@ pso/ui/TAdWarningBaseGC_8032D1A4.cpp
 pso/ui/TAdYesNoBaseGC.cpp
 pso/ui/TChallenge4PItemSelect.cpp
 pso/ui/TFontSmallTask.cpp
+pso/ui/TLanguage_80132A5C.cpp
 pso/ui/TMessageWindowController.cpp
 pso/ui/TObjBagWarnWin.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
