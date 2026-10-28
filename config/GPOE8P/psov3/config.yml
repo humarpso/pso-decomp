@@ -1403,6 +1403,8 @@ force_active:
   - TWindowCtrl__sub_8024DAAC
   - TWindowCtrl__sub_8026D4E8
   - TWindowDD__sub_80340FA8
+  - TWindowDD__sub_8034138C
+  - TWindowDD__sub_803414DC
   - TWindowDD__sub_803422F0
   - TWindowDD__sub_803423E0
   - TWindowDD__sub_80346F30
