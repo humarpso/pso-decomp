@@ -8904,6 +8904,7 @@ pso/misc/TWindowSimpleStatus.cpp:
 
 pso/misc/TWindowSoundBalance_80270748.cpp:
 	.text       start:0x80270748 end:0x802708B8
+	.rodata     start:0x8044F630 end:0x8044F638
 
 pso/misc/TWindowSoundBalance_802708B8.cpp:
 	.text       start:0x802708B8 end:0x80270910

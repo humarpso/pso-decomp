@@ -13,8 +13,10 @@ struct TWindowSoundBalance : public TUnk_804CE018 {
     u8 _pad28[0x38];
     u8 m_60;
     u8 m_61;
-    u16 m_62;
-    u16 m_64;
+    s16 music_gain;
+    s16 sound_effect_gain;
+    void set_sound_effect_gain(s16 gain);
+    void set_music_gain(s16 gain);
     void play_open_sound();
     void handle_lr_input();
     virtual void run_task();
