@@ -192,7 +192,6 @@ struct TBoss8Dragon
     void update_target_from_state();
     static void init_state_zero(void *arg0);
     void flush_pending_effect();
-    void update_periodic_effect();
     void scale_size(f32 farg0, f32 farg1, f32 farg2);
     void fire_at_angle(s32 arg1);
     void update_facing(f32 farg0);
@@ -205,14 +204,6 @@ struct TBoss8Dragon
     int query_default();
     void copy_spawn_params(void* a1);
     void copy_action_state(u8 *arg1);
-    void reset_radius();
-    void set_anim_speed();
-    void reset_angle();
-    void set_phase();
-    void set_attack_phase();
-    void clear_timer();
-    static void update_epsilon_position();
-    void update_animation_by_state();
     static s32 spawn_ground_lightning(s32 arg0, s32 arg1, s32 arg2);
     void set_default_on_state0();
     static void update_camera_script();

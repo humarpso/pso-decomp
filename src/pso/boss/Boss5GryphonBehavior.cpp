@@ -1,3 +1,5 @@
+#include "pso/enemy/EnemyStateEvent.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "types.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -38,115 +40,6 @@ struct Fade_800653C4 { char b[0x1C]; };
 
 struct Dragon_800653C4 { char pad[0x580]; Fade_800653C4 fade[4]; };
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual s32 m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual s32 m39();
-    virtual s32 m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual s32 m85(s16, s32);
-    virtual s32 m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual void m100();
-    virtual void m101();
-    virtual void m102();
-    virtual s32 m103();
-};
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -183,104 +76,8 @@ typedef struct Res_80063088 {
     s32 f10;
 } Res_80063088;
 
-struct VBase_80063088 { char pad[0x18]; };
-
-struct Obj_80063088 : VBase_80063088 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual s32 m94();
+struct Obj_80063088 {
+    u8 prefix[0x1C];
     u8 pad1C[0x60 - 0x1C];
     s32 angle;
     u8 pad64[0xB8 - 0x64];
@@ -322,105 +119,6 @@ struct Obj_8005E594 {
     void *parts[16];
 };
 
-struct VBase_18_81e212 { char pad[0x18]; };
-
-struct VObj_18_81e212 : VBase_18_81e212 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual s32 m72(s32);
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual s32 m93();
-};
-
 struct Vec_80062BA0 { f32 x, y, z; };
 
 struct Cam_80062BA0 { s8 a; s8 b; s16 c; f32 d; f32 e; };
@@ -441,113 +139,8 @@ struct Cfg_80060020 { s16 h0; s16 h2; s32 f4; };
 
 struct Fx_80060020 { u8 pad[4]; s32 f4; };
 
-struct ObjBase_80060020 { char pad[0x18]; };
-
-struct Obj_80060020 : ObjBase_80060020 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual void m100();
-};
-
-struct Dragon_80060020 : Obj_80060020 {
+struct Dragon_80060020 {
+    u8 prefix[0x1C];
     u8 pad1c[0x38 - 0x1C];
     Vec_80060020 pos;
     u8 pad44[0x5C - 0x44];
@@ -698,20 +291,6 @@ struct Obj_8005DC0C {
 
 struct Obj_8005DC0C;
 
-struct VBase_14 { char pad[0x14]; };
-
-struct VObj_14 : VBase_14 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual s32 m6();
-    u32 f18;
-};
-
-struct Boss_8005DD68 { u8 pad[0x580]; VObj_14 fades[4]; };
 
 struct RecoveredGlobal_8005E17C_lbl_8043797C {
     s32 value;
@@ -804,31 +383,6 @@ struct Obj_8005FBC4 {
     s32 f4e4;
 };
 
-struct VBase_80062550 { char pad[0x18]; };
-
-struct VObj_80062550 : VBase_80062550 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
-    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
-    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
-    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
-    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
-    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
-    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64();
-    virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69();
-    virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74();
-    virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
-    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83(); virtual void m84();
-    virtual void m85(); virtual void m86(); virtual void m87(); virtual void m88(); virtual void m89();
-    virtual void m90(); virtual void m91(); virtual void m92(); virtual void m93();
-    virtual void m94();
-};
-
 struct Vec_80062550 { f32 x, y, z; };
 
 struct Tgt_80062550 {
@@ -857,97 +411,6 @@ struct Obj_80060F4C {
     s16 fb8;
     u8 padba[0x4C0 - 0xBA];
     u32 flags;
-};
-
-struct Base_80065370_80062BA0 { char pad[0x18]; };
-
-struct VObj_80065370_80062BA0 : Base_80065370_80062BA0 {
-    virtual void v0();
-    virtual void v1();
-    virtual void v2();
-    virtual void v3();
-    virtual void v4();
-    virtual void v5();
-    virtual void v6();
-    virtual void v7();
-    virtual void v8();
-    virtual void v9();
-    virtual void v10();
-    virtual void v11();
-    virtual void v12();
-    virtual void v13();
-    virtual void v14();
-    virtual void v15();
-    virtual void v16();
-    virtual void v17();
-    virtual void v18();
-    virtual void v19();
-    virtual void v20();
-    virtual void v21();
-    virtual void v22();
-    virtual void v23();
-    virtual void v24();
-    virtual void v25();
-    virtual void v26();
-    virtual void v27();
-    virtual void v28();
-    virtual void v29();
-    virtual void v30();
-    virtual void v31();
-    virtual void v32();
-    virtual void v33();
-    virtual void v34();
-    virtual void v35();
-    virtual void v36();
-    virtual void v37();
-    virtual void v38();
-    virtual void v39();
-    virtual void v40();
-    virtual void v41();
-    virtual void v42();
-    virtual void v43();
-    virtual void v44();
-    virtual void v45();
-    virtual void v46();
-    virtual void v47();
-    virtual void v48();
-    virtual void v49();
-    virtual void v50();
-    virtual void v51();
-    virtual void v52();
-    virtual void v53();
-    virtual void v54();
-    virtual void v55();
-    virtual void v56();
-    virtual void v57();
-    virtual void v58();
-    virtual void v59();
-    virtual void v60();
-    virtual void v61();
-    virtual void v62();
-    virtual void v63();
-    virtual void v64();
-    virtual void v65();
-    virtual void v66();
-    virtual void v67();
-    virtual void v68();
-    virtual void v69();
-    virtual void v70();
-    virtual void v71();
-    virtual void v72();
-    virtual void v73();
-    virtual void v74();
-    virtual void v75();
-    virtual void v76();
-    virtual void v77();
-    virtual void v78();
-    virtual void v79();
-    virtual void v80();
-    virtual void v81();
-    virtual void v82();
-    virtual void v83();
-    virtual void v84();
-    virtual void vcall(s16 a, int b);
 };
 
 struct ByteBlock_10 { u8 bytes[0x10]; };
@@ -1022,107 +485,6 @@ struct O_80064AB0 { u8 pad[0x1c]; u16 id; u8 pad2[0x38c - 0x1e]; u16 kind; u8 pa
 
 struct P_80064AB0 { u16 a; u16 id; u32 kind; f32 x; f32 z; };
 
-struct VBase_8006369C { u8 pad[0x18]; };
-
-struct Obj_8006369C : VBase_8006369C {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    u8 pad1C[0xB8 - 0x1C];
-    s16 f_B8;
-};
 
 struct Vec_80064968 { f32 x, y, z; };
 
@@ -1140,12 +502,6 @@ struct Obj_80064968 {
     Atk_80064968 *f5f0;
 };
 
-struct VBase_80065658 { char pad[0x18]; };
-
-struct VObj_80065658 : VBase_80065658 {
-    virtual ~VObj_80065658();
-};
-
 struct Obj_80065658 {
     u8 pad0[0x18];
     void *vt;
@@ -1161,36 +517,11 @@ struct Obj_80065658 {
     Vec f4e8[10];
     u8 pad560[0x578 - 0x560];
     u32 f578;
-    VObj_80065658 *f57c;
+    TBoss5GryphonDemo *demo;
     u8 f580[0x6f4 - 0x580];
     f32 f6f4[11];
     u8 pad720[0x734 - 0x720];
     void *objs[16];
-};
-
-struct VBase_80063570 { char pad[0x18]; };
-
-struct VObj_80063570 : VBase_80063570 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
-    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
-    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
-    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
-    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
-    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
-    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64();
-    virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69();
-    virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74();
-    virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
-    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83(); virtual void m84();
-    virtual void m85(); virtual void m86(); virtual void m87(); virtual void m88(); virtual void m89();
-    virtual void m90(); virtual void m91(); virtual void m92(); virtual void m93();
-    virtual void m94();
 };
 
 struct Obj_80063570 {
@@ -1202,27 +533,7 @@ struct Obj_80063570 {
     s32 flags;
 };
 
-struct VBase_80062E94 { char pad[0x18]; };
-
-struct VObj_80062E94 : VBase_80062E94 {
-virtual void m0();virtual void m1();virtual void m2();virtual void m3();virtual void m4();virtual void m5();virtual void m6();virtual void m7();virtual void m8();virtual void m9();virtual void m10();virtual void m11();virtual void m12();virtual void m13();virtual void m14();virtual void m15();virtual void m16();virtual void m17();virtual void m18();virtual void m19();
-virtual void m20();virtual void m21();virtual void m22();virtual void m23();virtual void m24();virtual void m25();virtual void m26();virtual void m27();virtual void m28();virtual void m29();virtual void m30();virtual void m31();virtual void m32();virtual void m33();virtual void m34();virtual void m35();virtual void m36();virtual void m37();virtual void m38();virtual void m39();
-virtual void m40();virtual void m41();virtual void m42();virtual void m43();virtual void m44();virtual void m45();virtual void m46();virtual void m47();virtual void m48();virtual void m49();virtual void m50();virtual void m51();virtual void m52();virtual void m53();virtual void m54();virtual void m55();virtual void m56();virtual void m57();virtual void m58();virtual void m59();
-virtual void m60();virtual void m61();virtual void m62();virtual void m63();virtual void m64();virtual void m65();virtual void m66();virtual void m67();virtual void m68();virtual void m69();virtual void m70();virtual void m71();virtual void m72();virtual void m73();virtual void m74();virtual void m75();virtual void m76();virtual void m77();virtual void m78();virtual void m79();
-virtual void m80();virtual void m81();virtual void m82();virtual void m83();virtual void m84();virtual void m85();virtual void m86();virtual void m87();virtual void m88();virtual void m89();virtual void m90();virtual void m91();virtual void m92();virtual void m93();virtual void m94();
-};
-
 struct Vec_80062E94 { f32 x, y, z; };
-
-struct VBase_80063320 { char pad[0x18]; };
-
-struct VObj_80063320 : VBase_80063320 {
-virtual void m0();virtual void m1();virtual void m2();virtual void m3();virtual void m4();virtual void m5();virtual void m6();virtual void m7();virtual void m8();virtual void m9();virtual void m10();virtual void m11();virtual void m12();virtual void m13();virtual void m14();virtual void m15();virtual void m16();virtual void m17();virtual void m18();virtual void m19();
-virtual void m20();virtual void m21();virtual void m22();virtual void m23();virtual void m24();virtual void m25();virtual void m26();virtual void m27();virtual void m28();virtual void m29();virtual void m30();virtual void m31();virtual void m32();virtual void m33();virtual void m34();virtual void m35();virtual void m36();virtual void m37();virtual void m38();virtual void m39();
-virtual void m40();virtual void m41();virtual void m42();virtual void m43();virtual void m44();virtual void m45();virtual void m46();virtual void m47();virtual void m48();virtual void m49();virtual void m50();virtual void m51();virtual void m52();virtual void m53();virtual void m54();virtual void m55();virtual void m56();virtual void m57();virtual void m58();virtual void m59();
-virtual void m60();virtual void m61();virtual void m62();virtual void m63();virtual void m64();virtual void m65();virtual void m66();virtual void m67();virtual void m68();virtual void m69();virtual void m70();virtual void m71();virtual void m72();virtual void m73();virtual void m74();virtual void m75();virtual void m76();virtual void m77();virtual void m78();virtual void m79();
-virtual void m80();virtual void m81();virtual void m82();virtual void m83();virtual void m84();virtual void m85();virtual void m86();virtual void m87();virtual void m88();virtual void m89();virtual void m90();virtual void m91();virtual void m92();virtual void m93();virtual void m94();
-};
 
 typedef char RecoveredGlobal_800646F0_lbl_80437944_size[sizeof(RecoveredGlobal_800646F0_lbl_80437944) == 0x14 ? 1 : -1];
 
@@ -1415,7 +726,6 @@ extern const float lbl_805D8EC4;
 extern const f32 lbl_805D8EC8;
 extern s32 model_render_flags;
 extern s32 tl_01;
-
 
 #pragma push
 #pragma fp_contract on
@@ -2064,19 +1374,19 @@ s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0) {
 }
 
 void TBoss5Gryphon::render_with_fade(s32 arg1) {
-    u8 *temp_r31;
+    RenderFadeState *fade;
     TObjFish::set_global_param(this->texture_id);
     TObjEneDD::clear_global_flag_400();
     lbl_805D5660 = model_render_flags;
     set_material_alpha_compare_reference(0);
     if (TBoss8Dragon__sub_8005DC0C((Obj_8005DC0C *) (this)) != 0) {
-        ((RenderFadeState *)(&((Boss_8005DD68 *)((u8 *)this))->fades[arg1]))->fadeOut();
+        this->renderFadeStates[arg1].fadeOut();
     } else {
-        ((RenderFadeState *)(&((Boss_8005DD68 *)((u8 *)this))->fades[arg1]))->restore();
+        this->renderFadeStates[arg1].restore();
     }
-    temp_r31 = (u8 *)&((Boss_8005DD68 *)((u8 *)this))->fades[arg1];
-    if (isFading__15RenderFadeStateCFv((int)temp_r31) != 0) {
-        ((VObj_14 *)(temp_r31))->m6();
+    fade = &this->renderFadeStates[arg1];
+    if (fade->isFading() != 0) {
+        ((TUnk_80494AE0 *)fade)->set_flags_and_apply_damage_color();
     }
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
@@ -2461,17 +1771,17 @@ typedef void (TBoss5Gryphon::*StateAction)(int);
 static inline StateAction *dispatch_state_actions() {
 static StateAction actions[35] = {
     (StateAction)&TBoss5Gryphon::fn_80063714,
-    (StateAction)&TBoss5Gryphon::fn_8006369C,
-    (StateAction)&TBoss5Gryphon::fn_80063570,
-    (StateAction)&TBoss5Gryphon::update_active_player_count,
+    (StateAction)&TBoss5Gryphon::update_idle_state,
+    (StateAction)&TBoss5Gryphon::update_ground_pursuit,
+    (StateAction)&TBoss5Gryphon::wait_for_players,
     (StateAction)&TBoss5Gryphon::fn_800627E4,
     (StateAction)&TBoss5Gryphon::fn_80062BA0,
     (StateAction)&TBoss5Gryphon::fn_80063320,
     (StateAction)&TBoss5Gryphon::fn_80063088,
     (StateAction)&TBoss5Gryphon::fn_80062660,
-    (StateAction)&TBoss5Gryphon::fn_80062550,
-    (StateAction)&TBoss5Gryphon::fn_800623E4,
-    (StateAction)&TBoss5Gryphon::fn_80062E94,
+    (StateAction)&TBoss5Gryphon::circle_arena,
+    (StateAction)&TBoss5Gryphon::move_to_motion_destination,
+    (StateAction)&TBoss5Gryphon::update_landing_attack,
     (StateAction)&TBoss5Gryphon::fn_80062114,
     (StateAction)&TBoss5Gryphon::fn_80062018,
     (StateAction)&TBoss5Gryphon::fn_80061D34,
@@ -2487,7 +1797,7 @@ static StateAction actions[35] = {
     (StateAction)&TBoss5Gryphon::fn_80060BF8,
     (StateAction)&TBoss5Gryphon::fn_80060B18,
     (StateAction)&TBoss5Gryphon::fn_80060A58,
-    (StateAction)&TBoss5Gryphon::fn_8006084C,
+    (StateAction)&TBoss5Gryphon::update_ground_lightning_attack,
     (StateAction)&TBoss5Gryphon::fn_80060788,
     (StateAction)&TBoss5Gryphon::fn_800605E8,
     (StateAction)&TBoss5Gryphon::fn_80060020,
@@ -2556,7 +1866,7 @@ s32 TBoss8Dragon::fn_8005EE04(s16 *out, u32 *entry) {
     return 0;
 }
 
-void dispatch_state_event__13TBoss5GryphonFll(TBoss5Gryphon *, s32, s32);
+void dispatch_action__13TBoss5GryphonFUll(TBoss5Gryphon *, s32, s32);
 
 void *gryphon_particle_enable_pos[3] = {
     (void *)0x0, (void *)0xc61c4000, (void *)0x0,
@@ -2586,7 +1896,7 @@ void *__vt__13TBoss5Gryphon[107] = {
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
-    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&dispatch_state_event__13TBoss5GryphonFll,
+    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&dispatch_action__13TBoss5GryphonFUll,
     (void *)&vfunc_88__13TBoss5GryphonFv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
@@ -2596,7 +1906,6 @@ void *__vt__13TBoss5Gryphon[107] = {
 #define gryphon_particle_enable_pos ((u8 *)gryphon_particle_enable_pos)
 #define gryphon_particle_position_vec ((s32 *)gryphon_particle_position_vec)
 #define __vt__13TBoss5Gryphon ((u8 *)__vt__13TBoss5Gryphon)
-
 
 #define F(t, o) (*(t *)(arg0 + (o)))
 #define TBL(o) (*(s32 *)((s8 *)(F(u8 *, 0x778)) + (o)))
@@ -2791,9 +2100,9 @@ void TBoss8Dragon::flush_pending_effect() {
     }
 }
 
-void TBoss8Dragon::update_periodic_effect() {
-    TBoss8Dragon::update_epsilon_position();
-    if (!(this->m_490 & 0x1F)) {
+void TBoss5Gryphon::refresh_target_periodically() {
+    TBoss5Gryphon::update_linked_ground_position();
+    if (!(this->targetRefreshCounter & 0x1F)) {
         if (enemy_validate_retained_target((u8 *)this) != 0) {
             enemy_copy_target_destination__12TObjEneDD_STFv(this);
         } else {
@@ -2801,7 +2110,7 @@ void TBoss8Dragon::update_periodic_effect() {
         }
         ((s32 (*)(void *))TBoss8Dragon__sub_80064AB0)(this);
     }
-    this->m_490 = (s32) (this->m_490 + 1);
+    this->targetRefreshCounter = (s32) (this->targetRefreshCounter + 1);
 }
 
 void TBoss8Dragon::scale_size(f32 farg0, f32 farg1, f32 farg2) {
@@ -2924,7 +2233,7 @@ void TBoss5Gryphon::handle_message(s32 msg) {
 void TBoss5Gryphon::fn_8005FD34(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         switch (self->m_4e4) {
         case 0:
             self->m_b8 = 0;
@@ -2937,7 +2246,7 @@ void TBoss5Gryphon::fn_8005FD34(s32 event) {
             break;
         }
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->m_4e4) {
         case 0:
@@ -2950,7 +2259,7 @@ void TBoss5Gryphon::fn_8005FD34(s32 event) {
             break;
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -2962,14 +2271,14 @@ void TBoss5Gryphon::fn_8005FD34(s32 event) {
 void TBoss5Gryphon::fn_8005FE18(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x17;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         self->m_4c0 &= ~4;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         if (objInBand((GameObj *)self, lbl_805D8D80) != 0) {
             self->play_se(0x4003A817);
@@ -2978,9 +2287,9 @@ void TBoss5Gryphon::fn_8005FE18(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+    case ENEMY_STATE_LEAVE:
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         break;
     case 10:
     case 11:
@@ -2988,7 +2297,6 @@ void TBoss5Gryphon::fn_8005FE18(s32 event) {
         break;
     }
 }
-
 
 #pragma push
 #pragma fp_contract on
@@ -3001,13 +2309,13 @@ void TBoss5Gryphon::fn_8005FEF8(s32 event) {
     Vec *bones;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 2;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         if (objInBand((GameObj *)self, lbl_805D8DB8) != 0) {
             bones = (Vec *)((u8 *)self + 0x3C0);
@@ -3022,7 +2330,7 @@ void TBoss5Gryphon::fn_8005FEF8(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -3044,11 +2352,11 @@ void TBoss5Gryphon::fn_80060020(u32 arg1) {
     Vec_80060020 v;
     Vec_80060020 p;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->fB8 = 0x14;
-        self->m94();
-        ((TBoss8Dragon *)self)->set_phase();
-        ((TBoss8Dragon *)self)->reset_radius();
+        ((TBoss5Gryphon *)self)->vfunc_96();
+        ((TBoss5Gryphon *)self)->enter_offscreen_mode();
+        ((TBoss5Gryphon *)self)->set_offscreen_height();
         self->f4C0 |= 4;
         PLAY_SE(self, 0x4003A818);
         subtractive_rng_seed(self->f5F4, self->f4BC->f4);
@@ -3058,7 +2366,7 @@ void TBoss5Gryphon::fn_80060020(u32 arg1) {
         self->f6F4 = lbl_805D8DC4 / ((f32)self->f4BC->h2 - TWindowSubStatusDisp::round_away_from_zero(lbl_805D8DC0));
         self->f6DC = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->f6DC) {
         case 0: {
@@ -3144,8 +2452,8 @@ void TBoss5Gryphon::fn_80060020(u32 arg1) {
             ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8D88, self, self->f60);
             self->pos.y -= self->f6F4;
             if (objInBand((GameObj *)self, (f32)lbl_805D8DE4) != 0) {
-                ((TBoss8Dragon *)self)->clear_timer();
-                ((TBoss8Dragon *)self)->reset_angle();
+                ((TBoss5Gryphon *)self)->enter_ground_mode();
+                ((TBoss5Gryphon *)self)->set_ground_height();
                 PLAY_SE(self, 0x40032D0D);
                 p.x = self->pos.x;
                 p.y = lbl_805D8D5C;
@@ -3160,9 +2468,9 @@ void TBoss5Gryphon::fn_80060020(u32 arg1) {
             break;
         }
         break;
-    case 5:
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+    case ENEMY_STATE_LEAVE:
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         self->f5C = 0;
         self->f64 = 0;
         self->f4C0 &= ~4;
@@ -3171,7 +2479,7 @@ void TBoss5Gryphon::fn_80060020(u32 arg1) {
         switch (self->f6DC) {
         case 0:
         case 1:
-            ((TBoss8Dragon *)self)->update_periodic_effect();
+            ((TBoss5Gryphon *)self)->refresh_target_periodically();
             break;
         case 2:
         case 3:
@@ -3184,22 +2492,21 @@ void TBoss5Gryphon::fn_80060020(u32 arg1) {
 }
 #pragma pop
 
-
 void TBoss5Gryphon::fn_800605E8(s32 event) {
     TBoss5Gryphon *self = this;
     f32 speed;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x13;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         self->m_4c0 |= 4;
         self->m_6e0 = 0;
         self->m_6dc = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->m_6dc) {
         case 0: {
@@ -3218,8 +2525,8 @@ void TBoss5Gryphon::fn_800605E8(s32 event) {
             speed = lbl_805D8DE8;
             self->m_6e0++;
             if (self->m_6e0 >= 0x28) {
-                ((TBoss8Dragon *)self)->set_phase();
-                ((TBoss8Dragon *)self)->reset_radius();
+                ((TBoss5Gryphon *)self)->enter_offscreen_mode();
+                ((TBoss5Gryphon *)self)->set_offscreen_height();
                 self->m_5c = 0x4000;
                 self->advance_motion_entry();
             }
@@ -3227,10 +2534,10 @@ void TBoss5Gryphon::fn_800605E8(s32 event) {
         }
         move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, speed);
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->m_4c0 &= ~4;
-        ((TBoss8Dragon *)self)->set_phase();
-        ((TBoss8Dragon *)self)->reset_radius();
+        ((TBoss5Gryphon *)self)->enter_offscreen_mode();
+        ((TBoss5Gryphon *)self)->set_offscreen_height();
         self->m_5c = 0x4000;
         break;
     case 10:
@@ -3243,13 +2550,13 @@ void TBoss5Gryphon::fn_800605E8(s32 event) {
 void TBoss5Gryphon::fn_80060788(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x12;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         if (objInBand((GameObj *)self, lbl_805D8D70) != 0) {
             self->play_se(0x40032D10);
@@ -3258,7 +2565,7 @@ void TBoss5Gryphon::fn_80060788(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -3267,17 +2574,17 @@ void TBoss5Gryphon::fn_80060788(s32 event) {
     }
 }
 
-void TBoss5Gryphon::fn_8006084C(s32 event) {
+void TBoss5Gryphon::update_ground_lightning_attack(s32 event) {
     TBoss5Gryphon *self = this;
     Vec left;
     Vec right;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x11;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         self->demo->draw_linked_model(self->position, self->rotation_y);
         self->m_6e4 = 0;
         push_matrix();
@@ -3291,7 +2598,7 @@ void TBoss5Gryphon::fn_8006084C(s32 event) {
         self->m_6e0 = TBoss8Dragon::spawn_ground_lightning((s32)self, (s32)&right, self->rotation_y);
         subtractive_rng_seed(self->rng, self->motion->m_4);
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         if (*(s32 *)(*(u8 **)(boss5_gryphon_behavior_params.remaining + 4) + 0x28) >= 2) {
@@ -3304,7 +2611,7 @@ void TBoss5Gryphon::fn_8006084C(s32 event) {
         spawn_ancient_trap__12TBoss8DragonFii((s32)self, 0x40032D11);
         self->m_6e4++;
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         if ((TBoss8Dragon *)self->m_6e0 != NULL) {
             ((TBoss8Dragon *)self->m_6e0)->queue_destruction();
             self->m_6e0 = 0;
@@ -3327,13 +2634,13 @@ extern const f32 lbl_805D8DFC;
 void TBoss5Gryphon::fn_80060A58(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x10;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         if (objInBand((GameObj *)self, lbl_805D8DFC) != 0) {
             self->play_se(0x4003320F);
@@ -3342,7 +2649,7 @@ void TBoss5Gryphon::fn_80060A58(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -3354,14 +2661,14 @@ void TBoss5Gryphon::fn_80060A58(s32 event) {
 void TBoss5Gryphon::fn_80060B18(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0xF;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         self->demo->draw_linked_model(self->position, self->rotation_y);
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         if (objInBand((GameObj *)self, lbl_805D8DF8) != 0) {
@@ -3371,7 +2678,7 @@ void TBoss5Gryphon::fn_80060B18(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->demo->get_state();
         break;
     case 10:
@@ -3384,18 +2691,18 @@ void TBoss5Gryphon::fn_80060B18(s32 event) {
 void TBoss5Gryphon::fn_80060BF8(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0xE;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         self->demo->draw_linked_model(self->position, self->rotation_y);
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->demo->get_state();
         break;
     case 10:
@@ -3408,13 +2715,13 @@ void TBoss5Gryphon::fn_80060BF8(s32 event) {
 void TBoss5Gryphon::fn_80060CA4(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0xD;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         TBoss8Dragon__sub_800641A8((u8 *)self);
         if (objInBand((GameObj *)self, lbl_805D8DDC) != 0) {
@@ -3427,7 +2734,7 @@ void TBoss5Gryphon::fn_80060CA4(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->demo->get_state();
         break;
     case 10:
@@ -3446,14 +2753,14 @@ void TBoss5Gryphon::fn_80060D9C(s32 event) {
     f32 depth;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0xC;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         self->m_4c0 |= 0x30;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         v = self->get_speed_or_default();
         speed = lbl_805D8D5C;
@@ -3481,7 +2788,7 @@ void TBoss5Gryphon::fn_80060D9C(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->m_4c0 &= ~0x30;
         break;
     case 10:
@@ -3498,17 +2805,17 @@ void TBoss5Gryphon::state_move(s32 arg1) {
     f32 v;
     s32 ang;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         ((Obj_80060F4C *)this)->fb8 = 0xB;
         this->vfunc_96();
-        ((TBoss8Dragon *)this)->clear_timer();
-        ((TBoss8Dragon *)this)->reset_angle();
+        ((TBoss5Gryphon *)this)->enter_ground_mode();
+        ((TBoss5Gryphon *)this)->set_ground_height();
         ((Obj_80060F4C *)this)->flags |= 0x30;
         return;
     case 8:
-        ((TBoss8Dragon *)this)->update_periodic_effect();
+        ((TBoss5Gryphon *)this)->refresh_target_periodically();
         return;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         ((s32 (*)(void *))advance_animation_playback)(this);
         ((void (*)(void *))TBoss8Dragon__sub_80064DB8)(this);
         ((void (*)(void *))update_velocity__9TObjEneDDFv)(this);
@@ -3534,7 +2841,7 @@ void TBoss5Gryphon::state_move(s32 arg1) {
         move_along_angle__13TBoss5GryphonFPvif(this, ((Obj_80060F4C *)this)->f60, speed);
         this->update_heading(ang);
         return;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         ((Obj_80060F4C *)this)->flags &= ~0x30;
         return;
     case 1: return;
@@ -3551,19 +2858,19 @@ void TBoss5Gryphon::state_move(s32 arg1) {
 void TBoss5Gryphon::fn_800610D0(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0xA;
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+        ((TBoss5Gryphon *)self)->enter_ground_mode();
+        ((TBoss5Gryphon *)self)->set_ground_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         if (self->m_b4 == 0xB) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -3572,17 +2879,6 @@ void TBoss5Gryphon::fn_800610D0(s32 event) {
     }
 }
 
-
-struct VBase_80061434 { char pad[0x18]; };
-struct VObj_80061434 : VBase_80061434 {
-#define V(n) virtual void m##n();
-V(0)V(1)V(2)V(3)V(4)V(5)V(6)V(7)V(8)V(9)V(10)V(11)V(12)V(13)V(14)V(15)V(16)V(17)V(18)V(19)
-V(20)V(21)V(22)V(23)V(24)V(25)V(26)V(27)V(28)V(29)V(30)V(31)V(32)V(33)V(34)V(35)V(36)V(37)V(38)V(39)
-V(40)V(41)V(42)V(43)V(44)V(45)V(46)V(47)V(48)V(49)V(50)V(51)V(52)V(53)V(54)V(55)V(56)V(57)V(58)V(59)
-V(60)V(61)V(62)V(63)V(64)V(65)V(66)V(67)V(68)V(69)V(70)V(71)V(72)V(73)V(74)V(75)V(76)V(77)V(78)V(79)
-V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)
-#undef V
-};
 struct Vec_80061434 { f32 x, y, z; };
 
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, s32, s32, void *, f32);
@@ -3604,17 +2900,17 @@ void TBoss5Gryphon::handle_takeoff_state(s32 event) {
     s32 t;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x14;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         self->m_4c0 |= 4;
         self->update_particle_positions();
         self->m_6dc = 0;
         self->m_6e0 = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->m_6dc) {
         case 0:
@@ -3662,7 +2958,7 @@ void TBoss5Gryphon::handle_takeoff_state(s32 event) {
         }
         move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, speed);
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->m_4c0 &= ~0x104;
         self->free_parts();
         self->position[1] = lbl_805D8DEC;
@@ -3682,16 +2978,16 @@ void TBoss5Gryphon::handle_descend_state(s32 arg1) {
     Vec_80061434 at;
 
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         arg0->m_b8 = 0x16;
-        ((VObj_80061434 *)arg0)->m94();
+        ((TBoss5Gryphon *)arg0)->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(arg0);
-        arg0->reset_float_3c();
+        arg0->set_flight_height();
         *(u32 *)((s8 *)arg0 + 0x4C0) |= 4;
         arg0->update_particle_positions();
         *(s32 *)((s8 *)arg0 + 0x6DC) = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(arg0);
         switch (*(s32 *)((s8 *)arg0 + 0x6DC)) {
         case 0:
@@ -3699,8 +2995,8 @@ void TBoss5Gryphon::handle_descend_state(s32 arg1) {
             eval_bezier_curve__12TBoss8DragonFPviiPvf(boss5_gryphon_descend_bezier_points, 4, 0, &out, ((TObjEneDD_ST *)arg0)->get_speed_or_default() / lbl_805D8DE4);
             *(f32 *)((s8 *)arg0 + 0x3C) = out.y;
             if (objInBand((GameObj *)arg0, (f32)lbl_805D8DE4) != 0) {
-                ((TBoss8Dragon *)arg0)->clear_timer();
-                ((TBoss8Dragon *)arg0)->reset_angle();
+                ((TBoss5Gryphon *)arg0)->enter_ground_mode();
+                ((TBoss5Gryphon *)arg0)->set_ground_height();
                 arg0->play_se(0x40032D0D);
                 at.x = *(f32 *)((s8 *)arg0 + 0x38);
                 at.y = lbl_805D8D5C;
@@ -3721,7 +3017,7 @@ void TBoss5Gryphon::handle_descend_state(s32 arg1) {
             arg0->spawn_ground_splash();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         *(u32 *)((s8 *)arg0 + 0x4C0) &= ~0x104;
         arg0->free_parts();
         break;
@@ -3746,15 +3042,15 @@ void TBoss5Gryphon::fn_800615FC(s32 event) {
     s32 t;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 0x13;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         self->m_4c0 |= 0x104;
         self->m_6dc = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->m_6dc) {
         case 0:
@@ -3782,8 +3078,8 @@ void TBoss5Gryphon::fn_800615FC(s32 event) {
             self->m_5c = (s32)(lbl_805D8E44 * f / lbl_805D8E10);
             self->m_6e0++;
             if (self->m_6e0 > 0x14) {
-                ((TBoss8Dragon *)self)->set_attack_phase();
-                ((TBoss8Dragon *)self)->set_anim_speed();
+                ((TBoss5Gryphon *)self)->enter_low_flight_mode();
+                ((TBoss5Gryphon *)self)->set_low_flight_height();
                 self->m_5c = 0;
                 self->m_6dc = 2;
             }
@@ -3800,10 +3096,10 @@ void TBoss5Gryphon::fn_800615FC(s32 event) {
             self->spawn_ground_splash();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->m_4c0 &= ~4;
-        ((TBoss8Dragon *)self)->set_attack_phase();
-        ((TBoss8Dragon *)self)->set_anim_speed();
+        ((TBoss5Gryphon *)self)->enter_low_flight_mode();
+        ((TBoss5Gryphon *)self)->set_low_flight_height();
         self->m_5c = 0;
         break;
     case 10:
@@ -3834,17 +3130,17 @@ void TBoss5Gryphon::update_dive_motion(s32 arg1) {
     case 10:
     case 11:
         break;
-    case 4:
+    case ENEMY_STATE_ENTER:
         *(s16 *)((s8 *)arg0 + 0xB8) = 7;
-        ((VObj_80061434 *)arg0)->m94();
+        ((TBoss5Gryphon *)arg0)->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(arg0);
-        ((TBoss5Gryphon *)arg0)->reset_float_3c();
+        ((TBoss5Gryphon *)arg0)->set_flight_height();
         *(s32 *)((s8 *)arg0 + 0x4C0) |= 4;
         ((TBoss5Gryphon *)arg0)->enable_particles();
         *(s32 *)((s8 *)arg0 + 0x6DC) = 0;
         *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(arg0);
         switch (*(s32 *)((s8 *)arg0 + 0x6DC)) {
         case 0:
@@ -3886,7 +3182,7 @@ void TBoss5Gryphon::update_dive_motion(s32 arg1) {
         }
         move_along_angle__13TBoss5GryphonFPvif(arg0, *(s32 *)((s8 *)arg0 + 0x60), speed);
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         *(s32 *)((s8 *)arg0 + 0x4C0) &= ~4;
         ((TBoss5Gryphon *)arg0)->destroy_parts();
         *(s32 *)((s8 *)arg0 + 0x5C) = 0;
@@ -3902,16 +3198,16 @@ void TBoss5Gryphon::fn_80061B8C(s32 event) {
     Vec at;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 9;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         self->m_4c0 |= 4;
         self->enable_particles();
         self->m_6dc = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->m_6dc) {
         case 0:
@@ -3919,8 +3215,8 @@ void TBoss5Gryphon::fn_80061B8C(s32 event) {
             eval_bezier_curve__12TBoss8DragonFPviiPvf(lbl_8048802C, 4, 0, &out, self->get_speed_or_default() / lbl_805D8D50);
             self->position[1] = out.y;
             if (objInBand((GameObj *)self, lbl_805D8D50) != 0) {
-                ((TBoss8Dragon *)self)->clear_timer();
-                ((TBoss8Dragon *)self)->reset_angle();
+                ((TBoss5Gryphon *)self)->enter_ground_mode();
+                ((TBoss5Gryphon *)self)->set_ground_height();
                 self->play_se(0x40032D0D);
                 at.x = self->position[0];
                 at.y = lbl_805D8D5C;
@@ -3938,7 +3234,7 @@ void TBoss5Gryphon::fn_80061B8C(s32 event) {
             break;
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->m_4c0 &= ~4;
         self->destroy_parts();
         break;
@@ -3961,17 +3257,17 @@ void TBoss5Gryphon::fn_80061D34(s32 event) {
     f32 speed;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         if (this->m_4c0 & 0x100) {
             this->m_b8 = 0x14;
         } else {
             this->m_b8 = 7;
         }
         this->vfunc_96();
-        ((TBoss8Dragon *)this)->set_attack_phase();
-        ((TBoss8Dragon *)this)->set_anim_speed();
+        ((TBoss5Gryphon *)this)->enter_low_flight_mode();
+        ((TBoss5Gryphon *)this)->set_low_flight_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(this);
         ofs = 0x4000;
         if (this->position[0] * this->position[0] + this->position[2] * this->position[2] > this->motion->m_c) {
@@ -4013,7 +3309,7 @@ void TBoss5Gryphon::fn_80061D34(s32 event) {
             spawn_ancient_trap__12TBoss8DragonFii((s32)this, 0x40032802);
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         this->rotation_z = 0;
         break;
     case 10:
@@ -4029,18 +3325,18 @@ extern const f32 lbl_805D8E58;
 void TBoss5Gryphon::fn_80062018(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         if (self->m_4c0 & 0x100) {
             self->m_b8 = 0x14;
         } else {
             self->m_b8 = 7;
         }
         self->vfunc_96();
-        ((TBoss8Dragon *)self)->set_attack_phase();
-        ((TBoss8Dragon *)self)->set_anim_speed();
+        ((TBoss5Gryphon *)self)->enter_low_flight_mode();
+        ((TBoss5Gryphon *)self)->set_low_flight_height();
         self->m_6e0 = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E58, self, self->rotation_y);
         if (self->m_4c0 & 0x100) {
@@ -4052,7 +3348,7 @@ void TBoss5Gryphon::fn_80062018(s32 event) {
             spawn_ancient_trap__12TBoss8DragonFii((s32)self, 0x40032802);
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -4075,15 +3371,15 @@ void TBoss5Gryphon::fn_80062114(s32 event) {
     s32 t;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 6;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         self->m_4c0 |= 4;
         self->m_6dc = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->m_6dc) {
         case 0:
@@ -4111,8 +3407,8 @@ void TBoss5Gryphon::fn_80062114(s32 event) {
             self->m_5c = (s32)(lbl_805D8E44 * f / lbl_805D8E00);
             self->m_6e0++;
             if (self->m_6e0 > 0x1E) {
-                ((TBoss8Dragon *)self)->set_attack_phase();
-                ((TBoss8Dragon *)self)->set_anim_speed();
+                ((TBoss5Gryphon *)self)->enter_low_flight_mode();
+                ((TBoss5Gryphon *)self)->set_low_flight_height();
                 self->m_5c = 0;
                 self->m_6dc = 2;
             }
@@ -4129,10 +3425,10 @@ void TBoss5Gryphon::fn_80062114(s32 event) {
             self->spawn_ground_splash();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         self->m_4c0 &= ~4;
-        ((TBoss8Dragon *)self)->set_attack_phase();
-        ((TBoss8Dragon *)self)->set_anim_speed();
+        ((TBoss5Gryphon *)self)->enter_low_flight_mode();
+        ((TBoss5Gryphon *)self)->set_low_flight_height();
         self->m_5c = 0;
         break;
     case 10:
@@ -4161,20 +3457,20 @@ inline s32 initial_angle_800623E4(TBoss5Gryphon *self) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss5Gryphon::fn_800623E4(s32 event) {
+void TBoss5Gryphon::move_to_motion_destination(s32 event) {
     TBoss5Gryphon *self = this;
     f32 dx;
     f32 dz;
 
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 4;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         self->m_6ec = initial_angle_800623E4(self);
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         TBoss8Dragon__sub_80063EF4((s32)self);
         dx = ((Motion_800623E4 *)self->motion)->x - self->position[0];
@@ -4188,7 +3484,7 @@ void TBoss5Gryphon::fn_800623E4(s32 event) {
             self->advance_motion_entry();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -4198,23 +3494,23 @@ void TBoss5Gryphon::fn_800623E4(s32 event) {
 }
 #pragma pop
 
-void TBoss5Gryphon::fn_80062550(s32 arg1) {
+void TBoss5Gryphon::circle_arena(s32 arg1) {
     s32 ofs;
     s32 ang;
     s32 a;
     Tgt_80062550 *t;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         ((Obj_80062550 *)this)->fb8 = 4;
-        ((VObj_80062550 *)this)->m94();
+        ((TBoss5Gryphon *)this)->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(this);
-        this->reset_float_3c();
+        this->set_flight_height();
         ((Obj_80062550 *)this)->f490 = 0;
         return;
     case 8:
-        ((TBoss8Dragon *)this)->update_periodic_effect();
+        ((TBoss5Gryphon *)this)->refresh_target_periodically();
         return;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         ((s32 (*)(void *))advance_animation_playback)(this);
         TBoss8Dragon__sub_80063EF4((s32)this);
         ofs = 0x4000;
@@ -4233,7 +3529,7 @@ void TBoss5Gryphon::fn_80062550(s32 arg1) {
     case 1: return;
     case 2: return;
     case 3: return;
-    case 5: return;
+    case ENEMY_STATE_LEAVE: return;
     case 6: return;
     case 7: return;
     case 9: return;
@@ -4245,19 +3541,19 @@ void TBoss5Gryphon::fn_80062550(s32 arg1) {
 void TBoss5Gryphon::fn_80062660(s32 event) {
     TBoss5Gryphon *self = this;
     switch (event) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->m_b8 = 4;
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        self->reset_float_3c();
+        self->set_flight_height();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         TBoss8Dragon__sub_80063EF4((s32)self);
         move_along_angle__13TBoss5GryphonFPvif(self, self->rotation_y, self->motion->m_8);
         self->m_480 += self->motion->m_4;
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         break;
     case 10:
     case 11:
@@ -4266,10 +3562,10 @@ void TBoss5Gryphon::fn_80062660(s32 event) {
     }
 }
 
-void TBoss5Gryphon::update_active_player_count(s32 arg1) {
+void TBoss5Gryphon::wait_for_players(s32 arg1) {
     void *ene_dd = this;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         ((TObjEneDD *)ene_dd)->m_b8 = 0;
         *(s32 *)((s8 *)ene_dd + 0x6DC) = 0;
         return;
@@ -4277,10 +3573,10 @@ void TBoss5Gryphon::update_active_player_count(s32 arg1) {
         if ((s32) *(s32 *)((s8 *)ene_dd + 0x6DC) > 0x96) {
             ((TObjEneDD *)ene_dd)->transition_enemy_state(0xB);
         }
-    case 5:
+    case ENEMY_STATE_LEAVE:
     case 1:
         return;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         if ((get_player_by_client_id(0) != 0U) || (get_player_by_client_id(1) != 0U) || (get_player_by_client_id(2) != 0U) || (get_player_by_client_id(3) != 0U)) {
             *(s32 *)((s8 *)ene_dd + 0x6DC) = (s32) (*(s32 *)((s8 *)ene_dd + 0x6DC) + 1);
         }
@@ -4292,34 +3588,10 @@ void TBoss5Gryphon::update_active_player_count(s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -4331,33 +3603,9 @@ void TBoss5Gryphon::update_active_player_count(s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -4386,27 +3634,11 @@ void TBoss5Gryphon::update_active_player_count(s32 arg1) {
 #define F(t, o) (*(t *)(arg0 + (o)))
 #pragma pop
 
-
-
-
 #pragma push
 #pragma fp_contract on
 #pragma pop
 
-
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -4414,18 +3646,16 @@ void TBoss5Gryphon::update_active_player_count(s32 arg1) {
 #pragma push
 #pragma fp_contract on
 #pragma pop
-
-
 
 void TBoss5Gryphon::fn_800627E4(u32 arg1) {
     s32 *p = (s32 *)((u8 *)this + 0x6E8);
     u8 sp8[0xC];
     void *obj;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         *(s16 *)((s8 *)this + 0xB8) = 0;
         ((s32 (*)(void))set_flag_4e4__12TBoss8DragonFPv)();
-        this->reset_float_3c();
+        this->set_flight_height();
         ((s32 (*)(void *))advance_animation_playback)((void *)this);
         *(f32 *)((s8 *)this + 0x38) = (f32) lbl_805D8D5C;
         *(f32 *)((s8 *)this + 0x3C) = (f32) lbl_805D8D5C;
@@ -4456,7 +3686,7 @@ void TBoss5Gryphon::fn_800627E4(u32 arg1) {
             TBoss8Dragon::init_state_zero((void *)this);
         }
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         switch (*(s32 *)((s8 *)this + 0x6DC)) {
         case 0:
             ((s32 (*)(void *))advance_animation_playback)((void *)this);
@@ -4506,7 +3736,7 @@ void TBoss5Gryphon::fn_800627E4(u32 arg1) {
             return;
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) ((u8 *)this + 0x38), (void *)lbl_80437DC4);
         ((TObjPlayer *)((u8 *)this + 0x5C))->copy_xyz((void *)lbl_80437DD0);
         *(f32 *)((s8 *)this + 0x484) = (f32) lbl_805D8D5C;
@@ -4529,11 +3759,11 @@ void TBoss5Gryphon::fn_80062BA0(u32 arg1) {
     Vec_80062BA0 tmp;
     Vec_80062BA0 *p;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         F(s16, 0xB8) = 0x1A;
-        ((VObj_18_81e212 *)(arg0))->m93();
+        ((TBoss5Gryphon *)arg0)->vfunc_95();
         set_flag_4e4__12TBoss8DragonFPv(arg0);
-        ((TBoss5Gryphon *)arg0)->reset_float_3c();
+        ((TBoss5Gryphon *)arg0)->set_flight_height();
         F(s32, 0x4C0) |= 0xC4;
         F(s32, 0x6DC) = 0;
         F(s32, 0x6E0) = 0;
@@ -4558,7 +3788,7 @@ void TBoss5Gryphon::fn_80062BA0(u32 arg1) {
             break;
         }
         return;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(arg0);
         switch (TBoss8Dragon__sub_8005D700()) {
         case 0:
@@ -4588,7 +3818,7 @@ void TBoss5Gryphon::fn_80062BA0(u32 arg1) {
             break;
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         F(s32, 0x4C0) &= ~0x84;
         VecCopy__FP3VecPC3Vec(&tmp, arg0 + 0x38);
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, lbl_80437DB8);
@@ -4615,20 +3845,20 @@ void TBoss5Gryphon::fn_80062BA0(u32 arg1) {
 }
 #pragma pop
 
-void TBoss5Gryphon::fn_80062E94(u32 arg1) {
+void TBoss5Gryphon::update_landing_attack(u32 arg1) {
     u8 *arg0 = (u8 *)this;
     Vec_80062E94 at;
     f32 d;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         *(s16 *)((s8 *)arg0 + 0xB8) = 5;
-        ((VObj_80062E94 *)arg0)->m94();
+        ((TBoss5Gryphon *)arg0)->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(arg0);
-        ((TBoss5Gryphon *)arg0)->reset_float_3c();
+        ((TBoss5Gryphon *)arg0)->set_flight_height();
         *(u32 *)((s8 *)arg0 + 0x4C0) |= 4;
         *(s32 *)((s8 *)arg0 + 0x6DC) = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(arg0);
         switch (*(s32 *)((s8 *)arg0 + 0x6DC)) {
         case 0:
@@ -4642,8 +3872,8 @@ void TBoss5Gryphon::fn_80062E94(u32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x3C) = (*(const f32 *)&lbl_805D8DEC) + lbl_805D8E8C * -(d * d) / lbl_805D8E90;
             move_along_angle__13TBoss5GryphonFPvif(arg0, *(s32 *)((s8 *)arg0 + 0x60), lbl_805D8E04);
             if (objInBand((GameObj *)arg0, (f32)lbl_805D8E94) != 0) {
-                ((TBoss8Dragon *)arg0)->clear_timer();
-                ((TBoss8Dragon *)arg0)->reset_angle();
+                ((TBoss5Gryphon *)arg0)->enter_ground_mode();
+                ((TBoss5Gryphon *)arg0)->set_ground_height();
                 ((TBoss5Gryphon *)arg0)->play_se(0x40032D0D);
                 at.x = *(f32 *)((s8 *)arg0 + 0x38);
                 at.y = lbl_805D8D5C;
@@ -4664,9 +3894,9 @@ void TBoss5Gryphon::fn_80062E94(u32 arg1) {
             ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
         }
         break;
-    case 5:
-        ((TBoss8Dragon *)arg0)->clear_timer();
-        ((TBoss8Dragon *)arg0)->reset_angle();
+    case ENEMY_STATE_LEAVE:
+        ((TBoss5Gryphon *)arg0)->enter_ground_mode();
+        ((TBoss5Gryphon *)arg0)->set_ground_height();
         *(u32 *)((s8 *)arg0 + 0x4C0) &= ~4;
         break;
     case 1: return;
@@ -4688,20 +3918,20 @@ void TBoss5Gryphon::fn_80063088(u32 arg1) {
     f32 speed;
     void *p;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         self->fB8 = 0x18;
-        self->m94();
+        ((TBoss5Gryphon *)self)->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
-        ((TBoss5Gryphon *)self)->reset_float_3c();
+        ((TBoss5Gryphon *)self)->set_flight_height();
         self->state = 0;
         self->f6E0 = 0;
         self->fx = NULL;
         self->f490 = 0;
         break;
     case 8:
-        ((TBoss8Dragon *)self)->update_periodic_effect();
+        ((TBoss5Gryphon *)self)->refresh_target_periodically();
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         switch (self->state) {
         case 0:
@@ -4750,7 +3980,7 @@ void TBoss5Gryphon::fn_80063088(u32 arg1) {
             break;
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         if (self->fx != NULL) {
             queue_destruction__7TObjectFv(self->fx);
             self->fx = NULL;
@@ -4774,14 +4004,14 @@ void TBoss5Gryphon::fn_80063320(u32 arg1) {
     u8 *arg0 = (u8 *)this;
     f32 d;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         *(s16 *)((s8 *)arg0 + 0xB8) = 3;
-        ((VObj_80063320 *)arg0)->m94();
-        ((TBoss8Dragon *)arg0)->clear_timer();
-        ((TBoss8Dragon *)arg0)->reset_angle();
+        ((TBoss5Gryphon *)arg0)->vfunc_96();
+        ((TBoss5Gryphon *)arg0)->enter_ground_mode();
+        ((TBoss5Gryphon *)arg0)->set_ground_height();
         *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
         break;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(arg0);
         switch (*(s32 *)((s8 *)arg0 + 0x6E0)) {
         case 0:
@@ -4824,9 +4054,9 @@ void TBoss5Gryphon::fn_80063320(u32 arg1) {
             ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         set_flag_4e4__12TBoss8DragonFPv(arg0);
-        ((TBoss5Gryphon *)arg0)->reset_float_3c();
+        ((TBoss5Gryphon *)arg0)->set_flight_height();
         *(u32 *)((s8 *)arg0 + 0x4C0) &= ~4;
         break;
     case 1: return;
@@ -4842,22 +4072,22 @@ void TBoss5Gryphon::fn_80063320(u32 arg1) {
 }
 #pragma pop
 
-void TBoss5Gryphon::fn_80063570(s32 arg1) {
+void TBoss5Gryphon::update_ground_pursuit(s32 arg1) {
     Obj_80063570 *arg0 = (Obj_80063570 *)this;
     f32 spd;
     switch (arg1) {
-    case 4:
+    case ENEMY_STATE_ENTER:
         arg0->fb8 = 1;
-        ((VObj_80063570 *)arg0)->m94();
-        ((TBoss8Dragon *)arg0)->clear_timer();
-        ((TBoss8Dragon *)arg0)->reset_angle();
+        ((TBoss5Gryphon *)arg0)->vfunc_96();
+        ((TBoss5Gryphon *)arg0)->enter_ground_mode();
+        ((TBoss5Gryphon *)arg0)->set_ground_height();
         arg0->flags |= 0x10;
         arg0->f490 = 0;
         return;
     case 8:
-        ((TBoss8Dragon *)arg0)->update_periodic_effect();
+        ((TBoss5Gryphon *)arg0)->refresh_target_periodically();
         return;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(arg0);
         TBoss8Dragon__sub_80064E3C((u8 *)arg0);
         ((s32 (*)(void *))update_velocity__9TObjEneDDFv)(arg0);
@@ -4873,7 +4103,7 @@ void TBoss5Gryphon::fn_80063570(s32 arg1) {
             }
         }
         break;
-    case 5:
+    case ENEMY_STATE_LEAVE:
         arg0->flags &= ~0x10;
         break;
     case 1: return;
@@ -4887,22 +4117,22 @@ void TBoss5Gryphon::fn_80063570(s32 arg1) {
     }
 }
 
-void TBoss5Gryphon::fn_8006369C(u32 arg1) {
-    Obj_8006369C *self = (Obj_8006369C *)this;
+void TBoss5Gryphon::update_idle_state(u32 arg1) {
+    TBoss5Gryphon *self = this;
     switch (arg1) {
-    case 4:
-        self->f_B8 = 0;
-        self->m94();
-        ((TBoss8Dragon *)self)->clear_timer();
-        ((TBoss8Dragon *)self)->reset_angle();
+    case ENEMY_STATE_ENTER:
+        self->m_b8 = 0;
+        self->vfunc_96();
+        self->enter_ground_mode();
+        self->set_ground_height();
         return;
-    case 0:
+    case ENEMY_STATE_UPDATE:
         advance_animation_playback(self);
         return;
     case 1: return;
     case 2: return;
     case 3: return;
-    case 5: return;
+    case ENEMY_STATE_LEAVE: return;
     case 6: return;
     case 7: return;
     case 8: return;
@@ -4914,8 +4144,7 @@ void TBoss5Gryphon::fn_8006369C(u32 arg1) {
 
 void TBoss5Gryphon::fn_80063714() {  }
 
-
-void TBoss5Gryphon::dispatch_state_event(s32 state, s32 event) {
+void TBoss5Gryphon::dispatch_action(u32 state, s32 event) {
     TBoss5Gryphon *self = this;
     StateAction *actions = dispatch_state_actions();
     StateAction *action = actions + state;
@@ -4926,20 +4155,7 @@ void TBoss5Gryphon::dispatch_state_event(s32 state, s32 event) {
 }
 #pragma pop
 
-
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -4954,18 +4170,6 @@ void TBoss8Dragon::spawn_switch_attack() {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5017,18 +4221,6 @@ void TBoss5Gryphon::spawn_lightning_effect() {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon__sub_80063EF4(s32 arg0) {
     if (objInBand((GameObj *)arg0, lbl_805D8EBC) != 0) {
         ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
@@ -5037,18 +4229,6 @@ void TBoss8Dragon__sub_80063EF4(s32 arg0) {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5070,18 +4250,6 @@ void TBoss5Gryphon::spawn_ground_splash() {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5131,18 +4299,6 @@ void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon__sub_800641A8(u8 *ene_dd) {
     struct CopyStack_800641A8 { u8 bytes[0x14]; };
     CopyStack_800641A8 copy_storage_800641A8;
@@ -5161,18 +4317,6 @@ void TBoss8Dragon__sub_800641A8(u8 *ene_dd) {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5218,18 +4362,6 @@ void TBoss8Dragon__sub_8006435C(u8 *ene_dd) {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5292,18 +4424,6 @@ void TBoss5Gryphon::update_collider_from_table() {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon__sub_800646F0(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_800646F0, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800646F0, sp10) == 0x8) ? 1 : -1];
@@ -5321,34 +4441,10 @@ void TBoss8Dragon__sub_800646F0(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon::run_default_state() { query_default(); attack_default(); }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5359,34 +4455,10 @@ int TBoss8Dragon::update_state_3() { return emit_part_attack_effect__13TBoss5Gry
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int TBoss8Dragon::set_state_2() { return emit_part_attack_effect__13TBoss5GryphonFPvi(this, 2); }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5397,34 +4469,10 @@ int TBoss8Dragon::attack_default() { return emit_part_attack_effect__13TBoss5Gry
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int TBoss8Dragon::query_default() { return emit_part_attack_effect__13TBoss5GryphonFPvi(this, 0); }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5451,18 +4499,6 @@ void TBoss8Dragon__sub_80064828(u8 *arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon__sub_800648C8(u8 *arg0) {
     if (objInBand((GameObj *)arg0, (f32)lbl_805D8EC0) != 0) {
         ((TBoss8Dragon *)arg0)->query_default();
@@ -5486,18 +4522,6 @@ void TBoss8Dragon__sub_800648C8(u8 *arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 int emit_part_attack_effect__13TBoss5GryphonFPvi(void *ene_dd, int arg1) {
     ByteBlock_14 prm;
     Vec_80064968 *p;
@@ -5517,34 +4541,10 @@ int emit_part_attack_effect__13TBoss5GryphonFPvi(void *ene_dd, int arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon::copy_spawn_params(void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short *)&this->unk_1C; VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)this + 0x38)); *(void**)((char*)a1 + 0x10) = *(void* *)&this->m_60; ((TBoss8Dragon *)a1)->send_spawn_params_packet(); }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5560,18 +4560,6 @@ void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self) {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5594,18 +4582,6 @@ void apply_remote_action__13TBoss5GryphonFPvPv(u8 *ene_dd, u8 *arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon::copy_action_state(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)&this->m_0 = (s16) *(s16 *)((s8 *)arg1 + 0);
@@ -5623,18 +4599,6 @@ void handle_6x9F_gal_gryphon_boss_actions(void *arg0);
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void handle_6xA0_gal_gryphon_boss_actions(TBoss8Dragon *boss8_dragon) {
     void *x;
     boss8_dragon->byteswap_action_packet();
@@ -5646,18 +4610,6 @@ void handle_6xA0_gal_gryphon_boss_actions(TBoss8Dragon *boss8_dragon) {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5673,18 +4625,6 @@ void TBoss5Gryphon::set_target_from_action(void *arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void handle_6x9F_gal_gryphon_boss_actions(void *boss8_dragon) {
     void *x;
     ((TBoss8Dragon *)boss8_dragon)->bswap_boss_actions();
@@ -5696,18 +4636,6 @@ void handle_6x9F_gal_gryphon_boss_actions(void *boss8_dragon) {
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5727,129 +4655,45 @@ void TBoss5Gryphon::reload_stats_for_type() {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::reset_radius() { *(float *)&this->unk_3C = lbl_805D8EC4; }
+void TBoss5Gryphon::set_offscreen_height() { this->position[1] = lbl_805D8EC4; }
 #pragma pop
 
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::set_anim_speed() { *(float *)&this->unk_3C = lbl_805D8E20; }
+void TBoss5Gryphon::set_low_flight_height() { this->position[1] = lbl_805D8E20; }
 #pragma pop
 
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss5Gryphon::reset_float_3c() { *(float*)((char*)this + 0x3c) = lbl_805D8DEC; }
+void TBoss5Gryphon::set_flight_height() { *(float*)((char*)this + 0x3c) = lbl_805D8DEC; }
 #pragma pop
 
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::reset_angle() { *(float *)&this->unk_3C = lbl_805D8D84; }
+void TBoss5Gryphon::set_ground_height() { this->position[1] = lbl_805D8D84; }
 #pragma pop
 
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::set_phase() { this->m_4e4 = 3; }
+void TBoss5Gryphon::enter_offscreen_mode() { this->m_4e4 = 3; }
 #pragma pop
 
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::set_attack_phase() { this->m_4e4 = 2; }
+void TBoss5Gryphon::enter_low_flight_mode() { this->m_4e4 = 2; }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5860,34 +4704,10 @@ void set_flag_4e4__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x4e4) = 1; }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::clear_timer() { this->m_4e4 = 0; }
+void TBoss5Gryphon::enter_ground_mode() { this->m_4e4 = 0; }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5902,18 +4722,6 @@ void TBoss8Dragon__sub_80064DB8(u8 *arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss8Dragon__sub_80064E3C(u8 *arg0) {
     if ((objInBand((GameObj *)arg0, (f32)lbl_805D8EC0) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8DF8)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8D50)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8D54)) != 0)) {
         ((TBoss5Gryphon *)arg0)->play_se(0x40032D08);
@@ -5925,36 +4733,12 @@ void TBoss8Dragon__sub_80064E3C(u8 *arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
     play_persistent_sound(arg1, arg0, arg0 + 0x560, 0, 0);
 }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -5968,36 +4752,12 @@ void TBoss5Gryphon::play_se(s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::update_epsilon_position() {
+void TBoss5Gryphon::update_linked_ground_position() {
     update_linked_position__12TObjEneDD_STFf(lbl_805D8EC8);
 }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -6077,34 +4837,10 @@ void TBoss5Gryphon::shift_position_history() {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss5Gryphon::vfunc_61() {  }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -6115,34 +4851,10 @@ void TBoss5Gryphon::vfunc_62() {  }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 void TBoss5Gryphon::vfunc_63() {  }
 #pragma pop
 
 #pragma push
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -6153,24 +4865,12 @@ void TBoss5Gryphon::vfunc_28() {  }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-void TBoss8Dragon::update_animation_by_state() {
-    struct VObj_80065370_80062BA0 *obj = (struct VObj_80065370_80062BA0 *)this;
+void TBoss5Gryphon::update_state_or_dispatch_tick() {
+    TBoss5Gryphon *obj = (TBoss5Gryphon *)this;
     if (!(*(s32 *)((s8 *)obj + 0x4C0) & 0xC) && (*(s16 *)((s8 *)obj + 0x32C) <= 0)) {
         ((s32 (*)(void))set_animation_by_state__12TBoss8DragonFPv)();
     } else {
-        obj->vcall(*(s16 *)((s8 *)obj + 0x326), 9);
+        obj->dispatch_action(*(s16 *)((s8 *)obj + 0x326), 9);
     }
 }
 #pragma pop
@@ -6179,22 +4879,9 @@ void TBoss8Dragon::update_animation_by_state() {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
-#pragma inline_depth(1)
-#pragma auto_inline off
-#pragma dont_inline off
 
 struct O_8005F740;
 struct Obj_8005FBC4;
-struct VObj_80065370_80062BA0;
 void TBoss5Gryphon::run_task() {
     s32 temp_r31;
     s32 temp_r31_2;
@@ -6234,15 +4921,15 @@ void TBoss5Gryphon::run_task() {
             if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {
                 ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
-            ((TBoss8Dragon *)arg0)->update_animation_by_state();
+            ((TBoss5Gryphon *)arg0)->update_state_or_dispatch_tick();
             ((TBoss8Dragon *)arg0)->flush_pending_effect();
-            ((VObj_18 *)(arg0))->m85(this->mode, 8);
-            ((VObj_18 *)(arg0))->m85(this->mode, 0);
+            ((TBoss5Gryphon *)arg0)->dispatch_action(this->mode, 8);
+            ((TBoss5Gryphon *)arg0)->dispatch_action(this->mode, 0);
         } else {
             if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {
                 ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
-            ((VObj_18 *)(arg0))->m85(this->mode, 0);
+            ((TBoss5Gryphon *)arg0)->dispatch_action(this->mode, 0);
         }
     }
     ((TObjEneDD *)arg0)->sub_800BBA0C();
@@ -6276,9 +4963,9 @@ Obj_80065658 *__dt__13TBoss5GryphonFv(Obj_80065658 *o, s16 flag) {
                 o->objs[i] = 0;
             }
         }
-        if (o->f57c != 0) {
-            delete o->f57c;
-            o->f57c = 0;
+        if (o->demo != 0) {
+            delete o->demo;
+            o->demo = 0;
         }
         if (o->f578 != 0) {
             delete_buffer__12TBoss8DragonFis(o->f578, 1);
@@ -6391,7 +5078,7 @@ TBoss5Gryphon *TBoss5Gryphon__ct(TBoss5Gryphon *self, void *parent, void *data) 
     if (p != NULL) {
         p = TBoss5GryphonColli__ct(p, &self->m_4c4);
     }
-    ((Obj_80065658 *)self)->f57c = (VObj_80065658 *)p;
+    self->demo = (TBoss5GryphonDemo *)p;
     for (i = 0; i < 4; i++) {
         activate_and_dispatch__10TObjPlayerFv(&self->renderFadeStates[i]);
     }
@@ -6433,7 +5120,7 @@ TBoss5Gryphon *TBoss5Gryphon__ct(TBoss5Gryphon *self, void *parent, void *data) 
     }
     self->mode = 4;
     if (!(self->m_4c0 & 1)) {
-        ((VObj_18 *)self)->m85(self->mode, 4);
+        self->dispatch_action(self->mode, 4);
     }
     self->m_730 = 0;
     return self;
