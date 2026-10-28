@@ -105,5 +105,7 @@ void TWindowDD__sub_803414DC(void) {
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_803414DC_TWindowDD__data_804EFC24 *)&TWindowDD__data_804EFC24).value) + 8) = (f32) lbl_805DFC20;
 }
 
+static void (*s_ctor_defaults)(void) __attribute__((section(".ctors"))) = TWindowDD__sub_803414DC;
+
 
 }
