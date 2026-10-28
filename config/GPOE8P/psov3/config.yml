@@ -14,21 +14,6 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
-  - apply_balance__19TWindowSoundBalanceFPv
-  - handle_cancel__19TWindowSoundBalanceFv
-  - handle_lr_input__19TWindowSoundBalanceFv
-  - play_open_sound__19TWindowSoundBalanceFv
-  - set_music_gain__19TWindowSoundBalanceFs
-  - set_sound_effect_gain__19TWindowSoundBalanceFs
-  - sub_8027095C__19TWindowSoundBalanceFv
-  - __ct__20TItemReverseTechCtrlFP7TObject
-  - __dt__20TItemReverseTechCtrlFv
-  - __vt__20TItemReverseTechCtrl
-  - lbl_804A0440
-  - lbl_804A044C
-  - lbl_804A0458
-  - lbl_804A0468
-  - run_task__20TItemReverseTechCtrlFv
   - "@14"
   - "@28@__dt__17TMedicalCenterMesFv"
   - "@28@__dt__22TQuestVmDownLoadServerFv"
@@ -1611,6 +1596,7 @@ force_active:
   - __ct__19TObjEZBoneRotPlayerFv
   - __ct__19TWindowMessageYesNoFP7TObjectPvPvPv
   - __ct__20TBoss3VoloptHiraisinFP7TObjectPv
+  - __ct__20TItemReverseTechCtrlFP7TObject
   - __ct__20TObjChallenge4PRetryFP7TObject
   - __ct__20TObjLiveMonitorSmallFv
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
@@ -1829,6 +1815,7 @@ force_active:
   - __dt__15TAdMcSelectMcGCFv
   - __dt__15TAdPlayerLoadGCFv
   - __dt__15TAdPlyPltAnimGCFv
+  - __dt__15TAdRicoRingCtrlFv
   - __dt__15TAdSubPlyItemGCFv
   - __dt__15TBoss2PhotonPadFv
   - __dt__15TBoss3VoloptP01Fv
@@ -1976,6 +1963,7 @@ force_active:
   - __dt__20TAdGameStartShadowGCFv
   - __dt__20TBoss3VoloptHiraisinFv
   - __dt__20TBoss5GryphonTornadoFv
+  - __dt__20TItemReverseTechCtrlFv
   - __dt__20TOTrapChainSawDamageFv
   - __dt__20TObjBoss5PillarSmokeFv
   - __dt__20TObjChallenge4PRetryFv
@@ -2250,6 +2238,7 @@ force_active:
   - __vt__15TAdMcSelectMcGC
   - __vt__15TAdPlayerLoadGC
   - __vt__15TAdPlyPltAnimGC
+  - __vt__15TAdRicoRingCtrl
   - __vt__15TAdSubPlyItemGC
   - __vt__15TBoss2PhotonPad
   - __vt__15TBoss3VoloptP01
@@ -2394,6 +2383,7 @@ force_active:
   - __vt__20TBoss3VoloptHiraisin
   - __vt__20TBoss5GryphonTornado
   - __vt__20TContainerAncient01R
+  - __vt__20TItemReverseTechCtrl
   - __vt__20TOTrapChainSawDamage
   - __vt__20TObjBoss5PillarSmoke
   - __vt__20TObjChallenge4PRetry
@@ -2594,6 +2584,7 @@ force_active:
   - apply_ad_rico_ring__14TItemEquipBaseFl
   - apply_attack_params__16TObjEneRe7BeruraFiPv
   - apply_attack_stat_status__13TObjEneRe4BitFPv
+  - apply_balance__19TWindowSoundBalanceFPv
   - apply_battle_ctrl_effect__Fi
   - apply_blend_mode_1__10TObjPlayerFv
   - apply_bonuses
@@ -4671,6 +4662,7 @@ force_active:
   - handle_breakup_state__16TObjEneMe3StelthFl
   - handle_buy_confirm__20TShopArmorListWindowFv
   - handle_buy_confirm__24TShopEquipmentListWindowFv
+  - handle_cancel__19TWindowSoundBalanceFv
   - handle_cancel__19TWindowSubMagPhotonFv
   - handle_cancel__21TWindowSubCustomEquipFv
   - handle_cancel__22TWindowSubCustomSelectFv
@@ -4728,6 +4720,7 @@ force_active:
   - handle_lobby_enter__6TLobbyFPviiiiiii
   - handle_login_result__6TLobbyFUi
   - handle_loss_sequence__18TObjChallengeRetryFv
+  - handle_lr_input__19TWindowSoundBalanceFv
   - handle_message__13TBoss5GryphonFl
   - handle_message__13TObjEneBm3FlyFl
   - handle_message__13TObjEneMe1GeeFll
@@ -5520,6 +5513,10 @@ force_active:
   - lbl_8049D984
   - lbl_8049DC28
   - lbl_8049FF88
+  - lbl_804A0440
+  - lbl_804A044C
+  - lbl_804A0458
+  - lbl_804A0468
   - lbl_804AABB8
   - lbl_804B8A10
   - lbl_804B8D80
@@ -6522,6 +6519,7 @@ force_active:
   - play_nearby_se__12TBoss1DragonFv
   - play_open_sound__15TODoorAncient08Fv
   - play_open_sound__15TWindowSnapShotFv
+  - play_open_sound__19TWindowSoundBalanceFv
   - play_open_sound__19TWindowSubMagPhotonFv
   - play_pitched_cue__13TObjEneBm3FlyFv
   - play_player_default_effect__6TLobbyFv
@@ -11244,6 +11242,7 @@ force_active:
   - render__15TAdDrawLineCtrlFv
   - render__15TAdPlayerLoadGCFv
   - render__15TAdPlyPltAnimGCFv
+  - render__15TAdRicoRingCtrlFv
   - render__15TAdSubPlyItemGCFv
   - render__15TBoss2PhotonPadFv
   - render__15TBoss3VoloptP01Fv
@@ -11718,6 +11717,7 @@ force_active:
   - run_task__15TAdDrawLineCtrlFv
   - run_task__15TAdPlayerLoadGCFv
   - run_task__15TAdPlyPltAnimGCFv
+  - run_task__15TAdRicoRingCtrlFv
   - run_task__15TAdSubPlyItemGCFv
   - run_task__15TBoss2PhotonPadFv
   - run_task__15TBoss3VoloptP01Fv
@@ -11844,6 +11844,7 @@ force_active:
   - run_task__20TBoss3VoloptHiraisinFv
   - run_task__20TBoss5GryphonTornadoFv
   - run_task__20TContainerAncient01RFv
+  - run_task__20TItemReverseTechCtrlFv
   - run_task__20TObjChallenge4PRetryFv
   - run_task__20TObjEneDarkGunCenterFv
   - run_task__20TObjLiveMonitorSmallFv
@@ -12132,6 +12133,7 @@ force_active:
   - set_motion_by_state__18TObjEneRe4SorcererFPv
   - set_move_speed_x__13TObjEneMe1GeeFv
   - set_multi_chg_game_mode_0x14__18TAdEnterPasswordGCFPv
+  - set_music_gain__19TWindowSoundBalanceFs
   - set_node_offsets__10TBoss2MineFv
   - set_npc_control_flag__10TNpcPlayerFPvs
   - set_npc_ctrl_state__10TNpcPlayerFl
@@ -12169,6 +12171,7 @@ force_active:
   - set_selection_index__18TObjItemNameSelectFi
   - set_slot_min_clamped_value__16TObjEneMe3StelthFlf
   - set_slot_position__6TLobbyFii
+  - set_sound_effect_gain__19TWindowSoundBalanceFs
   - set_speed_params__12TObjEneLappyFl
   - set_split_screen_name__6TLobbyFi
   - set_stat_scale__10TObjPlayerFPvf
@@ -12564,6 +12567,7 @@ force_active:
   - split_bit_index__15TBoss6SwordWaveFlUcPvPv
   - standing_state__14TObjEneBm5WolfFl
   - start_action_if_idle__11TBoss6Type1Fv
+  - start_anim__15TAdRicoRingCtrlFf
   - start_attack__11TBoss6Type1Fv
   - start_bone_rotation__12T_OWEHMS_ExpFv
   - start_bone_rotation_sequence__19TObjEZBoneRotPlayerFl
@@ -12571,6 +12575,7 @@ force_active:
   - start_download__12TChCrLoadAfsFv
   - start_duel_battle__6TLobbyFv
   - start_entry_timer__6TLobbyFUsl
+  - start_fade__15TAdRicoRingCtrlFf
   - start_fade__9TAdFadeGCFPv
   - start_gba_joyboot__6TLobbyFv
   - start_get_type_async__16TKeyBoardControlFllll
@@ -12781,6 +12786,7 @@ force_active:
   - sub_8025F4A0__19TWindowKeyBoardHardFUc
   - sub_8026556C__21TWindowSubComCardListFv
   - sub_80266BB8__11TWindowMenuFv
+  - sub_8027095C__19TWindowSoundBalanceFv
   - sub_80271F04__17TWindowSubComCardFPvll
   - sub_802721D8__17TWindowSubComCardFv
   - sub_802730E0__17TWindowSubComCardFv
