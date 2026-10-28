@@ -78,7 +78,6 @@ extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 extern struct Op_801F2E64 qst_opcode_table[];
-extern s32 TLobby__quest_window_state;
 int bswap_16__FPUs(void*);
 void *memset(void *, int, u32);
 extern s16 TLobby__data_805D5ECC;
@@ -142,8 +141,8 @@ extern u32 quest_mission_manager;
 
 s32 dispatch_quest_opcode(void) {
     s32 op;
-    TLobby__quest_window_state = 0;
-    while (TLobby__quest_window_state == 0) {
+    qst_suspend_reason = QST_RUNNING;
+    while (qst_suspend_reason == QST_RUNNING) {
         op = TLobby::read_packet_byte();
         switch (op) {
         case 0xF8:
@@ -155,7 +154,7 @@ s32 dispatch_quest_opcode(void) {
         }
         qst_opcode_table[op].fn(op);
     }
-    return TLobby__quest_window_state;
+    return qst_suspend_reason;
 }
 
 void TLobby::save_quest_state_to_record() {

@@ -2007,7 +2007,6 @@ extern u8 *TLobby__quest_message_window;
 extern u32 TLobby__quest_secondary_window;
 extern s32 TLobby__quest_choice_window;
 extern unsigned char TLobby__active_window_index;
-extern int TLobby__quest_window_state;
 extern int TLobby__data_805D5EB0;
 extern int TLobby__quest_window_object;
 extern int TLobby__menu_state_object;
@@ -2184,7 +2183,7 @@ void qst_op_chat_box() {
     (*(void * *)&TLobby__quest_message_window) = (void *)create_quest_message_window_at((s32)&pos, (s32)&size);
     ((TLobby *)(*(void * *)&TLobby__quest_message_window))->set_field_90(field90);
     dispatch_message_window_text((*(void * *)&TLobby__quest_message_window), arg, 3);
-    (*(s32 *)&TLobby__quest_window_state) = 4;
+    qst_suspend_reason = QST_WAIT_MESSAGE;
     TWindowCtrl::set_flag_bit2();
     close_window_if_active((void *)local_client_id);
     request_active_window_close();
@@ -2203,7 +2202,7 @@ void qst_op_add_color_overlay() {
     }
 }
 
-void qst_op_get_chosen_item_id(int a0) { qst_registers[(unsigned char)(a0)] = -1; TLobby__active_window_index = a0; TLobby__quest_window_state = 12; TWindowCtrl::set_flag_bit2(); close_window_if_active((void *)((*(int *)&local_client_id))); request_active_window_close(); TWindowCtrl::set_close_flag(); }
+void qst_op_get_chosen_item_id(int a0) { qst_registers[(unsigned char)(a0)] = -1; TLobby__active_window_index = a0; qst_suspend_reason = QST_WAIT_ITEM_CHOICE; TWindowCtrl::set_flag_bit2(); close_window_if_active((void *)((*(int *)&local_client_id))); request_active_window_close(); TWindowCtrl::set_close_flag(); }
 
 void qst_op_prevent_item_select(s32 arg0) {
     if ((u32) TLobby__quest_state_object_16c != 0U) {
@@ -3952,7 +3951,7 @@ int qst_op_ba_clear_trapself(void) { return set_trap_count__10TOMineTrapFi((void
 
 int qst_op_ba_set_trapself() { return set_trap_count__10TOMineTrapFi((void*)(1)); }
 
-void qst_op_award_item_ok(int a0) { TLobby__menu_state_object = create__16TObjItemOKWindowFPv((void*)tl_01); qst_registers[(unsigned char)(a0)] = 0; TLobby__active_window_index = a0; TLobby__quest_window_state = 11; }
+void qst_op_award_item_ok(int a0) { TLobby__menu_state_object = create__16TObjItemOKWindowFPv((void*)tl_01); qst_registers[(unsigned char)(a0)] = 0; TLobby__active_window_index = a0; qst_suspend_reason = QST_WAIT_ITEM_OK; }
 
 void qst_op_ba_set_box_drop_area(s32 arg0) {
     create_instance__12TItemDropSubFl((int) (qst_registers[(u8)arg0]), qst_registers);
@@ -4086,9 +4085,9 @@ void qst_op_award_item_give(u8 arg0) {
     }
 }
 
-void qst_op_award_item_select() { TLobby__quest_window_object = create__18TObjItemNameSelectFPv((void*)tl_01); TLobby__quest_window_state = 10; }
+void qst_op_award_item_select() { TLobby__quest_window_object = create__18TObjItemNameSelectFPv((void*)tl_01); qst_suspend_reason = QST_WAIT_ITEM_NAME_SELECT; }
 
-void qst_op_award_item_name() { TLobby__data_805D5EB0 = (int)create__17TObjItemNameEntryFPv((void *)tl_01); TLobby__quest_window_state = 9; }
+void qst_op_award_item_name() { TLobby__data_805D5EB0 = (int)create__17TObjItemNameEntryFPv((void *)tl_01); qst_suspend_reason = QST_WAIT_ITEM_NAME_ENTRY; }
 
 void qst_op_set_cmode_rank_result(void) {
     s32 temp_r31;
@@ -6060,12 +6059,12 @@ void qst_op_add_msg(void) {
     s32 x = qst_args[0];
     if ((*(u8* *)&TLobby__quest_message_window) != 0) {
         dispatch_message_window_text((*(u8* *)&TLobby__quest_message_window), x, 3);
-        TLobby__quest_window_state = 4;
+        qst_suspend_reason = QST_WAIT_MESSAGE;
         return;
     }
     if (TLobby__quest_secondary_window != 0) {
         ((TLobby *)TLobby__quest_secondary_window)->send_and_handle(x, 3);
-        TLobby__quest_window_state = 5;
+        qst_suspend_reason = QST_WAIT_MESSAGE_QB;
         return;
     }
     qst_args[1] = x;
@@ -6092,7 +6091,7 @@ void qst_op_disp_msg_qb(void) {
     TLobby__quest_secondary_window = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x71), &pr);
     ((TLobby *)TLobby__quest_secondary_window)->send_and_handle(t, 3);
     ((TLobby *)TLobby__quest_secondary_window)->set_field_1c(lbl_805DC4D4);
-    TLobby__quest_window_state = 5;
+    qst_suspend_reason = QST_WAIT_MESSAGE_QB;
 }
 
 void qst_op_window_msg(void) {
@@ -6105,7 +6104,7 @@ void qst_op_window_msg(void) {
     temp_r3 = create_quest_message_window();
     (*(u32 *)&TLobby__quest_message_window) = temp_r3;
     dispatch_message_window_text((void *)temp_r3, (text), 3);
-    (*(s32 *)&TLobby__quest_window_state) = 4;
+    qst_suspend_reason = QST_WAIT_MESSAGE;
     TWindowCtrl::set_flag_bit2();
     close_window_if_active((void *)local_client_id);
     request_active_window_close();
@@ -6120,9 +6119,9 @@ void qst_op_se(void) {
     play_sound_effect((int) (*(s32 *)((s8 *)((u8 *)(&quest_sound_effect_ids.value) + (qst_args[0] * 4)) + 0)), 0, 0, 0);
 }
 
-void qst_op_fadeout(void) { TLobby::init_fadeout_state((s32)((void*)0)); TLobby__quest_window_state = 8; }
+void qst_op_fadeout(void) { TLobby::init_fadeout_state((s32)((void*)0)); qst_suspend_reason = QST_WAIT_FADE; }
 
-void qst_op_fadein(void) { TLobby::set_fade_params((s32)((void*)0)); TLobby__quest_window_state = 8; }
+void qst_op_fadein(void) { TLobby::set_fade_params((s32)((void*)0)); qst_suspend_reason = QST_WAIT_FADE; }
 
 void qst_op_list(void) {
     char *text;
@@ -6149,7 +6148,7 @@ void qst_op_list(void) {
     ((TLobby *)TLobby__quest_choice_window)->set_field_1c(lbl_805DC4D8);
     qst_registers[idx] = 0;
     TLobby__active_window_index = idx;
-    TLobby__quest_window_state = 7;
+    qst_suspend_reason = QST_WAIT_LIST;
     close_window_if_active((void *)local_client_id);
     request_active_window_close();
     TWindowCtrl::set_close_flag();
@@ -6170,7 +6169,7 @@ void qst_op_message(void) {
     if (speaker < 100) {
         TWindowCtrl::open(speaker & 0xFFFF, text, 0x2D);
         ((void (*)(s32))set_field28__11TWindowCtrlFs)((u16)speaker);
-        TLobby__quest_window_state = 4;
+        qst_suspend_reason = QST_WAIT_MESSAGE;
     } else {
         first = TLobby::get_game_mode();
         end = first + TLobby::get_lobby_flag();
@@ -6187,7 +6186,7 @@ void qst_op_message(void) {
                 if (entity == speaker) {
                     TWindowCtrl::open(identity, text, 0x2D);
                     ((void (*)(s32))set_field28__11TWindowCtrlFs)(identity);
-                    TLobby__quest_window_state = 4;
+                    qst_suspend_reason = QST_WAIT_MESSAGE;
                     break;
                 }
             }
@@ -6564,9 +6563,9 @@ void qst_op_thread(u16 arg0) {
     create_quest_thread((arg0));
 }
 
-void qst_op_sync(void) { TLobby__quest_window_state = 1; }
+void qst_op_sync(void) { qst_suspend_reason = QST_SUSPEND_SYNC; }
 
-void qst_op_exit(void) { TLobby__quest_window_state = 3; }
+void qst_op_exit(void) { qst_suspend_reason = QST_SUSPEND_EXIT; }
 
 void qst_op_ret(void) {
     u32 nested = qst_call_stack_depth > 0;
@@ -6574,7 +6573,7 @@ void qst_op_ret(void) {
         qst_pc = qst_call_stack_pop();
     }
     if (!nested) {
-        TLobby__quest_window_state = 2;
+        qst_suspend_reason = QST_SUSPEND_RETURN;
     }
 }
 

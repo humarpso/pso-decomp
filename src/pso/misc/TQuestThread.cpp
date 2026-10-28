@@ -4,6 +4,7 @@
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TUnk_804C8678.h"
 #include "pso/quest/AreaDialogueScripts.h"
+#include "pso/quest/QuestVm.h"
 #include "pso/TObject.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TLobby.h"
@@ -399,17 +400,17 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     void *thread = o->thread;
 
     switch (o->state) {
-    case 0:
-    case 1:
+    case QST_RUNNING:
+    case QST_SUSPEND_SYNC:
         o->state = ((TLobby *)(o->sub1C))->dispatch_quest();
         break;
-    case 2:
+    case QST_SUSPEND_RETURN:
         ((void (*)(void *))queue_destruction__7TObjectFv)(o);
         break;
-    case 3:
+    case QST_SUSPEND_EXIT:
         ((void (*)(void *))queue_destruction__12TQuestThreadFPv)(thread);
         break;
-    case 4: {
+    case QST_WAIT_MESSAGE: {
         void *p = get_player_by_client_id(local_client_id);
         if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 &&
             TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
@@ -417,15 +418,15 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             if (is_actor_speech_balloon_done(id) == 0) {
                 complete_actor_speech_balloons(id);
             } else {
-                o->state = 0;
+                o->state = QST_RUNNING;
             }
         }
         break;
     }
-    case 5:
+    case QST_WAIT_MESSAGE_QB:
         if (get_player_by_client_id(local_client_id) != NULL &&
             TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
-            o->state = 0;
+            o->state = QST_RUNNING;
         }
         if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 8) != 0 ||
             has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) {
@@ -435,14 +436,14 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             ((void (*)(void *))queue_destruction__7TObjectFv)(o);
         }
         break;
-    case 6:
+    case QST_SUSPEND_6:
         break;
-    case 7:
+    case QST_WAIT_LIST:
         if (((TWindowMenu *)(o->win2C))->is_visible() != 0) {
             o->ids[o->idx] = get_selected_menu_value(o->win2C);
             TWindow__close(o->win2C);
             o->win2C = NULL;
-            o->state = 0;
+            o->state = QST_RUNNING;
             TLobby__sub_8024AC20(local_client_id);
             TWindowCtrl::clear_flag();
             TWindowCtrl::clear_flag_2();
@@ -463,37 +464,37 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             ((void (*)(void *))queue_destruction__7TObjectFv)(o);
         }
         break;
-    case 8:
+    case QST_WAIT_FADE:
         if (TLobby::get_quest_thread_state() == 0) {
-            o->state = 0;
+            o->state = QST_RUNNING;
         }
         break;
-    case 9:
+    case QST_WAIT_ITEM_NAME_ENTRY:
         if (((TWindowSubComCard *)(o->kb178))->process_keyboard_input() != 0) {
             ((void (*)(void *))queue_destruction__7TObjectFv)(o->kb178);
             o->kb178 = NULL;
-            o->state = 0;
+            o->state = QST_RUNNING;
         }
         break;
-    case 10: {
+    case QST_WAIT_ITEM_NAME_SELECT: {
         s32 r = update_com_card__12TQuestThreadFv(o->card17C);
         if (r >= 0) {
             ((void (*)(s32))set_item_name_selection_index)(r);
             ((void (*)(void *))queue_destruction__7TObjectFv)(o->card17C);
             o->card17C = NULL;
-            o->state = 0;
+            o->state = QST_RUNNING;
         }
         break;
     }
-    case 11:
+    case QST_WAIT_ITEM_OK:
         if (update_board_card__12TQuestThreadFv(o->card180) != 0) {
             o->ids[o->idx] = tick_com_card__12TQuestThreadFv(o->card180);
             ((void (*)(void *))queue_destruction__7TObjectFv)(o->card180);
             o->card180 = NULL;
-            o->state = 0;
+            o->state = QST_RUNNING;
         }
         break;
-    case 12: {
+    case QST_WAIT_ITEM_CHOICE: {
         s32 v = select_cursor_entry__22TWindowSubShortCutListFv(o->win184);
         if (v != o->ids[o->idx]) {
             o->ids[o->idx] = v;
@@ -504,7 +505,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             o->win184 = NULL;
             TWindow__close(o->win188);
             o->win188 = NULL;
-            o->state = 0;
+            o->state = QST_RUNNING;
             TLobby__sub_8024AC20(local_client_id);
             TWindowCtrl::clear_flag_bit2();
         }
@@ -618,32 +619,32 @@ void destroy_children_with_tag(Node_801F57B4* arg0) {
 void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
     void *p = t->m10;
     switch (t->state) {
-    case 0:
-    case 1:
+    case QST_RUNNING:
+    case QST_SUSPEND_SYNC:
         t->state = ((TLobby *)(t->m1C))->dispatch_quest();
         break;
-    case 2:
+    case QST_SUSPEND_RETURN:
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(t);
         break;
-    case 3:
+    case QST_SUSPEND_EXIT:
         ((void (*)(void *))queue_destruction__12TQuestThreadFPv)(p);
         break;
-    case 4:
+    case QST_WAIT_MESSAGE:
         if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&local_client_id)) != 0 && ((s32 (*)(void))check_flag_100__10TObjPlayerFPv)() == 0 &&
             ((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(controller_input_state + 0x20, 4) != 0) {
             s32 id = get_window_id__11TWindowCtrlFv();
             if (((s32 (*)(void))is_actor_speech_balloon_done)() == 0) {
                 complete_actor_speech_balloons(id);
             } else {
-                t->state = 0;
+                t->state = QST_RUNNING;
             }
         }
         break;
-    case 5:
+    case QST_WAIT_MESSAGE_QB:
         if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&local_client_id)) != 0) {
             void *pad = controller_input_state + 0x20;
             if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(pad, 4) != 0) {
-                t->state = 0;
+                t->state = QST_RUNNING;
             }
             if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(pad, 8) != 0) {
                 TLobby::close_windows();
@@ -651,46 +652,46 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
             }
         }
         break;
-    case 7:
+    case QST_WAIT_LIST:
         if (((TWindowMenu *)(t->comCard))->is_visible() != 0) {
             t->slots[t->slot] = get_selected_menu_value(t->comCard);
             TWindow__close(t->comCard);
             t->comCard = 0;
-            t->state = 0;
+            t->state = QST_RUNNING;
             ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
             TWindowCtrl::clear_flag();
             TWindowCtrl::clear_flag_2();
         }
         break;
-    case 8:
+    case QST_WAIT_FADE:
         if (TLobby::get_quest_thread_state() == 0) {
-            t->state = 0;
+            t->state = QST_RUNNING;
         }
         break;
-    case 9:
+    case QST_WAIT_ITEM_NAME_ENTRY:
         if (((TWindowSubComCard *)(t->kbd))->process_keyboard_input() != 0) {
             ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->kbd);
             t->kbd = 0;
-            t->state = 0;
+            t->state = QST_RUNNING;
         }
         break;
-    case 10:
+    case QST_WAIT_ITEM_NAME_SELECT:
         if (update_com_card__12TQuestThreadFv(t->com) >= 0) {
             ((void (*)(void))set_item_name_selection_index)();
             ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->com);
             t->com = 0;
-            t->state = 0;
+            t->state = QST_RUNNING;
         }
         break;
-    case 11:
+    case QST_WAIT_ITEM_OK:
         if (update_board_card__12TQuestThreadFv(t->board) != 0) {
             t->slots[t->slot] = tick_com_card__12TQuestThreadFv(t->board);
             ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->board);
             t->board = 0;
-            t->state = 0;
+            t->state = QST_RUNNING;
         }
         break;
-    case 12: {
+    case QST_WAIT_ITEM_CHOICE: {
         s32 sel = select_cursor_entry__22TWindowSubShortCutListFv(t->list);
         if (sel != t->slots[t->slot]) {
             t->slots[t->slot] = sel;
@@ -704,7 +705,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
             t->list = 0;
             TWindow__close(t->help);
             t->help = 0;
-            t->state = 0;
+            t->state = QST_RUNNING;
             ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
             TWindowCtrl::clear_flag_bit2();
             TWindowCtrl::clear_flag();
