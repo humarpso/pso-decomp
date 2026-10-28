@@ -550,7 +550,7 @@ void append_hero_name(void) {
     u8 *player;
     player = (u8 *)(get_player_by_client_id(local_client_id));
     if (player != NULL) {
-        append_string(((TObjPlayer *)player)->vfunc_12());
+        append_string((s32)((TObjPlayer *)player)->get_name());
     } else {
         append_string((s32)lbl_80449CA8);
     }
@@ -601,8 +601,6 @@ struct Tbl_801E6CA4 { u32 w[18]; };
 
 extern "C" {
 void qst_op_olga_flow_is_dead(s32 arg0);
-namespace pf2_p3 { extern "C" { u32 find_item_by_id(int); } }
-#define find_item_by_id pf2_p3::find_item_by_id
 s32 TObjPlayer__sub_801C1AC8();
 void qst_op_get_guildcard_num(void);
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
@@ -681,7 +679,6 @@ void qst_op_check_for_keyword(void) {
     qst_registers[(u8)idx] = 0;
 }
 
-#undef find_item_by_id
 #undef TLobby__quest_script_read_ptr
 
 extern "C" {
@@ -760,7 +757,7 @@ void qst_op_va_call(s32 arg0) {
 
 
 extern "C" {
-s16 obj_getS16_32C(u8 *);
+s16 get_actor_hp(u8 *);
 }
 extern const f32 lbl_805DC4C4;
 extern const f32 lbl_805DC4D0;
@@ -1397,13 +1394,13 @@ s32 memset(void *, int, int);
 void TKeyBoardControl__sub_8000F950(void);
 void mark_area_change_pending();
 void VecCopy__FP3VecPC3Vec(Vec_801F0574 *, const void *);
-int obj_isState2_324__13TUnk_804806E8Fv(TObjPlayer*);
-s16 obj_getS16_32E(u8 *);
+int obj_isState2_324__9TObjCharaFv(TObjPlayer*);
+s16 get_actor_tp(u8 *);
 s32 obj_getPtr2B0_20();
 s16 obj_getS16_2BA(u8 *);
-s32 obj_isState3_324__13TUnk_804806E8Fv(int);
+s32 obj_isState3_324__9TObjCharaFv(int);
 int get_player_data__10TObjPlayerFi(int a0);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 get_current_floor();
 f64 atan2_float(void *, f32, f32);
 void TLobby__sub_8001DE30(void *);
@@ -1455,7 +1452,6 @@ u32 prs_decompress_buffer(s32, s32);
 void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
 u32 poll_serial_access__22TQuestVmDownLoadServerFv();
-void * find_item_by_id(s32);
 s32 TLobby__sub_801036CC();
 s32 is_script_controlled__10TObjPlayerFv();
 s32 activate_d04_slot__10TObjPlayerFv();
@@ -2130,7 +2126,7 @@ void qst_op_chat_bubble(void) {
     for (i = start; i < end; i++) {
         player = (void *)get_player_data__10TObjPlayerFi(i);
         if (player != NULL) {
-            win = obj_getField1c(player);
+            win = get_entity_id(player);
             if (win < 0x4000) {
                 v = fn_get_field_3ac(player);
             } else {
@@ -2303,7 +2299,7 @@ void qst_op_get_player_room(void) {
     u8 i = qst_args[1];
     if (player != NULL) {
         qst_registers[i++] = ((TObjPlayer *)player)->get_field_3e4();
-        qst_registers[i] = ((TUnk_804B9870 *)player)->get_stat_by_key_state();
+        qst_registers[i] = ((TObjBase *)player)->get_room();
     } else {
         qst_registers[i++] = -1;
         qst_registers[i] = -1;
@@ -2315,9 +2311,9 @@ void qst_op_get_player_hp_tp(void) {
     u8 i = qst_args[1];
     if (player != NULL) {
         qst_registers[i++] = ((TItemProShield *)player)->get_field_2b8();
-        qst_registers[i++] = obj_getS16_32C(player);
+        qst_registers[i++] = get_actor_hp(player);
         qst_registers[i++] = obj_getS16_2BA(player);
-        qst_registers[i] = obj_getS16_32E(player);
+        qst_registers[i] = get_actor_tp(player);
     } else {
         qst_registers[i++] = -1;
         qst_registers[i++] = -1;
@@ -2398,7 +2394,7 @@ void qst_op_wrap_item_with_color() {
     n = ((s32 *)&qst_args)[1];
     obj = find_item_by_id(id);
     if (obj != NULL) {
-        ((TItem *)obj)->copy_to_item_data(&item);
+        ((TItem *)obj)->copy_to_item_data((TItemData *)&item);
     } else {
         return;
     }
@@ -2421,7 +2417,7 @@ void qst_op_wrap_item() {
     id = ((s32 *)&qst_args)[0];
     obj = find_item_by_id(id);
     if (obj != NULL) {
-        ((TItem *)obj)->copy_to_item_data(&item);
+        ((TItem *)obj)->copy_to_item_data((TItemData *)&item);
     } else {
         return;
     }
@@ -2442,7 +2438,7 @@ void qst_op_get_item_info() {
     r = qst_args[1];
     item = find_item_by_id(qst_args[0]);
     if (item != NULL) {
-        ((TItem *)item)->copy_to_item_data(&d);
+        ((TItem *)item)->copy_to_item_data((TItemData *)&d);
         qst_registers[r++] = d.b0;
         qst_registers[r++] = d.b1;
         qst_registers[r++] = d.b2;
@@ -2685,7 +2681,7 @@ void qst_op_check_npc_straggle_ex(u8 i, u8 slot) {
         v.y = qst_registers[i++];
         v.z = qst_registers[i];
         TLobby__sub_801F3500(obj, &v);
-        qst_registers[slot] = (u16)((int (*)(int))obj_getField1c)((int)obj);
+        qst_registers[slot] = (u16)((int (*)(int))get_entity_id)((int)obj);
     }
 }
 
@@ -2701,7 +2697,7 @@ void qst_op_set_obj_param_ex(u8 i, u8 out) {
     s.b = qst_registers[i];
     obj = create_quest_col_alock(&s, &qst_registers[out]);
     if (obj != NULL) {
-        qst_registers[out] = obj_getField1c(obj);
+        qst_registers[out] = get_entity_id(obj);
     }
 }
 
@@ -2718,7 +2714,7 @@ void qst_op_party_coords_call_ex(u8 i, u8 out) {
     s.c = qst_registers[i];
     obj = fn_80196214(&s, &qst_registers[first]);
     if (obj != NULL) {
-        qst_registers[out] = obj_getField1c(obj);
+        qst_registers[out] = get_entity_id(obj);
     }
 }
 
@@ -2734,7 +2730,7 @@ void qst_op_npc_coords_call_ex(u8 i, u8 out) {
     s.c = qst_registers[i];
     obj = fn_801963A8(&s, &qst_registers[first]);
     if (obj != NULL) {
-        qst_registers[out] = obj_getField1c(obj);
+        qst_registers[out] = get_entity_id(obj);
     }
 }
 
@@ -2750,7 +2746,7 @@ void qst_op_at_coords_talk_ex(u8 i, u8 out) {
     s.c = qst_registers[i];
     obj = fn_80196814(&s, &qst_registers[first]);
     if (obj != NULL) {
-        qst_registers[out] = obj_getField1c(obj);
+        qst_registers[out] = get_entity_id(obj);
     }
 }
 
@@ -2766,7 +2762,7 @@ void qst_op_at_coords_call_ex(u8 i, u8 out) {
     s.c = qst_registers[i];
     obj = create_quest_col(&s, &qst_registers[first]);
     if (obj != NULL) {
-        qst_registers[out] = obj_getField1c(obj);
+        qst_registers[out] = get_entity_id(obj);
     }
 }
 
@@ -2907,7 +2903,7 @@ void qst_op_move_coords_object(s32 i, s32 k) {
     v.z = qst_registers[(u8)k];
     u32 r = find_by_id__13TQuestColCtrlFUs((u16)qst_registers[(u8)i]);
     if (r != 0) {
-        ((TUnk_804B9870 *)r)->set_position_from(&v);
+        ((TObjBase *)r)->set_position_from(&v);
     }
 }
 
@@ -3249,7 +3245,7 @@ void qst_op_ba_death_tech_level_up(void) {
 
 void qst_op_set_shrink_size(s32 player_variable, s32 size_variable) {
     TObjPlayer* player = ((TObjPlayer*)((s32 (*)(int, void *))get_player_by_client_id)((int)(qst_registers[(u8)player_variable]), (void *)size_variable));
-    if (player && !obj_isState2_324__13TUnk_804806E8Fv(player)) {
+    if (player && !obj_isState2_324__9TObjCharaFv(player)) {
         s32 whole = qst_registers[(u8)size_variable++];
         s32 numerator = qst_registers[(u8)size_variable++];
         s32 denominator = qst_registers[(u8)size_variable];
@@ -3753,7 +3749,7 @@ void qst_op_get_pl_name(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)qst_registers[(u8)arg0], (int)qst_registers)));
     if (temp_r3 != NULL) {
-        strncpy(((void *)(&quest_player_name_buffer.value)), ((TObjPlayer *)temp_r3)->vfunc_12(), 0xF);
+        strncpy(((void *)(&quest_player_name_buffer.value)), (int)((TObjPlayer *)temp_r3)->get_name(), 0xF);
         *(s8 *)((s8 *)(&quest_player_name_buffer.value) + 0xF) = 0;
         qst_registers[(u8)arg0] = 1;
         return;
@@ -4373,7 +4369,7 @@ void qst_op_set_shrink_cam1(u8 arg0) {
 void qst_op_unshrink(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers));
-    if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0)) {
+    if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__9TObjCharaFv)() == 0)) {
         request_player_size_restore((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
 }
@@ -4381,7 +4377,7 @@ void qst_op_unshrink(s32 arg0) {
 void qst_op_shrink(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(qst_registers[(u8)arg0]), (int)qst_registers));
-    if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0)) {
+    if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324__9TObjCharaFv)() == 0)) {
         request_player_shrink((PlayerScaleState *)(temp_r3 + 0x5B0));
     }
 }
@@ -4970,7 +4966,7 @@ void qst_op_find_inventory_item_ex(u8 arg0, u8 arg1) {
         if (obj != NULL) {
             obj = get_owner_if_alive__10TObjPlayerFv(obj);
             if (obj != NULL) {
-                qst_registers[arg1] = ((TItem *)obj)->get_field_d8();
+                qst_registers[arg1] = ((TItem *)obj)->get_item_id();
             } else {
                 qst_registers[arg1] = -1;
             }
@@ -4998,7 +4994,7 @@ void qst_op_item_check(u32 first, u32 destination) {
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
-                qst_registers[(u8) destination] = ((TItem *)owner)->get_field_d8();
+                qst_registers[(u8) destination] = ((TItem *)owner)->get_item_id();
                 return;
             }
             qst_registers[(u8) destination] = -1;
@@ -5028,7 +5024,7 @@ void qst_op_item_delete2(u32 src, u32 dst) {
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
-                ((TItem *)owner)->copy_to_item_data(&item);
+                ((TItem *)owner)->copy_to_item_data((TItemData *)&item);
                 qst_registers[(u8)dst++] = item.data[0];
                 qst_registers[(u8)dst++] = item.data[1];
                 qst_registers[(u8)dst++] = item.data[2];
@@ -5067,7 +5063,7 @@ void qst_op_item_delete(u32 src, u32 dst) {
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
-                ((TItem *)owner)->copy_to_item_data(&item);
+                ((TItem *)owner)->copy_to_item_data((TItemData *)&item);
                 qst_registers[(u8)dst++] = item.data[0];
                 qst_registers[(u8)dst++] = item.data[1];
                 qst_registers[(u8)dst++] = item.data[2];
@@ -5522,7 +5518,7 @@ void qst_op_p_dead(void) {
     temp_r31 = qst_args[0];
     lobby = (u8 *)(((u8 *)((s32 (*)(s32))get_player_by_client_id)(qst_args[1])));
     if ((lobby != NULL) && (is_script_controlled__10TObjPlayerFv() == 0)) {
-        if (obj_isState3_324__13TUnk_804806E8Fv((int)lobby) != 0) {
+        if (obj_isState3_324__9TObjCharaFv((int)lobby) != 0) {
             if (*(s32 *)((s8 *)lobby + 0x30) & 0x800) {
                 qst_registers[temp_r31] = 1;
                 return;
@@ -5561,7 +5557,7 @@ void qst_op_p_hpstat(void) {
     limit = lbl_805DC4D0 / pct;
     obj = (void *)((s32)get_player_by_client_id(player));
     if (obj != NULL) {
-        hp = obj_getS16_32C((u8 *)obj);
+        hp = get_actor_hp((u8 *)obj);
         if (hp / ((TItemProShield *)obj)->get_field_2b8() < limit) {
             qst_registers[reg] = 1;
             return;
@@ -6022,7 +6018,7 @@ void qst_op_mesend(void) {
     for (i = start; i < end; i++) {
         p = (void *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL) {
-            f = obj_getField1c(p);
+            f = get_entity_id(p);
             if (f < 0x4000) {
                 v = fn_get_field_3ac(p);
             } else {
@@ -6157,7 +6153,7 @@ void qst_op_message(void) {
         for (i = first; i < end; i++) {
             actor = (void *)get_player_data__10TObjPlayerFi(i);
             if (actor != NULL) {
-                s32 identity = obj_getField1c(actor);
+                s32 identity = get_entity_id(actor);
                 s32 entity;
                 if (identity < 0x4000) {
                     entity = fn_get_field_3ac(actor);

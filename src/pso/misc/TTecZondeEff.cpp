@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/render/depth_buffer.h"
@@ -12,6 +13,8 @@
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_8023D988___vt__12TTecZondeEff {
     s32 value;
@@ -150,7 +153,7 @@ void spawn_particle_effect(Rec_8023D568 *, s32);
 void queue_destruction__7TObjectFv(void *);
 void restore_saved_depth_alpha_state();
 extern f32 chunk_material_color_half_alpha_f32[];
-extern u32 lbl_805D5660;
+extern u32 saved_model_render_flags;
 extern u32 model_render_flags;
 void matrix_mult_vec(s32, Vec_8023D128 *, Vec_8023D128 *);
 extern Cam_8023D128 lbl_8058D4F8;
@@ -421,18 +424,18 @@ void TTecZondeEff::render() {
         return;
     }
     id = model_render_flags;
-    lbl_805D5660 = id;
+    saved_model_render_flags = id;
     model_render_flags = id | 0x10;
     TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1();
     if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)m3c, (f32 *)m8) != 0 && ((TTecZondeEff *)self)->build_lightning_strip((Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)m3c, (f32 *)m8) != 0) {
-        TObjPlayer::init_xyz_limits();
+        set_additive_blend();
         ((TWindowDD *)verts)->draw_transformed_primitive((void*)(self->count * 2), (void*)TTecZondeEff__beam_vertex_data, (void*)1);
-        TObjPlayer::reset_transform_state();
+        set_default_alpha_blend();
     }
     TParticleCtrl::end_effect_render();
-    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-    model_render_flags = lbl_805D5660;
+    set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+    model_render_flags = saved_model_render_flags;
     restore_saved_depth_alpha_state();
 }
 

@@ -2,7 +2,7 @@
 #include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TUnk_804909C4.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -73,9 +73,9 @@ s32 vec3_add_to(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
+s32 __ct__14TObjCollidableFP7TObject(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
-s16 obj_getField1c(void *, f32);
+s16 get_entity_id(void *, f32);
 s32 subtract_vector(void *, void *);
 f32 atan2_float(f32, f32);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
@@ -151,12 +151,12 @@ TUnk_804909C4::~TUnk_804909C4() {
 extern "C" {
 
 }
-TUnk_804909C4::TUnk_804909C4(u8 *player, s32 arg2, s32 arg3) : TUnk_804AF8A0((TObject *)tl_04) {
+TUnk_804909C4::TUnk_804909C4(u8 *player, s32 arg2, s32 arg3) : TObjCollidable((TObject *)tl_04) {
     s32 var_r0;
     u8 *temp_r3;
     init_collision_body_parts(((u8 *)this), lbl_80490998, 1);
-    *(f32 *)((s8 *)(this->m_a4) + 0xC) = 0.75f * player_scale_factor;
-    *(s16 *)((s8 *)this + 0xC8) = obj_getField1c(player, 0.75f);
+    *(f32 *)((s8 *)(this->bodies) + 0xC) = 0.75f * player_scale_factor;
+    *(s16 *)((s8 *)this + 0xC8) = get_entity_id(player, 0.75f);
     if (((TObjPlayer *)player)->is_flag_set_388_bit26() != 0) {
         var_r0 = 0xDA;
     } else {

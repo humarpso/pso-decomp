@@ -2,6 +2,7 @@
 #include "pso/system/date.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/system/ModelDrawContext.h"
 
 #define RAD_TO_ANGLE (32768.0 / 3.141592f)
 
@@ -21,7 +22,6 @@ u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
 f32 vec_squared_length(u8 *arg0);
 void normalize_vector(void *);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 
 extern f32 lbl_805DB158;
 
@@ -65,7 +65,7 @@ f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v) {
     return *(f32 *)&v;
 }
 
-void fn_80141EB4(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 6); }
+void fn_80141EB4(void) { set_color_blending_mode(0, 5); set_color_blending_mode(1, 6); }
 }
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -73,12 +73,15 @@ void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 vec_distance_squared(u8 *arg0, u8 *arg1);
 void setSpriteInverseColorBlend(void);
 void vsub(void *arg0, void *arg1, void *arg2);
-void setSpriteInverseColorBlend(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 7); }
+void setSpriteInverseColorBlend(void) { set_color_blending_mode(0, 5); set_color_blending_mode(1, 7); }
+
+// Ninja's default blending: source alpha over inverse source alpha.
+void set_default_alpha_blend() { set_color_blending_mode(0, 8); set_color_blending_mode(1, 6); }
+
+// Source alpha added onto the destination.
+void set_additive_blend() { set_color_blending_mode(0, 8); set_color_blending_mode(1, 10); }
+
 extern "C" {
-
-void TObjPlayer::reset_transform_state() { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 6); }
-
-void TObjPlayer::init_xyz_limits() { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 10); }
 
 u16 angle_difference_abs(s32 a, s32 b) {
     s16 d = (u16)b - (u16)a;
@@ -120,18 +123,19 @@ f32 approach_vector_fixed_distance(const V3_80141FBC *from, const V3_80141FBC *t
     return len;
 }
 
-s32 TObjPlayer::clamp_s32(s32 arg0, s32 arg1, s32 arg2) {
-    s32 var_r3;
-
-    var_r3 = arg0;
-    if (var_r3 < arg1) {
-        var_r3 = arg1;
-    }
-    if (var_r3 > arg2) {
-        return arg2;
-    }
-    return var_r3;
 }
+
+s32 clamp_s32(s32 value, s32 min, s32 max) {
+    if (value < min) {
+        value = min;
+    }
+    if (value > max) {
+        return max;
+    }
+    return value;
+}
+
+extern "C" {
 
 void TAdSinglePlyChrSelectGC::get_current_date_stamp() {
     DS_80142108 *arg0 = (DS_80142108 *)this;

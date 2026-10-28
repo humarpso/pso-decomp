@@ -52,20 +52,20 @@ s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
 f32 xz_distance_squared(void *, s32);
-s32 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
+s32 update_object_view_visibility__8TObjBaseFff(void *, f32, f32);
 
 extern s32 camera_ctrl_instance;
 
 s32 TObjLazerFence4::update_object_view_visibility(f32 farg0, f32 farg1) {
     u8 *arg0 = (u8 *)this;
     if (TMainTask::get_render_pass() == 1) {
-        return this->m_1e;
+        return this->visibility;
     }
     if (xz_distance_squared((u8 *)&this->position, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
-        this->m_1e = 1;
-        return this->m_1e;
+        this->visibility = 1;
+        return this->visibility;
     }
-    return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
+    return update_object_view_visibility__8TObjBaseFff(arg0, farg0, farg1);
 }
 
 void TObjLazerFence4::init_models() {
@@ -145,7 +145,7 @@ void TObjLazerFence4::sub_801933C8() {
         ((Obj_801933C8 *)this)->fB0 = 0.0f;
     }
     if (is_current_floor_switch_set(((Obj_801933C8 *)this)->fBA) == 1) {
-        ((TUnk_804AF8A0 *)((Obj_801933C8 *)this))->clear_player_status_flag(0, 1);
+        ((TObjCollidable *)((Obj_801933C8 *)this))->clear_player_status_flag(0, 1);
         ((Obj_801933C8 *)this)->fAC = 1;
     }
 }
@@ -223,7 +223,7 @@ extern "C" {
 
 s32 init_collision_body_parts(void *, void *, int);
 
-void __ct__13TUnk_804AF8A0FP7TObject(void *);
+void __ct__14TObjCollidableFP7TObject(void *);
 extern u16 lbl_80445BE0[];
 extern u8 laser_fence4_collision_body_sets[];
 extern s32 __vt__15TObjLazerFence4[];
@@ -242,9 +242,9 @@ void *TObjLazerFence4::create() {
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
+        __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             TObject::operator delete(arg0);
         }
@@ -255,7 +255,7 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
 #define self ((Fence_801935D8 *)arg0)
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    ((void (*)(void *, void *, void *))__ct__13TUnk_804AF8A0FP7TObject)(self, arg1, arg2);
+    ((void (*)(void *, void *, void *))__ct__14TObjCollidableFP7TObject)(self, arg1, arg2);
     self->vt = (void *)__vt__15TObjLazerFence4;
     self->id = lazer_fence4_class_name;
     ((V_801935D8 *)self)->init(arg2);
@@ -273,8 +273,8 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjLazerFence4 *)self)->init_models();
     init_collision_body_parts(self, laser_fence4_collision_body_sets + (self->f8C % 2) * 0xDC, 5);
     self->flags |= 0x40000000;
-    ((TObjPlayer *)self)->reset_photon_effect();
-    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
+    ((TObjPlayer *)self)->register_object_by_id();
+    ((TObjCollidable *)self)->refresh_collision_body_centers();
     return self;
 }
 #undef self

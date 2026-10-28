@@ -1,3 +1,4 @@
+#include "pso/item/TItemData.h"
 #include "types.h"
 #include "pso/item/TUnk_804C4498.h"
 #include "pso/item/TUnk_804C4468.h"
@@ -86,7 +87,7 @@ struct Search_801D3C38 {
 };
 
 extern "C" {
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 check_player_action_allowed(void);
 s32 fn_801D4270(s32);
@@ -105,11 +106,9 @@ extern const f32 lbl_805DC3D0;
 void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
 void TItemList__sub_801D59A0(void *, int);
-s32 get_item_type_or_default__9TItemListFv(void *);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
-s32 sub_801D58DC__13TUnk_804C4468Fv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -143,20 +142,20 @@ void TUnk_804C4468::run_task() {
         TItemList__sub_801D59A0(this, *(s32 *)(((u8 *)this) + 0x54));
         sub_801D591C();
         r = (Req_801D3780 *)run_item_count_update__9TItemListFv(this);
-        player = get_player_by_client_id(sub_801D58DC__13TUnk_804C4468Fv(this));
+        player = get_player_by_client_id(get_client_id());
         if (player != NULL) {
             if (r->id == -1) {
                 if (r->source == -1) {
-                    ((TItem *)(r->item))->assign_id_and_init((s32)(sub_801D58DC__13TUnk_804C4468Fv(this)), (s32)(get_ptr_0x44__9TItemListFPv(this)));
+                    ((void (*)(TItemData *, s32, f32 *))drop_stacked_item)((TItemData *)r->item, get_client_id(), (f32 *)get_ptr_0x44__9TItemListFPv(this));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, r->extra);
                     TObjPlayer::send_code_45_1((s32)player);
                 } else {
-                    ((TItem *)(r->item))->assign_id_and_init((s32)(sub_801D58DC__13TUnk_804C4468Fv(this)), (s32)(get_ptr_0x44__9TItemListFPv(this)));
-                    send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, get_item_type_or_default__9TItemListFv(r->item));
+                    ((void (*)(TItemData *, s32, f32 *))drop_stacked_item)((TItemData *)r->item, get_client_id(), (f32 *)get_ptr_0x44__9TItemListFPv(this));
+                    send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, ((TItemData *)r->item)->get_stack_count());
                     TObjPlayer::send_code_45_1((s32)player);
                 }
             } else {
-                TObjPlayer::send_6x2A_drop_item(player, r->source, get_ptr_0x44__9TItemListFPv(this), get_item_type_or_default__9TItemListFv(r->item));
+                TObjPlayer::send_6x2A_drop_item(player, r->source, get_ptr_0x44__9TItemListFPv(this), ((TItemData *)r->item)->get_stack_count());
                 TObjPlayer::send_code_45_1((s32)player);
             }
         }
@@ -356,9 +355,9 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
         ((TUnk_804C4498 *)arg0)->m_24 = 0;
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
     } else {
-        ((TUnk_804C4498 *)arg0)->m_20 = obj_getField1c(arg2);
-        ((TUnk_804C4498 *)arg0)->m_24 = (s32) ((TUnk_804B9870 *)arg2)->get_stat_by_key_state();
-        *(s32 *)((s8 *)arg0 + 0x28) = (s32) ((TUnk_804B9870 *)arg2)->rotation_y;
+        ((TUnk_804C4498 *)arg0)->m_20 = get_entity_id(arg2);
+        ((TUnk_804C4498 *)arg0)->m_24 = (s32) ((TObjBase *)arg2)->get_room();
+        *(s32 *)((s8 *)arg0 + 0x28) = (s32) ((TObjBase *)arg2)->rotation_y;
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg3);
     *(s8 *)&((TUnk_804C4498 *)arg0)->unk_1C = arg4;

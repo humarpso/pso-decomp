@@ -291,7 +291,7 @@ extern const f32 lbl_805DA5D4;
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1);
 s32 enemy_set_target_id(void *, int);
 u8 *TObjEneMe3ShinowaMirage__ct(u8 *, void *, u8 *, void *, void *);
-s16 obj_getField1c(void *);
+s16 get_entity_id(void *);
 s32 fn_800E762C(void *);
 s32 TObjEneMe3Shinowa__ct(void *, void *);
 extern s32 lbl_805D2AD0;
@@ -321,7 +321,7 @@ extern s32 model_render_flags;
 s32 TObjEneMe3ShinowaMirage::update_effect() {
     s32 arg0 = (s32)this;
     model_render_flags |= 0x820;
-    ((TUnk_80494AE0 *)(arg0 + 0x430))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)((arg0 + 0x430)));
     set_chunk_material_override_pair(0xFF00, 0x800);
     return 0;
 }
@@ -351,7 +351,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
     if (entity != 0) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(entity + 0x38));
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
-        VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)(*(s32 *)&this->bodies + 0x1C), (const Vec *)(arg0 + 0x38));
         ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *)(entity + 0x5C));
         temp_r4 = this->actorFlags & 0xFFFFF7FF;
         this->actorFlags = temp_r4;
@@ -421,11 +421,11 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *ene_me3_shinowa_mirage, void *ene_me3_shinow
     TObjEneMe3Shinowa__ct(ene_me3_shinowa_mirage, ene_me3_shinowa);
     *(s32 **)((s8 *)ene_me3_shinowa_mirage + 0x18) = __vt__23TObjEneMe3ShinowaMirage;
     *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0) = (s32) lbl_805D2AD0;
-    *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0x42C) = obj_getField1c(arg2);
+    *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0x42C) = get_entity_id(arg2);
     ((TObjEneDD *)ene_me3_shinowa_mirage)->init_common_from((u8 *)arg2);
     *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x358) = (f32) *(f32 *)((s8 *)arg2 + 0x358);
     fn_800E762C(ene_me3_shinowa_mirage);
-    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->m_1c = arg3;
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->entity_id = arg3;
     *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0x2C) = arg4;
     ((TObjEneMe3Shinowa *)ene_me3_shinowa_mirage)->init_enemy();
     *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D4) = 0;
@@ -434,7 +434,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *ene_me3_shinowa_mirage, void *ene_me3_shinow
     *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) = 0xB000FFB0;
     *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x3C) = (f32) lbl_805DA5C0;
     *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x48) = (f32) lbl_805DA5C0;
-    temp_r5 = (unsigned char *) (((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->m_a4);
+    temp_r5 = (unsigned char *) (((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->bodies);
     *(f32 *)((s8 *)temp_r5 + 0x20) = (f32) lbl_805DA5C0;
     ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->actorFlags = (s32) (((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->actorFlags | 0x800);
     *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;

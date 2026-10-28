@@ -45,7 +45,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 bm_o_wreck_ancient_resource_descriptor;
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
-s32 __ct__13TUnk_804AF8A0FP7TObject(void *, int);
+s32 __ct__14TObjCollidableFP7TObject(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
 extern s32 __vt__14TOWreckAncient[];
@@ -69,7 +69,7 @@ void TOWreckAncient::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         draw_ginja_object(this->model);
         pop_matrix();
     }
@@ -91,13 +91,13 @@ void TOWreckAncient::load_resources() {
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_wreck_ancient_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&wreck_ancient_bml_resource) = var_r0;
-    temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3_2 = (int)::operator new(0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
         var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TOWreckAncient__resource_descriptor, 0, 0, 0));
@@ -108,9 +108,9 @@ void TOWreckAncient::load_resources() {
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOWreckAncient;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
+        __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -119,11 +119,11 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8017DE94___vt__14TOWreckAncient_size[sizeof(RecoveredGlobal_8017DE94___vt__14TOWreckAncient) == 0x3C ? 1 : -1];
 u8 *TOWreckAncient__ct(u8 *wreck_ancient, s32 arg1) {
-    __ct__13TUnk_804AF8A0FP7TObject(wreck_ancient, tl_05);
+    __ct__14TObjCollidableFP7TObject(wreck_ancient, tl_05);
     *(s32 **)((s8 *)wreck_ancient + 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
     *(s32 *)((s8 *)wreck_ancient + 0) = (s32) TOWreckAncient__name;
     *(s32 *)((s8 *)wreck_ancient + 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *)arg1);
-    ((TOWreckAncient *)wreck_ancient)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *)arg1);
+    ((TOWreckAncient *)wreck_ancient)->texlist = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *)arg1);
     *(f32 *)((s8 *)wreck_ancient + 0xAC) = (f32) lbl_805DBAD0;
     ((TOWreckAncient *)wreck_ancient)->m_b0 = (f32) lbl_805DBAD4;
     return wreck_ancient;

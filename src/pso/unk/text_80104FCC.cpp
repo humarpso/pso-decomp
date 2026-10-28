@@ -1,9 +1,10 @@
 #include "types.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/misc/TLobby.h"
 #include "pso/item/TItemData.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/map/FloorArea.h"
+#include "pso/unk/text_8011A780.h"
 
 struct Blk_8010542C { u32 w[4]; };
 struct Item_8010542C { u32 a; Blk_8010542C b; };
@@ -73,7 +74,6 @@ struct Obj_80105538 {
 };
 
 extern "C" {
-void TItemData__sub_8010CCB0(void *);
 typedef s32 (*Fn_8010542C)(void *);
 extern Fn_8010542C item_create_fn_table[];
 struct In_801054E0 { u8 pad0; u8 idx; };
@@ -85,7 +85,7 @@ void *get_player_by_client_id(s32);
 s32 get_current_floor(void);
 s32 TObjPlayer__sub_80104840(s32);
 extern s32 TLobby__designated_client_id;
-extern Entry_8010567C *TLobby__data_805D6140;
+extern Entry_8010567C *quest_object_entries;
 extern s32 local_client_id;
 int check_class_equip_permission(TObjPlayer *player, s32 perm);
 s32 *csnVecterUnder(s32 origin, s32 mask);
@@ -124,24 +124,28 @@ int check_class_equip_permission(TObjPlayer *player, s32 perm) {
 }
 
 int roll_weapon_special_channel15(void* p) { return roll_weapon_special_for_stars(p); }
-s32 TLobby::dispatch_item_by_type() {
-    Item_8010542C *src = (Item_8010542C *)this;
+}
+
+TItem *construct_item(TItemData *data) {
+    Item_8010542C *src = (Item_8010542C *)data;
     Fn_8010542C fn;
     if (src != 0) {
         Item_8010542C item = *src;
-        TItemData__sub_8010CCB0(&item);
+        ((TItemData *)&item)->decode_from_network();
         if (((TItemData *)(&item))->isValidGroundDrop() != 0) {
             if (*(u8 *)src < 5) {
                 fn = item_create_fn_table[*(u8 *)src];
                 if (fn != 0) {
-                    ((TLobby *)(item.b.w[2]))->observe_item_id();
-                    return fn(&item);
+                    observe_item_id(item.b.w[2]);
+                    return (TItem *)fn(&item);
                 }
             }
         }
     }
     return 0;
 }
+
+extern "C" {
 
 s32 TLobby__sub_801054E0(In_801054E0 *arg0) {
     if (arg0 != 0) {
@@ -191,7 +195,7 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self) {
     }
 }
 
-void TUnk_804806E8::request_box_item_drop(void *unused, s16 arg2) {
+void TObjChara::request_box_item_drop(void *unused, s16 arg2) {
     Obj_8010567C *self = (Obj_8010567C *)this;
     void *p1;
     void *p2;
@@ -202,7 +206,7 @@ void TUnk_804806E8::request_box_item_drop(void *unused, s16 arg2) {
             (((TObjPlayer *)p1)->get_field_3e4() != ((TObjPlayer *)p2)->get_field_3e4() ||
              TLobby__designated_client_id == local_client_id)) {
             if (self->f2c != -1) {
-                Entry_8010567C e = TLobby__data_805D6140[self->f2c];
+                Entry_8010567C e = quest_object_entries[self->f2c];
                 if (e.b != 0xFFFF) {
                     Pkt_8010567C pkt;
                     ((TLobby *)(&pkt))->build_6x06_guild_card_packet();
@@ -215,9 +219,9 @@ void TUnk_804806E8::request_box_item_drop(void *unused, s16 arg2) {
                     pkt.f6 = self->f2c;
                     pkt.f14 = get_current_floor_area();
                     pkt.f18 = self->f70;
-                    pkt.f1c = this->m_84;
+                    pkt.f1c = this->set_params[0];
                     pkt.f20 = self->f88;
-                    pkt.f24 = this->m_8c;
+                    pkt.f24 = this->set_params[2];
                     ((TLobby *)(&pkt))->process_and_dispatch_packet();
                 }
             }

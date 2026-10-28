@@ -77,7 +77,7 @@ void TObjContainerJungEx::free_data() {
 void TObjContainerJungEx::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &fe_obj_hako02_resource_descriptor.value, 0, 0, 0));
@@ -93,7 +93,7 @@ void TObjDoaEx01::vfunc_18() {
     if (this->m_b0 < 0.0f) {
         this->m_b0 = (f32) 0.0f;
         this->m_ac = 0;
-        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
+        ((TObjCollidable *)arg0)->clear_player_status_flag(0, 8);
     }
 }
 #pragma pop
@@ -148,7 +148,7 @@ void TObjDoaEx01::play_proximity_sound() {
     if (self->flags & 1) {
         if (is_any_player_within_radius_xz((u8 *)self, (f32)4.9e+03f) == 1) {
             self->state = 1;
-            ((TUnk_804AF8A0 *)self)->set_indexed_flags(0, 8);
+            ((TObjCollidable *)self)->set_indexed_flags(0, 8);
             switch (get_current_floor_area()) {
             case AREA_VR_TEMPLE_ALPHA:
             case AREA_VR_TEMPLE_BETA:
@@ -208,7 +208,7 @@ s32 push_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern u8 *TObjDoaEx01__alpha_model_node;
 extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern s32 model_render_flags;
@@ -248,12 +248,12 @@ s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
     if (!(flags & 8) && obj->model != 0) {
         if ((u8 *)obj == TObjDoaEx01__alpha_model_node || (u8 *)obj == TObjDoaEx01__alpha_model_sibling) {
             TParticleCtrl::begin_effect_render();
-            lbl_805D5660 = model_render_flags;
+            saved_model_render_flags = model_render_flags;
             model_render_flags = model_render_flags | 0x10;
-            ((TUnk_80494AE0 *)((u8 *)this + 0xD4))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)(((u8 *)this + 0xD4)));
             draw_ginja_model(obj->model);
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-            model_render_flags = lbl_805D5660;
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+            model_render_flags = saved_model_render_flags;
             TParticleCtrl::end_effect_render();
         } else {
             draw_ginja_model(obj->model);
@@ -361,7 +361,7 @@ void *__nw__7TObjectFUl(int);
 void *__dt__11TObjDoaEx01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoaEx01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -382,8 +382,8 @@ u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjDoaEx01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjDoaEx01 *)(arg0))->init_door_switch_binding();
     init_collision_body_parts(arg0, &TObjDoaEx01__collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TObjDoaEx01 *)arg0)->m_b0 = (f32) 0.0f;
     ((TObjDoaEx01 *)arg0)->m_b8 = (f32) 0.5f;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(get_bml_motion((*(s32 *)&TObjDoaEx01__resource_bundle), 0)) + 4);
@@ -413,7 +413,7 @@ void TObjDoaEx01::load_resources() {
     s32 temp_r3;
     s32 var_r0;
     u8 *temp_r3_2;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjDoaEx01__resource_descriptor, 0, 0, 0));

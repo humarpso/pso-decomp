@@ -85,7 +85,7 @@ void TOCapsuleMachine01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
     }
@@ -115,7 +115,7 @@ void TOCapsuleMachine01::alloc_and_load_resource() {
   long long new_var2;
   int var_r4;
   void **new_var;
-  temp_r3 = (new_var2 = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc());
+  temp_r3 = (new_var2 = (int)::operator new(0x440));
   var_r4 = temp_r3;
   if (var_r4 != 0)
   {
@@ -131,7 +131,7 @@ void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOCapsuleMachine01;
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -147,13 +147,13 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2ED4;
     ((TOCapsuleMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCapsuleMachine01__model_resource + 0x42C)) + 8);
-    ((TOCapsuleMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCapsuleMachine01__model_resource + 0x42C)) + 0xC);
+    ((TOCapsuleMachine01 *)arg0)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCapsuleMachine01__model_resource + 0x42C)) + 0xC);
     ((TOCapsuleMachine01 *)arg0)->m_c0 = (f32) lbl_805DB380;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB384;
     ((TOCapsuleMachine01 *)arg0)->actorFlags = (s32) (((TOCapsuleMachine01 *)arg0)->actorFlags | 0x40000000);
     init_collision_body_parts(arg0, &capsule_machine01_collision_body.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     return arg0;
 }
 

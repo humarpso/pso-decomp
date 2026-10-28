@@ -1,3 +1,5 @@
+#include "pso/system/NinjaTypes.h"
+void set_constant_material(const NJS_ARGB *color);
 #include "types.h"
 #include "pso/system/NinjaUtil.h"
 #include "pso/system/PadRumble.h"
@@ -108,24 +110,22 @@ struct Color_802ABF44 { f32 a, b, c, d; };
 extern "C" {
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0);
-s16 obj_getField1c(void *);
+s16 get_entity_id(void *);
 u8 *get_player_by_client_id(s32);
 s32 get_field_3e0__12TBoss3VoloptFv(void *p);
 extern u8 lbl_8047059C[];
 extern u32 TBoss6PlotFalz__type1_instance;
 extern u32 TBoss6PlotFalz__type2_instance;
 int queue_destruction__7TObjectFv(void *);
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern s32 plot_falz_phase;
 extern s32 lbl_805D586C;
 void set_chunk_material_override_pair(int, int, s32, s32);
-void set_chunk_material_color__13TUnk_80494AE0Fv(Color_802ABF44 *);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 rand(void);
 }
 
@@ -216,8 +216,8 @@ struct VObj_18_a328de : VBase_18_a328de {
 extern "C" {
 extern u16 boss6_plot_falz_player_order_table[];
 u16 TBoss6PlotFalz__sub_802AAE48(s32 i);
-s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
-s16 obj_getS16_32C(void *);
+s32 obj_isState2_324__9TObjCharaFv(void *);
+s16 get_actor_hp(void *);
 s32 send_6x2F_change_player_hp(int, s32, s16);
 
 struct TBoss6PlotFalz_802AACF4 { u8 pad[0x3D0]; s32 f3D0; s32 f3D4; s32 f3D8; };
@@ -246,11 +246,11 @@ s32 TBoss6PlotFalz::damage_player_hp(s32 arg0, u32 arg1) {
     if (id == 0xFFFF || (p = get_player_by_client_id(id)) == NULL || ((TBoss6PlotFalz *)p)->is_active() == 0) {
         return 0;
     }
-    hp = obj_getS16_32C(p);
+    hp = get_actor_hp(p);
     if ((u32)hp < v) {
         v = hp;
     }
-    if (obj_isState2_324__13TUnk_804806E8Fv(p) != 0) {
+    if (obj_isState2_324__9TObjCharaFv(p) != 0) {
         return v;
     }
     hp -= v;
@@ -282,7 +282,7 @@ s32 TBoss6PlotFalz::sort_active_players() {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && ((TBoss6PlotFalz *)p)->is_active() != 0 && p->f32c != 0) {
-            boss6_plot_falz_player_order_table[n] = obj_getField1c(p);
+            boss6_plot_falz_player_order_table[n] = get_entity_id(p);
             vals[n] = p->f32c;
             n++;
         }
@@ -313,7 +313,7 @@ u16 TBoss6PlotFalz::pick_random_active_player() {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && ((TBoss6PlotFalz *)p)->is_active() != 0) {
-            ids[n] = obj_getField1c(p);
+            ids[n] = get_entity_id(p);
             n++;
         }
     }
@@ -805,7 +805,7 @@ void queue_instance_destruction__14TBoss6PlotFalzFv(void) {
 }
 
 #define get_player_data__10TObjPlayerFi ((s32 (*)(s32))get_player_data__10TObjPlayerFi)
-#define obj_getField1c ((s16 (*)(s32))obj_getField1c)
+#define get_entity_id ((s16 (*)(s32))get_entity_id)
 
 struct Stack_802ABCDC {
     s16 spC;
@@ -871,8 +871,8 @@ void TBoss6PlotFalz::spawn_type2() {
         stack.sp4C = this->m_37c;
         TBoss4DarkFalz__sub_8004B4F0((&stack.spC), (arg0 + 0x388));
         stack.sp14 = 1;
-        stack.spC = *(s16 *)&this->m_2c + 0x1FF;
-        temp_r4 = this->m_1c;
+        stack.spC = *(s16 *)&this->set_index + 0x1FF;
+        temp_r4 = this->entity_id;
         stack.sp12 = temp_r4 + 0x1FF;
         TBoss6PlotFalz__type2_instance = create__11TBoss6Type2Fl(&sp8, temp_r4);
     }
@@ -887,8 +887,8 @@ void TBoss6PlotFalz::spawn_type1() {
         sp8 = arg0;
         stack.sp4C = this->m_37c;
         TBoss4DarkFalz__sub_8004B4F0((&stack.spC), (arg0 + 0x388));
-        stack.spC = *(s16 *)&this->m_2c + 0x200;
-        temp_r4 = this->m_1c;
+        stack.spC = *(s16 *)&this->set_index + 0x200;
+        temp_r4 = this->entity_id;
         stack.sp12 = temp_r4 + 0x200;
         TBoss6PlotFalz__type1_instance = create__11TBoss6Type1Fl(&sp8, temp_r4);
     }
@@ -912,7 +912,7 @@ s32 TBoss6Type1__sub_802ABDEC(s32 seed) {
     return seed & 0x7FFF;
 }
 
-void TObjFish::reset_fish_globals() { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
+void TObjFish::reset_fish_globals() { chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask; chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask; model_render_flags = saved_model_render_flags; }
 void TBoss6PlotFalz::apply_radial_effect_to_players(void *pos, s16 amount, s16 kind, f32 range) {
     s32 n;
     s32 i;
@@ -924,7 +924,7 @@ void TBoss6PlotFalz::apply_radial_effect_to_players(void *pos, s16 amount, s16 k
         if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0 && is_locally_controlled__10TObjPlayerFPv(p) != 0) {
             d = xyz_distance((void *)(p + 0x38), pos);
             if (!(d >= range)) {
-                start_pad_rumble_client((s16)((f32)amount * (1.0f - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
+                start_pad_rumble_client((s16)((f32)amount * (1.0f - d / range)), kind, (s16)((s32 (*)(s32))get_entity_id)(p));
             }
         }
     }
@@ -937,22 +937,22 @@ void TBoss6PlotFalz::set_fade_material_color(f32 f) {
     Color_802ABF44 c;
     s32 old = (*(s32 *)&model_render_flags);
     (*(s32 *)&model_render_flags) = old & ~0x10;
-    (*(s32 *)&lbl_805D5660) = old;
-    (*(s32 *)&lbl_805D5664) = (*(s32 *)&chunk_polygon_flags_and_mask);
-    (*(s32 *)&lbl_805D5668) = (*(s32 *)&chunk_polygon_flags_or_mask);
+    (*(s32 *)&saved_model_render_flags) = old;
+    (*(s32 *)&saved_chunk_polygon_flags_and_mask) = (*(s32 *)&chunk_polygon_flags_and_mask);
+    (*(s32 *)&saved_chunk_polygon_flags_or_mask) = (*(s32 *)&chunk_polygon_flags_or_mask);
     (*(s32 *)&model_render_flags) |= lbl_805DE0B8;
     set_chunk_material_override_pair(0xFF00, 0x800, (*(s32 *)&chunk_polygon_flags_or_mask), (*(s32 *)&chunk_polygon_flags_and_mask));
     c.a = -1.0f + f;
     c.b = c.c = c.d = 0.0f;
-    set_chunk_material_color__13TUnk_80494AE0Fv(&c);
+    set_constant_material((const NJS_ARGB *)&c);
 }
 
 }
 #undef get_player_data__10TObjPlayerFi
-#undef obj_getField1c
+#undef get_entity_id
 
 #define set_chunk_material_override_pair ((s32 (*)(int, int, int, void *, void *, int))set_chunk_material_override_pair)
-#define set_chunk_material_color__13TUnk_80494AE0Fv ((s32 (*)(void *, f32, f32, f32, f32))set_chunk_material_color__13TUnk_80494AE0Fv)
+#define set_constant_material ((s32 (*)(void *, f32, f32, f32, f32))set_constant_material)
 
 struct Stack_802AC040 {
     f32 sp8;
@@ -971,9 +971,9 @@ extern "C" {
 bool is_normal_difficulty(void);
 void TBoss6PlotFalz::update_camera_target() {
     if (TBoss6PlotFalz__fade_amount > 0.0f) {
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
-        model_render_flags = lbl_805D5660;
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+        model_render_flags = saved_model_render_flags;
     }
     TBoss6PlotFalz__fade_amount = (-1.0f);
 }
@@ -1014,9 +1014,9 @@ void TBoss6PlotFalz::apply_fade_material_color(f32 farg0, f32 farg1, f32 farg2, 
         temp_r8 = model_render_flags;
         temp_r5 = temp_r8 & 0xFFFFFFDF;
         model_render_flags = temp_r5;
-        lbl_805D5660 = temp_r8;
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        saved_model_render_flags = temp_r8;
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
         model_render_flags = temp_r5 | lbl_805DE0C8;
         set_chunk_material_override_pair(0, 0x800, (int)temp_r5, (void *)chunk_polygon_flags_or_mask, (void *)chunk_polygon_flags_and_mask, (int)temp_r8);
         set_chunk_blend(0x2500);
@@ -1026,7 +1026,7 @@ void TBoss6PlotFalz::apply_fade_material_color(f32 farg0, f32 farg1, f32 farg2, 
         stack.spC = temp_f2;
         stack.sp10 = temp_f1;
         stack.sp14 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg3)) - 1.0f);
-        set_chunk_material_color__13TUnk_80494AE0Fv(&stack.sp8, temp_f1, temp_f2, (f32) (1.0f), TBoss6PlotFalz__fade_amount);
+        set_constant_material(&stack.sp8, temp_f1, temp_f2, (f32) (1.0f), TBoss6PlotFalz__fade_amount);
     }
 }
 #pragma pop
@@ -1036,7 +1036,7 @@ bool is_normal_difficulty(void) {
 }
 
 #undef set_chunk_material_override_pair
-#undef set_chunk_material_color__13TUnk_80494AE0Fv
+#undef set_constant_material
 
 int TBoss6PlotFalz::get_phase() {  return plot_falz_phase; }
 }
@@ -1156,7 +1156,7 @@ void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
         t = (s32)find_model_node(get_bml_model(h, r->a), r->b);
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
+        p = (s32)::operator new(0x14);
         if (p != 0) {
             p = alloc_tables__6TLobbyFll(p, t, r->c);
         }
@@ -1178,7 +1178,7 @@ void TBoss6PlotFalz::warp_nearby_players() {
             vec3_add_to(&v, lbl_8047059C);
             v.y = 7.5f;
             VecCopy((Vec *)&p->pos, (const Vec *)&v);
-            ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers();
+            ((TObjCollidable *)p)->refresh_collision_body_centers();
         }
     }
 }
@@ -1200,7 +1200,7 @@ void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self) {
 struct V_802AC538 { f32 x, y, z; };
 extern "C" {
 u8 *get_hit_data__14TBoss4DarkFalzFv(void *);
-void set_position_from__13TUnk_804B9870FPv();
+void set_position_from__8TObjBaseFPv();
 }
 void reset_cameras_to_actor(void *, s32);
 extern const V_802AC538 lbl_804705A8;
@@ -1222,7 +1222,7 @@ void place_players_in_warp_circle(void) {
             V_802AC538 pos = lbl_804705A8;
             pos.x += 350.0f * sin_table_lookup(ang);
             pos.z += 350.0f * cos_table_lookup(ang);
-            ((void (*)(void *, void *))set_position_from__13TUnk_804B9870FPv)(p, &pos);
+            ((void (*)(void *, void *))set_position_from__8TObjBaseFPv)(p, &pos);
             ((TBoss4DarkFalz *)p)->save_position();
             *(s32 *)(get_hit_data__14TBoss4DarkFalzFv(p) + 4) = ang + 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -1269,15 +1269,14 @@ void TBoss6PlotFalz__sub_802AC724(u8 *boss4_dark_falz, u32 arg1) {
     if (boss4_dark_falz == NULL || arg1 == 0U) {
         return;
     }
-    set_position_from__13TUnk_804B9870FPv();
+    set_position_from__8TObjBaseFPv();
     ((TBoss4DarkFalz *)boss4_dark_falz)->save_position();
-    ((TUnk_804AF8A0 *)boss4_dark_falz)->set_indexed_flags(0, 0x900000);
+    ((TObjCollidable *)boss4_dark_falz)->set_indexed_flags(0, 0x900000);
     *(u32 *)(boss4_dark_falz + 0x30) &= 0xFFFFFFDF;
 }
 }
 
 #define set_visible_flag__14TBoss6PlotFalzFv ((s32 (*)(void *))set_visible_flag__14TBoss6PlotFalzFv)
-#define alloc__23TAdSinglePlyChrSelectGCFv ((int (*)(void *))alloc__23TAdSinglePlyChrSelectGCFv)
 #define queue_destruction__7TObjectFv ((s32 (*)(int))queue_destruction__7TObjectFv)
 #define destroy_static_instance__14TBoss6PlotFalzFv ((s32 (*)(void *))destroy_static_instance__14TBoss6PlotFalzFv)
 #define queue_instance_destruction__14TBoss6PlotFalzFv ((s32 (*)(void *))queue_instance_destruction__14TBoss6PlotFalzFv)
@@ -1527,7 +1526,7 @@ extern s32 tl_04;
 void TBoss6PlotFalz::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = (s32)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &boss6_plot_falz_resource_descriptor, 0, 0, 0));

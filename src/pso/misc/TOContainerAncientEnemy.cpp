@@ -134,14 +134,14 @@ f32 TOContainerAncientEnemy::receive_physical_attack(void *, f32) {
     s16 sp8;
     s32 r4;
     Pk_8015BAE0 pk;
-    if (this->m_1c >= 0x1000U && arg0->f80 != 0U && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0) {
+    if (this->entity_id >= 0x1000U && arg0->f80 != 0U && ((TObjCollidable *)arg0)->access_object_saved_state(&sp8, 1) != 0) {
         sp8 = 1;
-        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
-        ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+        ((TObjCollidable *)arg0)->access_object_saved_state(&sp8, 0);
+        ((TObjCollidable *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pk))->init_packet_67_04();
-        pk.id = this->m_1c;
+        pk.id = this->entity_id;
         pk.a = get_current_floor();
-        r4 = this->m_84;
+        r4 = this->set_params[0];
         pk.b = r4;
         pk.c = local_client_id;
         byteswap_and_send__6TLobbyFv(&pk, r4);
@@ -152,7 +152,7 @@ f32 TOContainerAncientEnemy::receive_physical_attack(void *, f32) {
 void TOContainerAncientEnemy::debug_print_item_box_info() {
     Obj_80188814 *self = (Obj_80188814 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80440830, this->m_84);
+    debug_printf_at(0x130020, lbl_80440830, this->set_params[0]);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }
@@ -168,7 +168,7 @@ void TOContainerAncientEnemy::vfunc_81() {
             push_matrix();
             post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
-            TObjFish::set_global_param(this->texture_id);
+            TObjFish::set_global_param(this->texlist);
             temp_r31 = (unsigned char *) (this->model);
             push_matrix();
             post_translate_matrix(temp_r31 + 8);
@@ -206,7 +206,7 @@ void TOContainerAncientEnemy::vfunc_80() {
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TOContainerAncientEnemy;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -225,12 +225,12 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     ((TOContainerAncientEnemy *)arg0)->mode = 0;
     ((TOContainerAncientEnemy *)arg0)->actorFlags = (s32) (((TOContainerAncientEnemy *)arg0)->actorFlags | 0x60000000);
     init_collision_body_parts(arg0, (void *)&TOContainerAncientEnemy__collision_body_params.value, 1);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)&TOContainerAncientEnemy__collision_body_params.value + 4));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), 0);
-    ((TOContainerAncientEnemy *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), 0);
+    ((TOContainerAncientEnemy *)arg0)->texlist = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), 0);
     return arg0;
 }
 }

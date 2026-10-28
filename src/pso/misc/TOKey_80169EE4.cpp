@@ -41,7 +41,7 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x05_switch_flag__5TOKeyFv();
-s32 update_object_view_visibility__13TUnk_804B9870Fff();
+s32 update_object_view_visibility__8TObjBaseFff();
 void *init_map_object_base(void *a0);
 s32 start_camera_pan__10TObjPlayerFs(s32, s32, s32);
 
@@ -75,7 +75,7 @@ void *TUnk_804B27D8::init() {
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 s32 TOKey::update_object_view_visibility(f32, f32) {
-    if (update_object_view_visibility__13TUnk_804B9870Fff() == 1) {
+    if (update_object_view_visibility__8TObjBaseFff() == 1) {
         *(s32 *)((s8 *)this + 0xE4) = 1;
         return 1;
     }
@@ -124,7 +124,7 @@ void handle_6x05_write_switch_flag(void *arg0) {
     clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
 }
 
-void TOKey::vfunc_13(s32 arg1) {
+void TOKey::interact(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 player;
@@ -145,7 +145,7 @@ extern s8 controller_input_state[];
 void TOKey::send_switch_on() {
     SwitchPacket packet;
     ((TLobby *)(&packet))->init_6x05_switch_changed();
-    packet.object=this->m_1c;
+    packet.object=this->entity_id;
     packet.zero=0;
     packet.switchId=this->m_e4;
     packet.area=((s8)get_current_floor());

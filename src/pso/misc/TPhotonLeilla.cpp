@@ -1,3 +1,5 @@
+#include "pso/system/NinjaTypes.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/misc/TPhotonLeilla.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -49,7 +51,7 @@ struct Self_801AC45C {
 };
 
 extern "C" {
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void *find_entity_by_id(u16 id);
 }
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -69,9 +71,9 @@ void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 extern Color_801AC45C saved_model_draw_color;
 extern Color_801AC45C model_material_color;
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern void *leilla_photon_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
@@ -82,26 +84,26 @@ void TPhotonLeilla::render() {
     if (*(s32 *)&this->m_19c != 0) {
         scroll_strip_uvs(leilla_photon_buffer_pair, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, this->rotation_y);
-        lbl_805D5660 = model_render_flags;
-        ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        saved_model_render_flags = model_render_flags;
+        copy_argb((NJS_ARGB *)&saved_model_draw_color, (NJS_ARGB *)&model_material_color);
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&self->color)));
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjMotion *)self)->draw();
         TObjPlayer::clear_global_state();
         clear_render_context__10TObjPlayerFv(self);
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
-        ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
-        model_render_flags = lbl_805D5660;
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+        copy_argb((NJS_ARGB *)&model_material_color, (NJS_ARGB *)&saved_model_draw_color);
+        model_render_flags = saved_model_render_flags;
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -147,7 +149,7 @@ void TPhotonLeilla::run_task() {
     if (1.3e+02f == (f32) *(s32 *)&this->m_1ac) {
         temp_r3_3 = (u8 *)(find_entity_by_id(this->m_17c));
         if (temp_r3_3 != NULL) {
-            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_3)), 4, 0, this->m_150);
+            queue_photon_blast_hit((int) (get_entity_id(temp_r3_3)), 4, 0, this->m_150);
         }
     }
     if ((f32) *(s32 *)&this->m_1ac > 109.0f) {

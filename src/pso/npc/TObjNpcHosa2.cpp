@@ -45,7 +45,7 @@ void TObjNpcHosa2::close_dialog_window() {
 void TObjNpcHosa2::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &npc_hosa2_resource_descriptor, 0, 0, 0));
@@ -71,7 +71,7 @@ u8 *TObjNpcHosa2__ct(u8 *player, s32 arg1, s32 arg2) {
     ((TObjNpcHosa2 *)(player))->apply_set_data((void *)arg2);
     ((TObjPlayer *)player)->init_position_vectors();
     *(s32 *)((s8 *)player + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), 0);
-    ((TObjNpcHosa2 *)player)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), 0);
+    ((TObjNpcHosa2 *)player)->texlist = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), 0);
     ((TObjNpcBase *)player)->setup_common();
     return player;
 }

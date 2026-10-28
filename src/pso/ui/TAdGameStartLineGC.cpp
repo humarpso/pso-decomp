@@ -3,6 +3,7 @@
 #include "types.h"
 #include "pso/TMainTask.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct Quad_80320EF0 {
     f32 x0, y0, x1, y1;
@@ -49,7 +50,7 @@ TAdGameStartLineGC_80320EF0 *__ct__18TAdGameStartLineGCFv(TAdGameStartLineGC_803
 extern const f32 lbl_805DF4A4;
 extern const f32 lbl_805DF4A8;
 
-void TAdGameStartLineGC::render() { if (TMainTask::get_render_pass() != 1) { TObjPlayer::init_xyz_limits(); fn_80320DE8(); TObjPlayer::reset_transform_state(); } }
+void TAdGameStartLineGC::render() { if (TMainTask::get_render_pass() != 1) { set_additive_blend(); fn_80320DE8(); set_default_alpha_blend(); } }
 
 #pragma push
 #pragma fp_contract on

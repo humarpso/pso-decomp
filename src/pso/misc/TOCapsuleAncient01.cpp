@@ -70,7 +70,7 @@ void TOCapsuleAncient01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -108,7 +108,7 @@ void TOCapsuleAncient01::destroy_static_instance() {
 void TOCapsuleAncient01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fe_obj_o_capsule01_resource_descriptor.value, 0, 0, 0));
@@ -119,7 +119,7 @@ void TOCapsuleAncient01::load_resource_instance() {
 void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOCapsuleAncient01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
@@ -137,11 +137,11 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2ECC;
     ((TOCapsuleAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 8);
-    ((TOCapsuleAncient01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 0xC);
+    ((TOCapsuleAncient01 *)arg0)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts(arg0, &capsule_ancient01_collision_body.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x1288);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->set_indexed_flags(0, 0x1288);
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     ((TOCapsuleAncient01 *)arg0)->m_c0 = (f32) lbl_805DB378;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB37C;

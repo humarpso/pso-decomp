@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/enemy/TObjEneDD_800BB804.h"
@@ -328,7 +329,7 @@ void TBoss2Joint__sub_80036940(void *arg) {
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void TBoss2Joint::init_joint_offset(s32 arg1) {
     this->m_3a8 = (f32) TBoss2Joint__data_805D8474;
-    ((TRaderMapCore *)((u8 *)&this->unk_3AC))->copy_vec4(((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
+    copy_argb((NJS_ARGB *)((u8 *)&this->unk_3AC), (NJS_ARGB *)((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
 
 struct Ent_80036ACC { s32 a; s32 b; };
@@ -360,7 +361,7 @@ void TBoss2Joint__vt102(Obj_80036ACC *self) {
 }
 
 void TBoss2Joint::vfunc_93() {
-    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 6) {
+    if (*(s32 *)((s8 *)this->bodies + 0x18) & 6) {
         vfunc_93__9TObjEneDDFv(this);
         return;
     }
@@ -372,7 +373,7 @@ void TBoss2Joint::vfunc_88() {
     u8 *temp_r3;
     if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
         vfunc_94__9TObjEneDDFv(arg0);
-        temp_r3 = (u8 *)this->m_a4;
+        temp_r3 = (u8 *)this->bodies;
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF9);
     } else {
         vfunc_93__9TObjEneDDFv(arg0);
@@ -477,7 +478,7 @@ s32 TBoss2Joint::init_params() {
     self->unk3A0 = -1;
     self->unk3A4 = TBoss2Joint__data_805D8474;
     self->unk3A8 = lbl_805D846C;
-    ((TRaderMapCore *)(self->unk3AC))->copy_vec4(&TBoss2Joint__joint_offset_vec4_table);
+    copy_argb((NJS_ARGB *)self->unk3AC, (NJS_ARGB *)&TBoss2Joint__joint_offset_vec4_table);
 }
 #pragma pop
 
@@ -486,7 +487,7 @@ u8 *TBoss2Joint__ct(u8 *boss2_joint, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32
     *(s32 **)((s8 *)boss2_joint + 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
     *(s32 *)((s8 *)boss2_joint + 0) = (s32) TBoss2Joint__name;
     ((TObjEneDD *)boss2_joint)->init_common_from(arg1);
-    ((TBoss2Joint *)boss2_joint)->m_1c = arg2;
+    ((TBoss2Joint *)boss2_joint)->entity_id = arg2;
     *(s16 *)((s8 *)boss2_joint + 0x2C) = arg3;
     *(s32 *)((s8 *)boss2_joint + 0x390) = arg4;
     *(s32 *)((s8 *)boss2_joint + 0x398) = arg5;

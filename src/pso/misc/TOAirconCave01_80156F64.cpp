@@ -35,7 +35,7 @@ void TOAirconCave01::release_static_resource() {
 void TOAirconCave01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOAirconCave01__shared_resource_desc.value, 0, 0, 0));
@@ -60,7 +60,7 @@ u8 *TOAirconCave01__ct(u8 *aircon_cave01, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)aircon_cave01 + 0) = (s32) lbl_805D2E8C;
     ((TOAirconCave01 *)(aircon_cave01))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)aircon_cave01 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 8);
-    ((TOAirconCave01 *)aircon_cave01)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 0xC);
+    ((TOAirconCave01 *)aircon_cave01)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 0xC);
     ((TOAirconCave01 *)aircon_cave01)->m_c0 = (f32) lbl_805DB2B8;
     *(f32 *)((s8 *)aircon_cave01 + 0xC4) = (f32) lbl_805DB2BC;
     return aircon_cave01;

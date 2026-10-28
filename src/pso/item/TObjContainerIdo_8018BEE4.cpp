@@ -4,7 +4,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/item/TObjContainerJungEnemy.h"
 #include "pso/item/TObjContainerIdo.h"
 #include "pso/item/TUnk_804B97C0.h"
@@ -25,7 +25,7 @@ s32 init_collision_body_parts(void *, void *, int);
 f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
-extern Vec_8018BEE4 lbl_804FF610;
+extern Vec_8018BEE4 camera_right;
 extern u8 *camera_ctrl_instance;
 
 s32 free_collision_body_parts(void *);
@@ -48,18 +48,18 @@ s32 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
         return 0;
     }
     if (p.x < 0.0f) {
-        p.x = lbl_804FF610.x * farg1 + *(f32 *)((s8 *)arg0 + 0x38);
-        p.y = lbl_804FF610.y * farg1 + *(f32 *)((s8 *)arg0 + 0x3C);
-        p.z = lbl_804FF610.z * farg1 + *(f32 *)((s8 *)arg0 + 0x40);
-        project_world_to_screen(0, &p, out, &lbl_804FF610);
+        p.x = camera_right.x * farg1 + *(f32 *)((s8 *)arg0 + 0x38);
+        p.y = camera_right.y * farg1 + *(f32 *)((s8 *)arg0 + 0x3C);
+        p.z = camera_right.z * farg1 + *(f32 *)((s8 *)arg0 + 0x40);
+        project_world_to_screen(0, &p, out, &camera_right);
         if (out[0] < 0.0f) {
             return 0;
         }
     } else {
-        p.x = *(f32 *)((s8 *)arg0 + 0x38) - lbl_804FF610.x * farg1;
-        p.y = *(f32 *)((s8 *)arg0 + 0x3C) - lbl_804FF610.y * farg1;
-        p.z = *(f32 *)((s8 *)arg0 + 0x40) - lbl_804FF610.z * farg1;
-        project_world_to_screen(0, &p, out, &lbl_804FF610);
+        p.x = *(f32 *)((s8 *)arg0 + 0x38) - camera_right.x * farg1;
+        p.y = *(f32 *)((s8 *)arg0 + 0x3C) - camera_right.y * farg1;
+        p.z = *(f32 *)((s8 *)arg0 + 0x40) - camera_right.z * farg1;
+        project_world_to_screen(0, &p, out, &camera_right);
         if (out[0] > 6.4e+02f) {
             return 0;
         }
@@ -335,7 +335,7 @@ typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8
 void TObjContainerIdo::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &container_ido_resource_descriptor.value, 0, 0, 0));
@@ -347,7 +347,7 @@ void TObjContainerIdo::load_resources() {
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xF0, -1);
         ((TUnk_804B97C0 *)arg0)->dt(0);
@@ -376,21 +376,21 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
         *(s32 *)&((TObjContainerIdo *)arg0)->m_dc = 4;
     }
     for (i = 0; i < *(s32 *)&((TObjContainerIdo *)arg0)->m_dc; i++) {
-        ((Ido_8018C7BC *)arg0)->ids[i] = ((TObjContainerIdo *)arg0)->m_84 + i;
+        ((Ido_8018C7BC *)arg0)->ids[i] = ((TObjContainerIdo *)arg0)->set_params[0] + i;
     }
     ((TObjContainerIdo *)arg0)->m_e0 = 0;
-    if (*(s32 *)&((TObjContainerIdo *)arg0)->m_8c != 0) {
+    if (*(s32 *)&((TObjContainerIdo *)arg0)->set_params[2] != 0) {
         ((TObjContainerIdo *)arg0)->m_e0 |= 0x08000000;
     } else {
         ((TObjContainerIdo *)arg0)->m_e0 &= ~0x08000000;
     }
     *(f32 *)((s8 *)arg0 + 0xE4) = 0.0f;
-    ((TObjContainerIdo *)arg0)->m_e8 = ((TObjContainerIdo *)arg0)->scale / *(s32 *)&((TObjContainerIdo *)arg0)->m_dc;
-    *(f32 *)((s8 *)arg0 + 0xEC) = ((TObjContainerIdo *)arg0)->target_scale;
+    ((TObjContainerIdo *)arg0)->m_e8 = ((TObjContainerIdo *)arg0)->scale.x / *(s32 *)&((TObjContainerIdo *)arg0)->m_dc;
+    *(f32 *)((s8 *)arg0 + 0xEC) = ((TObjContainerIdo *)arg0)->scale.y;
     ((TObjPlayer *)(arg0 + 0xF0))->activate_and_dispatch();
     init_collision_body_parts(arg0, container_ido_collision_parts, 1);
     ((TObjContainerIdo *)arg0)->actorFlags |= 0x40000000;
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     return arg0;
 }
 

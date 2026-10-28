@@ -66,9 +66,9 @@ void TOSignCave03::render() {
     CaveSignModel *node8;
     CaveSignModel *node9;
     if (((VObj_18_26a62c *)(this))->m8(m_c0, (*(f32 *)&this->m_c4)) != 0) {
-        TObjFish::set_global_param(texture_id);
+        TObjFish::set_global_param(texlist);
         push_matrix();
-        post_translate_matrix(position);
+        post_translate_matrix(&position);
         rotate_matrix_y(0, rotation_y);
         node1 = (*(CaveSignModel * *)&this->model);
         translate_matrix(0, node1->x, node1->y, node1->z);
@@ -158,7 +158,7 @@ void TOSignCave03::close_dialog_window() {
 void TOSignCave03::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_dokanban03_resource_descriptor.value, 0, 0, 0));
@@ -183,7 +183,7 @@ u8 *TOSignCave03__ct(u8 *sign_cave03, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)sign_cave03 + 0) = (s32) lbl_805D316C;
     ((TOSignCave03 *)(sign_cave03))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)sign_cave03 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 8);
-    ((TOSignCave03 *)sign_cave03)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 0xC);
+    ((TOSignCave03 *)sign_cave03)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 0xC);
     ((TOSignCave03 *)sign_cave03)->m_c0 = (f32) lbl_805DB9E0;
     *(f32 *)((s8 *)sign_cave03 + 0xC4) = (f32) lbl_805DB9E4;
     return sign_cave03;

@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 // Folded unit: pso/unk/text_80153674 + pso/object/TObjFogCollisionSwitch + pso/unk/text_80153A7C.
 #include "types.h"
 #include "pso/object/TObjFogCollision.h"
@@ -78,9 +79,9 @@ extern Color_80153B64 fog_collision_color_b;
 extern s32 saved_model_draw_color[];
 extern s32 model_material_color[];
 extern s32 lbl_805D28BC;
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -103,13 +104,13 @@ int TObjFogCollision__sub_80153F68(void *self) { return 0; }
 
 void TObjFogCollision::vfunc_13(s32) {
     s32 temp_r0;
-    temp_r0 = this->m_84;
+    temp_r0 = this->set_params[0];
     if (temp_r0 < 0) {
-        this->m_84 = 0;
+        this->set_params[0] = 0;
         return;
     }
     if (temp_r0 >= 0x80) {
-        this->m_84 = 0x7F;
+        this->set_params[0] = 0x7F;
     }
 }
 
@@ -121,7 +122,7 @@ s32 TObjFogCollision::check_collision(u16 arg1) {
 
     player = get_player_by_client_id((u16)arg1);
     if (player != 0) {
-        temp_f0 = this->scale;
+        temp_f0 = this->scale.x;
         temp_f31 = temp_f0 * temp_f0;
         temp_f1 = horizontal_distance_squared((u8 *)&this->position, player + 0x38);
         if (temp_f31 > temp_f1) {
@@ -141,7 +142,7 @@ void TObjFogCollision::run_task() {
     if (TObjFogCollision__sub_80153F70(this) == 0 && TObjFogCollision__sub_80153F68(this) == 0) {
         for (i = 0; i != 4; i++) {
             if (check_collision(i) != 0) {
-                record_fog_collision_hit(i, this->m_84, this->m_88 == 0);
+                record_fog_collision_hit(i, this->set_params[0], this->set_params[1] == 0);
             }
         }
     }
@@ -171,40 +172,40 @@ void TObjFogCollision::render() {
 void TObjFogCollision::draw_volume() {
     u8 *arg0 = (u8 *)this;
     f32 s;
-    if (((VObj_18_26a62c *)(arg0))->m8(1.5e+02f, this->scale) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(1.5e+02f, this->scale.x) != 0) {
         Color_80153B64 c0 = lbl_8044002C;
         Color_80153B64 c3 = fog_collision_color_a;
         Color_80153B64 cd = fog_collision_color_b;
-        lbl_805D5660 = model_render_flags;
-        ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        saved_model_render_flags = model_render_flags;
+        copy_argb((NJS_ARGB *)saved_model_draw_color, (NJS_ARGB *)model_material_color);
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         switch (this->m_90) {
         case 0:
-            ((TUnk_80494AE0 *)((f32 *)&c0))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)(((f32 *)&c0)));
             break;
         case 1:
         case 2:
         case 4:
         case 5:
-            ((TUnk_80494AE0 *)((f32 *)&cd))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)(((f32 *)&cd)));
             break;
         case 3:
-            ((TUnk_80494AE0 *)((f32 *)&c3))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)(((f32 *)&c3)));
             break;
         }
         push_matrix();
-        s = 0.5f * this->scale;
+        s = 0.5f * this->scale.x;
         post_translate_matrix((u8 *)&this->position);
         scale_matrix(0, s, 3.0f, s);
         draw_chunk_object((void *)lbl_805D28BC);
         pop_matrix();
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
-        ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-        model_render_flags = lbl_805D5660;
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+        copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+        model_render_flags = saved_model_render_flags;
     }
 }
 
@@ -235,18 +236,18 @@ void TObjFogCollisionSwitch::vfunc_13(s32) {
     s32 temp_r0;
 
     vfunc_13__16TObjFogCollisionFl();
-    temp_r0 = this->m_8c;
+    temp_r0 = this->set_params[2];
     if (temp_r0 < 0) {
-        this->m_8c = 0;
+        this->set_params[2] = 0;
         return;
     }
     if (temp_r0 > 0xFF) {
-        this->m_8c = 0xFF;
+        this->set_params[2] = 0xFF;
     }
 }
 
 s32 TObjFogCollisionSwitch::sub_80153A0C() {
-    return *(f32 *)&this->m_70 >= 1.0f;
+    return this->scale.z >= 1.0f;
 }
 
 void run_task__22TObjFogCollisionSwitchFv(TObjFogCollisionSwitch *arg0) {
@@ -254,10 +255,10 @@ void run_task__22TObjFogCollisionSwitchFv(TObjFogCollisionSwitch *arg0) {
     u16 i;
     if (TObjFogCollision__sub_80153F70(arg0) == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
         st = arg0->sub_80153A0C();
-        if (st == is_current_floor_switch_set(arg0->m_8c)) {
+        if (st == is_current_floor_switch_set(arg0->set_params[2])) {
             for (i = 0; i != 4; i++) {
                 if (((TObjFogCollision *)arg0)->check_collision(i) != 0) {
-                    record_fog_collision_hit(i, arg0->m_84, *(s32 *)((s8 *)arg0 + 0x88) == 0);
+                    record_fog_collision_hit(i, arg0->set_params[0], *(s32 *)((s8 *)arg0 + 0x88) == 0);
                 }
             }
         }
@@ -272,7 +273,7 @@ void TObjFogCollisionSwitch::vfunc_14() {
     } else {
         debug_printf_at(0x13001E, lbl_804400A4);
     }
-    debug_printf_at(0x130022, lbl_804400B8, this->m_8c);
+    debug_printf_at(0x130022, lbl_804400B8, this->set_params[2]);
 }
 
 void *create__22TObjFogCollisionPoisonFPv(void *arg0) {
@@ -317,7 +318,7 @@ extern "C" {
 void TObjFogCollisionPoison::vfunc_13(s32) {
     f32 var_f2;
 
-    *(s32 *)&this->m_98 = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(this->target_scale);
+    *(s32 *)&this->m_98 = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(this->scale.y);
     switch ((s32) game_difficulty_selection) {
     default:
     case 0:

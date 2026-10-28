@@ -12,6 +12,7 @@
 #include "pso/boss/TBoss7Crawfish.h"
 #include "pso/object/TObjOnlineEnding.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 
 struct Stack_80308B38 {
     s32 sp8;
@@ -80,7 +81,7 @@ struct VObj_18_405891 : VBase_18_405891 {
 struct Pair_8030895C { s32 id; f32 v; };
 
 extern "C" {
-s32 obj_isState2_324__13TUnk_804806E8Fv(int);
+s32 obj_isState2_324__9TObjCharaFv(int);
 int rand(void);
 extern s32 game_difficulty_selection;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
@@ -195,7 +196,7 @@ s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
             if (((VObj_18_405891 *)(temp_r31))->m18(arg0, TBoss7Crawfish__data_805DF0DC) != 0) {
                 ((VObj_18_405891 *)(temp_r31))->m20(arg0, TBoss7Crawfish__data_805DF0DC);
             }
-        } else if (obj_isState2_324__13TUnk_804806E8Fv((int)temp_r31) == 0) {
+        } else if (obj_isState2_324__9TObjCharaFv((int)temp_r31) == 0) {
             if ((s32) game_difficulty_selection == 3) {
                 if ((lbl_805DF0E0 * (f32) rand()) <= lbl_805DF0E4) {
                     p.id = 0x10;
@@ -220,7 +221,7 @@ s32 TBoss7Crawfish::sub_80308AA8() {
     return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)((u8 *)this) + 0x354);
 }
 
-void TBoss7Crawfish::render() { if (is_visible() != 0) { TObjPlayer::notify_fish_if_valid(this->texture_id); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((s32)((void*)0), (s32)this->m_5c, this->rotation_y, this->rotation_z); scale_current_matrix((char*)this + 0x68); draw(); pop_matrix(); TObjPlayer::clear_global_state(); } }
+void TBoss7Crawfish::render() { if (is_visible() != 0) { set_texlist(this->texlist); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((s32)((void*)0), (s32)this->rotation_x, this->rotation_y, this->rotation_z); scale_current_matrix((char*)this + 0x68); draw(); pop_matrix(); TObjPlayer::clear_global_state(); } }
 
 extern const f32 lbl_805DF0EC;
 

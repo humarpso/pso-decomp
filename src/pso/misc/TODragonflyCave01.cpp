@@ -58,14 +58,13 @@ void TODragonflyCave01::release_static_instance() {
 }
 
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 
 void TODragonflyCave01::load_resources() {
     void *o;
 
     switch (get_current_floor_area()) {
     default:
-        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        o = ::operator new(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &dragonfly_cave01_resource_descriptor, 0, 0, 0);
         }
@@ -74,7 +73,7 @@ void TODragonflyCave01::load_resources() {
     case AREA_BATTLE1:
     case AREA_VR_SPACESHIP_ALPHA:
     case AREA_VR_SPACESHIP_BETA:
-        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        o = ::operator new(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODragonflyCave01__resource_descriptor, 0, 0, 0);
         }
@@ -176,14 +175,14 @@ u8 *TODragonflyCave01__ct(TODragonflyCave01 *dragonfly_cave01, void *arg1) {
     *(s32 *)((s8 *)dragonfly_cave01 + 0) = TODragonflyCave01__class_name;
     ((TODragonflyCave01 *)(dragonfly_cave01))->apply_object_set_data(arg1);
     dragonfly_cave01->model = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
-    dragonfly_cave01->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
+    dragonfly_cave01->texlist = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
     *(void **)((s8 *)dragonfly_cave01 + 0xBC) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x430)) + 4);
     *(f32 *)((s8 *)dragonfly_cave01 + 0xB4) = (f32)*(u32 *)((s8 *)(*(u8 **)((s8 *)dragonfly_cave01 + 0xBC)) + 4) - lbl_805DB560;
     dragonfly_cave01->m_b8 = lbl_805DB564;
     dragonfly_cave01->m_c0 = lbl_805DB568;
     *(f32 *)((s8 *)dragonfly_cave01 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)dragonfly_cave01->model + 4)) + 0x14);
     dragonfly_cave01->m_ac = 0;
-    dragonfly_cave01->m_f4 = lbl_805DB56C * (f32)dragonfly_cave01->m_84 + lbl_805DB560;
+    dragonfly_cave01->m_f4 = lbl_805DB56C * (f32)dragonfly_cave01->set_params[0] + lbl_805DB560;
     dragonfly_cave01->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / dragonfly_cave01->m_f4)));
     dragonfly_cave01->m_fc = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
     dragonfly_cave01->m_ec = lbl_805DB56C * (f32)*(s32 *)((s8 *)dragonfly_cave01 + 0x88) + lbl_805DB560;
@@ -207,16 +206,16 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)&dragonfly_random_destination.value + 4))));
     rotate_vector_by_matrix(0, (void *)&lbl_8050BEE0.value, (void *)&lbl_8050BEE0.value);
     pop_matrix();
-    vec3_add_to((void *)&lbl_8050BEE0.value, (u8 *)&this->m_50);
+    vec3_add_to((void *)&lbl_8050BEE0.value, (u8 *)&this->home_position);
     VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(&lbl_8050BEE0.value));
     subtract_vector((void *)&lbl_8050BEE0.value, (u8 *)&this->position);
     if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
         *(s32 *)&this->m_ac = 1;
         *(s32 *)&this->m_cc = 0;
         this->rotation_y = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)&lbl_8050BEE0.value + 0), (f64) *(f32 *)((s8 *)&lbl_8050BEE0.value + 8)));
-        this->m_e0 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 0) * *(f32 *)&this->m_70);
-        *(f32 *)&this->unk_E4 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 4) * *(f32 *)&this->m_70);
-        this->m_e8 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 8) * *(f32 *)&this->m_70);
+        this->m_e0 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 0) * this->scale.z);
+        *(f32 *)&this->unk_E4 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 4) * this->scale.z);
+        this->m_e8 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 8) * this->scale.z);
         return 1;
     }
     return 0;
@@ -241,11 +240,11 @@ void TODragonfly::sub_80164990() {
     this->m_cc = (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB588) == 1) {
-            if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->target_scale) == 1) {
+            if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->scale.y) == 1) {
                 this->m_ac = 3;
                 this->m_cc = 0;
             }
-        } else if (((TODragonfly *)arg0)->pick_random_destination(this->target_scale * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
+        } else if (((TODragonfly *)arg0)->pick_random_destination(this->scale.y * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
             this->m_ac = 1;
             this->m_cc = 0;
         }
@@ -258,7 +257,7 @@ void TODragonfly::sub_80164A90() {
     f32 t;
     f32 d;
     if (is_any_player_within_radius_xz((u8 *)arg0, lbl_805DB590) == 1) {
-        if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->target_scale) == 1) {
+        if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->scale.y) == 1) {
             this->m_ac = 3;
             this->m_cc = 0;
         }
@@ -301,7 +300,7 @@ void TODragonfly::render() {
         translate_matrix(0, lbl_805DB580, *(f32 *)((s8 *)arg0 + 0xF0), lbl_805DB580);
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         pop_matrix();
     }
@@ -349,12 +348,12 @@ u8 *TODragonfly__ct(TODragonfly *dragonfly) {
     *(s32 **)((s8 *)dragonfly + 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
     *(s32 *)((s8 *)dragonfly + 0) = (s32) TODragonfly__class_name;
     dragonfly->m_cc = 0;
-    *(f32 *)((s8 *)dragonfly + 0xD0) = (f32) (lbl_805DB594 + dragonfly->scale);
+    *(f32 *)((s8 *)dragonfly + 0xD0) = (f32) (lbl_805DB594 + dragonfly->scale.x);
     VecCopy((Vec *)((u8 *)dragonfly + 0xD4), (const Vec *)((u8 *)dragonfly + 0x38));
     dragonfly->m_e8 = (f32) lbl_805DB580;
     *(f32 *)((s8 *)dragonfly + 0xE4) = (f32) lbl_805DB580;
     dragonfly->m_e0 = (f32) lbl_805DB580;
-    dragonfly->m_f4 = (f32) ((lbl_805DB56C * (f32) dragonfly->m_84) + lbl_805DB560);
+    dragonfly->m_f4 = (f32) ((lbl_805DB56C * (f32) dragonfly->set_params[0]) + lbl_805DB560);
     dragonfly->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / dragonfly->m_f4)));
     dragonfly->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     dragonfly->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)dragonfly + 0x88)) + lbl_805DB560);

@@ -7,6 +7,8 @@
 #include "pso/misc/TUnk_8048E7A8.h"
 
 #include "types.h"
+#include "pso/misc/TParticleCtrl_80327D30.h"
+#include "pso/player/TObjPlayer_80083594.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -108,7 +110,7 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 f32 atan2_float(f32, f32);
 f32 vector_length(void *);
@@ -300,7 +302,7 @@ void TUnk_8048E7A8::render() {
                 setup_particle_tev(0);
             } else {
                 s32 temp_r4 = model_render_flags;
-                lbl_805D5660 = temp_r4;
+                saved_model_render_flags = temp_r4;
                 model_render_flags = temp_r4 | 0x8021;
                 if (is_particle_sprite_additive__13TUnk_8048E728Fv(arg0, temp_r4) != 0) {
                     ((TUnk_8048E728 *)arg0)->apply_particle_model_fade_color(1);
@@ -316,9 +318,9 @@ void TUnk_8048E7A8::render() {
                 draw_ginja_object(this->m_b0);
             }
             if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
-                TParticleCtrl::disable_if_single_screen();
+                reset_particle_tev();
             } else {
-                model_render_flags = lbl_805D5660;
+                model_render_flags = saved_model_render_flags;
             }
             TParticleCtrl::end_effect_render();
             pop_matrix();
@@ -387,7 +389,7 @@ u8 *construct_radial_particle(u8 *object, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4
     ((Fields_arg0*)object)->field_40 = (f32) TParticleCtrl__data_805D955C;
     ((Fields_arg0*)object)->field_44 = (f32) TParticleCtrl__data_805D955C;
     if (((Fields_arg0*)object)->field_24 & 0x2000) {
-        ((TParticleCtrl *)((void *)0x1F))->get_object();
+        request_indirect_effect(0x1F);
     }
     return object;
 }
@@ -419,7 +421,7 @@ u8 *TParticleCtrl::init_random_particle(u8 *arg1, u8 *arg2, s32 arg3) {
     ((Fields_arg0*)((u8 *)this))->field_40 = (f32) TParticleCtrl__data_805D955C;
     ((Fields_arg0*)((u8 *)this))->field_44 = (f32) TParticleCtrl__data_805D955C;
     if (((Fields_arg0*)((u8 *)this))->field_24 & 0x2000) {
-        ((TParticleCtrl *)((void *)0x1F))->get_object();
+        request_indirect_effect(0x1F);
     }
     return ((u8 *)this);
 }

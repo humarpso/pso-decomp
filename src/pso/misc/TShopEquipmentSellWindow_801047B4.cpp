@@ -8,15 +8,14 @@ s32 TShopEquipmentSellWindow::get_item_data_value(u32 arg0) {
     s32 sp8[4];
 
     if (arg0 != 0U) {
-        ((TItem *)arg0)->copy_to_item_data(sp8);
+        ((TItem *)arg0)->copy_to_item_data((TItemData *)sp8);
         return ((TItemData *)sp8)->calc_price();
     }
     return 0;
 }
-s32 TShopEquipmentSellWindow::get_item_price_if_valid() {
-    u32 arg0 = (u32)this;
-    if (arg0 != 0U) {
-        return ((TItemData *)arg0)->calc_price();
+s32 TItemData::calc_price_of(TItemData *data) {
+    if (data != NULL) {
+        return data->calc_price();
     }
     return 0;
 }

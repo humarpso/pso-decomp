@@ -8,6 +8,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
 #include "pso/map/FloorArea.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_80258100_lbl_804CF998 {
     s32 value;
@@ -119,20 +120,13 @@ void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg
 void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
 s32 is_wrapped__9TItemDataFPv(s32);
-s32 TItemData__sub_8010C738(s32);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
-s32 TItem__sub_801013E8(void *);
-s32 get_usable_action_flags__5TItemFUlUl(void *, s32, s32);
 void *get_player_by_client_id(s32 i);
 s32 check_equip_requirements(s32, s32, s32 *);
-u8 calc_display_grade__5TItemFv(void *);
 u8 calc_display_grade__9TItemDataFv(s32);
-s32 check_flag_400__20TWindowSubStatusDispFv(void *);
-s32 copy_item_data_to_icon__10TObjPlayerFv(void *);
-s32 fn_80100D68(void *);
-s32 get_item_info__10TObjPlayerFllPs(void *, s32, s16 *);
-s32 update_item_data__5TItemFv(void *);
+s32 is_wrapped__5TItemFv(void *);
+s32 check_equip_requirements__5TItemFP10TObjPlayerPs(void *, s32, s16 *);
 
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *item) {
     s16 sp8;
@@ -142,15 +136,15 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *item
     s32 temp_r28_2;
     s32 player;
 
-    if (check_flag_400__20TWindowSubStatusDispFv(item) != 0) {
+    if (is_wrapped__5TItemFv(item) != 0) {
         *(s32 *)((s8 *)arg0 + 0x30) = -1;
         return;
     }
     player = (s32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 2));
     if (player != 0) {
-        temp_r26 = ((TObjPlayer *)item)->test_item_flags(8);
-        temp_r28 = get_usable_action_flags__5TItemFUlUl(item, 0x10, player);
-        temp_r27 = get_item_info__10TObjPlayerFllPs(item, player, &sp8);
+        temp_r26 = ((TItem *)item)->test_item_flags(8);
+        temp_r28 = ((TItem *)item)->get_usable_action_flags(0x10, (TObjPlayer *)player);
+        temp_r27 = check_equip_requirements__5TItemFP10TObjPlayerPs(item, player, &sp8);
         temp_r28_2 = ((VObj18B_802582c4_80257784 *) item)->vm8C();
         if (temp_r28 != 0) {
             if (temp_r26 != 0) {
@@ -161,7 +155,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *item
         } else if (temp_r26 != 0) {
             *(s8 *)((s8 *)arg0 + 0x1C) = 0xC;
         } else {
-            if ((temp_r28_2 == 0) && (TItem__sub_801013E8(item) != 0)) {
+            if ((temp_r28_2 == 0) && (((TItem *)item)->is_rare_item() != 0)) {
                 *(s8 *)((s8 *)arg0 + 0x1C) = 0x19;
             } else if (sp8 & 1) {
                 *(s8 *)((s8 *)arg0 + 0x1C) = 0x13;
@@ -177,23 +171,23 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *item
         }
         if (temp_r27 != 0) {
             *(s32 *)((s8 *)arg0 + 0x2C) = -1;
-            if (update_item_data__5TItemFv(item) != 0) {
+            if (((TItem *)item)->is_custom_name_srank() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFFFE3C28;
                 return;
             }
-            if (fn_80100D68(item) == 2) {
+            if (((TItem *)item)->get_name_style() == 2) {
                 *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x800);
                 return;
             }
-            if (calc_display_grade__5TItemFv(item) >= 9U) {
+            if ((u8)((TItem *)item)->calc_display_grade() >= 9U) {
                 *(s32 *)((s8 *)arg0 + 0x30) = -0x1600;
                 return;
             }
-            if (copy_item_data_to_icon__10TObjPlayerFv(item) != 0) {
+            if (((TItem *)item)->has_bonus_stats() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF61E853;
                 return;
             }
-            if (get_usable_action_flags__5TItemFUlUl(item, 0x10000, player) != 0U) {
+            if (((TItem *)item)->get_usable_action_flags(0x10000, (TObjPlayer *)player) != 0U) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF909090;
                 return;
             }
@@ -243,7 +237,7 @@ void TWindowSubStatusDisp::update_item_colors(s32 arg1) {
                 *(s32 *)((s8 *)this + 0x30) = 0xFFFE3C28;
                 return;
             }
-            if (TItemData__sub_8010C738(arg1) == 2) {
+            if (((TItemData *)arg1)->get_name_style() == 2) {
                 *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0x800);
                 return;
             }
@@ -493,9 +487,8 @@ struct V_80258F34 : Base_80258F34 {
 };
 
 extern "C" {
-s32 get_field_ed__5TItemFv(void *);
-s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
-s32 get_field_ec__5TItemFv(void *);
+s32 get_item_group__5TItemFv(void *);
+s32 get_item_type__5TItemFv(void *);
 s32 TObjPlayer__sub_801C1AC8(void *);
 #define update_stat_line_if_positive__20TWindowSubStatusDispFPvi ((s32 (*)(void *, s32))update_stat_line_if_positive__20TWindowSubStatusDispFPvi)
 #define update_item_icon_colors__20TWindowSubStatusDispFPvPv ((s32 (*)(void *, void *))update_item_icon_colors__20TWindowSubStatusDispFPvPv)
@@ -504,9 +497,9 @@ void TWindowSubStatusDisp::set_inventory_item(void *arg1, s32 arg2, s32 arg3) {
     s32 temp_r29;
 
     *(f32 *)((s8 *)this + 8) = (f32) lbl_805DCF08;
-    temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__5TItemFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
-    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)this + 0x20), 8, 1);
+    temp_r29 = ((TItem *)arg1)->get_icon_index();
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_item_type__5TItemFv(arg1), get_item_group__5TItemFv(arg1), is_wrapped__5TItemFv(arg1));
+    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, (s32)((TItem *)arg1)->get_name(), *(s32 *)((s8 *)this + 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
         update_stat_line_if_positive__20TWindowSubStatusDispFPvi(this, arg2);
     }
@@ -522,9 +515,9 @@ void TWindowSubStatusDisp::update_from_player(void *arg1, s32 arg2, s32 arg3) {
     s32 temp_r29;
 
     *(f32 *)((s8 *)this + 8) = (f32) lbl_805DCF08;
-    temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__5TItemFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
-    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)this + 0x20), 8, 1);
+    temp_r29 = ((TItem *)arg1)->get_icon_index();
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_item_type__5TItemFv(arg1), get_item_group__5TItemFv(arg1), is_wrapped__5TItemFv(arg1));
+    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, (s32)((TItem *)arg1)->get_name(), *(s32 *)((s8 *)this + 0x20), 8, 1);
     if (TCameraCtrl::get_camera_id() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(arg2);
@@ -537,9 +530,9 @@ void TWindowSubStatusDisp::update_from_player(void *arg1, s32 arg2, s32 arg3) {
 void TWindowSubStatusDisp::init_item_row(void *arg1, s32 arg2) {
     s32 temp_r29;
     *(f32 *)((s8 *)this + 8) = (f32) lbl_805DCF08;
-    temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__5TItemFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
-    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)this + 0x20), 8, 1);
+    temp_r29 = ((TItem *)arg1)->get_icon_index();
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_item_type__5TItemFv(arg1), get_item_group__5TItemFv(arg1), is_wrapped__5TItemFv(arg1));
+    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, (s32)((TItem *)arg1)->get_name(), *(s32 *)((s8 *)this + 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
         s32 v = ((V_80258F34 *) arg1)->m34();
         update_stat_line_if_positive__20TWindowSubStatusDispFPvi(this, v);
@@ -729,7 +722,7 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       }
       else
       {
-        TObjPlayer::init_xyz_limits();
+        set_additive_blend();
         if (row->flags & 0x100)
         {
           pos.x += lbl_805DCF14;
@@ -740,7 +733,7 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
           draw_item_list_icon((s32) win, (u8 *)&pos, row->status_icon, row->status_style, depth);
           pos.x += lbl_805DCF14;
         }
-        TObjPlayer::reset_transform_state();
+        set_default_alpha_blend();
         draw_item_list_icon((s32) win, (u8 *)&pos, row->category_icon, row->category_style, depth);
         pos.x += lbl_805DCF14;
       }

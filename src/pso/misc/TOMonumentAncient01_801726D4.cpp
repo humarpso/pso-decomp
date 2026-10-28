@@ -63,7 +63,7 @@ void TOMonumentAncient01::release_static_resource() {
 void TOMonumentAncient01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_fs_obj_o_sekihi01_resource_descriptor.value, 0, 0, 0));
@@ -74,7 +74,7 @@ void TOMonumentAncient01::load_resource_instance() {
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
@@ -92,10 +92,10 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient01__name;
     ((TOMonumentAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), 2);
-    ((TOMonumentAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), 2);
+    ((TOMonumentAncient01 *)arg0)->texlist = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), 2);
     init_collision_body_parts(arg0, &lbl_804B38F0.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     ((TOMonumentAncient01 *)arg0)->m_c0 = (f32) lbl_805DB918;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB91C;
@@ -131,10 +131,10 @@ void TOMonumentAncient02__vt11(u8 *monument_ancient02, u16 arg1) {
         if (player != 0) {
             ((TOMonumentAncient02 *)monument_ancient02)->m_ac = 2;
             start_camera_pan__10TObjPlayerFs(player, 0xC, (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to(monument_ancient02 + 0x38)));
-            if (((TUnk_804AF8A0 *)monument_ancient02)->access_object_saved_state(&sp8, 1) != 0) {
+            if (((TObjCollidable *)monument_ancient02)->access_object_saved_state(&sp8, 1) != 0) {
                 sp8 = (s16) ((TOMonumentAncient02 *)monument_ancient02)->m_ac;
-                ((TUnk_804AF8A0 *)monument_ancient02)->access_object_saved_state(&sp8, 0);
-                ((TUnk_804AF8A0 *)monument_ancient02)->send_object_state_update(&sp8);
+                ((TObjCollidable *)monument_ancient02)->access_object_saved_state(&sp8, 0);
+                ((TObjCollidable *)monument_ancient02)->send_object_state_update(&sp8);
             }
         }
         break;

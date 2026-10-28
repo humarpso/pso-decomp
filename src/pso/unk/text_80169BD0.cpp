@@ -36,10 +36,10 @@ void TOHealGeneral::accept_player(u16 arg1) {
                 return;
             }
             *(s32 *)&this->m_ac = 2;
-            this->m_94 = arg1;
+            this->interactor = arg1;
             play_effect_default__10TObjPlayerFii((s32)p, -1);
         } else {
-            this->m_94 = 0xFFFF;
+            this->interactor = 0xFFFF;
         }
     }
 }
@@ -88,7 +88,7 @@ void TOHealGeneral::set_script_entry(s32 arg1) {
 s32 TOHealGeneral::update_heal_gauge_state() {
     s32 temp_r0;
 
-    *(s32 *)&this->_padD0 = (s32) this->m_84;
+    *(s32 *)&this->_padD0 = (s32) this->set_params[0];
     temp_r0 = *(s32 *)&this->_padD0;
     if (temp_r0 > 0xFF) {
         *(s32 *)&this->unk_C8 = 0;
@@ -97,8 +97,8 @@ s32 TOHealGeneral::update_heal_gauge_state() {
     } else {
         *(s32 *)&this->unk_C8 = 2;
     }
-    set_script_entry((s32)this->m_88);
-    set_enable_count(this->m_8c);
+    set_script_entry((s32)this->set_params[1]);
+    set_enable_count(this->set_params[2]);
     return *(s32 *)&this->_padD0;
 }
 
@@ -167,7 +167,7 @@ void TUnk_804B27D8::run_task() {
         submit_cursor_candidate(arg0, -1);
         break;
     case 2:
-        if ((s32) this->m_94 == (s32) local_client_id) {
+        if ((s32) this->interactor == (s32) local_client_id) {
             *(s32 *)&this->m_ac = 3;
             begin_conversation_camera();
             temp_r0_2 = this->m_d4;
@@ -186,7 +186,7 @@ void TUnk_804B27D8::run_task() {
             }
         } else {
             *(s32 *)&this->m_ac = 1;
-            this->m_94 = 0xFFFFU;
+            this->interactor = 0xFFFFU;
         }
         break;
     case 3:
@@ -195,7 +195,7 @@ void TUnk_804B27D8::run_task() {
             *(s32 *)&this->m_ac = 0;
             this->m_dc = 0U;
             end_conversation_camera();
-            if ((s32) this->m_94 == (s32) local_client_id) {
+            if ((s32) this->interactor == (s32) local_client_id) {
                 player = (s32)get_player_by_client_id((local_client_id));
                 if ((player != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
                     TObjPlayer::send_code_45_1(player);
@@ -222,7 +222,7 @@ void TUnk_804B27D8::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         if ((s32) this->m_cc == 1) {
             void *p = *(void * *)&this->m_bc;
             if (p != NULL) {

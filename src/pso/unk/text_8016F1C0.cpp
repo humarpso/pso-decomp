@@ -19,7 +19,7 @@ struct VO_8016F320 : VB_8016F320 {
 };
 
 extern "C" {
-s32 __ct__13TUnk_804B9870FP7TObject();
+s32 __ct__8TObjBaseFP7TObject();
 extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
 extern s32 TOMineDisp__name;
 extern const f32 lbl_805DB85C;
@@ -41,7 +41,7 @@ extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016F1C0___vt__10TOMineDisp_size[sizeof(RecoveredGlobal_8016F1C0___vt__10TOMineDisp) == 0x34 ? 1 : -1];
 u8 *TOMineDisp__ct(TOMineDisp *mine_disp, s32 arg1, s16 arg2) {
-    __ct__13TUnk_804B9870FP7TObject();
+    __ct__8TObjBaseFP7TObject();
     *(s32 **)((s8 *)mine_disp + 0x18) = &__vt__10TOMineDisp.value;
     *(s32 *)((s8 *)mine_disp + 0) = (s32) TOMineDisp__name;
     mine_disp->m_a8 = arg2;
@@ -153,19 +153,17 @@ extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void handle_6x80_trigger_trap(Pkt_8016F418 *arg0);
-struct VObj8016F3C4Base { char pad[0x18]; };
-struct VObj8016F3C4 : VObj8016F3C4Base { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11(); };
 
-int TOMineTrap::vfunc_12() {
-    s32 var_r31;
-    void *player;
+const char *TOMineTrap::get_name() {
+    const char *name;
+    TObjPlayer *player;
 
-    var_r31 = 0;
-    player = get_player_by_client_id((u16)((s32 (*)(void))get_trap_type__10TOMineTrapFv)());
+    name = NULL;
+    player = (TObjPlayer *)get_player_by_client_id((u16)get_trap_type__10TOMineTrapFv((s32)this));
     if (player != NULL) {
-        var_r31 = ((VObj8016F3C4 *)player)->m10();
+        name = player->get_name();
     }
-    return var_r31;
+    return name;
 }
 
 void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
@@ -224,7 +222,7 @@ void TOMineTrap::send_state_packet(u16 idx) {
     if (idx < 3) {
         Pkt_8016F558 pkt;
         TOMineTrap__sub_8017141C(&pkt);
-        pkt.object = self->m_1c;
+        pkt.object = self->entity_id;
         pkt.sub = self->m_37e;
         pkt.idx = idx;
         ((TOMineTrap *)(&pkt))->send_and_handle_60();

@@ -64,9 +64,12 @@ struct G_6x70_Base_V1 {
 };
 
 struct G_ActivateMagEffect_6x61 {
- struct G_UnusedHeader header;
+ struct G_ClientIDHeader header;
  u32 mag_item_id;
  u32 effect_number;
+ G_ActivateMagEffect_6x61();
+ void bswap();
+ void send();
 };
 
 struct G_AddBattleDamageScores_6x8F {
@@ -107,7 +110,10 @@ struct G_BarbaRayBossActions_6xAA {
 
 struct G_BuyShopItem_6x5E {
  struct G_ClientIDHeader header;
- struct ItemData item_data;
+ TItemData item_data;
+ G_BuyShopItem_6x5E();
+ void bswap();
+ void send();
 };
 
 struct G_CardCounts_Ep3NTE_6xBC {
@@ -162,7 +168,7 @@ struct G_ClearTemporaryPhotonBlastStateFlags_6x3B {
 
 struct G_CreateInventoryItem_DC_6x2B {
  struct G_ClientIDHeader header;
- struct ItemData item_data;
+ TItemData item_data;
 };
 
 struct G_CreateInventoryItem_PC_V3_BB_6x2B {
@@ -266,15 +272,20 @@ struct G_DropItem_PC_V3_BB_6x5F {
 
 struct G_DropStackedItem_DC_6x5D {
  struct G_ClientIDHeader header;
- u16 floor;
- u16 room_id;
+ s16 floor;
+ s16 room_id;
  struct VectorXZF pos;
- struct ItemData item_data;
+ TItemData item_data;
+ G_DropStackedItem_DC_6x5D();
 };
 
-struct G_DropStackedItem_PC_V3_BB_6x5D {
- struct G_DropStackedItem_DC_6x5D __base_G_DropStackedItem_DC_6x5D;
- u32 unused3;
+struct G_DropStackedItem_PC_V3_BB_6x5D : G_DropStackedItem_DC_6x5D {
+ // The item data's version (2: v2 and later; a DC packet has none and is v0).
+ u8 item_version;
+ u8 unused3[3];
+ G_DropStackedItem_PC_V3_BB_6x5D();
+ void bswap();
+ void send();
 };
 
 struct G_EnableDropWeaponOnDeath_6x82 {
@@ -489,13 +500,19 @@ struct G_PickUpItemRequest_6x5A {
  u32 item_id;
  u16 floor;
  u16 unused;
+ G_PickUpItemRequest_6x5A();
+ void bswap();
+ void send();
 };
 
 struct G_PickUpItem_6x59 {
  struct G_ClientIDHeader header;
  u16 client_id2;
- u16 floor;
+ s16 floor;
  u32 item_id;
+ G_PickUpItem_6x59();
+ void bswap();
+ void send();
 };
 
 struct G_PlaceTrap_6x83 {
@@ -955,7 +972,8 @@ struct G_UseMedicalCenter_6x31 {
 
 struct G_UseStarAtomizer_6x66 {
  struct G_UnusedHeader header;
- u16 target_client_ids[4];
+ // The user first; -1 for an empty slot (handle_6x66_use_star_atomizer).
+ s16 target_client_ids[4];
 };
 
 struct G_VolOpt2BossActions_6x18 {

@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include <dolphin/mtx.h>
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TUnk_804ECDC0.h"
@@ -41,7 +42,7 @@ s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF654;
 void init_slicer_launch_state(void *arg0);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 f32 query_extended_state__10TObjPlayerFv(void *);
@@ -49,7 +50,6 @@ void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1);
 void fn_80325F7C(void *arg0);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 void TBoss5GryphonLightningHorn::render() {  }
 void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments(); fn_80325F7C(this); spawn_gryphon_lightning(); }
@@ -101,18 +101,18 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
-    launch.player = obj_getField1c(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player);
-    launch.weapon = ((TItem *)weapon)->get_field_d8();
+    launch.player = get_entity_id(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->owner);
+    launch.weapon = ((TItem *)weapon)->get_item_id();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
-    launch.kind = TObjPlayer__sub_801D2F4C((s16 *)(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player + 0x7CC));
-    launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player + 0x7CC);
-    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player);
+    launch.kind = TObjPlayer__sub_801D2F4C((s16 *)(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->owner + 0x7CC));
+    launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->owner + 0x7CC);
+    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->owner);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
-    ((TRaderMapCore *)(launch.color))->copy_vec4(tmp);
-    launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player) + 0x60);
-    ((TObjPlayer *)weapon)->draw_icon(0x2, (s32)launch.first);
-    ((TObjPlayer *)weapon)->draw_icon(0x1, (s32)launch.second);
+    copy_argb((NJS_ARGB *)launch.color, (NJS_ARGB *)tmp);
+    launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->owner) + 0x60);
+    ((TItemWeapon *)weapon)->get_joint_position(0x2, launch.first);
+    ((TItemWeapon *)weapon)->get_joint_position(0x1, launch.second);
     TTecSlicer::create((u16*)&launch);
 }
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
@@ -122,7 +122,7 @@ void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ECDC0;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;

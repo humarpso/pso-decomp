@@ -20,13 +20,13 @@ void TODoorAncient08::door_ancient08_sync_state(void *src_arg) {
     if (src != 0) {
         ((TLobby *)(&st))->copy_short_fields(src);
     } else {
-        ((TUnk_804AF8A0 *)self)->access_object_saved_state((void *)((s32)&st), (s16)1);
+        ((TObjCollidable *)self)->access_object_saved_state((void *)((s32)&st), (s16)1);
     }
-    obj = *(Obj_8015FC40 * *)&this->m_80;
+    obj = *(Obj_8015FC40 * *)&this->set_entry;
     if (obj != 0) {
         Pkt_8015FC40 pkt;
         ((TOBarrierEnergy01 *)(&pkt))->init();
-        pkt.id = this->m_1c;
+        pkt.id = this->entity_id;
         pkt.state = st.a;
         pkt.kind = obj->kind;
         update_and_send_60__6TLobbyFPv(&pkt);

@@ -5,6 +5,7 @@
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TUnk_804F14A8.h"
 #include "pso/player/TUnk_804F166C.h"
+#include "pso/map/FloorArea.h"
 
 struct Base_8035836C_80357734 { char pad[0x18]; };
 struct VObj_8035836C_80357734 : Base_8035836C_80357734 {
@@ -92,6 +93,7 @@ typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_8
 
 #include <stddef.h>
 #include "pso/misc/TNowLoading.h"
+#include "pso/item/TItem.h"
 #include "pso/map/FloorArea.h"
 struct Stack_80358048 {
     s32 sp8;
@@ -211,11 +213,11 @@ struct Info_80357784 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805E006C;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 extern s32 tl_05;
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 int get_item_field_6__10TObjPlayerFPv(void *p);
-u8 get_field_ec__5TItemFv();
+u8 get_item_type__5TItemFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
@@ -230,8 +232,6 @@ u32 create_fire_explosion_effect(u32, s32, s32, s32, f32);
 int rand(void);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
-s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
@@ -240,18 +240,16 @@ void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-void TItemWeapon__ct(void *);
+void __ct__11TItemWeaponFP7TObjectPUc(void *);
 s32 TObjPlayer__sub_802E451C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 s32 update_battle_control_if_unlocked__10TObjPlayerFv();
 
 void *TObjPlayer::reset_field28() {
     TObjPlayer__sub_802E451C();
-    this->m_28 = 0;
+    *(s32 *)&this->room = 0;
     return this;
 }
 
@@ -265,31 +263,31 @@ void TUnk_804F14A8::emit_marker_effects() {
     Info_80357784 info;
     V_80357784 sp8;
     s32 temp_r5;
-    if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
+    if (is_mode_two_and_ready() != 0) {
         ((TItemWeapon *)arg0)->remap_extra_attack_type();
         ((TObjPlayer *)(&info))->reset_field28();
         ((TObjPlayer *)arg0)->fill_status_info(&info);
-        draw_icon__10TObjPlayerFll(arg0, 4, &info.v[0]);
-        draw_icon__10TObjPlayerFll(arg0, 3, &info.v[1]);
-        draw_icon__10TObjPlayerFll(arg0, 6, &info.v[2]);
-        draw_icon__10TObjPlayerFll(arg0, 9, &info.v[3]);
-        draw_icon__10TObjPlayerFll(arg0, 0xA, &info.v[4]);
-        temp_r5 = *(s32 *)((s8 *)this->player + 0x60);
+        ((TItemWeapon *)arg0)->get_joint_position(4, &info.v[0]);
+        ((TItemWeapon *)arg0)->get_joint_position(3, &info.v[1]);
+        ((TItemWeapon *)arg0)->get_joint_position(6, &info.v[2]);
+        ((TItemWeapon *)arg0)->get_joint_position(9, &info.v[3]);
+        ((TItemWeapon *)arg0)->get_joint_position(0xA, &info.v[4]);
+        temp_r5 = *(s32 *)((s8 *)this->owner + 0x60);
         info.f28 = temp_r5;
         info.f10 = 0xA;
         create__20TItemEffOrgaFlowShotFPvPv(tl_05, &info, temp_r5);
         ((TItemWeapon *)arg0)->restore_action_type();
         return;
     }
-    draw_icon__10TObjPlayerFll(arg0, 6, &sp8);
+    ((TItemWeapon *)arg0)->get_joint_position(6, &sp8);
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 0, 0, 1);
-    draw_icon__10TObjPlayerFll(arg0, 9, &sp8);
+    ((TItemWeapon *)arg0)->get_joint_position(9, &sp8);
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 1, 0x11C7, 1);
-    draw_icon__10TObjPlayerFll(arg0, 3, &sp8);
+    ((TItemWeapon *)arg0)->get_joint_position(3, &sp8);
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 2, -0x11C7, 1);
-    draw_icon__10TObjPlayerFll(arg0, 0xA, &sp8);
+    ((TItemWeapon *)arg0)->get_joint_position(0xA, &sp8);
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 3, 0x2000, 1);
-    draw_icon__10TObjPlayerFll(arg0, 4, &sp8);
+    ((TItemWeapon *)arg0)->get_joint_position(4, &sp8);
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 4, -0x2000, 1);
 }
 
@@ -300,7 +298,7 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
     case 2:
     case 5:
     case 8:
-        TObjPlayer::play_particle_effect_once();
+        TItem::begin_effect_render();
         return;
     case 1:
         rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x1F8)));
@@ -322,7 +320,7 @@ void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = item_equip_variant_vtable;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -331,9 +329,9 @@ void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1) {
 extern s32 spawn_shoot_particle__10TItemShootFv[];
 
 void *TUnk_804F14A8::init_state_34_alt(s32 _w1, void *_w2) {
-    TItemWeapon__ct(this);
+    __ct__11TItemWeaponFP7TObjectPUc(this);
     *(s32 **)((s8 *)this + 0x18) = item_equip_variant_vtable;
-    set_status_flags__10TObjPlayerFUl(this, 34);
+    set_weapon_flags(34);
     *(u32 *)&this->unk_1F8 = 0;
     *(s32 **)((s8 *)this + 0x1F0) = spawn_shoot_particle__10TItemShootFv;
     return this;
@@ -344,7 +342,7 @@ u8 *TObjPlayer::create_state_34_alt() {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x1FC));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((u8 *)((TUnk_804F14A8 *)temp_r3)->init_state_34_alt(tl_05, arg0)));
@@ -820,8 +818,8 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 (*temp_r12)(s32, u32, s32, s32);
     s32 temp_r3;
     u8 temp_r3_2;
-    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *)arg0) < 0xC) && (is_current_area_item_enabled() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)arg0), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
-        if (((TItemWeapon *)temp_r3)->test_flags_1b8(0x400020) != 0U) {
+    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) get_entity_id((void *)arg0) < 0xC) && (is_current_area_item_enabled() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)arg0), ((temp_r3 == 0) == 0)) && (get_item_type__5TItemFv() == 0)) {
+        if (((TItemWeapon *)temp_r3)->test_weapon_flags(0x400020) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)arg0, (void *)arg1, (void *)arg2, (s32)arg3);
             return;
         }

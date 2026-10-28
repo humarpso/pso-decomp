@@ -51,28 +51,27 @@ struct Rec_80127694 {
 };
 
 extern "C" {
-void draw_icon__10TObjPlayerFll(void *, int, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(void *);
 void *get_captured_target_entry(void *, int);
 void TUnk_804A3358::emit_marker_effects() {
     u8 pos[12];
     Rec_80127694 rec;
     void *st;
-    draw_icon__10TObjPlayerFll(this, 2, pos);
+    get_joint_position(2, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFll(this, 3, pos);
+    get_joint_position(3, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFll(this, 0, pos);
-    if (is_status_subsystem_ready__10TObjPlayerFv(this->player) == 2) {
+    get_joint_position(0, pos);
+    if (is_status_subsystem_ready__10TObjPlayerFv(this->owner) == 2) {
         if (((VObj_18 *)((u8 *)this))->m33() == 1) {
-            st = ((TObjPlayer *)(this->player))->get_extended_state();
+            st = ((TObjPlayer *)(this->owner))->get_extended_state();
             if (get_captured_target_count((s32 *)st) != 0) {
                 void *e = get_captured_target_entry(st, 0);
                 ((TObjPlayer *)(&rec))->construct_target_cursor_records();
                 rec.kind = 1;
                 rec.uid = ((TObjPlayer *)e)->get_uid();
                 rec.sub = get_captured_target_collider_index(e);
-                TObjPlayer::create_tec_zonde(this->player, (void *)pos, &rec, (void *)3);
+                TObjPlayer::create_tec_zonde(this->owner, (void *)pos, &rec, (void *)3);
             }
         }
     } else {

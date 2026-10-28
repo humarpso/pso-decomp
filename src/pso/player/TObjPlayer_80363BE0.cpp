@@ -1,4 +1,6 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TObjPlayer_80363BE0.h"
@@ -11,6 +13,7 @@
 #include "pso/player/TUnk_804F29F8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemLoad.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 extern "C" {
 void* init_vtable_804F2A10__13TUnk_804F2A10Fv(void*);
@@ -102,21 +105,19 @@ struct VObj_18_1419ea : VBase_18_1419ea {
 };
 
 extern "C" {
-VObj_18_1419ea *query_game_join_id__10TObjPlayerFv(s32);
 extern u8 saved_model_draw_color[];
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern u8 *lbl_805D6FB8;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 
 void TObjPlayer::alloc_and_run_object() {
     void *o;
 
-    o = alloc__23TAdSinglePlyChrSelectGCFv(0xB4);
+    o = ::operator new(0xB4);
     if (o != NULL) {
         o = (void *)TObjPlayer::run_and_return_arg((s32)o);
     }
@@ -126,30 +127,30 @@ void TUnk_804F2A10::render() {
     s32 *p;
     s32 n;
     VObj_18_1419ea *obj;
-    TObjPlayer::reset_transform_state();
-    lbl_805D5660 = model_render_flags;
-    lbl_805D5664 = chunk_polygon_flags_and_mask;
-    lbl_805D5668 = chunk_polygon_flags_or_mask;
-    ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
+    set_default_alpha_blend();
+    saved_model_render_flags = model_render_flags;
+    saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+    saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
+    copy_argb((NJS_ARGB *)saved_model_draw_color, (NJS_ARGB *)model_material_color);
     n = *(s32 *)(lbl_805D6FB8 + 0xB0);
     p = (s32 *)(lbl_805D6FB8 + 0x30);
     while (n != 0) {
-        obj = query_game_join_id__10TObjPlayerFv(*p++);
+        obj = (VObj_18_1419ea *)find_equipped_item(*p++);
         if (obj != NULL) {
             set_depth_buffer_settings_id(1);
             obj->m26();
-            TObjPlayer::reset_transform_state();
-            ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-            chunk_polygon_flags_and_mask = lbl_805D5664;
-            chunk_polygon_flags_or_mask = lbl_805D5668;
-            model_render_flags = lbl_805D5660;
+            set_default_alpha_blend();
+            copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+            chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+            chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+            model_render_flags = saved_model_render_flags;
             set_depth_buffer_settings_id(2);
             obj->m26();
-            TObjPlayer::reset_transform_state();
-            ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-            chunk_polygon_flags_and_mask = lbl_805D5664;
-            chunk_polygon_flags_or_mask = lbl_805D5668;
-            model_render_flags = lbl_805D5660;
+            set_default_alpha_blend();
+            copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+            chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+            chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+            model_render_flags = saved_model_render_flags;
         }
         n--;
     }
@@ -157,7 +158,6 @@ void TUnk_804F2A10::render() {
     *(s32 *)(lbl_805D6FB8 + 0xB0) = 0;
 }
 
-s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
 void TUnk_804F2A10::run_task() {
     void *spC;
@@ -165,7 +165,7 @@ void TUnk_804F2A10::run_task() {
 
     TItemLoad::get_model_ids((u8)5, (s32 *)&spC, (s32 *)&sp8);
     if (spC != NULL) {
-        submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)spC + 0x2C), 2, 2, 0xB);
+        scroll_item_model_uvs(*(NJS_OBJECT **)((s8 *)spC + 0x2C), 2, 2, 0xB);
     }
 }
 
@@ -255,28 +255,28 @@ void TObjPlayer::set_model_fade_alpha(f32 farg0) {
 }
 
 void TObjPlayer::copy_gauge_warn_vec() {
-    ((TRaderMapCore *)(&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color).value))->copy_vec4((void *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C));
+    copy_argb((NJS_ARGB *)(&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color).value), (NJS_ARGB *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C));
 }
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer::push_model_fade_color() {
-    ((TRaderMapCore *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C))->copy_vec4((&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
+    copy_argb((NJS_ARGB *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C), (NJS_ARGB *)(&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
     if (this != NULL) {
-        ((TRaderMapCore *)(&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value))->copy_vec4((this));
+        copy_argb((NJS_ARGB *)(&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (NJS_ARGB *)this);
     }
 }
 
 void TObjPlayer__sub_8036414C(void) {
     model_render_flags = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0);
-    ((TRaderMapCore *)(&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value))->copy_vec4(((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC));
+    copy_argb((NJS_ARGB *)(&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (NJS_ARGB *)((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC));
     chunk_polygon_flags_and_mask = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 4);
     chunk_polygon_flags_or_mask = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 8);
 }
 typedef char RecoveredGlobal_80364198_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80364198_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer__sub_80364198(void) {
     *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0) = (s32) model_render_flags;
-    ((TRaderMapCore *)((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC))->copy_vec4((&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
+    copy_argb((NJS_ARGB *)((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC), (NJS_ARGB *)(&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
     *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 4) = (s32) chunk_polygon_flags_and_mask;
     *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 8) = (s32) chunk_polygon_flags_or_mask;
 }
@@ -293,7 +293,7 @@ void TObjPlayer::free_global_805D6FB8() {
 void TObjPlayer::alloc_and_init_object_b4() {
     void *o;
 
-    o = alloc__23TAdSinglePlyChrSelectGCFv(0xB4);
+    o = ::operator new(0xB4);
     if (o != NULL) {
         o = (void *)TObjPlayer::run_and_return_arg((s32)o);
     }

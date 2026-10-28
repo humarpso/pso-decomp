@@ -69,12 +69,12 @@ void TOHangerMachine01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         p = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix(p + 8);
         draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         p = (u8 *)(*(u8 **)((s8 *)p + 0x2C));
-        if (lbl_805DB6A8 < this->target_scale) {
+        if (lbl_805DB6A8 < this->scale.y) {
             post_translate_matrix(p + 8);
             draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         }
@@ -108,7 +108,7 @@ void TOHangerMachine01::render() {
         TParticleCtrl::end_effect_render();
         pop_matrix();
         p = (u8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 * *)&this->model) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 0x30));
-        if (lbl_805DB6A8 < this->scale) {
+        if (lbl_805DB6A8 < this->scale.x) {
             post_translate_matrix(p + 8);
             draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         }
@@ -135,7 +135,7 @@ void TOHangerMachine01::free_static_model() {
 void TOHangerMachine01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_hanger_moto_resource_descriptor.value, 0, 0, 0));
@@ -146,7 +146,7 @@ void TOHangerMachine01::load_shared_resource() {
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOHangerMachine01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
@@ -166,13 +166,13 @@ u8 *TOHangerMachine01__ct(TOHangerMachine01 *hanger_machine01, s32 arg1) {
     *(s32 *)((s8 *)hanger_machine01 + 0) = (s32) TOHangerMachine01__class_name;
     ((TOHangerMachine01 *)(hanger_machine01))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)hanger_machine01 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 8);
-    hanger_machine01->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 0xC);
+    hanger_machine01->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 0xC);
     hanger_machine01->m_c0 = (f32) lbl_805DB6AC;
     *(f32 *)((s8 *)hanger_machine01 + 0xC4) = (f32) lbl_805DB6B0;
     hanger_machine01->actorFlags = (s32) (hanger_machine01->actorFlags | 0x40000000);
     init_collision_body_parts(hanger_machine01, &hanger_machine01_collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)hanger_machine01)->refresh_collision_body_centers();
-    ((TObjPlayer *)hanger_machine01)->reset_photon_effect();
+    ((TObjCollidable *)hanger_machine01)->refresh_collision_body_centers();
+    ((TObjPlayer *)hanger_machine01)->register_object_by_id();
     hanger_machine01->m_c8 = 0;
     return (u8 *)hanger_machine01;
 }

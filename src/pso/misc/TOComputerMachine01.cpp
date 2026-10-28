@@ -91,7 +91,7 @@ void TOComputerMachine01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         temp_r31 = (u8 *)(*(u8 * *)&this->model);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         TParticleCtrl::begin_effect_render();
@@ -130,7 +130,7 @@ void TOComputerMachine01::reset_state() {
 void TOComputerMachine01::load_model_resource() {
     u8 *o;
     Node_8015B544 *n;
-    o = (u8 *)((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    o = (u8 *)::operator new(0x440);
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, bm_fs_obj_kenkyu_com_resource_descriptor, 0, 0, 0);
     }
@@ -147,7 +147,7 @@ void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOComputerMachine01;
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -163,13 +163,13 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EEC;
     ((TOComputerMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOComputerMachine01__model_resource + 0x42C)) + 8);
-    ((TOComputerMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOComputerMachine01__model_resource + 0x42C)) + 0xC);
+    ((TOComputerMachine01 *)arg0)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOComputerMachine01__model_resource + 0x42C)) + 0xC);
     ((TOComputerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB390;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB394;
     ((TOComputerMachine01 *)arg0)->actorFlags = (s32) (((TOComputerMachine01 *)arg0)->actorFlags | 0x40000000);
     init_collision_body_parts(arg0, &computer_machine01_collision_body.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     return arg0;
 }

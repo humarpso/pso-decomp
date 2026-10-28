@@ -24,32 +24,34 @@
 #define PSO_PROTOCOL_TYPES_H
 
 #include "types.h"
+#include "pso/item/TItemData.h"
 
 struct VectorXZF {
  f32 x;
  f32 z;
-};
-
-struct ItemData {
- u8 _anon_u_0[0xC];
- u32 id;
- u8 _anon_u_10[0x4];
+ void bswap();
 };
 
 struct FloorItem {
- u8 floor;
+ s8 floor;
  u8 source_type;
- u16 entity_index;
+ s16 entity_index;
  struct VectorXZF pos;
- u16 room_id;
+ s16 room_id;
  u16 drop_number;
- struct ItemData item;
+ TItemData item;
+ FloorItem();
+ void clear();
 };
 
 struct G_ClientIDHeader {
  u8 subcommand;
  u8 size;
  u16 client_id;
+ // Whether the command came from another client.
+ s32 is_remote();
+ s32 is_local(u16 client);
+ void bswap();
 };
 
 struct G_EntityIDHeader {

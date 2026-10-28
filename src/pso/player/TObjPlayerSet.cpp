@@ -15,7 +15,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
 u8 *TObjQuestCol2__vt14(TObjQuestCol2 *arg0);
-u8 * __ct__13TUnk_804B9870FP7TObject(void *);
+u8 * __ct__8TObjBaseFP7TObject(void *);
 extern s32 __vt__13TObjPlayerSet[];
 extern s32 TObjPlayer__player_set_class_name;
 extern const f32 lbl_805DBEF0;
@@ -50,15 +50,15 @@ extern void *quest_collision_task_root;
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80195720___vt__13TObjPlayerSet_size[sizeof(RecoveredGlobal_80195720___vt__13TObjPlayerSet) == 0x38 ? 1 : -1];
 u8 *TObjPlayerSet__ct(TObjPlayerSet *player_set, s32 arg1, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject(player_set);
+    __ct__8TObjBaseFP7TObject(player_set);
     *(s32 **)((s8 *)player_set + 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
     *(s32 *)((s8 *)player_set + 0) = (s32) TObjPlayer__player_set_class_name;
     ((TObjPlayerSet *)(player_set))->apply_object_set_data((void *)arg2);
-    if (player_set->scale < lbl_805DBEF0) {
-        player_set->scale = (f32) lbl_805DBEF0;
+    if (player_set->scale.x < lbl_805DBEF0) {
+        player_set->scale.x = (f32) lbl_805DBEF0;
     }
-    if ((s32) player_set->m_84 < 0) {
-        player_set->m_84 = 0;
+    if ((s32) player_set->set_params[0] < 0) {
+        player_set->set_params[0] = 0;
     }
     disallow_rendering__7TObjectFv((TObject *)player_set);
     return (u8 *)player_set;

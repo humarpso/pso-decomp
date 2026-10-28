@@ -9,6 +9,8 @@
 #include "pso/TItemReverseTechPart2.h"
 #include "pso/item/TItemReverseTechPart2.h"
 #include "pso/item/TItemReverseTech_8011A1E8.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct TItemReverseTechBG_80119658 {
     u8 pad0[0x1C];
@@ -25,7 +27,6 @@ struct TItemReverseTechBG_80119658 {
 
 extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, void *);
-void reset_transform_state__10TObjPlayerFv(void *);
 
 extern void *__vt__18TItemReverseTechBG[];
 extern s32 lbl_805D2C54;
@@ -295,8 +296,8 @@ void TItemReverseTechBG::run_task() {
 }
 
 void TItemReverseTechBG::render() {
-    reset_transform_state__10TObjPlayerFv(this);
-    TObjPlayer::notify_fish_if_valid((u32)(*(void **)((s8 *)this + 0x2C)));
+    set_default_alpha_blend();
+    set_texlist((u32)(*(void **)((s8 *)this + 0x2C)));
     begin_screen_draw(1);
     set_draw_texture_and_color((s32)(*(void **)((s8 *)this + 0x30)), (s32)(*(void **)((s8 *)this + 0x34)));
     draw_textured_quad_at_depth((f32 *)((char *)this + 56), *(f32 *)((s8 *)this + 0x58));

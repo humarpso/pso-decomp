@@ -20,7 +20,7 @@ struct TObjPlayer_801D8044 {
 
 extern "C" {
 void init__6gc_tagFv(void *);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
+s32 obj_testFlags30__14TObjCollidableFUl(void *, u32);
 u8 get_cast_technique_level(void *, int);
 Tec_801D7DA4 *calc_technique_parameters(s32, s32, s32);
 s32 get_game_play_mode();
@@ -34,7 +34,7 @@ s32 validate_and_clear_slot__10TObjPlayerFv(void *, s32);
 void init__9TItemDataFv(void *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, TItemData_801D8044 *);
 s32 TObjPlayer__sub_801AF694(void *, s32);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 TWindowCtrl__sub_8024A228(s32);
 s32 TMainCursor__sub_8013F244(void *);
 s32 fn_8013F24C(void *, s32);
@@ -59,7 +59,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
     case 1:
         return 1;
     case 2:
-        if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x20006) != 0 || is_current_area_item_enabled() == 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
+        if (obj_testFlags30__14TObjCollidableFUl(arg0, 0x20006) != 0 || is_current_area_item_enabled() == 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
         if ((u8)sub == 2) {
@@ -73,10 +73,10 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 3:
-        if (((TObjPlayer *)(arg0 + 0x428))->test_bit1_at_10() != 0 || obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x20006) != 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
+        if (((TObjPlayer *)(arg0 + 0x428))->test_bit1_at_10() != 0 || obj_testFlags30__14TObjCollidableFUl(arg0, 0x20006) != 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
-        if (*(s16 *)(arg0 + 0x32E) - calc_technique_parameters(tec = sub, get_cast_technique_level(arg0 + 0x428, sub), ((s32 (*)(void *))obj_getField1c)(arg0))->cost < 0) {
+        if (*(s16 *)(arg0 + 0x32E) - calc_technique_parameters(tec = sub, get_cast_technique_level(arg0 + 0x428, sub), ((s32 (*)(void *))get_entity_id)(arg0))->cost < 0) {
             return 0;
         }
         switch (tec) {
@@ -118,7 +118,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 5:
-        if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0 || obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x20006) != 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
+        if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0 || obj_testFlags30__14TObjCollidableFUl(arg0, 0x20006) != 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
         return 1;
@@ -241,7 +241,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
                 if (TObjPlayer__sub_801AF694(self, 0) != 0) {
                     return 0;
                 }
-                if (TWindowCtrl__sub_8024A228(obj_getField1c(self)) == 0) {
+                if (TWindowCtrl__sub_8024A228(get_entity_id(self)) == 0) {
                     return 0;
                 }
                 break;
@@ -249,7 +249,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
                 if (TObjPlayer__sub_801AF694(self, 1) != 0) {
                     return 0;
                 }
-                if (TWindowCtrl__sub_8024A228(obj_getField1c(self)) == 0) {
+                if (TWindowCtrl__sub_8024A228(get_entity_id(self)) == 0) {
                     return 0;
                 }
                 break;
@@ -257,7 +257,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
                 if (TObjPlayer__sub_801AF694(self, 2) != 0) {
                     return 0;
                 }
-                if (TWindowCtrl__sub_8024A228(obj_getField1c(self)) == 0) {
+                if (TWindowCtrl__sub_8024A228(get_entity_id(self)) == 0) {
                     return 0;
                 }
                 break;
@@ -265,7 +265,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
                 if (TObjPlayer__sub_801AF694(self, 3) != 0) {
                     return 0;
                 }
-                if (TWindowCtrl__sub_8024A228(obj_getField1c(self)) == 0) {
+                if (TWindowCtrl__sub_8024A228(get_entity_id(self)) == 0) {
                     return 0;
                 }
                 break;

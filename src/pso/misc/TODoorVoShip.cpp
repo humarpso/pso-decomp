@@ -49,7 +49,7 @@ s32 push_matrix();
 s32 post_translate_matrix(void *);
 void TObjEneSlimeOne__sub_803E4B54(void *child, void *arg1, void *arg2, f32 farg0);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -88,7 +88,7 @@ void TODoorVoShip::run_task() {
         }
         if ((get_story_flag(0x2F) != 0) || (get_main_phase() == 0xF)) {
             this->m_cc = (s32) (this->m_cc & 0xFFFFFFF1);
-            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, (int)(1U));
+            ((TObjCollidable *)arg0)->clear_player_status_flag(0, (int)(1U));
         }
     }
 }
@@ -105,13 +105,13 @@ void TODoorVoShip::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), this->m_b0);
         TObjFish::set_global_param((int) (*(s32 *)&this->m_d8));
         temp_r4 = model_render_flags;
-        lbl_805D5660 = temp_r4;
+        saved_model_render_flags = temp_r4;
         model_render_flags = temp_r4 | 0x20;
-        ((TUnk_80494AE0 *)(arg0 + 0xDC))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)((arg0 + 0xDC)));
         TParticleCtrl::begin_effect_render();
         temp_r31 = *(u8 * *)&this->m_d4;
         push_matrix();
@@ -139,8 +139,8 @@ void TODoorVoShip::render() {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-        model_render_flags = lbl_805D5660;
+        set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+        model_render_flags = saved_model_render_flags;
         pop_matrix();
     }
 }
@@ -163,7 +163,7 @@ void TODoorVoShip::free_static_data() {
 void TODoorVoShip::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_door_vo_ship_resource_descriptor.value, 0, 0, 0));
@@ -174,7 +174,7 @@ void TODoorVoShip::load_shared_resource() {
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TODoorVoShip;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
@@ -189,7 +189,7 @@ u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorVoShip__class_name;
     ((TODoorVoShip *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
-    arg0->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
+    arg0->texlist = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
     arg0->m_bc = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)(arg0->m_bc + 4) - lbl_805DB53C);
     arg0->m_b8 = (f32) lbl_805DB53C;
@@ -197,8 +197,8 @@ u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2) {
     arg0->m_d4 = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     arg0->m_d8 = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     init_collision_body_parts(arg0, (s32) &door_vo_ship_collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     arg0->m_c0 = (f32) lbl_805DB540;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB544;
     arg0->m_cc = 0xE;
@@ -222,7 +222,7 @@ u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2) {
     } else {
 block_8:
         arg0->m_cc = (s32) (arg0->m_cc & 0xFFFFFFF1);
-        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
+        ((TObjCollidable *)arg0)->clear_player_status_flag(0, 1);
     }
     return (u8 *)arg0;
 }

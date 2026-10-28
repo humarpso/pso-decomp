@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_8049EFB8.h"
@@ -16,9 +17,10 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/TItemLoad.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 
 extern "C" {
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 TObjPlayer__sub_80117E50();
 void *get_player_by_client_id(s32 i);
@@ -42,7 +44,7 @@ struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
 };
 
 extern "C" {
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80107DA4_lbl_8049EFB8 __vt__13TUnk_8049EFB8;
@@ -53,7 +55,7 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(int, int, f32);
 extern RecoveredGlobal_80107DF0_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 model_material_color;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 
 typedef char RecoveredGlobal_80107DA4_lbl_8049EFB8_size[sizeof(RecoveredGlobal_80107DA4_lbl_8049EFB8) == 0x18 ? 1 : -1];
@@ -165,7 +167,6 @@ extern "C" {
 void play_sound_effect(u32, void *, s32, s32);
 f32 xyz_distance(Vec_80108164 *, Vec_80108164 *);
 void *__nw__7TObjectFUl(u32);
-Quest_80108164 *get_quest_id__12TQuestListVMFv(Player_80108164 *);
 
 void *create_particle_emitter(void *pos, s32 id);
 
@@ -183,10 +184,10 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b);
 
 #pragma defer_codegen on
 
-void TObjPlayer::spawn_appearance_effect(s32 idx) {
-    Player_80108164 *p = (Player_80108164 *)get_player_by_client_id((u16)idx);
+void TObjPlayer::spawn_appearance_effect(u16 client) {
+    Player_80108164 *p = (Player_80108164 *)get_player_by_client_id(client);
     if (p != 0) {
-        Quest_80108164 *q = get_quest_id__12TQuestListVMFv(p);
+        Quest_80108164 *q = (Quest_80108164 *)((TObjPlayer *)p)->get_stats();
         if (q != 0) {
             f32 v = q->f10;
             Vec_80108164 a;
@@ -220,7 +221,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->f60 = default_scene_light_config.f1C;
     self->f64 = (1.0f - self->f5C) / 14.5f;
     self->f1C = (s32)create_particle_emitter(self->f6C + 0x38, 0x1BA);
-    ((TRaderMapCore *)(self->v38))->copy_vec4(lbl_8043E140);
+    copy_argb((NJS_ARGB *)self->v38, (NJS_ARGB *)lbl_8043E140);
     {
         Vec_80108020 v = lbl_8043E160[0];
         p = __nw__7TObjectFUl(0x64);
@@ -253,7 +254,7 @@ void TItemEffArmor::run_task() {
     *(f32 *)&this->m_38 = (f32) (1.0f - (this->m_24 / 29.0f));
     temp_r3_2 = (u8 *)this->m_6c;
     if (temp_r3_2 != NULL) {
-        publish_actor_light_scalars((obj_getField1c(temp_r3_2)), this->m_60, (f32) (*(f32 *)&this->unk_5C));
+        publish_actor_light_scalars((get_entity_id(temp_r3_2)), this->m_60, (f32) (*(f32 *)&this->unk_5C));
     }
     if (*(f32 *)&this->unk_5C >= 1.0f) {
         *(f32 *)&this->unk_64 = (f32) ((-1.0f) * *(f32 *)&this->unk_64);
@@ -273,22 +274,22 @@ void TItemEffArmor::render() {
     rotate_matrix_y(0, this->m_68);
     temp_f1 = *(f32 *)&this->unk_28;
     scale_matrix(0, temp_f1, 1.0f, temp_f1);
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
-    ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4(&model_material_color.value);
-    ((TUnk_80494AE0 *)(arg0 + 0x38))->set_chunk_material_color();
-    TObjPlayer::notify_fish_if_valid(this->m_78);
+    copy_argb((NJS_ARGB *)&saved_model_draw_color.value, (NJS_ARGB *)&model_material_color.value);
+    set_constant_material((const NJS_ARGB *)((arg0 + 0x38)));
+    set_texlist(this->m_78);
     draw_ginja_model_with_motion(this->m_70, this->m_74, this->m_24);
-    ((TRaderMapCore *)(&model_material_color.value))->copy_vec4(&saved_model_draw_color.value);
-    model_render_flags = lbl_805D5660;
+    copy_argb((NJS_ARGB *)&model_material_color.value, (NJS_ARGB *)&saved_model_draw_color.value);
+    model_render_flags = saved_model_render_flags;
     pop_matrix();
 }
 
-u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2) {
+u8 *fn_80107DA4(u8 *arg0, u8 *arg1, u16 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TUnk_8049EFB8.value;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s16 *)&((TUnk_8049EFB8 *)arg0)->m_20 = arg2;
+    ((TUnk_8049EFB8 *)arg0)->m_20 = arg2;
     return arg0;
 }
 
@@ -303,7 +304,7 @@ void TUnk_8049EFB8::run_task() {
         if (player != 0) {
             get_field_3e0__12TBoss3VoloptFv();
             if (is_item_area_enabled() == 1) {
-                obj_getField1c((void *)player);
+                get_entity_id((void *)player);
                 if (TObjPlayer__sub_80117E50() != 0) {
                     spawn_particle_effect((void *)(player + 0x2FC), 0x1BE);
                 }

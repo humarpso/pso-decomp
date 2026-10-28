@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TUnk_804A6FA8.h"
@@ -162,7 +163,6 @@ extern s32 TObjLight__active_light_count;
 extern s32 light_entry_file_size;
 __declspec(section ".rodata") char lbl_8043ED80[] = "lightentry.bin";
 s32 read_disc_file(void *, u32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void GXInitLightSpot(void *, s32, f32);
 void GXInitLightDistAttn(void *, s32, f32, f32);
 extern const f32 lbl_805DB098;
@@ -189,7 +189,7 @@ Light_801347A4 TObjLight__data_805068FC[8];
 __declspec(section ".data") u32 TObjLight__data_80506A5C;
 #define TObjLight__scene_light_state (*(RecoveredGlobal_801336E0_TObjLight__data_80506320 *)TObjLight__scene_light_state)
 
-void*TObjLight::init_light(int a1) { *(int *)&this->m_name = light_type_id_table[a1]; *(float *)&this->m_up = TObjLight__data_805DB088; *(float *)&this->m_next = TObjLight__data_805DB088; *(float *)&this->m_prev = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float *)&this->m_down = lbl_805DB08C; *(float*)((char*)this + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(this); *(float *)&this->m_20 = lbl_805DB094; *(float *)&this->texture_id = lbl_805DB094; *(float *)&this->m_28 = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(this); return this; }
+void*TObjLight::init_light(int a1) { *(int *)&this->m_name = light_type_id_table[a1]; *(float *)&this->m_up = TObjLight__data_805DB088; *(float *)&this->m_next = TObjLight__data_805DB088; *(float *)&this->m_prev = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float *)&this->m_down = lbl_805DB08C; *(float*)((char*)this + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(this); *(float *)&this->m_20 = lbl_805DB094; *(float *)&this->texlist = lbl_805DB094; *(float *)&this->room = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(this); return this; }
 
 void TUnk_804A6F78::render() {  }
 
@@ -214,7 +214,7 @@ u32 TObjLight::alloc_light_slot() {
     p = ((u32 *)&TObjLight__data_80506370);
     for (i = 0; i < 3; p++, i++) {
         if (*p == 0) {
-            r = alloc__23TAdSinglePlyChrSelectGCFv(0x2C);
+            r = ::operator new(0x2C);
             if (r != 0) {
                 r = ((void *)((TObjLight *)r)->init_light(i));
             }
@@ -555,7 +555,7 @@ struct LightData_80134194 {
     f32 color[3];
     u8 pad34[0x28];
 };
-u16 obj_getField1c(s32);
+u16 get_entity_id(s32);
 #define LD_80134194 ((LightData_80134194 *)&TObjLight__scene_light_state)
 #define L1_80134194 TObjLight__data_8050637C
 #define L2_80134194 TObjLight__data_805068FC
@@ -563,7 +563,7 @@ void select_actor_lighting(s32 obj) {
     s32 i;
 
     for (i = 0; i < TObjLight__light_count; i++) {
-        if (L2_80134194[i].id == obj_getField1c(obj)) {
+        if (L2_80134194[i].id == get_entity_id(obj)) {
             if (((u32)L2_80134194[i].f24 & 1) && ((u32)L2_80134194[i].f24 & 2)) {
                 set_light_ambient_color(L2_80134194[i].f20, L2_80134194[i].f20, L2_80134194[i].f20);
                 init_distant_light(0, L2_80134194[i].dir[0], L2_80134194[i].dir[1], L2_80134194[i].dir[2]);
@@ -591,7 +591,7 @@ void select_actor_lighting(s32 obj) {
         }
     }
     for (i = 0; i < TObjLight__actor_light_count; i++) {
-        if (L1_80134194[i].id == obj_getField1c(obj)) {
+        if (L1_80134194[i].id == get_entity_id(obj)) {
             init_distant_light(0, L1_80134194[i].dir[0], L1_80134194[i].dir[1], L1_80134194[i].dir[2]);
             GXInitLightDir(TObjLight__gx_light_objects, L1_80134194[i].dir[0], L1_80134194[i].dir[1], L1_80134194[i].dir[2]);
             set_light_ambient_color(LD_80134194->amb, LD_80134194->amb, LD_80134194->amb);
@@ -613,11 +613,11 @@ void TObjLight::find_light_params(f32 *dir, f32 *color, u32 id) {
         LightEntry_801344A4 *e = &((LightEntry_801344A4 *)&TObjLight__data_8050637C)[i];
         if (id == e->id) {
             VecCopy((Vec *)dir, (const Vec *)e->dir);
-            ((TRaderMapCore *)color)->copy_vec4(e->color);
+            copy_argb((NJS_ARGB *)color, (NJS_ARGB *)e->color);
             return;
         }
     }
-    ((TRaderMapCore *)color)->copy_vec4((*(LightDefault_801344A4 *)&TObjLight__scene_light_state).color);
+    copy_argb((NJS_ARGB *)color, (NJS_ARGB *)((*(LightDefault_801344A4 *)&TObjLight__scene_light_state).color));
     VecCopy((Vec *)dir, (const Vec *)((*(LightDefault_801344A4 *)&TObjLight__scene_light_state).dir));
 }
 
@@ -663,7 +663,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
             if (id == e->id) {
                 TObjLight__data_805068FC[i].id = id;
                 VecCopy((Vec *)e, (const Vec *)dir);
-                ((TRaderMapCore *)(e->color))->copy_vec4(color);
+                copy_argb((NJS_ARGB *)e->color, (NJS_ARGB *)color);
                 add = 0;
                 TObjLight__data_805068FC[i].f24 |= 2;
                 break;
@@ -675,7 +675,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
         if (add) {
             TObjLight__data_805068FC[TObjLight__light_count].id = id;
             VecCopy((Vec *)&TObjLight__data_805068FC[TObjLight__light_count], (const Vec *)dir);
-            ((TRaderMapCore *)(TObjLight__data_805068FC[TObjLight__light_count].color))->copy_vec4(color);
+            copy_argb((NJS_ARGB *)TObjLight__data_805068FC[TObjLight__light_count].color, (NJS_ARGB *)color);
             TObjLight__data_805068FC[TObjLight__light_count].f24 |= 2;
             TObjLight__light_count++;
         }
@@ -688,7 +688,7 @@ void register_actor_light(s32 arg0, s32 arg1) {
         temp_r5 = (u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C);
         *(s32 *)((s8 *)temp_r5 + 0x28) = arg0;
         VecCopy((Vec *)(temp_r5), (const Vec *)(arg1 + 0xE4));
-        ((TRaderMapCore *)((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC))->copy_vec4((void *)(arg1 + 0xF0));
+        copy_argb((NJS_ARGB *)((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC), (NJS_ARGB *)(arg1 + 0xF0));
         TObjLight__actor_light_count += 1;
     }
 }

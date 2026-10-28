@@ -12,6 +12,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 {
     s32 value;
@@ -179,7 +180,7 @@ extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data
 u8 * __dt__7TObjectFv(void *, s16);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 lbl_8048E6A8[];
 extern s32 lbl_8048E6DC[];
 extern s32 lbl_805D2930;
@@ -246,7 +247,7 @@ void TUnk_8048E6A8::run_task() {
 
     player = (u32)get_player_by_client_id((local_client_id));
     if ((player != 0U) && (horizontal_distance_squared((void *)(player + 0x38), (void *)(arg0 + 0x38)) < 400.0f)) {
-        if (this->scale > 0.0f) {
+        if (this->scale.x > 0.0f) {
             lbl_805D2930 = 1;
             return;
         }
@@ -257,7 +258,7 @@ void TUnk_8048E6A8::run_task() {
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6A8;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -267,7 +268,7 @@ void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_800858D0_lbl_8048E6A8_size[sizeof(RecoveredGlobal_800858D0_lbl_8048E6A8) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::construct_particle_obj(s32 arg1, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject(this, (void *)arg2);
+    __ct__8TObjBaseFP7TObject(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_800858D0_lbl_8048E6A8 *)&lbl_8048E6A8).value;
     ((VObj_18_1a504b *)(this))->m5(arg1);
     return ((u8 *)this);
@@ -341,7 +342,7 @@ void TUnk_8048E6DC::render() {
             self->screen_y = -10.0f;
         }
     }
-    TObjPlayer::init_xyz_limits();
+    set_additive_blend();
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_804C5820[31].param);
     set_draw_texture_and_color(lbl_804C5820[31].tex, -1);
@@ -427,7 +428,7 @@ void TUnk_8048E6DC::run_task() {
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6DC;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -439,7 +440,7 @@ typedef char RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70_size[sizeof(R
 
 typedef char RecoveredGlobal_80085E78_lbl_8048E6DC_size[sizeof(RecoveredGlobal_80085E78_lbl_8048E6DC) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::init_particle_obj(s32 arg1, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject(this, (void *)arg2);
+    __ct__8TObjBaseFP7TObject(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80085E78_lbl_8048E6DC *)&lbl_8048E6DC).value;
     ((VObj_18_1a504b *)(this))->m5(arg1);
     *(f32 *)((s8 *)((u8 *)this) + 0xA4) = 225.0f;

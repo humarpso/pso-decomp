@@ -367,7 +367,7 @@ extern s8 lbl_805D5288;
 extern s8 TObjEnePanarms__sound_ids_initialized;
 extern f32 panarms_particle_frame_window;
 extern u8 panarms_particle_frame_window_initialized;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern const f32 lbl_805DA520;
 extern const f32 lbl_805DA528;
 extern const f32 lbl_805DA534;
@@ -643,7 +643,7 @@ void TObjEnePanarms::update_attack() {
     }
     if (this->m_c0 < TObjEnePanarms__data_805DA544) {
         temp_f3 = *(f32 *)((s8 *)entity + 0x38);
-        this->rotation_y = approach_angle_limited(this->rotation_y, lbl_8043CDA0[this->m_380] + (s32) (TObjEnePanarms__data_8043CDD0 * atan2_float(temp_f3 - *(f32 *)&this->position[0], *(f32 *)((s8 *)entity + 0x40) - this->position[2], temp_f3)), 0x200);
+        this->rotation_y = approach_angle_limited(this->rotation_y, lbl_8043CDA0[this->m_380] + (s32) (TObjEnePanarms__data_8043CDD0 * atan2_float(temp_f3 - this->position.x, *(f32 *)((s8 *)entity + 0x40) - this->position.z, temp_f3)), 0x200);
     }
     if (*(s32 *)&this->animationFlags & 0x10) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xA);
@@ -1121,7 +1121,7 @@ void TObjEnePanarms::init_split() {
 void TObjEnePanarms::snap_to_parent_position() {
     u8 *arg0 = (u8 *)this;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(this->m_39c + 0x38));
-    this->position[0] = (f32) (this->position[0] + lbl_805DA580);
+    this->position.x = (f32) (this->position.x + lbl_805DA580);
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA580);
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
 }
@@ -1406,10 +1406,10 @@ void TObjEnePanBARA::vfunc_63() {
     default:
         if (st == 0) {
             this->rotation_y = *(s32 *)(this->m_39c + 0x60) + panarms_turn_delta_table[this->m_380];
-            VecCopy((Vec *)&this->position, (const Vec *)(this->m_39c + 0x38));
+            VecCopy(&this->position, (const Vec *)(this->m_39c + 0x38));
             *(f32 *)((s8 *)arg0 + 0x38) += lbl_805DA588 * sin_table_lookup(this->rotation_y);
             *(f32 *)((s8 *)arg0 + 0x40) += lbl_805DA588 * cos_table_lookup(this->rotation_y);
-            VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
+            VecCopy((Vec *)&this->m_2fc, &this->position);
         }
         ((int (*)(void*, int))TObjEnePanarms__sub_800E1C98)(arg0, 7);
         break;
@@ -1444,7 +1444,7 @@ void TObjEnePanarms::update_linked_effect() {
     }
 }
 
-void TObjEnePanarms::draw() { ((int (*)(void*))push_matrix)(this); ((int (*)(void*))post_translate_matrix)((char*)this + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void* *)&this->rotation_y); TObjFish::set_global_param((s32)(*(void* *)&this->texture_id)); ((TObjFish *)(this->m_3dc))->set_draw_callback_list(); draw__10TObjMotionFv(this); ((int (*)(void*))clear_render_callback__8TObjFishFv)(this->m_3dc); ((int (*)(void))pop_matrix)(); }
+void TObjEnePanarms::draw() { ((int (*)(void*))push_matrix)(this); ((int (*)(void*))post_translate_matrix)((char*)this + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void* *)&this->rotation_y); TObjFish::set_global_param((s32)(*(void* *)&this->texlist)); ((TObjFish *)(this->m_3dc))->set_draw_callback_list(); draw__10TObjMotionFv(this); ((int (*)(void*))clear_render_callback__8TObjFishFv)(this->m_3dc); ((int (*)(void))pop_matrix)(); }
 
 void TObjEnePanarms::draw_with_fade() {
     s32 temp_r4;
@@ -1463,7 +1463,7 @@ void TObjEnePanarms::draw_with_fade() {
     }
     TObjPlayer::toggle_particle_effect();
     temp_r4 = model_render_flags;
-    lbl_805D5660 = temp_r4;
+    saved_model_render_flags = temp_r4;
     model_render_flags = temp_r4 | 0x01000000 | 1;
     temp_r31 = &((Obj_800E20D0 *) ((u8 *)this))->fades[var_r31];
     update_obstruction_fade((int)temp_r31, (int)temp_r4);
@@ -1480,7 +1480,7 @@ void TObjEnePanarms::draw_with_fade() {
     } else {
         this->draw();
     }
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
     TParticleCtrl::end_effect_render();
     this->update_linked_effect();
 }

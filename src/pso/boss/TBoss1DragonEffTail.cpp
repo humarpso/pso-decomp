@@ -58,7 +58,6 @@ struct Vec_8002BD38 { f32 x, y, z; };
 extern "C" {
 void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 extern const f32 lbl_805D8158;
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern u8 TBoss1DragonEffTail__collision_body_templates[];
 extern s32 __vt__19TBoss1DragonEffTail[];
 extern s32 TBoss1DragonEffTail__name;
@@ -99,7 +98,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *boss1_dragon_eff_tail) {
     rotate_matrix_y(0, -((TBoss1DragonEffTail *)boss1_dragon_eff_tail)->rotation_y);
     translate_matrix(0, -*(f32 *)((s8 *)boss1_dragon_eff_tail + 0x38), -*(f32 *)((s8 *)boss1_dragon_eff_tail + 0x3C), -*(f32 *)((s8 *)boss1_dragon_eff_tail + 0x40));
     for (i = 0; i < 0x11; i++) {
-        p = *(u8 * *)&((TBoss1DragonEffTail *)boss1_dragon_eff_tail)->m_a4 + i * 0x2C;
+        p = *(u8 * *)&((TBoss1DragonEffTail *)boss1_dragon_eff_tail)->bodies + i * 0x2C;
         VecCopy((Vec *)(p + 0x1C), (const Vec *)src);
         matrix_mult_vec(0, src++, p);
         update_collider_contact_by_height(p, lbl_805D814C);
@@ -158,11 +157,11 @@ EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     data = TBoss1DragonEffTail__collision_body_templates;
     arg0->unk0 = TBoss1DragonEffTail__name;
     for (i = 1; i < 0x11; i++) {
-        fn_8002B630((u8 *)&arg0->spheres[i], (u8 *)data);
+        copy_collision_body((CollisionBody *)&arg0->spheres[i], (const CollisionBody *)data);
     }
     arg0->unkB0 = arg1;
     arg0->unkB4 = arg2;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    p = ::operator new(0x10);
     if (p != 0) {
         p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 4);
     }

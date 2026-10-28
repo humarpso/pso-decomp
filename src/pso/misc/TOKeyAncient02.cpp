@@ -84,7 +84,7 @@ void TOKeyAncient02::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         temp_r31 = *(u8 * *)&this->model;
         push_matrix();
         post_translate_matrix(temp_r31 + 8);
@@ -191,7 +191,7 @@ typedef char RecoveredGlobal_8016B5A4_lbl_804B2A7C_size[sizeof(RecoveredGlobal_8
 void TOKeyAncient02::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_o_doorswitch01_resource_descriptor.value, 0, 0, 0));
@@ -206,7 +206,7 @@ void TOKeyAncient02::load_resources() {
 void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOKeyAncient02;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
@@ -223,10 +223,10 @@ u8 *TOKeyAncient02__ct(TOKeyAncient02 *key_ancient02, s32 arg1, s32 arg2) {
     ((TOKeyAncient02 *)(key_ancient02))->apply_object_set_data((void *)arg2);
     ((TOKey *)key_ancient02)->init_switch_id();
     key_ancient02->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
-    key_ancient02->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
+    key_ancient02->texlist = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
     init_collision_body_parts(key_ancient02, &key_ancient02_collision_body.value, 1);
-    ((TUnk_804AF8A0 *)key_ancient02)->refresh_collision_body_centers();
-    ((TObjPlayer *)key_ancient02)->reset_photon_effect();
+    ((TObjCollidable *)key_ancient02)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_ancient02)->register_object_by_id();
     key_ancient02->m_c0 = (f32) lbl_805DB710;
     *(f32 *)((s8 *)key_ancient02 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)key_ancient02->model + 4)) + 0x14));
     key_ancient02->m_e8 = 0;
@@ -237,8 +237,8 @@ u8 *TOKeyAncient02__ct(TOKeyAncient02 *key_ancient02, s32 arg1, s32 arg2) {
         key_ancient02->m_d0 = 0;
     }
     *(f32 *)((s8 *)key_ancient02 + 0x70) = (f32) TOKeyAncient02__data_805DB70C;
-    key_ancient02->target_scale = (f32) TOKeyAncient02__data_805DB70C;
-    key_ancient02->scale = (f32) TOKeyAncient02__data_805DB70C;
+    key_ancient02->scale.y = (f32) TOKeyAncient02__data_805DB70C;
+    key_ancient02->scale.x = (f32) TOKeyAncient02__data_805DB70C;
     return (u8 *)key_ancient02;
 }
 
@@ -270,7 +270,7 @@ void TOKeyAncient03::send_switch_changed(s32 flags) {
     TOKeyAncient03 *self = this;
     Pkt_8016B84C pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->m_1c;
+    pkt.object = self->entity_id;
     pkt.zero = local_client_id;
     pkt.switchId = self->m_e4;
     pkt.area = get_current_floor();

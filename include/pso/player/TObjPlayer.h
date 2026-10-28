@@ -4,7 +4,8 @@
 #include "types.h"
 #include "pso/player/PlayerClassFlags.h"
 #include "pso/player/PlayerScaleState.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/RenderMaterialState.h"
+#include "pso/player/TObjChara.h"
 
 struct TItemData;
 
@@ -13,9 +14,10 @@ struct player_stats;
 struct TItem;
 struct TechniqueContactList;
 
-struct TObjPlayer : public TUnk_804806E8 {
+struct TObjPlayer : public TObjChara {
     virtual ~TObjPlayer();
     virtual void reset_motion_fields();
+    virtual const char *get_name();
     void update_swim_flag(void *);
     void setup_radar_marker(void *, void *);
     void fire_spread_shot(void *);
@@ -35,7 +37,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     virtual void get_anim_node_position(s32 node, Vec *out);
     virtual u8 *update_actor_ground_y();
     virtual u8 *vfunc_18(u8 *);
-    virtual void vfunc_73();
+    virtual void recalc_stats();
     virtual s32 vfunc_37();
     virtual s32 update_attack_stat_status();
     virtual s32 update_defense_stat_status();
@@ -159,8 +161,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void* m_41c;
     u8 unk_420[0x4];
     s32 m_424;
-    void* m_428;
-    u8 _pad42C[0x80];
+    u8 technique_levels[0x84];  // set/get_cast_technique_level's table
     void* m_4ac;
     u8 _pad4B0[0x50];
     ActionPalette action_palettes[2];
@@ -175,9 +176,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     u8 _pad5F4[0x8];
     void* m_5fc;
     u8 _pad600[0x8];
-    void* m_608;
-    u8 unk_60C[0x18];
-    f32 m_624;
+    RenderMaterialState render_material_state;
     u8 unk_628[0xC];
     void* m_634;
     u8 _pad638[0x4];
@@ -205,7 +204,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     u8 _pad758[0x6C];
     void* m_7c4;
     void* m_7c8;
-    void* m_7cc;
+    void* attack_state;  // the attack accuracy/damage-scale block
     u8 _pad7D0[0x58];
     void* m_828;
     u8 _pad82C[0x4];
@@ -214,8 +213,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void* m_84c;
     u8 _pad850[0x8];
     void* m_858;
-    void* m_85c;
-    u8 _pad860[0x18];
+    char name[0x1C];
     u8 m_878;
     u8 unk_879[0x14];
     u8 m_88d;
@@ -229,8 +227,8 @@ struct TObjPlayer : public TUnk_804806E8 {
     u8 unk_8B8[0x444];
     s32 m_cfc;
     void* inventory_objects;
-    void* m_d04;
-    u8 unk_D08[0x40];
+    void *equipped_items[13];  // by equip slot; read through get_equipped_item
+    u8 unk_D38[0x10];
     f32 m_d48;
     u8 unk_D4C[0x60];
     void* m_dac;
@@ -259,21 +257,11 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_death_breakup();
     void dispatch_state_update();
     static void create_render_texture();
-    static void alloc_from_obj_heap(void* a0);
-    int lookup_inventory_item();
-    static void free_globals();
-    static void alloc_game_systems();
-    static void init_forward_default();
-    int test_item_flags(u32 m);
-    void add_item_flags(u32 v);
-    int has_flag_128();
     s16 get_mag_data();
     player_class_type get_class_type();
     static void add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2);
     static void step_angle_clamped(void *actor, int arg1);
     void drain_owner_hp_fraction(f32 farg0);
-    s32 is_mode_two_and_ready();
-    void copy_field6_from(void* a1);
     void call_callback_1ec(s32 arg1, s32 arg2);
     void copy_wall_polygon(u8 *arg1);
     static void copy_matrix(u32 arg0, u32 arg1);
@@ -351,12 +339,12 @@ struct TObjPlayer : public TUnk_804806E8 {
     int copy_vec_at_18();
     int update_action_palette();
     int set_action_palette_mode();
-    int clear_flag0_bit1();
-    int set_flag_2();
+    void clear_flag0_bit1();
+    void set_flag_2();
     u16 get_field_2d4();
     s32 is_local_player();
     void apply_velocity();
-    s16 clamp_field_32E();
+    s16 clamp_tp();
     static void clear_s16_arrays(void* p);
     s32 add_capped_counter_999(s32 arg1);
     int get_tp_materials_clamped();
@@ -376,16 +364,12 @@ struct TObjPlayer : public TUnk_804806E8 {
     s32 add_status_effect_timer(s32 i, s32 v);
     static void*init_192dc_return_self(void* p);
     void bswap_head16();
-    int read_be16_field2();
     void send_head();
     void init_packet_9a();
     s32 get_field_3e4();
     static s32 get_player_count();
     s32 register_object();
     void clear_ground_candidates();
-    void set_flags(u32 v);
-    void*init_forward();
-    void clear_id();
     void copy_xyz(void* q);
     void reset_lobby_model();
     void reset_type();
@@ -401,7 +385,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     static s32 calc_random_scaled();
     static f32 get_scale_factor();
     static int get_battle_param(int a0);
-    u8 check_flag(s32 arg1);
+    s32 check_flag(s32 arg1);
     void release_subobjects();
     int draw_fading_motion();
     void update_both();
@@ -482,32 +466,17 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void set_alt_model_flag();
     void *create_hairmove(void *arg1, void *arg2);
     s32 interpolate_along_curve(void *arg1);
-    void draw_item_model();
-    static s32 query_game_join_id();
-    void submit_computer_command();
-    f32 get_mag_scale();
-    static void load_projection_tex(s32 arg0, s32 arg1);
-    void setup_particle_once();
-    static void end_particle_effect();
-    static void play_particle_effect_once();
-    static void enable_flag20(s32 arg0);
-    static void enable_first_time_flag(s32 arg0);
-    void copy_item_data_to_icon();
-    static s16 calc_stat_bonus_sum(u16 arg0);
-    static s16 calc_equip_bonus(u16 arg0);
-    void run_with_transform_context(int a1, int a2);
-    static void get_item_info(s32 arg0, s32 arg1, s16 *arg2);
-    void set_facing(s16 v);
-    s16 get_stat_bonus();
-    s16 get_stat();
-    int get_equip_field_d04();
-    static void is_flag_20000_set();
-    f32 get_mag_scale_f();
-    void bswap_pkt_u32x2();
-    void bswap_and_send_6x61();
-    void swap_6x61_fields();
-    u8 is_not_matching_lobby_id();
-    static s32 is_active_battle_player();
+    void set_tp(s16 tp);
+    s32 get_tp_bonus();
+    s32 get_hp_bonus();
+    TItem *get_equipped_item(s32 slot);
+    s32 is_flag_20000_set();
+    s32 is_body_collision_inactive();
+    static int get_slot_value(void *slots, int slot);
+    void play_sound_if_on_floor(s32 sound_id);
+    u32 pickup_item(TItem *item);
+    s32 can_pickup_item_by_id(TItem *item);
+    s32 can_pickup_item(TItemData *data);
     static u8 find_adjacent_matching_slot(u8 arg0);
     static u8 get_next_matching_special_index(u8 arg0);
     static void free_item_globals();
@@ -518,7 +487,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void spawn_hit_particle_trio();
     static void forward_item_effect_callback(s32 arg0, s32 arg1);
     static void invoke_menu_callback_if_set(u32 arg0);
-    s32 get_entity_id();
+    s32 get_texture_id();
     void init_item_data(s32 arg1);
     void bswap_fields_x4();
     void bswap_and_send_item();
@@ -539,8 +508,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_state_flags(u32 v);
     void update_active_game_effect();
     void draw_status_icons(void* a1, void* a2);
-    s32 draw_icon(s32 arg1, s32 arg2);
-    void draw_status_icon(s32 arg1);
     void set_model_param(s16 v);
     void set_model_id(s16 v);
     int is_status_subsystem_ready();
@@ -616,9 +583,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void set_tev_swap_mode(u8 arg0);
     s32 check_camera_distance();
     s32 calc_angle_to(void *arg1);
-    static void reset_transform_state();
-    static void init_xyz_limits();
-    static s32 clamp_s32(s32 arg0, s32 arg1, s32 arg2);
     static u16 lerp_angle_half(u16 arg0, u16 arg1);
     static s32 is_in_range(f32 farg0);
     void draw_model();
@@ -626,7 +590,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void apply_status_effect(s32 a);
     static void add_unique_pair_entry(u32 arg0, s32 arg1);
     static void clear_item_table();
-    void reset_photon_effect();
     static void init_all_slots();
     static s32 check_flag_pair(s32 arg0, s32 arg1);
     static s32 check_flags(s32 arg0, s32 arg1);
@@ -725,9 +688,9 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_state(s16 v);
     void set_anim_state(s16 v);
     void set_action_id(s16 v);
-    int test_flag_16();
-    int set_flag_4();
-    int check_flag_2();
+    void test_flag_16();
+    void set_flag_4();
+    void check_flag_2();
     s16 get_action_id();
     void*get_sub_object();
     s32 get_lock_timer();
@@ -752,7 +715,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_speed(f32 farg0);
     void set_scale_xyz(f32 farg0);
     s32 setup_state();
-    int setup_state_helper();
+    void setup_state_helper();
     u8 *init_subobject();
     int sub_802a7290_fwd();
     int is_handle_valid();
@@ -1107,7 +1070,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void*get_pos_ptr();
     void *destroy_technique_effect_resources(s16 arg1);
     static void create_tec_zarua(void *arg0, void *arg1, void *arg2, void *arg3);
-    static s32 notify_fish_if_valid(u32 arg0);
     void add_status_line(u8 arg1, u32 arg2, s32 arg3);
     static void clear_state_if_flag80(s32 arg0);
     static void setup_projection_texture(s32 arg0, s32 arg1, s32 arg2);
@@ -1185,9 +1147,9 @@ struct TObjPlayer : public TUnk_804806E8 {
     int get_flag_1();
     int is_grounded();
     void set_player_index(s32 v);
-    int set_flag0_bits01();
+    void set_flag0_bits01();
     int clear_lock_flag();
-    int set_flag1();
+    void set_flag1();
     void reset_field4();
     void *reset_field28();
     u8 *create_state_34_alt();
@@ -1259,7 +1221,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     void draw_shadowed_node_tree();
     static void rebuild_players_for_stage(s32 arg0);
     static s32 snap_to_ground(s32 arg0, s32 arg1);
-    static void spawn_appearance_effect(s32 idx);
+    static void spawn_appearance_effect(u16 client);
     static u8 *create_vtable_804A08B8(u8 *arg0);
     static u8 *create_substate(u8 *arg0);
     static u8 *create_enter_state_804A0BC0(u8 *arg0);
@@ -1352,7 +1314,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void spawn_directional_particle_at_slot(s32 i);
     static void update_particle_by_phase();
     void draw_blob_shadows();
-    static void free_obj_heap(void* a0);
     void set_flag_8_if_check_passes();
     void fill_status_info(void *arg1);
     void launch_rare_weapon_special(void *origin, s32 enable, f32 scale);
@@ -1375,8 +1336,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void create_item_eff_cane(TItem* item, s32 attachment, s32 effect_id);
     void spawn_cane_effect(TItem* item, s32 attachment);
     void spawn_cane_effects(TItem* item, s32 first_attachment, s32 second_attachment);
-    void set_status_flags(u32 v);
-    void set_flag_8();
     int is_flag_b0_4();
     u16 get_uid();
     static u32 spawn_shot_effect(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -1439,7 +1398,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     s32 handle_palette_button_input();
     s32 execute_palette_action(s32 arg1, void *arg2);
     int attach_battle_ctrl_sub();
-    int forward_1BF500_at_63c();
+    void forward_1BF500_at_63c();
     static s32 classify_action_state();
     int update_foot_stamp(int arg1);
     void play_footstep_sound();
@@ -1479,13 +1438,13 @@ struct TObjPlayer : public TUnk_804806E8 {
     void rewind_position_history();
     s32 is_matching_id(s16 arg1);
     static s16 add_stat_clamped(s32 arg0, s16 *arg1, s16 arg2);
-    void add_lck(s32 arg1);
-    void add_evp(s32 arg1);
-    void add_ata(s32 arg1);
-    void add_mst(s32 arg1);
-    void add_hp(s32 arg1);
-    void add_dfp(s32 arg1);
-    void add_stat(s32 arg1);
+    s16 add_lck(s32 amount);
+    s16 add_evp(s32 amount);
+    s16 add_ata(s32 amount);
+    s16 add_mst(s32 amount);
+    s16 add_hp(s32 amount);
+    s16 add_dfp(s32 amount);
+    s16 add_stat(s32 amount);
     void update_aim_angle(s32 arg1);
     void copy_stats(void *arg1);
     static void notify_volopt_if_ready(void* p);

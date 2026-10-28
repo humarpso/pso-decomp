@@ -44,7 +44,6 @@ extern const f32 lbl_805DB610;
 extern const f32 lbl_805DB614;
 extern const f32 lbl_805DB618;
 O_80166C40 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_80441498[];
@@ -94,7 +93,7 @@ void TOFenceAncient01::free_resources() {
 void TOFenceAncient01::load_resources() {
     O_80166C40 *o;
     Arr_80166C40 *r;
-    o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    o = (O_80166C40 *)::operator new(0x440);
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, &ofence_ancient01_resource_descriptor, 0, 0, 0);
     }
@@ -110,7 +109,7 @@ void TOFenceAncient01::load_resources() {
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B1B80 *)arg0)->destroy(0);
         if (arg1 > 0) {
@@ -132,14 +131,14 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOFenceAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     temp_r4 = (u8 *)(*(u8 **)((s8 *)TOFenceAncient01__model_resource + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)temp_r4 + 8);
-    ((TOFenceAncient01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)((*(s32 *)&TOFenceAncient01__resource_pointer_array) + (((TUnk_804B1B80 *)arg0)->sub_80166EA8((int)temp_r4) * 4)) + 0);
+    ((TOFenceAncient01 *)arg0)->texlist = (s32) *(s32 *)((s8 *)((*(s32 *)&TOFenceAncient01__resource_pointer_array) + (((TUnk_804B1B80 *)arg0)->sub_80166EA8((int)temp_r4) * 4)) + 0);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)TOFenceAncient01__model_resource + 0x430)) + 4));
     temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xBC));
     temp_f1 = (f32) *(u32 *)((s8 *)temp_r6 + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB610);
     init_collision_body_parts((void *)arg0, &fence_ancient01_collision_parts.value, 3, (int)temp_r6, (f32)temp_f1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TUnk_804B1B80 *)arg0)->sub_80166E64();
     ((TOFenceAncient01 *)arg0)->m_c0 = (f32) lbl_805DB614;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB618;
@@ -148,7 +147,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 s32 TUnk_804B1B80::sub_80166E64() {
     s32 temp_r0;
-    this->m_cc = (s32) this->m_84;
+    this->m_cc = (s32) this->set_params[0];
     temp_r0 = this->m_cc;
     if (temp_r0 > 0x100) {
         *(s32 *)&this->unk_C8 = 0;
@@ -162,7 +161,7 @@ s32 TUnk_804B1B80::sub_80166E64() {
 
 s32 TUnk_804B1B80::sub_80166EA8(int _w1) {
     s32 temp_r0;
-    this->m_d4 = (s32) this->m_88;
+    this->m_d4 = (s32) this->set_params[1];
     temp_r0 = this->m_d4;
     if (temp_r0 < 0) {
         this->m_d4 = 0;

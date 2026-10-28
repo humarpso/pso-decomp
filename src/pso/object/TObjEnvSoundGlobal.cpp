@@ -25,7 +25,7 @@ struct Env_80190624 {
 };
 
 extern "C" {
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 __vt__18TObjEnvSoundGlobal[];
 extern s32 TObjEnvSoundGlobal__class_name;
 u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -51,13 +51,13 @@ s32 TObjEnvSoundGlobal::setup_sound() {
     var_r31 = 1;
     temp_r4 = *(s32 *)((s8 *)&environment_sound_tables_by_area.value + (get_current_floor_area() * 4));
     if (temp_r4 != 0U) {
-        copy_pair__18TObjEnvSoundGlobalFPvPv((u8 *)&this->m_94, (void*)((int) (temp_r4 + (this->m_84 * 8))));
+        copy_pair__18TObjEnvSoundGlobalFPvPv((u8 *)&this->m_94, (void*)((int) (temp_r4 + (this->set_params[0] * 8))));
     } else {
         var_r31 = 0;
         this->m_94 = -1;
         this->m_98 = -1;
     }
-    *(f32 *)&this->unk_90 = (f32) *(s32 *)&this->m_88;
+    *(f32 *)&this->unk_90 = (f32) *(s32 *)&this->set_params[1];
     if (*(f32 *)&this->unk_90 < (-127.0f)) {
         *(f32 *)&this->unk_90 = (f32) (-127.0f);
     }
@@ -88,7 +88,7 @@ void TObjEnvSoundGlobal::run_task() {
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEnvSoundGlobal;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -100,7 +100,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal_size[sizeof(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal) == 0x34 ? 1 : -1];
 u8 *TObjEnvSoundGlobal__ct(u8 *env_sound_global, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)env_sound_global, (void *)parent);
+    __ct__8TObjBaseFP7TObject((void *)env_sound_global, (void *)parent);
     *(s32 **)((s8 *)env_sound_global + 0x18) = &(*(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal *)&__vt__18TObjEnvSoundGlobal).value;
     *(s32 *)((s8 *)env_sound_global + 0) = (s32) TObjEnvSoundGlobal__class_name;
     ((TObjEnvSoundGlobal *)(env_sound_global))->apply_object_set_data((void *)arg2);
@@ -137,18 +137,18 @@ s32 TObjEnvSoundEx::init_sound_params() {
     var_r31 = 1;
     temp_r4 = *(s32 *)((s8 *)&environment_sound_tables_by_area.value + (get_current_floor_area() * 4));
     if (temp_r4 != 0U) {
-        ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)(arg0 + 0x9C, (int) (temp_r4 + (this->m_84 * 8)));
+        ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)(arg0 + 0x9C, (int) (temp_r4 + (this->set_params[0] * 8)));
     } else {
         var_r31 = 0;
         this->m_9c = -1;
         this->m_a0 = -1;
     }
-    this->m_98 = fabs_float(this->target_scale);
-    *(f32 *)&this->unk_A4 = (f32) *(f32 *)&this->m_70;
+    this->m_98 = fabs_float(this->scale.y);
+    *(f32 *)&this->unk_A4 = (f32) this->scale.z;
     if (*(f32 *)&this->unk_A4 <= 0.0f) {
         *(f32 *)&this->unk_A4 = (f32) 2e+02f;
     }
-    this->m_90 = (s32) this->m_88;
+    this->m_90 = (s32) this->set_params[1];
     if ((s32) this->m_90 < -0x7F) {
         this->m_90 = -0x7F;
     }
@@ -205,7 +205,7 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEnvSoundEx;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -214,7 +214,7 @@ void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx_size[sizeof(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx) == 0x34 ? 1 : -1];
 u8 *TObjEnvSoundEx__ct(u8 *env_sound_ex, s32 arg1, s32 arg2) {
-    ((s32 (*)(void *))__ct__13TUnk_804B9870FP7TObject)(env_sound_ex);
+    ((s32 (*)(void *))__ct__8TObjBaseFP7TObject)(env_sound_ex);
     *(s32 **)((s8 *)env_sound_ex + 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
     *(s32 *)((s8 *)env_sound_ex + 0) = (s32) TObjEnvSoundEx__class_name;
     ((TObjEnvSoundEx *)(env_sound_ex))->apply_object_set_data((void *)arg2);
@@ -341,7 +341,7 @@ void TObjEnvSound::run_task() {
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEnvSound;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -351,7 +351,7 @@ void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
 
 void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     Row_80190AA0 *table;
-    __ct__13TUnk_804B9870FP7TObject(self, parent);
+    __ct__8TObjBaseFP7TObject(self, parent);
     self->vtbl = __vt__12TObjEnvSound;
     self->unk0 = TObjEnvSound__class_name;
     ((TObjEnvSound *)self)->apply_object_set_data(arg2);

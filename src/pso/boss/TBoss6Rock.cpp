@@ -146,11 +146,11 @@ int is_active__10TBoss6RockFv(void*);
 
 void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->m_1c = arg1;
-    if ((s32) *(s32 *)&this->m_1c != 0) {
+    *(s32 *)&this->entity_id = arg1;
+    if ((s32) *(s32 *)&this->entity_id != 0) {
         VecCopy((Vec *)(arg0 + 0x20), (const Vec *)((const void *)(arg2)));
         ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *)arg3);
-        *(f32 *)&this->m_2c = farg0;
+        *(f32 *)&this->set_index = farg0;
         *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
         *(s32 *)((s8 *)arg0 + 0x40) = arg5;
     }
@@ -404,7 +404,7 @@ void TBoss6Rock::sub_80353F5C() {
 #pragma fp_contract on
 void TBoss6Rock::randomize_motion() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->m_5c = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    *(s32 *)&this->rotation_x = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     this->rotation_y = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
     this->rotation_z = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     this->m_d0 = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
@@ -458,7 +458,7 @@ void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed) {
         if (((TBoss6PlotFalz *)player)->is_active() == 0) {
             continue;
         }
-        VecCopy(&d, (const Vec *)player->position);
+        VecCopy(&d, &player->position);
         subtract_vector(&d, &rock->m_d4);
         d.y = TBoss6Rock__data_805DFF50;
         dist = vector_length(&d);

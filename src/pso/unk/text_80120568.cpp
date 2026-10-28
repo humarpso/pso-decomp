@@ -170,8 +170,8 @@ struct Player_8012065C : VBase_8012065C {
 };
 
 extern "C" {
-void TItemEquipBase__sub_8010A82C(s32 arg0);
-s32 obj_getField1c(s32);
+void clear_technique_boosts__14TItemEquipBaseFv(s32 arg0);
+s32 get_entity_id(s32);
 s32 test_flags_any(void *, s32);
 s32 obj_isState7_324(s32);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -179,17 +179,17 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void set_flag_8_if_check_passes__10TObjPlayerFv();
 extern void *tl_05;
 
-void TItemWeapon::vfunc_45() {
+void TItemWeapon::on_unequip() {
     Pl_80120568 *arg0 = (Pl_80120568 *)this;
     if (arg0->ctl->m64(arg0->m31()) == 0) {
         ((TObjPlayer *)(arg0->ctl))->set_action_provider_variant(0);
     }
     arg0->m56();
-    TItemEquipBase__sub_8010A82C((s32)arg0);
-    ((TItemWeapon *)arg0)->clear_equip_flags(0x03000000);
+    clear_technique_boosts__14TItemEquipBaseFv((s32)arg0);
+    ((TItemWeapon *)arg0)->clear_weapon_flags(0x03000000);
 }
 
-void TItemWeapon::vfunc_48() {
+void TItemWeapon::apply_owner_bonuses() {
     Self_801205F4 *self = (Self_801205F4 *)this;
     s32 i;
     ((TItemWeapon *)self)->apply_model_params();
@@ -199,30 +199,30 @@ void TItemWeapon::vfunc_48() {
         }
     }
 }
-void TItemWeapon::vfunc_44() {
+void TItemWeapon::on_equip() {
     Player_8012065C *arg0 = (Player_8012065C *)this;
     if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
         if (!(((TItem *)arg0)->get_item_flags() & 0x20) && is_current_area_item_enabled() != 0) {
             ((TObjPlayer *)(*(void **)((s8 *)arg0 + 0xF0)))->set_action_provider_variant(arg0->v41());
         }
-        ((TItemWeapon *)arg0)->clear_equip_flags(0x100);
-        if (((TItemEquipBase *)arg0)->get_flag_40() != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
-            ((TObjPlayer *)arg0)->set_status_flags(8);
+        ((TItemWeapon *)arg0)->clear_weapon_flags(0x100);
+        if (((TItem *)arg0)->is_hidden() != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
+            ((TItemWeapon *)arg0)->set_weapon_flags(8);
         } else {
             TItemAttacker::spawn_item_timer((s32)arg0, (s32)((void *)&set_flag_8_if_check_passes__10TObjPlayerFv), 0x14);
-            TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x30, (void *)0x9D, (void *)0x9E);
-            if (((TItemWeapon *)arg0)->test_flags_1b8(0x200) != 0U) {
-                TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x23, (void *)0x9D, (void *)0x9E);
+            TItemEffEquip::create((void *)tl_05, (void *)(get_entity_id(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x30, (void *)0x9D, (void *)0x9E);
+            if (((TItemWeapon *)arg0)->test_weapon_flags(0x200) != 0U) {
+                TItemEffEquip::create((void *)tl_05, (void *)(get_entity_id(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x23, (void *)0x9D, (void *)0x9E);
             }
             update_technique_slot__10TTecRaFoieFl(play_sound_effect(0x4000B20A, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0), 0x300, 0);
         }
     } else {
         ((TObjPlayer *)(*(void **)((s8 *)arg0 + 0xF0)))->set_action_provider_variant(0);
-        ((TObjPlayer *)arg0)->set_status_flags(0x100);
-        ((TObjPlayer *)arg0)->set_status_flags(8);
+        ((TItemWeapon *)arg0)->set_weapon_flags(0x100);
+        ((TItemWeapon *)arg0)->set_weapon_flags(8);
     }
     arg0->v55();
-    ((TItemWeapon *)arg0)->clear_equip_flags(0x03000000);
+    ((TItemWeapon *)arg0)->clear_weapon_flags(0x03000000);
 }
 
 }

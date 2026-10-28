@@ -105,12 +105,11 @@ extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB934;
 extern const f32 lbl_805DB938;
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int post_translate_matrix(void *);
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 extern u8 chunk_material_color_half_alpha_f32[];
 extern const f32 lbl_805DB920;
@@ -189,12 +188,12 @@ void TOMonumentAncient02::render() {
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             TParticleCtrl::begin_effect_render();
-            lbl_805D5660 = model_render_flags;
+            saved_model_render_flags = model_render_flags;
             model_render_flags = model_render_flags | 0x20;
-            ((TUnk_80494AE0 *)(&self->fD8))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((&self->fD8)));
             draw_ginja_model(n->f4);
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-            model_render_flags = lbl_805D5660;
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+            model_render_flags = saved_model_render_flags;
             TParticleCtrl::end_effect_render();
             pop_matrix();
         }
@@ -223,21 +222,21 @@ void TOMonumentAncient02::load_resources() {
     u8 *p;
     switch (get_current_floor_area()) {
     default:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, tbl + 0x8, 0, 0, 0);
         }
         TOMonumentAncient02__model_resource = (u32)p;
         break;
     case AREA_CAVE2:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, tbl + 0x20, 0, 0, 0);
         }
         TOMonumentAncient02__model_resource = (u32)p;
         break;
     case AREA_MINE2:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, tbl + 0x38, 0, 0, 0);
         }
@@ -250,7 +249,7 @@ void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient02;
         TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0xE8)));
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
@@ -268,10 +267,10 @@ u8 *TOMonumentAncient02__ct(TOMonumentAncient02 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient02__name;
     ((TOMonumentAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 8);
-    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
+    arg0->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     area = get_current_floor_area();
     switch (area) {
     default:
@@ -290,7 +289,7 @@ u8 *TOMonumentAncient02__ct(TOMonumentAncient02 *arg0, s32 arg1, s32 arg2) {
     arg0->m_ac = 0;
     arg0->m_c8 = 0;
     arg0->m_cc = 0;
-    ((TOKeyAncient01 *)((u8 *)arg0 + 0x98))->set_type();
+    ((TOMonumentAncient02 *)arg0)->cursor_action.set_use();
     arg0->m_c0 = (f32) lbl_805DB934;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB938;
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) lbl_805DB92C;

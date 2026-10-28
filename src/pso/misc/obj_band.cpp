@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -7,6 +8,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/misc/TUnk_804A7488.h"
 #include "pso/misc/TPlyPhotonChair.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_801426DC_lbl_8050BFF0 {
     s32 value;
@@ -46,9 +48,9 @@ extern const f64 lbl_8043F2A8;
 extern const f32 __float_nan[];
 extern const f32 __float_huge[];
 
-void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)p, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)a1); }
+void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)p, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_constant_material((const NJS_ARGB *)a1); }
 
-void TPlyPhotonChair::play_sound() { set_global_draw_flag_bits((s32)this, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)this); }
+void TPlyPhotonChair::play_sound() { set_global_draw_flag_bits((s32)this, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_constant_material((const NJS_ARGB *)this); }
 
 void TPlyPhotonChair::update_parts(void* p) { TPlyPhotonChair__sub_8014270C((s32)p); TPlyPhotonChair::copy_vec4_forward((s32)p); TPlyPhotonChair::restore_state((s32)p); }
 
@@ -87,7 +89,7 @@ void TPlyPhotonChair::restore_state(s32 _w0) { (*(int *)&model_render_flags) = l
 typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TPlyPhotonChair::copy_vec4_forward(s32 _w0) {
-    ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&photon_chair_color_vec4.value));
+    copy_argb((NJS_ARGB *)&model_material_color.value, (NJS_ARGB *)&photon_chair_color_vec4.value);
 }
 
 int TPlyPhotonChair__sub_8014270C(s32 _w0) { chunk_polygon_flags_and_mask = lbl_805D5670; chunk_polygon_flags_or_mask = lbl_805D5674; return lbl_805D5670; }
@@ -96,7 +98,7 @@ int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = chunk_polygon_flags_
 typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TPlyPhotonChair::copy_vec4_reverse(s32 _w0) {
-    ((TRaderMapCore *)(&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&photon_chair_color_vec4).value))->copy_vec4((&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
+    copy_argb((NJS_ARGB *)(&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&photon_chair_color_vec4).value), (NJS_ARGB *)(&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
 }
 
 void TPlyPhotonChair::save_state(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }
@@ -258,7 +260,7 @@ struct R_80142B3C { u32 r0; u32 val; };
 struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r; } *tab2; };
 
 int set_field_d8__10TObjMotionFl(void*);
-f32 get_speed__13TUnk_804806E8Fv();
+f32 get_speed__9TObjCharaFv();
 s32 get_anim_entry_value__10TObjMotionFs(Obj_80142BB4 *self, s16 i);
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0);
 void apply_animation_transition(void *, s16);
@@ -452,7 +454,7 @@ f32 TObjEneDD_ST::get_speed_or_default() {
     if (this->animationFlags & 4) {
         return 0.0f;
     }
-    return get_speed__13TUnk_804806E8Fv();
+    return get_speed__9TObjCharaFv();
 }
 }
 int objInBand(GameObj* obj, f32 v) {
@@ -478,7 +480,7 @@ void draw_motion_model_saving_joints(TObjPlayer *player) {
         draw_model_motion((void *)(*(s32 *)((s8 *)player + 0x34)), (void *)player->unknownF8, player->m_c0);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);
-    TObjPlayer::reset_transform_state();
+    set_default_alpha_blend();
 }
 
 void TObjPlayer::draw_model_with_callback() {
@@ -496,7 +498,7 @@ void TObjPlayer::draw_model_with_callback() {
             draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         }
         TObjEneRe7Berura::set_global_state(NULL);
-        TObjPlayer::reset_transform_state();
+        set_default_alpha_blend();
     }
 }
 
@@ -509,7 +511,7 @@ void TObjEnemy::render_world_model() {
         draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(0)));
     }
-    TObjPlayer::reset_transform_state();
+    set_default_alpha_blend();
     TObjPlayer::clear_global_state();
 }
 
@@ -523,7 +525,7 @@ void TObjMotion::draw() {
         draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         TObjEneRe7Berura::set_global_state(0);
     }
-    TObjPlayer::reset_transform_state();
+    set_default_alpha_blend();
     restore_actor_draw_lighting(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
@@ -538,7 +540,7 @@ void TObjEneMe3Stelth::draw_model() {
         draw_ginja_model__10TObjPlayerFl(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         set_model_node_callback(0);
     }
-    TObjPlayer::reset_transform_state();
+    set_default_alpha_blend();
     restore_actor_draw_lighting(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }

@@ -13,6 +13,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
     s32 value;

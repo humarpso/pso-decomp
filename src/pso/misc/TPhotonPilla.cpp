@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -52,9 +53,9 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 extern Color_801ADDDC saved_model_draw_color;
 extern Color_801ADDDC model_material_color;
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern void *pilla_photon_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
@@ -70,7 +71,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void *find_entity_by_id(u16 id);
-u32 obj_getField1c();
+u32 get_entity_id();
 
     extern int lbl_805D5D50;
 void TObjPlayer__sub_801ADC6C(void) { lbl_805D5D50 = 0; }
@@ -88,7 +89,7 @@ void TPhotonPilla::apply_photon_blast_effects() {
         var_r31 = 0;
         do {
             if (TObjPlayer::get_battle_param(var_r31) != 0U) {
-                queue_photon_blast_hit((u16) obj_getField1c(), 2, 0, *(f32 *)((s8 *)this + 0x150));
+                queue_photon_blast_hit((u16) get_entity_id(), 2, 0, *(f32 *)((s8 *)this + 0x150));
             }
             var_r31 += 1;
         } while (var_r31 < 0x10);
@@ -118,25 +119,25 @@ void TPhotonPilla::render() {
     if (this->m_1a4 != 0) {
         scroll_strip_uvs(pilla_photon_buffer_pair, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, this->rotation_y);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
-        lbl_805D5660 = model_render_flags;
-        ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        saved_model_render_flags = model_render_flags;
+        copy_argb((NJS_ARGB *)&saved_model_draw_color, (NJS_ARGB *)&model_material_color);
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&self->color)));
         ((TObjMotion *)self)->draw();
         TObjPlayer::clear_global_state();
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
-        ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
-        model_render_flags = lbl_805D5660;
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+        copy_argb((NJS_ARGB *)&model_material_color, (NJS_ARGB *)&saved_model_draw_color);
+        model_render_flags = saved_model_render_flags;
         clear_render_context__10TObjPlayerFv(self);
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -200,7 +201,7 @@ void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804C3ACC;
         ((TPhotonPilla *)arg0)->update_if_active();
         ((TUnk_804C3248 *)arg0)->free_photon();
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         destroy_photon_motion_object(arg0, 0);
         if (arg1 > 0) {
@@ -226,18 +227,18 @@ extern u8 lbl_80446EEC[];
 extern s32 lbl_805D3518;
 extern u8 *photon_blast_shared_resource;
 
-extern "C" void vfunc_6__13TUnk_804B9870FPsl();
-extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
-extern "C" void vfunc_12__13TUnk_804B9870Fv();
-extern "C" void vfunc_9__13TUnk_804B9870Fv();
-extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
-extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
+extern "C" void vfunc_6__8TObjBaseFPsl();
+extern "C" void interact__14TObjCollidableFl();
+extern "C" void get_name__8TObjBaseFv();
+extern "C" void get_center__8TObjBaseFv();
+extern "C" void apply_object_set_data__8TObjBaseFPv();
+extern "C" void classify_actor_view_detail__8TObjBaseFfff();
 extern "C" void enter_scene__13TUnk_804C3248Fv();
 extern "C" void render__12TPhotonPillaFv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void reset_motion_fields__10TObjMotionFv();
 extern "C" void update_if_active__13TUnk_804C3248Fv();
-extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
+extern "C" void update_object_view_visibility__8TObjBaseFff();
 extern "C" void run_task__12TPhotonPillaFv();
 void *photon_pilla_action_table[8] = {
     (void *)0x30000, (void *)0x3, (void *)0x3f800000, (void *)0x0,
@@ -257,9 +258,9 @@ void *photon_pilla_laser_offset_table[18] = {
 };
 void *lbl_804C3ACC[17] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__12TPhotonPillaFPvs, (void *)&run_task__12TPhotonPillaFv,
-    (void *)&render__12TPhotonPillaFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&reset_motion_fields__10TObjMotionFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&enter_scene__13TUnk_804C3248Fv, (void *)&update_if_active__13TUnk_804C3248Fv,
+    (void *)&render__12TPhotonPillaFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__8TObjBaseFPsl, (void *)&apply_object_set_data__8TObjBaseFPv,
+    (void *)&reset_motion_fields__10TObjMotionFv, (void *)&get_center__8TObjBaseFv, (void *)&update_object_view_visibility__8TObjBaseFff, (void *)&classify_actor_view_detail__8TObjBaseFfff,
+    (void *)&get_name__8TObjBaseFv, (void *)&interact__14TObjCollidableFl, (void *)&enter_scene__13TUnk_804C3248Fv, (void *)&update_if_active__13TUnk_804C3248Fv,
     (void *)0x0,
 };
 u8 *TPhotonPilla__ct(u8 *photon_rainbow, u8 *arg1) {
@@ -273,15 +274,15 @@ u8 *TPhotonPilla__ct(u8 *photon_rainbow, u8 *arg1) {
     VecCopy((Vec *)(photon_rainbow + 0x38), (const Vec *)arg1);
     ((TPhotonPilla *)photon_rainbow)->m_17c = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(photon_rainbow, (void *)lbl_804C3A58, 1);
-    ((TUnk_804AF8A0 *)photon_rainbow)->refresh_collision_body_centers();
-    ((TObjPlayer *)photon_rainbow)->reset_photon_effect();
+    ((TObjCollidable *)photon_rainbow)->refresh_collision_body_centers();
+    ((TObjPlayer *)photon_rainbow)->register_object_by_id();
     ((TPhotonPilla *)photon_rainbow)->m_190 = (u8 *)find_entity_by_id(((TPhotonPilla *)photon_rainbow)->m_17c);
     temp_r3 = ((TPhotonPilla *)photon_rainbow)->m_190;
     if (temp_r3 != NULL) {
         ((TPhotonPilla *)photon_rainbow)->rotation_y = *(s32 *)((s8 *)temp_r3 + 0x60);
     }
     *(s32 *)((s8 *)photon_rainbow + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x38);
-    ((TPhotonPilla *)photon_rainbow)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x3C);
+    ((TPhotonPilla *)photon_rainbow)->texlist = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x3C);
     ((TObjMotion *)photon_rainbow)->set_field_d8((s32)photon_pilla_action_table);
     ((TObjMotion *)photon_rainbow)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     ((TPhotonPilla *)photon_rainbow)->m_b8 = 1;

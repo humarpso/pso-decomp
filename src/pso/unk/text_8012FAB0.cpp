@@ -74,7 +74,7 @@ struct Self_8012FB08 : VObj_8012FB08 {
 
 extern "C" {
 u8 * initialize_effect_object__10TObjPlayerFv(void *, s32, s32);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 extern s32 tl_05;
 void launch_rare_weapon_special__10TObjPlayerFPvlf(void *, void *, s32, f32);
 extern const f32 lbl_805DAFC8;
@@ -83,7 +83,7 @@ u8 *TObjPlayer::create_effect_object(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x260));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x260));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(initialize_effect_object__10TObjPlayerFv(temp_r3, tl_05, arg0));
@@ -96,7 +96,7 @@ u8 *TObjPlayer::create_effect_object(s32 arg0) {
 void TUnk_804A66D8::emit_marker_effects() {
     u8 *p;
     s32 i;
-    if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
+    if (is_mode_two_and_ready() != 0) {
         p = ((Self_8012FB08 *)this)->owner + 0x7CC;
         for (i = 0; i != 2; i++) {
             increment_burst_counter(p);

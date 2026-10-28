@@ -145,12 +145,12 @@ s32 filter_lobby_pigeon_theme(void *);
 void TUnk_804E0898::select_lobby_pigeon_model() {
     s32 temp_r3;
 
-    if ((s32) this->m_8c < 1) {
+    if ((s32) this->set_params[2] < 1) {
         this->m_a0 = 0;
     } else {
         this->m_a0 = 1;
     }
-    temp_r3 = *(s32 *)&this->m_88;
+    temp_r3 = *(s32 *)&this->set_params[1];
     if (temp_r3 < 1) {
         *(s32 *)((s8 *)this + 0xA4) = 0;
     } else if ((s32) this->m_a0 == 0) {
@@ -491,7 +491,6 @@ typedef struct { u8 pad[4]; u32 n; } Anim_802C17FC;
 
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 TObjMapWarp__sub_80141CB0(s32 *, s32 *, s32, s32);
 
 u8 * load_gvm_texture_file(s32);
@@ -690,7 +689,7 @@ void TObjPlayer::destroy_instance() {
 void TObjPlayer::load_kamome_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_kamome_resource_descriptor.value, 0, 0, 0));
@@ -852,7 +851,7 @@ void *TObjPlayer__sub_802C19E8(void *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = jungle_seagull_vtable;
     *(s32 *)((s8 *)arg0 + 0x98) = ((s32 (*)(s32, s32))get_bml_model)((*(s32 *)&lobby_kamome_model_resource), 0);
     ((TUnk_804E08D4 *)arg0)->m_9c = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), 0);
-    temp_r3 = ((TUnk_804E08D4 *)arg0)->m_84;
+    temp_r3 = ((TUnk_804E08D4 *)arg0)->set_params[0];
     var_r0 = (temp_r3 < 0) ? 0 : (temp_r3 > 2) ? 2 : temp_r3;
     ((TUnk_804E08D4 *)arg0)->m_c8 = var_r0;
     *(s32 *)((s8 *)arg0 + 0xA0) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), *(s32 *)((s8 *)((s32 *)&jungle_seagull_path_profiles) + (((TUnk_804E08D4 *)arg0)->m_c8 * 0x14)));
@@ -888,7 +887,7 @@ void TObjPlayer::free_statics() {
 void TObjPlayer::load_jungle_bird_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_bird_resource_descriptor.value, 0, 0, 0));
@@ -1033,7 +1032,7 @@ u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C20E8_lbl_804E0910 *)&lbl_804E0910).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&jungle_bird_bml_resource), 0);
   ((TUnk_804E0910 *)arg0)->m_9c = get_bml_motion((*(u8 * *)&jungle_bird_bml_resource), 0);
-  temp_r3 = ((TUnk_804E0910 *)arg0)->m_84;
+  temp_r3 = ((TUnk_804E0910 *)arg0)->set_params[0];
   if (temp_r3 < 0)
   {
     var_r0 = 0;
@@ -1077,7 +1076,7 @@ void TObjPlayer::free_chr_select() {
 void TObjPlayer::load_jungle_ebi_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_ebi_resource_descriptor.value, 0, 0, 0));
@@ -1110,7 +1109,7 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     r = ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
                   f32))sample_clamped_path_position)(self, self->f98, self->fA0,
                                                      &b, this->m_a4 + e->d);
-    if (this->m_1e != 0) {
+    if (this->visibility != 0) {
         Vec_802C22A4 p = self->vAC;
         Hit_802C22A4 *hit;
         vec3_add_to(&p, &self->pos);
@@ -1246,7 +1245,7 @@ u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2) {
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C27FC_lbl_804E094C *)&lbl_804E094C).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&jungle_ebi_model_resource), 0);
   ((TUnk_804E094C *)arg0)->m_9c = get_bml_motion((*(u8 * *)&jungle_ebi_model_resource), 0);
-  temp_r3 = ((TUnk_804E094C *)arg0)->m_84;
+  temp_r3 = ((TUnk_804E094C *)arg0)->set_params[0];
   if (temp_r3 < 0)
   {
     var_r0 = 0;
@@ -1288,7 +1287,7 @@ void TObjPlayer__sub_802C2900(void) {
 }
 
 void TObjPlayer::load_seabed_dolphin() {
-    Obj_802C2958 *o = ((Obj_802C2958 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)(0x440);
+    Obj_802C2958 *o = ((Obj_802C2958 * (*)(s32))::operator new)(0x440);
     if (o != 0) {
         o = ((Obj_802C2958 * (*)(Obj_802C2958 *, s32, void *, s32, s32, s32))load_resource_from_descriptor)(o, 5, bm_obj_seabed_dolphin_resource_descriptor, 0, 0, 0);
     }
@@ -1437,7 +1436,7 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C2F04_lbl_804E0988 *)&seabed_dolphin_vtable).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&seabed_dolphin_bml_archive), 0);
   ((TUnk_804E0988 *)arg0)->m_9c = get_bml_motion((*(u8 * *)&seabed_dolphin_bml_archive), 5);
-  temp_r3 = ((TUnk_804E0988 *)arg0)->m_84;
+  temp_r3 = ((TUnk_804E0988 *)arg0)->set_params[0];
   if (temp_r3 < 0)
   {
     var_r0 = 0;
@@ -1547,7 +1546,7 @@ struct RecoveredGlobal_802C320C___vt__11TObjPathObj {
 };
 
 extern "C" {
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 __vt__11TObjPathObj[];
 extern s32 lbl_805D3EC0;
 void TObjPathObj::render() {
@@ -1565,7 +1564,7 @@ void TObjPathObj::run_task() {
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjPathObj;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1575,7 +1574,7 @@ void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_802C320C___vt__11TObjPathObj_size[sizeof(RecoveredGlobal_802C320C___vt__11TObjPathObj) == 0x3C ? 1 : -1];
 u8 *TObjPathObj__ct(u8 *path_obj, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *) (path_obj), (void *) (parent));
+    __ct__8TObjBaseFP7TObject((void *) (path_obj), (void *) (parent));
     *(s32 **)((s8 *)path_obj + 0x18) = &(*(RecoveredGlobal_802C320C___vt__11TObjPathObj *)&__vt__11TObjPathObj).value;
     *(s32 *)((s8 *)path_obj + 0) = (s32) lbl_805D3EC0;
     ((TObjPathObj *)(path_obj))->apply_object_set_data((void *)arg2);

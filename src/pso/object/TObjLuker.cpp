@@ -13,6 +13,7 @@
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/object/TObjAreaWarpQuest.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
+#include "pso/misc/TLobby_80207644.h"
 
 struct Win_801A0DB4 { u8 pad[4]; u16 flags; };
 
@@ -84,7 +85,7 @@ void __dl__7TObjectFPv(void *);
 void TWindow__close(u8 *arg0);
 extern u8 __vt__9TObjLuker[];
 Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1);
-void __ct__13TUnk_804B9870FP7TObject(void *, void *);
+void __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 lbl_805D34A8;
 void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
 f32 horizontal_distance_squared(void *, void *);
@@ -97,14 +98,12 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
 void *create_telepipe_visual(void *, void *, int, int);
-s32 obj_getField1c(int);
+s32 get_entity_id(int);
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 s32 get_main_phase();
 s32 mark_area_change_pending();
-s32 obj_isState3_324__13TUnk_804806E8Fv(int);
-s32 set__10TObjRoomIdFPvs(int, volatile short);
+s32 obj_isState3_324__9TObjCharaFv(int);
 s32 send_6x21_inter_level_warp(int, void *);
-s32 get_floor_map_terrain(int);
 s32 set_area__6TLobbyFl(void *, int, int);
 s32 init_fields__9TTecLukerFs(void *, int);
 extern s32 lbl_80515BA0[];
@@ -149,7 +148,7 @@ void TObjLuker::update_floor_name_windows() {
                 }
                 *(s32 *)&this->m_a0 = target;
             }
-            ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
+            ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(get_floor_area(target)), 2, 0, -1);
             ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();
             align_menu_entry_positions(self->wins[i]);
         }
@@ -182,7 +181,7 @@ void TObjLuker::open_destination_windows() {
             }
             if (self->wins[i] != 0) {
                 this->m_a0 = target;
-                ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
+                ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(get_floor_area(target)), 2, 0, -1);
                 ((TAdChrSelASlotGC *)(self->wins[i]))->set_flag_40();
                 ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();
                 align_menu_entry_positions(self->wins[i]);
@@ -271,17 +270,17 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
                 if (horizontal_distance_squared((void *)(arg0 + 0x38), (void *)(p + 0x38)) < (farg0 * farg0)) {
                     found = 1;
                     if ((p != 0U) && (check_flag_100__10TObjPlayerFPv((void *)p) == 0)) {
-                        ((TObjLuker *)arg0)->show_part((int) (obj_getField1c(p)));
+                        ((TObjLuker *)arg0)->show_part((int) (get_entity_id(p)));
                     }
                 } else {
-                    C38_801A10A0((void *)arg0, (int) (obj_getField1c((int)p)));
+                    C38_801A10A0((void *)arg0, (int) (get_entity_id((int)p)));
                 }
             }
         }
         for (s32 i = 0; i < 4; i++) {
             p = PBC_801A10A0((void *)i);
             if ((p != 0U) && (check_flag_100__10TObjPlayerFPv((void *)p) == 1)) {
-                C38_801A10A0((void *)arg0, (int) (obj_getField1c((int)p)));
+                C38_801A10A0((void *)arg0, (int) (get_entity_id((int)p)));
             }
         }
     } else {
@@ -292,9 +291,9 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
         if (found != 0) {
             if (p != 0U) {
                 if (check_flag_100__10TObjPlayerFPv((void *)p) == 0) {
-                    ((TObjLuker *)arg0)->show_part((int) (obj_getField1c(p)));
+                    ((TObjLuker *)arg0)->show_part((int) (get_entity_id(p)));
                 } else {
-                    C38_801A10A0((void *)arg0, (int) (obj_getField1c((int)p)));
+                    C38_801A10A0((void *)arg0, (int) (get_entity_id((int)p)));
                 }
             }
             return 1;
@@ -339,7 +338,7 @@ void TObjLuker::transfer_to_town() {
         flag = 1;
       }
       else
-        if (obj_isState3_324__13TUnk_804806E8Fv((int) p) != 0)
+        if (obj_isState3_324__9TObjCharaFv((int) p) != 0)
       {
         flag = 1;
       }
@@ -347,7 +346,7 @@ void TObjLuker::transfer_to_town() {
       {
         ((TTecLuker *)(p + 0x848))->set_state(arg0->owner);
         send_6x21_inter_level_warp((int) p, (void *) ((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area());
-        set__10TObjRoomIdFPvs((int) p, (s16) (*((s32 *) (((s8 *) self) + 0x834))));
+        ((TObjMotion *)p)->set_room((s16) (*((s32 *) (((s8 *) self) + 0x834))));
       }
     }
   }
@@ -356,7 +355,7 @@ void TObjLuker::transfer_to_town() {
     ((TTecLuker *)(local + 0x848))->set_state(arg0->owner);
     if (((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(arg0->owner) != 0)
     {
-      set__10TObjRoomIdFPvs((int) local, (s16) (*((s32 *) (((s8 *) self) + 0x834))));
+      ((TObjMotion *)local)->set_room((s16) (*((s32 *) (((s8 *) self) + 0x834))));
     }
     send_6x21_inter_level_warp((int) local, (void *) ((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area());
   }
@@ -483,7 +482,7 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
                 arg0->wins[i] = 0;
             }
         }
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -494,10 +493,10 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
 #define self ((Luker_801A1768 *)arg0)
 void *TObjLuker__ct(void *arg0, void *parent, void *arg2) {
     s32 i;
-    __ct__13TUnk_804B9870FP7TObject(self, parent);
+    __ct__8TObjBaseFP7TObject(self, parent);
     self->f18 = __vt__9TObjLuker;
     self->f0 = lbl_805D34A8;
-    ((TUnk_804B9870 *)self)->apply_object_set_data(arg2);
+    ((TObjBase *)self)->apply_object_set_data(arg2);
     self->fB0 = 0;
     self->fAA = 0xFFFF;
     self->fA8 = self->f84;

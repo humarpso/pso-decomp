@@ -11,28 +11,27 @@
 #include "pso/player/TUnk_804E1F04.h"
 #include "pso/unk/TUnk_804E1BB0.h"
 #include "pso/player/TUnk_804E21F8.h"
+#include "pso/item/TItem.h"
 
 struct Vec_802D52E8 { f32 x, y, z; };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 extern s32 tl_05;
 void TObjPlayer__sub_802D5B78(void *a, void *b);
 void do_action_447_from_packet__10TObjPlayerFPvPv(void *self, void *arg);
 void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1);
 int spawn_particle_effect(void*, int);
-void TItemWeapon__ct(void *);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
+void __ct__11TItemWeaponFP7TObjectPUc(void *);
 void *__dt__13TUnk_804E23F0Fv(void *arg0, s16 arg1);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804E1BB0[];
 
 void *TUnk_804E1BB0::init_state_513(s32 _w1, void *_w2) {
-    TItemWeapon__ct(this);
+    __ct__11TItemWeaponFP7TObjectPUc(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E1BB0;
-    set_status_flags__10TObjPlayerFUl(this, 513);
+    set_weapon_flags(513);
     return this;
 }
 
@@ -40,7 +39,7 @@ u8 *TObjPlayer::create_state_513() {
     u8 *temp_r3;
     u8 *var_r0;
     if (this != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x1F8));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((u8 *)((TUnk_804E1BB0 *)temp_r3)->init_state_513(tl_05, this)));
@@ -54,7 +53,7 @@ void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1BB0;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -67,7 +66,7 @@ void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1CA8;
         __dt__13TUnk_804E23F0Fv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -90,17 +89,16 @@ void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *arg0, void *arg1);
 void* setup_state__10TObjPlayerFPv(void* a0);
 int init_state_445__10TObjPlayerFPv(void);
 s32 set_radar_marker_params__10TObjPlayerFPvPv();
-int set_status_flags__10TObjPlayerFUl(void*, void*);
 
 extern const f32 lbl_805DE788;
 extern const f32 lbl_805DE78C;
 
 void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *player, void *arg1) {
     set_radar_marker_params__10TObjPlayerFPvPv();
-    if (player->is_mode_two_and_ready() != 0) {
+    if (((TItemWeapon *)player)->is_mode_two_and_ready() != 0) {
         player->drain_owner_hp_fraction(lbl_805DE788);
         *(s32 *)((s8 *)arg1 + 0x10) = 0xA;
-        *(s32 *)((s8 *)arg1 + 0x44) = (s32) ((TUnk_804E1CA8 *)player)->projectile;
+        *(s32 *)((s8 *)arg1 + 0x44) = (s32) ((TUnk_804E1CA8 *)player)->second_model;
         *(f32 *)((s8 *)arg1 + 0x4C) = lbl_805DE78C;
     }
 }
@@ -109,7 +107,7 @@ void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *player, void *arg1) {
     extern unsigned char do_action_447_from_packet__10TObjPlayerFPvPv[];
     extern unsigned char lbl_804E1CA8[];
     extern const float lbl_805DE790;
-void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E1CA8; *(float*)((char*)a0 + 0x200) = lbl_805DE790; set_status_flags__10TObjPlayerFUl(a0, (void*)32); ((TUnk_804E1CA8 *)a0)->m_208 = (int)do_action_447_from_packet__10TObjPlayerFPvPv; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; return a0; }
+void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E1CA8; *(float*)((char*)a0 + 0x200) = lbl_805DE790; ((TItemWeapon *)a0)->set_weapon_flags(32); ((TUnk_804E1CA8 *)a0)->m_208 = (int)do_action_447_from_packet__10TObjPlayerFPvPv; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; return a0; }
 
 }
 
@@ -268,10 +266,9 @@ struct Pl_802D564C : VBase_802D564C {
 struct V_802D577C { f32 x, y, z; };
 
 extern "C" {
-s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s16);
+s32 send_activate_effect__5TItemFl(void *, s16);
 void spawn_item__10TObjPlayerFi(s32 arg0);
-s32 get_flag_40__14TItemEquipBaseFv(void *);
-void draw_weapon_model__11TItemWeaponFv(void);
+s32 is_hidden__5TItemFv(void *);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 s32 pop_matrix(void);
@@ -331,8 +328,8 @@ void TUnk_804E21F8::emit_marker_effects() {
 void TUnk_804E21F8::reserved_53() {
     E_802D56F0 *p;
     s32 n;
-    draw_weapon_model__11TItemWeaponFv();
-    if (get_flag_40__14TItemEquipBaseFv(this) == 0) {
+    ((TItemWeapon *)this)->draw_weapon_model();
+    if (is_hidden__5TItemFv(this) == 0) {
         n = *(s16 *)(((u8 *)this) + 0x24A);
         p = ((S_802D56F0 *)((u8 *)this))->e;
         while (n != 0) {
@@ -368,7 +365,7 @@ void TUnk_804E21F8::sub_802D577C() {
         ang = *(s32 *)&this->unk_250;
         cnt = n;
         p = arg0 + 0x20C;
-        q = *(u8 * *)&this->player + 0x2FC;
+        q = *(u8 * *)&this->owner + 0x2FC;
         pa = &lbl_8047259C;
         pb = &player_pb_zero_vec_block;
         ang2 = 0x31C7;
@@ -405,7 +402,7 @@ void TUnk_804E21F8::update_weapon() {
         temp_r4_2 = *(s16 *)((s8 *)this + 0x24A);
         if (temp_r4_2 < 5) {
             *(s16 *)((s8 *)this + 0x24A) = (temp_r4_2 + 1);
-            send_6x61_activate_mag_effect__14TItemEquipBaseFl(this, *(s16 *)((s8 *)this + 0x24A));
+            send_activate_effect__5TItemFl(this, *(s16 *)((s8 *)this + 0x24A));
         }
         this->m_248 = 0;
     }

@@ -1,3 +1,5 @@
+#include "pso/protocol/protocol_types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "types.h"
 #include "pso/map/FloorArea.h"
 extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
@@ -161,11 +163,9 @@ struct VObj_802346F8 : VBase_802346F8 {
 void clear_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
 extern "C" {
-void TLobby__send_and_handle_60(u8 *arg0);
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
 int TTecLuker__sub_80235054(void* p);
-void read_be16_field2__10TObjPlayerFv(void *);
 int fn_80235078(void *arg0);
 u32 get_player_by_client_id(s32);
 s32 play_sound_effect(int, void *, int, int);
@@ -174,8 +174,7 @@ extern s32 recovery_technique_charge_vtable[];
 u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2);
 s32 obj_setFlags30(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
-void TTecLuker__sub_80234F68(void* p);
+s32 __ct__14TObjCollidableFP7TObject(void *, void *);
 extern RecoveredGlobal_80233D18_lbl_804CC9A8 telepipe_field_collision_body_template;
 extern s32 telepipe_field_collider_vtable[];
 bool TTecLuker__sub_8023401C(u8 *arg0);
@@ -202,8 +201,8 @@ f32 vector_length(void *);
 extern const f32 lbl_805DC860;
 s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 void *__nw__7TObjectFUl(int);
-s32 obj_getField1c(void *);
-s32 get_stat_by_key_state__13TUnk_804B9870Fv(void *);
+s32 get_entity_id(void *);
+s32 get_room__8TObjBaseFv(void *);
 extern s32 tl_07;
 extern s32 tl_05;
 void __dt__7TObjectFv(void *, int);
@@ -214,7 +213,6 @@ s32 is_split_screen();
 u8 *find_entity_by_id(u16);
 extern s32 local_client_id;
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 construct_area_technique_base(void *, void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, s32);
@@ -227,7 +225,7 @@ extern s32 lbl_805D37E4;
 extern const f32 lbl_805DC878;
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 s32 mark_area_change_pending();
-s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
+s32 obj_isState3_324__9TObjCharaFv(void *);
 s32 play_effect_default__10TObjPlayerFii(void *, s32);
 s32 send_6x21_inter_level_warp(void *, s32);
 s32 get_floor_map_terrain(s32);
@@ -295,7 +293,7 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TUnk_804CC9D4::vfunc_13(s32) { this->m_b0 = 1; }
+void TUnk_804CC9D4::interact(s32) { this->m_b0 = 1; }
 
 void TTecLuker::update_player_target() {
     u8 *arg0 = (u8 *)this;
@@ -315,10 +313,10 @@ void TTecLuker::update_player_target() {
 void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = telepipe_field_collider_vtable;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804CC9D4 *)arg0)->m_b0 = 0;
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
+        __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -329,13 +327,13 @@ void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
 u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
-    __ct__13TUnk_804AF8A0FP7TObject(this, (void *)arg2);
+    __ct__14TObjCollidableFP7TObject(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1));
     init_collision_body_parts(this, &telepipe_field_collision_body_template.value, 1);
     obj_setFlags30(this, 0x40000000);
-    ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
-    TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
+    ((TObjPlayer *)((u8 *)this))->register_object_by_id();
+    ((TUnk_804CC9D4 *)this)->cursor_action.set_telepipe();
     *(s32 *)&this->unk_B0 = 0;
     this->m_ac = ac;
     return ((u8 *)this);
@@ -714,7 +712,7 @@ void TTecLuker::create(void *arg1, void *arg2, void *arg3) {
 typedef void (*Write_802347B4)(u8 *, s32, s16, u8 *, s32);
 void TTecLuker::setup_telepipe_field() {
     Pipe_802347B4 *s = (Pipe_802347B4 *)this;
-    u16 id = obj_getField1c(s->player);
+    u16 id = get_entity_id(s->player);
     void *v = __nw__7TObjectFUl(0x44);
     if (v != 0) {
         v = create_telepipe_visual(v, (Vec_802347B4 *)(&s->pos), id, tl_07);
@@ -722,7 +720,7 @@ void TTecLuker::setup_telepipe_field() {
     s->visual = v;
     s->phase = 1;
     if (s->collider != 0) {
-        ((TUnk_804B9870 *)(s->collider))->set_position_from(&s->pos);
+        ((TObjBase *)(s->collider))->set_position_from(&s->pos);
     } else {
         u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
         if (c != 0) {
@@ -730,11 +728,11 @@ void TTecLuker::setup_telepipe_field() {
         }
         s->collider = c;
     }
-    if (s->traveller == (u16)obj_getField1c(s->player)) {
+    if (s->traveller == (u16)get_entity_id(s->player)) {
         s16 h;
         s->floor = get_current_floor();
-        h = get_stat_by_key_state__13TUnk_804B9870Fv(s->player);
-        ((Write_802347B4)write_telepipe_record)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
+        h = get_room__8TObjBaseFv(s->player);
+        ((Write_802347B4)write_telepipe_record)(s->player + 0x830, get_entity_id(s->player), s->floor, (u8 *)&s->pos, h);
         ((TTecLuker *)(s->player + 0x830))->send_telepipe_packet();
     }
 }
@@ -761,7 +759,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
     }
     switch (((TTecLuker *)arg0)->m_108) {
     case 0:
-        temp_r3 = obj_getField1c(owner);
+        temp_r3 = get_entity_id(owner);
         if (temp_r3 != 0xFFFFU) {
             if (temp_r3 > 0xCU) {
                 ((TTecLuker *)arg0)->m_108 = 4;
@@ -817,7 +815,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         }
         break;
     case 3:
-        temp_r30 = obj_getField1c(owner);
+        temp_r30 = get_entity_id(owner);
         temp_r29 = (u8 *)get_player_by_client_id(((TTecLuker *)arg0)->m_f6);
         if ((is_split_screen() == 0) && (temp_r29 != NULL)) {
             if (*(s32 *)((s8 *)temp_r29 + 0x30) & 0x800) {
@@ -856,7 +854,7 @@ block_43:
                     } else {
                         send_6x21_inter_level_warp(p, 0);
                     }
-                } else if (obj_isState3_324__13TUnk_804806E8Fv(p) != 0) {
+                } else if (obj_isState3_324__9TObjCharaFv(p) != 0) {
                     ((void (*)(void *, u16))set_state__9TTecLukerFl)(p + 0x848, st2);
                     if (TLobby::get_instance() == 1) {
                         send_6x21_inter_level_warp(p, 0);
@@ -924,7 +922,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     L->fF4 = get_current_floor();
     L->fx = NULL;
     if (L->owner != NULL) {
-        L->owner_id = obj_getField1c(L->owner);
+        L->owner_id = get_entity_id(L->owner);
     }
     L->fF6 = local_client_id;
     if (is_split_screen() == 0 && L->owner_id != local_client_id) {
@@ -934,7 +932,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
         if ((s32)arg4 == 0xA) {
             VecCopy((Vec *)&L->pos, (const Vec *)arg3);
         } else {
-            p = alloc__23TAdSinglePlyChrSelectGCFv(0xA8);
+            p = ::operator new(0xA8);
             if (p != NULL) {
                 p = ((TItemList *)p)->init_array();
             }
@@ -979,17 +977,17 @@ void TTecLuker__sub_80234F48(void) {
     }
 }
 
-void TTecLuker__sub_80234F68(void* p) { *(s32*)((char*)p + 0x0) = 6; }
+void CursorAction::set_telepipe() { kind = CURSOR_ACTION_TELEPIPE; }
 s16 get_field_2__9TTecLukerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
 
 void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
 
-void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((u8 *)this); }
+void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); send_subcommand((u8 *)this); }
 
 void TTecLuker::byteswap_telepipe_packet() {
-    read_be16_field2__10TObjPlayerFv(this);
+    ((G_ClientIDHeader *)this)->bswap();
     bswap_16((u16 *)((void *)((char *)this + 4)));
     bswap_16((u16 *)((void *)((char *)this + 6)));
     bswap_16((u16 *)((void *)((char *)this + 8)));

@@ -98,7 +98,6 @@ extern u8 lazer_fence_sw_collision_body_part[];
 extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
 
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *load_gvm_texture_file(s32 arg0);
 
@@ -293,14 +292,14 @@ void TLazerFenceSw::load_resources() {
     lazer_fence_switch_bml_resource = 0;
     area = get_current_floor_area();
     if (TContainerAncient01::is_global_state_in_table() == 1 || area == AREA_SEABED_UPPER || area == AREA_SEABED_LOWER) {
-        obj = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        obj = ::operator new(0x440);
         if (obj != NULL) {
             obj = load_resource_from_descriptor(obj, 5, fe_obj_switch_laz_j_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_switch_bml_resource = obj;
         TLazerFenceSw__texture_list = (s32)load_gvm_texture_file((s32)lbl_80445CF0);
     } else {
-        obj = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        obj = ::operator new(0x440);
         if (obj != NULL) {
             obj = load_resource_from_descriptor(obj, 5, &laser_fence_switch_resource_descriptor, 0, 0, 0);
         }
@@ -337,7 +336,7 @@ void TLazerFenceSw::load_resources() {
 void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLazerFenceSw;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AF8D8 *)((s8 *)arg0 + 0xF0))->destroy(-1);
         __dt__5TOKeyFv(arg0, 0);
@@ -363,7 +362,7 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)arg0 + 0xEC) = 0.0f;
     init_collision_body_parts(arg0, lazer_fence_sw_collision_body_part, 1);
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TUnk_804AF8D8 *)((u8 *)arg0 + 0xF0))->sub_80156CEC();
     TLazerFenceSw__sub_8018A554((u8 *)arg0 + 0xF0, 2.9e+02f);
     *(f32 *)((s8 *)arg0 + 0x110) = 0.0f;

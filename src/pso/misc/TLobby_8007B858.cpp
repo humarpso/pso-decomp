@@ -13,6 +13,7 @@
 #include "pso/map/FloorArea.h"
 
 #include "types.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_8007BA98_lbl_8048D4C0 {
     s32 value;

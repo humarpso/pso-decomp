@@ -28,7 +28,7 @@ extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 light_machine01_resource_desc;
 extern u32 TOLightMachine01__shared_bml_archive;
 extern s32 light_machine_ginja_model_handle;
 extern s32 light_machine_ginja_param;
-s32 __ct__13TUnk_804B9870FP7TObject(void *, int);
+s32 __ct__8TObjBaseFP7TObject(void *, int);
 s32 rand();
 f32 sin_table_lookup(s32);
 extern s32 __vt__16TOLightMachine01[];
@@ -52,7 +52,7 @@ void *__nw__7TObjectFUl(int);
 void TOLightMachine01::run_task() {
     this->m_a8 = (s32) (this->m_a8 + this->m_a4);
     this->m_9c = (f32) (*(f32 *)&this->unk_98 * sin_table_lookup(*(s32 *)&this->m_a8));
-    this->m_ac = (s32) (this->m_ac + this->m_8c);
+    this->m_ac = (s32) (this->m_ac + this->set_params[2]);
 }
 
 extern const f32 lbl_805DB828;
@@ -63,7 +63,7 @@ void TOLightMachine01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         draw_ginja_model(*(s32 *)((s8 *)this->model + 4));
         push_matrix();
         translate_matrix(0, lbl_805DB828, this->m_9c, lbl_805DB828);
@@ -96,7 +96,7 @@ void TOLightMachine01::destroy_instance() {
 void TOLightMachine01::load_assets() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &light_machine01_resource_desc.value, 0, 0, 0));
@@ -109,7 +109,7 @@ void TOLightMachine01::load_assets() {
 void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOLightMachine01;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -119,16 +119,16 @@ void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 u8 *TOLightMachine01__ct(TOLightMachine01 *light_machine01, s32 arg1) {
-    __ct__13TUnk_804B9870FP7TObject(light_machine01, tl_05);
+    __ct__8TObjBaseFP7TObject(light_machine01, tl_05);
     *(s32 **)((s8 *)light_machine01 + 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     *(s32 *)((s8 *)light_machine01 + 0) = (s32) TOLightMachine01__name;
     ((TOLightMachine01 *)(light_machine01))->apply_object_set_data((void *)arg1);
     light_machine01->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), 1));
-    light_machine01->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), 1);
+    light_machine01->texlist = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), 1);
     *(f32 *)((s8 *)light_machine01 + 0x90) = (f32) lbl_805DB82C;
     light_machine01->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)light_machine01->model + 4)) + 0x14);
     light_machine01->actorFlags = (s32) (light_machine01->actorFlags | 0x40000000);
-    *(f32 *)((s8 *)light_machine01 + 0xA0) = (f32) ((lbl_805DB834 * (f32) light_machine01->m_84) + lbl_805DB830);
+    *(f32 *)((s8 *)light_machine01 + 0xA0) = (f32) ((lbl_805DB834 * (f32) light_machine01->set_params[0]) + lbl_805DB830);
     light_machine01->m_a4 = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)light_machine01 + 0xA0))));
     light_machine01->m_a8 = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
     *(f32 *)((s8 *)light_machine01 + 0x98) = (f32) ((lbl_805DB834 * (f32) *(s32 *)((s8 *)light_machine01 + 0x88)) + lbl_805DB848);

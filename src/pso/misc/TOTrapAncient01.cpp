@@ -4,7 +4,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_800D7BFC.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/misc/TOTrapAncient02R.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/misc/TOTrapAncient01.h"
@@ -124,7 +124,7 @@ struct Trap_80179B8C : VObj_80179B8C {
 
 extern "C" {
 void receive_physical_attack__6TOTrapFPvf(void *, void *, f32);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFv();
 void *get_player_by_client_id(s32 i);
@@ -169,9 +169,9 @@ int post_translate_matrix(void *);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 extern s32 model_render_flags;
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern const f32 lbl_805DBA58;
@@ -205,7 +205,7 @@ void TOTrapAncient01::release_trapped_player() {
     s32 temp_r3_2;
     if (TRaderMapCore::is_not_split_screen() == 1) {
         if (this->target != NULL) {
-            temp_r3 = (s32)get_player_by_client_id((obj_getField1c(this->target)));
+            temp_r3 = (s32)get_player_by_client_id((get_entity_id(this->target)));
             if (temp_r3 != 0) {
                 if (check_player_flag1__6TLobbyFv() != 0) {
                     TObjPlayer::send_code_45_1(temp_r3);
@@ -213,7 +213,7 @@ void TOTrapAncient01::release_trapped_player() {
                 obj_clear_flag30_20000((void *)temp_r3);
             }
         }
-    } else if ((this->target != NULL) && ((s32) local_client_id == (s32) obj_getField1c(this->target))) {
+    } else if ((this->target != NULL) && ((s32) local_client_id == (s32) get_entity_id(this->target))) {
         temp_r3_2 = (s32)get_player_by_client_id(local_client_id);
         if (temp_r3_2 != 0) {
             if (check_player_flag1__6TLobbyFv() != 0) {
@@ -331,9 +331,9 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
     self->f340 = self->m8(lbl_805DBA58, lbl_805DBA5C);
     if (self->f340 == 1) {
         if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->pos38)) == 1) {
-            lbl_805D5660 = model_render_flags;
-            lbl_805D5664 = chunk_polygon_flags_and_mask;
-            lbl_805D5668 = chunk_polygon_flags_or_mask;
+            saved_model_render_flags = model_render_flags;
+            saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+            saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
             fade->m6();
         }
         push_matrix();
@@ -362,9 +362,9 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
         pop_matrix();
         if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->pos38)) == 1) {
             fade->m7();
-            chunk_polygon_flags_and_mask = lbl_805D5664;
-            chunk_polygon_flags_or_mask = lbl_805D5668;
-            model_render_flags = lbl_805D5660;
+            chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+            chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+            model_render_flags = saved_model_render_flags;
         }
     }
 }
@@ -394,7 +394,7 @@ void TOTrapAncient01::load_resources() {
   int new_var;
   s32 temp_r3;
   s32 var_r0;
-  temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc();
+  temp_r3 = (int)::operator new(0x440);
   var_r0 = temp_r3;
   temp_r31 = var_r0;
   new_var = 0;
@@ -410,7 +410,7 @@ void TOTrapAncient01::load_resources() {
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
     if (self != 0) {
         self->vt = __vt__15TOTrapAncient01;
-        ((TUnk_804AF8A0 *)self)->unregister_object_by_id();
+        ((TObjCollidable *)self)->unregister_object_by_id();
         free_collision_body_parts(self);
         __destroy_arr(self->arr, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
         __dt__6TOTrapFv(self, 0);
@@ -432,7 +432,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
     ((TOTrapAncient01 *)arg0)->apply_object_set_data((void *)((s32)arg2));
     ((TObjPlayer *)arg0)->init_position_vectors();
-    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
+    ((TObjChara *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)self + 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);
     *(s32 *)((s8 *)self + 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__bml_resource, 3);
     *(s16 *)((s8 *)self + 0x326) = 0;
@@ -465,10 +465,10 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)self + 0x338) = lbl_805DBA54;
     *(u16 *)((s8 *)self + 0x33C) = 0xFFFF;
     init_collision_body_parts(arg0, lbl_804B4844, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
     *(u32 *)((s8 *)self + 0x30) |= 0x60040000;
-    ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id(0);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjChara *)arg0)->get_or_assign_entity_id(0);
+    ((TObjPlayer *)arg0)->register_object_by_id();
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(((Self_80179F40 *)arg0)->arr[i]))->activate_and_dispatch();
     }

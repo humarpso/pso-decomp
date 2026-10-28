@@ -1,5 +1,7 @@
+#include "pso/protocol/protocol_types.h"
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/quest/QuestVm.h"
+#include "pso/system/FlagWord.h"
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TLobby_801F2D2C.h"
@@ -47,7 +49,7 @@ void init_quest_script_context(Hdr_801F3124 *h, QuestVmContext *c);
 int test_action_mask__10TObjPlayerFl(void*, int);
 int VecCopy__FP3VecPC3Vec(void*);
 void queue_destruction__7TObjectFv(void *arg0);
-int set_flags__10TObjPlayerFUl(void*, int);
+int set__8FlagWordFUl(void*, int);
 
 unsigned char TLobby::read_packet_byte() { return qst_code[qst_pc++]; }
 
@@ -287,8 +289,8 @@ void TLobby::bswap_4x32() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this + 0
     extern unsigned char camera_capture_flags;
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
-void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv(this); TLobby__send_and_handle_60((u8 *)this); }
-void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
+void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv(this); send_subcommand((u8 *)this); }
+void bswap_header__6TLobbyFPv(void* p) { ((G_ClientIDHeader *)p)->bswap(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
     extern int warning_aram_load_done_flag;
@@ -320,7 +322,7 @@ void TLobby::bswap_entry_words(s32 arg0) {
 }
 #pragma pop
 
-int TLobby__sub_801F3694(void* p) { return set_flags__10TObjPlayerFUl((char*)p + 0x10, 2); }
+int TLobby__sub_801F3694(void* p) { return set__8FlagWordFUl((char*)p + 0x10, 2); }
 
     extern int lobby_online_ready_flag;
 void TLobby__sub_801F36BC(void) { lobby_online_ready_flag = 1; }

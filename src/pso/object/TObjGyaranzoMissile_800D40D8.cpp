@@ -142,11 +142,11 @@ void TUnk_8049442C::sub_800D4200() {
     u8 *t;
     u8 *arg0 = (u8 *)this;
     self = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
-    (*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->m_a4)->xc = 5.0f;
+    (*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->bodies)->xc = 5.0f;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)arg0)->check_object_collisions();
     check_enemy_body_collisions(arg0);
-    if ((*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->m_a4)->flags & 0x180000) {
+    if ((*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->bodies)->flags & 0x180000) {
         for (i = 0; i < 0x10; i++) {
             t = get_battle_param__10TObjPlayerFi(i);
             if (t == NULL) {
@@ -252,9 +252,9 @@ struct RecoveredGlobal_800D4668_lbl_8049442C {
 };
 
 extern "C" {
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 __ct__13TUnk_804AF8A0FP7TObject(void *, int);
+s32 __ct__14TObjCollidableFP7TObject(void *, int);
 
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -291,7 +291,7 @@ void *TUnk_8049442C::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049442C;
         unregister_object_by_id();
         free_collision_body_parts(this);
-        __dt__13TUnk_804AF8A0Fv(this, 0);
+        __dt__14TObjCollidableFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -305,7 +305,7 @@ typedef char RecoveredGlobal_800D4668_lbl_80494400_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_800D4668_lbl_8049442C) == 0x3C ? 1 : -1];
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_04);
+    __ct__14TObjCollidableFP7TObject(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0xE0), (const Vec *)(arg0 + 0x38));
@@ -314,7 +314,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     ((TUnk_8049442C *)arg0)->m_c4 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x58);
     *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x5C);
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
-    *(u16 *)((s8 *)arg0 + 0xD8) = obj_getField1c(arg1);
+    *(u16 *)((s8 *)arg0 + 0xD8) = get_entity_id(arg1);
     ((TUnk_8049442C *)arg0)->m_b8 = 0;
     ((TUnk_8049442C *)arg0)->m_bc = (arg3 + 0x8000);
     *(s32 *)((s8 *)arg0 + 0xC0) = -0x4000;
@@ -330,8 +330,8 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     pop_matrix();
     ((TUnk_8049442C *)arg0)->m_d4 = (f32) 0.0f;
     init_collision_body_parts(arg0, &gyaranzo_missile_collision_body.value, 1);
-    *(f32 *)((s8 *)(((TUnk_8049442C *)arg0)->m_a4) + 0xC) = (f32) 3.0f;
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    *(f32 *)((s8 *)(((TUnk_8049442C *)arg0)->bodies) + 0xC) = (f32) 3.0f;
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TUnk_8049442C *)arg0)->m_ec = 0xF;
     return arg0;
 }

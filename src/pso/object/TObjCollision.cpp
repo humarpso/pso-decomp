@@ -4,7 +4,7 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCollision.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
+extern "C" void *__ct__14TObjCollidableFP7TObject(void *, s32);
 
 struct RecoveredGlobal_8006754C___vt__13TObjCollision { s32 value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_8006754C___vt__13TObjCollision_size[sizeof(RecoveredGlobal_8006754C___vt__13TObjCollision) == 0x38 ? 1 : -1];
@@ -38,12 +38,12 @@ void *TObjCollision::create(void *arg0) {
 }
 TObjCollision::~TObjCollision() {
     free_collision_body_parts(this);
-    ((TUnk_804AF8A0 *)this)->unregister_object_by_id();
+    ((TObjCollidable *)this)->unregister_object_by_id();
 }
 extern "C" {
 u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
-    __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);
+    __ct__14TObjCollidableFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8006754C___vt__13TObjCollision *)&__vt__13TObjCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2830;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
@@ -53,8 +53,8 @@ u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805D8F20;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805D8F20;
     ((TObjCollision *)arg0)->m_b4 = (f32) lbl_805D8F20;
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) ((TObjCollision *)arg0)->scale;
-    ((TObjCollision *)arg0)->m_bc = (f32) ((TObjCollision *)arg0)->target_scale;
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) ((TObjCollision *)arg0)->scale.x;
+    ((TObjCollision *)arg0)->m_bc = (f32) ((TObjCollision *)arg0)->scale.y;
     if (*(f32 *)((s8 *)arg0 + 0x70) < lbl_805D8F20) {
         var_r0 = 1;
     } else {
@@ -68,7 +68,7 @@ u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
         ((TObjCollision *)arg0)->m_c4 = (s32) (((TObjCollision *)arg0)->m_c4 | 0x100);
     }
     init_collision_body_parts(arg0, (s32)(arg0 + 0xAC), 1);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     return arg0;
 }
 

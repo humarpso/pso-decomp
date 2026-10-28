@@ -1,3 +1,5 @@
+#include "pso/protocol/protocol_types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "types.h"
 #include "pso/boss/TBoss4Type1.h"
 #include "pso/object/TObjDFDemo0.h"
@@ -58,10 +60,8 @@ s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void TBoss4DarkFalz__sub_8004C7E8(TBoss4DarkFalz *arg0);
 int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
-void TLobby__send_and_handle_60(u8 *arg0);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int read_be16_field2__10TObjPlayerFv(void*);
 
 int TBoss4DarkFalz__sub_8004C1AC(void) {  return TBoss4DarkFalz__type3_instance; }
 
@@ -87,10 +87,10 @@ void TBoss4DarkFalz::save_position() {
     VecCopy__FP3VecPC3Vec((void*)(arg0 + 0x44), (void*)(arg0 + 0x38));
 }
 
-int TUnk_804B9870::set_position_from(void *pos) { return VecCopy__FP3VecPC3Vec(this->position, pos); }
+int TObjBase::set_position_from(void *pos) { return VecCopy__FP3VecPC3Vec(&this->position, pos); }
 
-void TBoss4DarkFalz::swap_and_send() { swap_bytes(); TLobby__send_and_handle_60((u8 *)this); }
-void TBoss4DarkFalz::swap_bytes() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0xc); }
+void TBoss4DarkFalz::swap_and_send() { swap_bytes(); send_subcommand((u8 *)this); }
+void TBoss4DarkFalz::swap_bytes() { ((G_ClientIDHeader *)this)->bswap(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0xc); }
 void TBoss4DarkFalz::set_code_25_4() { *(u8 *)&this->m_name = 25; *(u8*)((char*)this + 0x1) = 4; }
 
 void TBoss4DarkFalz__sub_8004C2D8(void *arg0) {
@@ -191,7 +191,7 @@ void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0) {
         TBoss4DarkFalz__sub_8004B4F0((&stack.spC), (&TBoss4DarkFalz__data_804FF1E8.value));
         stack.sp14 = 2;
         stack.spC = *(s16 *)((s8 *)arg0 + 0x2C) + 0x1FE;
-        stack.sp12 = ((TBoss4DarkFalz *)arg0)->m_1c + 0x1FE;
+        stack.sp12 = ((TBoss4DarkFalz *)arg0)->entity_id + 0x1FE;
         (*(s32 *)&TBoss4DarkFalz__type3_instance) = TBoss4Type3::create((s32)&stack.sp8);
         ((TBoss4DarkFalz *)arg0)->change_state(0xD);
     }
@@ -378,7 +378,7 @@ void TBoss4DarkFalz::update_spawn_type2_countdown() {
         TBoss4DarkFalz__sub_8004B4F0(&a.d, &TBoss4DarkFalz__data_804FF1E8);
         a.d.a8 = 1;
         a.d.a0 = o->f2c + 0x1FF;
-        a.d.a6 = this->m_1c + 0x1FF;
+        a.d.a6 = this->entity_id + 0x1FF;
         (*(void * *)&TBoss4DarkFalz__type2_instance) = create__11TBoss4Type2Fl(&a);
         TBoss4DarkFalz::dispatch_by_main_phase(0x34);
         ((TBoss4DarkFalz *)o)->change_state(8);
@@ -423,7 +423,7 @@ void TBoss4DarkFalz::spawn_type1() {
     TBoss4DarkFalz__sub_8004B4F0(&params.sub, &TBoss4DarkFalz__data_804FF1E8);
     params.sub.f8 = 1;
     params.sub.x = self->f2c + 0x200;
-    params.sub.id = this->m_1c + 0x200;
+    params.sub.id = this->entity_id + 0x200;
     TBoss4DarkFalz__type1_instance = TBoss4Type1::create((s32)&params);
     self->f380 = 0;
     TBoss4DarkFalz::end_player_camera_pans(self);

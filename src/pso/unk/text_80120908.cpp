@@ -1,5 +1,6 @@
 #include "types.h"
-#include "pso/player/TObjPlayer_80100E00.h"
+#include "pso/system/FlagWord.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer_801211F0.h"
 #include "pso/player/TObjPlayer_80363BE0.h"
 #include "pso/unk/text_80120150.h"
@@ -10,6 +11,7 @@
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemMag.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -26,7 +28,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 extern "C" {
-s32 get_attach_joint__11TItemWeaponFv(void *);
+s32 get_attach_joint__14TItemEquipBaseFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 }
 void set_shadow_material_state(void);
@@ -37,7 +39,6 @@ s32 pop_matrix();
 void draw_chunk_object(void *child);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s16 TObjPlayer__weapon_node_ids[];
-extern s32 lbl_805D53EC;
 extern s16 weapon_node_material_index;
 extern u8 *weapon_render_callback_object;
 extern s32 model_render_flags;
@@ -47,20 +48,20 @@ extern const f32 lbl_805DACAC;
 s32 TItemWeapon::draw_weapon_model() {
     s32 var_r30;
     u8 *temp_r4;
-    if ((void *) this->player == NULL || (u32) *(u32 *)((s8 *)this + 0xF4) == 0U) {
+    if ((void *) this->owner == NULL || (u32) *(u32 *)((s8 *)this + 0xF4) == 0U) {
         return;
     }
     {
         reset_model_node_counter();
-        if (this->is_flag_400() != 0) {
+        if (((TItem *)this)->has_no_defer_render() != 0) {
             var_r30 = 1;
         } else {
             var_r30 = ((VObj_18_26a62c *)(this))->m8(lbl_805DACA8, lbl_805DACAC);
         }
-        TObjPlayer::notify_fish_if_valid((int) (*(s32 *)((s8 *)this + 0x24)));
-        ((TObjMotion *)(this->player))->get_item_ptr((s32)((void *) ((s8)get_attach_joint__11TItemWeaponFv(this))));
+        set_texlist((int) (*(s32 *)((s8 *)this + 0x24)));
+        ((TObjMotion *)(this->owner))->get_item_ptr((s32)((void *) ((s8)get_attach_joint__14TItemEquipBaseFv(this))));
         push_matrix_from();
-        if ((var_r30 != 0) && (((TItemEquipBase *)this)->get_flag_40() == 0)) {
+        if ((var_r30 != 0) && (((TItem *)this)->is_hidden() == 0)) {
             weapon_render_callback_object = (u8 *)this;
             weapon_node_material_index = *(s16 *)((s8 *)this + 0x1CC);
             temp_r4 = (u8 *)this->parameters;
@@ -74,17 +75,17 @@ s32 TItemWeapon::draw_weapon_model() {
             }
             TObjPlayer__sub_80364198();
             model_render_flags &= 0xFFFFFFEF;
-            ((TObjPlayer *)this)->get_mag_scale();
+            ((TItem *)this)->get_owner_alpha();
             set_model_fade_alpha__10TObjPlayerFf();
-            if (this->is_flag_400() != 0) {
+            if (((TItem *)this)->has_no_defer_render() != 0) {
                 model_render_flags |= 0x8011;
                 set_color_blend_mode(1, 4, 5, 0);
                 set_shadow_material_state();
                 if ((u32) *(u32 *)((s8 *)this + 0x17C) == 0U) {
-                    if (this->test_flags_1b8(0x800000) != 0U) {
+                    if (this->test_weapon_flags(0x800000) != 0U) {
                         draw_chunk_object((void *)(*(u32 *)((s8 *)this + 0xF4)));
                     } else {
-                        this->run_with_callback((int)((void *) (0)));
+                        ((TItem *)this)->draw_model_nodes(NULL);
                     }
                 } else {
                     TObjPlayer::set_global_flag();
@@ -93,22 +94,22 @@ s32 TItemWeapon::draw_weapon_model() {
                 }
                 model_render_flags &= 0xFFFF7FEE;
             } else if ((u32) *(u32 *)((s8 *)this + 0x17C) == 0U) {
-                if (this->test_flags_1b8(0x40) != 0U) {
-                    this->apply_sign_effect((int)((void *) (*(s32 *)((s8 *)this->player + 0xDB4))));
-                } else if (this->test_flags_1b8(0x800000) != 0U) {
+                if (this->test_weapon_flags(0x40) != 0U) {
+                    ((TItem *)this)->apply_sign_effect((u8 *)(*(s32 *)((s8 *)this->owner + 0xDB4)));
+                } else if (this->test_weapon_flags(0x800000) != 0U) {
                     draw_chunk_object((void *)(*(u32 *)((s8 *)this + 0xF4)));
                 } else {
-                    this->run_with_callback((int)((void *) (*(s32 *)((s8 *)this->player + 0xDB4))));
+                    ((TItem *)this)->draw_model_nodes((u8 *)(*(s32 *)((s8 *)this->owner + 0xDB4)));
                 }
             } else {
                 TObjPlayer::set_global_flag();
                 draw_model_motion((void *)(*(u32 *)((s8 *)this + 0xF4)), (void *)(*(u32 *)((s8 *)this + 0x17C)), (f32)this->motion_frame);
                 TObjPlayer::clear_global_state();
             }
-            TObjPlayer__sub_80101088();
-            TObjPlayer::end_particle_effect();
-            this->draw_shield_particle();
-            this->update_screen_particle_effect();
+            TItem::end_material_color();
+            TItem::end_effect_render();
+            ((TItem *)this)->end_particle_tev();
+            ((TItem *)this)->end_shield_tev();
             TObjPlayer::warn_if_gauge_low();
             TObjPlayer__sub_8036414C();
             if ((u32) *(u32 *)((s8 *)this + 0x17C) == 0U) {
@@ -116,9 +117,9 @@ s32 TItemWeapon::draw_weapon_model() {
             } else {
                 TObjEneRe7Berura::set_global_state(NULL);
             }
-            ((TObjPlayer *)(&lbl_805D53EC))->clear_id();
+            item_render_state.reset();
         } else {
-            this->apply_to_child((int)((void *) (*(s32 *)((s8 *)this->player + 0xDB4))));
+            ((TItem *)this)->visit_model_nodes((u8 *)(*(s32 *)((s8 *)this->owner + 0xDB4)));
         }
         pop_matrix();
         reset_model_node_counter();
@@ -127,9 +128,9 @@ s32 TItemWeapon::draw_weapon_model() {
 
 void draw_weapon_at_joint(s32 arg0, s8 arg1) {
     s8 temp_r31;
-    temp_r31 = get_attach_joint__11TItemWeaponFv((void *)arg0);
-    ((TItemEquipBase *)arg0)->set_equip_flag(arg1);
+    temp_r31 = get_attach_joint__14TItemEquipBaseFv((void *)arg0);
+    ((TItemEquipBase *)arg0)->set_attach_joint(arg1);
     ((TItemWeapon *)arg0)->draw_weapon_model();
-    ((TItemEquipBase *)arg0)->set_equip_flag(temp_r31);
+    ((TItemEquipBase *)arg0)->set_attach_joint(temp_r31);
 }
 }

@@ -100,7 +100,7 @@ struct Self_80221F08 {
 };
 
 extern "C" {
-u32 obj_getField1c(s32);
+u32 get_entity_id(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 get_window_layout_position(s32);
@@ -179,7 +179,7 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
         if (r == 0) {
             i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_384);
             if (store_item_in_bank((u8 *)&self->ents[i].f4, this->m_378, base) != 0) {
-                get_item_record__23TShopJudgmentItemWindowFPv(this->m_24, ((TItem *)(self->ents[i].f0))->get_field_d8(), this->m_378);
+                get_item_record__23TShopJudgmentItemWindowFPv(this->m_24, ((TItem *)(self->ents[i].f0))->get_item_id(), this->m_378);
                 copy_bank_to_card_window(base);
                 play_sound_effect(0x52D01, 0, 0, 0);
                 TWindow__close((u8 *)self->f388);
@@ -216,7 +216,7 @@ void TShopKeepItemWindow::update_number_input() {
     w = this->m_38c;
     if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
         if ((u32) this->m_388 == 0U) {
-            temp_r31 = obj_getField1c(this->m_24);
+            temp_r31 = get_entity_id(this->m_24);
             this->m_388 = (u32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             ((TCheckRoomSequence *)(this->m_388))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
@@ -246,7 +246,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
     count = ((TObjPlayer *)(*(s32 *)((s8 *)self->f24 + 0xD00)))->count_matching_items((int)buf);
     self->f374 = 0;
     for (i = 0; i < count; i++) {
-        if (buf[i] != 0 && ((TItem *)(buf[i]))->copy_to_item_data(self->ents[self->f374].item) != 0) {
+        if (buf[i] != 0 && ((TItem *)(buf[i]))->copy_to_item_data((TItemData *)self->ents[self->f374].item) != 0) {
             self->ents[self->f374].f0 = buf[i];
             self->ents[self->f374].f18 = i;
             self->f374++;
@@ -260,7 +260,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
         return;
     }
     if (self->f384 == 0U) {
-        self->f384 = create_item_list_window(get_shop_text(0x30), 0x40, obj_getField1c((s32)self->f24));
+        self->f384 = create_item_list_window(get_shop_text(0x30), 0x40, get_entity_id((s32)self->f24));
         for (s32 j = 0; j < self->f374; j++) {
             ((TShopJudgmentItemWindow *)(self->f384))->add_list_entry(self->ents[j].f0, j);
         }
@@ -278,14 +278,14 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
         cur = ((TShopGetItemWindow *)(self->f384))->get_cursor_index();
     }
     if (self->f390 == 0U) {
-        self->f390 = (u32)new TWindowHelpItem((void *)get_window_layout_position(0x27), obj_getField1c((s32)self->f24));
+        self->f390 = (u32)new TWindowHelpItem((void *)get_window_layout_position(0x27), get_entity_id((s32)self->f24));
         if (self->f390 != 0U && TLobby::is_camera_ctrl_active() > 2) {
             ((TLobby *)(self->f390))->set_position(lbl_805DC710, lbl_805DC710);
         }
-        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TItem *)(self->ents[cur].f0))->get_field_d8());
+        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TItem *)(self->ents[cur].f0))->get_item_id());
         self->f37C = cur;
     } else {
-        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TItem *)(self->ents[cur].f0))->get_field_d8());
+        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TItem *)(self->ents[cur].f0))->get_item_id());
         self->f37C = cur;
     }
 }

@@ -116,11 +116,11 @@ TUnk_804CC148::~TUnk_804CC148() {
 #define __vt__13TUnk_804CC148 ((void * *)__vt__13TUnk_804CC148)
 
 extern "C" {
-u16 obj_getField1c(s32);
+u16 get_entity_id(s32);
 s32 get_type__10TObjPlayerFPv(void *p);
 void *__ct__7TEffectFv(void *);
 s32 init_collision_body_parts(u32, void *, s32);
-u32 __ct__13TUnk_804AF8A0FP7TObject(u32, void *);
+u32 __ct__14TObjCollidableFP7TObject(u32, void *);
 u32 __nw__7TObjectFUl(s32);
 extern const f32 lbl_805DC7B4;
 extern const f32 lbl_805DC7B8;
@@ -164,7 +164,7 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     this->m_c8 = lbl_805DC7C8;
     *(f32 *)((s8 *)this + 0xCC) = lbl_805DC7B8;
     this->m_d0 = 0;
-    if (obj_getField1c(this->source) < 4U) {
+    if (get_entity_id(this->source) < 4U) {
         if (get_type__10TObjPlayerFPv((void *)(this->source + 0x828)) != 0) {
             *(s32 *)((s8 *)this + 0xD4) = 0x40007;
         } else {
@@ -175,7 +175,7 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = __ct__13TUnk_804AF8A0FP7TObject(var_r0, this);
+        var_r0 = __ct__14TObjCollidableFP7TObject(var_r0, this);
     }
     this->m_e8 = var_r0;
     if (this->m_e8 != 0U) {
@@ -216,7 +216,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     ((TUnk_804CC148 *)arg0)->m_c8 = lbl_805DC7C8;
     *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DC7B8;
     ((TUnk_804CC148 *)arg0)->m_d0 = 0;
-    if (obj_getField1c(((TUnk_804CC148 *)arg0)->source) < 4U) {
+    if (get_entity_id(((TUnk_804CC148 *)arg0)->source) < 4U) {
         if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CC148 *)arg0)->source + 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40007;
         } else {
@@ -227,7 +227,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = __ct__13TUnk_804AF8A0FP7TObject(var_r0, arg0);
+        var_r0 = __ct__14TObjCollidableFP7TObject(var_r0, arg0);
     }
     ((TUnk_804CC148 *)arg0)->m_e8 = var_r0;
     if (((TUnk_804CC148 *)arg0)->m_e8 != 0U) {

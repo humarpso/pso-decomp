@@ -5,7 +5,7 @@
 #include "pso/map/FloorArea.h"
 extern "C" {
 s32 get_player_by_client_id(s32);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(s32, s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 char* strncpy(char*, const char*, int);
 char* strcat(char*, const char*);
@@ -43,7 +43,7 @@ void TObjDeadListWin::update_countdown() {
     s32 temp_r0;
     s32 temp_r3;
     temp_r3 = get_player_by_client_id(local_client_id);
-    if ((temp_r3 == 0) || (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3, 0x02000000) != 0)) {
+    if ((temp_r3 == 0) || (obj_testFlags30__14TObjCollidableFUl(temp_r3, 0x02000000) != 0)) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -73,7 +73,7 @@ void TObjDeadListWin::refresh_names() {
     me = (u8*)get_player_by_client_id(local_client_id);
     if ((get_current_floor_area() == AREA_PIONEER2_EP1 || get_current_floor_area() == AREA_PIONEER2_EP2)
         && TWindowCtrlMain__sub_8024CE58() != 0 && me != NULL
-        && obj_testFlags30__13TUnk_804AF8A0FUl((s32)me, 0x02000000) == 0) {
+        && obj_testFlags30__14TObjCollidableFUl((s32)me, 0x02000000) == 0) {
         build_dead_list_window();
         m_phase = 1;
     }

@@ -19,11 +19,11 @@ extern "C" {
 
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(s32, s32);
 f32 horizontal_distance_squared(s32, void *);
 s32 get_player_by_client_id(u32);
 
-s16 obj_getS16_32C(void *);
+s16 get_actor_hp(void *);
 void send_6x2F_change_player_hp(u16, u16, s16);
 
 #pragma push
@@ -43,7 +43,7 @@ void TOHealGeneral::update_closing() {
         if (TOHangerMachine01::is_valid_slot((s32) arg0, this->m_f4) != 0) {
             player = (u8 *)(get_player_by_client_id((u32) this->m_f4));
             if (player != NULL) {
-                temp_r3_2 = obj_getS16_32C(player);
+                temp_r3_2 = get_actor_hp(player);
                 if (temp_r3_2 > 0) {
                     send_6x2F_change_player_hp(0xFFFFU, this->m_f4, temp_r3_2);
                 }
@@ -69,7 +69,7 @@ void TOHealGeneral::apply_heal_to_target() {
     u32 id = this->m_f4;
     if ((id != 0xFFFF) && (id < 0x1000U)) {
         temp_r3_2 = get_player_by_client_id(id);
-        if ((temp_r3_2 != 0) && (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, (u8 *)&this->position) < 225.0f)) {
+        if ((temp_r3_2 != 0) && (obj_testFlags30__14TObjCollidableFUl(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, (u8 *)&this->position) < 225.0f)) {
             add_actor_hp((u8 *)temp_r3_2, 9);
             add_actor_tp((u8 *)temp_r3_2, 9);
         }
@@ -134,11 +134,11 @@ struct Actor_80169334 : VBase_80169334 {
 
 extern "C" {
 int get_player_data__10TObjPlayerFi(int a0);
-s32 obj_getField1c(void *obj);
+s32 get_entity_id(void *obj);
 f32 get_collision_body_radius(void *, s32);
 
 s16 obj_getS16_2BA(u8 *p);
-s16 obj_getS16_32E(u8 *p);
+s16 get_actor_tp(u8 *p);
 u32 get_recovery_need_flags__10TObjPlayerFv(void *);
 void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
@@ -157,7 +157,7 @@ void find_heal_target__13TOHealGeneralFPv(TOHealGeneral *self) {
     self->m_f4 = 0xFFFF;
     for (i = 0; i < lbl_805D586C; i++) {
         actor = (Actor_80169334 *)get_player_data__10TObjPlayerFi(i);
-        id = obj_getField1c(actor);
+        id = get_entity_id(actor);
         if (actor == 0) {
             continue;
         }
@@ -165,18 +165,18 @@ void find_heal_target__13TOHealGeneralFPv(TOHealGeneral *self) {
             continue;
         }
         r = 1e+01f - get_collision_body_radius(actor, 0);
-        if (!(horizontal_distance_squared((s32)((u8 *)actor + 0x38), self->position) < r * r)) {
+        if (!(horizontal_distance_squared((s32)((u8 *)actor + 0x38), &self->position) < r * r)) {
             continue;
         }
         self->m_f4 = id;
-        if (obj_getS16_32C((u8 *)actor) < ((TItemProShield *)actor)->get_field_2b8() ||
-            obj_getS16_32E((u8 *)actor) < obj_getS16_2BA((u8 *)actor) ||
+        if (get_actor_hp((u8 *)actor) < ((TItemProShield *)actor)->get_field_2b8() ||
+            get_actor_tp((u8 *)actor) < obj_getS16_2BA((u8 *)actor) ||
             get_recovery_need_flags__10TObjPlayerFv(actor) != 0 ||
             (((TObjPlayer *)actor)->is_alive_and_ready() != 0 && ((TObjPlayer *)actor)->are_traps_full() == 0)) {
             void *e;
             self->m_ac = 1;
             if (TOHangerMachine01::is_valid_slot((int)self, self->m_f4) != 0) {
-                send_6x2C_impose_hold(actor, self->position, 0x3C, 0, r);
+                send_6x2C_impose_hold(actor, &self->position, 0x3C, 0, r);
                 actor->m48();
             }
             if (((TObjPlayer *)actor)->is_alive_and_ready() != 0) {
@@ -190,7 +190,7 @@ void find_heal_target__13TOHealGeneralFPv(TOHealGeneral *self) {
             if (e != 0) {
                 ((TParticleCtrl *)e)->set_owner_id(self->m_f4);
             }
-            play_sound_effect(0x4002AB0E, self->position, 0, 0);
+            play_sound_effect(0x4002AB0E, &self->position, 0, 0);
             break;
         }
     }
@@ -309,7 +309,7 @@ void TOHealGeneral::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -371,7 +371,7 @@ void TOHealGeneral::load_resources() {
   if (area < 0x24)
   {
     block_5:
-    temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc();
+    temp_r3_2 = (int)::operator new(0x440);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -381,7 +381,7 @@ void TOHealGeneral::load_resources() {
     return;
   }
   block_8:
-  temp_r3_3 = (new_var = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc());
+  temp_r3_3 = (new_var = (int)::operator new(0x440));
   var_r0_2 = temp_r3_3;
   if (var_r0_2 != 0)
   {
@@ -399,7 +399,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
                 TBoss4Type2::request_destroy(self->handles[i]);
             }
         }
-        ((TUnk_804AF8A0 *)self)->unregister_object_by_id();
+        ((TObjCollidable *)self)->unregister_object_by_id();
         free_collision_body_parts(self);
         ((TUnk_804AFBF8 *)self)->destroy_key_base(0);
         if (flag > 0) {
@@ -422,9 +422,9 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->f24 = *(s32 *)((s8 *)model + 0xC);
     self->fC4 = 4e+01f;
     init_collision_body_parts(self, heal_general_collision_body_part, 1, model);
-    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
-    ((TObjPlayer *)self)->reset_photon_effect();
-    ((TUnk_804AF8A0 *)self)->clear_player_status_flag(0, 1);
+    ((TObjCollidable *)self)->refresh_collision_body_centers();
+    ((TObjPlayer *)self)->register_object_by_id();
+    ((TObjCollidable *)self)->clear_player_status_flag(0, 1);
     self->fCC = 0;
     self->fD0 = 0.0f;
     for (i = 0; i < 2; i++) {
@@ -446,6 +446,6 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     return self;
 }
 
-void*TOHealGeneral::vfunc_9() { return (char*)this + 0xe0; }
+void *TOHealGeneral::get_center() { return (char*)this + 0xe0; }
 
 }

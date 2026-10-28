@@ -54,7 +54,7 @@ struct RoomId_801A18EC {
 };
 
 extern "C" {
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 __vt__10TObjRoomId[];
 extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
@@ -81,7 +81,6 @@ s32 pop_matrices(s32 arg0);
 f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
-void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
@@ -168,14 +167,14 @@ void TObjRoomId::run_task() {
                 *(s16 *)((s8 *)p + 0x28) = (s16)o->room_pos;
                 set_player_room_control_flag((TObjPlayer *)p);
             } else {
-                set__10TObjRoomIdFPvs(p, (s16)o->room_pos);
+                ((TObjPlayer *)p)->set_room((s16)o->room_pos);
             }
         } else {
             if (o->mode == 0x10000) {
                 *(s16 *)((s8 *)p + 0x28) = (s16)o->room_other;
                 set_player_room_control_flag((TObjPlayer *)p);
             } else {
-                set__10TObjRoomIdFPvs(p, (s16)o->room_other);
+                ((TObjPlayer *)p)->set_room((s16)o->room_other);
             }
         }
     }
@@ -185,7 +184,7 @@ void TObjRoomId::run_task() {
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjRoomId;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -197,7 +196,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_801A1CD8___vt__10TObjRoomId_size[sizeof(RecoveredGlobal_801A1CD8___vt__10TObjRoomId) == 0x38 ? 1 : -1];
 u8 *TObjRoomId__ct(u8 *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
+    __ct__8TObjBaseFP7TObject((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34B0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -235,20 +234,5 @@ u8 TObjPlayer::sub_801A1DDC() {
     if (is_split_screen() != 0) {
         return 1U;
     }
-    return (u8) (this->m_1c == local_client_id);
-}
-
-int TUnk_804B9870::vfunc_12() { return 0; }
-void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
-    u32 area;
-
-    if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
-        area = get_current_floor_area();
-        if ((area <= 2U) || ((s32) area == AREA_PIONEER2_EP2) || (TContainerAncient01::is_global_state_in_table() != 0) || ((s32) area == AREA_DE_ROL_LE) || ((s32) area == AREA_BARBA_RAY)) {
-            *(s16 *)((s8 *)arg0 + 0x2E) = arg1;
-        }
-        *(s16 *)((s8 *)arg0 + 0x28) = arg1;
-        return;
-    }
-    *(s16 *)((s8 *)arg0 + 0x28) = arg1;
+    return (u8) (this->entity_id == local_client_id);
 }

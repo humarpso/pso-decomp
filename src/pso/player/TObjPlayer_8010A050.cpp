@@ -104,9 +104,9 @@ void queue_destruction__7TObjectFv(void *arg0);
 void *create_particle_emitter(void *pos, s32 id);
 s32 get_current_floor();
 int get_item_field_6__10TObjPlayerFPv(void *p);
-u8 get_field_ed__5TItemFv();
+u8 get_item_group__5TItemFv();
 
-s32 TObjPlayer::get_entity_id() { return this->texture_id; }
+s32 TObjPlayer::get_texture_id() { return this->texlist; }
 s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
 
 extern const f32 lbl_805DAB58;
@@ -182,7 +182,7 @@ void TUnk_8049F148::run_task() {
         temp_r3_3 = get_item_field_6__10TObjPlayerFPv(player);
         if ((u32) *(u32 *)&this->unk_1C != 0U) {
             s32 var_r30 = 0;
-            if ((temp_r3_3 != 0U) && (get_field_ed__5TItemFv() == 0x1A)) {
+            if ((temp_r3_3 != 0U) && (get_item_group__5TItemFv() == 0x1A)) {
                 var_r30 = 1;
             }
             if (var_r30 != 0) {

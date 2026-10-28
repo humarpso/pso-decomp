@@ -166,9 +166,9 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(int);
 s32 defer_render__7TObjectFv(void *);
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -196,7 +196,7 @@ void TObjEneRecobox::draw_with_debug_info() {
         debug_printf_at(pack_debug_text_position(0, 5), lbl_80476440);
     }
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
@@ -246,24 +246,24 @@ void TObjEneRecobox::render() {
         if (var_r28 != 0) {
             var_r27 = 0;
             if (((TObjEneRecobox *)arg0)->render_trap_model_if_visible() == 0) {
-                lbl_805D5660 = model_render_flags;
-                lbl_805D5664 = chunk_polygon_flags_and_mask;
-                lbl_805D5668 = chunk_polygon_flags_or_mask;
+                saved_model_render_flags = model_render_flags;
+                saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+                saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
                 if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
                     if (((Fade_8031EA70 *)(arg0 + 0x3C0))->m8() != 0) {
                         if (defer_render__7TObjectFv(arg0) != 0) {
-                            model_render_flags = lbl_805D5660;
-                            chunk_polygon_flags_and_mask = lbl_805D5664;
-                            chunk_polygon_flags_or_mask = lbl_805D5668;
+                            model_render_flags = saved_model_render_flags;
+                            chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+                            chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
                             return;
                         }
                         var_r27 = 1;
                         ((Fade_8031EA70 *)(arg0 + 0x3C0))->m6();
                         goto block_18;
                     }
-                    model_render_flags = lbl_805D5660;
-                    chunk_polygon_flags_and_mask = lbl_805D5664;
-                    chunk_polygon_flags_or_mask = lbl_805D5668;
+                    model_render_flags = saved_model_render_flags;
+                    chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+                    chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
                     return;
                 }
 block_18:
@@ -272,9 +272,9 @@ block_18:
                 temp_r30 = ((RenderFadeState *)temp_r29)->updateFromCamera((const f32*)(arg0 + 0x2FC));
                 if ((var_r27 == 0) && (temp_r30 != 0)) {
                     if (defer_render__7TObjectFv(arg0) != 0) {
-                        model_render_flags = lbl_805D5660;
-                        chunk_polygon_flags_and_mask = lbl_805D5664;
-                        chunk_polygon_flags_or_mask = lbl_805D5668;
+                        model_render_flags = saved_model_render_flags;
+                        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+                        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
                         return;
                     }
                     temp_r29->m6();
@@ -282,7 +282,7 @@ block_18:
                 }
 block_23:
                 ((TObjEneDD *)arg0)->update_secondary_light();
-                TObjFish::set_global_param((int) (((TObjEneRecobox *)arg0)->texture_id));
+                TObjFish::set_global_param((int) (((TObjEneRecobox *)arg0)->texlist));
                 push_matrix();
                 post_translate_matrix((u8 *)&this->position);
                 rotate_matrix_y(0, (int) (((TObjEneRecobox *)arg0)->rotation_y));
@@ -309,9 +309,9 @@ block_23:
                 } else if (temp_r30 != 0) {
                     temp_r29->m7();
                 }
-                model_render_flags = lbl_805D5660;
-                chunk_polygon_flags_and_mask = lbl_805D5664;
-                chunk_polygon_flags_or_mask = lbl_805D5668;
+                model_render_flags = saved_model_render_flags;
+                chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+                chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
                 goto block_37;
             }
         } else {

@@ -4,7 +4,7 @@
 #include "pso/misc/TLobby_80207DA8.h"
 #include "pso/misc/TLobby_8020A188.h"
 #include "pso/system/TGStream.h"
-#include "pso/unk/text_801A2514.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/text_801F43A8.h"
 #include "pso/unk/text_8020A2AC.h"
 #include "pso/unk/text_8020AB50.h"
@@ -263,7 +263,7 @@ loop_1:
         if ((sp14 == 2) && (spC == arg0)) {
             lobby = var_r31 + 0x10;
             ((TLobby *)lobby)->bswap_enemy_set_rows(sp8);
-            reserve_enemy_set_actor_ids(lobby, (u32) sp8 / 72U, TLobby::get_player_floor(spC));
+            reserve_enemy_set_actor_ids(lobby, (u32) sp8 / 72U, get_floor_area(spC));
             TLobby::init_floor_enemy_count(spC, lobby, sp8);
             return 1;
         }
@@ -300,7 +300,7 @@ loop_1:
         if ((sp14 == 1) && (spC == arg0)) {
             rows = var_r31 + 0x10;
             convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)rows, byte_size);
-            ((TLobby *)rows)->assign_object_ids((s32)((u32) byte_size / 68U), (void *)(TLobby::get_player_floor(spC)));
+            ((TLobby *)rows)->assign_object_ids((s32)((u32) byte_size / 68U), (void *)(get_floor_area(spC)));
             TLobby::load_object_set_entries(spC, rows, byte_size);
             return 1;
         }
@@ -366,7 +366,6 @@ struct A_801F4340 { s16 a; s16 b; };
 
 struct B_801F4340 { s32 a; s16 b; u8 rest[6]; };
 
-extern A_801F4340* TLobby__data_805D6140;
 extern B_801F4340* TLobby__data_805D6144;
 
 extern s16 TLobby__data_805D6134;
@@ -392,7 +391,7 @@ void TLobby::init_id_tables() {
     for (i = 0; i < 0xBA0; i++) {
         s16 v = n + 0x100;
         n++;
-        TLobby__data_805D6140[i].b = v;
+        quest_object_entries[i].drop_id_base = v;
     }
     for (i = 0; i < 0xB50; i++) {
         s16 v = n + 0x100;

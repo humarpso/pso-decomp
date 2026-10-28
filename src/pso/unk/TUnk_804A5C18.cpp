@@ -10,10 +10,11 @@
 #include "pso/unk/text_8012DF60.h"
 #include "pso/item/TItemEquipVariant_80120CF8.h"
 #include "pso/item/TItemEquipVariant_8012E190.h"
+#include "pso/item/TItem.h"
 
 extern "C" {
 
-u8 get_slot_count__5TItemFv(void *);
+u8 get_item_index__5TItemFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 
@@ -22,7 +23,7 @@ void TObjPlayer::apply_frame_camera_shake() {
     s32 var_r30;
 
     player_list = TObjPlayer::get_player_list();
-    if (get_slot_count__5TItemFv(this) != 6) {
+    if (get_item_index__5TItemFv(this) != 6) {
         if (player_list == (s32) this->m_21c) {
             translate_matrix(0, 0.0f, this->m_224, 0.0f);
         }
@@ -104,13 +105,12 @@ struct Self_8012DE24 {
 };
 
 extern "C" {
-s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern s32 basic_shot_angle_table[];
 void TUnk_804A5C18::emit_marker_effects() {
     s32 sp8[3];
     s32 i;
     for (i = 0; (u32)i != 5U; i++) {
-        draw_icon__10TObjPlayerFll(((u8 *)this), ((struct Self_8012DE24 *)((u8 *)this))->icons[i], sp8);
+        ((TItemWeapon *)(((u8 *)this)))->get_joint_position(((struct Self_8012DE24 *)((u8 *)this))->icons[i], sp8);
         ((VObj_8012DE24 *)((u8 *)this))->m49(sp8, i, basic_shot_angle_table[i], 1);
         if (i == 0) {
             spawn_particle_effect(sp8, 9);
@@ -137,15 +137,15 @@ void TUnk_804A5C18::update_attack() {
 }
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 }
 extern s32 tl_05;
 extern u8 lbl_804A5C18[];
 
 void *construct_shot_weapon(void *arg0, s32 parent, void *item) {
-    TItemWeapon__ct((TItemWeapon *)((u8 *)arg0), (void *)parent, (u8 *)item);
+    __ct__11TItemWeaponFP7TObjectPUc((TItemWeapon *)((u8 *)arg0), (void *)parent, (u8 *)item);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804A5C18;
-    ((TObjPlayer *)arg0)->set_status_flags(2);
+    ((TItemWeapon *)arg0)->set_weapon_flags(2);
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
     *(void **)((s8 *)arg0 + 0x1EC) = (void *)spawn_weapon_impact_effect;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) 15.0f;
@@ -206,7 +206,7 @@ u8 *create_shot_weapon(u8 *item) {
     u8 *temp_r3;
     u8 *var_r0;
     if (item != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x22C));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x22C));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(construct_shot_weapon(temp_r3, tl_05, item));
@@ -221,7 +221,7 @@ void *__dt__13TUnk_804A5C18Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804A5C18;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;

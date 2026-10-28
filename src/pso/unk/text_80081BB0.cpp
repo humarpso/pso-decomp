@@ -44,7 +44,7 @@ extern RecoveredGlobal_80081CD0_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -58,7 +58,7 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl();
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9390;
 extern const f32 lbl_805D9394;
@@ -70,8 +70,8 @@ s32 TUnk_8048E1A4::freeze_shell_hold() {
         return;
     }
     this->rotation_y += 0x10;
-    if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x800) == 0) {
-        if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x20) != 0) {
+    if (obj_testFlags30__14TObjCollidableFUl(p, 0x800) == 0) {
+        if (obj_testFlags30__14TObjCollidableFUl(p, 0x20) != 0) {
             return;
         }
     }
@@ -83,7 +83,7 @@ s32 TUnk_8048E1A4::freeze_shell_hold() {
     p = (s32)spawn_particle_effect((u8 *)this + 0x38, 0x33);
     if (p != 0) {
         attach_particle_model((u8 *)p, (s32)(get_bml_model(freeze_shell_bml_resource, 0)), (s32)(TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1)), (s32)(get_bml_motion(freeze_shell_bml_resource, 0)), 0, (f32)lbl_805D9384);
-        ((TObjPlayer *)p)->set_position_xy(this->scale, this->target_scale);
+        ((TObjPlayer *)p)->set_position_xy(this->scale.x, this->scale.y);
     }
     this->m_c0 = lbl_805D9378;
 }
@@ -96,18 +96,18 @@ void TUnk_8048E1A4::freeze_shell_grow() {
     Stack_80081CD0 stack;
     f32 temp_f0;
     this->rotation_y = (this->rotation_y + 0x1000);
-    *(f32 *)&this->m_70 = (f32) (*(f32 *)&this->m_70 + lbl_805D9388);
-    temp_f0 = *(f32 *)&this->m_70;
-    this->target_scale = temp_f0;
-    this->scale = temp_f0;
-    if (this->m_338 < this->scale) {
+    this->scale.z = (f32) (this->scale.z + lbl_805D9388);
+    temp_f0 = this->scale.z;
+    this->scale.y = temp_f0;
+    this->scale.x = temp_f0;
+    if (this->m_338 < this->scale.x) {
         *(s32 *)((s8 *)arg0 + 0x334) = 1;
     }
     *(s32 *)((s8 *)arg0 + 0x33C) = (s32) (*(s32 *)((s8 *)arg0 + 0x33C) + 1);
     if ((*(s32 *)((s8 *)arg0 + 0x33C) % 3) == 0) {
         stack.sp8 = lbl_805D9378;
         stack.spC = lbl_805D9378;
-        stack.sp10 = lbl_805D938C * this->scale;
+        stack.sp10 = lbl_805D938C * this->scale.x;
         push_matrix_from(&identity_matrix.value);
         rotate_matrix_y(0, (int) (this->rotation_y * 2));
         rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
@@ -172,14 +172,14 @@ void TUnk_8048E1A4::render() {
             draw_ginja_object(this->model);
             break;
         case 2:
-            lbl_805D5660 = model_render_flags;
-            model_render_flags = lbl_805D5660 | 0x8820;
-            ((TUnk_80494AE0 *)(&this->m_340))->set_chunk_material_color();
+            saved_model_render_flags = model_render_flags;
+            model_render_flags = saved_model_render_flags | 0x8820;
+            set_constant_material((const NJS_ARGB *)((&this->m_340)));
             draw_ginja_object(this->model);
             model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-            model_render_flags = lbl_805D5660;
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+            model_render_flags = saved_model_render_flags;
             break;
         }
         pop_matrix();

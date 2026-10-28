@@ -112,7 +112,7 @@ struct Junk_8003A314 {
 
 extern "C" {
 s32 spawn_effect__15TObjBoss2TunnelFlPvPv(void *, void *, void *, f32, f32);
-s32 __ct__13TUnk_804B9870FP7TObject();
+s32 __ct__8TObjBaseFP7TObject();
 s32 rand();
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 TObjBoss2CeilJunk__height_offset_table;
 extern s32 __vt__17TObjBoss2CeilJunk[];
@@ -127,7 +127,7 @@ extern f32 TObjBoss2CeilJunk__radius_table[];
 extern Color_8003A1B4 boss2_ceil_junk_render_color;
 extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 int get_player_data__10TObjPlayerFi(int a0);
 void forward_switch_phase_stats__13TBoss2DeRolLeFi(s32 arg0);
@@ -159,14 +159,14 @@ void TObjBoss2CeilJunk::render() {
     s.x = (s.z = new_var);
     ((TObjEneDD *)(self->f44))->draw_oriented_shadow((s32)self->f9C, 0, (u32)&s);
   }
-  lbl_805D5660 = model_render_flags;
+  saved_model_render_flags = model_render_flags;
   if (self->fB4 < (1.0f))
   {
-    model_render_flags = lbl_805D5660 | 0x8820;
+    model_render_flags = saved_model_render_flags | 0x8820;
     {
       Color_8003A1B4 c = boss2_ceil_junk_render_color;
       c.a = (-1.0f) + self->fB4;
-      ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
+      set_constant_material((const NJS_ARGB *)(((f32 *)&c)));
     }
     set_chunk_material_override_pair(0xFF00, 0x800);
     set_chunk_blend(0x2500);
@@ -178,7 +178,7 @@ void TObjBoss2CeilJunk::render() {
   rotate_matrix_x(0, self->f5C);
   draw_ginja_object((void *)(boss2_tunnel_instance->mdls[boss2_ceil_junk_model_index_table[*(s32 *)&this->m_ac]].f8));
   pop_matrix();
-  model_render_flags = lbl_805D5660;
+  model_render_flags = saved_model_render_flags;
   set_chunk_material_override_pair(0xFF00, 0);
 }
 
@@ -299,7 +299,7 @@ typedef char RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk_size[sizeof(Reco
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
     f32 temp_f2;
-    __ct__13TUnk_804B9870FP7TObject();
+    __ct__8TObjBaseFP7TObject();
     arg0->unk18 = &(*(RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk *)&__vt__17TObjBoss2CeilJunk).value;
     arg0->field_0 = TObjBoss2CeilJunk__name;
     VecCopy((Vec *)&arg0->unknown_1C[0x1C], (const Vec *)arg2);

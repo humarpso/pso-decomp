@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjCamera_8017F80C.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -193,7 +194,7 @@ s32 post_translate_matrix(void *);
 void draw_chunk_object(void *child);
 void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
 void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
-extern Vec_8018085C lbl_804FF610;
+extern Vec_8018085C camera_right;
 s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
 int rand(void);
 s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
@@ -205,9 +206,9 @@ extern "C" {
 s32 scale_matrix(int, f32, f32, f32);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -231,26 +232,26 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
     Chip_8017FE58 *c = o->chips;
     if (o->flags & 8) {
         if (o->flags & 4) {
-            lbl_805D5660 = model_render_flags;
-            lbl_805D5664 = chunk_polygon_flags_and_mask;
-            lbl_805D5668 = chunk_polygon_flags_or_mask;
+            saved_model_render_flags = model_render_flags;
+            saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+            saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
             model_render_flags = model_render_flags | 0x810;
             set_chunk_material_override_pair(-1, 0x800);
             for (s32 i = 0; i < o->count; i++, c++) {
                 Color_8017FE58 col = { 0.0f, 0x3F800000, 0x3F800000, 0x3F800000 };
                 col.a = c->alpha;
-                ((TUnk_80494AE0 *)((f32 *)&col))->set_chunk_material_color();
+                set_constant_material((const NJS_ARGB *)(((f32 *)&col)));
                 push_matrix();
                 post_translate_matrix(c);
                 rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
                 scale_matrix(0, o->scale, o->scale, o->scale);
                 draw_chunk_object((void *)o->model);
                 pop_matrix();
-                ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
+                set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
             }
-            model_render_flags = lbl_805D5660;
-            chunk_polygon_flags_and_mask = lbl_805D5664;
-            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = saved_model_render_flags;
+            chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+            chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
         } else {
             for (s32 i = 0; i < o->count; i++, c++) {
                 push_matrix();
@@ -262,26 +263,26 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             }
         }
     } else if (o->flags & 4) {
-        lbl_805D5660 = model_render_flags;
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        saved_model_render_flags = model_render_flags;
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
         model_render_flags = model_render_flags | 0x810;
         set_chunk_material_override_pair(-1, 0x800);
         for (s32 i = 0; i < o->count; i++, c++) {
             Color_8017FE58 col = { 0.0f, 0x3F800000, 0x3F800000, 0x3F800000 };
             col.a = c->alpha;
-            ((TUnk_80494AE0 *)((f32 *)&col))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)(((f32 *)&col)));
             push_matrix();
             post_translate_matrix(c);
             rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
             scale_matrix(0, o->scale, o->scale, o->scale);
             draw_chunk_object((void *)o->model);
             pop_matrix();
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
         }
-        model_render_flags = lbl_805D5660;
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = saved_model_render_flags;
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
     } else {
         for (s32 i = 0; i < o->count; i++, c++) {
             push_matrix();
@@ -427,18 +428,18 @@ s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1) {
         return 0;
     }
     if (v.x < 0.0f) {
-        v.x = arg1->x - lbl_804FF610.x * farg1;
-        v.y = arg1->y + lbl_804FF610.y * farg1;
-        v.z = arg1->z + lbl_804FF610.z * farg1;
-        project_world_to_screen(0, &v, &o1, &lbl_804FF610);
+        v.x = arg1->x - camera_right.x * farg1;
+        v.y = arg1->y + camera_right.y * farg1;
+        v.z = arg1->z + camera_right.z * farg1;
+        project_world_to_screen(0, &v, &o1, &camera_right);
         if (o1.x < 0.0f) {
             return 0;
         }
     } else {
-        v.x = arg1->x + lbl_804FF610.x * farg1;
-        v.y = arg1->y - lbl_804FF610.y * farg1;
-        v.z = arg1->z - lbl_804FF610.z * farg1;
-        project_world_to_screen(0, &v, &o2, &lbl_804FF610);
+        v.x = arg1->x + camera_right.x * farg1;
+        v.y = arg1->y - camera_right.y * farg1;
+        v.z = arg1->z - camera_right.z * farg1;
+        project_world_to_screen(0, &v, &o2, &camera_right);
         if (o2.x > 640.0f) {
             return 0;
         }

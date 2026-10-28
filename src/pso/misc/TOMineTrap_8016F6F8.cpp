@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineTrap.h"
@@ -12,11 +12,11 @@
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
 
 extern "C" {
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
+s32 obj_testFlags30__14TObjCollidableFUl(void *, u32);
 s32 get_current_floor(void);
 f32 horizontal_distance_squared(void *, void *);
 extern u8 lobby_rule_settings[];
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 u8 *TOMineTrap__ct(u8 *, u8 *, s32, s32);
 void *get_player_by_client_id(s32 i);
 void *__nw__7TObjectFUl(u32);
@@ -155,10 +155,10 @@ s32 TOMineTrap::find_target_in_range() {
     }
     for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (p == 0 || p == (u8 *)self || obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x800) != 0) {
+        if (p == 0 || p == (u8 *)self || obj_testFlags30__14TObjCollidableFUl(p, 0x800) != 0) {
             continue;
         }
-        id = obj_getField1c(p);
+        id = get_entity_id(p);
         if (id == 0xFFFF) {
             continue;
         }
@@ -189,14 +189,14 @@ s32 TOMineTrap::find_target_in_range() {
 void TOMineTrap::set_triggered() {
     u8 *arg0 = (u8 *)this;
     this->mode = 3;
-    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
+    ((TObjCollidable *)arg0)->set_indexed_flags(0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
-    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
+    ((TObjCollidable *)arg0)->set_indexed_flags(0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
@@ -215,7 +215,7 @@ s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2) {
     u16 id;
     void *player;
     void *obj;
-    if (enable_v2_features != 1 || arg0 == 0 || (id = obj_getField1c((void *)arg0)) == 0xFFFF || id >= 0x1000 ||
+    if (enable_v2_features != 1 || arg0 == 0 || (id = get_entity_id((void *)arg0)) == 0xFFFF || id >= 0x1000 ||
         (player = (void *)get_player_by_client_id(id)) == 0 || ((TObjPlayer *)player)->get_field_3e4() != get_current_floor() ||
         arg1 < 0 || arg1 >= 4 || arg2 < 0 || arg2 > 0x14) {
         return 0;
@@ -237,7 +237,7 @@ extern s32 __vt__10TOMineTrap[];
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TOMineTrap;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__6TOMineFv(arg0, 0);
         if (arg1 > 0) {
@@ -250,7 +250,7 @@ void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
 s32 TOMine::is_target_in_list(void *obj) {
     TOMine *self = this;
     if (obj != 0) {
-        u32 id = obj_getField1c(obj);
+        u32 id = get_entity_id(obj);
         if (id < 4) {
             Node_801702C8 *n;
             for (n = *(Node_801702C8 * *)&self->m_down; n != 0; n = n->next) {
@@ -321,15 +321,15 @@ void TOMine::spawn_disp_objects() {
 
 void TOMine::apply_object_set_data(void *set_data) {
     u8 *arg0 = (u8 *)this;
-    TUnk_804B9870::apply_object_set_data(set_data);
+    TObjBase::apply_object_set_data(set_data);
     this->spawn_disp_objects();
     VecCopy((Vec *)(arg0 + 0x334), (const Vec *)(arg0 + 0x38));
 }
 void TOMine::vfunc_85() {  }
-int TOMine::vfunc_12() { get_localized_text_entry((s32)((void*)16), (s32)((void*)16)); }
+const char *TOMine::get_name() { return (const char *)get_localized_text_entry(16, 16); }
 void TOMine::update_state() {
     s32 temp_r0;
-    *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)&this->m_70;
+    *(s32 *)((s8 *)this + 0x348) = (s32) this->scale.z;
     temp_r0 = *(s32 *)((s8 *)this + 0x348);
     if (temp_r0 < 0) {
         *(s32 *)&this->m_344 = 0;
@@ -341,7 +341,7 @@ void TOMine::update_state() {
     }
     if (get_main_phase() == 0xE) {
         *(s32 *)&this->m_344 = 0;
-        *(s32 *)&this->m_8c = 0x1E;
+        *(s32 *)&this->set_params[2] = 0x1E;
         return;
     }
     *(s32 *)&this->m_344 = 2;
@@ -400,7 +400,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
 
 f32 TOMine::receive_physical_attack(void *, f32) {
     s16 sp8;
-    if (((u16) this->m_1c >= 0x4000U) && ((u32) this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
+    if (((u16) this->entity_id >= 0x4000U) && ((u32) this->set_entry != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
         this->mode = 5;
         sp8 = this->mode;
         send_object_state_update(&sp8);
@@ -431,7 +431,7 @@ f32 TOMine::receive_direct_attack(void *arg1, DirectAttackPayload payload, void 
     return (*(const f32 *)&lbl_805DB85C);
   }
   var_r31 = 0;
-  if ((obj_getField1c((void *) arg1) < 4U) && (is_locally_controlled__10TObjPlayerFPv((u32)((void *) arg1)) != 0))
+  if ((get_entity_id((void *) arg1) < 4U) && (is_locally_controlled__10TObjPlayerFPv((u32)((void *) arg1)) != 0))
   {
     var_r31 = 1;
   }
@@ -465,7 +465,7 @@ f32 TOMine::receive_direct_attack(void *arg1, DirectAttackPayload payload, void 
 
 void TOMine::update_trigger() {
     s16 sp8;
-    if (((u16) this->m_1c >= 0x4000U) && ((u32) this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
+    if (((u16) this->entity_id >= 0x4000U) && ((u32) this->set_entry != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
         this->mode = 3;
         sp8 = this->mode;
         send_object_state_update(&sp8);
@@ -474,10 +474,10 @@ void TOMine::update_trigger() {
 void TOMine::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
-    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
+    ((TObjCollidable *)arg0)->set_indexed_flags(0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
-    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
+    ((TObjChara *)arg0)->calc_attach_pos();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
     ((TOMine *)(arg0))->vfunc_81();
 }
 
@@ -508,9 +508,9 @@ void TOMine::follow_target() {
   ((TObjPlayer *)arg0)->update_enemy_collision_flags();
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) ((this->target) + 0x3C)))) - temp_f2)) + temp_f2);
-  ((TUnk_804806E8 *)arg0)->calc_attach_pos();
+  ((TObjChara *)arg0)->calc_attach_pos();
   this->rotation_y = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
-  ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
+  ((TObjCollidable *)arg0)->refresh_collision_body_centers();
 }
 
 void TOMine::sub_80170BEC() {
@@ -545,15 +545,15 @@ void TOMine::update_float_height() {
     f32 temp_f4;
     if (!(this->m_340 & 2)) {
         temp_f4 = *(f32 *)((s8 *)arg0 + 0x338);
-        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + this->m_54) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
-        temp_f1 = lbl_805DB888 + this->m_54;
+        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + this->home_position.y) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
+        temp_f1 = lbl_805DB888 + this->home_position.y;
         if (temp_f1 <= *(f32 *)((s8 *)arg0 + 0x338)) {
             *(f32 *)((s8 *)arg0 + 0x338) = temp_f1;
             this->m_340 = (s32) (this->m_340 | 2);
         }
     } else {
-        *(s32 *)&this->m_5c = (s32) (*(s32 *)&this->m_5c + 0x800);
-        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) + sin_table_lookup(*(s32 *)&this->m_5c));
+        *(s32 *)&this->rotation_x = (s32) (*(s32 *)&this->rotation_x + 0x800);
+        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) + sin_table_lookup(*(s32 *)&this->rotation_x));
     }
 }
 #pragma pop
@@ -563,7 +563,7 @@ void TOMine::detonate() {
     s32 i;
     u8 *obj;
     set_indexed_flags(0, 2);
-    *(f32 *)(*(u8 * *)&this->m_a4 + 0xC) = this->m_350;
+    *(f32 *)(*(u8 * *)&this->bodies + 0xC) = this->m_350;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();
     check_enemy_body_collisions(this);

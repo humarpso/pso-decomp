@@ -1,3 +1,4 @@
+#include "pso/misc/TLobby_801E43E4.h"
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -83,7 +84,6 @@ void calc_list_content_extent(void *);
 void * open_default__23TShopJudgmentItemWindowFl(void *);
 extern char lbl_8043EFF8[];
 void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1);
-void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 TLobby__sub_8013F810(void *, void *, s32, void *);
 void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
 void sync_game_state__6TLobbyFv(void *, u16);
@@ -324,7 +324,7 @@ typedef struct { u8 pad0[0xA]; char name[0x12]; } Ent_8013703C;
 s32 memcpy(void *, void *, int);
 void * memset(void *, int, u32);
 void mark_area_change_pending();
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void * get_current_floor();
 char * get_card_window_area__6TLobbyFv(void);
 s32 get_flag_bit0__6TLobbyFv(void);
@@ -418,7 +418,7 @@ s32 TLobby__player_setup_pending;
 s32 lobby_selected_game_list_index;
 s32 TLobby__join_lobby_controller;
 s32 TLobby__idle_timeout_object;
-extern u32 *TLobby__data_805D6140;
+extern u32 *quest_object_entries;
 extern S12_801358B4 *TLobby__data_805D6144;
 extern u32 TLobby__data_805D6148;
 extern u32 TLobby__data_805D614C;
@@ -693,9 +693,9 @@ void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
                 delete p;
             }
             plr = (Plr_801354AC *)create_remote_player_object(disp);
-            strncpy(TLobby__player_names[obj_getField1c(plr)], plr->m10(), 0x10);
+            strncpy(TLobby__player_names[get_entity_id(plr)], plr->m10(), 0x10);
             ((TLobby *)(disp->id))->open_udp_socket_for_player();
-            lobby_debug_printf_stub(lbl_8043EE7C, obj_getField1c(plr));
+            lobby_debug_printf_stub(lbl_8043EE7C, get_entity_id(plr));
         }
     }
 }
@@ -737,10 +737,10 @@ void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
   if ((TLobby__data_805D5CE8 == 0) && ((TLobby__data_805D5594 == 0xE) || (TLobby__data_805D5594 == 0xF)))
   {
     lobby_debug_printf_stub(lbl_8043EE90, arg0->len);
-    buf = (Hdr_8013566C *) alloc__23TAdSinglePlyChrSelectGCFv(0x4008);
+    buf = (Hdr_8013566C *) ::operator new(0x4008);
     if (buf != 0)
     {
-      tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+      tmp = ::operator new(0x7230);
       if (tmp != 0)
       {
         new_var2 = buf->data;
@@ -772,7 +772,7 @@ void handle_6x6D_sync_game_state(Pkt_8013574C *arg0) {
         lobby_debug_printf_stub(lbl_8043EEA4, arg0->len);
         buf = mem_alloc(0x8000);
         if (buf != NULL) {
-            tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+            tmp = ::operator new(0x7230);
             if (tmp != NULL) {
                 TLobby__sub_8013F810(tmp, arg0->data + 0, len, buf);
                 ::operator delete(tmp);
@@ -791,12 +791,12 @@ void handle_6x6C_sync_game_state(Pkt_801357F8 *arg0) {
     if (TLobby__data_805D5CE8 == 0 && (TLobby__data_805D5594 == 0xE || TLobby__data_805D5594 == 0xF)) {
         n = arg0->len - 8;
         lobby_debug_printf_stub(lbl_8043EEC0, arg0->len);
-        p = (u32 *)alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+        p = (u32 *)::operator new(0x7230);
         if (p != NULL) {
-            r = ((u32)TLobby__sub_8013F810(p, arg0->data, n, TLobby__data_805D6140));
+            r = ((u32)TLobby__sub_8013F810(p, arg0->data, n, quest_object_entries));
             ::operator delete(p);
             n = r >> 2;
-            p = TLobby__data_805D6140;
+            p = quest_object_entries;
             TLobby__data_805D6148 = n;
             for (i = 0; i < n; i++) {
                 bswap_object_source_record(&p[i]);
@@ -813,7 +813,7 @@ void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0) {
     if (TLobby__data_805D5CE8 == 0 && (TLobby__data_805D5594 == 0xE || TLobby__data_805D5594 == 0xF)) {
         n = arg0->len - 8;
         lobby_debug_printf_stub(lbl_8043EEDC, arg0->len);
-        p = (S12_801358B4 *)alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+        p = (S12_801358B4 *)::operator new(0x7230);
         if (p != NULL) {
             r = ((u32)TLobby__sub_8013F810(p, arg0->data, n, TLobby__data_805D6144));
             ::operator delete(p);
@@ -846,7 +846,7 @@ void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
     buf = (Pkt_801359C4 *)mem_alloc(0x4000);
     if (buf != NULL) {
         memset(buf, 0, 0x4000);
-        hdr = (Hdr_801359C4 *)alloc__23TAdSinglePlyChrSelectGCFv(0x4008);
+        hdr = (Hdr_801359C4 *)::operator new(0x4008);
         if (hdr != NULL) {
             memset(hdr, 0, 0x4008);
             hdr->f2 = serialize_area_set_flags(hdr->data);
@@ -857,7 +857,7 @@ void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
             n += hdr->f6;
             hdr->total = n;
             bswap_6x6E_sync_game_state__6TLobbyFPv(hdr);
-            tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+            tmp = ::operator new(0x7230);
             if (tmp != NULL) {
                 len = ((TLobby *)tmp)->lz_compress_packet((void *)hdr, (s32)n, (s32 *)buf->data);
                 ::operator delete(tmp);
@@ -887,7 +887,7 @@ void TLobby::send_6x6D_item_state() {
         if (src != NULL) {
             memset(src, 0, 0x8000);
             n = ((TLobby *)src)->write_sync_item_state();
-            tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+            tmp = ::operator new(0x7230);
             if (tmp != NULL) {
                 len = ((TLobby *)tmp)->lz_compress_packet((void *)src, (s32)n, (s32 *)buf->data);
                 ::operator delete(tmp);
@@ -916,9 +916,9 @@ void TLobby::send_compressed_packet_6c() {
     buf = (Pkt_80135BD0 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
-        tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+        tmp = ::operator new(0x7230);
         if (tmp != NULL) {
-            src = TLobby__data_805D6140;
+            src = quest_object_entries;
             size = TLobby__data_805D6148 * 4;
             n = size / 4;
             p = (u32 *)mem_alloc(size);
@@ -952,7 +952,7 @@ void TLobby::send_cmd_6B() {
     buf = (Pkt_80135CD8 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
-        tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
+        tmp = ::operator new(0x7230);
         if (tmp != NULL) {
             src = TLobby__data_805D6144;
             size = TLobby__data_805D614C * sizeof(S12_801358B4);
@@ -3921,7 +3921,6 @@ void init_6x72_resume_packet(void* p);
 void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1);
 void bswap_header_fields__6TLobbyFi(s32 arg0);
 void send_packet_60__6TLobbyFi(s32 arg0);
-s32 TLobby__send_and_handle_60(s32);
 s32 bswap_packet_header__6TLobbyFv();
 
 void bswap_and_send_extended_subcommand(void* p, void* a1) { bswap_extended_subcommand_header(p); ((TLobby *)p)->send_command((u32)a1); }
@@ -3939,7 +3938,7 @@ void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1) {
 void TLobby__sub_8013A578(void* p) { *(u8*)((char*)p + 0x0) = 111; *(u8*)((char*)p + 0x1) = 129; }
 void send_packet_60__6TLobbyFi(s32 arg0) {
     bswap_packet_header__6TLobbyFv();
-    TLobby__send_and_handle_60(arg0);
+    send_subcommand((void *)arg0);
 }
 void init_6x72_resume_packet(void* p) { *(u8*)((char*)p + 0x0) = 114; *(u8*)((char*)p + 0x1) = 1; }
 

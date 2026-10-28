@@ -9,6 +9,7 @@
 #include "pso/object/TObjMistCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl {
     s32 value;
@@ -31,7 +32,7 @@ struct TPlayerFootStamp_802AF8BC {
 
 extern "C" {
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 f32 horizontal_distance_squared(void *, void *);
@@ -46,14 +47,14 @@ TObjMistCtrl::~TObjMistCtrl() {
 extern "C" {
 
 extern s32 camera_ctrl_instance;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 player_footstamp_texture_gvm_handle;
 extern s32 model_render_flags;
 extern const f32 lbl_805DE1F8;
 
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
 u8 *TObjMistCtrl__ct(u8 *mist_ctrl, s32 parent, u32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)mist_ctrl, (void *)parent);
+    __ct__8TObjBaseFP7TObject((void *)mist_ctrl, (void *)parent);
     *(s32 **)((s8 *)mist_ctrl + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
     *(s32 *)((s8 *)mist_ctrl + 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {
@@ -66,14 +67,14 @@ u8 *TObjMistCtrl__ct(u8 *mist_ctrl, s32 parent, u32 arg2) {
 void TPlayerFootStamp::render() {
     u8 *arg0 = (u8 *)this;
     if (horizontal_distance_squared((void *)(arg0 + 0x7C), (void *)(camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
-        lbl_805D5660 = model_render_flags;
-        TObjPlayer::reset_transform_state();
+        saved_model_render_flags = model_render_flags;
+        set_default_alpha_blend();
         TObjFish::set_global_param(player_footstamp_texture_gvm_handle);
         set_texture_num((*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1();
         draw_particle_strip((arg0 + 0x1C), (void *)(4), (void *)(1));
         restore_saved_depth_alpha_state();
-        model_render_flags = lbl_805D5660;
+        model_render_flags = saved_model_render_flags;
     }
 }
 void TPlayerFootStamp::run_task() {

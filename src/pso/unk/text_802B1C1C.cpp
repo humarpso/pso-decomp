@@ -13,7 +13,7 @@ extern s32 local_client_id;
 s32 draw_text_gray__17TWindowSubComCardFllll(void *list, void *text, int kind, int id);
 s32 is_trade_range_bit_set(s32 client);
 s32 is_script_controlled__10TObjPlayerFv(TObjPlayer *player);
-s32 obj_isState3_324__13TUnk_804806E8Fv(TObjPlayer *player);
+s32 obj_isState3_324__9TObjCharaFv(TObjPlayer *player);
 extern const f32 lbl_805DE29C;
 extern const f32 lbl_805DE2A0;
 
@@ -34,13 +34,13 @@ TWindowSubComCardList *TWindowSubComCard__sub_802B1C1C(void) {
         if (is_script_controlled__10TObjPlayerFv(player) != 0) {
             continue;
         }
-        if (obj_isState3_324__13TUnk_804806E8Fv(player) != 0) {
+        if (obj_isState3_324__9TObjCharaFv(player) != 0) {
             continue;
         }
         if (is_trade_range_bit_set(i)) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(list, player->vfunc_12(), 7, i);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(list, (s32)player->get_name(), 7, i);
         } else {
-            draw_text_gray__17TWindowSubComCardFllll(list, (void *)player->vfunc_12(), 7, i);
+            draw_text_gray__17TWindowSubComCardFllll(list, (void *)player->get_name(), 7, i);
         }
     }
     if (list->get_field_72() <= 0) {

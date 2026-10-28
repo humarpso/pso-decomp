@@ -5,11 +5,12 @@
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 {
     s32 value;
@@ -151,13 +152,13 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
     temp_r5 = *(void * *)&this->m_3b8;
     if (temp_r5 == NULL) {
         this->model = 0;
-        this->texture_id = 0;
+        this->texlist = 0;
         this->m_b8 = 0;
-        *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) lbl_805DE7D8;
+        *(f32 *)((s8 *)this->bodies + 0xC) = (f32) lbl_805DE7D8;
         return;
     }
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r5 + 8);
-    this->texture_id = (s32) *(s32 *)(this->m_3b8 + 0xC);
+    this->texlist = (s32) *(s32 *)(this->m_3b8 + 0xC);
     this->m_b8 = (s16) *(s16 *)((s8 *)temp_r5 + 0x1C);
     switch ((s32) (*(u16 *)(this->m_3b8 + 2))) {
     case 0:
@@ -169,7 +170,7 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
         init_npc_animation__10TObjPlayerFPvPvPv(this, *(s32 *)((s8 *)temp_r5 + 0x18), *(s32 *)((s8 *)temp_r5 + 0x14), this->m_b8);
         break;
     }
-    *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) *(f32 *)(this->m_3b8 + 0x10);
+    *(f32 *)((s8 *)this->bodies + 0xC) = (f32) *(f32 *)(this->m_3b8 + 0x10);
 }
 
 void TObjNpcEnemy::draw_debug_info() {
@@ -180,7 +181,7 @@ void TObjNpcEnemy::draw_debug_info() {
     debug_printf_at(0x130018, lbl_80472600);
     debug_printf_at(0x13001A, lbl_80472610);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
-    p = TObjNpcEnemy::get_entry_by_index((s16) this->m_5c);
+    p = TObjNpcEnemy::get_entry_by_index((s16) this->rotation_x);
     if (p != *(s16 * *)&this->m_3b8) {
         ((TObjNpcEnemy *)arg0)->set_npc_data(p);
     }
@@ -219,7 +220,7 @@ void TObjNpcEnemy::update_state() {
     case 0:
         set_global_flag__10TObjPlayerFv(this);
         draw_chunk_object(this->model);
-        TObjPlayer::reset_transform_state();
+        set_default_alpha_blend();
         TObjPlayer::clear_global_state();
         return;
     case 1:
@@ -228,7 +229,7 @@ void TObjNpcEnemy::update_state() {
     case 2:
         set_global_flag__10TObjPlayerFv(this);
         draw_ginja_object(this->model);
-        TObjPlayer::reset_transform_state();
+        set_default_alpha_blend();
         TObjPlayer::clear_global_state();
         return;
     case 3:
@@ -249,7 +250,7 @@ void TObjNpcEnemy::render() {
         if (((TObjNpcEnemy *)arg0)->sub_802D7444() != 0) {
             model_render_flags |= 1;
         }
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         push_matrix_from(0);
         translate_matrix_vec3(0, ((u8 *)&this->position));
         temp_r4 = (unsigned char *) (this->m_3b8);
@@ -290,9 +291,9 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TObjNpcEnemy *)(arg0))->apply_set_params(0, 1);
     ((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
-    ((TUnk_804806E8 *)arg0)->set_motion_params(&npc_default_battle_stats.value);
+    ((TObjChara *)arg0)->set_motion_params(&npc_default_battle_stats.value);
     init_collision_body_parts(arg0, &TObjNpcEnemy__collision_body_parts.value, 1);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     ((TObjNpcEnemy *)arg0)->set_npc_data((void *)((int) (((s32)TObjNpcEnemy::get_entry_by_index((s16)((int) ((s16) *(s32 *)((s8 *)arg0 + 0x5C))))))));

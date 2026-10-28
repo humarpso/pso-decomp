@@ -124,7 +124,7 @@ void *mem_alloc(u32 size);
 extern const f32 lbl_805D97CC;
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
 extern Color_8009680C breakup_default_color;
-extern u32 lbl_805D5660;
+extern u32 saved_model_render_flags;
 extern u32 model_render_flags;
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
@@ -146,13 +146,13 @@ void TBreakUpMdl::render() {
     if (self->texlist != 0) {
         TObjFish::set_global_param((s32)self->texlist);
     }
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     if (self->alpha < lbl_805D97C8) {
         Color_8009680C color = breakup_default_color;
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         color.a = self->alpha;
-        ((TUnk_80494AE0 *)((f32 *)&color))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&color)));
     }
     for (i = 0; i < self->count; i++) {
         part = &self->parts[i];
@@ -167,7 +167,7 @@ void TBreakUpMdl::render() {
         pop_matrix();
     }
     set_chunk_material_override_pair(0xFF00, 0);
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
 }
 
 #pragma push

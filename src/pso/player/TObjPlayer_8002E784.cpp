@@ -93,7 +93,7 @@ void scale_current_matrix(Vec_8002EA64 *scale);
 void TObjLight__sub_801337F8(s32 light);
 extern s32 current_scene_light;
 extern u32 model_render_flags;
-extern u32 lbl_805D5660;
+extern u32 saved_model_render_flags;
 extern Color_8002E818 lbl_804355F0;
 extern Vec_8002EA64 lbl_80435600;
 void set_matrix_identity(u8 *arg0);
@@ -131,7 +131,7 @@ void TObjPlayer::clear_target_ref() {
 void TObjPlayer__sub_8002E7C8(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x10))->alloc();
+    temp_r3 = (int)::operator new(0x10);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (((TBreakUpMdl *)temp_r3)->init_from_model(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x58)));
@@ -164,15 +164,15 @@ void TUnk_804820A8::render() {
             draw_chunk_model(node->model);
             break;
         case 2:
-            lbl_805D5660 = model_render_flags;
+            saved_model_render_flags = model_render_flags;
             model_render_flags |= 0x8810;
             color.a = p->unk24;
-            set_chunk_material_color__13TUnk_80494AE0Fv(&color.a);
+            set_constant_material((const NJS_ARGB *)&color.a);
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
             draw_chunk_model(node->model);
             set_chunk_material_override_pair(0xFF00, 0);
-            model_render_flags = lbl_805D5660;
+            model_render_flags = saved_model_render_flags;
             break;
         }
         pop_matrix();
@@ -253,7 +253,7 @@ extern s32 lbl_804820C0[];
 void TObjPlayer::create_breakup_model() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x10))->alloc();
+    temp_r3 = (int)::operator new(0x10);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (((TBreakUpMdl *)temp_r3)->init_from_model(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x68)));

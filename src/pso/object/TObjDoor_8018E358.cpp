@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
@@ -91,7 +92,7 @@ u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjDoorJung__create(void *arg0);
 void update_opening_glow__8TObjDoorFPv(u8 *arg0);
 extern DoorMotionHeader* TObjDoor__motion_table[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void render__8TObjDoorFPv(Door_8018E40C *arg0);
 s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0);
@@ -110,7 +111,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 s32 init_collision_body_parts(void *, void *, s32);
-s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
+s32 __ct__14TObjCollidableFP7TObject(void *, void *);
 extern s32 TObjDoor__name;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door);
@@ -237,15 +238,15 @@ void render__8TObjDoorFPv(Door_8018E40C *arg0) {
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_model_with_motion(((Glob_8018E40C *)&TObjDoor__model_resource_ptrs)->f0, (int)((DoorMotionHeader * *)&TObjDoor__motion_table)[0], ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs), arg0->fB4);
     TParticleCtrl::begin_effect_render();
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
     Color_8018E40C color = TObjDoor__label_color_table[arg0->fD0];
     color.a = arg0->fC4;
-    ((TUnk_80494AE0 *)((f32 *)&color))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)(((f32 *)&color)));
     Glob_8018E40C *g0 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
     Glob_8018E40C *g1 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xA);
     Glob_8018E40C *g2 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
@@ -280,15 +281,15 @@ s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs)->f0);
     TParticleCtrl::begin_effect_render();
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
     Color_8018E5F4 color = ((Color_8018E5F4 *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
-    ((TUnk_80494AE0 *)(&color))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)((&color)));
     Glob_8018E5F4 *g0 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
     Glob_8018E5F4 *g1 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xA);
     Glob_8018E5F4 *g2 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
@@ -315,15 +316,15 @@ s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     draw_ginja_object((void *)((Glob_8018E74C *)&TObjDoor__model_resource_ptrs)->f0);
     TParticleCtrl::begin_effect_render();
     draw_ginja_model_with_motion(((Glob_8018E74C *)&TObjDoor__model_resource_ptrs)->f4, (int) ((DoorMotionHeader * *)&TObjDoor__motion_table)[1], TObjDoor__model_resource_ptrs, arg0->fB8);
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
     Color_8018E74C color = ((Color_8018E74C *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
-    ((TUnk_80494AE0 *)(&color))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)((&color)));
     Glob_8018E74C *g0 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
     Glob_8018E74C *g1 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xB);
     Glob_8018E74C *g2 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
@@ -448,7 +449,7 @@ void TObjDoor::update_state() {
         set_indexed_flags(0, 1);return;
     case 1:
         if(this->cameraMode==1 && activate_camera_mode(9)!=0) {
-            VecCopy((Vec *)target, (const Vec *)this->position);
+            VecCopy((Vec *)target, &this->position);
             VecCopy((Vec *)position, (const Vec *)((f32 *)&this->scale));
             set_active_camera_pose((u8 *)position, (u8 *)target);this->cameraMode=2;
         }
@@ -468,14 +469,14 @@ void TObjDoor::update_state() {
         }
         break;
     case 4:
-        play_persistent_sound(0x49e08, (s32)this, (u32)this->position, 0, 0);
+        play_persistent_sound(0x49e08, (s32)this, (u32)&this->position, 0, 0);
         this->frame+=(1.8f);
         if(this->frame>(TObjDoor__motion_table[0]->frameCount-1)) {
             this->frame=(TObjDoor__motion_table[0]->frameCount-1);this->state=5;
         }
         break;
     case 3:
-        play_persistent_sound(0x49e08, (s32)this, (u32)this->position, 0, 0);
+        play_persistent_sound(0x49e08, (s32)this, (u32)&this->position, 0, 0);
         this->frame-=1.8f;
         if(this->frame<0.0f) {this->frame=0.0f;this->state=2;}
         break;
@@ -508,7 +509,7 @@ void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
 
     if (TObjDoor__data_805D5BC8 != 0) {
         ((TObjDoor *)self)->state = 0;
-        ((TUnk_804AF8A0 *)self)->set_indexed_flags(0, 1);
+        ((TObjCollidable *)self)->set_indexed_flags(0, 1);
     } else {
         ((TObjDoor *)self)->update_state();
     }
@@ -525,9 +526,9 @@ void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TObjDoor;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
+        __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -537,7 +538,7 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
 
 #define d ((Door_8018F15C *)arg0)
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__13TUnk_804AF8A0FP7TObject(arg0, arg1);
+    __ct__14TObjCollidableFP7TObject(arg0, arg1);
     d->vt = __vt__8TObjDoor;
     d->f0 = TObjDoor__name;
     ((TObjPlayer *)d)->apply_object_set_data(arg2);
@@ -559,7 +560,7 @@ void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
     }
     init_collision_body_parts(d, TObjDoor__collision_desc, 1);
     d->f30 |= 0x40000000;
-    ((TObjPlayer *)d)->reset_photon_effect();
+    ((TObjPlayer *)d)->register_object_by_id();
     return d;
 }
 
@@ -581,7 +582,7 @@ void TObjDoor::free_resources() {
 
 extern "C" const char lbl_80445588[] = "fe_obj_door.gvm";
 void TObjDoor::load_resources() {
-    s32 p = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    s32 p = (int)::operator new(0x440);
     if (p != 0) {
         p = (s32)load_resource_from_descriptor((void *)p, 5, door_resource_descriptor, 0, 0, 0);
     }

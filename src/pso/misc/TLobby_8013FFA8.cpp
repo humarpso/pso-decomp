@@ -17,6 +17,7 @@
 #include "pso/object/TObjLight_80133568.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/object/TObjBgmColCtrl.h"
+#include "pso/map/FloorArea.h"
 
 struct Light_801401D0 {
     f32 dir[3];

@@ -113,7 +113,7 @@ void TOCakeshopCave01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         m = *(Model_80159F78 * *)&this->model;
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
@@ -152,7 +152,7 @@ void TOCakeshopCave01::close_dialog_window() {
 void TOCakeshopCave01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_cakeya_resource_descriptor.value, 0, 0, 0));
@@ -164,7 +164,7 @@ void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOCakeshopCave01;
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -185,8 +185,8 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB370;
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     init_collision_body_parts(arg0, cakeshop_cave01_collision_body_part, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     for (i = 0; i < 8; i++) {
         ((TOCakeshopCave01_8015A1C0 *)arg0)->val[i] = TOCakeshopCave01__data_805DB360;
         ((TOCakeshopCave01_8015A1C0 *)arg0)->state[i] = 0;

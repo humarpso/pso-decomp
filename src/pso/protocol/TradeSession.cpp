@@ -1,4 +1,6 @@
+#include "pso/item/TItemData.h"
 #include "types.h"
+#include "pso/protocol/protocol_types.h"
 #include "pso/menu/TAdGuideTxtGC.h"
 #include "pso/boss/TBoss6Type2_803309D8.h"
 #include "pso/misc/TLobby_802D3970.h"
@@ -53,7 +55,7 @@ void handle_trade_received_items(S_802D2BC0 *arg0) {
     if ((s32)TLobby__trade_proposal_state == 8 && arg0 != 0) {
         p = arg0->e;
         for (i = 0; i < arg0->count; i++, p++) {
-            ((TItem *)p)->init_owner(local_client_id);
+            buy_item_for_client((TItemData *)p, local_client_id);
         }
         TLobby__trade_proposal_state = 9;
     }
@@ -137,7 +139,6 @@ struct VObj_802D2E28_0x30_802D2B64 {
 extern "C" {
 
 s32 get_shared_text_buffer();
-u8 *find_item_by_id(s32 id);
 s32 text_builder_append();
 s32 refresh_player_status__6TLobbyFv(s32);
 }
@@ -254,14 +255,12 @@ struct Trade_802D3134 { u8 pad[4]; s16 who; u16 count; Item_802D3134 items[1]; }
 
 extern "C" {
 
-u8 *get_quest_id__12TQuestListVMFv(u32);
 u32 get_player_by_client_id(void *);
 
 void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self);
 
 void handle_trade_member_out_of_range(O_802D3384 *self);
 
-s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, u8);
 Ent_802D3134 *get_trade_window_state(s32);
 
 void reset__6TLobbyFi(s32 arg0) {
@@ -326,12 +325,12 @@ void TLobby::build_trade_item_list() {
             if (n > 0) {
                 if (id == 0xFFFFFF01) {
                     ((TObjPlayer *)(&item))->init_item_data(n);
-                    ((TLobby *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_item_data(&item);
+                    ((TItemData *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_from((TItemData *)(&item));
                 } else if ((p = find_item_by_id(id)) != NULL) {
-                    ((TItem *)p)->copy_to_item_data(&item);
+                    ((TItem *)p)->copy_to_item_data((TItemData *)&item);
                     item.d = -1;
-                    set_stack_count__24TShopEquipmentListWindowFSc(&item, n);
-                    ((TLobby *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_item_data(&item);
+                    ((TItemData *)&item)->set_stack_count(n);
+                    ((TItemData *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_from((TItemData *)(&item));
                 }
             }
         }
@@ -369,7 +368,7 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
     u8 *temp_r3_2;
     build_6xA6_modify_trade_proposal((&packet.header));
     player = get_player_by_client_id((void *)local_client_id);
-    if ((player != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFv(player), ((temp_r3_2 == NULL) == 0))) {
+    if ((player != 0U) && (temp_r3_2 = ((TObjPlayer *)player)->get_stats(), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) != 4) {
             TWindowTradeRequest::close_request_window();
             if ((s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) == arg0) {

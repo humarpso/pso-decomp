@@ -93,10 +93,10 @@ typedef struct Rabarta_80237494
 extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
-void *__ct__13TUnk_804AF8A0FP7TObject(void *, void *);
+void *__ct__14TObjCollidableFP7TObject(void *, void *);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
@@ -182,7 +182,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   p = __nw__7TObjectFUl(0xAC);
   if (p != 0)
   {
-    p = __ct__13TUnk_804AF8A0FP7TObject(p, self);
+    p = __ct__14TObjCollidableFP7TObject(p, self);
   }
   self->fdc = p;
   if (self->fdc != 0)
@@ -190,7 +190,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
     init_collision_body_parts(self->fdc, self->fb0, 1);
   }
   self->fac = 1;
-  if (((self->owner != 0) && (obj_getField1c(self->owner) < 4)) && (self->owner->flags & 0x02000000))
+  if (((self->owner != 0) && (get_entity_id(self->owner) < 4)) && (self->owner->flags & 0x02000000))
   {
     self->fac = 0;
   }

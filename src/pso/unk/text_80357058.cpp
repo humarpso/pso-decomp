@@ -1,3 +1,4 @@
+#include "pso/protocol/protocol_types.h"
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/item/TItemAttackCol_802E4798.h"
@@ -16,6 +17,7 @@
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/item/TItemAttackCol.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot_size[sizeof(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot) == 0x20 ? 1 : -1];
@@ -145,12 +147,12 @@ void TItemEffOrgaFlowShot__sub_80357204(void) { olga_flow_subordinate_actions_en
 
 void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_enabled = 1; }
 
-void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward(this); TLobby__send_and_handle_60((u8 *)this); }
+void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward(this); send_subcommand((u8 *)this); }
 
-int read_be16_field2_forward(void* p) { return ((TObjPlayer *)p)->read_be16_field2(); }
+void read_be16_field2_forward(void* p) { ((G_ClientIDHeader *)p)->bswap(); }
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }
 
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 
 #pragma push
@@ -202,15 +204,15 @@ void TItemEffOrgaFlowShot::update_position_from_velocity() {
 void TItemEffOrgaFlowShot::render() {
     s32 arg0 = (s32)this;
     TParticleCtrl::begin_effect_render();
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     set_depth_buffer_settings_1();
-    TObjPlayer::init_xyz_limits();
+    set_additive_blend();
     TObjPlayer__sub_803DF768(1);
     draw_untextured_trail_strip((void *)(arg0 + 0xC4), (void *)(0xA));
     reset_player_transform();
-    TObjPlayer::reset_transform_state();
+    set_default_alpha_blend();
     restore_saved_depth_alpha_state();
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
     TParticleCtrl::end_effect_render();
 }
 

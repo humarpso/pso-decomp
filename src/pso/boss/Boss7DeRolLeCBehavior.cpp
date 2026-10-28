@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/system/NinjaUtil.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -375,7 +376,7 @@ void TBoss7Tentacle__sub_802F0B70(void* p);
 void TObjFish__sub_802E7B94(Fish_802E7B94* o);
 #define queue_boss_effect__10TObjPlayerFPv ((u32 (*)(int))queue_boss_effect__10TObjPlayerFPv)
 void TBoss7DeRolLeC::render_shadows() {
-    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 1) {
+    if (*(s32 *)((s8 *)this->bodies + 0x18) & 1) {
         render_shadows__9TObjEnemyFv((u8 *)this);
     }
 }
@@ -409,7 +410,7 @@ void TObjFish__sub_802E7B94(Fish_802E7B94* o) {
 
 extern "C" {
 void *memset(void *, int, unsigned long);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s16 TObjFish__sub_802E7CC4(void *self);
 }
 
@@ -422,9 +423,9 @@ s16 TObjFish__sub_802E7CC4(void *self) {
     TObject *child;
     s16 i;
     memset(used, 0, sizeof(used));
-    base = obj_getField1c(self) + 11;
+    base = get_entity_id(self) + 11;
     for (child = ((Boss_802E7CC4 *)self)->group->m_down; child != NULL; child = child->m_next) {
-        used[obj_getField1c(child) - base] = 1;
+        used[get_entity_id(child) - base] = 1;
     }
     for (i = 35; i >= 0; i--) {
         if (used[i] == 0) {
@@ -568,9 +569,9 @@ void TObjPlayer__sub_802E7FC0(void *arg0);
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_802E80F4_lbl_805412C0 boss7_derolle_light_pool;
 extern RecoveredGlobal_802E80F4_lbl_8058D4C0 model_material_color;
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern u8 *lbl_805D693C;
 extern s32 *lbl_805D6940;
 extern s32 chunk_polygon_flags_or_mask;
@@ -608,10 +609,10 @@ void TBoss7DeRolLeC::render() {
             var_r29 += 1;
             var_r30 = (s32 *)((u8 *)var_r30 + (4));
         } while (var_r29 != 0xA);
-        lbl_805D5660 = model_render_flags;
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
-        ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
+        saved_model_render_flags = model_render_flags;
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
+        copy_argb((NJS_ARGB *)&saved_model_draw_color.value, (NJS_ARGB *)&model_material_color.value);
         TObjEneDD::clear_global_flag_400();
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -626,10 +627,10 @@ void TBoss7DeRolLeC::render() {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
-        model_render_flags = lbl_805D5660;
+        copy_argb((NJS_ARGB *)&model_material_color.value, (NJS_ARGB *)&saved_model_draw_color.value);
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+        model_render_flags = saved_model_render_flags;
         TObjPlayer__sub_802E7FC0(this);
         ((TObject *)(((u8 *)this) + 0x690))->render_nodes();
     }
@@ -3975,7 +3976,7 @@ void TBoss7DeRolLeC::set_state_and_send(s32 arg1) {
     ((V_802ED62C *)((u8 *)this))->m85(arg1, 6);
     if (((arg1 - 0x13) <= 1U) || ((arg1 - 0x40) <= 1U) || (arg1 == 0x44) || (arg1 == 0x18)) {
         TBoss7Joint__sub_802EE800(&pa);
-        pa.a = this->m_1c;
+        pa.a = this->entity_id;
         pa.b = arg1;
         pa.c = (s16)this->m_6d0;
         pa.d = this->m_38c;
@@ -3983,14 +3984,14 @@ void TBoss7DeRolLeC::set_state_and_send(s32 arg1) {
         return;
     }
     TBoss7Joint__sub_802EE7B8(&pb);
-    pb.a = this->m_1c;
+    pb.a = this->entity_id;
     pb.b = arg1;
     pb.c = (s16)this->m_6d0;
     ((TBoss7Joint *)(&pb))->update_and_send_60();
 }
 
 void TBoss7DeRolLeC::flee_if_disturbed() {
-    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 1) {
+    if (*(s32 *)((s8 *)this->bodies + 0x18) & 1) {
         set_player_state_default__12TBoss8DragonFv(this);
         add_radar_scaled_marker((void *) (((u8 *)this) + 0x38), -0x5DB4, 1, 1, lbl_805DEA44);
     }
@@ -4020,8 +4021,8 @@ void TBoss7DeRolLeC::vfunc_88() {
         clr = 7;
     }
     for (i = 0; i != this->body_count; i++) {
-        (*(Elem_802ED73C * *)&this->m_a4)[i].flags |= set;
-        (*(Elem_802ED73C * *)&this->m_a4)[i].flags &= ~clr;
+        (*(Elem_802ED73C * *)&this->bodies)[i].flags |= set;
+        (*(Elem_802ED73C * *)&this->bodies)[i].flags &= ~clr;
     }
 }
 
@@ -4041,7 +4042,7 @@ void TBoss7DeRolLeC::vfunc_62() {
     temp_r4 = this->hpmax - this->hp;
     if (*(s32 *)((s8 *)arg0 + 0x628) & 8) {
         this->m_718 = (s32) (this->m_718 - temp_r4);
-        TObjFish__sub_802EC468((int) (*(s32 *)&this->m_a4 + 0x1C), lbl_805DEA44, lbl_805DEA48);
+        TObjFish__sub_802EC468((int) (*(s32 *)&this->bodies + 0x1C), lbl_805DEA44, lbl_805DEA48);
         TObjFish::set_effect_target_position(arg0, (void *)0x3B213, arg0 + 0x50C);
     } else {
         this->m_71c = (s32) (this->m_71c - temp_r4);

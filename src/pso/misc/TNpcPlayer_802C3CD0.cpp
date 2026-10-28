@@ -3,18 +3,8 @@
 #include "pso/misc/TNpcPlayer_802C3CD0.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/quest/TQuestListVM.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
-
-struct EqBase_802C3D38 { u8 pad[0x18]; };
-
-struct Eq_802C3D38 : EqBase_802C3D38 {
-    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
-    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
-    virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void off(s32); virtual void on(s32);
-};
 
 struct E_802C4698 { u8 pad[0x1c]; };
 
@@ -22,7 +12,6 @@ struct O_802C4698 { u8 pad[6]; E_802C4698 e[1]; };
 
 struct O_802C4688 { u8 pad[0x408]; u8 buf[1]; };
 
-struct Eq_802C3D38;
 struct E_802C4698;
 struct O_802C4698;
 struct O_802C4688;
@@ -54,10 +43,9 @@ struct Item_802C3F74 : VBase_802C3F74 {
 };
 
 extern "C" {
-s16 obj_getS16_32E(void *);
-s16 obj_getS16_32C(void *);
+s16 get_actor_tp(void *);
+s16 get_actor_hp(void *);
 void copy_player_visual_record(void *, void *);
-Eq_802C3D38 *get_equip_field_d04__10TObjPlayerFv(void *, s32);
 void TObjPlayer__sub_8013A748(void *, void *);
 void clamp_stats__10TObjPlayerFiPv(void *, void *, s32);
 s8 TObjPlayer__sub_801AFD8C(void *);
@@ -89,18 +77,18 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     s32 i;
     s16 hp;
     s16 facing;
-    Eq_802C3D38 *eq;
+    TItem *eq;
     E_802C4698 *e;
     s32 j;
     s32 k;
     ((TObjPlayer *)arg0)->set_flag_80000();
     *(s8 *)((s8 *)arg1 + 0) = query_state_if_present__10TObjPlayerFPv(arg0, get_ptr_4__10TObjPlayerFv((s8 *)arg1));
-    hp = obj_getS16_32C(arg0);
-    facing = obj_getS16_32E(arg0);
+    hp = get_actor_hp(arg0);
+    facing = get_actor_tp(arg0);
     for (i = 0; i != 0xD; i++) {
-        eq = get_equip_field_d04__10TObjPlayerFv(arg0, i);
+        eq = ((TObjPlayer *)arg0)->get_equipped_item(i);
         if (eq != NULL) {
-            eq->on(1);
+            eq->remove_equip_stats(1);
         }
     }
     *(s8 *)((s8 *)arg1 + 1) = ((TObjPlayer *)arg0)->get_hp_material_points();
@@ -110,7 +98,7 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     ((TObjPlayer *)arg1)->set_action_flags(get_inventory_state__10TObjPlayerFv(arg0));
     ((TObjPlayer *)arg1)->set_byte_13b(get_equip_flags__10TObjPlayerFv(arg0));
     ((TObjPlayer *)arg1)->set_field_157(TObjPlayer__sub_801BE7BC(arg0));
-    copy_data__6TLobbyFPvPv(arg1 + 0x34C, (void *)((TQuestListVM *)arg0)->get_quest_id());
+    copy_data__6TLobbyFPvPv(arg1 + 0x34C, ((TObjPlayer *)arg0)->get_stats());
     clamp_stats__10TObjPlayerFiPv(arg0, arg1 + 0x34C, get_class_stat_entry__10TObjPlayerFPUc(arg0));
     copy_player_visual_record(arg1 + 0x370, arg0 + 0x85C);
     TObjPlayer__sub_8013A748(arg1 + 0x3C0, arg0 + 0x500);
@@ -120,13 +108,13 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
             TObjPlayer__sub_802C4688((O_802C4688 *)arg1, j), e);
     }
     for (k = 0; k != 0xD; k++) {
-        eq = get_equip_field_d04__10TObjPlayerFv(arg0, k);
+        eq = ((TObjPlayer *)arg0)->get_equipped_item(k);
         if (eq != NULL) {
-            eq->off(1);
+            eq->add_equip_stats(1);
         }
     }
     ((TObjPlayer *)arg0)->set_hp_clamped(hp);
-    ((TObjPlayer *)arg0)->set_facing(facing);
+    ((TObjPlayer *)arg0)->set_tp(facing);
     *(s8 *)((s8 *)arg1 + 3) = TObjPlayer__sub_801AFD8C(arg0);
     ((TObjPlayer *)arg0)->apply_pending_action((s32)arg1);
     ((TObjPlayer *)arg0)->copy_mag_level_to_record((u8 *)arg1);
@@ -150,8 +138,8 @@ void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1) {
     s32 m;
     ((TObjPlayer *)arg0)->set_flag_80000();
     arg1[0] = query_state_if_present__10TObjPlayerFPv(arg0, get_ptr_4__10TObjPlayerFv(arg1));
-    hp = obj_getS16_32C(arg0);
-    facing = obj_getS16_32E(arg0);
+    hp = get_actor_hp(arg0);
+    facing = get_actor_tp(arg0);
     p = items;
     for (i = 0; i < 30; i++) {
         *p++ = NULL;
@@ -159,7 +147,7 @@ void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1) {
     p = items;
     n = 0;
     for (i2 = 0; i2 != 13; i2++) {
-        item = (Item_802C3F74 *)get_equip_field_d04__10TObjPlayerFv(arg0, i2);
+        item = (Item_802C3F74 *)((TObjPlayer *)arg0)->get_equipped_item(i2);
         if (item != NULL) {
             item->m21(1);
             *p++ = item;
@@ -193,13 +181,13 @@ void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1) {
         split_capped_value__10TObjPlayerFUcPUcPSc(TObjPlayer__sub_801C0124(arg0 + 0x428, k), TObjPlayer__sub_802C4688((O_802C4688 *)arg1, k), (E_802C4698 *)a);
     }
     for (m = 0; m != 13; m++) {
-        item = (Item_802C3F74 *)get_equip_field_d04__10TObjPlayerFv(arg0, m);
+        item = (Item_802C3F74 *)((TObjPlayer *)arg0)->get_equipped_item(m);
         if (item != NULL) {
             item->m20(1);
         }
     }
     ((TObjPlayer *)arg0)->set_hp_clamped(hp);
-    ((TObjPlayer *)arg0)->set_facing(facing);
+    ((TObjPlayer *)arg0)->set_tp(facing);
     arg1[3] = TObjPlayer__sub_801AFD8C(arg0);
     if (TObjPlayer__sub_802A1018() != 0) {
         ((TObjPlayer *)arg1)->set_flag_40();

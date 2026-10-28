@@ -4,6 +4,8 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
+#include "pso/item/TItem.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 #pragma readonly_strings on
 const char *TItemEffectWeapon__class_name = "TItemEffectWeapon";
@@ -14,7 +16,7 @@ void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_803DF768(s32);
 void set_render_deferred__7TObjectFv(void*);
 void *mem_alloc(u32 size);
-extern u32 lbl_805D5660;
+extern u32 saved_model_render_flags;
 extern u32 model_render_flags;
 
 void *__dt__13TUnk_804F28E0Fv(void *arg0, s16 arg1);
@@ -34,7 +36,7 @@ void *__dt__13TUnk_804F28E0Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F28E0;
         __dt__13TUnk_804A4948Fv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -139,17 +141,17 @@ void TItemEffectWeapon::render_trail() {
     if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x200) {
         if (vertex_count != 0 && vertices != NULL) {
             TParticleCtrl::begin_effect_render();
-            lbl_805D5660 = model_render_flags;
+            saved_model_render_flags = model_render_flags;
             set_depth_buffer_settings_1();
             model_render_flags |= 0x8000;
-            TObjPlayer::init_xyz_limits();
+            set_additive_blend();
             if (vertex_count > 2) {
                 TObjPlayer__sub_803DF768(1);
                 draw_untextured_trail_strip((void *)vertices, (void *)vertex_count);
                 reset_player_transform();
             }
-            TObjPlayer::reset_transform_state();
-            model_render_flags = lbl_805D5660;
+            set_default_alpha_blend();
+            model_render_flags = saved_model_render_flags;
             restore_saved_depth_alpha_state();
             TParticleCtrl::end_effect_render();
         }

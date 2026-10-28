@@ -76,7 +76,6 @@ extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void TLobby__sub_8001FE7C(void *, s32);
 void mem_free(void *);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *mem_alloc(u32);
 u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_80441D04[];
@@ -177,12 +176,12 @@ void TOKeyGenericSw::load_resources() {
     s32 st = get_current_floor_area();
     void *p;
     if (TContainerAncient01::is_global_state_in_table() == 1 || st == AREA_SEABED_UPPER || st == AREA_SEABED_LOWER) {
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x40, 0, 0, 0);
         }
         TOKeyGenericSw__shared_resource_ptrs[0] = (Map_8016CA64 *)p;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x60, 0, 0, 0);
         }
@@ -192,12 +191,12 @@ void TOKeyGenericSw::load_resources() {
         TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
         TOKeyGenericSw__texture_lists[2] = (s32)load_gvm_texture_file((s32)lbl_80441D04);
     } else {
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x8, 0, 0, 0);
         }
         TOKeyGenericSw__shared_resource_ptrs[0] = (Map_8016CA64 *)p;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x28, 0, 0, 0);
         }
@@ -212,7 +211,7 @@ void TOKeyGenericSw::load_resources() {
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
@@ -232,13 +231,13 @@ void *TOKeyGenericSw__ct(TOKeyGenericSw *key_generic_sw, void *parent, void *sou
     *(void **)((s8 *)key_generic_sw + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
     *(f32 *)((s8 *)key_generic_sw + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)key_generic_sw + 0xBC)) + 4) - 1.0f;
     key_generic_sw->m_b8 = 2.0f;
-    *(u32 *)&key_generic_sw->texture_id = TOKeyGenericSw__texture_lists[1];
+    *(u32 *)&key_generic_sw->texlist = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(key_generic_sw, key_generic_sw_collision_body, 1);
-    ((TUnk_804AF8A0 *)key_generic_sw)->refresh_collision_body_centers();
-    ((TObjPlayer *)key_generic_sw)->reset_photon_effect();
+    ((TObjCollidable *)key_generic_sw)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_generic_sw)->register_object_by_id();
     key_generic_sw->m_c0 = 4e+02f;
     *(f32 *)((s8 *)key_generic_sw + 0xC4) = 4e+01f;
-    if ((*(s32 *)&key_generic_sw->m_d0 != 2) && (key_generic_sw->scale < 0.0f)) {
+    if ((*(s32 *)&key_generic_sw->m_d0 != 2) && (key_generic_sw->scale.x < 0.0f)) {
         *(s32 *)&key_generic_sw->m_d0 = 1;
     } else {
         *(s32 *)&key_generic_sw->m_d0 = 0;

@@ -82,7 +82,7 @@ void TObjTreeLobby::render() {
 
     if ((s32) this->m_c8 != 0) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
@@ -146,7 +146,7 @@ void TObjTreeLobby::destroy_static_instance() {
 void TObjTreeLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjTreeLobby_resource_descriptor, 0, 0, 0));
@@ -177,7 +177,7 @@ void *TObjTreeLobby__ct(TObjTreeLobby *tree_lobby, s32 arg1, s32 arg2) {
     }
     *(f32 *)((s8 *)tree_lobby + 0xCC) = 1.0f;
     *(s32 *)((s8 *)tree_lobby + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjTreeLobby__instance) + 0x42C)) + 8);
-    tree_lobby->texture_id = (s32) tree_lobby_type;
+    tree_lobby->texlist = (s32) tree_lobby_type;
     return tree_lobby;
 }
 void TUnk_804F2B60::run_task() {

@@ -2,30 +2,18 @@
 #define PSO_ITEM_TITEMDATA_H
 
 #include "types.h"
-#include "pso/protocol.h"
 
 struct EquipStats { s16 s0; s16 s2; s16 s4; s16 s6; s16 s8; s16 sA; s16 sC; };
 
 struct TItemData {
     int isValidGroundDrop();
-    void init() {
-        data1.data_u8[0] = 0;
-        data1.data_u8[1] = 0;
-        data1.data_u8[2] = 0;
-        data1.data_u8[3] = 0;
-        data1.data_u8[4] = 0;
-        data1.data_u8[5] = 0;
-        data2.data_u32 = 0;
-        for (int i = 0; i < 3; ++i) {
-            data1.data_u8_pair[3+i][0] = 0;
-            data1.data_u8_pair[3+i][1] = 0;
-        }
-        id = -1;
-    };
-    void bswap() {
-        bswap_32(&data2.data_u32);
-        bswap_32(&id);
-    };
+    void init();
+    void bswap();
+    static s32 is_usable(void *data);
+    static s32 is_wrapped(void *data);
+    static s32 is_rare_item(void *data);
+    static s32 is_custom_name_srank(void *data);
+
 
     union {
         u8 data_u8[12];
@@ -40,11 +28,28 @@ struct TItemData {
         u32 data_u32;
     } data2;
     static s8 char_to_letter_index(void *self, s8 c);
-    static void normalize();
+    void copy_from(TItemData *src);
+    // Empty in this build: an item received from the network is converted
+    // from the sender's version (0: DC v1, 2: v2 and later) and decoded, and
+    // one sent is encoded.
+    void convert_from_version(s32 version);
+    // 2 draws the item name in the window's alternate style; always 0 here.
+    s32 get_name_style();
+    void decode_from_network();
+    void encode_for_network();
     static u8 get_entry_field16();
     int register_drop();
-    s32 get_item_use_result();
+    s32 get_max_stack_size();
+    // A tool's stack count (data1 byte 5); 1 for an item that does not stack.
+    s32 get_stack_count();
+    void set_stack_count(u8 count);
     void set_unit_modifier(s16 arg1);
+    // The item data's byte-swapped s16 at +6 (a unit's modifier).
+    static s16 get_field6_bswap(void *data);
+    // The byte-swapped s16s at +6 and +8 (an armor's or shield's DFP and
+    // EVP bonus).
+    static s16 getS16_06(void *data);
+    static s16 get_bswap16_field8(void *data);
     void set_bswapped_field_8(s16 arg1);
     void set_dfp_bonus(s16 arg1);
     s16 get_technique_level();
@@ -73,10 +78,7 @@ struct TItemData {
     s16 get_level();
     s16 get_percent();
     void update_player_field();
-    void add_accuracy(s32 arg1);
-    void add_stat(s32 arg1);
-    static void add_s16(s16 *arg0, s32 arg1);
-    void set_present_color(s32 arg1);
+    void set_present_color(s8 color);
     s32 get_type_nibble();
     void add_weapon_stat_bonuses(s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5);
     void set_wrapped();
@@ -85,10 +87,15 @@ struct TItemData {
     void pack_three_colors(u8 *in);
     s32 calc_action_flags(s32 mask, u8 *player);
     s32 calc_price();
+    // calc_price, or 0 without an item.
+    static s32 calc_price_of(TItemData *data);
     s32 update_mag_status_gauges();
     u16 get_packed_value();
     void decode_packed_name_chars(s8 *out);
 };
+
+extern "C" {
+}
 
 #include <stddef.h>
 typedef char ItemDataSize[(sizeof(TItemData) == 0x14) ? 1 : -1];

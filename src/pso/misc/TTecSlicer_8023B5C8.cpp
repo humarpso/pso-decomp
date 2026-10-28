@@ -1,4 +1,8 @@
+#include "pso/system/NinjaTypes.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
+#include "pso/unk/text_801036CC.h"
+#include "pso/system/FlagWord.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TTecSlicer_8023B5C8.h"
@@ -8,6 +12,8 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/item/TItem.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 
 struct RecoveredGlobal_8023B770_lbl_8044DC20
 {
@@ -170,7 +176,6 @@ s32 __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 allow_rendering__7TObjectFv(void *);
 s32 copy_position__15TEffStarLight2DFPv(void *, void *);
-u32 query_game_join_id__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(s32);
 void __dl__7TObjectFPv(void *);
 void dt__10TTecSlicerFls(void *, int);
@@ -190,21 +195,19 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void draw_ginja_object(void *child);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
 void disallow_rendering__7TObjectFv(TObject *);
-s32 find_item_by_id(s32);
-void set_item_count__13TUnk_804B9870Fs(void *, s32);
-s32 pop_free_id__6TLobbyFv(void);
+void set_entity_id__8TObjBaseFUs(void *, s32);
 f32 *get_weapon_range_record(s32, s32);
 s32 get_extended_state__10TObjPlayerFv(s32);
 s8 get_captured_target_collider_index(s32);
 s32 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-void __ct__13TUnk_804B9870FP7TObject(void *, s32);
+void __ct__8TObjBaseFP7TObject(void *, s32);
 void fn_8023B590(void *, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -298,7 +301,7 @@ void TTecSlicer::update() {
     if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0xA8) < lbl_805DC958) {
         deliver_target_hit();
         if (get_next_captured_target(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
-            ((TObjPlayer *)(arg0 + 0xC0))->set_flags(1);
+            ((FlagWord *)(arg0 + 0xC0))->set(1);
         } else {
             VecCopy((Vec *)(arg0 + 0x90), (const Vec *)(arg0 + 0xA8));
             subtract_vector(arg0 + 0x90, arg0 + 0x38);
@@ -332,16 +335,16 @@ void TTecSlicer::render() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 ||
         ((VObj_18_8023B900 *)arg0)->m8(lbl_805DC95C, lbl_805DC960) == 0 ||
-        query_game_join_id__10TObjPlayerFv(this->weaponHandle) == 0U) {
+        find_equipped_item(this->weaponHandle) == 0U) {
         return;
     }
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     if (this->useColorOverride != 0) {
         model_render_flags |= 0x10;
-        ((TUnk_80494AE0 *)((f32 *)&this->argb))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&this->argb)));
     }
     if (this->textureHandle != 0U && this->model != 0U) {
-        TObjPlayer::notify_fish_if_valid(this->textureHandle);
+        set_texlist(this->textureHandle);
         TParticleCtrl::begin_effect_render();
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
@@ -350,11 +353,11 @@ void TTecSlicer::render() {
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix((u8 *)&this->scale);
         draw_ginja_object(this->model);
-        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
         TParticleCtrl::end_effect_render();
     }
     pop_matrix();
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
 }
 
 void run_task__10TTecSlicerFv(u8 *object) {
@@ -362,7 +365,7 @@ void run_task__10TTecSlicerFv(u8 *object) {
     u8 *var_r31;
     void *new_obj;
     *(u32 *)((s8 *)object + 0x10C) = get_player_by_client_id(*(u16 *)((s8 *)object + 0x114));
-    *(u32 *)((s8 *)object + 0x108) = query_game_join_id__10TObjPlayerFv(((TTecSlicer *)object)->weaponHandle);
+    *(u32 *)((s8 *)object + 0x108) = (s32)find_equipped_item(((TTecSlicer *)object)->weaponHandle);
     if (((u32) *(u32 *)((s8 *)object + 0x108) == 0U) || ((u32) *(u32 *)((s8 *)object + 0x10C) == 0U)) {
         queue_destruction__7TObjectFv((s32)object);
         return;
@@ -400,7 +403,7 @@ void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
         if (((TTecSlicer *)arg0)->star != NULL) { queue_destruction__7TObjectFv((s32)((void *)(((TTecSlicer *)arg0)->star))); }
         dt__10TTecSlicerFls((s8 *)arg0 + 0xE8, -1);
         dt__10TTecSlicerFls((s8 *)arg0 + 0xC8, -1);
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -417,14 +420,14 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     s32 ext;
     s32 i;
     s32 e;
-    __ct__13TUnk_804B9870FP7TObject(self, tl_05);
+    __ct__8TObjBaseFP7TObject(self, tl_05);
     self->vt = __vt__10TTecSlicer;
-    ((TObjPlayer *)(self->fwd))->init_forward();
+    __ct__8FlagWordFv((self->fwd));
     ((TTecSlicer *)(self->fc8))->reset_fields_1e();
     ((TTecSlicer *)(self->fe8))->reset_fields_1e();
     self->f0 = lbl_805D3828;
     disallow_rendering__7TObjectFv((TObject *)self);
-    set_item_count__13TUnk_804B9870Fs(self, pop_free_id__6TLobbyFv());
+    ((TObjBase *)self)->set_entity_id(pop_free_entity_id());
     self->f110 = init->f8;
     self->f24 = init->f4;
     self->f114 = init->f0;
@@ -432,7 +435,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     self->f11c = init->f10;
     self->f11e = init->f12;
     self->f120 = init->f14;
-    ((TRaderMapCore *)(self->color))->copy_vec4(init->color);
+    copy_argb((NJS_ARGB *)self->color, (NJS_ARGB *)init->color);
     self->f138 = init->f2c;
     self->f13c = 1;
     self->dir.x = sin_table_lookup(arg4);
@@ -442,7 +445,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
         normalize_vector((s32)&self->dir);
     }
     self->f10c = (s32)arg2;
-    self->f108 = find_item_by_id(self->f118);
+    self->f108 = (s32)find_item_by_id(self->f118);
     TTecSlicer::init_launch_angles((s32 *)self, (s32 *)self->f10c, init->f28);
     ((TTecSlicer *)self)->set_launch_midpoint((void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
@@ -453,7 +456,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     ext = get_extended_state__10TObjPlayerFv(self->f10c);
     if (ext != 0) {
         if (get_captured_target_count(ext) == 0) {
-            ((TObjPlayer *)((s32)self->fwd))->set_flags(1);
+            ((FlagWord *)((s32)self->fwd))->set(1);
         } else {
             for (i = 0; i != get_captured_target_count(ext); i++) {
                 e = get_captured_target_entry(ext, i);

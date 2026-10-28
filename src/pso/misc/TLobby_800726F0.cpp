@@ -1,3 +1,5 @@
+#include "pso/protocol/protocol_types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "types.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -29,7 +31,6 @@ struct Obj_80072BB0 { u8 pad[0x30]; u32 f30; };
 
 extern "C" {
 void TLobby__sub_80072880(u8 *arg0);
-void TLobby__send_and_handle_60(u8 *arg0);
 void TLobby__sub_800728FC(u8 *arg0);
 void TLobby__sub_80072AB8(void *arg0);
 s32 TLobby__sub_8006FBE4();
@@ -66,13 +67,13 @@ void TLobby__sub_800727A0(void *arg0);
 void TLobby__sub_800727EC(u8 *arg0);
 
 void TLobby::bswap_challenge_dead_flag() {
-    ((TObjPlayer *)this)->read_be16_field2();
+    ((G_ClientIDHeader *)this)->bswap();
     bswap_32((u32 *)((char *)this + 4));
 }
 
 void TLobby__sub_80072724(TLobby *lobby) {
     lobby->bswap_challenge_dead_flag();
-    TLobby__send_and_handle_60((u8 *)lobby);
+    send_subcommand((u8 *)lobby);
 }
 
 void TLobby__sub_80072758(u8 *arg0) {
@@ -82,11 +83,11 @@ void TLobby__sub_80072758(u8 *arg0) {
 
 void TLobby::send_and_handle_60_wrapper() {
     TLobby__sub_800727A0(this);
-    TLobby__send_and_handle_60((u8 *)this);
+    send_subcommand((u8 *)this);
 }
 
 void TLobby__sub_800727A0(void *player) {
-    ((TObjPlayer *)player)->read_be16_field2();
+    ((G_ClientIDHeader *)player)->bswap();
     bswap_32((u32 *)((char *)player + 4));
     bswap_32((u32 *)((char *)player + 8));
     bswap_32((u32 *)((char *)player + 12));
@@ -99,7 +100,7 @@ void TLobby__sub_800727EC(u8 *arg0) {
 }
 
 void TLobby::byteswap_challenge_time_packet() {
-    ((TObjPlayer *)this)->read_be16_field2();
+    ((G_ClientIDHeader *)this)->bswap();
     bswap_32((u32 *)((char *)this + 4));
     bswap_32((u32 *)((char *)this + 8));
     bswap_32((u32 *)((char *)this + 12));
@@ -108,19 +109,19 @@ void TLobby::byteswap_challenge_time_packet() {
 
 void TLobby::send_state() {
     byteswap_challenge_time_packet();
-    TLobby__send_and_handle_60((u8 *)this);
+    send_subcommand((u8 *)this);
 }
 void TLobby__sub_80072880(u8 *arg0) {
     *(u8 *)((s8 *)arg0 + 0) = 0x95;
     *(s8 *)((s8 *)arg0 + 1) = 5;
 }
 void TLobby::byteswap_challenge_packet() {
-    ((TObjPlayer *)this)->read_be16_field2();
+    ((G_ClientIDHeader *)this)->bswap();
     bswap_32((u32 *)((char *)this + 4));
 }
 void TLobby::send_challenge_packet() {
     byteswap_challenge_packet();
-    TLobby__send_and_handle_60((u8 *)this);
+    send_subcommand((u8 *)this);
 }
 void TLobby__sub_800728FC(u8 *arg0) {
     *(u8 *)((s8 *)arg0 + 0) = 0x8A;
@@ -128,14 +129,14 @@ void TLobby__sub_800728FC(u8 *arg0) {
 }
 void TLobby::bswap_6x7C_packet() {
     s32 arg0 = (s32)this;
-    ((TObjPlayer *)arg0)->read_be16_field2();
+    ((G_ClientIDHeader *)arg0)->bswap();
     bswap_16((u16 *)(arg0 + 4));
     ((TLobby *)(arg0 + 8))->bswap_challenge_battle_records();
 }
 void TLobby::send_6x7C_packet() {
     s32 arg0 = (s32)this;
     bswap_6x7C_packet();
-    TLobby__send_and_handle_60((u8 *)arg0);
+    send_subcommand((u8 *)arg0);
 }
 void TLobby::init_pkt_cmd_7C() {
     *(s8 *)&this->m_name = 0x7C;
@@ -324,7 +325,7 @@ void TObjChallengeRetry::handle_challenge_retry_confirm() {
     }
 }
 
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(void *, s32);
 
 s32 TWindowCtrlMain__sub_8024CE58(void);
 
@@ -357,7 +358,7 @@ void TObjChallengeRetry::sub_8007313C() {
       var_r30 = new_var;
       loop_6:
       temp_r3_2 = (u8 *) ((s32 (*)(u32))get_player_by_client_id)(var_r30);
-      if ((temp_r3_2 != 0) && (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3_2, 0x02000000) != 0))
+      if ((temp_r3_2 != 0) && (obj_testFlags30__14TObjCollidableFUl(temp_r3_2, 0x02000000) != 0))
       {
         var_r31 = 0;
       }

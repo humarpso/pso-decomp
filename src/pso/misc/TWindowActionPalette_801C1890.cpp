@@ -1,4 +1,6 @@
+#include "pso/protocol/protocol_types.h"
 #include "types.h"
+#include "pso/system/FlagWord.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/quest/TQuestListVM_8007EAF8.h"
 #include "pso/misc/TWindowActionPalette_801C1890.h"
@@ -9,6 +11,7 @@
 #include "pso/enemy/TObjEneBm5Wolf.h"
 #include "pso/misc/TFontSmallLobby.h"
 #include "pso/misc/TMainCursor.h"
+#include "pso/item/TItem.h"
 
 struct O_801C1C68 { u8 pad[4]; u8 a[0x10]; u8 b[0x10]; };
 
@@ -20,16 +23,14 @@ struct C_801C1BA8 { u32 w[5]; };
 struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
 
 extern "C" {
-s32 read_be16_field2__10TObjPlayerFv();
-int set_flags__10TObjPlayerFUl(void*, int);
-int clear_flags__11TAdRicoRingFUl(void*, int);
+int set__8FlagWordFUl(void*, int);
+int clear__8FlagWordFUl(void*, int);
 int TWindowActionPalette__sub_801C1C20(void* p);
 int test_flags_any(void*, int);
 void reset_settings_to_default__6TLobbyFv(void *);
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i);
-s32 get_field_ed__5TItemFv(void *p);
-s32 get_field_ec__5TItemFv(void *p);
-s32 is_item_stackable(u8, u8);
+u8 get_item_group__5TItemFv(void *p);
+u8 get_item_type__5TItemFv(void *p);
 S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1);
 }
 
@@ -39,13 +40,13 @@ void init_6x21_inter_level_warp_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TObjPlayer::send_warp_packet() { bswap_warp_packet(); TLobby__send_and_handle_60((u8 *)this); }
+void TObjPlayer::send_warp_packet() { bswap_warp_packet(); send_subcommand((u8 *)this); }
 
-void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_position_cmd(); TLobby__send_and_handle_60((u8 *)p); }
+void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_position_cmd(); send_subcommand((u8 *)p); }
 
 void TObjPlayer::byteswap_set_position_cmd() {
     s32 arg0 = (s32)this;
-    read_be16_field2__10TObjPlayerFv();
+    ((G_ClientIDHeader *)this)->bswap();
     bswap_16((u16 *)(arg0 + 4));
     bswap_16((u16 *)(arg0 + 6));
     bswap_16((u16 *)(arg0 + 8));
@@ -95,7 +96,7 @@ void *TObjPlayer::reset_lobby_settings() {
 u8 is_item_equipped(TObjPlayer *player) {
   unsigned int var_r31;
   var_r31 = 0;
-  if ((player->test_item_flags(4) != 0U) && (player->test_item_flags(8) != 0U))
+  if ((((TItem *)player)->test_item_flags(4) != 0U) && (((TItem *)player)->test_item_flags(8) != 0U))
   {
     var_r31 = 1;
   }
@@ -103,16 +104,16 @@ u8 is_item_equipped(TObjPlayer *player) {
 }
 
 void TObjPlayer__sub_801C1AC8(void *self) {
-    is_item_stackable(get_field_ec__5TItemFv(self), get_field_ed__5TItemFv(self));
+    is_item_stackable(get_item_type__5TItemFv(self), get_item_group__5TItemFv(self));
 }
 
 void TObjPlayer__sub_801C1B0C(void) {  }
 
-int TObjPlayer::set_flags_bit2() { return set_flags__10TObjPlayerFUl((char*)this + 0x1c, 2); }
+int TObjPlayer::set_flags_bit2() { return set__8FlagWordFUl((char*)this + 0x1c, 2); }
 
-int TObjPlayer::set_flags_bit1() { return set_flags__10TObjPlayerFUl((char*)this + 0x1c, 1); }
+int TObjPlayer::set_flags_bit1() { return set__8FlagWordFUl((char*)this + 0x1c, 1); }
 
-int TObjPlayer::clear_flag_1_at_1c() { return clear_flags__11TAdRicoRingFUl((char*)this + 0x1c, 1); }
+int TObjPlayer::clear_flag_1_at_1c() { return clear__8FlagWordFUl((char*)this + 0x1c, 1); }
 
 s32 fn_801C1B88(void* p) { return *(s32*)((char*)p + 0x0); }
 

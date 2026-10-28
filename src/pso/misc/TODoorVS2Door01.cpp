@@ -105,7 +105,7 @@ void TODoorVS2Door01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz((1e+04f)) == 0)) {
         this->m_ac = 3;
-        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
+        ((TObjCollidable *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
     }
 }
@@ -123,7 +123,7 @@ void TODoorVS2Door01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((4.9e+03f)) != 0)) {
         this->m_ac = 1;
-        ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 8);
+        ((TObjCollidable *)arg0)->set_indexed_flags(0, 8);
         play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
     }
 }
@@ -235,7 +235,7 @@ void TODoorVS2Door01::load_resources() {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
+    temp_r3 = (u8 *)((int)::operator new(0x440));
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_o_vs2door01l_resource_descriptor.value, 0, 0, 0));
@@ -250,7 +250,7 @@ void TODoorVS2Door01::load_resources() {
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorVS2Door01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -267,13 +267,13 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorVS2Door01__class_name;
     ((TODoorVS2Door01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_vs2_shared_bml_archive) + 0x42C)) + 8);
-    ((TODoorVS2Door01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 * *)&TODoorVS2Door01__texture_lists) + 4);
+    ((TODoorVS2Door01 *)arg0)->texlist = (s32) *(s32 *)((s8 *)(*(u8 * *)&TODoorVS2Door01__texture_lists) + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) 30.0f;
     ((TODoorVS2Door01 *)arg0)->m_b8 = (f32) ((19.0f) / *(f32 *)((s8 *)arg0 + 0xB4));
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
     init_collision_body_parts(arg0, &todoor_vs2_door01_collision_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TODoorVS2Door01 *)(arg0))->init_door_switch_binding();
     return arg0;
 }

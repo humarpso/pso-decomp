@@ -99,7 +99,7 @@ void TObjDoorJung__sub_8018F4AC(void) {
     Node_8018F4AC *node;
     void *scene;
 
-    handle = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+    handle = (int)::operator new(0x440);
     if (handle != 0) {
         handle = load_resource_from_descriptor(handle, 5, bm_obj_beamdoa_resource_descriptor, 0, 0, 0);
     }
@@ -119,7 +119,7 @@ void TObjDoorJung__sub_8018F4AC(void) {
     lbl_805D5BEC = ((TObjDoorJung *)lbl_805D5BD4)->find_entry_by_name(parts.names[2]);
     lbl_805D5BF0 = ((TObjDoorJung *)lbl_805D5BD4)->find_entry_by_name(parts.names[3]);
     if (lbl_805D5BEC != -1) {
-        scene = (void *)((TAdSinglePlyChrSelectGC *)0x14)->alloc();
+        scene = (void *)::operator new(0x14);
         if (scene != NULL) {
             scene = ((TScene *)scene)->init_buffers((s32)model->child->sibling, lbl_805D5BEC);
         }
@@ -130,7 +130,7 @@ void TObjDoorJung__sub_8018F4AC(void) {
 }
 
 void TObjDoorJung::clamp_state() {
-    *(s32 *)&this->unk_D4 = (s32) *(s32 *)&this->m_88;
+    *(s32 *)&this->unk_D4 = (s32) *(s32 *)&this->set_params[1];
     if ((s32) *(s32 *)&this->unk_D4 < 0) {
         *(s32 *)&this->unk_D4 = 0;
     }
@@ -201,14 +201,14 @@ void TObjDoorJung::update_door_switch_state() {
         return;
     }
     ((Jung_8018F808 *)this)->fD0 &= ~1;
-    ((TUnk_804AF8A0 *)((Jung_8018F808 *)this))->clear_player_status_flag(0, 8);
+    ((TObjCollidable *)((Jung_8018F808 *)this))->clear_player_status_flag(0, 8);
 }
 
 void TObjDoorJung::run_task() {
     u8 *arg0 = (u8 *)this;
     if ((s32) switch_doors_force_closed != 0) {
         this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
-        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
+        ((TObjCollidable *)arg0)->clear_player_status_flag(0, 8);
     } else {
         this->update_door_switch_state();
     }
@@ -222,7 +222,7 @@ void TObjDoorJung::run_task() {
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjDoorJung;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -239,8 +239,8 @@ u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDoorJung__class_name;
     ((TObjDoorJung *)(arg0))->apply_object_set_data((void *)arg2);
     init_collision_body_parts(arg0, &TObjDoorJung__collision_desc.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TObjDoorJung *)(arg0))->init_door_switch_binding();
     ((TObjDoorJung *)arg0)->clamp_state();
     return arg0;

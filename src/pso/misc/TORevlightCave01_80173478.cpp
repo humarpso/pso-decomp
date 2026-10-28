@@ -43,9 +43,9 @@ void TORevlightCave01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_z(0, this->rotation_z);
-        rotate_matrix_x(0, *(s32 *)&this->m_5c);
+        rotate_matrix_x(0, *(s32 *)&this->rotation_x);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(this->texture_id);
+        TObjFish::set_global_param(this->texlist);
         draw_ginja_model(*(s32 *)((s8 *)(*(void * *)&this->model) + 4));
         rotate_matrix_y(0, *(s32 *)&this->m_c8);
         draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 4));

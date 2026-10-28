@@ -73,7 +73,7 @@ void TBoss7Joint::run_task() {
         this->vfunc_83();
         store_position();
         this->vfunc_88();
-        if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 1) {
+        if (*(s32 *)((s8 *)this->bodies + 0x18) & 1) {
             ((TBoss8Dragon *)arg0)->set_player_state_default();
             add_radar_scaled_marker((u8 *)&this->position, -0x5DB4, 1, 1, lbl_805DEBB8);
         }
@@ -83,7 +83,7 @@ void TBoss7Joint::run_task() {
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss7Joint;
-        ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
+        ((TObjCollidable *)arg0)->clear_collision_bodies();
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -97,8 +97,8 @@ typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredG
 #pragma opt_common_subs off
 s32 TBoss7Joint::init_params() {
     init_position_vectors();
-    fn_8002B630(&((J_802EEB88 *)this)->sub, (u8 *)lbl_80473FB8);
-    initialize_linked_object_reference(&((J_802EEB88 *)this)->sub);
+    copy_collision_body((CollisionBody *)(&((J_802EEB88 *)this)->sub), (const CollisionBody *)lbl_80473FB8);
+    set_collision_body(&((J_802EEB88 *)this)->sub);
     transform_part_positions();
     reset_hp__9TObjEneDDFv(this, register_boss__6TLobbyFl(0x10), dispatch_shared_handler_b__6TLobbyFl(0xF), register_object__6TLobbyFl(0x10));
     *(s16 *)((s8 *)this + 0x32C) = 0x4E20;
@@ -117,7 +117,7 @@ u8 *TBoss7Joint__ct(u8 *boss7_joint, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32
     *(s32 **)((s8 *)boss7_joint + 0x18) = &(*(RecoveredGlobal_802EEC60___vt__11TBoss7Joint *)&__vt__11TBoss7Joint).value;
     *(s32 *)((s8 *)boss7_joint + 0) = (s32) lbl_805D3FC0;
     ((TObjEneDD *)boss7_joint)->init_common_from(arg1);
-    ((TBoss7Joint *)boss7_joint)->m_1c = arg2;
+    ((TBoss7Joint *)boss7_joint)->entity_id = arg2;
     *(s16 *)((s8 *)boss7_joint + 0x2C) = arg3;
     *(s32 *)((s8 *)boss7_joint + 0x3C0) = arg4;
     *(s32 *)((s8 *)boss7_joint + 0x3B8) = arg5;

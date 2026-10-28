@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/effect/TEffect.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -11,6 +12,9 @@
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
+#include "pso/misc/TParticleCtrl_80327D30.h"
+#include "pso/player/TObjPlayer_80083594.h"
 
 struct RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 {
     s32 value;
@@ -178,7 +182,7 @@ extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data
 u8 * __dt__7TObjectFv(void *, s16);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 lbl_8048E6A8[];
 extern s32 lbl_8048E6DC[];
 extern s32 lbl_805D2930;
@@ -257,12 +261,12 @@ void TUnk_8048E778::draw_sprite_quad(s32 kind) {
         if (flags & 4) {
             fn_80141EB4();
         } else {
-            TObjPlayer::reset_transform_state();
+            set_default_alpha_blend();
         }
     } else if (flags & 4) {
         setSpriteInverseColorBlend();
     } else {
-        TObjPlayer::init_xyz_limits();
+        set_additive_blend();
     }
     sy = lbl_8058D4F8.scale;
     x = lbl_8058D4F8.cx;
@@ -323,7 +327,7 @@ void TUnk_8048E778::draw_sprite_quad(s32 kind) {
     }
     TWindowSubStatusDisp::get_player();
     TParticleCtrl::end_effect_render();
-    TObjPlayer::reset_transform_state();
+    set_default_alpha_blend();
 }
 #pragma pop
 
@@ -334,7 +338,7 @@ s32 TUnk_8048E728::is_particle_sprite_additive() {
 
 void TParticleCtrl::mark_active() {
     *(u16 *)((s8 *)this + 0x24) = (u16) (*(u16 *)((s8 *)this + 0x24) | 0x2000);
-    ((TParticleCtrl *)0x1F)->get_object();
+    request_indirect_effect(0x1F);
 }
 typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
 
@@ -372,8 +376,8 @@ void TUnk_8048E728::draw_particle_refraction_quad() {
     TObjPlayer::setup_tev_stage();
     TParticleCtrl__sub_803E2A1C(v, 4);
     TParticleCtrl::reset_particles();
-    TParticleCtrl::disable_if_single_screen();
-    TParticleCtrl::set_tev_direct(1);
+    reset_particle_tev();
+    reset_indirect_tev(1);
     pop_matrix();
     TParticleCtrl::end_effect_render();
 }
@@ -396,7 +400,7 @@ void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
         f.g = 0.0f;
         f.b = 0.0f;
     }
-    ((TUnk_80494AE0 *)((f32 *)&f))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)(((f32 *)&f)));
 }
 
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {

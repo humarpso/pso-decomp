@@ -8,6 +8,7 @@
 #include "pso/misc/TShopEquipmentListWindow.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct Item_80105EA4 { u8 type; u8 b1; u8 b2; };
 
@@ -57,9 +58,9 @@ void unload_item_drop_globals(void);
 s32 is_unsealable_item(u8 *id);
 void unload_item_drop_globals(void) {  }
 
-    extern int lbl_805D5450;
+    extern int item_desync_detected;
 
-void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
+void TItemDrop__sub_80105D10(void) { item_desync_detected = 0; }
 
 void TItemDrop::clear_item_if_player_picked_up(void* p, void* a1) { if (is_unsealable_item((u8 *)a1) == 1) { ((TItemData *)a1)->set_packed_value((u16)((void*)0)); } }
 
@@ -748,7 +749,7 @@ void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *item_data) {
     }
 }
 
-void handle_type3__9TItemDropFPvPv(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { ((TShopEquipmentListWindow *)a1)->set_stack_count((s8)((void*)1)); } }
+void handle_type3__9TItemDropFPvPv(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { ((TItemData *)a1)->set_stack_count(1); } }
 
 void apply_item_data__9TItemDropFPvPv(void *arg0, void *item) {
     s32 sp8;
@@ -883,7 +884,7 @@ void build_weapon_type_weights__9TItemDropFiPvi(s32 rng, Obj_80106F4C *item, s32
 
 void calc_drop_item__9TItemDropFiPvi(s32 rng, void *arg1, s32 arg2) {
     if ((u8) *(u8 *)((s8 *)arg1 + 0) == 0) {
-        *(s8 *)((s8 *)arg1 + 3) = select_weighted_byte__9TItemDropFiiiii(rng, (s32)((s32)(*(s32 *)((s8 *)TItemDrop__common_probability_table + 0xC))), (s32)((s32)(TObjPlayer::clamp_s32(arg2, 0, 3))), 9, 4);
+        *(s8 *)((s8 *)arg1 + 3) = select_weighted_byte__9TItemDropFiiiii(rng, (s32)((s32)(*(s32 *)((s8 *)TItemDrop__common_probability_table + 0xC))), (s32)((s32)(clamp_s32(arg2, 0, 3))), 9, 4);
     }
 }
 
@@ -1131,7 +1132,7 @@ TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg
     for (i = 0; i != 0x11; i++) {
         a = __cvt_fp2unsigned(lbl_805DAAD8 * (lbl_805DAAE4 * (f32)rand()));
         b = __cvt_fp2unsigned(lbl_805DAAD4 * (lbl_805DAAE4 * (f32)rand()));
-        obj = ((TAdSinglePlyChrSelectGC *)0xE8)->alloc();
+        obj = (int)::operator new(0xE8);
         if (obj != 0) {
             obj = run_step__9TItemDropFl(obj, a | b);
         }

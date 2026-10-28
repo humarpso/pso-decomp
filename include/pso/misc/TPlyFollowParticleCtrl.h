@@ -4,10 +4,10 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 
-struct TPlyFollowParticleCtrl : public TUnk_804AF8A0 {
+struct TPlyFollowParticleCtrl : public TObjCollidable {
     virtual ~TPlyFollowParticleCtrl();
     virtual void run_task();
-    virtual void*vfunc_9();
+    virtual void *get_center();
     u16 m_ac;
     u16 m_ae;
     void set_type(s16 v);

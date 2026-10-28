@@ -12,7 +12,7 @@
 #include "pso/misc/TOFenceAncient04.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80167878_lbl_804B1F80 {
@@ -178,7 +178,6 @@ s32 get_current_floor();
 void * get_bml_motion(s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void mem_free(void *p);
 void *mem_alloc(u32 size);
 void * __dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1);
@@ -233,11 +232,11 @@ extern const char TOHangceilingCave01KeyQuick__class_name_string[] = "TOHangceil
 void TOHangceilingCave01KeyQuick::vfunc_79() {
     u8 *p;
 
-    this->texture_id = turiten_singo_texture_lists[1];
+    this->texlist = turiten_singo_texture_lists[1];
     *(void * *)&this->unknownF8 = get_bml_motion(TOHangceilingCave01__model_archive, 1);
     *(f32 *)&this->unk_354 = 0.0f;
     ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(this, 3);
-    p = *(u8 * *)&this->m_a4;
+    p = *(u8 * *)&this->bodies;
     *(s32 *)((s8 *)p + 0x18) &= ~8;
     this->m_c0 = 0.0f;
     this->m_c8 = 1.0f;
@@ -263,7 +262,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
         ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
         ((TUnk_804B2578 *)arg0)->sub_80168488();
         if (4.0f < this->m_c0) {
-            temp_r3 = (u8 *)(*(u8 * *)&this->m_a4);
+            temp_r3 = (u8 *)(*(u8 * *)&this->bodies);
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF7);
         }
         if (23.0f == this->m_c0) {
@@ -276,7 +275,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
                 ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
             }
             if (5e+01f == this->m_c0) {
-                temp_r4 = (u8 *)(*(u8 * *)&this->m_a4);
+                temp_r4 = (u8 *)(*(u8 * *)&this->bodies);
                 *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | hang_flag_8[0]);
                 return;
             }
@@ -323,11 +322,11 @@ u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
 void TOHangceilingCave01Key::vfunc_79() {
     u8 *p;
 
-    this->texture_id = turiten_singo_texture_lists[1];
+    this->texlist = turiten_singo_texture_lists[1];
     *(void * *)&this->unknownF8 = get_bml_motion(TOHangceilingCave01__model_archive, 1);
     *(f32 *)&this->unk_354 = 0.0f;
     ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(this, 3);
-    p = *(u8 * *)&this->m_a4;
+    p = *(u8 * *)&this->bodies;
     *(s32 *)((s8 *)p + 0x18) &= ~8;
     this->m_c0 = 0.0f;
     this->m_c8 = 1.0f;
@@ -391,10 +390,10 @@ void TOHangceilingCave01Normal::vfunc_79() {
     s32 *p;
     *(void * *)&this->unknownF8 = get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
     p = turiten_singo_texture_lists;
-    this->texture_id = (s32) *p;
+    this->texlist = (s32) *p;
     *(f32 *)&this->unk_354 = (f32) (4.0f * this->m_350);
     ((s32 (*)(void *, s32, s32 *, f32))sub_801682E4__13TUnk_804B2578Fl)(this, 0, p, 4.0f);
-    temp_r6 = this->m_a4;
+    temp_r6 = this->bodies;
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) | hang_flag_8[0]);
     this->m_c0 = (f32) 0.0f;
     this->m_c8 = (f32) 1.0f;
@@ -630,16 +629,16 @@ void TUnk_804B2578::init_geometry() {
     f32 temp_f2;
     VObj_80168588 *self = (VObj_80168588 *)this;
 
-    *(s32 *)((s8 *)this + 0x35C) = (s32) this->m_84;
-    this->m_358 = (u32) this->m_8c;
+    *(s32 *)((s8 *)this + 0x35C) = (s32) this->set_params[0];
+    this->m_358 = (u32) this->set_params[2];
     if ((u32) this->m_358 >= 3U) {
         this->m_358 = 2U;
     }
-    temp_f2 = 3e+01f + this->scale;
+    temp_f2 = 3e+01f + this->scale.x;
     this->m_350 = (f32) (temp_f2 - 1.0f);
-    ((void (*)(void *, f32, f32))set_scale__13TUnk_804B2578Ff)(this, 1e+02f + *(f32 *)&this->m_70, temp_f2);
+    ((void (*)(void *, f32, f32))set_scale__13TUnk_804B2578Ff)(this, 1e+02f + this->scale.z, temp_f2);
     self->v77();
-    *(f32 *)&this->unk_354 = (f32) (1.0f - this->target_scale);
+    *(f32 *)&this->unk_354 = (f32) (1.0f - this->scale.y);
 }
 
 int TUnk_804B2578::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
@@ -728,7 +727,7 @@ bool TUnk_804B2578::sub_801688C0() {
     u8 *arg0 = (u8 *)this;
 
     if (xz_distance_squared((void *)(arg0 + 0x38), (void *)(camera_ctrl_instance + 0x178)) < 2.5e+03f) {
-        ((TUnk_804B2578 *)arg0)->m_1e = 1;
+        ((TUnk_804B2578 *)arg0)->visibility = 1;
         return 1;
     }
     if (((VObj_18_26a62c *)(arg0))->m8(3e+02f, 5e+01f) == 0) {
@@ -816,7 +815,7 @@ void load_turiten_singo_resources(void) {
     switch (get_current_floor_area()) {
     case AREA_VR_TEMPLE_ALPHA:
     case AREA_VR_TEMPLE_BETA:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != 0) {
             p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, turiten_singo_resource_descriptor, 0, 0, 0);
         }
@@ -831,7 +830,7 @@ void load_turiten_singo_resources(void) {
         hanging_ceiling_motion_index = 0;
         break;
     default:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != 0) {
             p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, fe_obj_turiten_moto_resource_descriptor, 0, 0, 0);
         }
@@ -858,7 +857,7 @@ struct RecoveredGlobal_80168C6C_lbl_804B2578 {
 };
 
 extern "C" {
-s32 __ct__13TUnk_804806E8FP7TObject(void *);
+s32 __ct__9TObjCharaFP7TObject(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80168C6C_lbl_804B2174 lbl_804B2174;
 extern s32 lbl_804B2578[];
@@ -884,16 +883,16 @@ typedef char RecoveredGlobal_80168C6C_lbl_804B2174_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80168C6C_lbl_804B2578_size[sizeof(RecoveredGlobal_80168C6C_lbl_804B2578) == 0x148 ? 1 : -1];
 u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     u8 *temp_r4;
-    __ct__13TUnk_804806E8FP7TObject(this);
+    __ct__9TObjCharaFP7TObject(this);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     this->apply_object_set_data((void *)arg2);
     *(s32 *)&this->model = get_bml_model((void *)TOHangceilingCave01__model_archive, turiten_singo_key_model_index);
     this->unknownF8 = (u32)get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
     init_collision_body_parts(this, &lbl_804B2174.value, 1);
     this->refresh_collision_body_centers();
-    ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
+    ((TObjPlayer *)((u8 *)this))->register_object_by_id();
     reset_state((((u8 *)this)));
-    temp_r4 = (u8 *)this->m_a4;
+    temp_r4 = (u8 *)this->bodies;
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 0x1080);
     return ((u8 *)this);
 }

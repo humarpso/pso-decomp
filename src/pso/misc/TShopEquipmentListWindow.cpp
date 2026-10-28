@@ -1,4 +1,6 @@
+#include "pso/item/TItemData.h"
 #include "types.h"
+#include "pso/protocol/protocol_types.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
@@ -200,7 +202,7 @@ int set_field_20__15TShopWindowBaseFl(void*, int);
 int obj_getPtr2B0_20(u8 *p);
 s32 check_equip_requirements(void *, Rec_8021C33C *, u32 *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
-s32 obj_getField1c(s32);
+s32 get_entity_id(s32);
 s32 get_shop_weapon_stock_item(void *, int, s32);
 int TShopEquipmentListWindow__sub_8021C85C(int a0);
 s32 get_shop_text(s32);
@@ -212,8 +214,6 @@ void *create_item_list_window(s32, s32, u16);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 void *create_cost_window(u16);
 extern const f32 lbl_805DC6D0;
-VObj_18_b34251 *find_item_by_id(s32);
-u32 get_equip_field_d04__10TObjPlayerFv(void *, s32);
 s32 advance_item_id_counter(u16);
 void try_buy_item(void *, void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
@@ -271,7 +271,7 @@ void TShopEquipmentListWindow::handle_equip_offer() {
             if (w->flag != 0) {
                 w->base.m4(0x18, 1);
                 TWindow__close(w->win);
-                w->win = (void *)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(w->player), 0, 0);
+                w->win = (void *)create_yes_no_window(get_window_layout_position(0x2B), get_entity_id(w->player), 0, 0);
                 sc = get_scale__15TShopWindowBaseFv(w);
                 ((TUnk_804CDFE8 *)((u32)w->win))->set_position_xy(get_scale__15TShopWindowBaseFv(w), sc);
                 set_field_20__15TShopWindowBaseFl(w, 9);
@@ -280,7 +280,7 @@ void TShopEquipmentListWindow::handle_equip_offer() {
                 i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
                 c = w->recs[i];
                 c.w[3] = advance_item_id_counter(local_client_id);
-                ((TShopEquipmentListWindow *)(&c))->set_stack_count(1);
+                ((TItemData *)(&c))->set_stack_count(1);
                 try_buy_item((void *)w->player, &c);
                 ((TShopEquipmentListWindow *)w)->update_list(&w->recs[i]);
                 if (is_single_purchase_shop_item((u8 *)&w->recs[i]) != 0) {
@@ -316,11 +316,11 @@ void TShopEquipmentListWindow::handle_buy_confirm() {
                 VObj_18_b34251 *item;
                 u32 e;
                 it.id = advance_item_id_counter(local_client_id);
-                ((TShopEquipmentListWindow *)(&it))->set_stack_count((s8)(1));
+                ((TItemData *)(&it))->set_stack_count(1);
                 try_buy_item(w->player, &it);
-                item = find_item_by_id(it.id);
-                if (item != NULL && (e = get_equip_field_d04__10TObjPlayerFv(w->player, item->m31())) != 0) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv(w->player, ((TItem *)e)->get_field_d8());
+                item = (VObj_18_b34251 *)find_item_by_id(it.id);
+                if (item != NULL && (e = (u32)((TObjPlayer *)w->player)->get_equipped_item(item->m31())) != 0) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(w->player, ((TItem *)e)->get_item_id());
                 }
                 send_6x25_equip_item(w->player, it.id, 0);
                 update_list(&w->recs[i]);
@@ -338,7 +338,7 @@ void TShopEquipmentListWindow::handle_buy_confirm() {
                 s32 i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
                 Rec_8021BC18 it = w->recs[i];
                 it.id = advance_item_id_counter(local_client_id);
-                ((TShopEquipmentListWindow *)(&it))->set_stack_count((s8)(1));
+                ((TItemData *)(&it))->set_stack_count(1);
                 try_buy_item(w->player, &it);
                 update_list(&w->recs[i]);
                 if (is_single_purchase_shop_item((u8 *)&w->recs[i]) != 0) {
@@ -356,7 +356,7 @@ void TShopEquipmentListWindow::handle_buy_confirm() {
             s32 i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
             Rec_8021BC18 it = w->recs[i];
             it.id = advance_item_id_counter(local_client_id);
-            ((TShopEquipmentListWindow *)(&it))->set_stack_count((s8)(1));
+            ((TItemData *)(&it))->set_stack_count(1);
             try_buy_item(w->player, &it);
             update_list(&w->recs[i]);
             if (is_single_purchase_shop_item((u8 *)&w->recs[i]) != 0) {
@@ -375,7 +375,7 @@ s32 TShopEquipmentListWindow::open_menu_window() {
     u16 temp_r31;
 
     if ((u32) this->m_2c == 0U) {
-        temp_r31 = obj_getField1c(this->m_24);
+        temp_r31 = get_entity_id(this->m_24);
         this->m_2c = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)this->m_2c, (int)(get_shop_text(4)), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)this->m_2c, (int)(get_shop_text(5)), 6, 1);
@@ -492,16 +492,16 @@ void TShopEquipmentListWindow::create_buy_list_windows(void *p) {
     W->count = TShopEquipmentListWindow__sub_8021C85C(sub_8022397C__15TShopWindowBaseFv(W));
     for (i = 0; i < W->count; i++) {
         get_shop_weapon_stock_item(&tmp, i, sub_8022397C__15TShopWindowBaseFv(W));
-        ((TLobby *)(&W->recs[i]))->copy_item_data(&tmp);
+        ((TItemData *)(&W->recs[i]))->copy_from((TItemData *)(&tmp));
     }
     r = W->recs;
     for (j = 0; j < W->count; j++, r++) {
         if (r->price != -1) {
-            r->price = ((TShopEquipmentSellWindow *)r)->get_item_price_if_valid();
+            r->price = TItemData::calc_price_of((TItemData *)r);
         }
     }
     if (W->list == NULL) {
-        W->list = create_item_list_window(get_shop_text(0x26), W->count, obj_getField1c(W->player));
+        W->list = create_item_list_window(get_shop_text(0x26), W->count, get_entity_id(W->player));
     } else {
         ((TShopArmorListWindow *)(W->list))->save_cursor_selection();
         ((TShopArmorListWindow *)(W->list))->reset_list();
@@ -520,7 +520,7 @@ void TShopEquipmentListWindow::create_buy_list_windows(void *p) {
     if (W->help == NULL) {
         o = __nw__7TObjectFUl(0xBC);
         if (o != NULL) {
-            id = obj_getField1c(W->player);
+            id = get_entity_id(W->player);
             o = __ct__15TWindowHelpItemFPvUs(o, get_window_layout_position(0x27), id);
         }
         W->help = o;
@@ -530,7 +530,7 @@ void TShopEquipmentListWindow::create_buy_list_windows(void *p) {
         ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)W->recs);
     }
     if (W->cost == NULL) {
-        W->cost = create_cost_window(obj_getField1c(W->player));
+        W->cost = create_cost_window(get_entity_id(W->player));
         if ((c = W->cost) != NULL && W->recs[0].price > 0) {
             get_item_count__24TShopEquipmentSellWindowFv(c, W->recs[0].price);
         }

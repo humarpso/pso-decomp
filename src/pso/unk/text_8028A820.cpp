@@ -4,7 +4,6 @@
 #include "pso/map/FloorArea.h"
 extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 }
 extern u8 lbl_80450C50[];
 extern u8 lbl_80450C6C[];
@@ -19,7 +18,7 @@ void load_green_door_resources(void) {
     switch (get_current_floor_area()) {
     case AREA_VR_TEMPLE_ALPHA:
     case AREA_VR_TEMPLE_BETA:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, bm_obj_door_ruins_resource_descriptor, 0, 0, 0);
         }
@@ -28,7 +27,7 @@ void load_green_door_resources(void) {
         break;
     case AREA_VR_SPACESHIP_ALPHA:
     case AREA_VR_SPACESHIP_BETA:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, bm_obj_door_space_resource_descriptor, 0, 0, 0);
         }

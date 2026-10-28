@@ -245,7 +245,6 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 load_resource_from_descriptor(s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 boss_warp_base_model;
 extern s32 warp_boss_model;
 extern s32 warp_boss_bml_motion;
@@ -402,14 +401,14 @@ void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1);
 Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2);
 void update_warp_boss_visibility__12TObjWarpBossFv(void *arg0);
 void render_shadows__7TObjectFv();
-void vfunc_6__13TUnk_804B9870FPsl();
-void apply_object_set_data__13TUnk_804B9870FPv();
-void reset_motion_fields__13TUnk_804AF8A0Fv();
-void vfunc_9__13TUnk_804B9870Fv();
-void update_object_view_visibility__13TUnk_804B9870Fff();
-void classify_actor_view_detail__13TUnk_804B9870Ffff();
-void vfunc_12__13TUnk_804B9870Fv();
-void vfunc_13__13TUnk_804AF8A0Fl();
+void vfunc_6__8TObjBaseFPsl();
+void apply_object_set_data__8TObjBaseFPv();
+void reset_motion_fields__14TObjCollidableFv();
+void get_center__8TObjBaseFv();
+void update_object_view_visibility__8TObjBaseFff();
+void classify_actor_view_detail__8TObjBaseFfff();
+void get_name__8TObjBaseFv();
+void interact__14TObjCollidableFl();
 void vfunc_14__12TObjWarpBaseFv();
 void open_confirm_window__12TObjAreaWarpFUs();
 void vfunc_17__12TObjWarpBaseFv();
@@ -458,14 +457,14 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&run_task__17TObjWarpBossMultiFv,
     (s32)&render__17TObjWarpBossMultiFv,
     (s32)&render_shadows__7TObjectFv,
-    (s32)&vfunc_6__13TUnk_804B9870FPsl,
-    (s32)&apply_object_set_data__13TUnk_804B9870FPv,
-    (s32)&reset_motion_fields__13TUnk_804AF8A0Fv,
-    (s32)&vfunc_9__13TUnk_804B9870Fv,
-    (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (s32)&vfunc_12__13TUnk_804B9870Fv,
-    (s32)&vfunc_13__13TUnk_804AF8A0Fl,
+    (s32)&vfunc_6__8TObjBaseFPsl,
+    (s32)&apply_object_set_data__8TObjBaseFPv,
+    (s32)&reset_motion_fields__14TObjCollidableFv,
+    (s32)&get_center__8TObjBaseFv,
+    (s32)&update_object_view_visibility__8TObjBaseFff,
+    (s32)&classify_actor_view_detail__8TObjBaseFfff,
+    (s32)&get_name__8TObjBaseFv,
+    (s32)&interact__14TObjCollidableFl,
     (s32)&vfunc_14__12TObjWarpBaseFv,
     (s32)&open_confirm_window__12TObjAreaWarpFUs,
     (s32)&TObjAreaWarp::is_warp_enabled,
@@ -595,7 +594,7 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self) {
 void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjWarpBossMulti;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -615,7 +614,7 @@ Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2) 
     ((TObjWarpBossMulti *)self)->update();
     ((TObjWarpBossMulti *)self)->init_warp_params();
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        void *p = alloc__23TAdSinglePlyChrSelectGCFv(0x88);
+        void *p = ::operator new(0x88);
         if (p != NULL) {
             p = init__13TAdVIConfigGCFf(p, self->f38, lbl_805DC018);
         }
@@ -759,7 +758,7 @@ void TObjWarpBoss::send_cmd_6A(u16 value) {
     TObjWarpBoss *self = this;
     Pkt_8019E6C0 pkt;
     ((TWindowSubTradeMain *)(&pkt))->init_pkt_cmd_6A();
-    pkt.id = self->m_1c;
+    pkt.id = self->entity_id;
     pkt.value = value;
     ((TWindowSubTradeMain *)(&pkt))->send_60_update();
 }
@@ -1220,7 +1219,7 @@ void TObjWarpBoss::run_task() {
 void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBoss;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         close_windows__12TObjWarpBossFv(arg0);
         __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
@@ -1296,7 +1295,7 @@ void TObjFish::load_models() {
     s32 r;
     area = get_current_floor_area();
     if (area >= 8 && area <= 0xA) {
-        r = ((s32)alloc__23TAdSinglePlyChrSelectGCFv(0x440));
+        r = ((s32)::operator new(0x440));
         if (r != 0) {
             r = ((s32 (*)(s32, s32, void *, s32, s32, s32)) load_resource_from_descriptor)(r, 5, lbl_804B94D8, 0, 0, 0);
         }
@@ -1311,7 +1310,7 @@ void TObjFish::load_models() {
         return;
     }
     if (TContainerAncient01::is_global_state_in_table() != 0 || area == AREA_SEABED_UPPER || area == AREA_SEABED_LOWER) {
-        r = ((s32)alloc__23TAdSinglePlyChrSelectGCFv(0x440));
+        r = ((s32)::operator new(0x440));
         if (r != 0) {
             r = ((s32 (*)(s32, s32, void *, s32, s32, s32)) load_resource_from_descriptor)(r, 5, lbl_804B94FC, 0, 0, 0);
         }
@@ -1325,7 +1324,7 @@ void TObjFish::load_models() {
         (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 0);
         return;
     }
-    r = ((s32)alloc__23TAdSinglePlyChrSelectGCFv(0x440));
+    r = ((s32)::operator new(0x440));
     if (r != 0) {
         r = ((s32 (*)(s32, s32, void *, s32, s32, s32)) load_resource_from_descriptor)(r, 5, lbl_804B94AC, 0, 0, 0);
     }

@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/enemy/TObjEneEpsilon.h"
@@ -27,8 +28,9 @@ extern BmlResourceDescriptor TObjEneEpsilonGuard__resource_descriptor;
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneDD.h"
-#include "pso/item/TItemProUnit.h"
+#include "pso/player/PlayerAttackParams.h"
 #include "pso/misc/TLobby.h"
+#include "pso/item/TItem.h"
 struct Stack_803626A8 {
     s32 sp8;
     s32 spC;
@@ -164,7 +166,7 @@ extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
 void * init_s_rank_knuckle(void *, s32, void *);
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -193,7 +195,6 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 Node_803627DC *get_bml_model(void *, int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
-u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TObjPlayer__sub_800F0928(void *);
 extern Quad_803627DC lbl_80479FAC;
 extern f32 lbl_80543A18[3];
@@ -264,17 +265,17 @@ void TObjEneEpsilonGuard::load_assets() {
     lbl_80543A18[0] = lbl_805E0248;
     lbl_80543A18[1] = lbl_805E0248;
     lbl_80543A18[2] = lbl_805E0248;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    p = (u8 *)::operator new(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, &TObjEneEpsilonGuard__resource_descriptor, 0, 0, 0);
     }
     lbl_805D6FA0 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    p = (u8 *)::operator new(0x10);
     if (p != NULL) {
         p = ((TBreakUpMdl *)p)->init_from_model((s32)(get_bml_model(lbl_805D6FA0, 5)));
     }
     lbl_805D6FA4 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    p = (u8 *)::operator new(0x10);
     if (p != NULL) {
         p = ((TBreakUpMdl *)p)->init_from_model((s32)(get_bml_model(lbl_805D6FA0, 6)));
     }
@@ -328,13 +329,13 @@ void *TObjEneEpsilon__ct(void *ene_epsilon) {
 extern s32 lbl_804F26E0[];
 
 void TUnk_804F26E0::vfunc_62() {
-    ((TItemProUnit *)(*(s32 *)&this->player + 0x7CC))->set_evp(lbl_805E0258);
+    ((PlayerAttackState *)(*(s32 *)&this->owner + 0x7CC))->set_evp(lbl_805E0258);
 }
 }
 extern s32 tl_05;
 u8 *create_s_rank_knuckle(u8 *arg0);
 void s_rank_knuckle_equip(u8 *arg0) {
-    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(lbl_805E025C);
+    ((PlayerAttackState *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(lbl_805E025C);
 }
 
 typedef struct S_80362C80 S_80362C80;
@@ -358,7 +359,7 @@ u8 *create_s_rank_knuckle(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x1FC));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((u8 *)init_s_rank_knuckle(temp_r3, tl_05, arg0)));
@@ -374,7 +375,7 @@ void *__dt__13TUnk_804F26E0Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F26E0;
         __dt__13TUnk_804A4948Fv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -385,7 +386,7 @@ void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *weapon, Obj_80362DE8
     arg1->i58 = 0xC000;
     arg1->flags |= 0x282;
     get_weapon_color__11TItemWeaponFPv(sp8, weapon);
-    ((TRaderMapCore *)(arg1->v60))->copy_vec4(sp8);
+    copy_argb((NJS_ARGB *)arg1->v60, (NJS_ARGB *)sp8);
     arg1->fn74 = (void *)TObjPlayer::create_network_object;
     arg1->fn70 = (void *)TObjPlayer__sub_8032E648;
 }

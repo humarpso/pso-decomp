@@ -39,7 +39,7 @@ void TObjNpcKenkyu::free_static_model() {
 void TObjNpcKenkyu::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_npc_kenkyu_resource_descriptor.value, 0, 0, 0));
@@ -68,7 +68,7 @@ u8 *TObjNpcKenkyu__ct(u8 *player, s32 arg1, s32 arg2) {
     ((TObjNpcKenkyu *)(player))->apply_set_data((void *)arg2);
     ((TObjPlayer *)player)->init_position_vectors();
     *(s32 *)((s8 *)player + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), 0);
-    ((TObjNpcKenkyu *)player)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), 0);
+    ((TObjNpcKenkyu *)player)->texlist = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), 0);
     ((TObjNpcBase *)player)->setup_common();
     return player;
 }

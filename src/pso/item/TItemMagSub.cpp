@@ -1,5 +1,7 @@
+#include "pso/system/NinjaTypes.h"
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -14,6 +16,8 @@
 #include "pso/system/vector.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 extern "C" {
 int set_flags__11TItemMagSubFUl(void *, int);
@@ -268,8 +272,6 @@ struct Sub_80115334 {
 extern "C" {
 
 s32 memset(void *, int, int);
-s32 TItem__sub_80100A40(f32 *, f32, f32);
-void run_with_transform_context__10TObjPlayerFii(void *, void (*)(void *));
 u32 mag_owner_has_motion_action(s32);
 int set_flags__11TItemMagSubFUl(void*, int);
 u32 test_flags__11TItemMagSubFUl(void *, u32);
@@ -310,9 +312,9 @@ extern RecoveredGlobal_80114DB8_lbl_8058D490 identity_matrix;
 extern f32 mag_sub_transition_frames;
 extern f32 item_mag_follow_scale;
 extern u32 TItemMagSub_name;
-extern u32 model_render_flags, lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern u32 model_render_flags, saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern const f32 mag_sub_render_distance_limit, mag_sub_screen_cull_margin;
@@ -352,7 +354,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
     if (TItemMagSub__feed_sequence_index == node_ids[selected_node]) {
         if (test_flags__11TItemMagSubFUl(this, 0x20) == 0) {
             model_render_flags |= 0x10;
-            ((TUnk_80494AE0 *)material_parameters)->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)material_parameters);
             TParticleCtrl::begin_effect_render();
             ((s32 (*)(void *, int))set_flags__11TItemMagSubFUl)(this, 0x20);
         }
@@ -361,8 +363,8 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
         }
     } else if (test_flags__11TItemMagSubFUl(this, 0x20) != 0) {
         TParticleCtrl::end_effect_render();
-        ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-        model_render_flags = lbl_805D5660;
+        copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+        model_render_flags = saved_model_render_flags;
         clear_flags(0x20);
     }
 }
@@ -448,14 +450,14 @@ void TItemMagSub::apply_placement_matrix() {
 
 void TItemMagSub::render_shadows() {
     TItemMagSub_80114F0C* self = (TItemMagSub_80114F0C*)this;
-    TObjPlayer::reset_transform_state();
-    lbl_805D5660 = model_render_flags;
-    lbl_805D5664 = chunk_polygon_flags_and_mask;
-    lbl_805D5668 = chunk_polygon_flags_or_mask;
-    ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
+    set_default_alpha_blend();
+    saved_model_render_flags = model_render_flags;
+    saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+    saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
+    copy_argb((NJS_ARGB *)saved_model_draw_color, (NJS_ARGB *)model_material_color);
     if (self->model) {
         TItemMagSub__oscillating_instance = self;
-        TObjPlayer::notify_fish_if_valid(self->textures);
+        set_texlist(self->textures);
         push_matrix();
         ((TItemMagSub *)self)->apply_placement_matrix();
         TItemMagSub__feed_sequence_index = 0;
@@ -478,22 +480,22 @@ void TItemMagSub::render_shadows() {
         TItemMagSub__oscillating_instance = 0;
         if (test_flags__11TItemMagSubFUl(self, 0x20)) {
             TParticleCtrl::end_effect_render();
-            ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-            model_render_flags = lbl_805D5660;
+            copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+            model_render_flags = saved_model_render_flags;
             ((TItemMagSub *)self)->clear_flags(0x20);
         }
     }
-    TObjPlayer::reset_transform_state();
-    ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-    chunk_polygon_flags_and_mask = lbl_805D5664;
-    chunk_polygon_flags_or_mask = lbl_805D5668;
-    model_render_flags = lbl_805D5660;
+    set_default_alpha_blend();
+    copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+    chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+    chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+    model_render_flags = saved_model_render_flags;
 }
 void TItemMagSub::render() {
     TItemMagSub* self = this;
-    if (TItem__sub_80100A40(self->owner->center, mag_sub_render_distance_limit, mag_sub_screen_cull_margin) && self->model) {
+    if (is_point_on_screen(self->owner->center, mag_sub_render_distance_limit, mag_sub_screen_cull_margin) && self->model) {
         TItemMagSub__oscillating_instance = self;
-        TObjPlayer::notify_fish_if_valid(self->textures);
+        set_texlist(self->textures);
         push_matrix();
         ((TItemMagSub *)self)->apply_placement_matrix();
         (*(u32 *)&TItemMagSub__feed_sequence_index) = 0;
@@ -505,15 +507,15 @@ void TItemMagSub::render() {
             TObjPlayer::clear_global_state();
             TObjEneRe7Berura::set_global_state(0);
         } else {
-            run_with_transform_context__10TObjPlayerFii(self->model, TItemMagSub::update_node_oscillation);
+            draw_node_tree_with_callback((NJS_OBJECT *)self->model, (void (*)(NJS_OBJECT *))TItemMagSub::update_node_oscillation);
         }
         (*(u32 *)&TItemMagSub__feed_sequence_index) = 0;
         pop_matrix();
         TItemMagSub__oscillating_instance = 0;
         if (test_flags__11TItemMagSubFUl(self, 0x20)) {
             TParticleCtrl::end_effect_render();
-            ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-            model_render_flags = lbl_805D5660;
+            copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+            model_render_flags = saved_model_render_flags;
             ((TItemMagSub *)self)->clear_flags(0x20);
         }
     }
@@ -629,7 +631,7 @@ void TItemMagSub::run_task() {
         ((TItemMagSub *)arg0)->update_special_pose();
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0xB8) = ((TObjPlayer *)(*(u8 * *)&this->owner + 0x608))->get_mag_scale_f();
+    *(f32 *)((s8 *)arg0 + 0xB8) = ((TObjPlayer *)this->owner)->render_material_state.get_alpha();
     if (test_flags__11TItemMagSubFUl(arg0, 8U) != 0U) {
         ((TItemMagSub *)arg0)->update_transition();
     } else {

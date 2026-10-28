@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDelDepth.h"
@@ -98,7 +98,7 @@ u16 find_nearest_visible_player(void *, int, f32);
 u8 * csnVectorUnder(s32, void *, s32);
 Pl_80314758 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 is_player_entity_id(s32);
 Hit_80314758 *csnVector(void *, void *, s32);
 extern u8 *TObjEneDelDepth__tune_params;
@@ -328,7 +328,7 @@ struct Dep_8031551C {
 
 typedef char RecoveredGlobal_80315A40___vt__15TObjEneDelDepth_size[sizeof(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth) == 0x150 ? 1 : -1];
 
-s32 __ct__13TUnk_804806E8FP7TObject(void *);
+s32 __ct__9TObjCharaFP7TObject(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(u8 *, int);
 s32 get_bml_model(int, int);
@@ -509,7 +509,7 @@ void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2
 void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjEneDelDepthBomb;
-        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
+        ((TObjChara *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -520,7 +520,7 @@ void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1) {
 u8 *TObjEneDelDepthBomb__ct(TObjEneDelDepthBomb *ene_del_depth_bomb, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 temp_f30;
     f32 temp_f31;
-    __ct__13TUnk_804806E8FP7TObject(ene_del_depth_bomb);
+    __ct__9TObjCharaFP7TObject(ene_del_depth_bomb);
     *(s32 **)((s8 *)ene_del_depth_bomb + 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
     *(s32 *)((s8 *)ene_del_depth_bomb + 0) = (s32) TObjEneDelDepthBomb__name;
     ene_del_depth_bomb->m_348 = arg2;
@@ -822,7 +822,7 @@ void TObjEneDelDepth::move_toward_target() {
     v.y *= lbl_805DF28C;
     v.z *= lbl_805DF28C;
     vec3_add_to((u8 *)&this->position, &v);
-    if (project_actor_to_ground(arg0, (u8 *)&this->position, (void *)0) == 0 || csnLookAt((u8 *)&this->m_44, (u8 *)&this->position) != 0) {
+    if (project_actor_to_ground(arg0, (u8 *)&this->position, (void *)0) == 0 || csnLookAt((u8 *)&this->prev_position, (u8 *)&this->position) != 0) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     if (--this->m_384 <= 0) {
@@ -979,7 +979,7 @@ void TObjEneDelDepth::update_movement() {
             if (pl == 0) {
                 break;
             }
-            if (obj_is_hit_receivable(pl) != 0 && is_player_entity_id(obj_getField1c(pl)) != 0) {
+            if (obj_is_hit_receivable(pl) != 0 && is_player_entity_id(get_entity_id(pl)) != 0) {
                 pl->m18(arg0, TObjEneDelDepth__data_805DF260);
                 pl->m20(arg0, TObjEneDelDepth__data_805DF260);
                 pl->m23(arg0, TObjEneDelDepth__data_805DF268);
@@ -1419,7 +1419,7 @@ void TObjEneDelDepth::init() {
     s32 temp_r29;
     s32 temp_r30;
     s32 var_r0;
-    this->texture_id = TObjFish__sub_8001EDB0(TObjEneDelDepth__shared_resource = get_data__15TObjEneDelDepthFv(), 0);
+    this->texlist = TObjFish__sub_8001EDB0(TObjEneDelDepth__shared_resource = get_data__15TObjEneDelDepthFv(), 0);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int)TObjEneDelDepth__shared_resource, 0);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     *(s32 *)((s8 *)arg0 + 0x380) = init_collision_body_parts(arg0, TObjEneDelDepth_collision_body_parts, 1);
@@ -1437,7 +1437,7 @@ void TObjEneDelDepth::init() {
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x350) = 0;
     ((TObjEnemy *)arg0)->set_param(0x47);
-    var_r0 = ((TAdSinglePlyChrSelectGC *)0x2C)->alloc();
+    var_r0 = (int)::operator new(0x2C);
     if (var_r0 != 0) {
         var_r0 = fn_80316680(var_r0, arg0);
     }
@@ -1452,7 +1452,7 @@ u8 *TObjEneDelDepth__ct(u8 *ene_del_depth, s32 arg1, s32 arg2) {
     __ct__9TObjEnemyFP7TObject(ene_del_depth);
     *(s32 **)((s8 *)ene_del_depth + 0x18) = &(*(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth *)&__vt__15TObjEneDelDepth).value;
     *(s32 *)((s8 *)ene_del_depth + 0) = (s32) TObjEneDelDepth__name;
-    ((TUnk_804806E8 *)ene_del_depth)->add_flags_2e4(8);
+    ((TObjChara *)ene_del_depth)->add_flags_2e4(8);
     ((TObjEneDelDepth *)(ene_del_depth))->apply_set_data((void *)arg2);
     ((TObjEneDelDepth *)ene_del_depth)->update_target_depth();
     ((TObjEneDelDepth *)ene_del_depth)->init();

@@ -37,7 +37,7 @@ void TObjNpcMaleChild::release_static_instance() {
 void TObjNpcMaleChild::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_ecm_i_body_resource_descriptor.value, 0, 0, 0));
@@ -66,7 +66,7 @@ u8 *TObjNpcMaleChild__ct(u8 *player, s32 arg1, s32 arg2) {
     ((TObjNpcMaleChild *)(player))->apply_set_data((void *)arg2);
     ((TObjPlayer *)player)->init_position_vectors();
     *(s32 *)((s8 *)player + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleChild__shared_model_resource) + 0x42C)) + 8);
-    ((TObjNpcMaleChild *)player)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleChild__shared_model_resource) + 0x42C)) + 0xC);
+    ((TObjNpcMaleChild *)player)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleChild__shared_model_resource) + 0x42C)) + 0xC);
     ((TObjNpcBase *)player)->setup_common();
     return player;
 }

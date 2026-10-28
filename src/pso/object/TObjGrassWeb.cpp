@@ -15,9 +15,9 @@ typedef struct Web_800BC798 {
 } Web_800BC798;
 
 extern "C" {
-s16 obj_getField1c(u32);
+s16 get_entity_id(u32);
 int queue_destruction__7TObjectFv(void*);
-s32 __ct__13TUnk_804B9870FP7TObject();
+s32 __ct__8TObjBaseFP7TObject();
 extern s32 __vt__12TObjGrassWeb[];
 extern s32 lbl_805D2A3C;
 u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2);
@@ -28,7 +28,7 @@ void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(s32, s32);
 
 int TObjGrassWeb::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 
@@ -62,8 +62,8 @@ void TObjGrassWeb::apply_to_player() {
 
     this->m_90 = 1;
     temp_r3 = (s32)get_player_by_client_id(this->m_a4);
-    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) && (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3, 0x800) == 0)) {
-        TObjPlayer::play_effect(temp_r3, this->m_84, 1);
+    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) && (obj_testFlags30__14TObjCollidableFUl(temp_r3, 0x800) == 0)) {
+        TObjPlayer::play_effect(temp_r3, this->set_params[0], 1);
     }
 }
 
@@ -87,7 +87,7 @@ void TObjGrassWeb::render() {  }
 void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjGrassWeb;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -97,14 +97,14 @@ void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 u8 *TObjGrassWeb__ct(u8 *grass_web, s32 arg1, u32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject();
+    __ct__8TObjBaseFP7TObject();
     *(s32 **)((s8 *)grass_web + 0x18) = __vt__12TObjGrassWeb;
     if (arg2 != 0U) {
         *(s32 *)((s8 *)grass_web + 0) = (s32) lbl_805D2A3C;
         VecCopy((Vec *)(grass_web + 0x38), (const Vec *)(arg2 + 0x38));
         ((TObjGrassWeb *)grass_web)->m_90 = 0;
-        ((TObjGrassWeb *)grass_web)->m_a4 = obj_getField1c(arg2);
-        ((TObjGrassWeb *)grass_web)->m_84 = 0xB4;
+        ((TObjGrassWeb *)grass_web)->m_a4 = get_entity_id(arg2);
+        ((TObjGrassWeb *)grass_web)->set_params[0] = 0xB4;
     } else {
         queue_destruction__7TObjectFv(grass_web);
     }

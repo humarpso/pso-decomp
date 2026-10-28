@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/player/TPlayerReadyCallback.h"
+#include "pso/system/FlagWord.h"
 #include "pso/system/memory.h"
 
 #include "types.h"
@@ -63,7 +64,7 @@ void TObjPlayer__sub_801BF488(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF4A0(s32 *arg0, s32 arg1);
 void emit_idle_water_effect(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
-s32 obj_getField1c(int);
+s32 get_entity_id(int);
 }
 int emit_zalure_support_effect(void* p, int a1);
 int emit_deband_support_effect(void* p, int a1);
@@ -92,8 +93,8 @@ void TObjPlayer__sub_801BEDB0(void* p, u8 v);
 void TObjPlayer__sub_801BEDB8(void* p, u8 v);
 void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1);
 void TObjPlayer__sub_801BF47C(void* p);
-int clear_flags__11TAdRicoRingFUl(void*, int);
-int set_flags__10TObjPlayerFUl(void*, int);
+int clear__8FlagWordFUl(void*, int);
+int set__8FlagWordFUl(void*, int);
 int set_mode__20TWindowActionPaletteFUc(void*);
 int set_slot__20TWindowActionPaletteFUc(void*);
 s32 try_add_item_count__10TObjPlayerFlllUc(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -142,15 +143,15 @@ void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer::set_position(f32 a, f32 b, f32 c) { this->position[0] = a; this->position[1] = b; this->position[2] = c; }
+void TObjPlayer::set_position(f32 a, f32 b, f32 c) { this->position.x = a; this->position.y = b; this->position.z = c; }
 
 void TObjPlayer::set_meseta(s32 arg1) {
     *(s32 *)(this->m_2b0 + 0x20) = arg1;
 }
 
-void TObjPlayer::sub_801BEE24(s16 v) { *(s16 *)&this->unk_2BE = v; }
+void TObjPlayer::sub_801BEE24(s16 v) { *(s16 *)&this->tp_bonus = v; }
 
-void TObjPlayer::sub_801BEE2C(s16 v) { this->m_2bc = v; }
+void TObjPlayer::sub_801BEE2C(s16 v) { this->hp_bonus = v; }
 
 void TObjPlayer::bswap_status_effect_data() {
     bswap_32__FPUl(this);
@@ -204,8 +205,8 @@ void TObjPlayer::prepare_heavy_attack_particles_default() { prepare_heavy_attack
 #pragma fp_contract on
 void prepare_heavy_attack_particles(u8 *arg0) {
     if (*(u32 *)((s8 *)arg0 + 4) != 0U) {
-        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x11);
-        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x12);
+        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (get_entity_id((int) *(u32 *)((s8 *)arg0 + 4))))), 0x11);
+        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (get_entity_id((int) *(u32 *)((s8 *)arg0 + 4))))), 0x12);
     }
 }
 #pragma pop
@@ -226,10 +227,10 @@ void TObjPlayer::emit_jellen_support_effect_default() { emit_jellen_support_effe
 #pragma fp_contract on
 void emit_jellen_support_effect(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0) != 0U) {
-        create_attached_oneshot_emitter(arg0, (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0)))), 0x1C);
+        create_attached_oneshot_emitter(arg0, (int)((int) (get_entity_id((int) *(u32 *)((s8 *)arg0 + 0)))), 0x1C);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U) {
-        create_attached_oneshot_emitter(arg0, (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), 0x1C);
+        create_attached_oneshot_emitter(arg0, (int)((int) (get_entity_id((int) *(u32 *)((s8 *)arg0 + 4)))), 0x1C);
     }
 }
 #pragma pop
@@ -240,10 +241,10 @@ void TObjPlayer::emit_shifta_support() { emit_shifta_support_effect((u8 *)((char
 #pragma fp_contract on
 void emit_shifta_support_effect(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0) != 0U) {
-        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0))))), 0x1C);
+        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (get_entity_id((int) *(u32 *)((s8 *)arg0 + 0))))), 0x1C);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U) {
-        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x1C);
+        TObjPlayer::check_hit_by_id((s32)arg0, (s32)((int)((int) (get_entity_id((int) *(u32 *)((s8 *)arg0 + 4))))), 0x1C);
     }
 }
 #pragma pop
@@ -321,5 +322,5 @@ void TObjPlayer__sub_801BF4A0(s32 *arg0, s32 arg1) {
 
 int TObjPlayer::update_action_palette() { return set_slot__20TWindowActionPaletteFUc((char*)this + 0x4); }
 int TObjPlayer::set_action_palette_mode() { return set_mode__20TWindowActionPaletteFUc((char*)this + 0x4); }
-int TObjPlayer::clear_flag0_bit1() { return clear_flags__11TAdRicoRingFUl(this, 2); }
-int TObjPlayer::set_flag_2() { return set_flags__10TObjPlayerFUl(this, 2); }
+void TObjPlayer::clear_flag0_bit1() { ((FlagWord *)this)->clear(2); }
+void TObjPlayer::set_flag_2() { ((FlagWord *)this)->set(2); }

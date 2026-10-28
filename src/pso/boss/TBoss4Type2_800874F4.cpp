@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/TParticleCtrl.h"
@@ -57,10 +58,10 @@ void TBoss4Type2::set_param_ptr(s32 arg1) {
 void TBoss4Type2::copy_vec3(void* q) { *(u32*)((char*)this + 0x6c) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x70) = *(u32*)((char*)q + 0x4); *(u32*)((char*)this + 0x74) = *(u32*)((char*)q + 0x8); }
 void TBoss4Type2::set_flags(u32 v) { *(u16*)((char*)this + 0x2c) |= v; }
 
-void TParticleCtrl::set_owner_id(u16 x) {
+void TParticleCtrl::set_owner_id(u16 id) {
     O_80087638 *self = (O_80087638 *)this;
-    if (x != 0xFFFF) {
-        self->x2e = x;
+    if (id != 0xFFFF) {
+        self->x2e = id;
     }
 }
 
@@ -167,7 +168,6 @@ struct Ctrl_8008767C {
 struct GenEntry_8008767C { s32 id; Gen_8008767C fn; };
 
 extern "C" {
-s32 copy_vec4__13TRaderMapCoreFPv(void *, void *, void *);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 release_texture_list(void*);
@@ -184,7 +184,6 @@ int queue_destruction__7TObjectFv(void *);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *load_gvm_texture_file(s32 arg0);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
@@ -628,7 +627,7 @@ void TParticleCtrl::attach_model(s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 far
 
 void set_particle_tint_color(u8 *arg0, void *arg1) {
     *(u16 *)((s8 *)arg0 + 0x24) = (u16) (*(u16 *)((s8 *)arg0 + 0x24) | 0x100);
-    copy_vec4__13TRaderMapCoreFPv(arg0 + 0x48, arg1, arg0);
+    ((void (*)(void *, void *, void *))copy_argb)(arg0 + 0x48, arg1, arg0);
 }
 
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
@@ -679,7 +678,7 @@ void load_particle_entry_resources(void) {
         sprintf(name, lbl_804394BC, area);
     }
     read_disc_file((s32)name, particle_area_entry_table = mem_alloc(0x2600));
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    p = ::operator new(0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, particle_regular_bml_descriptor, 0, 0, 0);
     }

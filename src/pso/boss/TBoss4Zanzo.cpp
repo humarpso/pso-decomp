@@ -6,7 +6,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/boss/TUnk_80486924.h"
 #include "pso/TBoss4Zanzo.h"
 #include <stddef.h>
@@ -439,7 +439,7 @@ struct Dmg_8005B218 { s32 type; f32 val; };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void * get_player_data__10TObjPlayerFi(s32 i);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 is_split_screen();
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -1200,7 +1200,7 @@ void TBoss4Type2::spawn_bishi_around_players() {
     b.f0c = 1;
     for (i = 0; i < lbl_805D586C; i++) {
         pl = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (pl != 0 && TBoss4Type3__sub_8005254C(obj_getField1c(pl)) != 0) {
+        if (pl != 0 && TBoss4Type3__sub_8005254C(get_entity_id(pl)) != 0) {
             for (j = 0; j < 3; j++) {
                 if (TBoss4DarkFalz__sub_8004AF5C(arg0->f38c, &b.id, &b.id2) != 0) {
                     VecCopy((Vec *)&b.pos, (const Vec *)(pl + 0x38));
@@ -1323,7 +1323,7 @@ void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out) {
         if (p == NULL) {
             continue;
         }
-        if (TBoss4Type3__sub_8005254C(obj_getField1c(p)) == 0) {
+        if (TBoss4Type3__sub_8005254C(get_entity_id(p)) == 0) {
             continue;
         }
         {
@@ -1674,7 +1674,7 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 parent, s32 *arg2) {
     __ct__9TObjEnemyFP7TObject(arg0, (void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80486924;
     *(s32 *)((s8 *)arg0 + 0) = (s32)boss4_type2_class_name;
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
+    ((TObjChara *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x38C) = arg2[0];
     ((TUnk_80486924 *)arg0)->apply_set_data(arg2 + 1);
     ((TUnk_80486924 *)arg0)->clear_lobby_object_state();

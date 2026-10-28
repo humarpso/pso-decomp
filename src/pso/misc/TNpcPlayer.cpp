@@ -1,3 +1,4 @@
+#include "pso/misc/TLobby_801E43E4.h"
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/object/TUnk_804AF7B0.h"
@@ -15,10 +16,10 @@ extern "C" void render__10TNpcPlayerFv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFogCollision.h"
+#include "pso/protocol/protocol_types.h"
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-void fn_8002B630(u8 *arg0, u8 *arg1);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *src);
 s32 pop_matrices(s32 arg0);
@@ -391,19 +392,17 @@ struct N_80152C8C { u8 pad0[7]; s8 count; u32 pos[1]; };
 
 struct Line_8014E488 { Vec_8014E3B0 p; Vec_8014E3B0 d; };
 
-s16 obj_getS16_32E(u8 *p);
+s16 get_actor_tp(u8 *p);
 s16 obj_getS16_2BA(u8 *p);
-s16 obj_getS16_32C(u8 *p);
+s16 get_actor_hp(u8 *p);
 int get_player_data__10TObjPlayerFi(int a0);
-s32 obj_getField1c(void *obj);
-int read_be16_field2__10TObjPlayerFv(void*);
+s32 get_entity_id(void *obj);
 f32 fabs_float(f32);
 f64 atan2_float(int, f32, f32, f32);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 void * __ct__12TPlyCharDataFv(void *self);
 u8 * csnVector(s32, s32, s32);
-void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 is_alive__9TObjEneDDFv(void *);
 s32 find_active_entity_by_id(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -455,14 +454,13 @@ void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 Actor_8014F424 * find_entity_by_id(s32);
 s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
-void * __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
+void * __ct__14TObjCollidableFP7TObject(void *, void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 s32 try_send_6x27_use_item(s32, s32, void *);
 void *get_player_by_client_id(s32 i);
 s8 get_cast_technique_level(void *, s16);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-void TLobby__send_and_handle_60(u8 *arg0);
 void update_players__6TLobbyFv(s32 arg0);
 void __dl__7TObjectFPv(s32);
 void * __nw__7TObjectFUl(u32);
@@ -1786,7 +1784,7 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
     if (is_any_teammate_in_state__10TObjPlayerFv(self) != 0) {
         return;
     }
-    id = obj_getField1c(self->owner->obj);
+    id = get_entity_id(self->owner->obj);
     if (id != 0xFFFF) {
         text = (char *)get_partner_custom_text(self->state, id);
         if (text != 0) {
@@ -1939,7 +1937,7 @@ s32 route_around_object__10TNpcPlayerFv(Self_8014E7A0 *self, Vec_8014E3B0 *out) 
     Vec_8014E3B0 to;
     Vec_8014E3B0 toSelf;
     f32 r;
-    fn_8002B630((u8 *)&info, (u8 *)self->f78->shape);
+    copy_collision_body((CollisionBody *)&info, (const CollisionBody *)self->f78->shape);
     if (info.type == 0 || info.type == 0 ||
         (info.h <= lbl_805DB1FC && info.type == 1 && info.h == info.w)) {
         Target_8014E7A0 *t = self->f78->obj;
@@ -2181,11 +2179,11 @@ s32 partner_probe_obstacles(View_8014F140 *view) {
     for (i = TLobby::get_game_mode(); i < TLobby::get_game_mode() + TObjEneDD::get_enemy_count() + ((s32 (*)(void))get_registered_object_count)(); i++) {
         actor = (Actor_8014F140 *)get_player_data__10TObjPlayerFi(i);
         if ((actor != NULL) && !(actor->flags30 & 0x80000000)) {
-            contact = (Contact_8014F140 *)((TUnk_804AF8A0 *)((u8 *)view->probe))->find_actor_body_contact((u8 *)actor, (f32)lbl_805DB210);
+            contact = (Contact_8014F140 *)((TObjCollidable *)((u8 *)view->probe))->find_actor_body_contact((u8 *)actor, (f32)lbl_805DB210);
             if (contact != NULL) {
                 if (actor->flags30 & 0x40000000) {
                     if (!(contact->flags18 & 8) && !(contact->flags18 & 0x100) && !(contact->flags18 & 0x200)) {
-                        fn_8002B630((u8 *)view->hit_d8, (u8 *)contact);
+                        copy_collision_body((CollisionBody *)view->hit_d8, (const CollisionBody *)contact);
                         view->field_0x104 = actor->field_0x60;
                         view->flags8c |= 0x20;
                         return 1;
@@ -2262,7 +2260,7 @@ s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32
             d = horizontal_distance_squared(pos, actor->cols + i * 0x2C + 0x1C);
             if (d < range) {
                 found = 1;
-                view->c[view->count].id = (u16)obj_getField1c(actor);
+                view->c[view->count].id = (u16)get_entity_id(actor);
                 view->c[view->count].dist = d;
                 view->c[view->count].idx = i;
                 if (view->count >= 9) {
@@ -2285,7 +2283,7 @@ s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 
     s32 j;
     f32 d;
     found = 0;
-    ((TUnk_804B9870 *)(view->f94))->get_stat_by_key_state();
+    ((TObjBase *)(view->f94))->get_room();
     VecCopy__FP3VecPC3Vec(origin, (int)pos);
     view->count = 0;
     for (j = 0; j < 10; j++) {
@@ -2309,7 +2307,7 @@ s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 
             d = horizontal_distance_squared(origin, actor->cols[c].pos);
             if (d < range) {
                 found = 1;
-                view->c[view->count].id = (u16)obj_getField1c(actor);
+                view->c[view->count].id = (u16)get_entity_id(actor);
                 view->c[view->count].dist = d;
                 view->c[view->count].idx = c;
                 if (view->count >= 9) {
@@ -2386,7 +2384,7 @@ Npc_8014F844 *init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id) {
     self->fC4 = 0x1103;
     p = __nw__7TObjectFUl(0xAC);
     if (p != 0) {
-        p = __ct__13TUnk_804AF8A0FP7TObject(p, tl_05);
+        p = __ct__14TObjCollidableFP7TObject(p, tl_05);
     }
     self->fA8 = p;
     if (self->fA8 != 0) {
@@ -2402,7 +2400,7 @@ s32 partner_view_update_hp_change(void *arg0) {
     s16 temp_r31;
     s16 temp_r3;
     s16 temp_r4;
-    temp_r31 = obj_getS16_32C((u8 *)(*(s32 *)((s8 *)arg0 + 0x94)));
+    temp_r31 = get_actor_hp((u8 *)(*(s32 *)((s8 *)arg0 + 0x94)));
     temp_r3 = ((TItemProShield *)(*(s32 *)((s8 *)arg0 + 0x94)))->get_field_2b8();
     if (*(s16 *)((s8 *)arg0 + 0x88) <= 0) {
         *(s16 *)((s8 *)arg0 + 0x88) = temp_r31;
@@ -2433,7 +2431,7 @@ s32 partner_view_update_conditions(u8 *arg0) {
     s32 temp_r3;
     s32 var_r31;
     var_r31 = 0;
-    temp_f31 = (f32) obj_getS16_32C(*(u8 **)((s8 *)arg0 + 0x94));
+    temp_f31 = (f32) get_actor_hp(*(u8 **)((s8 *)arg0 + 0x94));
     temp_f1 = temp_f31 / (f32) ((TItemProShield *)(*(u8 **)((s8 *)arg0 + 0x94)))->get_field_2b8();
     if (*(s32 *)((s8 *)arg0 + 0x8C) & 2) {
         if (temp_f1 <= lbl_805DB224) {
@@ -2461,7 +2459,7 @@ s32 partner_view_update_conditions(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x90) = (s32) (*(s32 *)((s8 *)arg0 + 0x90) | 2);
         *(s32 *)((s8 *)arg0 + 0x8C) = (s32) (*(s32 *)((s8 *)arg0 + 0x8C) | 4);
     }
-    temp_f31_2 = (f32) obj_getS16_32E(*(u8 **)((s8 *)arg0 + 0x94));
+    temp_f31_2 = (f32) get_actor_tp(*(u8 **)((s8 *)arg0 + 0x94));
     temp_f2 = (f32) obj_getS16_2BA(*(u8 **)((s8 *)arg0 + 0x94));
     if (((temp_f31_2 / temp_f2) <= TNpcPlayer__data_805DB218) && (TNpcPlayer__data_805DB1F0 != temp_f2)) {
         *(s32 *)((s8 *)arg0 + 0x8C) = (s32) (*(s32 *)((s8 *)arg0 + 0x8C) | 4);
@@ -2919,7 +2917,7 @@ void TNpcPlayer::update_combat_action() {
         }
         id = tbl_80150B90[tier][alt];
         tec = calc_technique_parameters(id, ((Npc_80150B90 *)this)->f50, 0xFFFF);
-        diff = (f32)(obj_getS16_32E((u8 *)(((Npc_80150B90 *)this)->f78->obj)) - tec->f10);
+        diff = (f32)(get_actor_tp((u8 *)(((Npc_80150B90 *)this)->f78->obj)) - tec->f10);
         mx = (f32)obj_getS16_2BA((u8 *)(((Npc_80150B90 *)this)->f78->obj));
         if (diff / mx <= (*(const f32 *)&TNpcPlayer__data_805DB218) && TNpcPlayer__data_805DB1F0 != mx) {
             ((TNpcPlayer *)((Npc_80150B90 *)this))->request_chatter(3);
@@ -3457,12 +3455,12 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
     self->f8C = 0;
     self->f8E = 0;
     self->f8D = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
+    p = ::operator new(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, a);
     }
     self->f74 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
+    p = ::operator new(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
@@ -3508,12 +3506,12 @@ Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a,
     self->f8C = 0;
     self->f8E = 0;
     self->f8D = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
+    p = ::operator new(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, a);
     }
     self->f74 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
+    p = ::operator new(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
@@ -3726,7 +3724,7 @@ void TNpcPlayer__sub_80152A78(s16 *self) {
 
 void TNpcPlayer::update() { bswap_6x45_packet((void*)(this)); update_players__6TLobbyFv((s32)this); }
 
-void bswap_6x45_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void bswap_6x45_packet(void* p) { ((G_ClientIDHeader *)p)->bswap(); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
 void init_6x45_attack_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
@@ -3737,7 +3735,7 @@ void init_6x45_attack_packet(u8 *arg0) {
 
 void TNpcPlayer::update_players() { bswap_6x44_packet((void*)(this)); update_players__6TLobbyFv((s32)this); }
 
-void bswap_6x44_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void bswap_6x44_packet(void* p) { ((G_ClientIDHeader *)p)->bswap(); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
 void init_6x44_attack_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
@@ -3748,7 +3746,7 @@ void init_6x44_attack_packet(u8 *arg0) {
 
 void TNpcPlayer::update_lobby() { bswap_6x43_packet((void*)(this)); update_players__6TLobbyFv((s32)this); }
 
-void bswap_6x43_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void bswap_6x43_packet(void* p) { ((G_ClientIDHeader *)p)->bswap(); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
 void init_6x43_attack_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
@@ -3761,13 +3759,13 @@ void TNpcPlayer::finalize_and_send_packet() {
     u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 1) = (s8) ((((u32)get_6x47_cast_packet_size((u8 *)(arg0))) >> 2U) & 0x3F);
     byteswap_positions();
-    TLobby__send_and_handle_60((u8 *)((void *) (arg0)));
+    send_subcommand((u8 *)((void *) (arg0)));
 }
 
 void TNpcPlayer::byteswap_positions() {
     N_80152C8C *arg0 = (N_80152C8C *)this;
     s32 i;
-    read_be16_field2__10TObjPlayerFv((void*)(arg0));
+    ((G_ClientIDHeader *)arg0)->bswap();
     for (i = 0; i < arg0->count; i++) {
         ((TNpcPlayer *)(&arg0->pos[i]))->byteswap_pos();
     }
@@ -3789,13 +3787,13 @@ void TNpcPlayer__sub_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((cha
 
 void TNpcPlayer::reset_model() { init_model(); update_players__6TLobbyFv((s32)this); }
 
-void TNpcPlayer::init_model() { read_be16_field2__10TObjPlayerFv((void*)(this)); ((TObjPlayer *)((char*)this + 0x4))->bswap_pkt_u32x2(); }
+void TNpcPlayer::init_model() { ((G_ClientIDHeader *)this)->bswap(); ((VectorXZF *)((char*)this + 0x4))->bswap(); }
 
 void TNpcPlayer::reset_move_state() { *(float*)((char*)this + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)this + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)this + 0x0) = 66; *(unsigned char*)((char*)this + 0x1) = 3; }
 
 void TNpcPlayer::sync_from_lobby() { swap_endian(); update_players__6TLobbyFv((s32)this); }
 
-void TNpcPlayer::swap_endian() { read_be16_field2__10TObjPlayerFv((void*)(this)); ((TObjPlayer *)((char*)this + 0x4))->bswap_pkt_u32x2(); bswap_32__FPUl((char*)this + 0xc); }
+void TNpcPlayer::swap_endian() { ((G_ClientIDHeader *)this)->bswap(); ((VectorXZF *)((char*)this + 0x4))->bswap(); bswap_32__FPUl((char*)this + 0xc); }
 
 void init_6x40_walk_packet(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(int*)((char*)a0 + 0xc) = 0; *(unsigned char*)((char*)a0 + 0x0) = 64; *(unsigned char*)((char*)a0 + 0x1) = 4; }
 

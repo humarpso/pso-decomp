@@ -22,6 +22,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/ui/TWindowInputNumber.h"
+#include "pso/map/FloorArea.h"
 
 struct Base_A_80279714 { char pad[0x18]; };
 struct V_A_80279714 : Base_A_80279714 {
@@ -117,8 +118,7 @@ s32 get_window_layout_position(s32);
 s32 get_player_by_client_id(s32);
 s32 TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-s32 get_item_info__10TObjPlayerFllPs(int, int, void *);
-void *find_item_by_id(s32);
+s32 check_equip_requirements__5TItemFP10TObjPlayerPs(int, int, void *);
 }
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void add_item_purpose_actions(TWindowSubItem *arg0, s32 arg1, s32 arg2);
@@ -134,7 +134,6 @@ struct Quest_8027ABFC { u8 pad[0x20]; s32 count; };
 struct Player_8027ABFC { u8 pad[0xD00]; s32 inv; };
 struct Win_8027ABFC { u8 pad0[0x20]; s16 id; u8 pad1[0x72 - 0x22]; s16 sel; u8 pad2[0x8C - 0x74]; u32 n; };
 
-Quest_8027ABFC *get_quest_id__12TQuestListVMFv(void *);
 void calc_list_content_extent(void *);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void populate_sub_item_list(Win_8027ABFC *arg0);
@@ -167,7 +166,7 @@ s32 try_send_6x27_use_item(s32, s32);
 s32 create_sub_item_list_window(s32, s32 *, s32);
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 get_cursor_pos__14TWindowSubItemFv();
-s32 get_field_d8__5TItemFv();
+s32 get_item_id__5TItemFv();
 int save_cursor_selection__20TShopArmorListWindowFv(void*);
 
 void TWindowSubItem::set_displayed_item(s32 arg1) {
@@ -186,17 +185,17 @@ s32 has_armor_with_unit_slot(TWindowSubItem *window_sub_item, int arg1) {
     if (pl == 0) {
         return 0;
     }
-    if (((TItem *)arg1)->get_field_ec() != 1) {
+    if (((TItem *)arg1)->get_item_type() != 1) {
         return 1;
     }
-    if (((TItem *)arg1)->get_field_ed() != 3) {
+    if (((TItem *)arg1)->get_item_group() != 3) {
         return 1;
     }
     item = get_slot_value__10TObjPlayerFPvi(pl + 0xD04, 2);
     if (item == 0) {
         return 0;
     }
-    ((TItem *)item)->copy_to_item_data(&d);
+    ((TItem *)item)->copy_to_item_data((TItemData *)&d);
     return d.b[5] != 0 ? 1 : 0;
 }
 
@@ -250,7 +249,7 @@ void TWindowSubItem::exec_item_command(s32 arg1, s32 arg2) {
             break;
         case 1:
             if (get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, (s8) ((V_A_80279714 *) temp_r3_2)->m31()) != 0U) {
-                t = get_field_d8__5TItemFv();
+                t = get_item_id__5TItemFv();
                 send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, t);
             }
             send_6x25_equip_item(temp_r3, arg1, 0);
@@ -307,10 +306,10 @@ void add_item_purpose_actions(TWindowSubItem *window_sub_item, s32 arg1, s32 arg
         forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl(0x60)), 6, 0);
       }
     }
-    ((TItem *)(0, (int) (item & 0xFFFFFFFFu)))->get_field_ec();
+    ((TItem *)(0, (int) (item & 0xFFFFFFFFu)))->get_item_type();
     if (((TItem *)item)->get_usable_action_flags(8, 0) != 0U)
     {
-      if (((TObjPlayer *)item)->test_item_flags(8) != 0U)
+      if (((TItem *)item)->test_item_flags(8) != 0U)
       {
         if (get_current_floor_area() == AREA_LOBBY)
         {
@@ -326,7 +325,7 @@ void add_item_purpose_actions(TWindowSubItem *window_sub_item, s32 arg1, s32 arg
         player = get_player_by_client_id(window_sub_item->m_24);
         if (player != 0)
         {
-          if (((get_item_info__10TObjPlayerFllPs((int) item, (int) player, &sp8) != 0) && (has_armor_with_unit_slot((TWindowSubItem *)((void *)((void *) window_sub_item)), (int)((int) item)) != 0)) && (get_current_floor_area() != AREA_LOBBY))
+          if (((check_equip_requirements__5TItemFP10TObjPlayerPs((int) item, (int) player, &sp8) != 0) && (has_armor_with_unit_slot((TWindowSubItem *)((void *)((void *) window_sub_item)), (int)((int) item)) != 0)) && (get_current_floor_area() != AREA_LOBBY))
           {
             forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl(0x62)), 6, 1);
           }
@@ -636,7 +635,7 @@ void TWindowSubItem::run_task() {
             }
             break;
         case 19: {
-            Quest_8027ABFC *q = get_quest_id__12TQuestListVMFv((void *) p);
+            Quest_8027ABFC *q = (Quest_8027ABFC *)((TObjPlayer *)p)->get_stats();
             s32 n;
             if (q == NULL) {
                 F(u8, 0x1C) = 0x16;
@@ -802,7 +801,7 @@ void populate_sub_item_list(Win_8027ABFC *arg0) {
         for (i = 0; i < 5; i++) {
             add_battle_stat_entry(arg0, i, TWindowSubItem__sub_8027AA78(i), 0);
         }
-        q = get_quest_id__12TQuestListVMFv(pl);
+        q = (Quest_8027ABFC *)((TObjPlayer *)pl)->get_stats();
         if (q != NULL && q->count > 0) {
             push_status_disp_entry(arg0, q->count, -0xFF);
         }

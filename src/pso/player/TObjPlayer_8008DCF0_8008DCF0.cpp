@@ -172,7 +172,7 @@ struct Self_8008E934 { u8 pad[0x3C4]; s32 ids[4]; };
 extern "C" {
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 int get_player_data__10TObjPlayerFi(int a0);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void enter_hit_state__18TObjEneBalClawClawFs(u32, u16);
 u32 find_entity_by_id(u16);
 extern s32 lbl_805D586C;
@@ -201,7 +201,7 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805D9624;
 extern const f32 lbl_805D9628;
-s16 obj_getS16_32C(u8 *p);
+s16 get_actor_hp(u8 *p);
 void queue_destruction__7TObjectFv(void *arg0);
 void *spawn_particle_effect(void *pos, s32 id);
 void *create_particle_emitter(void *pos, s32 id);
@@ -239,7 +239,7 @@ s32 defer_render__7TObjectFv(void *);
 
 int TObjPlayer::reset_enemy_state() { return update_if_active__15TObjEneMe1GiGueFl(this, 0); }
 
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 extern const f32 lbl_805D963C;
 extern const f32 lbl_805D9640;
@@ -330,7 +330,7 @@ s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self) {
         p = (Obj_8008E098 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && ((TWindowLockOn *)p)->get_target_id() == 0x26 &&
             self->field28 == p->field28 && ((TObjEneBalClawClaw *)p)->check_active() != 0) {
-            self->ids[self->count++] = obj_getField1c(p);
+            self->ids[self->count++] = get_entity_id(p);
             if (self->count >= 4) {
                 break;
             }
@@ -433,7 +433,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
                 E_8008E310 *e2 = (E_8008E310 *)find_entity_by_id(arg0_->ids[i]);
                 if (e2 != NULL) {
                     ((TObjEneBalClawClaw *)e2)->set_claw_flags();
-                    arg0_->f32C += obj_getS16_32C((u8 *)e2);
+                    arg0_->f32C += get_actor_hp((u8 *)e2);
                 }
             }
             arg0_->emit2 = (u32)create_particle_emitter(arg0_->f2FC, 0x12A);
@@ -511,11 +511,11 @@ void TObjEneBalClawBody::render() {
     u8 *arg0 = (u8 *)this;
 
     if (!(((TObjEneBalClawBody *)arg0)->actorFlags & 0x02000000)) {
-        lbl_805D5660 = model_render_flags;
+        saved_model_render_flags = model_render_flags;
         temp_r3 = ((VObj18_8008e74c_8008DCF0*)arg0)->m9(lbl_805D963C, lbl_805D9640, lbl_805D9628);
         if (temp_r3 != 0) {
             var_r30 = 1;
-            TObjFish::set_global_param(((TObjEneBalClawBody *)arg0)->texture_id);
+            TObjFish::set_global_param(((TObjEneBalClawBody *)arg0)->texlist);
             select_actor_lighting((s32)arg0);
             TObjPlayer::toggle_particle_effect();
             push_matrix();
@@ -559,7 +559,7 @@ void TObjEneBalClawBody::render() {
             pop_matrix();
             restore_scene_lighting();
             TParticleCtrl::end_effect_render();
-            model_render_flags = lbl_805D5660;
+            model_render_flags = saved_model_render_flags;
             ((TObjEneBalClaw *)arg0)->render_scaled(var_r30);
         }
     }

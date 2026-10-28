@@ -18,7 +18,6 @@ extern s32 __vt__18TObjNpcConnoisseur[];
 extern s32 TObjNpcConnoisseur__name;
 extern u32 TObjNpcConnoisseur__instance;
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 tekker_descriptor_selector_table[];
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D5748;
@@ -37,7 +36,7 @@ void TObjNpcConnoisseur::destroy_instance() {
 void TObjNpcConnoisseur::load_section_motion() {
     void *o;
     lbl_805D5748 = ((TFontSmallTask *)TLobby__data_805011D8)->get_task_id();
-    o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    o = ::operator new(0x440);
     if (o != 0) {
         o = load_resource_from_descriptor(o, 1, tekker_descriptor_selector_table[lbl_805D5748], 0, 0, 0);
     }
@@ -65,7 +64,7 @@ u8 *TObjNpcConnoisseur__ct(u8 *player, s32 arg1, s32 arg2) {
     ((TObjNpcConnoisseur *)(player))->apply_set_data((void *)arg2);
     ((TObjPlayer *)player)->init_position_vectors();
     *(s32 *)((s8 *)player + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcConnoisseur__instance) + 0x42C)) + 8);
-    ((TObjNpcConnoisseur *)player)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcConnoisseur__instance) + 0x42C)) + 0xC);
+    ((TObjNpcConnoisseur *)player)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcConnoisseur__instance) + 0x42C)) + 0xC);
     ((TObjNpcBase *)player)->setup_common();
     return player;
 }

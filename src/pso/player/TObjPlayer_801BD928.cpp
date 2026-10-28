@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/system/FlagWord.h"
 #include "pso/misc/TFontSmallLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 TFontSmallLobby__sub_801C0164(void *);
-s32 __ct__13TUnk_804806E8FP7TObject();
+s32 __ct__9TObjCharaFP7TObject();
 s32 init_player_substructs__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BC8F0(void *);
 s32 TObjPlayer__sub_801BCA14(void *, void *);
@@ -30,7 +31,7 @@ s32 TObjPlayer__sub_803374C4(void *);
 s32 TObjPlayer__sub_80351974(void *);
 s32 __ct__14TPlyDispConfigFv(void *);
 s32 get_field_0x374__10TObjPlayerFv(void *, void *);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 query_field374__10TObjPlayerFv(void *, void *);
 s32 query_flags_374__10TObjPlayerFv(void *, void *);
 s32 update_body_parts__10TObjPlayerFv(void *, void *);
@@ -39,14 +40,14 @@ extern s32 __vt__10TObjPlayer[];
 extern s32 lbl_805D3530;
 
 u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4) {
-    __ct__13TUnk_804806E8FP7TObject();
+    __ct__9TObjCharaFP7TObject();
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = __vt__10TObjPlayer;
     ((TObjPlayer *)(((u8 *)this) + 0x340))->init_subobject();
     ((TObjPlayer *)(((u8 *)this) + 0x34C))->setup_ctrl();
     init_state__10TObjPlayerFi((void *) (((u8 *)this) + 0x360));
     TObjPlayer__sub_803374C4((void *) (((u8 *)this) + 0x374));
     TObjPlayer__sub_80309E9C((void *) (((u8 *)this) + 0x384));
-    ((TObjPlayer *)(((u8 *)this) + 0x41C))->init_forward();
+    __ct__8FlagWordFv((((u8 *)this) + 0x41C));
     TFontSmallLobby__sub_801C0164((void *) (((u8 *)this) + 0x428));
     ((TFontSmallLobby *)(((u8 *)this) + 0x4AC))->construct_pb_controller();
     __ct__14TPlyDispConfigFv((void *) (((u8 *)this) + 0x500));
@@ -73,12 +74,12 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4
     TObjPlayer__sub_801C1A00((void *) (((u8 *)this) + 0x828));
     init_player_telepipe_record((void *) (((u8 *)this) + 0x830));
     TObjPlayer__sub_801BFB4C((void *) (((u8 *)this) + 0x84C));
-    ((TObjPlayer *)(((u8 *)this) + 0x858))->init_forward();
+    __ct__8FlagWordFv((((u8 *)this) + 0x858));
     TObjPlayer::reset_and_return((s32)((void *) (((u8 *)this) + 0xD04)));
     ((TObjPlayer *)(((u8 *)this) + 0xDAC))->clear_header_struct();
     *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D3530;
     this->init_action_provider();
-    this->m_1c = arg2;
+    this->entity_id = arg2;
     this->setup_control_role(role);
     update_body_parts__10TObjPlayerFv(this, arg4 + 0x370);
     sub_801BEE2C__10TObjPlayerFs(this, (int) (*(u8 *)((s8 *)arg4 + 1)));
@@ -99,7 +100,7 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4
     TObjPlayer__sub_801BC8F0(this);
     this->setup_fresh_player_state((u8 *)arg4);
     this->sub_801BB8B0((u8 *)arg4);
-    TObjPlayer::set_com_card_window((s32)((void *) (obj_getField1c(this))));
+    TObjPlayer::set_com_card_window((s32)((void *) (get_entity_id(this))));
     return ((u8 *)this);
 }
 

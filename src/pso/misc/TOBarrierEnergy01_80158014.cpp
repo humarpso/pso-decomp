@@ -67,7 +67,7 @@ void TOBarrierEnergy01::free_resources() {
 void TOBarrierEnergy01::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_lazerguard_resource_descriptor.value, 0, 0, 0));
@@ -83,7 +83,7 @@ void TOBarrierEnergy01::load_resources() {
 void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOBarrierEnergy01;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -101,13 +101,13 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA0;
     ((TOBarrierEnergy01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&barrier_energy_shared_bml_archive))), 1);
-    ((TOBarrierEnergy01 *)arg0)->texture_id = (s32) *TOBarrierEnergy01__texture_lists;
+    ((TOBarrierEnergy01 *)arg0)->texlist = (s32) *TOBarrierEnergy01__texture_lists;
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&barrier_energy_shared_bml_archive), 0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB2D8);
     ((TOBarrierEnergy01 *)arg0)->m_b8 = (f32) lbl_805DB2DC;
     init_collision_body_parts(arg0, &barrier_energy01_collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     ((TOBarrierEnergy01 *)(arg0))->init_door_switch_binding();
     ((TOBarrierEnergy01 *)arg0)->m_c0 = (f32) lbl_805DB2E0;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB2E4;

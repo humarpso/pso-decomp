@@ -17,7 +17,7 @@ struct RadarViewportParameters
     f32 screen_height;
 };
 
-struct TRaderMapCore : public TUnk_804B9870 {
+struct TRaderMapCore : public TObjBase {
     virtual ~TRaderMapCore();
     void update_follow_projection(s32);
     virtual void run_task();
@@ -91,7 +91,6 @@ struct TRaderMapCore : public TUnk_804B9870 {
     void gather_player_markers();
     void draw_enemy_gate_markers();
     s32 get_map_id();
-    void copy_vec4(void* q);
     static void draw_backdrop(TRaderMapCore *self, s32 mode);
 };
 

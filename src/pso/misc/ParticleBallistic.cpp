@@ -11,6 +11,8 @@
 
 #include "types.h"
 #include "pso/unk/text_80141550.h"
+#include "pso/misc/TParticleCtrl_80327D30.h"
+#include "pso/player/TObjPlayer_80083594.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -159,7 +161,7 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 f64 atan2_float(f32, f32);
 f32 vector_length(void *);
@@ -398,7 +400,7 @@ void TUnk_8048E778::render() {
             setup_particle_tev(0);
         } else {
             s32 st = model_render_flags;
-            lbl_805D5660 = st;
+            saved_model_render_flags = st;
             model_render_flags = st | 0x8021;
             if (is_particle_sprite_additive__13TUnk_8048E728Fv(p, st) != 0) {
                 ((TUnk_8048E728 *)p)->apply_particle_model_fade_color(1);
@@ -414,9 +416,9 @@ void TUnk_8048E778::render() {
             draw_ginja_object(p->model);
         }
         if (p->flags & 0x400) {
-            TParticleCtrl::disable_if_single_screen();
+            reset_particle_tev();
         } else {
-            model_render_flags = lbl_805D5660;
+            model_render_flags = saved_model_render_flags;
         }
         restore_draw_list_mask();
         TParticleCtrl::end_effect_render();
@@ -507,7 +509,7 @@ u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg
         p->field_68 = (TParticleCtrl__data_805D9504 * (f32)rand()) - TParticleCtrl__data_805D9500;
     }
     if (p->field_24 & 0x2000) {
-        ((TParticleCtrl *)((void *)0x1F))->get_object();
+        request_indirect_effect(0x1F);
     }
     return (u8 *)a0;
 }
@@ -576,7 +578,7 @@ void *TUnk_8048E778::init_particle_random_spread(void *a1, void *a2, void *a3) {
         p->field_68 = (TParticleCtrl__data_805D9504 * (f32)rand()) - TParticleCtrl__data_805D9500;
     }
     if (p->field_24 & 0x2000) {
-        ((TParticleCtrl *)((void *)0x1F))->get_object();
+        request_indirect_effect(0x1F);
     }
     return this;
 }

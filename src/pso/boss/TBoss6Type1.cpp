@@ -1,3 +1,5 @@
+#include "pso/protocol/protocol_types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/system/vector.h"
@@ -5,7 +7,7 @@
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/player/TObjPlayer.h"
@@ -339,7 +341,7 @@ f32 vector_length(void *, f32);
 f32 subtract_vector(void *, void *);
 Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
 f32 fabs_float(f32);
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 extern const Vec_802B57D4 TBoss6Type1__data_80470FB4;
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E4;
@@ -478,11 +480,11 @@ int release_object__11TBoss6Type1FPv(void*);
 void TBoss6Type1::draw_model() {
     TObjPlayer::toggle_particle_effect();
     push_matrix();
-    Vec pos = *(Vec *)position;
+    Vec pos = *&position;
     pos.y = pos.y + m_4e8;
     post_translate_matrix(&pos);
     rotate_matrix_y(0, rotation_y);
-    rotate_matrix_x(0, m_5c);
+    rotate_matrix_x(0, rotation_x);
     TBoss6PlotFalz__sub_802AC008(m_4d4, m_4d8);
     draw_part_motions();
     TBoss6PlotFalz::update_camera_target();
@@ -505,7 +507,7 @@ void TBoss6Type1::release_object(void *) {
 void TBoss6Type1::spawn_map_csn() {
     MapCsnSetData data;
     Vec offset;
-    VecCopy(&data.position, (const Vec *)position);
+    VecCopy(&data.position, &position);
     push_matrix();
     set_matrix_identity(0);
     rotate_matrix_y(0, rotation_y);
@@ -638,7 +640,7 @@ void TBoss6Type1::rotate_around_center(s32 num, s32 den) {
     }
     {
     {
-        VecCopy((Vec *)&v, (const Vec *)&this->position);
+        VecCopy((Vec *)&v, &this->position);
         v.y = TBoss6Type1__data_805DE2D0;
         dist = ((f32 (*)(void *))vector_length)(&v);
         angle = (s32)(TBoss6Type1__data_80471038 * atan2_float(v.x, v.z));
@@ -995,7 +997,7 @@ void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *self, f32 dy) {
                 }
             }
         }
-        TBoss6Type1::request_jittered_camera(self, &ofs, &out, obj_getField1c(p));
+        TBoss6Type1::request_jittered_camera(self, &ofs, &out, get_entity_id(p));
     }
 }
 #pragma pop
@@ -1203,10 +1205,8 @@ extern const f32 lbl_805DE3D0;
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, int);
 s32 TBoss6Type1__ct(s32, s32, s32);
-void TLobby__send_and_handle_60(u8 *arg0);
 s32 TObjControl__ct(s32, s32);
 s32 __nw__7TObjectFUl(s32);
-int read_be16_field2__10TObjPlayerFv(void*);
 
 void TBoss6Type1::reset_param() {
     *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2D0;
@@ -1619,16 +1619,16 @@ void TBoss6Type1::enable_parts() {
     void *temp_r4_3;
     void *temp_r4_4;
 
-    temp_r4 = this->m_a4;
+    temp_r4 = this->bodies;
     if (temp_r4 != NULL) {
         *(s32 *)((s8 *)temp_r4 + 0x70) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x70) | 1);
-        temp_r4_2 = this->m_a4;
+        temp_r4_2 = this->bodies;
         *(s32 *)((s8 *)temp_r4_2 + 0x9C) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0x9C) | 1);
-        temp_r4_3 = this->m_a4;
+        temp_r4_3 = this->bodies;
         *(s32 *)((s8 *)temp_r4_3 + 0xC8) = (s32) (*(s32 *)((s8 *)temp_r4_3 + 0xC8) | 1);
-        temp_r4_4 = this->m_a4;
+        temp_r4_4 = this->bodies;
         *(s32 *)((s8 *)temp_r4_4 + 0xF4) = (s32) (*(s32 *)((s8 *)temp_r4_4 + 0xF4) | 1);
-        temp_r3 = this->m_a4;
+        temp_r3 = this->bodies;
         *(s32 *)((s8 *)temp_r3 + 0x120) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x120) | 1);
     }
 }
@@ -1637,10 +1637,10 @@ void TBoss6Type1::set_child_flags() {
     void *temp_r3;
     void *temp_r4;
 
-    temp_r4 = this->m_a4;
+    temp_r4 = this->bodies;
     if (temp_r4 != NULL) {
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 1);
-        temp_r3 = this->m_a4;
+        temp_r3 = this->bodies;
         *(s32 *)((s8 *)temp_r3 + 0x44) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x44) | 1);
     }
 }
@@ -1674,7 +1674,7 @@ void TBoss6Type1::update_part_positions() {
     s32 i;
     Vec_802B79DC *base;
     Ent_802B79DC *e;
-    if (this->m_a4 != NULL) {
+    if (this->bodies != NULL) {
         for (i = 0; i < 7; i++) {
             Tbl_802B79DC *t;
             e = &arg0->ents[i];
@@ -1705,7 +1705,7 @@ void TBoss6Type1::update_part_positions() {
 }
 
 void TBoss6Type1::update_position() {
-    VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
+    VecCopy((Vec *)&this->m_2fc, &this->position);
     if ((s32) this->m_438 != 0) {
         this->m_300 = (f32) (this->m_300 - lbl_805DE3A4);
         return;
@@ -2075,7 +2075,7 @@ void TBoss6Type1::run_task() {
 }
 
 void TBoss6Type1::render_shadows() {
-    if (this->position[1] >= lbl_805DE3D0) {
+    if (this->position.y >= lbl_805DE3D0) {
         render_shadows__9TObjEnemyFv();
     }
 }
@@ -2314,7 +2314,7 @@ void TBoss6Type1::load_params(void *arg1) {
 extern f32 lbl_805DE3EC;
 
 void TBoss6Type1::set_sync_data(void *arg1) {
-    *(u16 *)((s8 *)arg1 + 2) = (u16) this->m_1c;
+    *(u16 *)((s8 *)arg1 + 2) = (u16) this->entity_id;
     *(s8 *)((s8 *)arg1 + 8) = (s8) this->m_438;
     *(s8 *)((s8 *)arg1 + 9) = (s8) this->m_414;
     *(s8 *)((s8 *)arg1 + 0xA) = (s8) (lbl_805DE3EC * (TBoss6Type1__data_805DE304 * (f32) rand()));
@@ -2437,7 +2437,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     __ct__9TObjEnemyFP7TObject(arg0, (void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type1;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB0;
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
+    ((TObjChara *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x3F8) = arg2[0];
     ((VObj_18_f05d67 *)(arg0))->m79(arg2 + 1);
     if (((TObjEnemy *)arg0)->exchange_object_state((s32)&tmp, (s16)1) != 0) {
@@ -2533,6 +2533,6 @@ void TBoss6Type1::apply_shock_status() {  }
 void TBoss6Type1::clear_harmful_statuses() {  }
 void*TBoss6Type1::get_mag_mine_ptr() { return (char*)this + 0x388; }
 int TBoss6Type1::is_idle() { return this->m_374 == 0; }
-int TBoss6Type1::read_be16_field2() { return read_be16_field2__10TObjPlayerFv(this); }
-void TBoss6Type1::step_and_send_60() { read_be16_field2(); TLobby__send_and_handle_60((u8 *)this); }
+void TBoss6Type1::read_be16_field2() { ((G_ClientIDHeader *)this)->bswap(); }
+void TBoss6Type1::step_and_send_60() { read_be16_field2(); send_subcommand((u8 *)this); }
 void build_6xA4_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 164; *(u8*)((char*)p + 0x1) = 5; }

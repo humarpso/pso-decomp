@@ -16,7 +16,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjTombstone__shared_resource_object;
 void TLobby__sub_8001FE7C(void*, int);
-s32 __ct__13TUnk_804AF8A0FP7TObject();
+s32 __ct__14TObjCollidableFP7TObject();
 
 extern s32 __vt__13TObjTombstone[];
 extern const char* TObjTombstone__class_name;
@@ -24,7 +24,7 @@ extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 
 void *TObjTombstone::init(s32 arg1, s32 arg2, s32 arg3) {
-    __ct__13TUnk_804AF8A0FP7TObject();
+    __ct__14TObjCollidableFP7TObject();
     *(s32 **)((s8 *)this + 0x18) = __vt__13TObjTombstone;
     *(s32 *)&this->m_name = (s32) TObjTombstone__class_name;
     if ((u32) TObjTombstone__shared_resource_object == 0U) {
@@ -50,7 +50,7 @@ void TObjTombstone::load_resources() {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) (*(u8 * *)&TObjTombstone__shared_resource_object) == NULL) {
-        temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+        temp_r3 = (int)::operator new(0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &tombstone_resource_descriptor, 0, 0, 0));

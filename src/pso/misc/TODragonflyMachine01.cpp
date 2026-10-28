@@ -8,6 +8,7 @@
 
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80165538___vt__20TODragonflyMachine01 {
     s32 value;
@@ -34,7 +35,6 @@ extern const f32 lbl_805DB5C4;
 extern const f32 lbl_805DB5C8;
 extern const f32 lbl_805DB5CC;
 O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-O_80165434 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 dragonfly_machine_attack_effect_params[];
 extern char TODragonflyMachine01__attack_effect_descriptor[];
 extern s32 lbl_805D599C;
@@ -100,7 +100,7 @@ void TODragonflyMachine01::create_attack_effect() {
     T4_80165434 sp8;
     O_80165434 *o;
     s32 z = 0;
-    o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    o = (O_80165434 *)::operator new(0x440);
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, TODragonflyMachine01__attack_effect_descriptor, 0, 0, 0);
     }

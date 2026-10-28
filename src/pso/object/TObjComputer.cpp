@@ -11,6 +11,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/map/FloorArea.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -112,7 +113,6 @@ extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCEC;
 void *TObjComputer__ct(void *arg0, void *parent, void *row);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u8 *load_gvm_texture_file(s32 arg0);
 s32 scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 s32 PPCSync();
@@ -231,7 +231,7 @@ void load_computer_resources(void) {
     switch (get_current_floor_area()) {
     case AREA_CENTRAL_CONTROL_AREA: case AREA_JUNGLE_NORTH: case AREA_JUNGLE_EAST: case AREA_MOUNTAIN: case AREA_SEASIDE: case AREA_SEABED_UPPER: case AREA_SEABED_LOWER:
     case AREA_SEASIDE_NIGHT: case AREA_TOWER:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, fs_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
@@ -240,7 +240,7 @@ void load_computer_resources(void) {
         computer_uv_scroll_phase = 0;
         break;
     default:
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = ::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, fe_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
@@ -275,8 +275,8 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
     }
     init_collision_body_parts(self, obj_computer_collision_body_parts, 1);
     ((TObjPlayer *)self)->actorFlags |= 0x40000000;
-    ((TObjPlayer *)self)->reset_photon_effect();
-    ((TOKeyAncient01 *)(self->aux98))->set_type();
+    ((TObjPlayer *)self)->register_object_by_id();
+    ((TObjComputer *)self)->cursor_action.set_use();
     ((TObjPlayer *)self)->m_c0 = lbl_805DBCEC;
     self->unkC4 = 0;
     return self;
@@ -287,12 +287,12 @@ void TObjContainerAbeEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            ((TUnk_804AF8A0 *)arg0)->set_flag8();
+            ((TObjCollidable *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TUnk_804AF8A0 *)arg0)->set_flag8();
+        ((TObjCollidable *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
@@ -347,14 +347,14 @@ f32 TObjContainerAbeEnemy::receive_physical_attack(void *, f32) {
     Obj_80188768 *arg0 = (Obj_80188768 *)this;
     s16 sp8;
     Pkt_80188768 pkt;
-    if ((this->m_1c >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
+    if ((this->entity_id >= 0x1000U) && (arg0->f80 != 0U) && (((TObjCollidable *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = 1;
-        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
-        ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+        ((TObjCollidable *)arg0)->access_object_saved_state(&sp8, 0);
+        ((TObjCollidable *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
-        pkt.b = this->m_1c;
+        pkt.b = this->entity_id;
         pkt.c = get_current_floor();
-        pkt.d = this->m_84;
+        pkt.d = this->set_params[0];
         pkt.e = local_client_id;
         ((TLobby *)(&pkt))->byteswap_and_send();
     }
@@ -364,7 +364,7 @@ f32 TObjContainerAbeEnemy::receive_physical_attack(void *, f32) {
 void TObjContainerAbeEnemy::debug_print_item_box_info() {
     Obj_80188814 *self = (Obj_80188814 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80444EF4, this->m_84);
+    debug_printf_at(0x130020, lbl_80444EF4, this->set_params[0]);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }

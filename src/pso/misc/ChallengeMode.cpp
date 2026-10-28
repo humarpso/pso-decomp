@@ -10,6 +10,7 @@
 #include "pso/TObjBagWarnWin.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/object/TObjTombstone.h"
+#include "pso/map/FloorArea.h"
 typedef char TChallenge_state_offset[(offsetof(TChallenge, state) == 0x1C) ? 1 : -1];
 typedef char TChallenge_frame_offset[(offsetof(TChallenge, frame_count) == 0x20) ? 1 : -1];
 typedef char TChallenge_size[(sizeof(TChallenge) == 0x30) ? 1 : -1];

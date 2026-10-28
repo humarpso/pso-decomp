@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/system/NinjaUtil.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -99,7 +100,7 @@ void set_chunk_blend(u32 x);
 void draw_chunk_model(void *arg0);
 extern Col_802E6CB0 lbl_80472C9C;
 extern s32 current_scene_light;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 extern "C" {
 f32 lerp__9TDeadSpotFff(f32, f32);
@@ -134,7 +135,6 @@ void TObjPlayer__sub_802E75B8(void *, s32 *);
 s32 scale_matrix(int, f32, f32, f32);
 extern const f32 lbl_805DE9E4;
 void __ct__7TObjectFP7TObject(void *);
-s32 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
 
     extern int multiplay_texture_f512_handle;
@@ -163,15 +163,15 @@ void TUnk_804E3BA8::render() {
             draw_chunk_model((void *)node->model);
             break;
         case 2:
-            lbl_805D5660 = model_render_flags;
-            model_render_flags = lbl_805D5660 | 0x8810;
+            saved_model_render_flags = model_render_flags;
+            model_render_flags = saved_model_render_flags | 0x8810;
             c.a = part->f24;
-            ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)(((f32 *)&c)));
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
             draw_chunk_model((void *)node->model);
             set_chunk_material_override_pair(0xFF00, 0);
-            model_render_flags = lbl_805D5660;
+            model_render_flags = saved_model_render_flags;
             break;
         }
         pop_matrix();
@@ -215,13 +215,13 @@ u8 *TObjPlayer::init_breakup_pieces(void *arg1, s32 arg2) {
     *(u8 **)((s8 *)((u8 *)this) + 0x18) = ((u8 *)&lbl_804E3BA8);
     ((TUnk_804E3BD8 *)((u8 *)this))->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = arg2;
-    part = *(Part_802E6F10 * *)&this->m_28;
+    part = *(Part_802E6F10 * *)&this->room;
     push_matrix();
     set_matrix_identity(0);
     TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)((u8 *)this) + 0x2C));
     (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).x = lbl_805DE9CC;
     matrix_mult_vec(0, ((u8 *)this) + 0x30, ((u8 *)this) + 0x30);
-    for (i = 0; i < this->texture_id; i++) {
+    for (i = 0; i < this->texlist; i++) {
         matrix_mult_vec(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].pos, &part->pos);
         rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].rot, &part->rot);
         part->rot.y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
@@ -261,15 +261,15 @@ void TUnk_804E3BC0::render() {
             draw_chunk_model((void *)node->model);
             break;
         case 2:
-            lbl_805D5660 = model_render_flags;
-            model_render_flags = lbl_805D5660 | 0x8810;
+            saved_model_render_flags = model_render_flags;
+            model_render_flags = saved_model_render_flags | 0x8810;
             c.a = part->f24;
-            ((TUnk_80494AE0 *)(&c))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((&c)));
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
             draw_chunk_model((void *)node->model);
             set_chunk_material_override_pair(0xFF00, 0);
-            model_render_flags = lbl_805D5660;
+            model_render_flags = saved_model_render_flags;
             break;
         }
         pop_matrix();
@@ -345,7 +345,7 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     s32 *temp_r4;
     s32 *var_r0;
 
-    var_r0 = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    var_r0 = (s32 *)::operator new(0x10);
     if (var_r0 != NULL) {
         var_r0 = init_from_model__11TBreakUpMdlFl(var_r0, arg1);
     }
@@ -371,8 +371,8 @@ void *TObjPlayer::init_zeroed_object() {
     *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804E3BD8;
     *(u32 *)&this->m_20 = 0;
     *(u32 *)((s8 *)this + 0x1C) = 0;
-    *(u32 *)&this->texture_id = 0;
-    (*(u32 *)&this->m_28) = 0;
+    *(u32 *)&this->texlist = 0;
+    (*(u32 *)&this->room) = 0;
     return this;
 }
 

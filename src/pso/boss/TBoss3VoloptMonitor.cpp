@@ -181,13 +181,13 @@ TBoss3VoloptMonitor::TBoss3VoloptMonitor(TObject *parent, void *set_data) : TObj
     set_model(1);
 }
 
-TBoss3VoloptMonitor::TBoss3VoloptMonitor(TUnk_804B9870 *parent, u16 id, s32 group, s32 slot_index, s32 start_timer) : TObjEnemyCustom(parent) {
+TBoss3VoloptMonitor::TBoss3VoloptMonitor(TObjBase *parent, u16 id, s32 index, s32 slot_index, s32 start_timer) : TObjEnemyCustom(parent) {
     m_name = TBoss3VoloptMonitor_name;
-    m_1c = id;
-    group_index = group;
-    m_80 = NULL;
-    group_ids[0] = parent->group_ids[0];
-    group_ids[1] = parent->group_ids[1];
+    entity_id = id;
+    set_index = index;
+    set_entry = NULL;
+    room = parent->room;
+    set_group = parent->set_group;
     slot = slot_index;
     variant = slot_index & 3;
     timer = start_timer;
@@ -197,12 +197,12 @@ TBoss3VoloptMonitor::TBoss3VoloptMonitor(TUnk_804B9870 *parent, u16 id, s32 grou
     push_matrix();
     set_matrix_identity(NULL);
     rotate_matrix_y(NULL, rotation_y);
-    matrix_mult_vec(NULL, &volopt_monitor_offsets[variant], (Vec *)position);
+    matrix_mult_vec(NULL, &volopt_monitor_offsets[variant], &position);
     pop_matrix();
-    VecCopy(&volopt_slot_positions[slot], (Vec *)position);
+    VecCopy(&volopt_slot_positions[slot], &position);
     volopt_slot_positions[slot].y = (slot & 3) == 0 ? 43.0f : 15.0f;
     init_collision_body_parts(this, &volopt_monitor_collision[variant], 1);
-    ((CollisionState *)m_a4)->flags |= 0x500;
+    ((CollisionState *)bodies)->flags |= 0x500;
 }
 
 TBoss3VoloptMonitor::~TBoss3VoloptMonitor() {
@@ -214,7 +214,7 @@ void TBoss3VoloptMonitor::init_params() {
     volopt_monitor_stats->hp = fn_80042960(slot % 4 ? 1 : 0);
     recalc_combat_stats(volopt_monitor_stats, volopt_monitor_stats_b, volopt_monitor_object_params, 1.0f, 1.0f);
     hp = hpmax;
-    m_32e = m_2ba;
+    tp = tpmax;
     referenceHp = hp;
     set_param(0x2E);
     update_prev_position();
@@ -279,7 +279,7 @@ void TBoss3VoloptMonitor::run_task() {
     if (obj_testFlags30(0x800) == 0) {
         ((TBoss3VoloptHiraisin *)this)->copy_position();
         submit_cursor_candidate(this, -1);
-        minimap_render_dot((Vec *)position, -0x5DB4, 1, 0);
+        minimap_render_dot(&position, -0x5DB4, 1, 0);
     }
     if (!(actorFlags & 0x800)) {
         if (--anim_timer <= 0) {
@@ -379,7 +379,7 @@ void TBoss3VoloptMonitor::sub_80041E88() {
         anim_timer = 3;
         anim_frame = 0;
         m_388 |= 0x10000;
-        play_sound_effect(0x4003BC03, (Vec *)position, 0, 0);
+        play_sound_effect(0x4003BC03, &position, 0, 0);
         damage_player_if_aligned();
         referenceHp = hp;
         *(s16 *)&timer = 3;
@@ -402,7 +402,7 @@ void TBoss3VoloptMonitor::sub_80041D3C() {
     TBoss3VoloptMonitor *other;
     switch (state) {
     case 0:
-        play_sound_effect(0x4003A804, (Vec *)position, 0, 0);
+        play_sound_effect(0x4003A804, &position, 0, 0);
         damage_player_if_aligned();
         spawn_effects();
         volopt_target_slot_used[slot] = 1;

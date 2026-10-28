@@ -1,4 +1,7 @@
+#include "pso/system/NinjaTypes.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TUnk_804EDC28.h"
@@ -10,6 +13,8 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItemAttackCol.h"
+#include "pso/item/TItem.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 
 struct RecoveredGlobal_8032DC94_lbl_8050BEC0
 {
@@ -24,15 +29,13 @@ struct RecoveredGlobal_8032DC94_lbl_8058D4C0
 };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 }
 extern s32 tl_05;
 u8 *create_guardianna(u8 *arg0);
 
 extern "C" {
-s32 *query_game_join_id__10TObjPlayerFv(s32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -41,30 +44,26 @@ s32 post_translate_matrix(int);
 void draw_ginja_object(void *child);
 extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1);
-s32 fire_shot_at_target__11TItemWeaponFPvPvl(void *, s32 *, s32, s32);
-s32 get_attack_stage__11TItemWeaponFv(void *);
-void TItemWeapon__ct(void *);
+void __ct__11TItemWeaponFP7TObjectPUc(void *);
 s16 get_validated_attack_stage(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TObjPlayer::launch_guardianna_colliders() {
     s32 sp8;
 
-    draw_icon(4, (s32)&sp8);
+    ((TItemWeapon *)this)->get_joint_position(4, &sp8);
     if (get_validated_attack_stage((u8 *)(*(s32 *)&this->unk_F0 + 0x7CC)) == 2) {
-        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, 0);
-        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, 0x1555);
-        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, -0x1555);
+        ((TItemWeapon *)this)->fire_shot_at_target(&sp8, (void *)*(s32 *)&this->m_f4, 0);
+        ((TItemWeapon *)this)->fire_shot_at_target(&sp8, (void *)*(s32 *)&this->m_f4, 0x1555);
+        ((TItemWeapon *)this)->fire_shot_at_target(&sp8, (void *)*(s32 *)&this->m_f4, -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFPvPvl(this, &sp8, *(s32 *)&this->m_f4, 0);
+        ((TItemWeapon *)this)->fire_shot_at_target(&sp8, (void *)*(s32 *)&this->m_f4, 0);
     }
-    if (get_attack_stage__11TItemWeaponFv(this) == 0) {
+    if (((TItemWeapon *)this)->get_attack_stage() == 0) {
         ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)this, 4);
     }
 }
@@ -72,9 +71,9 @@ void TObjPlayer::launch_guardianna_colliders() {
 extern s32 lbl_804EDC28[];
 
 void *TUnk_804EDC28::construct_guardianna(s32 _w1, void *_w2) {
-    TItemWeapon__ct(this);
+    __ct__11TItemWeaponFP7TObjectPUc(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDC28;
-    set_status_flags__10TObjPlayerFUl(this, 2);
+    set_weapon_flags(2);
     return this;
 }
 }
@@ -85,7 +84,7 @@ u8 *create_guardianna(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x1F8));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((u8 *)((TUnk_804EDC28 *)temp_r3)->construct_guardianna(tl_05, arg0)));
@@ -101,7 +100,7 @@ void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDC28;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -134,7 +133,7 @@ void TUnk_804EDD20::render() {
   if ((!((this->m_80) <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
   {
     var_r3 = (s32 *) (*((s32 **) (((s8 *) var_r29) + 0x60)));
-    var_r31 = (s32 *) query_game_join_id__10TObjPlayerFv(var_r3);
+    var_r31 = (s32 *) find_equipped_item((s32)var_r3);
     if (var_r31 != 0)
     {
       new_var = (s32 *) (*((s32 **) (((s8 *) var_r31) + 0x188)));
@@ -143,16 +142,15 @@ void TUnk_804EDD20::render() {
       {
         var_r3 = &saved_model_draw_color.value;
         var_r4 = &model_material_color.value;
-        lbl_805D5660 = model_render_flags;
+        saved_model_render_flags = model_render_flags;
         var_r3 = &saved_model_draw_color.value;
         var_r4 = &model_material_color.value;
-        ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
+        copy_argb((NJS_ARGB *)&saved_model_draw_color.value, (NJS_ARGB *)&model_material_color.value);
         var_r3 = (s32 *)(var_r29 + 0x80);
         model_render_flags |= 0x20;
-        ((TUnk_80494AE0 *)var_r3)->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)var_r3);
         var_r3 = (s32 *) var_r31;
-        ((TObjPlayer *)var_r3)->get_entity_id();
-        notify_fish_if_valid__10TObjPlayerFUl();
+        set_texlist(((TObjPlayer *)var_r3)->get_texture_id());
         push_matrix();
         var_r3 = (s32 *)(var_r29 + 0x64);
         post_translate_matrix((int) var_r3);
@@ -168,8 +166,8 @@ void TUnk_804EDD20::render() {
         var_r4 = &saved_model_draw_color.value;
         var_r3 = &model_material_color.value;
         var_r4 = &saved_model_draw_color.value;
-        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
-        model_render_flags = lbl_805D5660;
+        copy_argb((NJS_ARGB *)&model_material_color.value, (NJS_ARGB *)&saved_model_draw_color.value);
+        model_render_flags = saved_model_render_flags;
       }
     }
   }
@@ -261,8 +259,7 @@ void *spawn_particle_effect(void *pos, s32 id);
 
 void *find_entity_by_id(u16 id);
 void queue_destruction__7TObjectFv(void *);
-u8 *find_item_by_id(s32 id);
-s8 sub_80102C30__5TItemFv();
+s8 get_mode__5TItemFv();
 
 void TUnk_804EDD44::anchor_card_effect() {
   u16 temp_r3;
@@ -328,7 +325,7 @@ void TUnk_804EDD44::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (sub_80102C30__5TItemFv() != 2) {
+    if (get_mode__5TItemFv() != 2) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -459,7 +456,7 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
 }
 
 extern "C" {
-s16 obj_getField1c(void *);
+s16 get_entity_id(void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const f64 lbl_804773A8[];
@@ -467,7 +464,7 @@ extern const f64 lbl_804773A8[];
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     arg0->vt = __vt__13TUnk_804EDD44;
-    arg0->f34 = obj_getField1c(arg2->owner);
+    arg0->f34 = get_entity_id(arg2->owner);
     arg0->f60 = arg5;
     ((TItemAttackCol *)(arg0->col))->copy_pos(arg2);
     VecCopy((Vec *)&arg0->pos, (const Vec *)arg3);

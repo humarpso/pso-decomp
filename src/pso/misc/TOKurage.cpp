@@ -61,7 +61,7 @@ void push_matrix(void);
 void post_translate_matrix(void *);
 void TObjEneSlimeOne__sub_803E4B54(void *child, void *arg1, void *arg2, f32 farg0);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 s32 rand(void);
 f32 sin_table_lookup(s32);
@@ -96,7 +96,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TOKurage::check_player_distance() {
-    if ((xyz_distance((u8 *)&this->m_e4, (u8 *)&this->position) > this->target_scale) && ((u8) this->m_100 != 4)) {
+    if ((xyz_distance((u8 *)&this->m_e4, (u8 *)&this->position) > this->scale.y) && ((u8) this->m_100 != 4)) {
         this->m_100 = 3U;
     }
 }
@@ -104,7 +104,7 @@ void TOKurage::check_player_distance() {
 void TOKurage::update_state() {
     f32 temp_f0;
 
-    temp_f0 = this->scale;
+    temp_f0 = this->scale.x;
     if (is_any_player_within_radius_xz(temp_f0 * temp_f0) == 1) {
         this->m_100 = 4;
     }
@@ -337,7 +337,7 @@ void TOKurage::render() {
         TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
         case 4:
-            lbl_805D5660 = model_render_flags;
+            saved_model_render_flags = model_render_flags;
             model_render_flags |= 0x10;
             if (*(f32 *)(arg0 + 0x104) < (0.0f)) {
                 *(u8 *)(arg0 + 0x100) = 3;
@@ -350,14 +350,14 @@ void TOKurage::render() {
                 *(f32 *)(arg0 + 0x104) < (0.0f)) {
                 *(f32 *)(arg0 + 0x104) = (1.0f);
             }
-            lbl_805D5660 = model_render_flags;
+            saved_model_render_flags = model_render_flags;
             model_render_flags |= 0x10;
             break;
         }
-        ((TUnk_80494AE0 *)((f32 *)&this->m_104))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&this->m_104)));
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)(arg0 + 0x34)), (void *)(*(s32 *)(arg0 + 0xBC)), (void *)(*(s32 *)(arg0 + 0xC8)), *(f32 *)(arg0 + 0xB0));
-        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-        model_render_flags = lbl_805D5660;
+        set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+        model_render_flags = saved_model_render_flags;
         pop_matrix();
     }
 }
@@ -382,7 +382,7 @@ void TOKurage::destroy_static_instance() {
 void TOKurage::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_kurage_resource_descriptor.value, 0, 0, 0));
@@ -406,7 +406,7 @@ u8 *TOKurage__ct(TOKurage *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKurage__name;
     ((TOKurage *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
-    arg0->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
+    arg0->texlist = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);
     *(u8 **)((s8 *)arg0 + 0xC8) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 1);
     arg0->m_b8 = (f32) (0.5f);

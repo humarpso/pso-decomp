@@ -1,4 +1,6 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TUnk_804F0BF0.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -27,14 +29,13 @@ struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
 extern "C" {
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 extern s32 tl_05;
 void *create_particle_emitter(void *pos, s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__13TUnk_804F0BF0[];
 extern const f32 lbl_805DFE10;
 s32 get_render_pass__9TMainTaskFv();
-u32 query_game_join_id__10TObjPlayerFv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -42,22 +43,21 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern s32 saved_model_draw_color[];
 extern s32 model_material_color[];
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TItemWeapon__ct(void *);
+void __ct__11TItemWeaponFP7TObjectPUc(void *);
 void __dl__7TObjectFPv(void *);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804F0AF8[];
 
 void *TUnk_804F0AF8::init_fields(s32 _w1, void *_w2) {
-    TItemWeapon__ct(this);
+    __ct__11TItemWeaponFP7TObjectPUc(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0AF8;
-    set_status_flags__10TObjPlayerFUl(this, 1);
+    set_weapon_flags(1);
     *(u32 *)((s8 *)this + 0x1F8) = -30947;
     this->m_1fc = -7281;
     return this;
@@ -68,7 +68,7 @@ u8 *TItemEffPG::create() {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x200));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((u8 *)((TUnk_804F0AF8 *)temp_r3)->init_fields(tl_05, arg0)));
@@ -82,18 +82,18 @@ void TItemEffPG__begin_visual_fade(void* p) { *(s32*)((char*)p + 0x58) = 1; }
 
 void TUnk_804F0BF0::render() {
     u8 *arg0 = (u8 *)this;
-    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x1C))) == 0U) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || find_equipped_item((int) (*(s32 *)((s8 *)arg0 + 0x1C))) == 0U) {
         return;
     }
     {
         if (((void *) this->m_20 != NULL) && (get_render_pass__9TMainTaskFv() == 1)) {
             set_depth_buffer_settings_id(3);
-            lbl_805D5660 = model_render_flags;
-            lbl_805D5664 = chunk_polygon_flags_and_mask;
-            lbl_805D5668 = chunk_polygon_flags_or_mask;
-            ((TRaderMapCore *)saved_model_draw_color)->copy_vec4((model_material_color));
+            saved_model_render_flags = model_render_flags;
+            saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+            saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
+            copy_argb((NJS_ARGB *)saved_model_draw_color, (NJS_ARGB *)model_material_color);
             model_render_flags |= 0x20;
-            ((TUnk_80494AE0 *)(arg0 + 0x28))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((arg0 + 0x28)));
             TParticleCtrl::begin_effect_render();
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
@@ -110,10 +110,10 @@ void TUnk_804F0BF0::render() {
             pop_matrix();
             pop_matrix();
             TParticleCtrl::end_effect_render();
-            ((TRaderMapCore *)model_material_color)->copy_vec4((saved_model_draw_color));
-            chunk_polygon_flags_and_mask = lbl_805D5664;
-            chunk_polygon_flags_or_mask = lbl_805D5668;
-            model_render_flags = lbl_805D5660;
+            copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+            chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+            chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+            model_render_flags = saved_model_render_flags;
         }
     }
 }

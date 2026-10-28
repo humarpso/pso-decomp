@@ -57,7 +57,7 @@ void TObjHashi::unload_static_data() {
 void TObjHashi::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &fe_obj_hashi_resource_descriptor.value, 0, 0, 0));
@@ -68,7 +68,7 @@ void TObjHashi::load_shared_resource() {
 void *__dt__9TObjHashiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjHashi;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__13TObjHashiBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -87,7 +87,7 @@ u8 *TObjHashi__ct(u8 *player, s32 arg1, s32 _w2) {
     *(s32 *)((s8 *)player + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashi__bml_resource), 0);
     init_collision_body_parts(player, (s32) &bridge_collision_body.value, 1);
     *(s32 *)((s8 *)player + 0x30) = (s32) (*(s32 *)((s8 *)player + 0x30) | 0x40000000);
-    ((TObjPlayer *)player)->reset_photon_effect();
+    ((TObjPlayer *)player)->register_object_by_id();
     return player;
 }
 

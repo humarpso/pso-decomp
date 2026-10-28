@@ -70,7 +70,7 @@ void TOKeyMachine01::send_switch_changed(s32 flags) {
     TOKeyMachine01 *self = this;
     Pkt_8016D148 pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->m_1c;
+    pkt.object = self->entity_id;
     pkt.zero = local_client_id;
     pkt.switchId = self->m_e4;
     pkt.area = get_current_floor();
@@ -138,15 +138,15 @@ void TOKeyMachine01::vfunc_17() {
             this->m_f8 = 1;
         }
     }
-    temp_f1 = this->target_scale;
+    temp_f1 = this->scale.y;
     if (temp_f1 < 0.0f) {
-        this->target_scale = (f32) (temp_f1 - (-0.023333333f));
+        this->scale.y = (f32) (temp_f1 - (-0.023333333f));
     }
 }
 void TOKeyMachine01::vfunc_16() {
     TOKeyMachine01 *self = this;
-    if ((-0.7f) < self->target_scale) {
-        self->target_scale += (-0.023333333f);
+    if ((-0.7f) < self->scale.y) {
+        self->scale.y += (-0.023333333f);
     }
 }
 
@@ -181,7 +181,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -225,9 +225,9 @@ void TOKeyMachine01::render() {
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
-            lbl_805D5660 = temp_r4;
+            saved_model_render_flags = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            ((TUnk_80494AE0 *)(arg0 + 0xE8))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((arg0 + 0xE8)));
         }
         TParticleCtrl::begin_effect_render();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
@@ -243,8 +243,8 @@ void TOKeyMachine01::render() {
         pop_matrix();
         TParticleCtrl::end_effect_render();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-            model_render_flags = lbl_805D5660;
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+            model_render_flags = saved_model_render_flags;
         }
         pop_matrix();
     }
@@ -276,7 +276,7 @@ void TOKeyMachine01::free_statics() {
 void TOKeyMachine01::load_assets() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_ki_doa_panel_resource_descriptor.value, 0, 0, 0));
@@ -298,7 +298,7 @@ u8 *TOKeyMachine01__ct(TOKeyMachine01 *key_machine01, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)key_machine01 + 0) = (s32) TOKeyMachine01__name;
     ((TOKeyMachine01 *)(key_machine01))->apply_object_set_data((void *)arg2);
     ((TOKey *)key_machine01)->init_switch_id();
-    key_machine01->texture_id = (s32) *TOKeyMachine01__texture_lists;
+    key_machine01->texlist = (s32) *TOKeyMachine01__texture_lists;
     *(s32 *)((s8 *)key_machine01 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&key_machine_model_archive) + 0x42C)) + 8);
     key_machine01->m_c0 = (f32) 4e+02f;
     *(f32 *)((s8 *)key_machine01 + 0xC4) = (f32) 1e+01f;
@@ -326,7 +326,7 @@ block_5:
     key_machine01->m_f4 = (f32) 1.0f;
     key_machine01->m_f8 = 0;
     *(f32 *)((s8 *)key_machine01 + 0x70) = (f32) 0.0f;
-    key_machine01->target_scale = (f32) 0.0f;
-    key_machine01->scale = (f32) 0.0f;
+    key_machine01->scale.y = (f32) 0.0f;
+    key_machine01->scale.x = (f32) 0.0f;
     return (u8 *)key_machine01;
 }

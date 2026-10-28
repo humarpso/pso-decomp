@@ -7,6 +7,7 @@
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/map/FloorArea.h"
 
 struct Sub_8006EC20 {
     u8 pad[0x1C];

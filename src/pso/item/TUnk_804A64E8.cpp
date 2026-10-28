@@ -36,7 +36,7 @@ struct Tec_8012F704 {
     Vec_8012F704 dir;
 };
 
-s16 obj_getField1c(void *);
+s16 get_entity_id(void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 struct SlicerState_801295FC;
 void init_slicer_launch_state(void *arg0);
@@ -50,8 +50,8 @@ void TUnk_804A64E8::emit_marker_effects() {
     Tec_8012F704 tec;
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);
-    tec.id = obj_getField1c(((Self_8012F704 *)this)->owner);
-    tec.fC = ((TItem *)this)->get_field_d8();
+    tec.id = get_entity_id(((Self_8012F704 *)this)->owner);
+    tec.fC = ((TItem *)this)->get_item_id();
     tec.f4 = ((Self_8012F704 *)this)->f24;
     tec.f8 = ((Self_8012F704 *)this)->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((s16 *)((u8 *)((Self_8012F704 *)this)->owner + 0x7CC));
@@ -62,8 +62,8 @@ void TUnk_804A64E8::emit_marker_effects() {
     tec.f20 = 1.0f;
     tec.f24 = 0.7f;
     tec.f28 = ((Self_8012F704 *)this)->owner->f60;
-    ((TObjPlayer *)this)->draw_icon(5, (s32)&tec.pos);
-    ((TObjPlayer *)this)->draw_icon(4, (s32)&tec.dir);
+    get_joint_position(5, &tec.pos);
+    get_joint_position(4, &tec.dir);
     TTecSlicer::create((u16*)&tec);
 }
 
@@ -82,7 +82,7 @@ void *__dt__13TUnk_804A64E8Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A64E8;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -95,11 +95,10 @@ void *__dt__13TUnk_804A64E8Fv(void *arg0, s16 arg1) {
 
 extern "C" {
 
-int TItemWeapon__ct(void);
-int set_status_flags__10TObjPlayerFUl(void*, void*);
+int __ct__11TItemWeaponFP7TObjectPUc(void);
 
 
     
-void*TUnk_804A64E8::init_position_state() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A64E8; set_status_flags__10TObjPlayerFUl(this, (void*)2); *(int *)&(this->m_204) = 0; *(float*)((char*)this + 0x200) = 1.0f; *(float *)&(this->m_1fc) = 1.0f; *(float*)((char*)this + 0x1f8) = 1.0f; return this; }
+void*TUnk_804A64E8::init_position_state() { __ct__11TItemWeaponFP7TObjectPUc(); *(int*)((char*)this + 0x18) = (int)lbl_804A64E8; set_weapon_flags(2); *(int *)&(this->m_204) = 0; *(float*)((char*)this + 0x200) = 1.0f; *(float *)&(this->m_1fc) = 1.0f; *(float*)((char*)this + 0x1f8) = 1.0f; return this; }
 
 }

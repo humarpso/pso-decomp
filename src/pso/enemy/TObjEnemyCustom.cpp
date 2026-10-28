@@ -26,7 +26,7 @@ extern "C" {
 int rand(void);
 void advance_animation_playback(TObjMotion *motion);
 // TNpcPlayer_800D87A8.h declares it without the id its definition passes through.
-TUnk_804B9870 *find_active_entity_by_id(u16 id);
+TObjBase *find_active_entity_by_id(u16 id);
 s32 push_matrix(void);
 void post_translate_matrix(const f32 *offset);
 void matrix_mult_vec(s32 matrix, const Vec *src, Vec *dst);
@@ -47,7 +47,7 @@ extern s32 lbl_805D5870;
 
 // The actor update() hits, with slot 25 as it is called here: the base declares
 // apply_knockback_from_attacker(u8 *) without the strength.
-struct TObjEnemyCustomVictim : public TUnk_804AF8A0 {
+struct TObjEnemyCustomVictim : public TObjCollidable {
     virtual s32 add_actor_exp(s32 exp);
     virtual s32 consume_timer_field(s32 frames);
     virtual s32 get_actor_level_index();
@@ -104,7 +104,7 @@ void TObjEnemyCustom::run_task() {
         state = 0;
     }
     update_prev_position();
-    VecCopy((Vec *)&m_74, body_center());
+    VecCopy(&center, body_center());
 }
 
 void TObjEnemyCustom::dispatch_state() {
@@ -166,7 +166,7 @@ void TObjEnemyCustom::update_wander_state() {
     case 1:
         advance_animation_playback(this);
         if (target != NULL) {
-            Vec dest = *((TUnk_804806E8 *)target)->body_center();
+            Vec dest = *((TObjChara *)target)->body_center();
             EnemyMoveParams *params = (EnemyMoveParams *)movementParameters;
             f32 distance = update_enemy_wander_move(this, &dest, 1, params, params->min_distance);
             params = (EnemyMoveParams *)movementParameters;
@@ -306,9 +306,9 @@ void TObjEnemyCustom::update_dying_state() {
 
 void TObjEnemyCustom::render() {
     if (update_object_view_visibility(400.0f, 20.0f) != 0) {
-        TObjFish::set_global_param(texture_id);
+        TObjFish::set_global_param(texlist);
         push_matrix();
-        post_translate_matrix(position);
+        post_translate_matrix(&position.x);
         rotate_matrix_y(0, rotation_y);
         model_render_flags &= ~0x400;
         if (TObjPlayer::check_demo_mode() == 1) {
@@ -328,7 +328,7 @@ void TObjEnemyCustom::run_demo_task() {
 
 void TObjEnemyCustom::render_anim_model_at_pos() {
     push_matrix_from(identity_matrix);
-    post_translate_matrix(position);
+    post_translate_matrix(&position.x);
     rotate_matrix_y(0, rotation_y);
     render_anim_model(m_c0);
     pop_matrix();
@@ -388,14 +388,14 @@ void show_model_nodes(NJS_OBJECT **nodes) {
 
 s32 TObjEnemyCustom::turn_toward_point(Vec *point, s32 max_step, s32 angle_offset) {
     Vec delta = *point;
-    subtract_vector(&delta, (Vec *)position);
+    subtract_vector(&delta, &position);
     angle_offset += (s32)(10430.38043493439 * atan2_float(delta.x, delta.z));
     rotation_y = approach_angle_limited(rotation_y, angle_offset, max_step);
     return angle_difference_abs(rotation_y, angle_offset);
 }
 
 void TObjEnemyCustom::sub_800C73F4() {
-    if (xz_distance_squared((Vec *)position, (Vec *)&m_50) > 100.0f) {
+    if (xz_distance_squared(&position, &home_position) > 100.0f) {
         ((TObjEneMe1GiGue *)this)->update_if_active(8);
         return;
     }
@@ -407,8 +407,8 @@ void TObjEnemyCustom::move_along_ground_avoiding_walls(Vec dest, f32 speed, f32 
     CsnHit *hit;
     s32 angle;
     s32 i;
-    calc_velocity_toward_destination(this, *(Vec *)position, dest, speed);
-    VecCopy((Vec *)&m_44, (const Vec *)position);
+    calc_velocity_toward_destination(this, *&position, dest, speed);
+    VecCopy(&prev_position, &position);
     VecCopy(&probe_end, body_center());
     Vec step = *velocity();
     Vec up;
@@ -446,12 +446,12 @@ void TObjEnemyCustom::move_along_ground_avoiding_walls(Vec dest, f32 speed, f32 
             rotate_vector_by_matrix(0, velocity(), &dir);
             pop_matrices(1);
         }
-        VecCopy(&next, (const Vec *)position);
+        VecCopy(&next, &position);
         vec3_add_to(&next, &dir);
         if (project_actor_to_ground(this, &next, 0) == 1) {
-            VecCopy((Vec *)position, &next);
-            VecCopy(velocity(), (const Vec *)position);
-            subtract_vector(velocity(), (Vec *)&m_44);
+            VecCopy(&position, &next);
+            VecCopy(velocity(), &position);
+            subtract_vector(velocity(), &prev_position);
             return;
         }
     }
@@ -477,8 +477,8 @@ BOOL TObjEnemyCustom::select_nearest_target(f32 radius) {
     } else if (enemy == 0xFFFF) {
         targetId = player;
     } else {
-        player_distance = xz_distance_squared((Vec *)position, (Vec *)find_entity_by_id(player)->position);
-        targetId = player_distance < xz_distance_squared((Vec *)position, (Vec *)find_entity_by_id(enemy)->position)
+        player_distance = xz_distance_squared(&position, (Vec *)&find_entity_by_id(player)->position);
+        targetId = player_distance < xz_distance_squared(&position, (Vec *)&find_entity_by_id(enemy)->position)
                        ? player
                        : enemy;
     }
@@ -493,19 +493,19 @@ u16 TObjEnemyCustom::find_nearest_enemy(Vec *out, f32 radius) {
     Vec offset;
     u16 best;
     s32 i;
-    TUnk_804806E8 *entity;
+    TObjChara *entity;
     f32 best_distance;
     f32 distance;
     u16 id;
     best_distance = radius * radius;
     best = 0xFFFF;
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
-        entity = (TUnk_804806E8 *)TObjPlayer::get_player_data(i);
+        entity = (TObjChara *)TObjPlayer::get_player_data(i);
         if (entity == NULL) {
             break;
         }
-        id = obj_getField1c(entity);
-        if (id == m_1c) {
+        id = get_entity_id(entity);
+        if (id == entity_id) {
             continue;
         }
         if (id < 0x1000 || id >= 0x4000) {
@@ -516,7 +516,7 @@ u16 TObjEnemyCustom::find_nearest_enemy(Vec *out, f32 radius) {
         }
         distance = calc_xz_distance_sq(this, entity, &offset);
         if (distance < best_distance) {
-            best = obj_getField1c(entity);
+            best = get_entity_id(entity);
             best_distance = distance;
             if (out != NULL) {
                 VecCopy(out, &offset);
@@ -633,7 +633,7 @@ void TObjEnemyCustom::pick_open_direction(f32 *dir, f32 reach, f32 radius) {
     best = 10.0f;
     angle = (s32)(10430.38043493439 * heading);
     best_angle = angle;
-    VecCopy(&eye, (const Vec *)position);
+    VecCopy(&eye, &position);
     eye.y += 5.0f;
     push_matrix_from(identity_matrix);
     {
@@ -647,7 +647,7 @@ void TObjEnemyCustom::pick_open_direction(f32 *dir, f32 reach, f32 radius) {
                 pop_matrix();
                 return;
             }
-            clearance = vec_xz_distance((Vec *)position, &hit->contact->point) - radius;
+            clearance = vec_xz_distance(&position, &hit->contact->point) - radius;
             if (best < clearance) {
                 best = clearance;
                 best_angle = angle;
@@ -668,7 +668,7 @@ void TObjEnemyCustom::pick_open_direction(f32 *dir, f32 reach, f32 radius) {
 }
 
 void TObjEnemyCustom::release_destroyed_target() {
-    if (target != NULL && (((TUnk_804B9870 *)target)->actorFlags & 0x800)) {
+    if (target != NULL && (((TObjBase *)target)->actorFlags & 0x800)) {
         target = NULL;
         targetId = 0xFFFF;
     }

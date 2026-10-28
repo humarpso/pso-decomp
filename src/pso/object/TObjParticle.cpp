@@ -45,7 +45,7 @@ u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 extern s32 __vt__12TObjParticle[];
 extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
@@ -70,12 +70,12 @@ void TObjParticle::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
-    if (((get_current_floor_area() == AREA_DARK_FALZ) || ((s32) this->m_84 == 1)) && ((s32) this->m_8c != 1)) {
+    if (((get_current_floor_area() == AREA_DARK_FALZ) || ((s32) this->set_params[0] == 1)) && ((s32) this->set_params[2] != 1)) {
         var_f31 = lbl_805DBEE0;
     } else {
         var_f31 = lbl_805DBEE4;
     }
-    if (((s32) this->m_8c == 1) && ((s32) this->m_84 == 1)) {
+    if (((s32) this->set_params[2] == 1) && ((s32) this->set_params[0] == 1)) {
         var_f31 = lbl_805DBEE8;
     }
     if (xyz_distance_squared((Vec *)&this->position, (Vec *)(camera_ctrl_instance + 0x178)) > var_f31) {
@@ -84,14 +84,14 @@ void TObjParticle::run_task() {
     }
     if ((u32) this->m_90 != 0U) {
         ((TNowLoading *)(this->m_90))->copy_pos((u8 *)&this->position);
-        ((TBoss4Type2 *)(this->m_90))->copy_vec3((u8 *)&this->m_5c);
+        ((TBoss4Type2 *)(this->m_90))->copy_vec3((u8 *)&this->rotation_x);
     }
 }
 
 }
 TObjParticle::~TObjParticle() {
     if (*(void **)((s8 *)this + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)this + 0x90))); this->m_90 = 0; }
-    ((TUnk_804B9870 *)this)->mask_object_set_row_flags(-3);
+    ((TObjBase *)this)->mask_object_set_row_flags(-3);
 }
 extern "C" {
 
@@ -101,7 +101,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 parent, Src_80195400 *a
     u16 flags;
     u16 base;
     u16 other;
-    __ct__13TUnk_804B9870FP7TObject(arg0, (void *) parent);
+    __ct__8TObjBaseFP7TObject(arg0, (void *) parent);
     arg0->vt = __vt__12TObjParticle;
     other = 0;
     arg0->f0 = obj_particle_class_name;

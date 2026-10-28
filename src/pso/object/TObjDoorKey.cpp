@@ -93,7 +93,7 @@ void post_translate_matrix(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 door_key_beam_color_table[][0x10];
 extern s32 actor_frame_tick;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void play_sound_effect(int, void *, int, int);
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
@@ -160,16 +160,16 @@ s32 TObjDoorKey::draw_active_beam() {
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
     TParticleCtrl::begin_effect_render();
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
-    ((TUnk_80494AE0 *)((f32 *)door_key_beam_color_table[arg0->f8C]))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)(((f32 *)door_key_beam_color_table[arg0->f8C])));
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[1]);
     rotate_matrix_y(0, arg0->fF0);
     s32 *g = TObjDoorKey__ginja_model_table;
     ((TObjDoorJung *)(((Node_8018FBB8 *)g[2])->f4))->free_children((void *)((u16)arg0->f8C));
     draw_ginja_object((void *)g[2]);
-    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-    model_render_flags = lbl_805D5660;
+    set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+    model_render_flags = saved_model_render_flags;
     TParticleCtrl::end_effect_render();
     pop_matrix();
 }
@@ -182,14 +182,14 @@ s32 TObjDoorKey::draw_inactive_badge() {
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
     TParticleCtrl::begin_effect_render();
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
-    ((TUnk_80494AE0 *)((f32 *)door_key_beam_color_table[arg0->f8C]))->set_chunk_material_color();
+    set_constant_material((const NJS_ARGB *)(((f32 *)door_key_beam_color_table[arg0->f8C])));
     s32 *g = TObjDoorKey__ginja_model_table;
     ((TObjDoorJung *)(((Node_8018FCD8 *)g[2])->f4))->free_children((void *)((u16)arg0->f8C));
     draw_ginja_object((void *)g[2]);
-    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-    model_render_flags = lbl_805D5660;
+    set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+    model_render_flags = saved_model_render_flags;
     TParticleCtrl::end_effect_render();
     pop_matrix();
 }
@@ -251,7 +251,7 @@ void TObjDoorKey::run_task() {
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoorKey;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         if ((u32) ((TObjDoorKey *)arg0)->m_f8 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));
@@ -278,19 +278,19 @@ void *TObjDoorKey__ct(TObjDoorKey *door_key, void *arg1, void *arg2) {
     *(s32 *)((s8 *)door_key + 0xF4) = 0;
     *(s32 *)&door_key->m_f8 = 0;
     door_key->m_id = (*(u16 *)&door_key_id_counter)++;
-    if (*(s32 *)&door_key->m_8c < 0) {
-        *(s32 *)&door_key->m_8c = 0;
+    if (*(s32 *)&door_key->set_params[2] < 0) {
+        *(s32 *)&door_key->set_params[2] = 0;
     }
-    if (*(s32 *)&door_key->m_8c > 9) {
-        *(s32 *)&door_key->m_8c = 9;
+    if (*(s32 *)&door_key->set_params[2] > 9) {
+        *(s32 *)&door_key->set_params[2] = 9;
     }
     init_collision_body_parts(door_key, TObjDoorKey__collision_body_parts, 1);
     *(s32 *)&door_key->actorFlags |= 0x40000000;
-    ((TObjPlayer *)door_key)->reset_photon_effect();
+    ((TObjPlayer *)door_key)->register_object_by_id();
     Vec_80190020 pos = *(Vec_80190020 *)((s8 *)door_key + 0x38);
     pos.y += lbl_805DBE0C;
     *(s32 *)&door_key->m_f8 = (s32)spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
-    ((TOKeyAncient01 *)((u8 *)door_key + 0x98))->set_type();
+    door_key->cursor_action.set_use();
     return door_key;
 }
 
@@ -313,7 +313,7 @@ void TObjDoorKey::free_key() {
 }
 
 void TObjDoorKey::load_resources() {
-    s32 r = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+    s32 r = (int)::operator new(0x440);
     if (r != 0) {
         r = load_resource_from_descriptor(r, 5, &TObjDoorKey__resource_descriptor, 0, 0, 0);
     }

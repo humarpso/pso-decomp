@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/FlagWord.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -11,6 +12,7 @@
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 struct VBase_18_f2ea1e { char pad[0x18]; };
 
 struct VObj_18_f2ea1e : VBase_18_f2ea1e {
@@ -156,7 +158,6 @@ s32 copy_position__15TEffStarLight2DFPv(int, void *);
 f32 vec_distance_squared(u8 *arg0, u8 *arg1);
 extern "C" {
 s32 has_game_join_id__13TUnk_804E355CFv(void *);
-u8 *find_item_by_id(s32 id);
 s32 play_weapon_hit_sound(void *);
 void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void *get_player_by_client_id(s32 i);
@@ -167,8 +168,6 @@ extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
 Hit_802E3D8C *csnVector(void *, void *, s32);
 extern const f32 lbl_805DE910;
-u32 query_game_join_id__10TObjPlayerFv(int);
-s32 run_with_transform_context__10TObjPlayerFii(int, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
@@ -234,7 +233,7 @@ void TItemAttackCol::move_with_collision(void *arg1) {
     Cb_802E3D8C cb;
     hit = csnVector((u8 *)&this->m_24, arg1, 0x8100);
     if (hit != NULL) {
-        ((TObjPlayer *)(arg0 + 0xE0))->set_flags(1);
+        ((FlagWord *)(arg0 + 0xE0))->set(1);
         VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
@@ -247,13 +246,13 @@ void TItemAttackCol::move_with_collision(void *arg1) {
 
 void TItemAttackCol::render() {
     u8 *arg0 = (u8 *)this;
-    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv(this->m_ac) == 0U) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || find_equipped_item(this->m_ac) == 0U) {
         return;
     }
     {
         if ((u32) this->m_e8 != 0U) {
             if ((u32) this->m_ec != 0U) {
-                TObjPlayer::notify_fish_if_valid(this->m_ec);
+                set_texlist(this->m_ec);
             }
             TParticleCtrl::begin_effect_render();
             attack_collider_render_owner = (int)arg0;
@@ -263,7 +262,7 @@ void TItemAttackCol::render() {
             rotate_matrix_by_node_angles((u8 *)&this->m_f0, 1);
             rotate_matrix_by_node_angles((u8 *)&this->m_fc, 1);
             scale_current_matrix((u8 *)&this->m_108);
-            run_with_transform_context__10TObjPlayerFii(this->m_e8, (void *) TItemAttackCol::add_to_active_list);
+            draw_node_tree_with_callback((NJS_OBJECT *)this->m_e8, (void (*)(NJS_OBJECT *))TItemAttackCol::add_to_active_list);
             pop_matrix();
             attack_collider_render_owner = 0;
             TParticleCtrl::end_effect_render();
@@ -390,8 +389,8 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
         ((VObj_18_f2ea1e *)(player))->m73();
         apply_camera_shake__10TObjPlayerFiii((s32)player, (s32)temp_r30, (s32)temp_r31_2);
         ((TObjPlayer *)(&stack.sp8))->reset_status_block();
-        stack.sp8 = ((TItem *)item)->get_field_ed();
-        stack.sp9 = ((TItem *)item)->get_slot_count();
+        stack.sp8 = ((TItem *)item)->get_item_group();
+        stack.sp9 = ((TItem *)item)->get_item_index();
         stack.spC = player;
         stack.sp14 = temp_r30;
         stack.sp18 = *(s32 *)((s8 *)arg1 + 4);

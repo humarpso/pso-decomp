@@ -47,9 +47,9 @@ s32 scale_matrix(int, f32, f32, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void render_shadows__7TObjectFv(); void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void reset_motion_fields__13TUnk_804AF8A0Fv();
-void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail__13TUnk_804B9870Ffff();
-void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl();
+void render_shadows__7TObjectFv(); void vfunc_6__8TObjBaseFPsl(); void apply_object_set_data__8TObjBaseFPv(); void reset_motion_fields__14TObjCollidableFv();
+void get_center__8TObjBaseFv(); void update_object_view_visibility__8TObjBaseFff(); void classify_actor_view_detail__8TObjBaseFfff();
+void get_name__8TObjBaseFv(); void interact__14TObjCollidableFl();
 #pragma readonly_strings on
 __declspec(section ".data") void *bm_obj_lobby_suisou_model_names[2] = { (void *)"lobby_suisou_s_waku.gj", 0 };
 #pragma explicit_zero_data on
@@ -59,9 +59,9 @@ void *lobby_suisou_resource_descriptor[4] = { (void *)"bm_obj_lobby_suisou.bml",
 char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
-    (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)reset_motion_fields__13TUnk_804AF8A0Fv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
+    (void *)render_shadows__7TObjectFv, (void *)vfunc_6__8TObjBaseFPsl, (void *)apply_object_set_data__8TObjBaseFPv,
+    (void *)reset_motion_fields__14TObjCollidableFv, (void *)get_center__8TObjBaseFv, (void *)update_object_view_visibility__8TObjBaseFff,
+    (void *)classify_actor_view_detail__8TObjBaseFfff, (void *)get_name__8TObjBaseFv, (void *)interact__14TObjCollidableFl,
 };
 const f32 lbl_8047A3D0[1][3] = { { 0.0f, 0.0f, 60.0f } };
 const f32 lbl_8047A3DC[1][3] = { { 0.0f, 0.0f, -60.0f } };
@@ -73,9 +73,9 @@ void TObjSuisouLobby__sub_80369B5C(void) {  }
 void render__15TObjSuisouLobbyFv(TObjSuisouLobby *arg0) {
     f32 temp_f1;
 
-    if (((s32) arg0->m_c8 != 0) && ((u32) arg0->texture_id != 0U)) {
+    if (((s32) arg0->m_c8 != 0) && ((u32) arg0->texlist != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(arg0->texture_id);
+        TObjFish::set_global_param(arg0->texlist);
         push_matrix();
         post_translate_matrix((u8 *)arg0 + 0x38);
         rotate_matrix_y(0, arg0->rotation_y);
@@ -162,7 +162,7 @@ void TObjSuisouLobby::destroy_instance() {
 void TObjSuisouLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_suisou_resource_descriptor.value, 0, 0, 0));

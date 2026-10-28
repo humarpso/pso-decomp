@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #pragma defer_codegen on
 #include "types.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -39,9 +40,9 @@ struct Stack_802E0468
 extern "C" {
 void play_phase_transition_sound__10TObjPlayerFl(s32);
 void set_chunk_material_override_pair(s32, s32);
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -68,7 +69,6 @@ extern u8 *TAdMultiPlyChrSelectGC__resource_bundle;
 typedef char RecoveredGlobal_802E0784_lbl_804E2F78_size[sizeof(RecoveredGlobal_802E0784_lbl_804E2F78) == 0x90 ? 1 : -1];
 
 s32 copy_player_visual_record(void *, void *);
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 advance_animation_playback(void *);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
@@ -288,7 +288,7 @@ void TUnk_804E3008::run_task() {
         switch (F(0x104, s32)) {
         case 0:
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
+            p = ::operator new(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), 0);
             }
@@ -297,7 +297,7 @@ void TUnk_804E3008::run_task() {
             break;
         case 1:
             copy_player_visual_record(arg0 + 0x120, get_entry__23TAdSinglePlyChrSelectGCFi(F(0x110, s32)) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
+            p = ::operator new(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), 0);
             }
@@ -306,7 +306,7 @@ void TUnk_804E3008::run_task() {
             break;
         case 2:
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
+            p = ::operator new(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), 0);
             }
@@ -317,7 +317,7 @@ void TUnk_804E3008::run_task() {
         case 4:
         case 5:
             copy_player_visual_record(arg0 + 0x120, get_char_table_entry__23TAdSinglePlyChrSelectGCFi(F(0x10C, s32)) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
+            p = ::operator new(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(F(0x10C, s32)));
             }
@@ -447,9 +447,9 @@ void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
 void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   Stack_802E0468 stack;
   int new_var;
-  lbl_805D5660 = model_render_flags;
-  lbl_805D5664 = chunk_polygon_flags_and_mask;
-  lbl_805D5668 = chunk_polygon_flags_or_mask;
+  saved_model_render_flags = model_render_flags;
+  saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+  saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
   model_render_flags |= 0x10;
   new_var = 1;
   if (farg0 < lbl_805DE8A8)
@@ -460,11 +460,11 @@ void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   stack.spC = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x42))));
   stack.sp10 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x44))));
   stack.sp14 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x46))));
-  ((TUnk_80494AE0 *)(&stack.sp8))->set_chunk_material_color();
+  set_constant_material((const NJS_ARGB *)((&stack.sp8)));
   play_phase_transition_sound__10TObjPlayerFl(arg1);
-  chunk_polygon_flags_and_mask = lbl_805D5664;
-  chunk_polygon_flags_or_mask = lbl_805D5668;
-  model_render_flags = lbl_805D5660;
+  chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+  chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+  model_render_flags = saved_model_render_flags;
 }
 
 bool fn_802E0454(u8 *arg0) {

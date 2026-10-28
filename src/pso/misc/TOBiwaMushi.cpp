@@ -55,7 +55,7 @@ extern s32 __vt__11TOBiwaMushi[];
 void TOBiwaMushi::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &biwamushi_resource_desc.value, 0, 0, 0));
@@ -181,7 +181,7 @@ extern s32 __vt__12TOMekaFish01[];
 void TOMekaFish01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish01__shared_resource_descriptor, 0, 0, 0));
@@ -305,7 +305,7 @@ void TOMekaFish00::release_static_instance() {
 void TOMekaFish00::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish00__resource_descriptor, 0, 0, 0));
@@ -334,14 +334,14 @@ u8 *TOMekaFish00__ct(TOMekaFish00 *meka_fish00, s32 arg1) {
     *(s32 *)((s8 *)meka_fish00 + 0) = (s32) TOMekaFish00__name;
     ((TOMekaFish00 *)(meka_fish00))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)meka_fish00 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    meka_fish00->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    meka_fish00->texlist = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
     meka_fish00->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
     *(f32 *)((s8 *)meka_fish00 + 0xB4) = (f32) ((f32) *(u32 *)(meka_fish00->m_bc + 4) - lbl_805DE068);
     meka_fish00->m_b8 = (f32) lbl_805DE06C;
     meka_fish00->m_c0 = (f32) lbl_805DE070;
     *(f32 *)((s8 *)meka_fish00 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)meka_fish00 + 0x34)) + 4)) + 0x14);
     meka_fish00->m_ac = 0;
-    meka_fish00->m_f4 = (f32) ((lbl_805DE074 * (f32) meka_fish00->m_84) + lbl_805DE068);
+    meka_fish00->m_f4 = (f32) ((lbl_805DE074 * (f32) meka_fish00->set_params[0]) + lbl_805DE068);
     meka_fish00->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / meka_fish00->m_f4)));
     meka_fish00->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
     meka_fish00->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)meka_fish00 + 0x88)) + lbl_805DE068);

@@ -11,7 +11,7 @@
 #include "pso/object/TObjLight_80133568.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TObjPlayer_800F0810.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/system/BmlResource.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss3VoloptP02.h"
@@ -25,7 +25,7 @@
 
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
-s32 obj_is_hit_receivable(TUnk_804806E8 *actor);
+s32 obj_is_hit_receivable(TObjChara *actor);
 s32 push_matrix(void);
 void post_translate_matrix(const Vec *v);
 void rotate_matrix_x(s32 matrix, s32 angle);
@@ -43,7 +43,7 @@ static s32 volopt_pillar_textures;
 static s32 volopt_pillar_base_textures;
 
 static CollisionBody volopt_pillar_collision_body[1] = {
-    {{0.0f, 18.0f, 0.0f}, 5.0f, {0}, 0x8005, {0}},
+    {{0.0f, 18.0f, 0.0f}, 5.0f, 0.0f, 0, 0x8005},
 };
 
 void TObjVoloptPillar::render() {
@@ -52,20 +52,20 @@ void TObjVoloptPillar::render() {
         select_actor_lighting((s32)this);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
-        post_translate_matrix((Vec *)position);
+        post_translate_matrix(&position);
         TObjFish::set_global_param(volopt_pillar_textures);
         draw_chunk_object((void *)volopt_pillar_model);
         pop_matrix();
         push_matrix();
-        translate_matrix(0, position[0], start_y, position[2]);
+        translate_matrix(0, position.x, start_y, position.z);
         TObjFish::set_global_param(volopt_pillar_base_textures);
         draw_chunk_object((void *)volopt_pillar_base_model);
         pop_matrix();
         restore_scene_lighting();
         TParticleCtrl::end_effect_render();
-        scale = 0.011111111f * (90.0f - position[1]) + 1.0f;
+        scale = 0.011111111f * (90.0f - position.y) + 1.0f;
         push_matrix();
-        translate_matrix(0, position[0], 0.3f, position[2]);
+        translate_matrix(0, position.x, 0.3f, position.z);
         rotate_matrix_y(0, rotation_y);
         rotate_matrix_x(0, -0x4000);
         scale_matrix(0, scale, scale, scale);
@@ -76,7 +76,7 @@ void TObjVoloptPillar::render() {
 
 void TObjVoloptPillar::run_task() {
     s32 i;
-    TUnk_804806E8 *target;
+    TObjChara *target;
     s32 angle;
     switch (state) {
     case 0:
@@ -89,16 +89,16 @@ void TObjVoloptPillar::run_task() {
         }
         break;
     case 2:
-        position[1] += -16.0f;
-        if (position[1] <= 0.0f) {
+        position.y += -16.0f;
+        if (position.y <= 0.0f) {
             timer = 15;
             state = 3;
-            m_a4->flags |= 2;
+            bodies->flags |= 2;
             TObjPlayer::init_all_slots();
             ((TObjPlayer *)this)->check_object_collisions();
-            if (m_a4->flags & 0x80000) {
+            if (bodies->flags & 0x80000) {
                 for (i = 0; i < 16; i++) {
-                    target = (TUnk_804806E8 *)TObjPlayer::get_battle_param(i);
+                    target = (TObjChara *)TObjPlayer::get_battle_param(i);
                     if (target == NULL) {
                         break;
                     }
@@ -109,7 +109,7 @@ void TObjVoloptPillar::run_task() {
                         if (!(target->actorFlags & 0x04000000)) {
                             push_matrix_from(identity_matrix);
                             {
-                                Vec away = *(Vec *)target->position;
+                                Vec away = *&target->position;
                                 subtract_vector(&away, &boss3_volopt_spawn_pos);
                                 angle = volopt_pillar_rad_to_angle * atan2_float(away.x, away.z);
                                 {
@@ -124,14 +124,14 @@ void TObjVoloptPillar::run_task() {
                     }
                 }
             }
-            m_a4->flags &= ~1;
+            bodies->flags &= ~1;
             {
-                Vec pos = *(Vec *)position;
+                Vec pos = *&position;
                 pos.y = 5.0f;
                 new TUnk_80484888(&pos, 0x11E, 0xF, NULL, 0.25f, 40.0f);
             }
             TCameraCtrl::set_shake_preset(1);
-            play_sound_effect(0x4003AD09, (Vec *)position, 0, 0);
+            play_sound_effect(0x4003AD09, &position, 0, 0);
         }
         break;
     case 3:
@@ -140,8 +140,8 @@ void TObjVoloptPillar::run_task() {
         }
         break;
     case 4:
-        position[1] += 16.0f;
-        if (position[1] >= 90.0f) {
+        position.y += 16.0f;
+        if (position.y >= 90.0f) {
             queue_destruction();
         }
         break;
@@ -159,18 +159,18 @@ TObjVoloptPillar::~TObjVoloptPillar() {
     free_collision_body_parts(this);
 }
 
-TObjVoloptPillar::TObjVoloptPillar(Vec *pos, TObject *owner) : TUnk_804AF8A0(tl_04) {
+TObjVoloptPillar::TObjVoloptPillar(Vec *pos, TObject *owner) : TObjCollidable(tl_04) {
     f32 dist;
     m_name = TObjVoloptPillar_name;
     init_collision_body_parts(this, volopt_pillar_collision_body, 1);
-    VecCopy((Vec *)position, pos);
-    dist = vec_xz_distance((Vec *)position, (Vec *)(u8 *)&boss3_volopt_spawn_pos);
+    VecCopy(&position, pos);
+    dist = vec_xz_distance(&position, (Vec *)(u8 *)&boss3_volopt_spawn_pos);
     if (dist < 60.0f) {
-        position[1] = 90.0f;
+        position.y = 90.0f;
     } else {
-        position[1] = 90.0f - 0.33333334f * (dist - 60.0f);
+        position.y = 90.0f - 0.33333334f * (dist - 60.0f);
     }
-    start_y = position[1];
+    start_y = position.y;
     state = 0;
     this->owner = owner;
 }

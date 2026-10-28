@@ -29,13 +29,12 @@ void post_translate_matrix(const f32 *pos);
 void rotate_matrix_y(void *mtx, s32 angle);
 void scale_matrix(void *mtx, f32 x, f32 y, f32 z);
 
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 TUnk_8048FA00 *init_from_model__11TBreakUpMdlFl(TUnk_8048FA00 *obj, s32 model);
 void trigger_dell_biter_events__10TObjPlayerFv(Vec *pos);
 void update_collisions__10TObjPlayerFv(TObjEnemy *obj);
 
 extern u32 model_render_flags;
-extern u32 lbl_805D5660;
+extern u32 saved_model_render_flags;
 extern TObject *tl_04;
 }
 
@@ -121,7 +120,7 @@ void TBoss3VoloptHiraisin::set_flag_08000000() {
 }
 
 s32 TBoss3VoloptHiraisin::sub_80040FCC() {
-    return (m_a4->flags >> 1) & 1;
+    return (bodies->flags >> 1) & 1;
 }
 
 void TBoss3VoloptHiraisin::sub_80040FDC() {
@@ -132,16 +131,16 @@ void TBoss3VoloptHiraisin::sub_80040FDC() {
         m_388 |= 1;
         m_b8 = 0;
         advance_animation_playback(this);
-        position[1] = 80.0f;
+        position.y = 80.0f;
         actorFlags |= 0x40000;
-        ((CollisionState *)m_a4)->flags |= 4;
-        ((CollisionState *)m_a4)->flags &= ~2;
-        play_sound_effect(0x4003A306, (Vec *)position, 0, 0);
+        ((CollisionState *)bodies)->flags |= 4;
+        ((CollisionState *)bodies)->flags &= ~2;
+        play_sound_effect(0x4003A306, &position, 0, 0);
         state = 1;
     case 1:
-        position[1] -= 0.5f;
-        if (position[1] <= 50.0f) {
-            position[1] = 50.0f;
+        position.y -= 0.5f;
+        if (position.y <= 50.0f) {
+            position.y = 50.0f;
             m_388 &= ~1;
             actorFlags &= ~0x40000;
             vfunc_59();
@@ -157,7 +156,7 @@ void TBoss3VoloptHiraisin::start_attack() {
     TBoss3Volopt::create_breakup_mdl((s32)volopt_hiraisin_breakup_model, (s32)&volopt_hiraisin_breakup_params,
                                      TObjFish__sub_8001EDB0(volopt_hiraisin_resources, 0x10), (s32)&m_2fc, rotation_y);
     trigger_dell_biter_events__10TObjPlayerFv((Vec *)&m_2fc);
-    play_sound_effect(0x4001C112, (Vec *)position, 0, 0);
+    play_sound_effect(0x4001C112, &position, 0, 0);
     m_388 &= ~1;
     max_hp = hpmax;
     referenceHp = max_hp;
@@ -192,13 +191,13 @@ void TBoss3VoloptHiraisin::update_drop() {
         break;
     case 1:
         advance_animation_playback(this);
-        position[1] = position[1] + y_speed;
-        if (position[1] <= 4.6f) {
-            position[1] = 4.6f;
+        position.y = position.y + y_speed;
+        if (position.y <= 4.6f) {
+            position.y = 4.6f;
             state = 2;
-            ((CollisionState *)m_a4)->flags &= ~4;
-            ((CollisionState *)m_a4)->flags |= 2;
-            play_sound_effect(0x4003A808, (Vec *)position, 0, 0);
+            ((CollisionState *)bodies)->flags &= ~4;
+            ((CollisionState *)bodies)->flags |= 2;
+            play_sound_effect(0x4003A808, &position, 0, 0);
         }
         break;
     case 2:
@@ -241,14 +240,14 @@ void TBoss3VoloptHiraisin::sub_80041314() {
 void TBoss3VoloptHiraisin::render() {
     f32 scale;
     if (!(actorFlags & 0x02000000) && update_object_view_visibility(400.0f, 40.0f) != 0) {
-        TObjFish::set_global_param(texture_id);
-        lbl_805D5660 = model_render_flags;
+        TObjFish::set_global_param(texlist);
+        saved_model_render_flags = model_render_flags;
         model_render_flags |= 0x01000000;
         select_actor_lighting((s32)this);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= ~0x400;
-        post_translate_matrix(position);
+        post_translate_matrix(&position.x);
         if (m_b4 == 8) {
             translate_matrix(0, 0.0f, 20.0f, 0.0f);
         }
@@ -262,11 +261,11 @@ void TBoss3VoloptHiraisin::render() {
         pop_matrix();
         restore_scene_lighting();
         TParticleCtrl::end_effect_render();
-        model_render_flags = lbl_805D5660;
-        if (position[1] < 50.0f) {
+        model_render_flags = saved_model_render_flags;
+        if (position.y < 50.0f) {
             push_matrix();
-            scale = 1.0f - 0.02202643f * (position[1] - 4.6f);
-            translate_matrix(0, position[0], 4.5f, position[2]);
+            scale = 1.0f - 0.02202643f * (position.y - 4.6f);
+            translate_matrix(0, position.x, 4.5f, position.z);
             scale_matrix(NULL, scale, scale, scale);
             TObjFish::set_global_param(TObjFish__sub_8001EDB0(volopt_hiraisin_resources, 0));
             draw_chunk_object((void *)get_bml_model(volopt_hiraisin_resources, 0));
@@ -312,13 +311,13 @@ void TBoss3VoloptHiraisin::run_task() {
             state = 0;
         }
         dispatch_state();
-        VecCopy((Vec *)&m_2fc, (Vec *)position);
+        VecCopy((Vec *)&m_2fc, &position);
         if (mode != 5) {
             m_300 -= 30.0f;
         }
         copy_position();
         submit_cursor_candidate(this, -1);
-        minimap_render_dot((Vec *)position, -0x5DB4, 1, 0);
+        minimap_render_dot(&position, -0x5DB4, 1, 0);
         volopt_hiraisin_spin_node->rotation_y += 0x4000;
         clear_all_status_effects();
     }
@@ -334,7 +333,7 @@ void TBoss3VoloptHiraisin::init_models() {
     volopt_hiraisin_resources = boss3_volopt_resources;
     volopt_hiraisin_spin_node = (ModelNode *)find_model_node(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
     volopt_hiraisin_spin_node->flags &= ~2;
-    breakup = (TUnk_8048FA00 *)alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    breakup = (TUnk_8048FA00 *)::operator new(0x10);
     if (breakup != NULL) {
         breakup = init_from_model__11TBreakUpMdlFl(breakup, get_bml_model(volopt_hiraisin_resources, 0x10));
     }
@@ -354,7 +353,7 @@ TBoss3VoloptHiraisin::~TBoss3VoloptHiraisin() {
 }
 
 void TBoss3VoloptHiraisin::init_params() {
-    VecCopy((Vec *)&m_2fc, (Vec *)position);
+    VecCopy((Vec *)&m_2fc, &position);
     m_300 -= 30.0f;
     copy_position();
     motion_list = volopt_hiraisin_resources->motions;
@@ -368,7 +367,7 @@ void TBoss3VoloptHiraisin::init_params() {
     set_animation(m_b8);
     set_field_b8(m_b8);
     hp = hpmax;
-    m_32e = m_2ba;
+    tp = tpmax;
     referenceHp = hp;
     set_param(0x2E);
     ((TBoss3Volopt *)this)->reset_photon_effect();
@@ -379,16 +378,16 @@ void TBoss3VoloptHiraisin::init_params() {
     clear_lobby_object_state();
 }
 
-TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TUnk_804B9870 *parent, u16 id, s32 group) : TObjEnemyCustom(parent) {
+TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TObjBase *parent, u16 id, s32 index) : TObjEnemyCustom(parent) {
     m_name = TBoss3VoloptHiraisin_name;
-    m_1c = id;
-    group_index = group;
-    m_80 = NULL;
-    group_ids[0] = parent->group_ids[0];
-    group_ids[1] = parent->group_ids[1];
-    position[1] = 80.0f;
-    position[0] = boss3_volopt_spawn_pos.x;
-    position[2] = boss3_volopt_spawn_pos.z;
+    entity_id = id;
+    set_index = index;
+    set_entry = NULL;
+    room = parent->room;
+    set_group = parent->set_group;
+    position.y = 80.0f;
+    position.x = boss3_volopt_spawn_pos.x;
+    position.z = boss3_volopt_spawn_pos.z;
     init_params();
 }
 
@@ -399,10 +398,10 @@ TBoss3VoloptHiraisin::TBoss3VoloptHiraisin(TObject *parent, void *set_data) : TO
 }
 
 void TBoss3VoloptHiraisin::copy_position() {
-    VecCopy((Vec *)&m_74, (Vec *)&m_2fc);
+    VecCopy(&center, (Vec *)&m_2fc);
 }
 
 void TBoss3VoloptHiraisin::load_params_from_table(s32 index) {
     model = (void *)volopt_hiraisin_resources->models[index].model;
-    texture_id = volopt_hiraisin_resources->models[index].m_c;
+    texlist = volopt_hiraisin_resources->models[index].m_c;
 }

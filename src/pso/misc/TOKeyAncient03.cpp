@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -51,7 +52,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -82,16 +83,16 @@ void TOKeyAncient03::vfunc_17() {
             this->m_f8 = 1;
         }
     }
-    temp_f1 = this->target_scale;
+    temp_f1 = this->scale.y;
     if (temp_f1 < 0.0f) {
-        this->target_scale = (f32) (temp_f1 - (-0.023333333f));
+        this->scale.y = (f32) (temp_f1 - (-0.023333333f));
     }
 }
 
 void TOKeyAncient03::vfunc_16() {
     TOKeyAncient03 *self = this;
-    if ((-0.7f) < self->target_scale) {
-        self->target_scale += (-0.023333333f);
+    if ((-0.7f) < self->scale.y) {
+        self->scale.y += (-0.023333333f);
     }
 }
 
@@ -131,9 +132,9 @@ void TOKeyAncient03::render() {
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
-            lbl_805D5660 = temp_r4;
+            saved_model_render_flags = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            ((TUnk_80494AE0 *)(&this->m_e8))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((&this->m_e8)));
         }
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
@@ -149,8 +150,8 @@ void TOKeyAncient03::render() {
         pop_matrix();
         pop_matrix();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-            model_render_flags = lbl_805D5660;
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+            model_render_flags = saved_model_render_flags;
         }
         pop_matrix();
     }
@@ -182,7 +183,7 @@ void TOKeyAncient03::load_resources() {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
+    temp_r3 = (u8 *)((int)::operator new(0x440));
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_fs_obj_o_doorpanel_resource_descriptor, 0, 0, 0));
@@ -205,7 +206,7 @@ u8 *TOKeyAncient03__ct(TOKeyAncient03 *key_ancient03, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)key_ancient03 + 0) = (s32) TOKeyAncient03__class_name;
     ((TOKeyAncient03 *)(key_ancient03))->apply_object_set_data((void *)arg2);
     ((TOKey *)key_ancient03)->init_switch_id();
-    key_ancient03->texture_id = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
+    key_ancient03->texlist = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
     key_ancient03->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));
     key_ancient03->m_c0 = (f32) 4e+02f;
     *(f32 *)((s8 *)key_ancient03 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)key_ancient03->model + 4)) + 0x14);
@@ -233,7 +234,7 @@ block_5:
     key_ancient03->m_f4 = (f32) 1.0f;
     key_ancient03->m_f8 = 0;
     *(f32 *)((s8 *)key_ancient03 + 0x70) = (f32) 0.0f;
-    key_ancient03->target_scale = (f32) 0.0f;
-    key_ancient03->scale = (f32) 0.0f;
+    key_ancient03->scale.y = (f32) 0.0f;
+    key_ancient03->scale.x = (f32) 0.0f;
     return (u8 *)key_ancient03;
 }

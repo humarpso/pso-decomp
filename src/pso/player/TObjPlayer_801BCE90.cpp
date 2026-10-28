@@ -6,6 +6,7 @@
 
 extern "C" {
 
+
 void TObjPlayer::update_recobox(s32 arg0) {
     if (is_current_area_item_enabled() != 0) {
         TObjPlayer__sub_801BE9A8(arg0);

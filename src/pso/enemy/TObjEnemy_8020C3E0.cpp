@@ -24,7 +24,7 @@ extern s32 TLobby__current_floor_object_set_count;
 s32 TObjEnemy::mask_sub_flags(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = this->m_80;
+    temp_r5 = this->set_entry;
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;
@@ -32,10 +32,10 @@ s32 TObjEnemy::mask_sub_flags(s32 arg1) {
     return 0;
 }
 
-s32 TUnk_804B9870::set_event_source_flag(s32 arg1) {
+s32 TObjBase::set_event_source_flag(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = this->m_80;
+    temp_r5 = this->set_entry;
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) | arg1);
         return 1;
@@ -43,10 +43,10 @@ s32 TUnk_804B9870::set_event_source_flag(s32 arg1) {
     return 0;
 }
 
-s32 TUnk_804B9870::mask_object_set_row_flags(s32 arg1) {
+s32 TObjBase::mask_object_set_row_flags(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = this->m_80;
+    temp_r5 = this->set_entry;
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;

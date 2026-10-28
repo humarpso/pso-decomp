@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/item/TItem.h"
@@ -19,15 +20,15 @@ typedef struct SlicerLaunchData_8012D9C8 {
 } SlicerLaunchData_8012D9C8;
 
 extern "C" {
-u8 get_slot_count__5TItemFv();
+u8 get_item_index__5TItemFv();
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
 extern const f32 lbl_805DAF50;
 extern const f32 lbl_805DAF54;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-u8 * TItemWeapon__ct(void *, void *);
+u8 *__nw__5TItemFUl(s32);
+u8 * __ct__11TItemWeaponFP7TObjectPUc(void *, void *);
 void init_slicer_launch_state(void *arg0);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 f32 query_extended_state__10TObjPlayerFv(void *);
@@ -47,25 +48,25 @@ void launch_slicer_shot(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
-    launch.player = obj_getField1c(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player);
-    launch.weapon = ((TItem *)weapon)->get_field_d8();
+    launch.player = get_entity_id(*(u8 * *)&((TUnk_804A5B20 *)weapon)->owner);
+    launch.weapon = ((TItem *)weapon)->get_item_id();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
-    launch.kind = TObjPlayer__sub_801D2F4C((s16 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player + 0x7CC));
-    launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player + 0x7CC);
-    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player);
+    launch.kind = TObjPlayer__sub_801D2F4C((s16 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->owner + 0x7CC));
+    launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804A5B20 *)weapon)->owner + 0x7CC);
+    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804A5B20 *)weapon)->owner);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
-    ((TRaderMapCore *)(launch.color))->copy_vec4(tmp);
-    launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player) + 0x60);
-    ((TObjPlayer *)weapon)->draw_icon(1, (s32)launch.first);
-    ((TObjPlayer *)weapon)->draw_icon(2, (s32)launch.second);
+    copy_argb((NJS_ARGB *)launch.color, (NJS_ARGB *)tmp);
+    launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->owner) + 0x60);
+    ((TItemWeapon *)weapon)->get_joint_position(1, launch.first);
+    ((TItemWeapon *)weapon)->get_joint_position(2, launch.second);
     TTecSlicer::create((u16*)&launch);
 }
 
 void TUnk_804A5B20::update_idle() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  switch ((s32) get_slot_count__5TItemFv())
+  switch ((s32) get_item_index__5TItemFv())
   {
     case 5:
     {
@@ -89,7 +90,7 @@ void TUnk_804A5B20::update_idle() {
 
 void TUnk_804A5B20::update_attack() {
     u8 *arg0 = (u8 *)this;
-  switch ((s32) get_slot_count__5TItemFv())
+  switch ((s32) get_item_index__5TItemFv())
   {
     case 5:
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) lbl_805DAF50), (f32)((f32) lbl_805DAF38));
@@ -109,9 +110,9 @@ void TUnk_804A5B20::update_attack() {
 
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
-    TItemWeapon__ct(arg0, arg1);
+    __ct__11TItemWeaponFP7TObjectPUc(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5B20.value;
-    ((TObjPlayer *)arg0)->set_status_flags(2);
+    ((TItemWeapon *)arg0)->set_weapon_flags(2);
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     switch ((s32) (*(u8 *)((s8 *)arg2 + 2))) {
     case 6:
@@ -134,7 +135,7 @@ u8 *create_slicer_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x208));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(construct_slicer_weapon((u8 *)temp_r3, (u8 *)tl_05, (u8 *)arg0));

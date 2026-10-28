@@ -55,7 +55,7 @@ void push_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 f32 horizontal_distance_squared(s32, s32);
@@ -83,9 +83,9 @@ extern void *tl_05;
 void TORainbowCave01::init_light_params(int _w1, f32 _w2, f32 _w3) {
     u8 *arg0 = (u8 *)this;
     f32 k = 0.0009765625f;
-    *(f32 *)((s8 *)arg0 + 0xC8) = 1.0f / ((f32) this->m_84 * k + 29.999998f);
-    this->m_d0 = 4e+04f + (f32) *(s32 *)&this->m_8c;
-    VecCopy((Vec *)&this->m_d4, (const Vec *)&this->scale);
+    *(f32 *)((s8 *)arg0 + 0xC8) = 1.0f / ((f32) this->set_params[0] * k + 29.999998f);
+    this->m_d0 = 4e+04f + (f32) *(s32 *)&this->set_params[2];
+    VecCopy((Vec *)&this->m_d4, &this->scale);
 }
 #pragma pop
 
@@ -97,7 +97,7 @@ void TORainbowCave01::render() {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(self->f24);
         old = model_render_flags;
-        lbl_805D5660 = old;
+        saved_model_render_flags = old;
         model_render_flags = old | 0x20;
         c.d = c.c = c.b = 0.0f;
         if (TObjPlayer::check_demo_mode() == 1) {
@@ -105,15 +105,15 @@ void TORainbowCave01::render() {
         } else {
             c.a = self->fCC;
         }
-        ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&c)));
         push_matrix();
         post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
         scale_current_matrix(self->fD4);
         draw_ginja_object((void *)self->f34);
         pop_matrix();
-        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-        model_render_flags = lbl_805D5660;
+        set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+        model_render_flags = saved_model_render_flags;
         TParticleCtrl::end_effect_render();
     }
 }
@@ -156,7 +156,7 @@ void TORainbowCave01::free_static_data() {
 void TORainbowCave01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &abeniji_fe_obj001_niji_resource_descriptor.value, 0, 0, 0));
@@ -182,7 +182,7 @@ u8 *TORainbowCave01__ct(TORainbowCave01 *arg0, s32 arg1, s32 arg2) {
     ((TORainbowCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TORainbowCave01__static_model_resource) + 0x42C)) + 8);
     temp_r4 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TORainbowCave01__static_model_resource) + 0x42C));
-    arg0->texture_id = (s32) *(s32 *)((s8 *)temp_r4 + 0xC);
+    arg0->texlist = (s32) *(s32 *)((s8 *)temp_r4 + 0xC);
     arg0->m_c0 = (f32) 400.0f;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (4e+04f);
     arg0->m_cc = (f32) (0.0f);

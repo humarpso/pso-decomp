@@ -55,22 +55,21 @@ struct VObj_18 : VBase_18 {
     virtual s32 m49(s32 *, s32, s32, s32);
 };
 extern "C" {
-s32 item_model_is_shown__11TItemWeaponFv(void *, int);
-s32 draw_icon__10TObjPlayerFll(void *, int, void *);
+s32 is_model_shown__5TItemFv(void *, int);
 void TUnk_804A2A58::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 temp_r4;
     temp_r4 = this->m_1fc;
     this->m_1fc = (temp_r4 + 0x2AAA);
-    if (item_model_is_shown__11TItemWeaponFv(arg0, temp_r4) != 0) {
-        draw_icon__10TObjPlayerFll(arg0, 2, &sp8);
+    if (is_model_shown__5TItemFv(arg0, temp_r4) != 0) {
+        ((TItemWeapon *)arg0)->get_joint_position(2, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0x4FA, 1);
-        draw_icon__10TObjPlayerFll(arg0, 3, &sp8);
+        ((TItemWeapon *)arg0)->get_joint_position(3, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 1, 0xE38, 1);
-        draw_icon__10TObjPlayerFll(arg0, 4, &sp8);
+        ((TItemWeapon *)arg0)->get_joint_position(4, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 2, -0x4FA, 1);
-        draw_icon__10TObjPlayerFll(arg0, 5, &sp8);
+        ((TItemWeapon *)arg0)->get_joint_position(5, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 3, -0xE38, 1);
     }
 }

@@ -137,23 +137,23 @@ void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void*TUnk_8048FE08::init(int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int *)&this->m_name = bringer_tp_absorb_effect_name; *(int*)((char*)this + 0xb0) = 0; *(float *)&this->unk_D0 = 0.0f; *(float*)((char*)this + 0xc8) = 0.0f; this->m_cc = 0.0f; this->m_b4 = 0; *(float*)((char*)this + 0x38) = 0.0f; *(float*)((char*)this + 0x3c) = 0.0f; *(float*)((char*)this + 0x40) = 0.0f; *(float*)((char*)this + 0xb8) = 0.0f; this->m_bc = 0.0f; *(float*)((char*)this + 0xc0) = 0.0f; this->m_c4 = a3; *(int*)((char*)*(int *)&this->m_a4 + 0x14) = 1; return this; }
+void*TUnk_8048FE08::init(int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int *)&this->m_name = bringer_tp_absorb_effect_name; *(int*)((char*)this + 0xb0) = 0; *(float *)&this->unk_D0 = 0.0f; *(float*)((char*)this + 0xc8) = 0.0f; this->m_cc = 0.0f; this->m_b4 = 0; *(float*)((char*)this + 0x38) = 0.0f; *(float*)((char*)this + 0x3c) = 0.0f; *(float*)((char*)this + 0x40) = 0.0f; *(float*)((char*)this + 0xb8) = 0.0f; this->m_bc = 0.0f; *(float*)((char*)this + 0xc0) = 0.0f; this->m_c4 = a3; *(int*)((char*)*(int *)&this->bodies + 0x14) = 1; return this; }
 void TUnk_8048FE64::render() {  }
 
 #pragma push
 #pragma fp_contract on
 void TObjEneDf2Bringer::update_projectile_motion() {
     f32 temp_f2;
-    *(f32 *)&this->m_50 += 1.0f;
-    temp_f2 = 6.0f * *(f32 *)&this->m_50;
-    if (temp_f2 >= *(f32 *)&this->m_4c) {
+    this->home_position.x += 1.0f;
+    temp_f2 = 6.0f * this->home_position.x;
+    if (temp_f2 >= this->prev_position.z) {
         VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)((const void *)(((u8 *)this) + 0x34)));
         queue_destruction__7TObjectFv(this);
         return;
     }
-    *(f32 *)&this->m_1c = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x40) * temp_f2) + *(f32 *)&this->m_28);
-    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) ((*(f32 *)&this->m_44 * temp_f2) + *(f32 *)&this->m_2c);
-    *(f32 *)&this->texture_id = (f32) ((*(f32 *)&this->m_48 * temp_f2) + *(f32 *)&this->actorFlags);
+    *(f32 *)&this->entity_id = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x40) * temp_f2) + *(f32 *)&this->room);
+    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) ((this->prev_position.x * temp_f2) + *(f32 *)&this->set_index);
+    *(f32 *)&this->texlist = (f32) ((this->prev_position.y * temp_f2) + *(f32 *)&this->actorFlags);
 }
 #pragma pop
 
@@ -344,10 +344,10 @@ struct Stack_8009AA64 {
 };
 struct RecoveredGlobal_8009AA64_lbl_8048FE94 { s32 value; u8 remaining[0x18]; };
 extern "C" {
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 is_player_entity_id();
 s32 is_alive__9TObjEneDDFv(void *);
-s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
+s32 obj_isState2_324__9TObjCharaFv(void *);
 s32 is_vec_xz_cross_negative(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 extern s32 bringer_rush_effect_vtable[];
@@ -399,7 +399,7 @@ void TObjEneDf2Bringer_Eff_Rush::render() {  }
 
 void TObjEneDf2Bringer_Eff_Rush::run_task() {
     f32 temp_f1;
-    obj_getField1c((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
+    get_entity_id((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
     if (is_player_entity_id() != 0) {
         queue_destruction__7TObjectFv(this);
         return;
@@ -408,7 +408,7 @@ void TObjEneDf2Bringer_Eff_Rush::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (obj_isState2_324__13TUnk_804806E8Fv((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C))) != 0) {
+    if (obj_isState2_324__9TObjCharaFv((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C))) != 0) {
         queue_destruction__7TObjectFv(this);
         return;
     }

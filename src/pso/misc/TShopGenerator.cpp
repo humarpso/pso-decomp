@@ -59,7 +59,7 @@ extern const f32 lbl_805DC6E8;
 bool is_player_in_service_range__14TShopGeneratorFPUcf(u8 *arg0, u8 *arg1, f32 farg0);
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
-s32 obj_getField1c(s32);
+s32 get_entity_id(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 int is_flag_400_set__10TObjPlayerFPv(void *p);
@@ -75,7 +75,7 @@ void TMedicalCenterMes__sub_80216260(void);
 void *TShopGenerator__create(void *arg0);
 void *TShopGenerator__ct(void *arg0, s32 arg1);
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1);
-s32 __ct__13TUnk_804B9870FP7TObject(void *, s32);
+s32 __ct__8TObjBaseFP7TObject(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -120,7 +120,7 @@ s32 TShopGenerator::is_no_service_active(void *self, s32 player) {
     s32 (*fn)(u16);
     for (i = 0; i < 7; i++) {
         fn = *(s32 (**)(u16))((s8 *)&TShopGenerator__service_dispatch_table.e[i] + 0x10);
-        if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(player))) == 1) {
+        if (fn(TShopGenerator__sub_80222DAC(get_entity_id(player))) == 1) {
             return 0;
         }
     }
@@ -132,7 +132,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     s32 i;
     s32 p;
     s32 (*fn)(u16);
-    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[((TShopGenerator *)self)->m_84];
+    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[((TShopGenerator *)self)->set_params[0]];
     if (*(s32 *)&((TShopGenerator *)self)->m_94 > 0) {
         (*(s32 *)&((TShopGenerator *)self)->m_94)--;
         return;
@@ -151,12 +151,12 @@ void run_task__14TShopGeneratorFv(u8 *self) {
             p = (s32)get_player_by_client_id(i);
             if (p == 0) continue;
             if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPUcf)(self, (u8 *)p, lbl_805DC6EC) == 0) continue;
-            if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(p)) == 1) continue;
-            if (TMedicalCenterMes::get_slot_flag(obj_getField1c(p)) == 1) continue;
+            if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(get_entity_id(p)) == 1) continue;
+            if (TMedicalCenterMes::get_slot_flag(get_entity_id(p)) == 1) continue;
             if (is_flag_400_set__10TObjPlayerFPv((void *)p) == 1) continue;
             if (check_flag_100__10TObjPlayerFPv((void *)p) == 1) continue;
             fn = e->f10;
-            if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(p))) == 1) continue;
+            if (fn(TShopGenerator__sub_80222DAC(get_entity_id(p))) == 1) continue;
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + ((TRaderMapCore *)p)->get_map_id() * 0x50 + 0x20, 4) == 0) continue;
             e->fc(p);
         }
@@ -165,13 +165,13 @@ void run_task__14TShopGeneratorFv(u8 *self) {
         s32 (*fn2)(u16);
         q = (s32)get_player_by_client_id(local_client_id);
         if (q == 0) return;
-        if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(q)) == 1) return;
-        if (TMedicalCenterMes::get_slot_flag(obj_getField1c(q)) == 1) return;
+        if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(get_entity_id(q)) == 1) return;
+        if (TMedicalCenterMes::get_slot_flag(get_entity_id(q)) == 1) return;
         if (is_flag_400_set__10TObjPlayerFPv((void *)q) == 1) return;
         if (check_flag_100__10TObjPlayerFPv((void *)q) == 1) return;
         if (TShopGenerator::is_no_service_active(self, q) == 0) return;
         fn2 = e->f10;
-        if (fn2(TShopGenerator__sub_80222DAC(obj_getField1c(q))) == 1) return;
+        if (fn2(TShopGenerator__sub_80222DAC(get_entity_id(q))) == 1) return;
         if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPUcf)(self, (u8 *)q, lbl_805DC6EC) == 0) return;
         if (TWindowShortListCtrl__check_controller_button(controller_input_state + ((TRaderMapCore *)q)->get_map_id() * 0x50 + 0x20, 4) == 0) return;
         e->fc(q);
@@ -181,7 +181,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -195,13 +195,13 @@ extern s32 tl_05;
 void *TShopGenerator__ct(void *shop_generator, s32 arg1) {
     s32 temp_r0;
 
-    __ct__13TUnk_804B9870FP7TObject(shop_generator, tl_05);
+    __ct__8TObjBaseFP7TObject(shop_generator, tl_05);
     *(s32 **)((s8 *)shop_generator + 0x18) = __vt__14TShopGenerator;
     *(s32 *)((s8 *)shop_generator + 0) = (s32) TShopGenerator__class_name;
     ((TShopGenerator *)shop_generator)->apply_object_set_data((void *)arg1);
     ((TShopGenerator *)shop_generator)->m_90 = 0;
     ((TShopGenerator *)shop_generator)->m_94 = 5;
-    temp_r0 = ((TShopGenerator *)shop_generator)->m_84;
+    temp_r0 = ((TShopGenerator *)shop_generator)->set_params[0];
     if (temp_r0 < 0) {
         queue_destruction__7TObjectFv(shop_generator);
         return shop_generator;

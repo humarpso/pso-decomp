@@ -113,7 +113,7 @@ void *TObjContainerNoItem::create(void *arg0) {
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerNoItem;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -133,7 +133,7 @@ u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjContainerNoItem *)arg0)->mode = 0;
     ((TObjContainerNoItem *)arg0)->actorFlags = (s32) (((TObjContainerNoItem *)arg0)->actorFlags | 0x60000000);
     init_collision_body_parts(arg0, (void *)&forest_box_collision_body_parts.value, 1);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)&forest_box_collision_body_parts.value + 4));
@@ -145,14 +145,14 @@ void TObjContainerEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
-            ((TUnk_804AF8A0 *)arg0)->set_flag8();
+            ((TObjCollidable *)arg0)->clear_player_status_flag(0, 1);
+            ((TObjCollidable *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
-        ((TUnk_804AF8A0 *)arg0)->set_flag8();
+        ((TObjCollidable *)arg0)->clear_player_status_flag(0, 1);
+        ((TObjCollidable *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
@@ -192,14 +192,14 @@ f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
     Obj_801894F8 *arg0 = (Obj_801894F8 *)this;
     s16 sp8;
     Pkt_801894F8 pkt;
-    if ((this->m_1c >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
+    if ((this->entity_id >= 0x1000U) && (arg0->f80 != 0U) && (((TObjCollidable *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = 1;
-        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
-        ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+        ((TObjCollidable *)arg0)->access_object_saved_state(&sp8, 0);
+        ((TObjCollidable *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
-        pkt.b = this->m_1c;
+        pkt.b = this->entity_id;
         pkt.c = get_current_floor();
-        pkt.d = this->m_84;
+        pkt.d = this->set_params[0];
         pkt.e = local_client_id;
         ((TLobby *)(&pkt))->byteswap_and_send();
     }
@@ -209,7 +209,7 @@ f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
 void TObjContainerEnemy::debug_print_item_box_info() {
     Obj_801895A4 *self = (Obj_801895A4 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80444EF4, this->m_84);
+    debug_printf_at(0x130020, lbl_80444EF4, this->set_params[0]);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }

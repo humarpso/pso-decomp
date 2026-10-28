@@ -43,7 +43,7 @@ void TLanguage__sub_802A0204(void) {
     area = get_current_floor_area();
     switch (area) {
     case AREA_SEABED_UPPER:
-        var_r0 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+        var_r0 = (int)::operator new(0x440);
         if (var_r0 != 0) {
             var_r0 = load_resource_from_descriptor(var_r0, 5, bm_o_door_seabed01_resource_descriptor, 0, 0, 0);
         }
@@ -52,7 +52,7 @@ void TLanguage__sub_802A0204(void) {
         lbl_805D6608 = (u32)load_gvm_texture_file((s32)lbl_80466138);
         return;
     case AREA_SEABED_LOWER:
-        var_r0_2 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+        var_r0_2 = (int)::operator new(0x440);
         if (var_r0_2 != 0) {
             var_r0_2 = load_resource_from_descriptor(var_r0_2, 5, bm_o_door_seabed01_resource_descriptor, 0, 0, 0);
         }
@@ -64,13 +64,13 @@ void TLanguage__sub_802A0204(void) {
 }
 
 void TODoorFourLightBase::clamp_light_index() {
-    if ((s32) this->m_88 < 0) {
-        this->m_88 = 0;
+    if ((s32) this->set_params[1] < 0) {
+        this->set_params[1] = 0;
     }
-    if ((s32) this->m_88 > 4) {
-        *(s32 *)&this->m_88 = 4;
+    if ((s32) this->set_params[1] > 4) {
+        *(s32 *)&this->set_params[1] = 4;
     }
-    this->m_f8 = (s32) this->m_88;
+    this->m_f8 = (s32) this->set_params[1];
 }
 
 }

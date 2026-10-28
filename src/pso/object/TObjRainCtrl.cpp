@@ -4,6 +4,7 @@
 #include "pso/map/FloorArea.h"
 
 #include "types.h"
+#include "pso/map/FloorArea.h"
 
 extern "C" {
 u32 __nw__7TObjectFUl(int);

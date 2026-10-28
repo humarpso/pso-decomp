@@ -7,7 +7,7 @@
 #include "pso/unk/text_803D853C.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/enemy/TObjEneReconBomb.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/object/TObjFish.h"
@@ -84,7 +84,7 @@ struct Obj_8031B808 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
-s16 obj_getField1c(int);
+s16 get_entity_id(int);
 f32 horizontal_distance_squared(void *, void *);
 s32 fn_8031B618(Obj_8031B618 *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
@@ -112,7 +112,7 @@ s32 calc_scaled_value__12TObjEneReconFv(int);
 f32 TObjEneRecon__sub_8031C2BC(int);
 f32 TObjEneRecon__sub_8031C2C8(int);
 f32 TObjEneRecon__sub_8031C2D4(int);
-s32 __ct__13TUnk_804806E8FP7TObject();
+s32 __ct__9TObjCharaFP7TObject();
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__16TObjEneReconBomb[];
@@ -153,7 +153,7 @@ void TObjEneReconBomb::render() {
     temp_r30 = TObjFish__sub_8001EDB0((void *)recon_bomb_bml_resource, 2);
     push_matrix();
     translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
-    rotate_matrix_zyx(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
+    rotate_matrix_zyx(0, (*(s32 *)&this->rotation_x), (this->rotation_y), (this->rotation_z));
     TObjFish::set_global_param(temp_r30);
     draw_chunk_object((void *)bml_model);
     pop_matrix();
@@ -229,7 +229,7 @@ void TObjEneReconBomb::run_task() {
         spawn_particle_effect_with_flags(&arg0->pos, 0x46, 0x40);
         for (i = 0; i < lbl_805D5868; i++) {
             pl = (VObj_8031B808 *)get_player_data__10TObjPlayerFi(i);
-            if (TObjPlayer::is_valid_and_active((u32)pl) != 0 && pl != 0 && (u16)obj_getField1c((int)pl) < 0x1000 && pl->m31() == 0) {
+            if (TObjPlayer::is_valid_and_active((u32)pl) != 0 && pl != 0 && (u16)get_entity_id((int)pl) < 0x1000 && pl->m31() == 0) {
                 if (horizontal_distance_squared((u8 *)pl + 0x2FC, &arg0->pos2) <= arg0->range * arg0->range) {
                     P_8031B808 d;
                     d.a = 0;
@@ -247,7 +247,7 @@ void TObjEneReconBomb::run_task() {
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneReconBomb;
-        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
+        ((TObjChara *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -262,11 +262,11 @@ u8 *TObjEneReconBomb__ct(TObjEneReconBomb *ene_recon_bomb, s32 arg1, s32 arg2, s
     f32 temp_f31;
     u8 *temp_r5;
 
-    __ct__13TUnk_804806E8FP7TObject();
+    __ct__9TObjCharaFP7TObject();
     *(s32 **)((s8 *)ene_recon_bomb + 0x18) = (s32 *) __vt__16TObjEneReconBomb;
     *(s32 *)((s8 *)ene_recon_bomb + 0) = (s32) TObjEneReconBomb__name;
     ene_recon_bomb->m_334 = arg2;
-    ene_recon_bomb->m_338 = obj_getField1c(ene_recon_bomb->m_334);
+    ene_recon_bomb->m_338 = get_entity_id(ene_recon_bomb->m_334);
     *(f32 *)((s8 *)ene_recon_bomb + 0x34C) = TObjEneRecon__sub_8031C2D4(ene_recon_bomb->m_334);
     ene_recon_bomb->m_350 = TObjEneRecon__sub_8031C2C8(ene_recon_bomb->m_334);
     *(f32 *)((s8 *)ene_recon_bomb + 0x354) = TObjEneRecon__sub_8031C2BC(ene_recon_bomb->m_334);

@@ -1,4 +1,5 @@
 #include "pso/system/TSetEvtDestroy.h"
+#include "pso/item/TItem.h"
 #include "types.h"
 #include "pso/misc/TPlayerBattleCtrl4P.h"
 #include "pso/misc/TLobby.h"
@@ -175,7 +176,7 @@ extern const f32 lbl_805D354C;
 extern const f32 lbl_805D3550;
 extern const f32 lbl_805D5DC4;
 extern const f32 lbl_805D5DC8;
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void TLobby__sub_801C36E4(void *arg0, void *arg1);
 s32 TLobby__sub_801C4FC4(void *p);
 extern Team_801C343C lbl_80475B78[];
@@ -183,7 +184,6 @@ s32 calculate_split_screen_battle_rankings(void *);
 void TLobby__sub_801B09A4(void);
 void play_cue_stream_file(s32 name);
 void show_duel_result_window(s32 arg0, s32 arg1);
-void advance_item_system_generation(void);
 
 void TLobby__sub_8020BB18(void);
 void TLobby__sub_8020BCE4(void);
@@ -191,7 +191,7 @@ void end_player_keyboard_hold(s32 arg0);
 void clear_trap_counts(s8 *arg0);
 
 void begin_player_keyboard_hold(s32 arg0);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(u32, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(u32, s32);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 release_attached_resource__10TObjPlayerFv();
 void request_active_window_close(void);
@@ -533,7 +533,7 @@ s32 TPlayerBattleCtrl4P::check_all_players_flag() {
     var_r31 = 0;
 loop_1:
     var_r3 = get_player_by_client_id(var_r31);
-    if ((var_r3 != 0U) && (obj_testFlags30__13TUnk_804AF8A0FUl(var_r3, 0x02000000) != 0)) {
+    if ((var_r3 != 0U) && (obj_testFlags30__14TObjCollidableFUl(var_r3, 0x02000000) != 0)) {
         return 0;
     }
     var_r31 += 1;
@@ -571,7 +571,7 @@ s32 calculate_split_screen_battle_rankings(void *) {
         for (k = 0; k < 4; k++) {
             p = PLAYER_801C343C(k);
             if (p != 0) {
-                TBL_801C343C[n].id = obj_getField1c((void *)p);
+                TBL_801C343C[n].id = get_entity_id((void *)p);
                 TBL_801C343C[n].score = team.v[TLobby__sub_801C19D0((void *)(p + 0x828)) != 1 ? 1 : 0];
                 n++;
             }
@@ -580,7 +580,7 @@ s32 calculate_split_screen_battle_rankings(void *) {
         for (k = 0; k < 4; k++) {
             p = PLAYER_801C343C(k);
             if (p != 0) {
-                TBL_801C343C[n].id = obj_getField1c((void *)p);
+                TBL_801C343C[n].id = get_entity_id((void *)p);
                 TBL_801C343C[n].score = TLobby__sub_801C4FC4((void *)(p + 0x7AC));
                 n++;
             }
@@ -767,7 +767,7 @@ void TPlayerBattleCtrl4P::reset_players() {
     for (i = 0; i < 4; i++) {
         p = (void *)get_player_by_client_id(i);
         if (p != 0) {
-            TObjPlayer__send_selected_spawn_position(p, ((Ctl_80311380 *)this)->tbl[obj_getField1c(p)]);
+            TObjPlayer__send_selected_spawn_position(p, ((Ctl_80311380 *)this)->tbl[get_entity_id(p)]);
             reset_cameras_to_actor(p, 0);
         }
     }

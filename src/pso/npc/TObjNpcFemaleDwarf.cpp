@@ -48,7 +48,7 @@ u8 *TObjNpcFemaleDwarf__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjNpcFemaleDwarf *)(arg0))->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleDwarf__static_data + 0x42C)) + 8);
-    ((TObjNpcFemaleDwarf *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleDwarf__static_data + 0x42C)) + 0xC);
+    ((TObjNpcFemaleDwarf *)arg0)->texlist = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleDwarf__static_data + 0x42C)) + 0xC);
     ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
@@ -76,7 +76,7 @@ void TObjNpcFemaleFat::free_static_model() {
 void TObjNpcFemaleFat::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_efw_i_body_resource_descriptor.value, 0, 0, 0));

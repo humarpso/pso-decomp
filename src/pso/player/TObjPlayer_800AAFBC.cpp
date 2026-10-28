@@ -215,10 +215,10 @@ f32 newton_sqrtf();
 s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
 s32 subtract_vector(void *, void *);
 
-s16 obj_getField1c(void *);
+s16 get_entity_id(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
-s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
+s32 __ct__14TObjCollidableFP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 player_sub_800ab7a0_id_table[];
 extern void *lbl_805D5090;
@@ -238,7 +238,7 @@ void TObjEneDubchik::init_level_stats(s32 arg1) {
     } else {
         var_r0 = lbl_805D5098;
     }
-    this->texture_id = var_r0;
+    this->texlist = var_r0;
 }
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
@@ -246,15 +246,15 @@ void TObjPlayer__sub_800AAFF0(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
 void TObjPlayer::clear_flag_04000000() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r6;
-    temp_r6 = (u8 *)this->m_a4;
+    temp_r6 = (u8 *)this->bodies;
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xF5FFFFFF);
-    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04000000U);
+    ((TObjBase *)arg0)->obj_clearFlags30(0x04000000U);
 }
 
 void TObjPlayer::set_invuln_flags() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r5;
-    temp_r5 = (u8 *)this->m_a4;
+    temp_r5 = (u8 *)this->bodies;
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 0x0A000000);
     obj_setFlags30(arg0, 0x04000000U);
 }
@@ -266,7 +266,7 @@ s32 TObjEneDubchik::sub_800AB068() {
   ;
   if ((fabs_float((*((f32 *) (((s8 *) arg0) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x44)))) + fabs_float((*((f32 *) (((s8 *) arg0) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x4C))))) > lbl_805D9B10)
   {
-    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), (u8 *)&this->m_44);
+    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), (u8 *)&this->prev_position);
     return 1;
   }
   return 0;
@@ -330,7 +330,7 @@ void TUnk_80491460::run_task() {
 void *TObjPlayer::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_80491460;
-        if ((void *)this->m_5c != NULL) { queue_destruction__7TObjectFv((void *)this->m_5c); }
+        if ((void *)this->rotation_x != NULL) { queue_destruction__7TObjectFv((void *)this->rotation_x); }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -449,7 +449,7 @@ void *TUnk_80491478::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
         if (*(void * *)&(this->m_d0) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_d0)); (this->m_d0) = 0; }
-        __dt__13TUnk_804AF8A0Fv(this, 0);
+        __dt__14TObjCollidableFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -463,10 +463,10 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     void *obj;
     u8 *temp_r3;
     s32 t;
-    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_06);
+    __ct__14TObjCollidableFP7TObject(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80491478;
     *(s16 *)((s8 *)arg0 + 0xAC) = arg1;
-    *(s16 *)((s8 *)arg0 + 0xD4) = obj_getField1c(arg2);
+    *(s16 *)((s8 *)arg0 + 0xD4) = get_entity_id(arg2);
     ((TUnk_80491478 *)arg0)->m_ae = 0;
     t = player_sub_800ab7a0_id_table[arg1];
     ((TUnk_80491478 *)arg0)->m_d8 = arg3;

@@ -6,7 +6,7 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, TObject *);
+extern "C" void *__ct__14TObjCollidableFP7TObject(void *, TObject *);
 
 extern "C" {
 
@@ -24,9 +24,9 @@ extern s32 __vt__18TObjBoss7TunnelCol[];
 void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->clear_collision_bodies();
+        __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -41,15 +41,15 @@ extern const f32 lbl_805DEC9C;
 
 void *TObjBoss7TunnelCol__ct(void *arg0, TObject *parent) {
     struct VOff_802F1BEC_arg0_802F1B7C *self = (struct VOff_802F1BEC_arg0_802F1B7C *)arg0;
-    __ct__13TUnk_804AF8A0FP7TObject(arg0, parent);
+    __ct__14TObjCollidableFP7TObject(arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
     *(void * *)&((TObjBoss7TunnelCol *)arg0)->m_name = lbl_805D3FF0;
-    fn_8002B630((u8 *)self->f_AC, (u8 *)TObjBoss7TunnelCol__col_desc);
+    copy_collision_body((CollisionBody *)self->f_AC, (const CollisionBody *)TObjBoss7TunnelCol__col_desc);
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DECA0;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DEC9C;
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DEC9C;
-    ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference(self->f_AC);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjCollidable *)arg0)->set_collision_body(self->f_AC);
+    ((TObjPlayer *)arg0)->register_object_by_id();
     return arg0;
 }
 
@@ -67,7 +67,7 @@ s32 TObjBoss7TunnelCol::is_in_camera_range() {
     f32 temp_f1;
 
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
-        temp_f1 = *(f32 *)&this->texture_id;
+        temp_f1 = *(f32 *)&this->texlist;
         if ((temp_f1 < lbl_805DECA4) && (lbl_805DECA8 < temp_f1)) {
             return 0;
         }

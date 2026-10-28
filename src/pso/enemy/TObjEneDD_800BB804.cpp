@@ -358,9 +358,9 @@ extern s32 area_random_seed;
 
 void TObjEneDD::init_common_from(u8 *arg1) {
     reset_state_fields();
-    *(s16 *)&this->m_28 = (s16) *(s16 *)((s8 *)arg1 + 0x28);
+    *(s16 *)&this->room = (s16) *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)((u8 *)this) + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (this->m_1c + area_random_seed));
+    subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (this->entity_id + area_random_seed));
 }
 
 int TObjEneDD::get_target_info() { return fn_800FD8A0(this); }
@@ -417,7 +417,7 @@ void TObjEneDD::copy_resource_desc(u8 *arg1) {
 s32 load_enemy_bml_resource(u8 *arg0) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, arg0, 0, 0, 0));
@@ -477,9 +477,9 @@ s32 TObjEneDD::vfunc_83() {
 
 void TObjEneDD::init_position_vectors() {
     u8 *arg0 = (u8 *)this;
-    VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
-    VecCopy((Vec *)&this->m_50, (const Vec *)&this->position);
-    VecCopy((Vec *)&this->m_74, (const Vec *)&this->position);
+    VecCopy(&this->prev_position, (const Vec *)&this->position);
+    VecCopy(&this->home_position, (const Vec *)&this->position);
+    VecCopy(&this->center, (const Vec *)&this->position);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDD__data_805D9E8C;

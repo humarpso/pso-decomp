@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/TEneEffHamon.h"
 #include "pso/misc/TeneFakeTecThunderEff.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -8,6 +9,7 @@
 #include "pso/misc/TWindowDD.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct RecoveredGlobal_800A4204_lbl_80490A18 {
     s32 value;
@@ -70,7 +72,7 @@ extern s32 __vt__21TeneFakeTecThunderEff[];
 extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *player_effect_task_list[];
@@ -275,7 +277,7 @@ void TeneFakeTecThunderEff::render() {
     if (this->m_340 == 0) {
         return;
     }
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     model_render_flags |= 0x10;
     sw = lbl_8058D4F8.sw;
     cx = lbl_8058D4F8.cx;
@@ -348,10 +350,10 @@ void TeneFakeTecThunderEff::render() {
     p[1].u = lbl_805D99F0;
     p[1].v = vv;
     p[1].color = color;
-    TObjPlayer::init_xyz_limits();
+    set_additive_blend();
     ((TWindowDD *)verts)->draw_transformed_primitive((void*)(this->m_38 * 2), (void*)TObjPlayer__effect_count, (void*)1);
-    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-    model_render_flags = lbl_805D5660;
+    set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+    model_render_flags = saved_model_render_flags;
 }
 #pragma pop
 

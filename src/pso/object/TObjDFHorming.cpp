@@ -38,7 +38,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL) continue;
-        q = *(u8 * *)&((TUnk_804AF8A0 *)p)->m_a4;
+        q = *(u8 * *)&((TObjCollidable *)p)->bodies;
         if (q == NULL || !(*(s32 *)((s8 *)q + 0x18) & 0x20000)) continue;
         if (xyz_distance(e, p + 0x38) <= r) continue;
         for (j = 0; j < 3; j++) {
@@ -63,7 +63,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
             v.y = 7.5f;
             vec3_add_to(&v, ev);
             VecCopy((Vec *)(p + 0x38), (const Vec *)&v);
-            ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers();
+            ((TObjCollidable *)p)->refresh_collision_body_centers();
         }
     }
 }
@@ -80,7 +80,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
 
 extern "C" {
 
-s16 obj_getField1c(void *);
+s16 get_entity_id(void *);
 s32 TBoss4Type3__sub_8005254C(s16);
 s32 rand(void);
 extern s32 lbl_805D586C;
@@ -149,8 +149,8 @@ u16 TBoss4Type3::pick_random_target_player() {
     n = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0) {
-            buf[n++] = obj_getField1c(p);
+        if (p != NULL && TBoss4Type3__sub_8005254C(get_entity_id(p)) != 0) {
+            buf[n++] = get_entity_id(p);
             if (n >= 4) {
                 break;
             }
@@ -378,7 +378,7 @@ void TBoss4DarkFalz::send_code_25_4(s32 arg) {
     TBoss4DarkFalz *self = this;
     Msg_8004B16C msg;
     ((TBoss4DarkFalz *)(&msg))->set_code_25_4();
-    msg.id = self->m_1c;
+    msg.id = self->entity_id;
     msg.a = -1;
     msg.b = arg;
     ((TBoss4DarkFalz *)(&msg))->swap_and_send();
@@ -388,7 +388,7 @@ void TBoss4DarkFalz::send_action_packet(s32 arg) {
     TBoss4DarkFalz *self = this;
     Msg_8004B1BC msg;
     ((TBoss4DarkFalz *)(&msg))->set_code_25_4();
-    msg.id = self->m_1c;
+    msg.id = self->entity_id;
     msg.a = arg;
     msg.b = -1;
     ((TBoss4DarkFalz *)(&msg))->swap_and_send();
@@ -622,7 +622,7 @@ void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *boss4_dark_falz) {
             Vec_8004B7DC v = base;
             v.x += 2.5e+02f * sin_table_lookup(ang);
             v.z += 2.5e+02f * cos_table_lookup(ang);
-            ((TUnk_804B9870 *)p)->set_position_from(&v);
+            ((TObjBase *)p)->set_position_from(&v);
             ((TBoss4DarkFalz *)p)->save_position();
             get_hit_data__14TBoss4DarkFalzFv(p)->f4 = ang + 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -649,7 +649,7 @@ void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *boss4_dark_falz) {
             Vec_8004B8F8 v = base;
             v.x += 12.5f * sin_table_lookup(ang);
             v.z += 12.5f * cos_table_lookup(ang);
-            ((TUnk_804B9870 *)p)->set_position_from((Vec_8004B7DC *)(&v));
+            ((TObjBase *)p)->set_position_from((Vec_8004B7DC *)(&v));
             ((TBoss4DarkFalz *)p)->save_position();
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFv(p))->f4 = 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -956,7 +956,7 @@ extern s32 tl_04;
 void TBoss4DarkFalz::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &darkfalz_dat_resource_descriptor.value, 0, 0, 0));

@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/object/TObjLight.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -64,12 +65,12 @@ extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
-s32 __ct__13TUnk_804B9870FP7TObject(void *);
+s32 __ct__8TObjBaseFP7TObject(void *);
 extern s32 __vt__9TObjLight[];
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern s32 lbl_805D33B8;
 Actor_80193FE8 *get_player_data__10TObjPlayerFi(s32);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 f32 xyz_distance_squared(void *, void *);
 void register_actor_light(s32, void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -159,7 +160,7 @@ void TObjLight::run_task() {
                     self->out_dir.x = t * (self->dir.x - self->base_dir.x) + self->base_dir.x;
                     self->out_dir.y = t * (self->dir.y - self->base_dir.y) + self->base_dir.y;
                     self->out_dir.z = t * (self->dir.z - self->base_dir.z) + self->base_dir.z;
-                    register_actor_light(obj_getField1c(a), self);
+                    register_actor_light(get_entity_id(a), self);
                 }
             }
         }
@@ -182,7 +183,7 @@ void TObjLight::run_task() {
                     self->out_dir.y = t * (self->dir.y - self->base_dir.y) + self->base_dir.y;
                     self->out_dir.z = t * (self->dir.z - self->base_dir.z) + self->base_dir.z;
                     if (get_current_floor_area() != AREA_LOBBY) {
-                        register_actor_light(obj_getField1c(a), self);
+                        register_actor_light(get_entity_id(a), self);
                     }
                 }
             }
@@ -193,27 +194,27 @@ void TObjLight::run_task() {
 
 }
 TObjLight::~TObjLight() {
-    ((TUnk_804B9870 *)this)->mask_object_set_row_flags(-3);
+    ((TObjBase *)this)->mask_object_set_row_flags(-3);
 }
 extern "C" {
 
 typedef char RecoveredGlobal_80194528___vt__9TObjLight_size[sizeof(RecoveredGlobal_80194528___vt__9TObjLight) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80194528_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80194528_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 u8 *TObjLight__ct(TObjLight *light, s32 arg1, u8 *arg2) {
-    __ct__13TUnk_804B9870FP7TObject(light);
+    __ct__8TObjBaseFP7TObject(light);
     *(s32 **)((s8 *)light + 0x18) = &(*(RecoveredGlobal_80194528___vt__9TObjLight *)&__vt__9TObjLight).value;
     *(s32 *)((s8 *)light + 0) = (s32) lbl_805D33B8;
     ((TObjLight *)(light))->apply_object_set_data(arg2);
     light->m_90 = (s32) *(s16 *)((s8 *)arg2 + 8);
     *(f32 *)((s8 *)light + 0xF0) = (f32) 0.5f;
-    light->m_f4 = (f32) light->scale;
-    *(f32 *)((s8 *)light + 0xF8) = (f32) light->target_scale;
+    light->m_f4 = (f32) light->scale.x;
+    *(f32 *)((s8 *)light + 0xF8) = (f32) light->scale.y;
     light->m_fc = (f32) *(f32 *)((s8 *)light + 0x70);
     light->m_e4 = (f32) (0.0f);
     *(f32 *)((s8 *)light + 0xE8) = (f32) (0.0f);
     light->m_ec = (f32) (0.0f);
     light->m_9c = 0;
-    ((TRaderMapCore *)((u8 *)light + 0xBC))->copy_vec4(((u8 *)&TObjLight__scene_light_state.value + 0x24));
+    copy_argb((NJS_ARGB *)((u8 *)light + 0xBC), (NJS_ARGB *)((u8 *)&TObjLight__scene_light_state.value + 0x24));
     VecCopy((Vec *)((u8 *)light + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
     *(f32 *)((s8 *)light + 0xF0) = (f32) 0.5f;
     light->m_f4 = (f32) (0.0f);

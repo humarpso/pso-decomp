@@ -1,3 +1,5 @@
+#include "pso/protocol/protocol_types.h"
+#include "pso/object/TObjMotion.h"
 #include "types.h"
 #include "pso/misc/TOKey_8015845C.h"
 #include "pso/system/byteswap.h"
@@ -60,7 +62,6 @@ void *TOKey__ct(TOKey *arg0);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 u8 is_current_floor_switch_set(u16);
 void __dl__7TObjectFPv(void *);
-int read_be16_field2__10TObjPlayerFv(void*);
 
 void TOKey::trigger_activate_sound() {
     struct VObj_8016A8D0 *o = (struct VObj_8016A8D0 *)this;
@@ -129,7 +130,7 @@ void TOKey::reset_and_notify() {
 void TOKey::init_switch_id() {
     s32 temp_r0;
 
-    temp_r0 = this->m_84;
+    temp_r0 = this->set_params[0];
     if ((temp_r0 < 0) || (temp_r0 > 0xFF)) {
         this->m_e4 = -1;
         this->m_d0 = 2;
@@ -143,7 +144,7 @@ void TOKey::init_key() {
     u8 *arg0 = (u8 *)this;
     ((VObj0_8016ab58_8016A8D0*)arg0)->m5();
     init_switch_id();
-    VecCopy((Vec *)&this->m_74, (const Vec *)&this->position);
+    VecCopy(&this->center, (const Vec *)&this->position);
     *(s32 *)((s8 *)arg0 + 0x20) = 2;
 }
 
@@ -174,7 +175,7 @@ void *TOKey__ct(TOKey *arg0) {
     *(u32 *)((s8 *)arg0 + 0xE0) = 0;
     *(u32 *)((s8 *)arg0 + 0xD8) = 28;
     *(u32 *)((s8 *)arg0 + 0xDC) = 28;
-    ((TOKeyAncient01 *)((char *)arg0 + 152))->set_type();
+    ((TOKey *)arg0)->cursor_action.set_use();
     *(u32 *)((s8 *)arg0 + 0xE4) = 0;
     return arg0;
 }
@@ -183,6 +184,6 @@ void TOKey::vfunc_16() {  }
 void TOKey::vfunc_17() {  }
 void TOKey::vfunc_25() {  }
 
-void TOKey::bswap_6x05_switch_flag() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x8)); }
+void TOKey::bswap_6x05_switch_flag() { ((G_ClientIDHeader *)this)->bswap(); bswap_16((u16 *)((char*)this + 0x8)); }
 
 }

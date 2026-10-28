@@ -38,7 +38,7 @@ struct Core_801FB490 {
 };
 
 extern "C" {
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 s32 get_player_by_client_id(int);
 s32 update_radar_auto_discovery(void *, int, void *);
 s32 update_pan_zoom_input__13TRaderMapCoreFv();
@@ -47,7 +47,7 @@ extern s32 TRaderMapCore__view_mode;
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__instance;
-s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
+s32 __ct__8TObjBaseFP7TObject(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 fn_803D64F8(void *);
 extern GRec_801FB490 TRaderMapCore__map_view_state[];
@@ -97,7 +97,7 @@ void run_task__13TRaderMapCoreFv(TRaderMapCore *rader_map_core) {
         }
         rader_map_core->gather_player_markers();
         if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)rader_map_core + 0x184) != 0U)) {
-            rader_map_core->m_134 = (s32) obj_getField1c(rader_map_core->m_184);
+            rader_map_core->m_134 = (s32) get_entity_id(rader_map_core->m_184);
         }
         ((TRaderMapCore *)rader_map_core)->update_follow_projection((s32)((void *)TRaderMapCore__view_mode));
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -120,7 +120,7 @@ u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TRaderMapCore.value;
         TRaderMapCore__instance = 0;
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -135,7 +135,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     u32 j;
     s32 off;
     s32 t8, t6, t5, t0;
-    __ct__13TUnk_804B9870FP7TObject(arg0, parent);
+    __ct__8TObjBaseFP7TObject(arg0, parent);
     arg0->vt = &__vt__13TRaderMapCore.value;
     arg0->f0 = rader_map_core_name_ptr;
     arg0->f178 = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 2);

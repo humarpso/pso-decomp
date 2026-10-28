@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 // ---- pso/unk/text_80232934
 #include "types.h"
 #include "pso/map/FloorArea.h"
@@ -9,6 +10,7 @@
 #include "pso/unk/TUnk_804CC870.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
+#include "pso/map/FloorArea.h"
 struct Vec_80232934 { f32 x; f32 y; f32 z; };
 
 struct Quad_80232934 { u32 a; u32 b; u32 c; u32 d; };
@@ -30,12 +32,11 @@ void scale_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void);
-void set_chunk_material_color__13TUnk_80494AE0Fv(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
 extern Quad_80232934 grants_flash_quad_vertices;
 extern u8 lbl_804CC868[];
 extern u8 technique_ringwave_texture_list[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 technique_effect_bml;
 extern s32 model_render_flags;
 
@@ -258,9 +259,9 @@ void TUnk_804CC870::render() {
     approach_position_if_far(&arg0->pos, &v, arg0->f4c);
     copy_anim_frame_to_slot(&ctx);
     id = model_render_flags;
-    lbl_805D5660 = id;
+    saved_model_render_flags = id;
     model_render_flags = id | 0x10;
-    set_chunk_material_color__13TUnk_80494AE0Fv(arg0->f38, id);
+    ((void (*)(void *, s32))set_constant_material)(arg0->f38, id);
     set_depth_buffer_settings_id(3);
     TParticleCtrl::begin_effect_render();
     push_matrix();
@@ -273,7 +274,7 @@ void TUnk_804CC870::render() {
     pop_matrix();
     copy_slot_to_anim_frame(&ctx);
     restore_draw_list_mask();
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
 }
 
 #pragma defer_codegen off

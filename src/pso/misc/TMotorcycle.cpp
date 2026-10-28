@@ -80,7 +80,7 @@ void TMotorcycle::render() {
             TObjFish::set_global_param((s32) TMotorcycle__texture_list);
             push_matrix();
             post_translate_matrix((u8 *)&this->position);
-            rotate_matrix_yxz(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
+            rotate_matrix_yxz(0, (*(s32 *)&this->rotation_x), (this->rotation_y), (this->rotation_z));
             get_bml_model((void *) ((*(s32 *)&TMotorcycle__bml_resource)), this->m_bc);
             draw_ginja_object();
             pop_matrix();
@@ -115,7 +115,7 @@ void TMotorcycle::free_statics() {
 void TMotorcycle::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &motorcycle_resource_descriptor, 0, 0, 0));
@@ -129,7 +129,7 @@ void TMotorcycle::load_resources() {
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMotorcycle;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__11TObjMesBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -148,7 +148,7 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     self->xBC = lbl_80445DF4[self->xBC];
     init_collision_body_parts(arg0, TMotorcycle__collision_parts, 1);
     self->flags |= 0x40000000;
-    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TObjPlayer *)arg0)->register_object_by_id();
     return arg0;
 }
 

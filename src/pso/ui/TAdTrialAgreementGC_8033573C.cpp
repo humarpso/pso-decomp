@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
@@ -23,6 +24,7 @@
 #include "pso/misc/TUnk_804EE470.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 
 struct Base_803357EC_8033573C { char pad[0x18]; };
 struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
@@ -143,7 +145,7 @@ s32 TCameraCtrl__sub_80068EF0();
 s32 draw_record_with_camera__19TAdTrialAgreementGCFlll(void *, void *, int);
 extern RecoveredGlobal_80335BD4_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80335BD4_lbl_8058D4C0 model_material_color;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
@@ -212,11 +214,11 @@ void TAdTrialAgreementGC::render_screen() {
     if (TMainTask::get_render_pass() != 0) {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
-        lbl_805D5660 = model_render_flags;
-        ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
+        saved_model_render_flags = model_render_flags;
+        copy_argb((NJS_ARGB *)&saved_model_draw_color.value, (NJS_ARGB *)&model_material_color.value);
         if ((s32) this->m_24 == 0) {
             model_render_flags |= 0x10;
-            ((TUnk_80494AE0 *)(arg0 + 0x28))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((arg0 + 0x28)));
             bind_title_texture_list();
             TLobby::draw_with_camera((int) (TLobby::get_record(0xA)), 0xA, 0x22, (-1e+01f));
         }
@@ -228,7 +230,7 @@ void TAdTrialAgreementGC::render_screen() {
                 var_r31 += 1;
             } while (var_r31 != 0xF);
             bind_title_texture_list();
-            TObjPlayer::init_xyz_limits();
+            set_additive_blend();
             temp_r31 = ((TUnk_804EE458 *)arg0)->sub_8033596C();
             if ((s32) this->m_24 == 1) {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0xF), 0xF);
@@ -240,10 +242,10 @@ void TAdTrialAgreementGC::render_screen() {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x1F), 0x1F);
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x23), 0x23);
             }
-            TObjPlayer::reset_transform_state();
+            set_default_alpha_blend();
         }
-        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
-        model_render_flags = lbl_805D5660;
+        copy_argb((NJS_ARGB *)&model_material_color.value, (NJS_ARGB *)&saved_model_draw_color.value);
+        model_render_flags = saved_model_render_flags;
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();
     }

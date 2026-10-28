@@ -55,7 +55,7 @@ extern const f32 lbl_805DBA78;
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, int);
 void *find_entity_by_id(u16 id);
 extern s32 TOVS2Wall01__class_name;
-extern Ent_8017B9B0 *TLobby__data_805D6140;
+extern Ent_8017B9B0 *quest_object_entries;
 void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
 
 f32 TOTrapAncient02R::receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32) {
@@ -70,7 +70,7 @@ f32 TOTrapAncient02R::receive_weapon_special_attack(void *, void *) {
 
 void TOTrapAncient02R::init_trap_param_clamped() {
     s32 temp_r0;
-    this->m_368 = (s32) this->target_scale;
+    this->m_368 = (s32) this->scale.y;
     temp_r0 = this->m_368;
     if (temp_r0 < 1) {
         this->m_368 = 1;
@@ -83,7 +83,7 @@ void TOTrapAncient02R::init_trap_param_clamped() {
 
 void TOTrapAncient02R::clamp_trap_level_param() {
     s32 temp_r0;
-    this->m_35c = (s32) this->m_8c;
+    this->m_35c = (s32) this->set_params[2];
     temp_r0 = this->m_35c;
     if (temp_r0 < 0) {
         this->m_35c = 0;
@@ -96,7 +96,7 @@ void TOTrapAncient02R::clamp_trap_level_param() {
 
 void TOTrapAncient02R::init_trap_object_id() {
     s32 temp_r0;
-    this->m_364 = (s32) this->m_88;
+    this->m_364 = (s32) this->set_params[1];
     temp_r0 = this->m_364;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
         this->m_364 = -1;
@@ -145,12 +145,12 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
             init__11TOVS2Wall01Fi((s32)o);
             break;
         }
-        ((TUnk_804AF8A0 *)o)->access_object_saved_state(&spC, 1);
+        ((TObjCollidable *)o)->access_object_saved_state(&spC, 1);
         spC.a = o->state;
-        ((TUnk_804AF8A0 *)o)->access_object_saved_state(&spC, 0);
+        ((TObjCollidable *)o)->access_object_saved_state(&spC, 0);
         o->m4(&spC, 0);
     } else {
-        *(s32 *)&sp8 = *(s32 *)&TLobby__data_805D6140[arg0->d];
+        *(s32 *)&sp8 = *(s32 *)&quest_object_entries[arg0->d];
         if (sp8.a != 1) {
             sp8.a = arg0->c;
             TLobby::apply_table_entry(arg0->d, &sp8);
@@ -166,7 +166,7 @@ void TOVS2Wall01::save_and_send_state(u16 arg1) {
     if (arg1 == 1) {
         v = 1;
     }
-    if ((((Obj_8017BAFC *)this)->sub != NULL) && (((TUnk_804AF8A0 *)((Obj_8017BAFC *)this))->access_object_saved_state(&sp8, 1) != 0)) {
+    if ((((Obj_8017BAFC *)this)->sub != NULL) && (((TObjCollidable *)((Obj_8017BAFC *)this))->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = v;
         this->access_object_saved_state(&sp8, 0);
         sub = ((Obj_8017BAFC *)this)->sub;

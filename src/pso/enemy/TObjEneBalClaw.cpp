@@ -2,7 +2,7 @@
 #include "pso/system/NinjaUtil.h"
 #include "pso/misc/TOComputerMachine01_8023DD0C.h"
 #include "pso/player/TObjPlayer_800A0408.h"
-#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TObjChara.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TObjEneBalClaw.h"
@@ -132,7 +132,7 @@ void TObjEneBalClaw::update_claw_angle() {
     void *temp_r4;
 
     if (!(this->actorFlags & 0x800)) {
-        temp_r4 = this->m_a4;
+        temp_r4 = this->bodies;
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFF9);
         if (this->m_388 & 0x10000) {
             if (this->m_3b4 < this->m_3b0) {
@@ -140,7 +140,7 @@ void TObjEneBalClaw::update_claw_angle() {
                 return;
             }
             this->m_3b4 = this->m_3b0;
-            temp_r3 = this->m_a4;
+            temp_r3 = this->bodies;
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 4);
             return;
         }
@@ -151,7 +151,7 @@ void TObjEneBalClaw::update_claw_angle() {
             return;
         }
         this->m_3b4 = temp_f0_2;
-        temp_r3_2 = this->m_a4;
+        temp_r3_2 = this->bodies;
         *(s32 *)((s8 *)temp_r3_2 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x18) | 2);
     }
 }
@@ -194,7 +194,7 @@ void TObjEneBalClaw__sub_8008D924(void) {
     s32 j;
     s32 m;
     s32 n;
-    p = (u8 *)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+    p = (u8 *)::operator new(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, &balclaw_resource_descriptor, 0, 0, 0);
     }
@@ -247,7 +247,7 @@ u8 *TObjEneBalClaw__ct(TObjEneBalClaw *ene_bal_claw) {
     *(s32 **)((s8 *)ene_bal_claw + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
     ((TUnk_80490470 *)((u8 *)ene_bal_claw + 0x390))->init_vtable_and_field18();
     ene_bal_claw->m_name = balclaw_class_name;
-    ((TUnk_804806E8 *)ene_bal_claw)->add_flags_2e4(8);
+    ((TObjChara *)ene_bal_claw)->add_flags_2e4(8);
     ene_bal_claw->actorFlags = (s32) (ene_bal_claw->actorFlags | 0x40000);
     ene_bal_claw->m_3b8 = 0;
     ene_bal_claw->m_3bc = 0.0f;

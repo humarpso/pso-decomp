@@ -173,7 +173,7 @@ s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec
 
 extern s32 model_render_flags;
 
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 
 void prepare_ginja_model(void);
 
@@ -331,7 +331,6 @@ extern u32 lbl_8044A800[];
 
 extern u8 lbl_8044A80C[];
 
-void* alloc__23TAdSinglePlyChrSelectGCFv(u32);
 }
 
 struct RecoveredGlobal_8020650C___vt__6TScene { s32 value; u8 remaining[0x14]; };
@@ -1266,7 +1265,7 @@ void TScene::initialize_fmt2_materials() {
                     uv->id = def.id; uv->texture = def.texture;
                     uv->u = def.u; uv->v = def.v; uv->du = def.du; uv->dv = def.dv;
                     SceneMaterialNode *node = resolve_indirect_node_record(task, object);
-                    void *buffer = alloc__23TAdSinglePlyChrSelectGCFv(20);
+                    void *buffer = ::operator new(20);
                     if (buffer) buffer = ((TScene *)buffer)->init_buffers((s32)node, uv->texture);
                     uv->buffer = buffer;
                 } else {
@@ -1286,7 +1285,7 @@ void TScene::initialize_fmt2_materials() {
                     uv2->id = def2.id; uv2->texture = def2.texture;
                     uv2->u = def2.u; uv2->v = def2.v; uv2->du = def2.du; uv2->dv = def2.dv;
                     SceneMaterialNode *node2 = resolve_indirect_object_record(task, anim);
-                    void *buffer2 = alloc__23TAdSinglePlyChrSelectGCFv(20);
+                    void *buffer2 = ::operator new(20);
                     if (buffer2) buffer2 = ((TScene *)buffer2)->init_buffers((s32)node2, uv2->texture);
                     uv2->buffer = buffer2;
                 } else {
@@ -1572,7 +1571,7 @@ void TScene::render_map_sections() {
         }
         sec = TScene__data_805D5FCC->sections;
         prepare_ginja_model();
-        lbl_805D5660 = model_render_flags;
+        saved_model_render_flags = model_render_flags;
         for (i = 0; i < TScene__data_805D5FCC->count; i++, sec++) {
             if (sec->flags & 0x10000) {
                 if (sec->flags & 0x80000) {
@@ -1607,7 +1606,7 @@ void TScene::render_map_sections() {
                 }
             }
         }
-        model_render_flags = lbl_805D5660;
+        model_render_flags = saved_model_render_flags;
         end_ginja_model_draw();
     }
 }

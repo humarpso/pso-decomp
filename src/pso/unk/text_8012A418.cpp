@@ -112,9 +112,8 @@ typedef struct Pl_8012A470
 } Pl_8012A470;
 
 extern "C" {
-s8 sub_80102C30__5TItemFv();
 u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+u8 *__nw__5TItemFUl(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
@@ -128,7 +127,7 @@ u8 *TObjPlayer::create_state_8012a418(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x218));
+        temp_r3 = (u8 *)(__nw__5TItemFUl(0x218));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(TObjPlayer__sub_8012A3B4(temp_r3, tl_05, arg0));
@@ -191,7 +190,7 @@ s32 TUnk_804A4948::send_srank_stat_extra(u32 arg1, s32 arg2) {
 void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void receive_srank_hit(TItemWeapon *item_weapon, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
-    if (sub_80102C30__5TItemFv() == 2) {
+    if (item_weapon->get_mode() == 2) {
         f = *(u32 *)((s8 *)item_weapon + 0xF0);
         if ((f != 0U) && (arg2 != 0U)) {
             switch (*(s32 *)((s8 *)item_weapon + 0x1F8)) {
@@ -200,11 +199,11 @@ void receive_srank_hit(TItemWeapon *item_weapon, s32 arg1, u32 arg2, s32 arg3, s
                 if (arg3 == 2) {
                     ((TUnk_804A4948 *)item_weapon)->send_srank_stat_extra(arg2, arg4);
                 } else {
-                    item_weapon->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
+                    item_weapon->TItemWeapon::deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 }
                 break;
             default:
-                item_weapon->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
+                item_weapon->TItemWeapon::deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 break;
             }
         }
@@ -236,7 +235,7 @@ void TUnk_804A4948::emit_marker_effects() {
         }
         goto block_7;
       }
-      if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0)
+      if (((TItemWeapon *)arg0)->is_mode_two_and_ready() != 0)
       {
         ((TUnk_804A4948 *)arg0)->send_srank_stat_extra_to_locks();
         return;
@@ -250,7 +249,7 @@ void TUnk_804A4948::emit_marker_effects() {
   }
   if ((new_var = temp_r3) & 2)
   {
-    ((TObjPlayer *)arg0)->draw_status_icon((s32)&sp8);
+    ((TItemWeapon *)arg0)->get_gun_point(&sp8);
     PSO_VCALL_VObj_18_24931d_m49(arg0, &sp8, 0, 0, 1);
   }
 }

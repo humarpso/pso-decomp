@@ -1,3 +1,4 @@
+#include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -13,6 +14,7 @@
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 
 struct Needle_80109D48 {
     u8 pad0[0x1C];
@@ -25,7 +27,6 @@ struct Needle_80109D48 {
 };
 
 extern "C" {
-u32 query_game_join_id__10TObjPlayerFv(int);
 extern const f32 lbl_805DAB50;
 extern const f32 lbl_805DAB54;
 void rotate_matrix_by_node_angles(void *, s32);
@@ -33,7 +34,7 @@ void push_matrix();
 void post_translate_matrix(void *);
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
-extern u32 lbl_805D5660;
+extern u32 saved_model_render_flags;
 extern u32 model_render_flags;
 s32 __ct__7TObjectFP7TObject();
 
@@ -44,15 +45,15 @@ extern const f32 lbl_805DAB4C;
 void TItemEffNeedleBase::render() {
     Needle_80109D48 *self = (Needle_80109D48 *)this;
     if (((TObject *)self)->all_parents_unqueued_for_destruction() == 0 ||
-        query_game_join_id__10TObjPlayerFv(*(int *)self->m_2c) == 0) {
+        find_equipped_item(*(int *)self->m_2c) == 0) {
         return;
     }
     if (self->m_3c != NULL) {
-        lbl_805D5660 = model_render_flags;
-        model_render_flags = lbl_805D5660 | 0x20;
-        ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
-        ((TUnk_80494AE0 *)((f32 *)self->m_1c))->set_chunk_material_color();
-        TObjPlayer::notify_fish_if_valid(self->m_40);
+        saved_model_render_flags = model_render_flags;
+        model_render_flags = saved_model_render_flags | 0x20;
+        copy_argb((NJS_ARGB *)saved_model_draw_color, (NJS_ARGB *)model_material_color);
+        set_constant_material((const NJS_ARGB *)(((f32 *)self->m_1c)));
+        set_texlist(self->m_40);
         TParticleCtrl::begin_effect_render();
         push_matrix();
         post_translate_matrix(self->m_30);
@@ -60,14 +61,14 @@ void TItemEffNeedleBase::render() {
         draw_ginja_object(self->m_3c);
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
-        model_render_flags = lbl_805D5660;
+        copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color);
+        model_render_flags = saved_model_render_flags;
     }
 }
 
 void TItemEffNeedleBase::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x2C))) == 0U) {
+    if (find_equipped_item((int) (*(s32 *)((s8 *)arg0 + 0x2C))) == 0U) {
         queue_destruction__7TObjectFv((arg0));
         disallow_rendering__7TObjectFv((TObject *)(arg0));
         return;
@@ -86,7 +87,7 @@ u8 *__ct__18TItemEffNeedleBaseFv(u8 *object, void *arg1, u8 *item) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)object + 0x18) = __vt__18TItemEffNeedleBase;
     *(s32 *)((s8 *)object + 0) = (s32) TItemEffNeedleBase__class_name;
-    *(s32 *)((s8 *)object + 0x2C) = ((TItem *)item)->get_field_d8();
+    *(s32 *)((s8 *)object + 0x2C) = ((TItem *)item)->get_item_id();
     *(s32 *)((s8 *)object + 0x48) = (((TItem *)item)->rotation_y);
     *(s32 *)((s8 *)object + 0x4C) = 0;
     *(s32 *)((s8 *)object + 0x44) = 0;

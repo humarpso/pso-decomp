@@ -11,7 +11,7 @@ void for_each_player_slot__10TObjPlayerFv(void *);
 int is_script_controlled__10TObjPlayerFv(void*);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
-s32 obj_isState2_324__13TUnk_804806E8Fv();
+s32 obj_isState2_324__9TObjCharaFv();
 
 extern "C" {
 
@@ -64,7 +64,7 @@ typedef struct Player_801BC948 {
 } Player_801BC948;
 
 extern "C" {
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 TObjPlayer__sub_801BF9E0(void *, int);
 s32 TObjPlayer__sub_801C2244(void *, void *);
 s32 get_class_index__10TObjPlayerFv(void *);
@@ -75,13 +75,13 @@ void TObjPlayer__sub_801D955C(void *, s32);
 void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src);
 
 void TObjPlayer__sub_801BC8F0(s32 arg0) {
-    TObjPlayer__sub_801BF9E0((void *)(arg0 + 0x634), (int) (obj_getField1c((void *)arg0)));
+    TObjPlayer__sub_801BF9E0((void *)(arg0 + 0x634), (int) (get_entity_id((void *)arg0)));
     ((TObjPlayer *)(arg0 + 0x384))->update_follow_particle(arg0);
-    TObjPlayer__sub_801C2244((void *)(arg0 + 0x34C), (void *) (obj_getField1c((void *)arg0)));
+    TObjPlayer__sub_801C2244((void *)(arg0 + 0x34C), (void *) (get_entity_id((void *)arg0)));
 }
 void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src) {
     s32 i;
-    TObjPlayer__sub_801C1F78(self->f4ac, obj_getField1c(self));
+    TObjPlayer__sub_801C1F78(self->f4ac, get_entity_id(self));
     TObjPlayer__sub_801D955C(self->techs, get_class_index__10TObjPlayerFv(self));
     ((TObjPlayer *)(self->techs))->copy_all_technique_entries((void *)0x1D);
     for (i = 0; i < 0x13; i++) {
@@ -100,7 +100,7 @@ s32 get_slot_value_checked__10TObjPlayerFl(void *, s32);
 
 void TObjPlayer__sub_801BCA14(u8 *player, void *arg1) {
     s32 i;
-    TObjPlayer__sub_801C1F78(player + 0x4AC, ((s32 (*)())obj_getField1c)());
+    TObjPlayer__sub_801C1F78(player + 0x4AC, ((s32 (*)())get_entity_id)());
     TObjPlayer__sub_801D955C(player + 0x428, get_class_index__10TObjPlayerFv(player));
     ((TObjPlayer *)(player + 0x428))->copy_all_technique_entries((void *)0x1D);
     i = 0;
@@ -113,7 +113,7 @@ void TObjPlayer__sub_801BCA14(u8 *player, void *arg1) {
 void TObjPlayer__sub_801BCAB0(void) {  }
 void TObjPlayer::update_state() {
     s32 arg0 = (s32)this;
-    if (obj_isState2_324__13TUnk_804806E8Fv() != 0) {
+    if (obj_isState2_324__9TObjCharaFv() != 0) {
         ((TObjPlayer *)arg0)->set_flag_400000();
     } else {
         ((TObjPlayer *)arg0)->sync_current_area();

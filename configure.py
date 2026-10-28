@@ -468,6 +468,32 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     # inlined (the inline TUnk_804999E8 destructor and TObject::queue_destruction
     # stay calls).
     "pso/boss/TUnk_804848A0.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # TItem.cpp is written from its last function back (deferred code
+    # generation; the data keeps source order) and built with GC/2.0, like the
+    # struct-copy units above.
+    "pso/item/TItem.cpp": {"mw_version": "GC/2.0", "cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # TItemProArmor.cpp, TItemProShield.cpp and TItemProUnit.cpp are written
+    # from their last function back (deferred code generation, which also puts
+    # each vtable before the switch tables).
+    "pso/item/TItemProArmor.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # TItemProArmorParticle.cpp is written from its last function back too:
+    # its data (class names, particle table) keeps source order.
+    "pso/item/TItemProArmorParticle.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # TItemMag's vtable precedes its switch tables: deferred, and written from
+    # its last function back.
+    "pso/item/TItemMag.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    "pso/item/TItemProUnit.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    "pso/item/TItemProShield.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # TItemEquipBase.cpp keeps its class-name string in .rodata.
+    "pso/item/TItemEquipBase.cpp": {"cflags": _switch(cflags_pso, "-str reuse,readonly")},
+    # TItemObject's vtable precedes its switch table: deferred, and written
+    # from its last function back.
+    "pso/item/TItemObject.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # Two tool classes built the same way: the material's vtable precedes its
+    # switch table, and TUnk_8049FED0's TU emits its helper task's vtable first.
+    "pso/item/TUnk_8049FBC0.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    "pso/item/TUnk_8049FED0.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    "pso/item/TUnk_804F0D34.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
     # Vol Opt's second form also keeps eight-byte tables in .data, a six-byte
     # one in .bss and four-byte pointers in .sbss; its .rodata initializers run
     # from the last function back and its vtable precedes the switch tables.

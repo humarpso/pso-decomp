@@ -9,6 +9,8 @@
 #include "pso/misc/TUnk_8048E790.h"
 
 #include "types.h"
+#include "pso/misc/TParticleCtrl_80327D30.h"
+#include "pso/player/TObjPlayer_80083594.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -170,7 +172,7 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9540;
 extern const f32 TParticleCtrl__data_805D952C;
@@ -305,7 +307,7 @@ void TUnk_8048E790::render() {
                 rotate_matrix_z(0, *(s32 *)&this->unk_A0);
                 rotate_matrix_x(0, *(s32 *)&this->unk_98);
                 rotate_matrix_y(0, this->m_9c);
-                lbl_805D5660 = model_render_flags;
+                saved_model_render_flags = model_render_flags;
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                     TParticleCtrl::begin_effect_render();
                     load_projected_texture_matrix(lbl_805D9540);
@@ -319,7 +321,7 @@ void TUnk_8048E790::render() {
                     setup_particle_tev(0);
                 } else {
                     temp_r4 = model_render_flags;
-                    lbl_805D5660 = temp_r4;
+                    saved_model_render_flags = temp_r4;
                     model_render_flags = temp_r4 | 0x8021;
                     if (is_particle_sprite_additive__13TUnk_8048E728Fv(arg0, temp_r4) != 0) {
                         ((TUnk_8048E728 *)arg0)->apply_particle_model_fade_color(1);
@@ -335,9 +337,9 @@ void TUnk_8048E790::render() {
                     draw_ginja_object(this->m_b0);
                 }
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
-                    TParticleCtrl::disable_if_single_screen();
+                    reset_particle_tev();
                 }
-                model_render_flags = lbl_805D5660;
+                model_render_flags = saved_model_render_flags;
                 TParticleCtrl::end_effect_render();
                 pop_matrix();
             }
@@ -407,7 +409,7 @@ u8 *init_orbit_sprite_particle(u8 *object, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg
     o->f68 = (lbl_805D9548 * (f32)rand()) - lbl_805D954C;
     o->fD4 = TParticleCtrl__data_805D9530;
     if (o->f24 & 0x2000) {
-        ((TParticleCtrl *)((void *)0x1F))->get_object();
+        request_indirect_effect(0x1F);
     }
     return object;
 }
@@ -450,7 +452,7 @@ void *TUnk_8048E790::init_random_particle(void *arg1, void *arg2, void *arg3, vo
     o->f68 = (lbl_805D9548 * (f32)rand()) - lbl_805D954C;
     o->fD4 = TParticleCtrl__data_805D9530;
     if (o->f24 & 0x2000) {
-        ((TParticleCtrl *)((void *)0x1F))->get_object();
+        request_indirect_effect(0x1F);
     }
     return this;
 }

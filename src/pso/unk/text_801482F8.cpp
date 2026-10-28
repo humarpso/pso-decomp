@@ -316,7 +316,7 @@ extern const f32 lbl_805DB1D0;
 extern const f32 lbl_805DB1D4;
 extern const f32 lbl_805DB1D8;
 extern const f32 lbl_805DB1DC;
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
 }
@@ -336,7 +336,7 @@ extern u32 quest_area_manager;
 extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1C0;
-s32 sub_8010319C__13TUnk_804AF8A0Fv();
+s32 has_interactor__14TObjCollidableFv();
 s32 debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F544[];
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -350,7 +350,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
             if ((temp_r3 != 0U) && ((s16) this->mode != 3)) {
                 this->mode = 3;
                 this->phase = 0;
-                this->m_94 = arg1;
+                this->interactor = arg1;
                 this->targetId = arg1;
                 *(u32 *)&this->target = temp_r3;
                 if ((s32) this->targetId == (s32) local_client_id) {
@@ -360,7 +360,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
                 this->m_2ac = 0;
             }
         } else {
-            this->m_94 = 0xFFFFU;
+            this->interactor = 0xFFFFU;
             this->targetId = 0xFFFFU;
         }
     }
@@ -369,7 +369,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
 #define F(T, o) (*(T *)(arg0 + (o)))
 
 void TObjNpcBase::debug_draw_talk() {
-    if ((sub_8010319C__13TUnk_804AF8A0Fv() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->m_94) != 0)) {
+    if ((has_interactor__14TObjCollidableFv() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->interactor) != 0)) {
         debug_printf_at(0x1A0020, lbl_8043F544);
     }
 }
@@ -431,7 +431,7 @@ void TObjNpcBase::update_conversation() {
             F(s16, 0x328) = 1;
             ((VObj_18_f3aa6a *)arg0)->m86(0);
             ((TNpcPlayer *)(&pkt1))->init_6x3E_packet();
-            pkt1.id = obj_getField1c(F(void *, 0x2A8));
+            pkt1.id = get_entity_id(F(void *, 0x2A8));
             VecCopy((Vec *)&pkt1.pos, (const Vec *)(F(u8 *, 0x2A8) + 0x38));
             pkt1.ang = ang + 0x8000;
             ((TNpcPlayer *)(&pkt1))->send_6x3E();
@@ -442,7 +442,7 @@ void TObjNpcBase::update_conversation() {
                 F(s32, 0x60) = ang;
                 ((VObj_18_f3aa6a *)arg0)->m86(0);
                 ((TNpcPlayer *)(&pkt2))->init_6x3E_packet();
-                pkt2.id = obj_getField1c(F(void *, 0x2A8));
+                pkt2.id = get_entity_id(F(void *, 0x2A8));
                 VecCopy((Vec *)&pkt2.pos, (const Vec *)(F(u8 *, 0x2A8) + 0x38));
                 pkt2.ang = F(s32, 0x60) + 0x8000;
                 ((TNpcPlayer *)(&pkt2))->send_6x3E();
@@ -514,7 +514,7 @@ void TObjNpcBase::update_conversation() {
                 end_conversation_camera();
                 break;
             }
-            if (F(void *, 0x2A8) != 0 && local_client_id == obj_getField1c(F(void *, 0x2A8))) {
+            if (F(void *, 0x2A8) != 0 && local_client_id == get_entity_id(F(void *, 0x2A8))) {
                 p = ((u32 (*)(s32))get_player_by_client_id)(local_client_id);
                 if (p != 0 && ((TLobby *)p)->check_player_flag1() != 0) {
                     TObjPlayer::send_code_45_1((s32)((void *)p));
@@ -551,7 +551,7 @@ void TObjNpcBase::update_wandering() {
         pop_matrix();
         v.x = v.x * *(f32 *)((s8 *)arg0 + 0x354);
         v.z = v.z * *(f32 *)((s8 *)arg0 + 0x354);
-        vec3_add_to(&v, (u8 *)&this->m_50);
+        vec3_add_to(&v, (u8 *)&this->home_position);
         if (lbl_805DB1D4 < horizontal_distance_squared(&v, (u8 *)&this->position)) {
             Vec_801489B8 d = v;
             select_enemy_destination(arg0, &d, 0);
@@ -572,8 +572,8 @@ void TObjNpcBase::update_wandering() {
         }
         {
             f32 dist = horizontal_distance_squared((u8 *)&this->m_29c, (u8 *)&this->m_2fc);
-            r = *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
-            if (dist < r * r || (*(u32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & 0x380000)) {
+            r = *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->bodies) + 0xC);
+            if (dist < r * r || (*(u32 *)((s8 *)(*(u8 * *)&this->bodies) + 0x18) & 0x380000)) {
                 this->phase = 3;
                 ((VObj18_801489B8 *) arg0)->vf160(0);
             }

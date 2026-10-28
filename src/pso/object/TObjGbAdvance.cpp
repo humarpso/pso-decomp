@@ -46,7 +46,7 @@ void TObjGbAdvance::vfunc_14() {
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjGbAdvance;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__11TObjMesBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -63,14 +63,14 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32D0;
     init_collision_body_parts(arg0, (s32) &gb_advance_collision_body_parts.value, 1);
     ((TObjGbAdvance *)arg0)->actorFlags = (s32) (((TObjGbAdvance *)arg0)->actorFlags | 0x40000000);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
+    ((TObjPlayer *)arg0)->register_object_by_id();
+    ((TObjGbAdvance *)arg0)->cursor_action.set_use();
     return arg0;
 }
 void TObjComputer::debug_draw_label() {
     this->TObjMesBase::debug_draw_label();
-    *(s32 *)&this->m_88 = *(s32 *)&this->m_88 % 2;
-    *(s32 *)&this->m_bc = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)&this->m_88]);
+    *(s32 *)&this->set_params[1] = *(s32 *)&this->set_params[1] % 2;
+    *(s32 *)&this->m_bc = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)&this->set_params[1]]);
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130021, lbl_80444B48);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);

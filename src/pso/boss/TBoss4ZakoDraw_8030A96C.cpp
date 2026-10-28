@@ -1,3 +1,5 @@
+#include "pso/system/NinjaTypes.h"
+void set_constant_material(const NJS_ARGB *color);
 #include "types.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
@@ -63,9 +65,9 @@ f32 xyz_distance(void *, void *);
 }
 void draw_chunk_model(void *arg0);
 extern u8 *camera_ctrl_instance;
-extern u32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern u32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 falz_zako_chunk_model;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
@@ -115,9 +117,9 @@ void TObjPlayer__sub_8030A9B0() {
 
     old = model_render_flags;
     model_render_flags = old & ~0x10;
-    lbl_805D5660 = old;
-    lbl_805D5664 = chunk_polygon_flags_and_mask;
-    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    saved_model_render_flags = old;
+    saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+    saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
     model_render_flags |= lbl_805DF138;
     ((void (*)(int, int, u32, s32, s32, u32))set_chunk_material_override_pair)(0xFF00, 0x900, old & ~0x10, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask, old);
     tbl = (Tbl_8030A9B0 *)((u8 *)&boss4_zako_draw_buffers + TBoss4ZakoDraw__draw_buffer_index * 0x784);
@@ -145,13 +147,13 @@ void TObjPlayer__sub_8030A9B0() {
         col.b = lbl_805DF14C;
         col.r = lbl_805DF13C * k + lbl_805DF14C;
         col.g = lbl_805DF14C;
-        ((TUnk_80494AE0 *)((f32 *)&col))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&col)));
         draw_chunk_model((void *)falz_zako_chunk_model);
         pop_matrix();
     }
-    chunk_polygon_flags_and_mask = lbl_805D5664;
-    chunk_polygon_flags_or_mask = lbl_805D5668;
-    model_render_flags = lbl_805D5660;
+    chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+    chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
+    model_render_flags = saved_model_render_flags;
 }
 void TObjPlayer__sub_8030A9B0();
 #pragma pop

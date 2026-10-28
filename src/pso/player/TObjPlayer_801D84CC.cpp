@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/TPlyCharData.h"
 #include "pso/player/TUnk_804C4540.h"
 #include "pso/system/vector.h"
@@ -9,6 +10,7 @@
 #include "pso/map/FloorArea.h"
 
 #include <stddef.h>
+#include "pso/map/FloorArea.h"
 struct Stack_801D8664 {
     s8 sp8;
     s8 sp9;
@@ -45,29 +47,28 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
 
 s32 advance_item_id_counter();
 void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
-void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
+void *pickup_item__10TObjPlayerFP5TItem(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801BE9A8(s32 arg0);
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
-s32 get_field_d8__5TItemFv();
+s32 get_item_id__5TItemFv();
 s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
-void *lookup_inventory_item__10TObjPlayerFv(void *);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 void set_flag_20000__10TObjPlayerFi(s32 arg0);
 
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *player) {
     void *temp_r3;
 
-    ((s32 (*)())obj_getField1c)();
+    ((s32 (*)())get_entity_id)();
     *(s32 *)((s8 *)player + 0xC) = advance_item_id_counter();
-    temp_r3 = lookup_inventory_item__10TObjPlayerFv(player);
+    temp_r3 = create_item((TItemData *)player);
     if (temp_r3 != NULL) {
         s8 val = ((VObj_84_801d859c_801D84CC *)temp_r3)->m31();
         s32 val_ext = (s32)val;
         if (get_slot_value__10TObjPlayerFPvi((s32 *)(arg0 + 0xD04), val_ext) != 0U) {
-            send_6x29_delete_item__10TObjPlayerFPvii((void *)arg0, get_field_d8__5TItemFv(), 1);
+            send_6x29_delete_item__10TObjPlayerFPvii((void *)arg0, get_item_id__5TItemFv(), 1);
             set_equip_slot_entry(arg0 + 0xD04, val_ext, 0);
         }
-        if (pickup_item__10TObjPlayerFv((u8 *)arg0, (u8 *)temp_r3) != 0U) {
+        if (pickup_item__10TObjPlayerFP5TItem((u8 *)arg0, (u8 *)temp_r3) != 0U) {
             set_flag_20000__10TObjPlayerFi(arg0);
             ((TObjPlayer *)arg0)->equip_item_to_slot(temp_r3, 0);
             TObjPlayer__sub_801BE9A8(arg0);
@@ -86,7 +87,7 @@ void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2) {
     process_trade_target__10TObjPlayerFiPv(arg0, &stack.sp8);
 }
 
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(void *, s32);
 s32 draw_model_with_callback__10TObjPlayerFllf(void *, s32, s32, f32);
 void push_matrix(void);
 s32 pop_matrix(void);
@@ -101,7 +102,7 @@ s32 rotate_matrix_y(int, int);
 void TObjPlayer__sub_801D877C(u8 *arg0);
 void TObjPlayer__sub_801D8864(void);
 
-int TUnk_804C4540::set_position_from(void *pos) { return TUnk_804B9870::set_position_from(pos); }
+int TUnk_804C4540::set_position_from(void *pos) { return TObjBase::set_position_from(pos); }
 void TUnk_804C4540::set_animation_default(s16 index) { set_animation(index); }
 
 TUnk_804C4540 *TUnk_804C4540::create(TPlyCharData *data) {
@@ -119,7 +120,7 @@ TUnk_804C4540 *TUnk_804C4540::create(TPlyCharData *data) {
 }
 
 void TObjPlayer__sub_801D877C(u8 *arg0) {
-    if ((obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x02000000) == 0) && ((s32) ((TUnk_804C4540 *)arg0)->m_cfc == 0)) {
+    if ((obj_testFlags30__14TObjCollidableFUl(arg0, 0x02000000) == 0) && ((s32) ((TUnk_804C4540 *)arg0)->m_cfc == 0)) {
         select_actor_lighting((s32)arg0);
         push_matrix();
         translate_matrix_vec3(0, (arg0 + 0x38));
@@ -281,7 +282,7 @@ typedef struct Rec_801D8F60 { f32 a, b, c; } Rec_801D8F60;
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 get_main_phase();
-s32 obj_isState3_324__13TUnk_804806E8Fv(int);
+s32 obj_isState3_324__9TObjCharaFv(int);
 extern RecoveredGlobal_801D8ADC_lbl_8044929C getup_protection_ticks_table_a;
 extern RecoveredGlobal_801D8ADC_lbl_804492AC getup_protection_ticks_table_b;
 extern RecoveredGlobal_801D8ADC_lbl_804492BC player_getup_protection_ticks_table;
@@ -355,7 +356,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     VecCopy((Vec *)self->pos, (const Vec *)(((TObjPlayer *)(src->sub))->get_sub_object()));
     self->ang = ((TObjPlayer *)(src->sub))->get_lock_timer();
     ((TObjPlayer *)self)->select_class_action_provider();
-    self->model = TObjPlayer__shared_model_buffer + obj_getField1c(self) * 0xC00;
+    self->model = TObjPlayer__shared_model_buffer + get_entity_id(self) * 0xC00;
     ((TObjPlayer *)self)->init_npc_animation((void*)(((TObjPlayer *)self)->get_table_entry_by_clamped_index()), (void*)(*(s32 *)player_ending_motion_object), (void*)1);
     self->frame = src->frame;
     ((TObjPlayer *)self)->set_action_flag_40();
@@ -409,7 +410,7 @@ s32 *TObjPlayer::get_getup_protection_ticks() {
     var_r31 = arg0;
     if (get_main_phase() == 0xF) {
         var_r3 = var_r31;
-        if (obj_isState3_324__13TUnk_804806E8Fv((int)var_r3) != 0) {
+        if (obj_isState3_324__9TObjCharaFv((int)var_r3) != 0) {
             var_r3 = (s32 *)&player_getup_protection_ticks_table_flagged.value;
             var_r3 = (s32 *)&player_getup_protection_ticks_table_flagged.value;
             var_r3 = (s32 *)(*(s32 *)((s8 *)&player_getup_protection_ticks_table_flagged.value + (game_difficulty_selection * 4)));
@@ -421,7 +422,7 @@ s32 *TObjPlayer::get_getup_protection_ticks() {
         return var_r3;
     }
     var_r3 = var_r31;
-    if (obj_isState3_324__13TUnk_804806E8Fv((int)var_r3) != 0) {
+    if (obj_isState3_324__9TObjCharaFv((int)var_r3) != 0) {
         var_r3 = (s32 *)&getup_protection_ticks_table_b.value;
         var_r3 = (s32 *)&getup_protection_ticks_table_b.value;
         var_r3 = (s32 *)(*(s32 *)((s8 *)&getup_protection_ticks_table_b.value + (game_difficulty_selection * 4)));
@@ -444,7 +445,7 @@ s32 *TObjPlayer::get_hurt_protection_ticks() {
     var_r31 = arg0;
     if (get_main_phase() == 0xF) {
         var_r3 = var_r31;
-        if (obj_isState3_324__13TUnk_804806E8Fv((int)var_r3) != 0) {
+        if (obj_isState3_324__9TObjCharaFv((int)var_r3) != 0) {
             var_r3 = (s32 *)&hurt_protection_ticks_table.value;
             var_r3 = (s32 *)&hurt_protection_ticks_table.value;
             var_r3 = (s32 *)(*(s32 *)((s8 *)&hurt_protection_ticks_table.value + (game_difficulty_selection * 4)));
@@ -456,7 +457,7 @@ s32 *TObjPlayer::get_hurt_protection_ticks() {
         return var_r3;
     }
     var_r3 = var_r31;
-    if (obj_isState3_324__13TUnk_804806E8Fv((int)var_r3) != 0) {
+    if (obj_isState3_324__9TObjCharaFv((int)var_r3) != 0) {
         var_r3 = (s32 *)&player_hurt_protection_ticks_table_flagged.value;
         var_r3 = (s32 *)&player_hurt_protection_ticks_table_flagged.value;
         var_r3 = (s32 *)(*(s32 *)((s8 *)&player_hurt_protection_ticks_table_flagged.value + (game_difficulty_selection * 4)));
@@ -486,7 +487,7 @@ s32 TObjPlayer::get_guild_return_yaw() {
 }
 
 Vec_801D8CCC *get_guild_return_position__10TObjPlayerFPv(void *player) {
-    return guild_return_position_table_by_episode[TLobby::get_instance()] + obj_getField1c(player);
+    return guild_return_position_table_by_episode[TLobby::get_instance()] + get_entity_id(player);
 }
 
 s32 TObjPlayer::get_hospital_yaw() {
@@ -494,7 +495,7 @@ s32 TObjPlayer::get_hospital_yaw() {
 }
 
 u8 *TObjPlayer::get_hospital_position() {
-    return hospital_position_table_by_episode[TLobby::get_instance()] + (obj_getField1c(this) * 0xC);
+    return hospital_position_table_by_episode[TLobby::get_instance()] + (get_entity_id(this) * 0xC);
 }
 
 s32 get_class_starting_inventory(s8 arg0) {

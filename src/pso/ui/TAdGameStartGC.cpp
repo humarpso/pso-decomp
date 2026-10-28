@@ -1,7 +1,10 @@
+#include "pso/protocol/protocol_types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/TObject.h"
 #include "pso/ui/TAdGameStartGC.h"
 #include "pso/system/byteswap.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/system/ModelDrawContext.h"
 class TAdGameStartGC : public TObject {
 public:
     virtual void render();
@@ -58,10 +61,9 @@ Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern u8 controller_physical_port_bank[];
-void TLobby__send_and_handle_60(u8 *arg0);
 
-void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); }
-void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv(p); TLobby__send_and_handle_60((u8 *)p); }
+void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((G_ClientIDHeader *)p)->bswap(); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); }
+void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv(p); send_subcommand((u8 *)p); }
 void TAdGameStartGC__sub_802E6368(void* p) { *(u8*)((char*)p + 0x0) = 146; *(u8*)((char*)p + 0x1) = 3; }
 
 void render__14TAdGameStartGCFv(void) {  }
@@ -262,9 +264,8 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
 
 extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 
-void render__17TAdGameStartSubGCFv(void* p) { if (TMainTask::get_render_pass() != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); draw_background__17TAdGameStartSubGCFPv((u8 *)p); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
+void render__17TAdGameStartSubGCFv(void* p) { if (TMainTask::get_render_pass() != 1) { set_color_blending_mode(0, 8); set_color_blending_mode(1, 10); draw_background__17TAdGameStartSubGCFPv((u8 *)p); set_color_blending_mode(0, 8); set_color_blending_mode(1, 6); } }
 #pragma push
 #pragma fp_contract on
 void run_task__17TAdGameStartSubGCFv(u8 *arg0) {

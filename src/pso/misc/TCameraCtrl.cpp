@@ -35,7 +35,7 @@ extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
 struct C30_8006AD34 { u8 b[0x30]; };
 f32 lbl_804FF5E8[10];
-RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
+f32 camera_right[3];
 RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 u8 TCameraCtrl__view_state[12];
 u32 TCameraCtrl__data_804FF634[18];
@@ -175,7 +175,7 @@ s32 apply_camera_controller_pose(int);
 s32 resolve_anchor_obstruction__11TCameraCtrlFv(void *, int);
 s32 clamp_to_target_obstruction__11TCameraCtrlFv(void *, int);
 extern u8 *camera_ctrl_instance;
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 *get_character_select_request_buffer(void);
 void reset__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_80068354(void);
@@ -241,7 +241,7 @@ void reset_cameras_to_actor(void *actor, s32 arg1) {
   {
     return;
   }
-  new_var = (u16) obj_getField1c(actor);
+  new_var = (u16) get_entity_id(actor);
   id = new_var;
   if (is_split_screen() == 0)
   {
@@ -681,7 +681,6 @@ f32 rotate_vector_by_current_matrix(void *, void *);
 s32 pop_matrix();
 extern RecoveredGlobal_8006ABAC_lbl_804381A4 lbl_804381A4;
 extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
-extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
 extern RecoveredGlobal_8006AC70_lbl_8043818C lbl_8043818C;
@@ -787,7 +786,7 @@ void TCameraCtrl::calc_axes_from_angles(s32 arg0, s32 arg1, s32 arg2) {
     stack.sp10 = *(s32 *)((s8 *)&lbl_804381B0.value + 8);
     push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_y(0, (void *)arg2);
-    rotate_vector_by_current_matrix((void *)&stack.sp14, (void *)&lbl_804FF610.value);
+    rotate_vector_by_current_matrix((void *)&stack.sp14, (void *)camera_right);
     pop_matrix();
     push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_x(0, (void *)arg1);
@@ -819,7 +818,7 @@ void TCameraCtrl::calc_rotated_axes() {
     stack.sp10 = *(s32 *)((s8 *)&lbl_80438198.value + 8);
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_y(0, (void *)this->m_194);
-    rotate_vector_by_current_matrix((void *)&stack.sp14, (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
+    rotate_vector_by_current_matrix((void *)&stack.sp14, (void *)camera_right);
     pop_matrix();
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_x(0, (void *)this->m_190);

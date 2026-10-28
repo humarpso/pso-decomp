@@ -3,10 +3,10 @@
 
 extern "C" {
 
-int release__14TItemEquipBaseFv(void*);
+int release_model__14TItemEquipBaseFv(void*);
 int memset(void*, void*, void*);
 
-void TItemWeapon::release() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_equip_flags((u32)((void*)12)); release__14TItemEquipBaseFv(this); }
+void TItemWeapon::release_model() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_weapon_flags((u32)((void*)12)); release_model__14TItemEquipBaseFv(this); }
 
 }
 
@@ -60,12 +60,12 @@ struct Pl_80120C5C : PlB_80120C5C {
 struct T_80120C5C { s32 a; s32 b; s32 c; u16 d; u8 e; };
 
 extern "C" {
-u8 get_field_ed__5TItemFv();
-void request_model_load__14TItemEquipBaseFl(void *, u8);
+u8 get_item_group__5TItemFv();
+void request_model_load__14TItemEquipBaseFUc(void *, u8);
 extern T_80120C5C lbl_8043E828[];
-void TItemWeapon::vfunc_46() {
+void TItemWeapon::request_equipped_model() {
     Pl_80120C5C *arg0 = (Pl_80120C5C *)this;
-    u8 v = get_field_ed__5TItemFv();
+    u8 v = get_item_group__5TItemFv();
     if (v >= 0xAA) {
         T_80120C5C t;
         t.a = lbl_8043E828[0].a;
@@ -75,7 +75,7 @@ void TItemWeapon::vfunc_46() {
         t.e = lbl_8043E828[0].e;
         v = ((u8 *)&t)[arg0->m41()];
     }
-    request_model_load__14TItemEquipBaseFl(arg0, v);
+    request_model_load__14TItemEquipBaseFUc(arg0, v);
     ((TItemWeapon *)arg0)->create_weapon_trail_effects();
 }
 

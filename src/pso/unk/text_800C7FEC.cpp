@@ -1,3 +1,4 @@
+#include "pso/protocol/protocol_types.h"
 #include "pso/unk/text_800C7FEC.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/misc/TLobby.h"
@@ -47,7 +48,7 @@ void handle_6x09_legacy_kill_enemy(G_LegacyKillEnemy_6x09 *cmd) {
     u16 id = cmd->header.entity_id;
     if (legacy_enemy_kill_received[id] == 0) {
         legacy_enemy_kill_received[id] = 1;
-        TUnk_804B9870 *enemy = (TUnk_804B9870 *)get_enemy_entity(id);
+        TObjBase *enemy = (TObjBase *)get_enemy_entity(id);
         if (enemy != NULL) {
             enemy->actorFlags |= 0x800;
         }
@@ -64,4 +65,4 @@ void clear_legacy_enemy_kill_flags() {
     }
 }
 
-int TLobby::bswap_packet_header() { return ((TObjPlayer *)this)->read_be16_field2(); }
+void TLobby::bswap_packet_header() { ((G_ClientIDHeader *)this)->bswap(); }

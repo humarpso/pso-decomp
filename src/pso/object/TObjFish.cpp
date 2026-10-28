@@ -33,7 +33,6 @@ struct Fish_8029D5C8;
 struct Vec_8029E170;
 struct Ent_8029E170;
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 void * __nw__7TObjectFUl(int);
 void render__8TObjFishFv(u8 *arg0);
 s32 init_fish_school__8TObjFishFPvll(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3);
@@ -159,7 +158,7 @@ void TOKeyJungleMain::release_static_resource() {
 void TOKeyJungleMain::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_mkey_resource_descriptor.value, 0, 0, 0));
@@ -168,7 +167,7 @@ void TOKeyJungleMain::load_static_resource() {
 }
 
 void TOKeyJungleMain::debug_draw_key_id() {
-    *(s32 *)&this->m_e4 = this->m_84;
+    *(s32 *)&this->m_e4 = this->set_params[0];
     if (*(s32 *)&this->m_e4 < 0) {
         *(s32 *)&this->m_e4 = 0;
     }
@@ -259,7 +258,7 @@ void TOKeyJungleMain::vfunc_17() {
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOKeyJungleMain;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
@@ -278,10 +277,10 @@ u8 *TOKeyJungleMain__ct(TOKeyJungleMain *key_jungle_main, s32 arg1, s32 arg2) {
     ((TOKeyJungleMain *)(key_jungle_main))->apply_object_set_data((void *)arg2);
     ((TOKey *)key_jungle_main)->init_switch_id();
     init_collision_body_parts(key_jungle_main, &TOKeyJungleMain_collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)key_jungle_main)->refresh_collision_body_centers();
-    ((TObjPlayer *)key_jungle_main)->reset_photon_effect();
+    ((TObjCollidable *)key_jungle_main)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_jungle_main)->register_object_by_id();
     key_jungle_main->m_d0 = 0;
-    key_jungle_main->m_e4 = (s32) key_jungle_main->m_84;
+    key_jungle_main->m_e4 = (s32) key_jungle_main->set_params[0];
     if ((s32) key_jungle_main->m_e4 < 0) {
         key_jungle_main->m_e4 = 0;
     }
@@ -593,14 +592,13 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-#define alloc__23TAdSinglePlyChrSelectGCFv ((u8 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)
 #define __nw__7TObjectFUl ((u8 * (*)(s32))__nw__7TObjectFUl)
 #define init_fish_school__8TObjFishFPvll ((s32 (*)(void *, void *, int, int))init_fish_school__8TObjFishFPvll)
 
 extern "C" {
 s32 is_split_screen(void);
 u8 *TObjFish__create(u8 *arg0);
-s32 __ct__13TUnk_804B9870FP7TObject();
+s32 __ct__8TObjBaseFP7TObject();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -610,7 +608,7 @@ void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjFish;
         if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)arg0 + 0xA0))); ((TObjFish *)arg0)->m_a0 = 0; }
-        __dt__13TUnk_804B9870Fv(arg0, 0);
+        __dt__8TObjBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -621,15 +619,15 @@ void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
 u8 *TObjFish__ct(u8 *fish, s32 arg1, u8 *arg2) {
     f32 temp_f0;
     f32 var_f1;
-    __ct__13TUnk_804B9870FP7TObject();
+    __ct__8TObjBaseFP7TObject();
     *(s32 **)((s8 *)fish + 0x18) = (s32 *)__vt__8TObjFish;
     *(s32 *)((s8 *)fish + 0) = (s32) lbl_805D3D58;
     ((TObjFish *)fish)->m_a0 = 0;
     VecCopy((Vec *)(fish + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(fish + 0x5C))->copy_xyz(arg2 + 0x18);
     VecCopy((Vec *)(fish + 0x68), (const Vec *)(arg2 + 0x24));
-    var_f1 = ((TObjFish *)fish)->scale;
-    temp_f0 = ((TObjFish *)fish)->target_scale;
+    var_f1 = ((TObjFish *)fish)->scale.x;
+    temp_f0 = ((TObjFish *)fish)->scale.y;
     if (var_f1 < temp_f0) {
         var_f1 = temp_f0;
     }
@@ -668,15 +666,15 @@ void TObjFish::free_resource() {
         (*(u32 *)&TObjFish__area_bml_resource) = 0U;
     }
 }
-void vfunc_6__13TUnk_804B9870FPsl();
-void vfunc_12__13TUnk_804B9870Fv();
-void vfunc_9__13TUnk_804B9870Fv();
-void apply_object_set_data__13TUnk_804B9870FPv();
-void classify_actor_view_detail__13TUnk_804B9870Ffff();
+void vfunc_6__8TObjBaseFPsl();
+void get_name__8TObjBaseFv();
+void get_center__8TObjBaseFv();
+void apply_object_set_data__8TObjBaseFPv();
+void classify_actor_view_detail__8TObjBaseFfff();
 void render_shadows__7TObjectFv();
-void reset_motion_fields__13TUnk_804B9870Fv();
+void reset_motion_fields__8TObjBaseFv();
 void run_task__8TObjFishFv();
-void update_object_view_visibility__13TUnk_804B9870Fff();
+void update_object_view_visibility__8TObjBaseFff();
 #pragma push
 extern const f64 lbl_80465E00 = 10430.38043493439;
 #pragma pop
@@ -749,13 +747,13 @@ void *__vt__8TObjFish[13] = {
     (void *)run_task__8TObjFishFv,
     (void *)render__8TObjFishFv,
     (void *)render_shadows__7TObjectFv,
-    (void *)vfunc_6__13TUnk_804B9870FPsl,
-    (void *)apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)reset_motion_fields__13TUnk_804B9870Fv,
-    (void *)vfunc_9__13TUnk_804B9870Fv,
-    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)vfunc_12__13TUnk_804B9870Fv,
+    (void *)vfunc_6__8TObjBaseFPsl,
+    (void *)apply_object_set_data__8TObjBaseFPv,
+    (void *)reset_motion_fields__8TObjBaseFv,
+    (void *)get_center__8TObjBaseFv,
+    (void *)update_object_view_visibility__8TObjBaseFff,
+    (void *)classify_actor_view_detail__8TObjBaseFfff,
+    (void *)get_name__8TObjBaseFv,
 };
 
 void TObjFish::load_area_resource() {
@@ -764,7 +762,7 @@ void TObjFish::load_area_resource() {
     switch (get_current_floor_area()) {
     case AREA_JUNGLE_NORTH:
         TObjFish__area_event_stage = 1;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x50, 0, 0, 0);
         }
@@ -773,7 +771,7 @@ void TObjFish::load_area_resource() {
     case AREA_SEASIDE:
     case AREA_SEASIDE_NIGHT:
         TObjFish__area_event_stage = 2;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x80, 0, 0, 0);
         }
@@ -781,7 +779,7 @@ void TObjFish::load_area_resource() {
         break;
     case AREA_SEABED_UPPER:
         TObjFish__area_event_stage = 3;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0xB0, 0, 0, 0);
         }
@@ -789,7 +787,7 @@ void TObjFish::load_area_resource() {
         break;
     case AREA_SEABED_LOWER:
         TObjFish__area_event_stage = 4;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0xE0, 0, 0, 0);
         }
@@ -798,7 +796,7 @@ void TObjFish::load_area_resource() {
     case AREA_LOBBY:
     default:
         TObjFish__area_event_stage = 0;
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        p = (u8 *)::operator new(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x20, 0, 0, 0);
         }
@@ -808,6 +806,5 @@ void TObjFish::load_area_resource() {
 }
 
 }
-#undef alloc__23TAdSinglePlyChrSelectGCFv
 #undef __nw__7TObjectFUl
 #undef init_fish_school__8TObjFishFPvll

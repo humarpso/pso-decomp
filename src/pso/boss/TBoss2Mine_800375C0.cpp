@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
@@ -609,7 +610,7 @@ void draw_chunk_object(void *);
 extern Vec_80038200 lbl_80435AD0;
 extern Col_80038200 boss2_mine_render_color;
 extern void *lbl_805D28BC;
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3);
 
@@ -656,7 +657,7 @@ void TBoss2Mine::render() {
         ((TObjEnemy *)self)->render_with_position_override((u8 *)&v, 0);
     }
     TObjFish::set_global_param((s32)self->f24);
-    lbl_805D5660 = model_render_flags;
+    saved_model_render_flags = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     TObjPlayer::toggle_particle_effect();
     set_node_offsets__10TBoss2MineFv(self);
@@ -674,7 +675,7 @@ void TBoss2Mine::render() {
         c.b = f;
         c.g = f;
         c.r = -f;
-        ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
+        set_constant_material((const NJS_ARGB *)(((f32 *)&c)));
         draw_chunk_object(self->model);
     } else {
         draw_chunk_object(self->model);
@@ -688,7 +689,7 @@ void TBoss2Mine::render() {
         draw_chunk_object(lbl_805D28BC);
         pop_matrix();
     }
-    model_render_flags = lbl_805D5660;
+    model_render_flags = saved_model_render_flags;
     TParticleCtrl::end_effect_render();
 }
 
@@ -1194,7 +1195,7 @@ void TBoss2Mine::run_task() {
         ((TBoss8Dragon *)arg0)->set_player_state_default();
         this->vfunc_100();
     }
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
+    ((TObjCollidable *)arg0)->refresh_collision_body_centers();
 }
 
 #undef transition_enemy_state__9TObjEneDDFs

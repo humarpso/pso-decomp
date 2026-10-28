@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -45,7 +46,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -85,7 +86,7 @@ void TOKeyCave01::send_switch_changed(s32 flags) {
     TOKeyCave01 *self = this;
     Pkt_8016BF08 pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->m_1c;
+    pkt.object = self->entity_id;
     pkt.zero = local_client_id;
     pkt.switchId = self->m_e4;
     pkt.area = get_current_floor();
@@ -142,9 +143,9 @@ void TOKeyCave01::vfunc_17() {
             this->m_f8 = 1;
         }
     }
-    temp_f1 = this->target_scale;
+    temp_f1 = this->scale.y;
     if (temp_f1 < 0.0f) {
-        this->target_scale = (f32) (temp_f1 - (-0.023333333f));
+        this->scale.y = (f32) (temp_f1 - (-0.023333333f));
     }
     temp_r4 = *(s32 *)&this->unk_FC;
     if (temp_r4 > 0) {
@@ -208,7 +209,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
+extern s32 saved_model_render_flags;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -217,8 +218,8 @@ void mem_free(void *p);
 void TOKeyCave01::vfunc_16() {
     s32 temp_r4;
 
-    if ((-0.7f) < this->target_scale) {
-        this->target_scale += (-0.023333333f);
+    if ((-0.7f) < this->scale.y) {
+        this->scale.y += (-0.023333333f);
     }
     temp_r4 = *(s32 *)&this->unk_FC;
     if (temp_r4 < 0x2000) {
@@ -264,9 +265,9 @@ void TOKeyCave01::render() {
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
-            lbl_805D5660 = temp_r4;
+            saved_model_render_flags = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            ((TUnk_80494AE0 *)(arg0 + 0xE8))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((arg0 + 0xE8)));
         }
         TParticleCtrl::begin_effect_render();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
@@ -289,8 +290,8 @@ void TOKeyCave01::render() {
         pop_matrix();
         TParticleCtrl::end_effect_render();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
-            model_render_flags = lbl_805D5660;
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
+            model_render_flags = saved_model_render_flags;
         }
         pop_matrix();
     }
@@ -326,7 +327,7 @@ void TOKeyCave01::load_resources() {
     u8 *var_r0_2;
     area = get_current_floor_area();
     if ((TContainerAncient01::is_global_state_in_table() == 1) || (area == AREA_SEABED_UPPER) || (area == AREA_SEABED_LOWER)) {
-        temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
+        temp_r3 = (u8 *)((int)::operator new(0x440));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_key_jungle_resource_descriptor.value, 0, 0, 0));
@@ -338,7 +339,7 @@ void TOKeyCave01::load_resources() {
         key_cave_render_state = 1;
         return;
     }
-    temp_r3_2 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
+    temp_r3_2 = (u8 *)((int)::operator new(0x440));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != NULL) {
         var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &bm_fs_obj_do_doa_panel_resource_descriptor.value, 0, 0, 0));
@@ -361,7 +362,7 @@ u8 *TOKeyCave01__ct(TOKeyCave01 *key_cave01, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)key_cave01 + 0) = (s32) TOKeyCave01__class_name;
     ((TOKeyCave01 *)(key_cave01))->apply_object_set_data((void *)arg2);
     ((TOKey *)key_cave01)->init_switch_id();
-    key_cave01->texture_id = (s32) *TOKeyCave01__texture_lists;
+    key_cave01->texlist = (s32) *TOKeyCave01__texture_lists;
     *(s32 *)((s8 *)key_cave01 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 8);
     key_cave01->m_c0 = (f32) 4e+02f;
     *(f32 *)((s8 *)key_cave01 + 0xC4) = (f32) 2e+01f;
@@ -389,8 +390,8 @@ block_5:
     key_cave01->m_f4 = (f32) 1.0f;
     key_cave01->m_f8 = 0;
     *(f32 *)((s8 *)key_cave01 + 0x70) = (f32) 0.0f;
-    key_cave01->target_scale = (f32) 0.0f;
-    key_cave01->scale = (f32) 0.0f;
+    key_cave01->scale.y = (f32) 0.0f;
+    key_cave01->scale.x = (f32) 0.0f;
     *(s32 *)((s8 *)key_cave01 + 0xFC) = 0;
     return (u8 *)key_cave01;
 }
@@ -423,7 +424,7 @@ void TOKeyCol::send_switch_changed(s32 flags) {
     TOKeyCol *self = this;
     Pkt_8016C79C pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->m_1c;
+    pkt.object = self->entity_id;
     pkt.zero = local_client_id;
     pkt.switchId = self->m_e4;
     pkt.area = get_current_floor();

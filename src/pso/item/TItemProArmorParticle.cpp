@@ -1,122 +1,162 @@
+#pragma readonly_strings on
+
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
-#include "pso/item/TItem.h"
-#include "pso/item/TUnk_804A05C8.h"
 #include "pso/item/TItemProArmorParticle.h"
-#include "pso/item/TItemProShield.h"
-#include "pso/player/TObjPlayer.h"
+#include "pso/TItemEffArmorParticle.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemHeapObject.h"
+#include "pso/item/TItemTimerEvent.h"
+#include "pso/item/TUnk_804A05C8.h"
 #include "pso/map/FloorArea.h"
-
-struct RecoveredGlobal_803646F0_lbl_8047A020 {
-    s32 value;
-    u8 remaining[0x2C];
-};
-
-struct RecoveredGlobal_803646F0___vt__21TItemProArmorParticle {
-    s32 value;
-    u8 remaining[0xCC];
-};
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TObjPlayer_801AF2F0.h"
+#include "pso/unk/text_80087278.h"
+extern "C" s32 is_item_area_enabled(s32 area);
+#include "pso/TMainTask.h"
 
 extern "C" {
-u8 * TItemProArmor__ct(void *, void *);
-extern RecoveredGlobal_803646F0_lbl_8047A020 TItemProArmorParticle__particle_id_table;
-extern s32 __vt__21TItemProArmorParticle[];
-extern s32 TItemProArmorParticle__class_name;
-u8 *TItemProArmorParticle__ct(TItemProArmorParticle *arg0, u8 *arg1);
-void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
-s32 __ct__21TItemEffArmorParticleFP7TObjectlll(u32, s32, s32, s32, s32);
-s32 vfunc_45__14TItemEquipBaseFv();
-s32 vfunc_44__13TItemProArmorFv();
-void TItemTimerEvent__ct(void *);
-s32 is_item_area_enabled();
-void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
-u32 __nw__7TObjectFUl(s32);
-s32 __nw__15TItemHeapObjectFUl(s32);
-s32 get_id__13TItemProArmorFv(void *);
+// TItemTimerEvent has no real constructor yet (TItemTimerEvent.cpp).
+void TItemTimerEvent__ct(void *event);
+extern s32 lbl_804A05C8[];
+}
 
-void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    u32 obj;
-    if ((arg0 != 0) && ((obj = __nw__7TObjectFUl(0x2C)) != 0U)) {
-        __ct__21TItemEffArmorParticleFP7TObjectlll(obj, arg0, arg1, arg2, arg3);
+const char *item_pro_armor_particle_class_name = "TItemProArmorParticle";
+
+// The particle of the armors with item index 0x29..0x34; the first five
+// play it from a timer event, the rest once in each area.
+static const s32 armor_particle_ids[12] = {
+    224, 50, 283, 381, 446, 34, 107, 176, 225, 262, 402, 444,
+};
+
+// The functions below run from the last one in the object back to the first
+// (deferred code generation, see configure.py).
+
+TItemProArmorParticle::~TItemProArmorParticle() {}
+
+void *TUnk_804A05C8::initialize(TItemHeapObject *parent, u16 client, s32 duration, s32 particle) {
+    TItemTimerEvent__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804A05C8;
+    *(s32 *)&this->unk_2C = particle;
+    return this;
+}
+
+TItemProArmorParticle::TItemProArmorParticle(TObject *parent, u8 *item) : TItemProArmor(parent, item) {
+    u8 index;
+    m_name = item_pro_armor_particle_class_name;
+    last_area = -1;
+    index = get_item_index() - 0x29;
+    if (index < 12) {
+        particle_id = armor_particle_ids[index];
+        if (index < 5) {
+            particle_mode = ARMOR_PARTICLE_TIMER;
+        } else {
+            particle_mode = ARMOR_PARTICLE_PER_AREA;
+        }
+    } else {
+        particle_id = 0;
+        particle_mode = ARMOR_PARTICLE_NONE;
     }
 }
 
-extern s32 tl_05;
+void TItemProArmorParticle::on_equip() {
+    TUnk_804A05C8 *event;
+    TItemProArmor::on_equip();
+    if ((particle_mode == ARMOR_PARTICLE_TIMER) && (effect_objects != NULL)) {
+        event = (TUnk_804A05C8 *)TItemHeapObject::operator new(0x30);
+        if (event != NULL) {
+            event->initialize(effect_objects, get_owner_client(), 120, particle_id);
+        }
+    }
+}
 
-void TItemProArmorParticle::vfunc_16() {
+void TItemProArmorParticle::on_unequip() {
+    if (particle_mode == ARMOR_PARTICLE_PER_AREA) {
+        last_area = -1;
+    }
+    TItemEquipBase::on_unequip();
+}
+
+void TItemProArmorParticle::update_equipped() {
     s32 area;
-    s32 temp_r31;
-
-    if ((s32) this->m_1a0 == 2) {
+    if (particle_mode == ARMOR_PARTICLE_PER_AREA) {
         area = get_current_floor_area();
-        if (area != (s32) this->m_198) {
-            this->m_198 = area;
-            if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create(tl_05, (s32)(this->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), this->m_19c);
+        if (area != last_area) {
+            last_area = area;
+            if (is_item_area_enabled(area) != 0) {
+                create_effect(tl_05, get_item_id(), get_owner_client(), particle_id);
             }
         }
     }
 }
 
-void TItemProArmorParticle::vfunc_45() {
-    if ((s32) this->m_1a0 == 2) {
-        this->m_198 = -1;
-    }
-    vfunc_45__14TItemEquipBaseFv();
-}
-
-void TItemProArmorParticle::vfunc_44() {
-    s32 temp_r3;
-
-    vfunc_44__13TItemProArmorFv();
-    if (((s32) this->m_1a0 == 1) && ((u32) this->m_174 != 0U)) {
-        temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
-        if (temp_r3 != 0) {
-            ((TUnk_804A05C8 *)temp_r3)->initialize((void *)this->m_174, (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)this->m_19c);
-        }
+void TItemProArmorParticle::create_effect(TObject *parent, s32 item_id, u16 client, s32 particle) {
+    if (parent != NULL) {
+        new TItemEffArmorParticle(parent, item_id, client, particle);
     }
 }
 
-extern s32 lbl_804A05C8[];
+const char *item_eff_armor_particle_class_name = "TItemEffArmorParticle";
 
-typedef char RecoveredGlobal_803646F0_lbl_8047A020_size[sizeof(RecoveredGlobal_803646F0_lbl_8047A020) == 0x30 ? 1 : -1];
-typedef char RecoveredGlobal_803646F0___vt__21TItemProArmorParticle_size[sizeof(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle) == 0xD0 ? 1 : -1];
-u8 *TItemProArmorParticle__ct(TItemProArmorParticle *item_pro_armor_particle, u8 *arg1) {
-    u8 temp_r0;
-    TItemProArmor__ct(item_pro_armor_particle, arg1);
-    *(s32 **)((s8 *)item_pro_armor_particle + 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
-    *(s32 *)((s8 *)item_pro_armor_particle + 0) = (s32) TItemProArmorParticle__class_name;
-    item_pro_armor_particle->m_198 = -1;
-    temp_r0 = ((TItem *)item_pro_armor_particle)->get_slot_count() - 0x29;
-    if (temp_r0 < 0xCU) {
-        item_pro_armor_particle->m_19c = (s32) *(s32 *)((s8 *)&TItemProArmorParticle__particle_id_table.value + ((temp_r0 * 4) & 0x3FC));
-        if (temp_r0 < 5U) {
-            item_pro_armor_particle->m_1a0 = 1;
-        } else {
-            item_pro_armor_particle->m_1a0 = 2;
+TItemEffArmorParticle::TItemEffArmorParticle(TObject *parent, s32 item_id, u16 client, s32 particle) : TObject(parent) {
+    TObjPlayer *player;
+    m_name = item_eff_armor_particle_class_name;
+    disallow_rendering();
+    this->item_id = item_id;
+    this->client = client;
+    item_generation = get_item_system_generation();
+    player = get_player_by_client_id(client);
+    if (player != NULL) {
+        this->particle = (TParticleCtrl *)spawn_continuous_particle_effect_with_flags(player->get_center(), particle, 0x10);
+        if (this->particle != NULL) {
+            this->particle->set_owner_id(this->client);
         }
     } else {
-        item_pro_armor_particle->m_19c = 0;
-        item_pro_armor_particle->m_1a0 = 0;
+        this->particle = NULL;
     }
-    return (u8 *)item_pro_armor_particle;
 }
 
-void *TUnk_804A05C8::initialize(void *arg1, void *arg2, void *arg3, void *arg4) {
-    TItemTimerEvent__ct(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804A05C8;
-    (*(void * *)&this->unk_2C) = arg4;
-    return this;
+TItemEffArmorParticle::~TItemEffArmorParticle() {
+    if (particle != NULL) {
+        particle->queue_destruction();
+    }
 }
 
-void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TItemProArmorParticle;
-        __dt__13TItemProArmorFv(arg0, 0);
-        if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+void TItemEffArmorParticle::run_task() {
+    s32 active;
+    TObjPlayer *player;
+    TItem *item;
+
+    if (item_generation != (u32)get_item_system_generation()) {
+        queue_destruction();
+        return;
+    }
+    active = 0;
+    if (particle != NULL) {
+        player = get_player_by_client_id(client);
+        item = find_item_by_id(item_id);
+        if (player != NULL) {
+            if (item != NULL) {
+                if (item->get_mode() == 2) {
+                    if (player->obj_testFlags30(0x800) == 0) {
+                        if (item->is_hidden() == 0) {
+                            particle->clear_active_flag();
+                        } else {
+                            goto enable_particle;
+                        }
+                    } else {
+                    enable_particle:
+                        particle->enable();
+                    }
+                    active = 1;
+                    ((TNowLoading *)particle)->copy_pos(&player->m_2fc);
+                }
+            }
         }
     }
-    return arg0;
-}
-
+    if (active == 0) {
+        queue_destruction();
+    }
 }

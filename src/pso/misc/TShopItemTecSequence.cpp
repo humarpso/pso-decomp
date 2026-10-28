@@ -12,6 +12,7 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItem.h"
 
 struct Base_8021FEE0_8021FE6C { char pad[0x18]; };
 struct VObj_8021FEE0_8021FE6C : Base_8021FEE0_8021FE6C {
@@ -115,7 +116,7 @@ s32 restore_player_state__13TShopSequenceFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 extern void *tl_05;
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 get_shop_text(s32 arg0);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(void *);
@@ -131,7 +132,6 @@ struct VObj_8021FE80_8021FE6C : Base_8021FE80_8021FE6C {
     virtual void m4(int, int);
 };
 
-u8 *find_item_by_id(s32 id);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
@@ -200,7 +200,7 @@ void TShopItemTecSequence::open_item_list_window() {
 void TShopItemTecSequence::update_buy_sell_choice() {
     s32 r;
     if (((Seq_80220110 *)this)->win == NULL) {
-        u16 id = obj_getField1c(((Seq_80220110 *)this)->x24);
+        u16 id = get_entity_id(((Seq_80220110 *)this)->x24);
         ((Seq_80220110 *)this)->win = (void *)create_window_menu((s32)((void *)((s32 (*)(int))get_window_layout_position)(0x2B)), (s32)((void *)2), id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(6), 6, 1);
@@ -337,7 +337,7 @@ void TShopItemTecSequence__sub_80220560(void) {
 void set_judgment_target_flag(void *arg0, void *arg1) {
     u32 temp_r3;
     if ((TRaderMapCore::is_not_split_screen() == 1) && ((temp_r3 = (u32)find_item_by_id(*(s32 *)((s8 *)arg1 + 0xC))) != 0U) && ((s32) *(s32 *)((s8 *)arg0 + 0x168) != 0)) {
-        ((TObjPlayer *)temp_r3)->add_item_flags(0x80);
+        ((TItem *)temp_r3)->add_item_flags(0x80);
     }
 }
 

@@ -27,7 +27,6 @@ Floor_8020E08C TLobby__floor_enemy_group_table[18];
 u32 TLobby__data_80513C80[18];
 u32 TLobby__data_80513CC8[18];
 u32 TLobby__data_80513D10[9];
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *TQuestVmDownLoadServer__sub_8007EBDC(s32, s32);
 void *__ct__5THeapFUli(void *, u32, s32);
 void *__nw__5THeapFUl(u32);
@@ -102,7 +101,7 @@ extern s32 item_drop_memory_pool_size;
 extern s16 TLobby__data_805D6134;
 extern s32 TLobby__data_805D6138;
 extern s32 TLobby__data_805D613C;
-extern Rec4_8020E228 *TLobby__data_805D6140;
+extern Rec4_8020E228 *quest_object_entries;
 extern Rec12_8020E228 *TLobby__data_805D6144;
 extern s32 TLobby__data_805D6148;
 extern s32 TLobby__data_805D614C;
@@ -117,7 +116,7 @@ void init_item_drop_tables(void) {
     TLobby__data_805D613C = 0;
     TLobby__data_805D6104 = 0;
     TLobby__data_805D6108 = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x30);
+    p = ::operator new(0x30);
     if (p != NULL) {
         p = ((TLobby *)p)->init_memory_pool(item_drop_memory_pool_ar_addr, item_drop_memory_pool_size, 0x40);
     }
@@ -135,11 +134,11 @@ void init_item_drop_tables(void) {
     memset(TLobby__data_80513C80, 0, 0x48);
     memset(TLobby__data_80513CC8, 0, 0x48);
     memset(TLobby__data_80513D10, 0, 0x24);
-    TLobby__data_805D6140 = (Rec4_8020E228 *)TQuestVmDownLoadServer__sub_8007EBDC(0xBA0, 4);
+    quest_object_entries = (Rec4_8020E228 *)TQuestVmDownLoadServer__sub_8007EBDC(0xBA0, 4);
     TLobby__data_805D6144 = (Rec12_8020E228 *)TQuestVmDownLoadServer__sub_8007EBDC(0xB50, 0xC);
     k = 0;
     for (i = 0; i < 0xBA0; i++) {
-        TLobby__data_805D6140[i].id = k++ + 0x100;
+        quest_object_entries[i].id = k++ + 0x100;
     }
     for (i = 0; i < 0xB50; i++) {
         TLobby__data_805D6144[i].id = k++ + 0x100;

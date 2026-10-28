@@ -5,7 +5,7 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjMapCsn.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
+extern "C" void *__ct__14TObjCollidableFP7TObject(void *, s32);
 
 struct RecoveredGlobal_80194988___vt__10TObjMapCsn { s32 value; u8 remaining[0x38]; };
 typedef char RecoveredGlobal_80194988___vt__10TObjMapCsn_size[sizeof(RecoveredGlobal_80194988___vt__10TObjMapCsn) == 0x3C ? 1 : -1];
@@ -59,18 +59,18 @@ extern s32 map_csn_collision_flag_table[];
 void TObjMapCsn::update_state() {
     s32 temp_r0;
 
-    temp_r0 = this->m_84;
+    temp_r0 = this->set_params[0];
     if (temp_r0 == 0) {
-        if ((s32) this->m_88 == 0) {
-            *(s32 *)&this->m_88 = 1;
+        if ((s32) this->set_params[1] == 0) {
+            *(s32 *)&this->set_params[1] = 1;
         }
     } else {
         if ((u32) temp_r0 > 5U) {
-            this->m_84 = 1;
+            this->set_params[0] = 1;
         }
-        *(s32 *)&this->m_88 = (s32) map_csn_collision_flag_table[this->m_84];
+        *(s32 *)&this->set_params[1] = (s32) map_csn_collision_flag_table[this->set_params[0]];
     }
-    *(s32 *)&this->m_88 = (s32) (*(s32 *)&this->m_88 | 0x40000000);
+    *(s32 *)&this->set_params[1] = (s32) (*(s32 *)&this->set_params[1] | 0x40000000);
 }
 
 s32 TObjMapCsn::build_box_triangles() {
@@ -162,7 +162,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
         if (((u32)TObjMapCsn::get_map_count()) != 0U) {
             fn_80140DFC((((u32)TObjMapCsn::get_map_count())), (s32)arg0);
         }
-        __dt__13TUnk_804AF8A0Fv(arg0, 0);
+        __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -172,7 +172,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
 u8 *TObjMapCsn__ct(TObjMapCsn *map_csn, s32 arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    __ct__13TUnk_804AF8A0FP7TObject(map_csn, arg1);
+    __ct__14TObjCollidableFP7TObject(map_csn, arg1);
     *(s32 **)((s8 *)map_csn + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)map_csn + 0) = (s32) TObjMapCsn__class_name;
     ((TObjMapCsn *)(map_csn))->apply_object_set_data((void *)arg2);
@@ -185,7 +185,7 @@ u8 *TObjMapCsn__ct(TObjMapCsn *map_csn, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)map_csn + 0xD0) = (unsigned char *) ((u8 *)map_csn + 0xD4);
     *(u8 **)((s8 *)map_csn + 0xAC) = (unsigned char *) ((u8 *)map_csn + 0xC4);
     VecCopy((Vec *)((u8 *)map_csn + 0xB0), (const Vec *)((u8 *)map_csn + 0x38));
-    temp_f1 = (0.5f) * map_csn->scale;
+    temp_f1 = (0.5f) * map_csn->scale.x;
     temp_f0 = (0.5f) * *(f32 *)((s8 *)map_csn + 0x70);
     map_csn->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
     map_csn->m_c0 = (s32) *(s32 *)((s8 *)map_csn + 0x88);

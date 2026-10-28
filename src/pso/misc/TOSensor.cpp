@@ -60,7 +60,7 @@ s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DB980;
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 void *get_player_by_client_id(s32 i);
 void *TOSensor__ct(void *arg0);
@@ -175,7 +175,7 @@ s32 TOSensor::is_confirm_pressed() {
         pl = (Player_801756C4 *)get_player_by_client_id(local_client_id);
         switch (*(s32 *)&this->m_d0) {
         case 1:
-            if (pl != NULL && obj_testFlags30__13TUnk_804AF8A0FUl(pl, 0x400000) != 0) {
+            if (pl != NULL && obj_testFlags30__14TObjCollidableFUl(pl, 0x400000) != 0) {
                 if (horizontal_distance_squared(pl->pos, self->pos) < self->range * self->range) {
                     *(s32 *)&this->m_d4 = 1;
                 }
@@ -292,7 +292,6 @@ extern s32 TOSensorAncient01_class_name;
 extern u32 sensor_ancient01_model_resource;
 u8 *TOSensorAncient01__ct(TOSensorAncient01 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
 extern void *ancient_sensor_resource_pair_table;
@@ -329,7 +328,7 @@ void TOSensorAncient01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)&this->m_8c * 8)));
+        TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)&this->set_params[2] * 8)));
         temp_r30 = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix(temp_r30 + 8);
         draw_ginja_model(*(s32 *)((s8 *)temp_r30 + 4));
@@ -428,7 +427,7 @@ extern const char lbl_80442A18[];
 
 void TOSensorAncient01::load_resources() {
     void *p;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    p = ::operator new(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, &TOSensorAncient01__resource_descriptor, 0, 0, 0);
     }
@@ -469,11 +468,11 @@ u8 *TOSensorAncient01__ct(TOSensorAncient01 *sensor_ancient01, s32 arg1, s32 arg
     *(s32 *)((s8 *)sensor_ancient01 + 0) = (s32) TOSensorAncient01_class_name;
     ((TOSensorAncient01 *)(sensor_ancient01))->apply_object_set_data((void *)arg2);
     ((TOKey *)sensor_ancient01)->init_switch_id();
-    temp_r0 = *(s32 *)&sensor_ancient01->m_8c;
+    temp_r0 = *(s32 *)&sensor_ancient01->set_params[2];
     if (temp_r0 < 0) {
-        *(s32 *)&sensor_ancient01->m_8c = 0;
+        *(s32 *)&sensor_ancient01->set_params[2] = 0;
     } else if (temp_r0 >= 2) {
-        *(s32 *)&sensor_ancient01->m_8c = 1;
+        *(s32 *)&sensor_ancient01->set_params[2] = 1;
     }
     *(u8 * *)&sensor_ancient01->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x42C)) + 8));
     *(u8 **)((s8 *)sensor_ancient01 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x430)) + 4));
@@ -481,7 +480,7 @@ u8 *TOSensorAncient01__ct(TOSensorAncient01 *sensor_ancient01, s32 arg1, s32 arg
     sensor_ancient01->m_b8 = (f32) (1.0f);
     sensor_ancient01->m_c0 = (f32) (4e+02f);
     *(f32 *)((s8 *)sensor_ancient01 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&sensor_ancient01->model) + 4)) + 0x14);
-    *(f32 *)((s8 *)sensor_ancient01 + 0xCC) = (f32) ((5e+01f) + sensor_ancient01->scale);
+    *(f32 *)((s8 *)sensor_ancient01 + 0xCC) = (f32) ((5e+01f) + sensor_ancient01->scale.x);
     if (*(f32 *)((s8 *)sensor_ancient01 + 0xCC) < (0.0f)) {
         *(f32 *)((s8 *)sensor_ancient01 + 0xCC) = (f32) (0.0f);
     }

@@ -169,7 +169,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         model_render_flags |= 0x400000;
         set_chunk_render_flags(1);
         draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
-        TObjFish::set_global_param(*(s32 *)&this->m_1c);
+        TObjFish::set_global_param(*(s32 *)&this->entity_id);
         draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
         clear_chunk_render_flags();
         model_render_flags &= ~0x400000;
@@ -179,7 +179,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_mode_front();
         draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
-        TObjFish::set_global_param(*(s32 *)&this->m_1c);
+        TObjFish::set_global_param(*(s32 *)&this->entity_id);
         TObjFish::set_cull_back();
         draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_mode_front();
@@ -230,7 +230,7 @@ s32 TObjEneSlimeOne::is_reached_target_depth() {
         return 0;
     }
     if ((s8) TObjEneSlimeOne__target_depth_initialized == 0) {
-        f32 tmp = *(f32 *)&this->m_2c;
+        f32 tmp = *(f32 *)&this->set_index;
         TObjEneSlimeOne__target_depth_initialized = 1;
         TObjEneSlimeOne__target_depth = tmp - lbl_805DA760;
     }

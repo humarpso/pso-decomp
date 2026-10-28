@@ -139,7 +139,7 @@ struct TLobby : public TObject {
     static void send_status_packet();
     static void destroy_global_singleton();
     static void load_freeze_ice_resource();
-    int bswap_packet_header();
+    void bswap_packet_header();
     void *alloc_tables(s32 arg1, s32 arg2);
     static void clear_flag_on_phase_e();
     void bswap_field();
@@ -165,8 +165,6 @@ struct TLobby : public TObject {
     void link_into_list();
     static void set_ending_callback();
     void init_range(s32 arg1);
-    s32 drop_stacked_item_passthrough();
-    void init_floor_item_entry();
     static void clear_object_count();
     static void reset_floor_items();
     static void free_boss_rocks();
@@ -189,7 +187,6 @@ struct TLobby : public TObject {
     void process_and_dispatch_packet();
     void bswap_6xa2_fields();
     void *build_6x06_guild_card_packet();
-    static void*init_bosses(void* a0);
     void send_item_packet();
     void bswap_item_packet();
     void *init_header_packet();
@@ -311,7 +308,6 @@ struct TLobby : public TObject {
     static void clear_story_flags_and_reset_camera();
     static void backup_story_select();
     static void sync_story_select();
-    static s32 get_player_floor(s32 idx);
     void copy_table_entries(u32 size);
     static void reset_story_select_state();
     static int get_team_state(void* p);
@@ -846,12 +842,8 @@ struct TLobby : public TObject {
     u8 *pop_stack_entry(s16 arg1);
     static s32 is_stat_over_limit(s32 arg0);
     s32 write_sync_item_state();
-    static u16 pop_free_id();
     static s32 is_entry_valid(s32 arg0);
     static void respawn_missing_floor_items(s32 n);
-    static s32 remove_item_condition(s32 n, s32 val);
-    s32 dispatch_item_by_type();
-    void observe_item_id();
     static void drop_item_from_source(s16 source, int client, s16 room, int slot, f32 x, f32 z);
     static void reset_item_id_counters();
     void init_lookup_tables();
@@ -995,18 +987,6 @@ struct TLobby : public TObject {
     static void reset_state_byte();
     static s32 create_file_load_entry(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
     static s32 request_file_read(s32 arg0, s32 arg1, s32 *arg2, void **arg3);
-    static u8 is_matching_id(s32 arg0, u16 arg1);
-    void bswap_shop_item();
-    void send_item_and_handle_60();
-    void copy_item_data(void* q);
-    void bswap_6x5D();
-    void send_6x5D();
-    void*init_fields();
-    void init_default_fields();
-    void send_pick_up_item();
-    void init_6x59_packet();
-    void send_pick_up_item_request();
-    static s32 free_rock_objects(s32 arg0, s16 arg1);
     static void reset_lobby_state();
     static void init_keyboard_buffer();
     static s32 poll_connect();
@@ -1164,7 +1144,6 @@ struct TLobby : public TObject {
     void adxt_start_mem_idx(u8 *arg1, s32 arg2);
     u8 *dtor_clear_singleton(s16 arg1);
     void apply_sync_item_state();
-    s32 insert_sorted_entry();
     s32 lz_compress_packet(void *src, s32 size, s32 *hdr);
     void assign_object_ids(s32 arg1, void *arg2);
     static s32 init_floor_enemy_count(s32 arg0, u8 *arg1, u32 arg2);
@@ -1202,4 +1181,9 @@ struct TLobby : public TObject {
 };
 
 typedef char TLobby_size[sizeof(TLobby) == 0x1C ? 1 : -1];
+// The object set entry new ground items take their placement from, and
+// whether placing one shows the drop effect.
+extern void *item_object_set_data;
+extern s32 item_ground_placement_enabled;
+
 #endif

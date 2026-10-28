@@ -1,5 +1,6 @@
 // ---- pso/unk/text_80130898
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/item/TUnk_804A6AD8.h"
 
@@ -118,14 +119,14 @@ void TUnk_804A6AD8::yasminkov_9000m_eject_casing(s32 arg1, s32 arg2) {
     s32 temp_r31;
     s32 temp_r8;
     u8 *temp_r3;
-    temp_r3 = (u8 *)this->player;
+    temp_r3 = (u8 *)this->owner;
     if (temp_r3 != NULL) {
         temp_r31 = *(s32 *)((s8 *)temp_r3 + 0x60) - arg2;
         buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = 1.0f;
         buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
-        temp_r8 = *(s32 *)((s8 *)this->player + 0x60);
+        temp_r8 = *(s32 *)((s8 *)this->owner + 0x60);
         buffer_8[1] = temp_r8;
         buffer_8[2] = 0;
         spawn_weapon_casing__10TObjPlayerFlUlUlUlUl((int)tl_05, this, (void *)arg1, &buffer_14[0], &buffer_8[0], (int)temp_r8);
@@ -147,7 +148,7 @@ void *__dt__13TUnk_804A6AD8Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A6AD8;
         __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer::free_obj_heap(arg0);
+            TItem::operator delete(arg0);
         }
     }
     return arg0;
@@ -158,15 +159,16 @@ void *__dt__13TUnk_804A6AD8Fv(void *arg0, s16 arg1) {
 #include "pso/player/TObjPlayer_80130B1C.h"
 #include "pso/item/TUnk_804A6AD8.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItem.h"
 
 extern "C" {
 
-int TItemWeapon__ct(void);
+int __ct__11TItemWeaponFP7TObjectPUc(void);
 
     extern unsigned char spawn_weapon_impact_effect[];
 
     
     
-void* yasminkov_9000m_ct(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6AD8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = 2e+01f; ((TObjPlayer *)a0)->set_status_flags((u32)((void*)515)); *(int*)((char*)a0 + 0x1f8) = 0; ((TUnk_804A6AD8 *)a0)->m_204 = 0.0f; *(float*)((char*)a0 + 0x200) = 0.0f; ((TUnk_804A6AD8 *)a0)->m_1fc = 0.0f; return a0; }
+void* yasminkov_9000m_ct(void* a0) { __ct__11TItemWeaponFP7TObjectPUc(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6AD8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = 2e+01f; ((TItemWeapon *)a0)->set_weapon_flags(515); *(int*)((char*)a0 + 0x1f8) = 0; ((TUnk_804A6AD8 *)a0)->m_204 = 0.0f; *(float*)((char*)a0 + 0x200) = 0.0f; ((TUnk_804A6AD8 *)a0)->m_1fc = 0.0f; return a0; }
 
 }

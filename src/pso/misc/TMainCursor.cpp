@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/FlagWord.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLOC_ListClear.h"
 #include "pso/misc/TMainCursor_8013AE18.h"
@@ -31,7 +32,7 @@ void set_cursor_id__11TMainCursorFs(void *, s32);
 void set_target_index__11TMainCursorFs(void *, s32);
 u8 TMainCursor__sub_8013E900(void *);
 u8 get_active__11TMainCursorFv(void *);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
+s32 obj_testFlags30__14TObjCollidableFUl(void *, s32);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 int matches_type_and_enabled__11TMainCursorFiUcUc(void *, void *a1 = 0, void *a2 = 0);
 u8 *TMainCursor__ct(u8 *main_cursor, s32 parent, s32 target_index, s32 target_id, s32 action_palette, s32 active,
@@ -52,7 +53,7 @@ s32 get_split_screen_view_index__11TCameraCtrlFUs();
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 render__11TMainCursorFPv(void *);
 extern u8 shared_effect_texture_list[];
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 TMainCursor__sub_8013E310(void *);
 u8 TMainCursor__sub_8013E338(void *);
 u8 TMainCursor__sub_8013E358(void *);
@@ -60,7 +61,7 @@ s8 fn_8013F24C(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
+s32 can_pickup_item_by_id__10TObjPlayerFP5TItem(u32, s32);
 
 extern "C" u8 lbl_8043F090[];
 extern "C" u8 lbl_8043F0A4[];
@@ -99,7 +100,7 @@ s32 TMainCursor::check_can_pickup() {
     s32 arg0 = (s32)this;
 
     temp_r3 = (s32)find_entity_by_id(((TMainCursor *)(arg0 + 0x60))->get_id());
-    if ((temp_r3 != 0) && ((u32) (obj_testFlags30__13TUnk_804AF8A0FUl((void *)temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = ((TMainCursor *)arg0)->check_field_24()) != 0U) && (can_pickup_item_by_id__10TObjPlayerFii(temp_r3b, temp_r3) == 0)) {
+    if ((temp_r3 != 0) && ((u32) (obj_testFlags30__14TObjCollidableFUl((void *)temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = ((TMainCursor *)arg0)->check_field_24()) != 0U) && (can_pickup_item_by_id__10TObjPlayerFP5TItem(temp_r3b, temp_r3) == 0)) {
         return 1;
     }
     return 0;
@@ -113,7 +114,7 @@ extern const f32 lbl_805DB0D0;
 #pragma opt_common_subs off
 void TMainCursor::validate_target() {
     Target_8013B70C *t;
-    ((TAdRicoRing *)(((u8 *)this) + 0x20))->clear_flags(0xB);
+    ((FlagWord *)(((u8 *)this) + 0x20))->clear(0xB);
     t = (Target_8013B70C *)this->check_field_24();
     if (t == NULL) {
         this->update_target_sub();
@@ -156,7 +157,7 @@ void TMainCursor::validate_target() {
             this->update_target_sub();
             return;
         }
-        if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30__13TUnk_804AF8A0FUl(t, 0x20006) != 0) {
+        if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30__14TObjCollidableFUl(t, 0x20006) != 0) {
             this->update_target_sub();
             return;
         }
@@ -170,7 +171,7 @@ void TMainCursor::validate_target() {
         }
         if (t->f32E - *(s16 *)((u8 *)calc_technique_parameters(TMainCursor__sub_8013E338(((u8 *)this) + 0x60),
                                                       get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(((u8 *)this) + 0x60)),
-                                                      obj_getField1c(t)) + 0x10) < 0) {
+                                                      get_entity_id(t)) + 0x10) < 0) {
             this->update_target_sub();
             return;
         }
@@ -357,7 +358,7 @@ u8 *TMainCursor__ct(u8 *main_cursor, s32 parent, s32 target_index, s32 target_id
                     u16 offset_y, f32 size) {
     __ct__7TObjectFP7TObject((void *)main_cursor, (void *)parent);
     *(s32 **)((s8 *)main_cursor + 0x18) = &(*(RecoveredGlobal_8013BDCC___vt__11TMainCursor *)&__vt__11TMainCursor).value;
-    ((TObjPlayer *)(main_cursor + 0x20))->init_forward();
+    __ct__8FlagWordFv((main_cursor + 0x20));
     TMainCursor__sub_8013E800(main_cursor + 0x24);
     TMainCursor__sub_8013F1F0((main_cursor + 0x4C));
     ((TMainCursor *)(main_cursor + 0x60))->reset();
@@ -396,7 +397,7 @@ extern const f32 lbl_805DB0E0;
 s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 extern Vec_8013C0A0 lbl_8050BEE0;
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
-s32 obj_getField1c(void *);
+s32 get_entity_id(void *);
 s32 set_size__11TMainCursorFf(f32);
 s32 TMainCursor__sub_8013F168(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -519,22 +520,22 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
     if (target == NULL) {
         return 0;
     }
-    if ((u16)obj_getField1c(target) == (u16)obj_getField1c(player)) {
+    if ((u16)get_entity_id(target) == (u16)get_entity_id(player)) {
         return 0;
     }
     if (is_technique_ready__8TTecCtrlFv() == 0) {
-        if (((TUnk_804B9870 *)target)->get_stat_by_key_state() != (stat = ((TUnk_804B9870 *)player)->get_stat_by_key_state()) && (*(u32 *)(player + 0x30) & 0x60000000) == 0x20000000 && stat != -1) {
+        if (((TObjBase *)target)->get_room() != (stat = ((TObjBase *)player)->get_room()) && (*(u32 *)(player + 0x30) & 0x60000000) == 0x20000000 && stat != -1) {
             return 0;
         }
     }
-    if (obj_testFlags30__13TUnk_804AF8A0FUl(target, 0xA00) != 0) {
+    if (obj_testFlags30__14TObjCollidableFUl(target, 0xA00) != 0) {
         return 0;
     }
     if (player == NULL || ((TObject *)player)->all_parents_unqueued_for_destruction() == 0) {
         return 0;
     }
-    if (obj_testFlags30__13TUnk_804AF8A0FUl(player, ((TMainCursor *)cursor)->get_actor_include_mask()) == 0 ||
-        obj_testFlags30__13TUnk_804AF8A0FUl(player, ((TMainCursor *)cursor)->get_actor_exclude_mask()) != 0) {
+    if (obj_testFlags30__14TObjCollidableFUl(player, ((TMainCursor *)cursor)->get_actor_include_mask()) == 0 ||
+        obj_testFlags30__14TObjCollidableFUl(player, ((TMainCursor *)cursor)->get_actor_exclude_mask()) != 0) {
         return 0;
     }
     yaw = *(s32 *)(target + 0x60);
@@ -544,7 +545,7 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
             continue;
         }
         c->flags &= ~0x10000000;
-        set_flag_bit__11TMainCursorFlUs(player, i, obj_getField1c(target));
+        set_flag_bit__11TMainCursorFlUs(player, i, get_entity_id(target));
         if (!(c->flags & 1)) {
             continue;
         }
@@ -557,7 +558,7 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
         dist = horizontal_distance_squared(cursor + 0x1C, c->pos);
         if (!(c->flags & 0x22000) && best->dist > dist) {
             best->dist = dist;
-            best->id = obj_getField1c(player);
+            best->id = get_entity_id(player);
             best->index = i;
         }
         {
@@ -595,7 +596,7 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
         }
         ((void (*)(s32, f32))set_size__11TMainCursorFf)(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), dist);
         ((TMainCursor *)(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot)))->set_field2(i);
-        set_cursor_id__11TMainCursorFs((void *)get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), obj_getField1c(player));
+        set_cursor_id__11TMainCursorFs((void *)get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), get_entity_id(player));
         found = 1;
     }
     return found;
@@ -812,13 +813,12 @@ void TMainCursor__sub_8013EA00(void *, s32);
 s32 update_cursor_pos__13TLockOnCursorFv(void *);
 s32 TLockOnCursor__sub_8013EB2C(void *);
 s32 TMainCursor__sub_8013F168(void *p);
-u8 fn_8013F264(void *);
 void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2);
 void *__nw__7TObjectFUl(u32);
 extern s32 tl_loc_end;
 void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1);
-s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
-s32 obj_getField1c(void *);
+s32 obj_isState3_324__9TObjCharaFv(void *);
+s32 get_entity_id(void *);
 void *get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_type__10TObjPlayerFPv(void *p);
 void fn_80044330(void *p);
@@ -936,7 +936,7 @@ void setup_action_channel__11TMainCursorFiPviii(TMainCursor *self, u8 *player, s
     ((void (*)(void *, u8))TMainCursor__sub_8013E9C0)(cur, id);
     switch ((s16)kind) {
     case 1:
-        if (obj_isState3_324__13TUnk_804806E8Fv(player) == 0) {
+        if (obj_isState3_324__9TObjCharaFv(player) == 0) {
             TMainCursor__sub_8013E9A0(cur);
             ((TMainCursor *)C_8013CDE4)->set_color(0x20000);
             ((TMainCursor *)C_8013CDE4)->set_field_0c(0x8000);
@@ -955,7 +955,7 @@ void setup_action_channel__11TMainCursorFiPviii(TMainCursor *self, u8 *player, s
     case 4:
         switch ((s16)id) {
         case 10:
-            tech = (Tech_8013CDE4 *)calc_technique_parameters(0xF, 0xE, obj_getField1c(player));
+            tech = (Tech_8013CDE4 *)calc_technique_parameters(0xF, 0xE, get_entity_id(player));
             TMainCursor__sub_8013E9A0(cur);
             TECH_8013CDE4(tech)
             ((TMainCursor *)cur)->set_type(tech->f22);
@@ -963,7 +963,7 @@ void setup_action_channel__11TMainCursorFiPviii(TMainCursor *self, u8 *player, s
             TMainCursor::set_display_flags((s32)self, (s32)player, C_8013CDE4);
             break;
         case 9:
-            tech = (Tech_8013CDE4 *)calc_technique_parameters(0x11, 0xE, obj_getField1c(player));
+            tech = (Tech_8013CDE4 *)calc_technique_parameters(0x11, 0xE, get_entity_id(player));
             TMainCursor__sub_8013E9A0(cur);
             TECH_8013CDE4(tech)
             ((TMainCursor *)cur)->set_type(tech->f22);
@@ -988,7 +988,7 @@ void setup_action_channel__11TMainCursorFiPviii(TMainCursor *self, u8 *player, s
         ((TMainCursor *)cur)->set_type(wpn->f10);
         break;
     case 3: {
-        s32 f1c = obj_getField1c(player);
+        s32 f1c = get_entity_id(player);
         s32 lvl = get_cast_technique_level(player + 0x428, id);
         sid = id;
         tech = (Tech_8013CDE4 *)calc_technique_parameters(sid, lvl, f1c);
@@ -1145,7 +1145,7 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
             if (mode == 1) {
                 continue;
             }
-            TMainCursor__sub_8013E9C0(sub, fn_8013F264(ent));
+            TMainCursor__sub_8013E9C0(sub, (u8)((TObjCollidable *)ent)->get_cursor_action());
         }
         cur = TObjPlayer__sub_80116620(sub->x9C, count);
         set_cursor_id__11TMainCursorFs(cur, item->id);

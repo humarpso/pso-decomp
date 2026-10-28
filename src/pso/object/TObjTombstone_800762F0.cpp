@@ -37,7 +37,7 @@ struct T_80076390 {
 };
 
 extern "C" {
-s32 __ct__13TUnk_804AF8A0FP7TObject();
+s32 __ct__14TObjCollidableFP7TObject();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern const char* TObjTombstone__class_name;
 extern s32 TObjTombstone__shared_resource_object;
@@ -49,7 +49,7 @@ extern const f32 TObjTombstone__data_805D9174;
 
 void TObjTombstone::setup(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
-    this->texture_id = TObjFish__sub_8001EDB0(TObjTombstone__shared_resource_object, 0);
+    this->texlist = TObjFish__sub_8001EDB0(TObjTombstone__shared_resource_object, 0);
     *(s32 *)&this->model = get_bml_model(TObjTombstone__shared_resource_object, 0);
     *(s32 *)&this->unk_AC = arg1;
     TObjTombstone::copy_record(arg0 + 0xC0, arg2);
@@ -88,7 +88,7 @@ u8 *TObjTombstone__ct(TObjTombstone *tombstone, s32 arg1, s32 arg2, u8 *arg3) {
     typedef char spA_offset[(offsetof(Stack_8007643C, spA) == 0x2) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8007643C, sp18) == 0x10) ? 1 : -1];
     Stack_8007643C stack;
-    __ct__13TUnk_804AF8A0FP7TObject();
+    __ct__14TObjCollidableFP7TObject();
     *(s32 **)((s8 *)tombstone + 0x18) = &__vt__13TObjTombstone.value;
     *(s32 *)((s8 *)tombstone + 0) = (s32) TObjTombstone__class_name;
     if ((u32) (*(u32 *)&TObjTombstone__shared_resource_object) == 0U) {

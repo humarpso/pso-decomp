@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/PlayerAttackParams.h"
+#include "pso/protocol/protocol_types.h"
 #include "pso/system/byteswap.h"
 #include "pso/object/TObjWarpBossMulti.h"
 #include "pso/item/TItemData.h"
@@ -7,6 +9,7 @@
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/Language.h"
+#include "pso/map/FloorArea.h"
 
 struct Parm_8010C1E0;
 struct Item_8010C498;
@@ -84,11 +87,10 @@ struct Parm_8010C320
 
 extern "C" {
 s32 obj_getArrWord_254(void *, int);
-u16 obj_getField1c(void *);
+u16 get_entity_id(void *);
 int get_item_field_6__10TObjPlayerFPv(void *);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
-u8 *get_quest_id__12TQuestListVMFv(void *);
 s32 is_item_usable__9TItemDataFlPUc(void *, void *);
 s32 check_equip_requirements(void *, void *, int);
 s32 check_class_equip_permission(void *, int);
@@ -164,38 +166,18 @@ void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 extern u8 lbl_805DAB68;
-void fn_8010B7D8(u8 *arg0, s32 arg1);
-void fn_8010B7E8(u8 *arg0, s32 arg1);
-void subtract_s16_stat(s16 *arg0, s32 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
 }
 s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id);
 extern "C" {
-s32 TItemData__sub_8010B808(void* p);
-s32 TItemData__sub_8010B810(void* p);
 
 extern "C" {
 u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
 }
 
-void subtract_s16_stat(s16 *arg0, s32 arg1) {
-    *arg0 -= arg1;
-}
-s32 TItemData__sub_8010B808(void* p) { return *(s32*)((char*)p + 0x31c); }
-s32 TItemData__sub_8010B810(void* p) { return *(s32*)((char*)p + 0x318); }
 
-void TItemData::add_accuracy(s32 arg1) {
-    *(s16 *)((s8 *)this + 4) = (s16) (*(s16 *)((s8 *)this + 4) + arg1);
-}
-void TItemData::add_stat(s32 arg1) {
-    *(s16 *)((s8 *)this + 2) = (s16) (*(s16 *)((s8 *)this + 2) + arg1);
-}
-void TItemData::add_s16(s16 *arg0, s32 arg1) {
-    *arg0 += arg1;
-}
-
-void TItemData::set_present_color(s32 arg1) {
+void TItemData::set_present_color(s8 arg1) {
     switch ((s32) (*(u8 *)((s8 *)((u8 *)this) + 0))) {
     case 0:
         *(u8 *)((s8 *)((u8 *)this) + 5) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 5) | (arg1 & 0xF));
@@ -231,7 +213,7 @@ void TItemData::apply_custom_shield_bonus(s32 player, TItemData *a, TItemData *b
     if (data1.data_u8[0] == 1 && data1.data_u8[1] == 2) {
         u8 id = data1.data_u8[2];
         if (id >= 0x53 && id <= 0x82) {
-            s32 count = TObjPlayer::count_nearby_players_with_shield(obj_getField1c((void *)player), data1.data_u8);
+            s32 count = TObjPlayer::count_nearby_players_with_shield(get_entity_id((void *)player), data1.data_u8);
             u8 kind = (data1.data_u8[2] - 0x53) % 8;
             s16 bonus_per_player[8] = {0, 50, 25, 25, 100, 50, 50, 10};
             s16 amount = count * bonus_per_player[kind];
@@ -246,11 +228,11 @@ void TItemData::apply_custom_shield_bonus(s32 player, TItemData *a, TItemData *b
                 stats->sC += amount;
                 break;
             case 4:
-                a->add_accuracy(amount);
+                ((AttackParams *)a)->add_ata(amount);
                 break;
             case 5:
-                TItemData::add_s16((s16 *)a, amount);
-                a->add_stat(amount);
+                ((AttackParams *)a)->add_atp_min(amount);
+                ((AttackParams *)a)->add_atp_max(amount);
                 break;
             case 6:
                 stats->s2 += amount;
@@ -278,11 +260,11 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
         if (bn != NULL && a != NULL && b != NULL && st != NULL)
         switch (bn->kind) {
         case 1:
-            TItemData::add_s16((s16 *)a, bn->val);
-            ((TItemData *)a)->add_stat(bn->val);
+            ((AttackParams *)a)->add_atp_min(bn->val);
+            ((AttackParams *)a)->add_atp_max(bn->val);
             break;
         case 2:
-            ((TItemData *)a)->add_accuracy((s16)(bn->val * 10));
+            ((AttackParams *)a)->add_ata((s16)(bn->val * 10));
             break;
         case 3:
             TItemData::add_stat_ptr((s16 *)b, bn->val);
@@ -300,20 +282,20 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             st->xC += bn->val;
             break;
         case 8:
-            TItemData::add_s16((s16 *)a, bn->val);
-            ((TItemData *)a)->add_stat(bn->val);
-            ((TItemData *)a)->add_accuracy((s16)(bn->val * 10));
+            ((AttackParams *)a)->add_atp_min(bn->val);
+            ((AttackParams *)a)->add_atp_max(bn->val);
+            ((AttackParams *)a)->add_ata((s16)(bn->val * 10));
             TItemData::add_stat_ptr((s16 *)b, bn->val);
             ((TItemData *)b)->add_bonus(bn->val);
             st->x2 += bn->val;
             st->xC += bn->val;
             break;
         case 9:
-            subtract_s16_stat((s16 *)a, bn->val);
-            fn_8010B7E8(a, bn->val);
+            ((AttackParams *)a)->sub_atp_min(bn->val);
+            ((AttackParams *)a)->sub_atp_max(bn->val);
             break;
         case 10:
-            fn_8010B7D8(a, (s16)(bn->val * 10));
+            ((AttackParams *)a)->sub_ata((s16)(bn->val * 10));
             break;
         case 11:
             TItemData__sub_8010EE30((s16 *)b, bn->val);
@@ -331,9 +313,9 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             st->xC -= bn->val;
             break;
         case 16:
-            subtract_s16_stat((s16 *)a, bn->val);
-            fn_8010B7E8(a, bn->val);
-            fn_8010B7D8(a, (s16)(bn->val * 10));
+            ((AttackParams *)a)->sub_atp_min(bn->val);
+            ((AttackParams *)a)->sub_atp_max(bn->val);
+            ((AttackParams *)a)->sub_ata((s16)(bn->val * 10));
             TItemData__sub_8010EE30((s16 *)b, bn->val);
             TItemData__sub_8010EE1C(b, bn->val);
             st->x2 -= bn->val;
@@ -496,14 +478,14 @@ void TItemData::add_weapon_stat_bonuses(s32 player, s16 *out, s32 unused, s16 *o
       s16 grind = ((u8) (hi = ((s8 *) ((u8 *)this))[3])) * 2;
       s16 lo = (mult * ((f32) (parm->atp_min + grind))) + add;
       hi = (mult * ((f32) (parm->atp_max + grind))) + add;
-      TItemData::add_s16(out, lo);
-      ((TItemData *)out)->add_stat(hi);
-      ((TItemData *)out)->add_accuracy((s16) (parm->x19 * 10));
+      ((AttackParams *)out)->add_atp_min(lo);
+      ((AttackParams *)out)->add_atp_max(hi);
+      ((AttackParams *)out)->add_ata((s16) (parm->x19 * 10));
       for (i = 0; i != 3; i++)
       {
         if (((u8 *)this)[6 + (i * 2)] == 5)
         {
-          ((TItemData *)out)->add_accuracy((s16) (((s8) ((u8 *)this)[7 + (i * 2)]) * 10));
+          ((AttackParams *)out)->add_ata((s16) (((s8) ((u8 *)this)[7 + (i * 2)]) * 10));
         }
       }
     }
@@ -597,8 +579,6 @@ u16 TItemData::get_packed_value() {
 extern "C" {
 u8 get_weapon_class_motion_type(u8);
 s32 get_item_icon_index(const u8 *q);
-int TItemData__sub_8010C738(void);
-void TItemData__sub_8010C740(void);
 void bswap__9TItemDataFv(s32 arg0);
 
 s32 is_usable__9TItemDataFPv(void *arg0) {
@@ -618,8 +598,8 @@ void bswap__9TItemDataFv(s32 arg0) {
     bswap_32((u32 *)(arg0 + 0xC));
 }
 
-int TItemData__sub_8010C738(void) { return 0; }
-void TItemData__sub_8010C740(void) {  }
+s32 TItemData::get_name_style() { return 0; }
+void TItemData::convert_from_version(s32) {}
 
 void TItemData::unpack_from_item(void *arg1) {
     s32 sp8;
@@ -649,7 +629,7 @@ void TItemData::unpack_from_item(void *arg1) {
             if ((u8) *(u8 *)((s8 *)this + 1) == 2) {
                 *(u8 *)((s8 *)this + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
             }
-            ((TShopEquipmentListWindow *)this)->set_stack_count(1);
+            set_stack_count(1);
             return;
         case 4:
             *(s32 *)((s8 *)this + 0x10) = (s32) (((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U) * 0xA);
@@ -690,9 +670,6 @@ s32 get_item_icon_index(const u8 *q) {
 s32 strncpy(s8 *, u32, s32);
 void TItemData__sub_8010CA08(TItemData *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
-u8 *find_item_by_id(s32 id);
-void TItemData__sub_8010CCB0(void);
-s32 is_item_stackable(s32 arg0, s32 arg1);
 int register_item_drop__10TObjPlayerFv(void*);
 
 }
@@ -804,8 +781,8 @@ s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0) {
     return 0;
 }
 
-void TItemData__sub_8010CCB0(void) {  }
-void TItemData::normalize() {  }
+void TItemData::decode_from_network() {}
+void TItemData::encode_for_network() {}
 u8 TItemData::get_entry_field16() {
     void *item_pmt_record;
 
@@ -817,7 +794,7 @@ u8 TItemData::get_entry_field16() {
 }
 int TItemData::register_drop() { return register_item_drop__10TObjPlayerFv(this); }
 
-s32 TItemData::get_item_use_result() {
+s32 TItemData::get_max_stack_size() {
     u8 *arg0 = (u8 *)this;
     if (lookup_item_def__9TItemDataFPv() != 0) {
         if (((u8) *(u8 *)((s8 *)arg0 + 0) == 3) && ((u8) *(u8 *)((s8 *)arg0 + 1) == 0x10)) {
@@ -1028,7 +1005,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
   }
   else
   {
-    id = obj_getField1c(player);
+    id = get_entity_id(player);
   }
   if (player == 0)
   {
@@ -1117,7 +1094,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
         tech = (u8 *) calc_technique_parameters(((u8 *)this)[4], lvl, 0xFFFF);
         if (tech != 0)
         {
-          if ((*((s16 *) (get_quest_id__12TQuestListVMFv(player) + 2))) < (*((s16 *)(tech + 0x14))))
+          if ((*((s16 *) (((TObjPlayer *)player)->get_stats() + 2))) < (*((s16 *)(tech + 0x14))))
           {
             result |= 0x10001;
           }
@@ -1139,7 +1116,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
         void *it = (void *) get_item_field_6__10TObjPlayerFPv(player);
         if (it != 0)
         {
-          ((TItem *)it)->copy_to_item_data(buf);
+          ((TItem *)it)->copy_to_item_data((TItemData *)buf);
           rec = (u8 *) lookup_item_pmt_record(buf);
           if ((rec != 0) && (rec[0x16] <= buf[3]))
           {
@@ -1154,7 +1131,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
       }
       case 11:
       {
-        u8 *quest = get_quest_id__12TQuestListVMFv(player);
+        u8 *quest = ((TObjPlayer *)player)->get_stats();
         if (quest != 0)
         {
           hit = 0;
@@ -1179,13 +1156,13 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
             }
               break;
             case 3:
-              if (TObjPlayer::calc_equip_bonus(id) >= 0xFA)
+              if (calc_base_hp_bonus(id) >= 0xFA)
             {
               hit = 1;
             }
               break;
             case 4:
-              if (TObjPlayer::calc_stat_bonus_sum(id) >= 0xFA)
+              if (calc_base_tp_bonus(id) >= 0xFA)
             {
               hit = 1;
             }
@@ -1257,7 +1234,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
     copy.b18 = mag->b0c;
     copy.b19 = mag->b0e;
     ((TItemData *)(&copy))->bswap_fields();
-    ((TLobby *)item)->copy_item_data(&copy);
+    ((TItemData *)item)->copy_from((TItemData *)(&copy));
 }
 
 void TItemData::bswap_fields() { bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
@@ -1295,7 +1272,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
   {
     case 26:
       temp_r3 = (u8 *) get_item_field_6__10TObjPlayerFPv(arg1);
-      if ((temp_r3 != 0) && (((TItem *)temp_r3)->get_field_ed() == 0x1A))
+      if ((temp_r3 != 0) && (((TItem *)temp_r3)->get_item_group() == 0x1A))
     {
       var_f31 = lbl_805DAB74;
     }
@@ -1303,7 +1280,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
     case 38:
       temp_r31 = get_item_field_6__10TObjPlayerFPv(arg1);
       temp_r30 = ((TItemData *)arg1)->get_item_field_2();
-      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItem *)temp_r31)->get_field_ed() == 1)) && (((TItem *)temp_r31)->get_slot_count() == 5)) && (((TItem *)temp_r30)->get_slot_count() == 0x28))
+      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItem *)temp_r31)->get_item_group() == 1)) && (((TItem *)temp_r31)->get_item_index() == 5)) && (((TItem *)temp_r30)->get_item_index() == 0x28))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1311,7 +1288,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
     case 36:
       temp_r30_2 = get_item_field_6__10TObjPlayerFPv(arg1);
       temp_r31_2 = ((TItemData *)arg1)->get_item_field_2();
-      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItem *)temp_r30_2)->get_field_ed() == 2)) && (((TItem *)temp_r30_2)->get_slot_count() == 5)) && (((TItem *)temp_r31_2)->get_slot_count() == 0x26))
+      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItem *)temp_r30_2)->get_item_group() == 2)) && (((TItem *)temp_r30_2)->get_item_index() == 5)) && (((TItem *)temp_r31_2)->get_item_index() == 0x26))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1319,7 +1296,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
     case 37:
       temp_r30_3 = get_item_field_6__10TObjPlayerFPv(arg1);
       temp_r31_3 = ((TItemData *)arg1)->get_item_field_2();
-      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItem *)temp_r30_3)->get_field_ed() == 6)) && (((TItem *)temp_r30_3)->get_slot_count() == 6)) && (((TItem *)temp_r31_3)->get_slot_count() == 0x27))
+      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItem *)temp_r30_3)->get_item_group() == 6)) && (((TItem *)temp_r30_3)->get_item_index() == 6)) && (((TItem *)temp_r31_3)->get_item_index() == 0x27))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1354,7 +1331,7 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
             if ((u32)p != 0) {
                 p = ((TItemData *)p)->get_item_field_2();
                 if ((u32)p != 0) {
-                    c = ((TItem *)p)->get_slot_count();
+                    c = ((TItem *)p)->get_item_index();
                     if (c == 0x19 || c == 0x1A) {
                         v = lbl_805DAB7C;
                         found = 1;
@@ -1370,7 +1347,7 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
             if ((u32)p != 0) {
                 p = ((TItemData *)p)->get_item_field_2();
                 if ((u32)p != 0) {
-                    c = ((TItem *)p)->get_slot_count();
+                    c = ((TItem *)p)->get_item_index();
                     if (c == 0x1A || c == 0x18) {
                         v = lbl_805DAB7C;
                         hit = 1;
@@ -1386,7 +1363,7 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
             if ((u32)p != 0) {
                 p = ((TItemData *)p)->get_item_field_2();
                 if ((u32)p != 0) {
-                    c = ((TItem *)p)->get_slot_count();
+                    c = ((TItem *)p)->get_item_index();
                     if (c == 0x19 || c == 0x18) {
                         v = lbl_805DAB7C;
                         hit2 = 1;
@@ -1398,26 +1375,26 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
     case 40:
         a1 = get_item_field_6__10TObjPlayerFPv(arg1);
         b1 = ((TItemData *)arg1)->test_flag3();
-        if ((u32)a1 != 0 && (u32)b1 != 0 && ((TItem *)a1)->get_field_ed() == 1 && ((TItem *)a1)->get_slot_count() == 5 && ((TItem *)b1)->get_slot_count() == 0x26) {
+        if ((u32)a1 != 0 && (u32)b1 != 0 && ((TItem *)a1)->get_item_group() == 1 && ((TItem *)a1)->get_item_index() == 5 && ((TItem *)b1)->get_item_index() == 0x26) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 38:
         a2 = get_item_field_6__10TObjPlayerFPv(arg1);
         b2 = ((TItemData *)arg1)->test_flag3();
-        if ((u32)a2 != 0 && (u32)b2 != 0 && ((TItem *)a2)->get_field_ed() == 2 && ((TItem *)a2)->get_slot_count() == 5 && ((TItem *)b2)->get_slot_count() == 0x24) {
+        if ((u32)a2 != 0 && (u32)b2 != 0 && ((TItem *)a2)->get_item_group() == 2 && ((TItem *)a2)->get_item_index() == 5 && ((TItem *)b2)->get_item_index() == 0x24) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 39:
         a3 = get_item_field_6__10TObjPlayerFPv(arg1);
         b3 = ((TItemData *)arg1)->test_flag3();
-        if ((u32)a3 != 0 && (u32)b3 != 0 && ((TItem *)a3)->get_field_ed() == 6 && ((TItem *)a3)->get_slot_count() == 6 && ((TItem *)b3)->get_slot_count() == 0x25) {
+        if ((u32)a3 != 0 && (u32)b3 != 0 && ((TItem *)a3)->get_item_group() == 6 && ((TItem *)a3)->get_item_index() == 6 && ((TItem *)b3)->get_item_index() == 0x25) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 45:
-        if (TObjPlayer__sub_80117E50(obj_getField1c(arg1)) != 0) {
+        if (TObjPlayer__sub_80117E50(get_entity_id(arg1)) != 0) {
             v = TItemData__data_805DAB78;
         }
         break;
@@ -1445,7 +1422,7 @@ f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
     {
       temp_r31 = ((TItemData *)item_data)->test_flag3();
       temp_r30 = ((TItemData *)item_data)->get_item_field_2();
-      if ((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItem *)temp_r31)->get_slot_count() == 0x26)) && (((TItem *)temp_r30)->get_slot_count() == 0x28))
+      if ((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItem *)temp_r31)->get_item_index() == 0x26)) && (((TItem *)temp_r30)->get_item_index() == 0x28))
       {
         var_f31 = TItemData__data_805DAB78;
       }
@@ -1456,7 +1433,7 @@ f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
     {
       temp_r30_2 = ((TItemData *)item_data)->test_flag3();
       temp_r31_2 = ((TItemData *)item_data)->get_item_field_2();
-      if ((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItem *)temp_r30_2)->get_slot_count() == 0x24)) && (((TItem *)temp_r31_2)->get_slot_count() == 0x26))
+      if ((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItem *)temp_r30_2)->get_item_index() == 0x24)) && (((TItem *)temp_r31_2)->get_item_index() == 0x26))
       {
         var_f31 = TItemData__data_805DAB78;
       }
@@ -1467,7 +1444,7 @@ f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
     {
       temp_r30_3 = ((TItemData *)item_data)->test_flag3();
       temp_r31_3 = ((TItemData *)item_data)->get_item_field_2();
-      if ((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItem *)temp_r30_3)->get_slot_count() == 0x25)) && (((TItem *)temp_r31_3)->get_slot_count() == 0x27))
+      if ((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItem *)temp_r30_3)->get_item_index() == 0x25)) && (((TItem *)temp_r31_3)->get_item_index() == 0x27))
       {
         var_f31 = TItemData__data_805DAB78;
       }
@@ -1475,7 +1452,7 @@ f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
       break;
     case 26:
       item = (u8 *) ((TItemData *)item_data)->test_flag3();
-      if ((item != 0) && (((TItem *)item)->get_slot_count() == 0x1A))
+      if ((item != 0) && (((TItem *)item)->get_item_index() == 0x1A))
     {
       var_f31 = lbl_805DAB74;
     }

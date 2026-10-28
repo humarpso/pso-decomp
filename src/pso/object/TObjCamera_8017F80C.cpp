@@ -1,3 +1,4 @@
+#include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/object/TObjCamera.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -23,7 +24,7 @@ extern V3_8017F624 camera_slot_positions[];
 extern s32 TObjCamera__camera_slot_scan_index;
 void matrix_mult_vec(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
 void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
-extern Vec_8017F6C0 lbl_804FF610;
+extern Vec_8017F6C0 camera_right;
 
 void TObjCamera::update_camera_slots() {
     s32 i;
@@ -47,17 +48,17 @@ s32 TObjCamera::update_object_view_visibility(f32 r, f32 d) {
         return 0;
     }
     if (v.x < 0.0f) {
-        v.x = o->pos.x - lbl_804FF610.x * d;
-        v.y = lbl_804FF610.y * d + o->pos.y;
-        v.z = lbl_804FF610.z * d + o->pos.z;
+        v.x = o->pos.x - camera_right.x * d;
+        v.y = camera_right.y * d + o->pos.y;
+        v.z = camera_right.z * d + o->pos.z;
         project_world_to_screen(0, &v, &out);
         if (out.x < 0.0f) {
             return 0;
         }
     } else {
-        v.x = lbl_804FF610.x * d + o->pos.x;
-        v.y = o->pos.y - lbl_804FF610.y * d;
-        v.z = o->pos.z - lbl_804FF610.z * d;
+        v.x = camera_right.x * d + o->pos.x;
+        v.y = o->pos.y - camera_right.y * d;
+        v.z = o->pos.z - camera_right.z * d;
         project_world_to_screen(0, &v, &out);
         if (out.x > 6.4e+02f) {
             return 0;
@@ -162,9 +163,9 @@ void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
 extern Color_8017FCD0 chip_color_white_c;
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
+extern s32 saved_model_render_flags;
+extern s32 saved_chunk_polygon_flags_and_mask;
+extern s32 saved_chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -302,7 +303,7 @@ void TObjCamera::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
     TObjCamera__camera_slot_scan_index = 0;
-    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
+    temp_r3 = (int)::operator new(0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &fe_obj_cam_resource_descriptor.value, 0, 0, 0));
@@ -314,26 +315,26 @@ void TObjChip__vt10(u8 *arg0) {
     s32 i;
     s32 j;
     if (*(s32 *)(arg0 + 0x6C) & 4) {
-        lbl_805D5660 = model_render_flags;
-        lbl_805D5664 = chunk_polygon_flags_and_mask;
-        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        saved_model_render_flags = model_render_flags;
+        saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
+        saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x8011;
         set_color_blend_mode(1, 4, 5, 0, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask);
         for (i = 0; i < *(s32 *)(arg0 + 0x54); i++, p++) {
             Color_8017FCD0 c = chip_color_white_c;
             c.a = p->x30;
-            ((TUnk_80494AE0 *)(&c))->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)((&c)));
             push_matrix();
             post_translate_matrix(p);
             rotate_matrix_yxz(0, p->x18, p->x1c, p->x20);
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             draw_ginja_object(*(s32 *)(arg0 + 0x64));
             pop_matrix();
-            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
+            set_constant_material((const NJS_ARGB *)chunk_material_color_half_alpha_f32);
         }
-        model_render_flags = lbl_805D5660;
-        chunk_polygon_flags_and_mask = lbl_805D5664;
-        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = saved_model_render_flags;
+        chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask;
+        chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask;
     } else {
         for (j = 0; j < *(s32 *)(arg0 + 0x54); j++, p++) {
             push_matrix();
