@@ -1823,7 +1823,7 @@ pso/misc/TWindowShortListCtrl_80277D3C.cpp
 pso/misc/TWindowSimpleStatus.cpp
 pso/misc/TWindowSnapShot.cpp
 pso/misc/TWindowSnapShot_802A7D68.cpp
-pso/misc/TWindowSoundBalance_802708B8.cpp
+pso/misc/TWindowSoundBalance.cpp
 pso/misc/TWindowStatus.cpp
 pso/misc/TWindowSubAreaMap.cpp
 pso/misc/TWindowSubAreaMapDisp.cpp

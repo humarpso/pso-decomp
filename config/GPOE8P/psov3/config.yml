@@ -14,6 +14,13 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
+  - apply_balance__19TWindowSoundBalanceFPv
+  - handle_cancel__19TWindowSoundBalanceFv
+  - handle_lr_input__19TWindowSoundBalanceFv
+  - play_open_sound__19TWindowSoundBalanceFv
+  - set_music_gain__19TWindowSoundBalanceFs
+  - set_sound_effect_gain__19TWindowSoundBalanceFs
+  - sub_8027095C__19TWindowSoundBalanceFv
   - "@14"
   - "@28@__dt__17TMedicalCenterMesFv"
   - "@28@__dt__22TQuestVmDownLoadServerFv"
