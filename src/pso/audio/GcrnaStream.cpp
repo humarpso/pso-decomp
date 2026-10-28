@@ -10,6 +10,7 @@ extern "C" {
 void sndStreamMixParameterEx(u32 stream_id, u8 volume, u8 pan, u8 surround_pan, u8 aux_a, u8 aux_b);
 u32 sndStreamActivate(u32 stream_id);
 void sndStreamDeactivate(u32 stream_id);
+void sndStreamFree(u32 stream_id);
 void *memset(void *, int, unsigned long);
 }
 
@@ -134,6 +135,7 @@ inline s32 gcrna_get_transfer_switch(GcrnaStream *stream) {
     return stream->flags & 1;
 }
 
+#pragma auto_inline on
 void GCRNA_SetTransSw(GcrnaStream *stream, s32 enabled) {
     if (stream == 0) {
         return;
@@ -153,6 +155,30 @@ void GCRNA_SetTransSw(GcrnaStream *stream, s32 enabled) {
     } else {
         gcrna_report_error("E1042601:Illigal prameter 'sw'.(GCRNA_SetTransSw)\n");
     }
+}
+
+inline void gcrna_release_stream_channels(GcrnaStream *stream) {
+    s32 channel;
+    for (channel = 0; channel < stream->allocated_channels; ++channel) {
+        if (stream->ring_buffers[channel] != 0) {
+            stream->ring_buffers[channel]->interface->destroy(stream->ring_buffers[channel]);
+        }
+    }
+    for (channel = 0; channel < stream->allocated_channels; ++channel) {
+        if (stream->stream_ids[channel] != 0xFFFFFFFF) {
+            sndStreamFree(stream->stream_ids[channel]);
+        }
+    }
+}
+
+void gcrna_destroy_stream(GcrnaStream *stream) {
+    if (stream == 0) {
+        return;
+    }
+    GCRNA_SetPlaySw(stream, 0);
+    GCRNA_SetTransSw(stream, 0);
+    gcrna_release_stream_channels(stream);
+    memset(stream, 0, sizeof(*stream));
 }
 #pragma pop
 

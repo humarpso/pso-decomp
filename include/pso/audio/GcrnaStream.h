@@ -41,6 +41,7 @@ extern "C" {
 void GCRNA_SetPlaySw(GcrnaStream* stream, s32 enabled);
 u32 gcrna_stream_callback(void* buffer1, u32 length1, void* buffer2, u32 length2, u32 user);
 void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled);
+void gcrna_destroy_stream(GcrnaStream* stream);
 }
 
 #endif
