@@ -10,8 +10,8 @@
 #include "pso/TAdRicoRing.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemData.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOTrapAncient02.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80101088_lbl_8050BEC0 {
     s32 value;
@@ -53,7 +53,6 @@ struct Stack_801012DC {
 extern "C" {
 s32 is_flag_20000_set__10TObjPlayerFv(int);
 s32 test_flag_2000000__10TObjPlayerFPv(int);
-s32 reset_key_machine_state__10TObjPlayerFv();
 s32 test_flags_any(s32 *, s32);
 extern s32 lbl_805D53EC;
 extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
@@ -88,7 +87,7 @@ void TItem::update_owner_visibility() {
     u32 temp_r0;
     temp_r0 = this->m_f0;
     if (temp_r0 != 0U) {
-        if ((test_flag_2000000__10TObjPlayerFPv(temp_r0) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv(this->m_f0) == 0)) {
+        if ((test_flag_2000000__10TObjPlayerFPv(temp_r0) == 0) && (is_current_area_item_enabled() == 1) && (is_flag_20000_set__10TObjPlayerFv(this->m_f0) == 0)) {
             ((TItem *)arg0)->sub_80102C68();
             return;
         }
@@ -211,7 +210,7 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
 }
 void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
-    if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
+    if (((u32) this->m_f0 != 0U) && (get_current_floor_area() != AREA_LOBBY) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
         TObjPlayer__sub_80102D84((u8 *)&stack.sp8);
         stack.spC = this->get_field_d8();
         stack.sp10 = arg1;
@@ -220,7 +219,7 @@ void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
 }
 void handle_6x61_activate_mag_effect(TObjPlayer *player) {
     struct VObj_80101350_80100E00 *obj;
-    if (TOKeyMachine01::get_global_state() != 0xF) {
+    if (get_current_floor_area() != AREA_LOBBY) {
         player->swap_6x61_fields();
         obj = (VObj_80101350_80100E00 *)find_item_by_id(*(s32 *)((s8 *)player + 4));
         if ((obj != NULL) && ((u32) *(u32 *)((s8 *)obj + 0xF0) != 0U)) {

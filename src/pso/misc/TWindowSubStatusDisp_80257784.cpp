@@ -7,6 +7,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80258100_lbl_804CF998 {
     s32 value;
@@ -123,7 +124,6 @@ s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFUlUl(void *, s32, s32);
-s32 is_boss_area();
 void *get_player_by_client_id(s32 i);
 s32 check_equip_requirements(s32, s32, s32 *);
 u8 calc_display_grade__5TItemFv(void *);
@@ -132,7 +132,6 @@ s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 copy_item_data_to_icon__10TObjPlayerFv(void *);
 s32 fn_80100D68(void *);
 s32 get_item_info__10TObjPlayerFllPs(void *, s32, s16 *);
-s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_item_data__5TItemFv(void *);
 
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *item) {
@@ -397,7 +396,7 @@ void TWindowSubStatusDisp::setup_stat_line(s32 src, s32 arg2, s32 arg3) {
         *(s32 *)((s8 *)this + 0x30) = 0xFF909090;
         this->m_2c = 0xFFAAAAAA;
         *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0xC5);
-    } else if ((reset_key_machine_state__10TObjPlayerFv() == 0) || (is_boss_area() != 0)) {
+    } else if ((is_current_area_item_enabled() == 0) || (is_boss_area() != 0)) {
         *(s32 *)((s8 *)this + 0x30) = 0xFF909090;
         this->m_2c = 0xFFAAAAAA;
         *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0x45);

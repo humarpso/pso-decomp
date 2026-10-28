@@ -2,8 +2,8 @@
 #include "pso/misc/TLobby_802A018C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TODoorFourLightBase.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/map/FloorArea.h"
 
 extern "C" {
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
@@ -37,12 +37,12 @@ void TLobby::free_chr_select_slots() {
 }
 
 void TLanguage__sub_802A0204(void) {
-    s32 global_state;
+    s32 area;
     s32 var_r0;
     s32 var_r0_2;
-    global_state = TOKeyMachine01::get_global_state();
-    switch (global_state) {
-    case 28:
+    area = get_current_floor_area();
+    switch (area) {
+    case AREA_SEABED_UPPER:
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0 != 0) {
             var_r0 = load_resource_from_descriptor(var_r0, 5, bm_o_door_seabed01_resource_descriptor, 0, 0, 0);
@@ -51,7 +51,7 @@ void TLanguage__sub_802A0204(void) {
         lbl_805D6604 = (u32)load_gvm_texture_file((s32)lbl_80466118);
         lbl_805D6608 = (u32)load_gvm_texture_file((s32)lbl_80466138);
         return;
-    case 29:
+    case AREA_SEABED_LOWER:
         var_r0_2 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0_2 != 0) {
             var_r0_2 = load_resource_from_descriptor(var_r0_2, 5, bm_o_door_seabed01_resource_descriptor, 0, 0, 0);

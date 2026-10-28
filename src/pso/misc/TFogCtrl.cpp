@@ -4,11 +4,11 @@
 #include "pso/unk/text_803E2008.h"
 #include "pso/unk/text_803E2070.h"
 #include <stddef.h>
+#include "pso/map/FloorArea.h"
 
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFogCollisionPoison.h"
@@ -794,7 +794,7 @@ void create_area_fog_ctrl(void) {
     TObjFogCollisionPoison::create();
     var_r4 = (s32 *)&area_fog_row_table.value;
     var_r3 = (s32 *)&area_fog_row_table.value;
-    var_r3 = (s32 *)(*(s32 *)((s8 *)&area_fog_row_table.value + (TOKeyMachine01::get_global_state() * 4)));
+    var_r3 = (s32 *)(*(s32 *)((s8 *)&area_fog_row_table.value + (get_current_floor_area() * 4)));
     var_r4 = (s32 *)((u8 *)((s32 *)1));
     TFogCtrl::update_all((int)var_r3, 1);
 }

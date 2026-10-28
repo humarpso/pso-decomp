@@ -12,7 +12,7 @@
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"

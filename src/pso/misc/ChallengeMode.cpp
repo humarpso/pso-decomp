@@ -1,13 +1,13 @@
 #include "pso/object/TObjWarnChime.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjSoloPlayWin.h"
+#include "pso/map/FloorArea.h"
 
 #include "types.h"
 #include "pso/misc/TChallenge.h"
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
 #include "pso/TObjBagWarnWin.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/object/TObjTombstone.h"
 typedef char TChallenge_state_offset[(offsetof(TChallenge, state) == 0x1C) ? 1 : -1];
@@ -451,9 +451,9 @@ void TLobby::update_quest_challenge_state(void *arg0_) {
 void TLobby__sub_80070170(void *arg0) {
     s32 old;
     s32 v;
-    switch (TOKeyMachine01::get_global_state()) {
-    case 0:
-    case 18:
+    switch (get_current_floor_area()) {
+    case AREA_PIONEER2_EP1:
+    case AREA_PIONEER2_EP2:
         old = challenge_mode_state[2];
         challenge_mode_state[2] = -1;
         if (old != -1) {
@@ -463,11 +463,11 @@ void TLobby__sub_80070170(void *arg0) {
             }
         }
         break;
-    case 15:
+    case AREA_LOBBY:
         challenge_mode_state[2] = -1;
         break;
-    case 16:
-    case 17:
+    case AREA_BATTLE1:
+    case AREA_BATTLE2:
         challenge_mode_state[2] = -1;
         break;
     default:
@@ -532,7 +532,7 @@ Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src) {
 s32 TLobby::destroy_on_phase_change() {
     switch (get_main_phase()) {
     case 15:
-        if (TOKeyMachine01::get_global_state() == 0xF) {
+        if (get_current_floor_area() == AREA_LOBBY) {
             queue_destruction__7TObjectFv(this);
             return 1;
         }
@@ -567,7 +567,7 @@ void TChallenge::initialize_windows() {
     s32 flag = 0;
     switch (get_main_phase()) {
     case 0xf:
-        if (TOKeyMachine01::get_global_state() != 0xf) {
+        if (get_current_floor_area() != AREA_LOBBY) {
             flag = 1;
         }
         break;

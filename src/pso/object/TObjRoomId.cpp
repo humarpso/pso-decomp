@@ -2,9 +2,9 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -240,11 +240,11 @@ u8 TObjPlayer::sub_801A1DDC() {
 
 int TUnk_804B9870::vfunc_12() { return 0; }
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
-    u32 global_state;
+    u32 area;
 
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
-        global_state = TOKeyMachine01::get_global_state();
-        if ((global_state <= 2U) || ((s32) global_state == 0x12) || (TContainerAncient01::is_global_state_in_table() != 0) || ((s32) global_state == 0xC) || ((s32) global_state == 0x20)) {
+        area = get_current_floor_area();
+        if ((area <= 2U) || ((s32) area == AREA_PIONEER2_EP2) || (TContainerAncient01::is_global_state_in_table() != 0) || ((s32) area == AREA_DE_ROL_LE) || ((s32) area == AREA_BARBA_RAY)) {
             *(s16 *)((s8 *)arg0 + 0x2E) = arg1;
         }
         *(s16 *)((s8 *)arg0 + 0x28) = arg1;

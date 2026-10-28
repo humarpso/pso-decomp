@@ -1,5 +1,5 @@
-#ifndef PSO_MISC_TQUESTLISTVM_H
-#define PSO_MISC_TQUESTLISTVM_H
+#ifndef PSO_QUEST_TQUESTLISTVM_H
+#define PSO_QUEST_TQUESTLISTVM_H
 
 #include "types.h"
 #include "pso/TShopWindowBase.h"
@@ -71,6 +71,7 @@ struct TQuestListVM : public TShopWindowBase {
     s32 init();
     s32 get_quest_id();
     static int get_instance();
+    static int get_quest_size();
     static void reset();
     u32 decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3);
     static int get_data();

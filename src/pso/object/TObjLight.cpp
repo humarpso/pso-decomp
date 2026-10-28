@@ -10,7 +10,7 @@
 #include "pso/object/TObjLight.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80194528___vt__9TObjLight {
     s32 value;
@@ -134,8 +134,8 @@ void TObjLight::run_task() {
         normalize_vector(&self->dir);
         if ((u8)(TLobby::get_instance() == 0) == 1) {
             self->dir.z = -1.0f * self->dir.z;
-        } else if (TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0xF ||
-                   TOKeyMachine01::get_global_state() == 0x12) {
+        } else if (get_current_floor_area() == AREA_PIONEER2_EP1 || get_current_floor_area() == AREA_LOBBY ||
+                   get_current_floor_area() == AREA_PIONEER2_EP2) {
             self->dir.z = -1.0f * self->dir.z;
         }
     }
@@ -181,7 +181,7 @@ void TObjLight::run_task() {
                     self->out_dir.x = t * (self->dir.x - self->base_dir.x) + self->base_dir.x;
                     self->out_dir.y = t * (self->dir.y - self->base_dir.y) + self->base_dir.y;
                     self->out_dir.z = t * (self->dir.z - self->base_dir.z) + self->base_dir.z;
-                    if (TOKeyMachine01::get_global_state() != 0xF) {
+                    if (get_current_floor_area() != AREA_LOBBY) {
                         register_actor_light(obj_getField1c(a), self);
                     }
                 }

@@ -99,8 +99,6 @@ s32 get_player_by_client_id(s32);
 s16 *get_class_stat_entry__10TObjPlayerFPUc(void *);
 u8 get_cast_technique_level(void *, int);
 s32 is_invalid_slot__10TObjPlayerFUc();
-s32 is_boss_area();
-s32 reset_key_machine_state__10TObjPlayerFv();
 void *calc_technique_parameters(u8, u8, s32);
 s32 is_challenge_mode_active();
 extern s32 local_client_id;
@@ -841,6 +839,7 @@ s32 TItemData::get_item_use_result() {
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 #define calc_clock_bonus__9TItemDataFPv ((s32 (*)(void *, s32))calc_clock_bonus__9TItemDataFPv)
 #define add_armor_stat_contribution__9TItemDataFPviiPv ((s32 (*)(void *, s32, s32, s32, s32, s32))add_armor_stat_contribution__9TItemDataFPviiPv)
@@ -1071,7 +1070,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
       {
         result |= 0x10001;
       }
-      if ((!(flags & 0x10)) && (reset_key_machine_state__10TObjPlayerFv() == 0))
+      if ((!(flags & 0x10)) && (is_current_area_item_enabled() == 0))
       {
         result |= 1;
       }

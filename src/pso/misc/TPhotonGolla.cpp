@@ -7,6 +7,7 @@
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonGolla.h"
+#include "pso/map/FloorArea.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
@@ -418,7 +419,6 @@ void *destroy__12TPhotonGollaFPvs(void *arg0, s16 arg1) {
 #include "pso/misc/TPhotonGolla.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Stack_801ABE14 { f32 x, y, z; };
@@ -499,9 +499,9 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     ((TPhotonGolla *)arg0)->m_134 = 5;
     ((TPhotonGolla *)arg0)->enter_scene();
     *(s32 *)((s8 *)arg0 + 0x1C8) = 0;
-    switch (TOKeyMachine01::get_global_state()) {
-    case 11: case 12: case 13: case 14:
-    case 30: case 31: case 32: case 33:
+    switch (get_current_floor_area()) {
+    case AREA_DRAGON: case AREA_DE_ROL_LE: case AREA_VOL_OPT: case AREA_DARK_FALZ:
+    case AREA_GAL_GRYPHON: case AREA_OLGA_FLOW: case AREA_BARBA_RAY: case AREA_GOL_DRAGON:
         p = (void *)__nw__7TObjectFUl(0xAC);
         if (p != NULL) {
             ((u8 *(*)(void *, void *, void *, int)) TPhotonRainbow__ct)(p, arg0, arg0 + 0x38, 1);

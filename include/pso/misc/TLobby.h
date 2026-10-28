@@ -1034,10 +1034,7 @@ struct TLobby : public TObject {
     static s32 load_texture_pvm_file(const char *name, s32 arg1);
     s32 pso_load_texture();
     static unsigned char read_packet_byte();
-    s32 dispatch_quest();
     static void close_windows();
-    void save_quest_state_to_record();
-    void load_quest_globals();
     static void clear_quest_vm_flag();
     static void free_luker_object();
     void set_flag_80000();

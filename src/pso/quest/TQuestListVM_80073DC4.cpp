@@ -3,7 +3,7 @@
 #include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/TObjNewFloorWin.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdChrSelASlotGC.h"

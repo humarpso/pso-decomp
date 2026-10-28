@@ -2,9 +2,9 @@
 #include "pso/misc/TWindowDD_80348304.h"
 #include "pso/misc/TWindowDD_8034AF68.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/map/FloorArea.h"
 
 #include "types.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 
 struct W_80348520 {
@@ -57,12 +57,12 @@ void TWindowDD::dispatch_state() {
 }
 
 s32 TWindowDD::get_word_select_context() {
-    s32 global_state;
-    global_state = TOKeyMachine01::get_global_state();
-    if (global_state == 0 || global_state == 18) {
+    s32 area;
+    area = get_current_floor_area();
+    if (area == AREA_PIONEER2_EP1 || area == AREA_PIONEER2_EP2) {
         return 1;
     }
-    if (global_state == 15) {
+    if (area == AREA_LOBBY) {
         return 0;
     }
     if (TObjPlayer::get_player_count() != 0) {

@@ -5,6 +5,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/map/FloorArea.h"
 extern "C" void render__10TNpcPlayerFv();
 #include "pso/object/TObjFogCollisionPoison.h"
 
@@ -12,7 +13,6 @@ extern "C" void render__10TNpcPlayerFv();
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFogCollision.h"
 
@@ -3241,7 +3241,7 @@ void TNpcPlayer::decide_action() {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
-    if ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12)) {
+    if ((get_current_floor_area() == AREA_PIONEER2_EP1) || (get_current_floor_area() == AREA_PIONEER2_EP2)) {
         calc_follow_goal();
         change_ai_state(1);
         return;

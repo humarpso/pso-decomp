@@ -3,8 +3,8 @@
 #include "pso/item/TUnk_804A05C8.h"
 #include "pso/item/TItemProArmorParticle.h"
 #include "pso/item/TItemProShield.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_803646F0_lbl_8047A020 {
     s32 value;
@@ -43,13 +43,13 @@ void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 extern s32 tl_05;
 
 void TItemProArmorParticle::vfunc_16() {
-    s32 temp_r3;
+    s32 area;
     s32 temp_r31;
 
     if ((s32) this->m_1a0 == 2) {
-        temp_r3 = TOKeyMachine01::get_global_state();
-        if (temp_r3 != (s32) this->m_198) {
-            this->m_198 = temp_r3;
+        area = get_current_floor_area();
+        if (area != (s32) this->m_198) {
+            this->m_198 = area;
             if (is_item_area_enabled() != 0) {
                 TItemProArmorParticle::create(tl_05, (s32)(this->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), this->m_19c);
             }

@@ -1,5 +1,6 @@
 // ---- pso/unk/text_80232934
 #include "types.h"
+#include "pso/map/FloorArea.h"
 #include "pso/effect/TEffect.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/unk/text_80141550.h"
@@ -7,7 +8,6 @@
 #include "pso/render/depth_buffer.h"
 #include "pso/unk/TUnk_804CC870.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
 struct Vec_80232934 { f32 x; f32 y; f32 z; };
 
@@ -247,8 +247,8 @@ void TUnk_804CC870::render() {
     Obj_80232934 *arg0 = (Obj_80232934 *)this;
     TextureFrameSlot ctx;
     s32 id;
-    if (TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0x12 ||
-        TOKeyMachine01::get_global_state() == 0xF) {
+    if (get_current_floor_area() == AREA_PIONEER2_EP1 || get_current_floor_area() == AREA_PIONEER2_EP2 ||
+        get_current_floor_area() == AREA_LOBBY) {
         return;
     }
     init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, this->m_48 + 1);

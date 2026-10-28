@@ -9,8 +9,8 @@
 #include "pso/TObject.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct P_8019527C { u8 pad[0x90]; u32 f90; };
 
@@ -70,7 +70,7 @@ void TObjParticle::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
-    if (((TOKeyMachine01::get_global_state() == 0xE) || ((s32) this->m_84 == 1)) && ((s32) this->m_8c != 1)) {
+    if (((get_current_floor_area() == AREA_DARK_FALZ) || ((s32) this->m_84 == 1)) && ((s32) this->m_8c != 1)) {
         var_f31 = lbl_805DBEE0;
     } else {
         var_f31 = lbl_805DBEE4;

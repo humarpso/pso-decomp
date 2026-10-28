@@ -892,7 +892,7 @@ pso/misc/TLobby_80073DAC.cpp:
 pso/misc/TWindowSubComCard_80073DB8.cpp:
 	.text       start:0x80073DB8 end:0x80073DC4
 
-pso/misc/TQuestListVM_80073DC4.cpp:
+pso/quest/TQuestListVM_80073DC4.cpp:
 	.text       start:0x80073DC4 end:0x80073F74
 
 pso/ui/TObjNewFloorWin.cpp:
@@ -1164,7 +1164,7 @@ pso/boss/TObjBoss2Tunnel_8007E9EC.cpp:
 pso/boss/TObjBoss2Tunnel_8007EA74.cpp:
 	.text       start:0x8007EA74 end:0x8007EAF8
 
-pso/misc/TQuestListVM_8007EAF8.cpp:
+pso/quest/TQuestListVM_8007EAF8.cpp:
 	.text       start:0x8007EAF8 end:0x8007EB94
 
 pso/ui/TAdSinglePlyChrSelectGC_8007EB94.cpp:
@@ -2167,7 +2167,7 @@ pso/unk/text_800F93B4.cpp:
 pso/item/TItemDrop_800F93F0.cpp:
 	.text       start:0x800F93F0 end:0x800F95F4
 
-pso/misc/TQuestListVM_800F95F4.cpp:
+pso/quest/TQuestListVM_800F95F4.cpp:
 	.text       start:0x800F95F4 end:0x800F9690
 
 pso/misc/TLobby_800F9690.cpp:
@@ -7070,7 +7070,7 @@ pso/unk/text_801F3774.cpp:
 pso/misc/TLobby_801F3A24.cpp:
 	.text       start:0x801F3A24 end:0x801F4398
 
-pso/misc/TQuestListVM_801F4398.cpp:
+pso/quest/TQuestListVM_801F4398.cpp:
 	.text       start:0x801F4398 end:0x801F43A8
 
 pso/unk/text_801F43A8.cpp:
@@ -7103,34 +7103,17 @@ pso/misc/TLobby_801F487C.cpp:
 pso/unk/text_801F498C.cpp:
 	.text       start:0x801F498C end:0x801F49BC
 
-pso/item/TObjItemOKWindow.cpp:
-	.text       start:0x801F49BC end:0x801F4A04
+pso/quest/TQuestThread.cpp:
+	.text       start:0x801F49BC end:0x801F6554
+	.rodata     start:0x8044A5D0 end:0x8044A648
+	.data       start:0x804C8410 end:0x804C8690
+	.bss        start:0x805129F8 end:0x80512B28
+	.sdata      start:0x805D35D0 end:0x805D35E8
+	.sbss       start:0x805D5EE8 end:0x805D5F00
+	.sdata2     start:0x805DC4E0 end:0x805DC510
 
-pso/misc/TQuestThread_801F4A04.cpp:
-	.text       start:0x801F4A04 end:0x801F4A6C
-
-pso/item/TObjItemOKWindow_801F4A6C.cpp:
-	.text       start:0x801F4A6C end:0x801F4C70
-	.data       start:0x804C8510 end:0x804C8528
-
-pso/unk/text_801F4C70.cpp:
-	.text       start:0x801F4C70 end:0x801F4CD8
-
-pso/item/TObjItemNameSelect.cpp:
-	.text       start:0x801F4CD8 end:0x801F4D20
-
-pso/misc/TQuestThread_801F4D20.cpp:
-	.text       start:0x801F4D20 end:0x801F4D70
-
-pso/misc/TQuestThread.cpp:
-	.text       start:0x801F4D70 end:0x801F6530
-	.data       start:0x804C8528 end:0x804C8678
-
-pso/misc/TQuestListOnline_801F6530.cpp:
-	.text       start:0x801F6530 end:0x801F6548
-
-pso/unk/text_801F6548.cpp:
-	.text       start:0x801F6548 end:0x801F69A0
+pso/unk/text_801F6554.cpp:
+	.text       start:0x801F6554 end:0x801F69A0
 
 pso/misc/TQuestVmDownLoadServer.cpp:
 	.text       start:0x801F69A0 end:0x801F8FD4
@@ -7183,46 +7166,13 @@ pso/ui/TAdSinglePlyChrSelectGC_80202A68.cpp:
 pso/unk/text_80203284.cpp:
 	.text       start:0x80203284 end:0x802032AC
 
-pso/unk/text_802032AC.cpp:
-	.text       start:0x802032AC end:0x80203304
-
-pso/misc/TScene_80203304.cpp:
-	.text       start:0x80203304 end:0x802033DC
-
-pso/unk/text_802033DC.cpp:
-	.text       start:0x802033DC end:0x80203418
-
-pso/unk/text_80203418.cpp:
-	.text       start:0x80203418 end:0x802034A8
-
-pso/misc/TOKeyMachine01.cpp:
-	.text       start:0x802034A8 end:0x802034B0
-
-pso/unk/text_802034B0.cpp:
-	.text       start:0x802034B0 end:0x802034EC
-
-pso/player/TObjPlayer_802034EC.cpp:
-	.text       start:0x802034EC end:0x80203510
-
-pso/misc/TScene_80203510.cpp:
-	.text       start:0x80203510 end:0x80205A54
-	.rodata     start:0x8044A928 end:0x8044A938
-	.data       start:0x804C8B08 end:0x804C8C10
-	.sbss       start:0x805D6030 end:0x805D6050
-	.sdata2     start:0x805DC5D4 end:0x805DC5D8
-
-pso/misc/TScene_80205A54.cpp:
-	.text       start:0x80205A54 end:0x80205A6C
-
 pso/misc/TScene.cpp:
-	.text       start:0x80205A6C end:0x80205AE8
-
-pso/misc/TScene_80205AE8.cpp:
-	.text       start:0x80205AE8 end:0x80206494
-
-pso/misc/TScene_80206494.cpp:
-	.text       start:0x80206494 end:0x802071B4
-	.data       start:0x804C8C10 end:0x804C8C28
+	.text       start:0x802032AC end:0x802071B4
+	.rodata     start:0x8044A7E8 end:0x8044A9B8
+	.data       start:0x804C8B08 end:0x804C8C28
+	.sdata      start:0x805D3610 end:0x805D3620
+	.sbss       start:0x805D5FC0 end:0x805D6050
+	.sdata2     start:0x805DC5D0 end:0x805DC608
 
 pso/misc/TSceneSora.cpp:
 	.text       start:0x802071B4 end:0x80207644
@@ -7590,7 +7540,7 @@ pso/misc/TQuestListOnline_80218310.cpp:
 pso/misc/TWindowSubComCard.cpp:
 	.text       start:0x802183B4 end:0x80218570
 
-pso/misc/TQuestListVM.cpp:
+pso/quest/TQuestListVM.cpp:
 	.text       start:0x80218570 end:0x80219EE8
 	.data       start:0x804C9D80 end:0x804C9DD4
 
@@ -9581,7 +9531,7 @@ pso/object/TObjFish.cpp:
 	.rodata     start:0x80465A40 end:0x80465E08
 	.data       start:0x804DC640 end:0x804DC7B4
 
-pso/misc/TOKeyMachine01_8029E764.cpp:
+pso/map/FloorArea_8029E764.cpp:
 	.text       start:0x8029E764 end:0x8029E7BC
 
 pso/unk/text_8029E7BC.cpp:

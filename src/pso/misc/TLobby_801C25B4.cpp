@@ -4,7 +4,6 @@
 #include "pso/TPlayerBattleCtrl.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/misc/TPlayerBattleCtrl4P.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -13,6 +12,8 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/quest/TQuestThread.h"
+#include "pso/map/FloorArea.h"
 
 #include "types.h"
 #include "pso/ui/Language.h"
@@ -400,7 +401,6 @@ void init__6TLobbyFPv(void *arg0);
 void TLobby__sub_8020BB18(void);
 void TLobby__sub_8020BCE4(void);
 void clear_trap_counts(s8 *arg0);
-s32 destroy_children_with_tag(s32);
 
 s32 set_flag_270__6TLobbyFPv();
 s32 set_type__10TObjPlayerFl(s32, s32);
@@ -506,7 +506,7 @@ void init__6TLobbyFPv(void *arg0) {
     }
     TOMineTrap::destroy_matching_traps();
     queue_destroy_event_descendants((TObject*)tl_01);
-    destroy_children_with_tag(tl_00);
+    TQuestThread::destroy_all_in((TObject *)tl_00);
     TLobby__sub_8020BCE4();
     TAdSinglePlyChrSelectGC::destroy();
     TLobby__sub_8020BB18();
@@ -524,7 +524,7 @@ void TLobby::start_duel_battle() {
     char *name;
     void *obj;
     u32 p;
-    s32 st;
+    s32 area;
     s32 i;
     TObjEneRe4Sorcerer__sub_801E3F14(4);
     TObjEneRe4Sorcerer__sub_801E3F18();
@@ -534,8 +534,8 @@ void TLobby::start_duel_battle() {
         obj_clear_flag30_20000((void *)p);
     }
     clear_counter__6TLobbyFPv(this);
-    st = TOKeyMachine01::get_global_state();
-    name = (st == 0x10) ? lbl_80446FF0 : lbl_80446FFC;
+    area = get_current_floor_area();
+    name = (area == AREA_BATTLE1) ? lbl_80446FF0 : lbl_80446FFC;
     obj = __nw__7TObjectFUl(0x40);
     if (obj != NULL) {
         init_with_name__6TLobbyFPvPvPvPv(obj, this, name, 0x2D);
@@ -904,7 +904,6 @@ s32 calc_player_rankings__6TLobbyFPv(Lobby_801C484C *);
 void TLobby__sub_801036CC(void);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 update_battle_controller__10TObjPlayerFv();
-s32 clear_buffer__12TQuestThreadFPv(u32);
 void TLobby__sub_8020BC50(void);
 void TLobby__sub_801C38A4(void);
 void init_and_set_flag__6TLobbyFv(void);
@@ -1207,7 +1206,7 @@ void TLobby__sub_801C38E8(void *arg0) {
             TLobby__sub_8020BC50();
             TLobby__sub_801036CC();
             if (quest_mission_manager != 0) {
-                clear_buffer__12TQuestThreadFPv(quest_mission_manager);
+                TQuestThread::clear_buffer((void *)quest_mission_manager);
             }
             TLobby::stop_audio_streams();
             lbl_805D5DB4 = 0;

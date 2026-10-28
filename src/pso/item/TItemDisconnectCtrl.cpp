@@ -1,14 +1,14 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemDisconnectCtrl.h"
+#include "pso/map/FloorArea.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 
 extern s32 lbl_805D5450;
 extern TObject *tl_05;
 extern const char *TItemDisconnectCtrl__name;
 
 void TItemDisconnectCtrl::run_task() {
-    if (TOKeyMachine01::get_global_state() != 0xF && lbl_805D5450 != 0) {
+    if (get_current_floor_area() != AREA_LOBBY && lbl_805D5450 != 0) {
         TLobby::disconnect_protocol();
         queue_destruction();
     }

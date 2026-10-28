@@ -7,6 +7,7 @@
 #include "pso/item/TItem.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/items/TItemWeapon.h"
+#include "pso/map/FloorArea.h"
 
 struct Row_8010A89C { s8 id; u8 level; f32 amount; };
 struct Slot_8010A89C { s16 id; s16 level; f32 amount; };
@@ -22,9 +23,8 @@ struct Stack_8010A710 {
 #include "pso/TItemLoad.h"
 #include "pso/TObject.h"
 #include "pso/item/TItemProShield.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOSwitchItem.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM.h"
 
 struct VBase_18_8e31a0
 {
@@ -645,7 +645,7 @@ void TItemEquipBase::vfunc_20() {
         ((TItem *)arg0)->set_mode(2);
         ((TObjPlayer *)arg0)->add_item_flags(8);
         this->vfunc_22(1);
-        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((u8 *)&this->m_178, (void *)(1)) == 0)) {
+        if ((get_current_floor_area() != AREA_LOBBY) && (test_flags_any((u8 *)&this->m_178, (void *)(1)) == 0)) {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)(1)));
             this->vfunc_46();
         }

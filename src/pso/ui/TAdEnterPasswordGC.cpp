@@ -9,6 +9,7 @@
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/ui/TAdSnAkPassConfirmGC.h"
+#include "pso/quest/TQuestThread.h"
 
 struct Elt80364258_80364258 { s32 f0; };
 
@@ -91,7 +92,6 @@ void update_children__18TAdEnterPasswordGCFPv(O_8032BC1C *arg0);
 void mem_free(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-void free_menu_object(void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 s32 play_sound_effect(int, int, int, int);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, s32);

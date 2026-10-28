@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/system/debug_print.h"
-#include "pso/misc/TQuestListVM_8007EAF8.h"
-#include "pso/misc/TQuestListVM.h"
+#include "pso/quest/TQuestListVM_8007EAF8.h"
+#include "pso/quest/TQuestListVM.h"
 
 extern "C" {
 

@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
+#include "pso/map/FloorArea.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/system/byteswap.h"
@@ -10,7 +11,6 @@
 #include "pso/item/TItemData.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemProShield.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/misc/TTecReverser.h"
@@ -191,7 +191,6 @@ s32 get_mag_feed_result(s32 arg0, s32 arg1);
 void assign_default_photon_blast_palette_slots(u8 *arg0);
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
 extern "C" {
-s32 is_boss_area();
 s32 play_sound_effect(int, int, int, int);
 void create__10TTecDebandFlll(void *, void *, int);
 s32 is_challenge_mode_active();
@@ -1082,7 +1081,7 @@ s8 TItemMag::collect_support_events() {
     s16 delta;
     s16 cur;
     s16 lim;
-    s32 g;
+    s32 area;
     s8 ev;
 
     if (!(*(s32 *)&this->m_18c & 1)) {
@@ -1134,9 +1133,9 @@ s8 TItemMag::collect_support_events() {
         *(s16 *)&this->m_1d4 = (*(VObj_80112720 * *)&this->m_f0)->m14();
         ev |= 0x20;
     }
-    g = TOKeyMachine01::get_global_state();
-    if (this->m_1d6 != g) {
-        this->m_1d6 = g;
+    area = get_current_floor_area();
+    if (this->m_1d6 != area) {
+        this->m_1d6 = area;
         if (is_boss_area() == 1) {
             ev |= 0x80;
         }
@@ -1514,7 +1513,6 @@ s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void TItemMag__vt25(Self_801134CC *self);
-s32 reset_key_machine_state__10TObjPlayerFv();
 void TItemMag__vt14(Self_80113310 *self);
 void TObjPlayer__sub_80364198();
 void TObjPlayer__sub_8036414C();
@@ -1557,7 +1555,7 @@ void TItemMag__vt14(Self_80113310 *self) {
     }
     events = ((TItemMag *)self)->collect_support_events();
     if (((TItemMag *)self)->get_status_flag() != 0) {
-        if (reset_key_machine_state__10TObjPlayerFv() != 0) {
+        if (is_current_area_item_enabled() != 0) {
             ((TItemMag *)self)->feed_by_item_flags(events);
             ((void (*)(void *))TItemMag__sub_8011271C)(self);
         } else {
@@ -1698,7 +1696,7 @@ void TItemMag__vt42(TItemMag *item_mag) {
     item_mag->request_support_action(1);
     *(s16 *)((s8 *)item_mag + 0x1D4) = ((VObj_18 *)(*(u8 **)((s8 *)item_mag + 0xF0)))->m14();
     if ((s16) *(s16 *)((s8 *)item_mag + 0x1D6) == -1) {
-        *(s16 *)((s8 *)item_mag + 0x1D6) = TOKeyMachine01::get_global_state();
+        *(s16 *)((s8 *)item_mag + 0x1D6) = get_current_floor_area();
     }
     *(s16 *)((s8 *)item_mag + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)item_mag + 0xF0)));
     *(s16 *)((s8 *)item_mag + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)item_mag + 0xF0)));

@@ -8,6 +8,7 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_8010255C_lbl_8050BEC0 {
     s32 value;
@@ -78,7 +79,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_by_client_id(s32 i);
 s32 push_to_player_list__5TItemFPv();
 s32 set_depth_buffer_settings_id__FUl(int);
-s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_8010255C_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8010255C_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -131,7 +131,7 @@ void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
-        if ((((TItem *)arg0)->sub_80102C30() == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        if ((((TItem *)arg0)->sub_80102C30() == 2) && (is_current_area_item_enabled() != 0)) {
             set_depth_buffer_settings_id__FUl(1);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;

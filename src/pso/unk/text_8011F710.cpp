@@ -101,6 +101,7 @@ struct Item_8011F760 { u8 pad[0x10]; s32 count; };
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TItemProShield.h"
+#include "pso/map/FloorArea.h"
 
 struct Stats_8011F710 { u8 pad[0x16]; u8 max; };
 
@@ -117,7 +118,6 @@ extern const f32 lbl_805DAC98;
 s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
 Item_8011F760 *get_weapon_range_record(void *, s32);
 s32 is_active_in_game__11TItemWeaponFv(void*);
-s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__11TItemWeaponFUl(void*,u32);
 
@@ -206,7 +206,7 @@ void TItemWeapon::vfunc_30() {
     WeaponMarkerPacket packet;
     WeaponVector gun_point;
     WeaponVector fallback_point;
-    if (is_active_in_game__11TItemWeaponFv(self) && !((TItemEquipBase *)self)->get_flag_40() && reset_key_machine_state__10TObjPlayerFv()) {
+    if (is_active_in_game__11TItemWeaponFv(self) && !((TItemEquipBase *)self)->get_flag_40() && is_current_area_item_enabled()) {
         self->heading=self->player->heading;
         self->stage=((TItemWeapon *)self)->get_attack_stage();
         ((TObjPlayer *)(&packet))->reset_status_block();
