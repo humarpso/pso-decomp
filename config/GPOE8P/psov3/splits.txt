@@ -11119,6 +11119,7 @@ pso/ui/TAdGameStartShadowGC.cpp:
 
 pso/unk/text_80320DE8.cpp:
 	.text       start:0x80320DE8 end:0x80320EAC
+	.rodata     start:0x804764B8 end:0x804764C0
 
 pso/ui/TAdGameStartLineGC.cpp:
 	.text       start:0x80320EAC end:0x803212D4
