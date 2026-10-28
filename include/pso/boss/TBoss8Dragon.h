@@ -182,8 +182,12 @@ struct TBoss8Dragon
     u32 m_898;
     u32 m_89c;
     u32 m_8a0;
-    static void set_random_param(u8 *arg0, u8 *arg1);
-    static void calc_params(s32 arg0, void *arg1, s32 arg2);
+    void set_random_param(u8 *arg1);
+    void calc_params(void *arg1, s32 arg2);
+    void calc_product_and_ratio(void *arg1, s32 arg2);
+    void calc_attack_params(void *arg1, s32 arg2);
+    void fn_8005EBDC(u8 *arg1, u8 *arg2);
+    s32 fn_8005EE04(s16 *out, u32 *entry);
     static void copy_angle_state(void *arg0, void *dst, void *src);
     void update_target_from_state();
     static void init_state_zero(void *arg0);
