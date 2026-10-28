@@ -515,7 +515,7 @@ s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int, f32);
 extern const f32 lbl_805D9BDC;
 
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800AE18C *);
+f32 calc_xz_distance_sq(void *, void *, Vec_800AE18C *);
 f32 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 extern const f64 lbl_8043B0C8[];
@@ -1038,7 +1038,7 @@ s32 TObjEneMoja::is_target_in_attack_range() {
     Vec_800AE18C d;
     if (this->mode > 1 && (t = this->target) != NULL &&
         this->m_318 != 0 && !(*(u32 *)((s8 *)t + 0x30) & 0x02000800)) {
-        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, t, &d);
+        dist = calc_xz_distance_sq(this, t, &d);
         angd = angle_difference_abs(this->rotation_y,
                                     (s32)(lbl_8043B0C8[0] * atan2_float(d.x, d.z)));
         c = *(u8 **)(this->target + 0xA4);

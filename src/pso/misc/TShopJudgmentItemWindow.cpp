@@ -15,6 +15,7 @@
 #include "pso/misc/TWindowSubMag.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/Language.h"
 
 struct Base_802205E4 { char pad[0x18]; };
 struct VObj_802205E4 : Base_802205E4 {
@@ -191,7 +192,6 @@ u32 create__22TWindowLoadItemTextureFPv(int, u16);
 extern u8 lbl_8044C1C0[];
 extern u8 lbl_8044C1CC[];
 extern s32 local_client_id;
-extern s32 current_language;
 extern const f32 lbl_805DC708;
 void *TShopJudgmentItemWindow__ct(TShopJudgmentItemWindow *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__23TShopJudgmentItemWindowFv(TShopJudgmentItemWindow *arg0, s16 arg1);
@@ -469,13 +469,13 @@ void TShopJudgmentItemWindow::create_result_windows() {
     if (temp_r0 <= 0) {
         if ((u32) this->m_154 == 0U) {
             switch (current_language) {
-            case 0:
+            case LANGUAGE_JAPANESE:
                 this->m_154 = (u32) create_item_list_window((s32)lbl_8044C1C0, 1, (s32)(obj_getField1c(this->m_24)));
                 break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
+            case LANGUAGE_ENGLISH:
+            case LANGUAGE_GERMAN:
+            case LANGUAGE_FRENCH:
+            case LANGUAGE_SPANISH:
             default:
                 this->m_154 = (u32) create_item_list_window((s32)lbl_8044C1CC, 1, (s32)(obj_getField1c(this->m_24)));
                 break;

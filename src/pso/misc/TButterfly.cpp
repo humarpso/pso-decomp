@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TButterfly.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TButterfly.h"
-#include "pso/TParticleCtrl.h"
 
 struct Base_8017E978 { char pad[0x18]; };
 struct VObj_8017E978 : Base_8017E978 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
@@ -203,15 +203,10 @@ void TButterfly::run_task() {
 }
 #pragma pop
 
-void *__dt__10TButterflyFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TButterfly;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TButterfly::~TButterfly() {
+
+}
+extern "C" {
 
 }

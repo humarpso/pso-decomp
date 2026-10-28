@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/unk/text_8028A714.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjMotion.h"
@@ -297,7 +298,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     {
         Tbl_80289EE0 t = door_four_light_space_index_table;
         for (i = 0; i < 8; i++) {
-            ((Door_80289EE0 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(((TODoorFourLightSpace *)arg0)->m_d4))->count_linked_switches(t.v[i]);
+            ((Door_80289EE0 *)arg0)->sw[i] = (s32)find_object_node((NJS_OBJECT *)(((TODoorFourLightSpace *)arg0)->m_d4), t.v[i]);
         }
     }
     return arg0;
@@ -546,7 +547,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     {
         Tbl_8028A5C4 t = door_four_light_ruins_index_table;
         for (i = 0; i < 8; i++) {
-            ((Door_8028A5C4 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(((TODoorFourLightRuins *)arg0)->m_d4))->count_linked_switches(t.v[i]);
+            ((Door_8028A5C4 *)arg0)->sw[i] = (s32)find_object_node((NJS_OBJECT *)(((TODoorFourLightRuins *)arg0)->m_d4), t.v[i]);
         }
     }
     return arg0;

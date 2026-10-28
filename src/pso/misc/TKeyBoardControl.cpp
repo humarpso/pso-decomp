@@ -6,6 +6,7 @@
 #include "pso/misc/TWindowKeyBoardSoft_8025B85C.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 struct UV_80262038 {
     f32 u;
@@ -111,7 +112,6 @@ extern const f32 TWindowKeyBoardSoft__data_805DD088;
 extern const f32 TWindowKeyBoardSoft__data_805DD094;
 extern RecoveredGlobal_80260808_lbl_8050E208 controller_input_state;
 extern void *local_client_id;
-extern s32 current_language;
 extern const f32 lbl_805DD084;
 extern const f32 lbl_805DD08C;
 void apply_context_transform_to_rect(void *, void *);
@@ -121,8 +121,8 @@ extern const f32 TWindowKeyBoardSoft__data_805DD090;
 extern const f32 lbl_805DD0C8;
 
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
-    switch ((s32) current_language) {
-    case 0:
+    switch (current_language) {
+    case LANGUAGE_JAPANESE:
         if ((get_flag_bit5__19TWindowKeyBoardSoftFv() != 0) || (((TWindowKeyBoardSoft *)arg0)->get_flag_bit6() != 0) || (((TWindowKeyBoardSoft *)arg0)->is_cursor_locked() != 0)) {
             *arg1 = 4;
             *arg2 = 4;
@@ -136,7 +136,7 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
         *arg1 = 0;
         *arg2 = 5;
         return;
-    case 1:
+    case LANGUAGE_ENGLISH:
         if ((get_flag_bit5__19TWindowKeyBoardSoftFv() != 0) || (((TWindowKeyBoardSoft *)arg0)->get_flag_bit6() != 0) || (((TWindowKeyBoardSoft *)arg0)->is_cursor_locked() != 0)) {
             *arg1 = 0;
             *arg2 = 0;
@@ -145,9 +145,9 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
         *arg1 = 0;
         *arg2 = 1;
         return;
-    case 2:
-    case 3:
-    case 4:
+    case LANGUAGE_GERMAN:
+    case LANGUAGE_FRENCH:
+    case LANGUAGE_SPANISH:
         if ((get_flag_bit5__19TWindowKeyBoardSoftFv() != 0) || (((TWindowKeyBoardSoft *)arg0)->get_flag_bit6() != 0) || (((TWindowKeyBoardSoft *)arg0)->is_cursor_locked() != 0)) {
             *arg1 = 0;
             *arg2 = 0;
@@ -373,15 +373,15 @@ void TWindowKeyBoardSoft__sub_80260E30(void *self, s32 port) {
 void TWindowKeyBoardSoft__sub_80261134(void *self) {
     KeyCursor_80260E30 *kb = (KeyCursor_80260E30 *)self;
     switch (current_language) {
-    case 0:
+    case LANGUAGE_JAPANESE:
         kb->layout = 4;
         break;
-    case 1:
+    case LANGUAGE_ENGLISH:
         kb->layout = 0;
         break;
-    case 2:
-    case 3:
-    case 4:
+    case LANGUAGE_GERMAN:
+    case LANGUAGE_FRENCH:
+    case LANGUAGE_SPANISH:
         kb->layout = 0;
         break;
     }
@@ -396,7 +396,7 @@ void TWindowKeyBoardSoft::update_focus_flags() {
     void *temp_r4;
     void *temp_r4_2;
 
-    if ((s32) current_language != 0) {
+    if (current_language != LANGUAGE_JAPANESE) {
         if ((s32) current_language < 0) {
             return;
         }

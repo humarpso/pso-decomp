@@ -2,7 +2,7 @@
 #include "pso/misc/TTecGrants.h"
 #include "pso/object/TObject_80019A50.h"
 
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 
 struct RecoveredGlobal_80233350___vt__10TTecGrants {
     s32 value;

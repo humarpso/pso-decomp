@@ -2,6 +2,7 @@
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/ui/Language.h"
 
 struct F_80080798 { u16 *buffer; u32 cursor; };
 struct F_80080F68 { u16 *buffer; u32 cursor; };
@@ -38,7 +39,6 @@ extern "C" {
 extern u16 lbl_8048E020[];
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
-extern s32 current_language;
 extern u16 keyboard_soft_small_kana_sjis[];
 extern u16 TWindowKeyBoardSoft__hiragana_sjis_table[];
 s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0);
@@ -72,7 +72,7 @@ void TWindowKeyBoardSoft::set_text_from_string(char *s) {
     if (s == NULL) {
         return;
     }
-    jp = current_language == 0 ? 1 : 0;
+    jp = current_language == LANGUAGE_JAPANESE ? 1 : 0;
     if (*s == 9) {
         s += 2;
         switch (s[-1]) {

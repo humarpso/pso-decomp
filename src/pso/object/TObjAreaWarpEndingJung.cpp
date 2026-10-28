@@ -567,7 +567,7 @@ struct Warp_8019DAC0 : Base_8019DAC0 {
 extern "C" {
 
 f32 xz_distance_squared(void *, void *);
-void construct_collider_proxy__13TUnk_804AF8A0Fv(Warp_8019DAC0 *, void *, void *);
+void __ct__13TUnk_804AF8A0FP7TObject(Warp_8019DAC0 *, void *, void *);
 extern s32 __vt__12TObjWarpBase[];
 extern s32 TObjWarpBase__name;
 struct Base_8019DA54_8019D964 { char pad[0x18]; };
@@ -579,7 +579,7 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 };
 
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 extern s32 forest_warp_bml_resource;
 extern u32 forest_warp_texture_list;
@@ -591,7 +591,7 @@ extern "C" {
 
 void TObjWarpBase::free_globals() {
     if ((u32) forest_warp_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)forest_warp_texture_list);
+        release_texture_list((void*)forest_warp_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(forest_warp_texture_list);
         forest_warp_texture_list = 0U;
     }
@@ -601,7 +601,7 @@ void TObjWarpBase::free_globals() {
 
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     void *o;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent, set);
+    __ct__13TUnk_804AF8A0FP7TObject(self, parent, set);
     *(void **)((u8 *)self + 0x18) = ((u8 *)&__vt__12TObjWarpBase);
     self->f0 = TObjWarpBase__name;
     self->m5(set);
@@ -621,7 +621,7 @@ void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1) {
         struct VObj_8019DA54_8019D964 *o = (struct VObj_8019DA54_8019D964 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBase;
         o->m12();
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

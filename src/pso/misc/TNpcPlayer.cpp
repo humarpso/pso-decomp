@@ -455,7 +455,7 @@ void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 Actor_8014F424 * find_entity_by_id(s32);
 s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
-void * construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void * __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 s32 try_send_6x27_use_item(s32, s32, void *);
 void *get_player_by_client_id(s32 i);
@@ -2386,7 +2386,7 @@ Npc_8014F844 *init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id) {
     self->fC4 = 0x1103;
     p = __nw__7TObjectFUl(0xAC);
     if (p != 0) {
-        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, tl_05);
+        p = __ct__13TUnk_804AF8A0FP7TObject(p, tl_05);
     }
     self->fA8 = p;
     if (self->fA8 != 0) {

@@ -137,7 +137,7 @@ struct VSub_8036858C : VSubB_8036858C {
 };
 
 extern "C" {
-f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_80367270 *);
+f32 calc_xz_distance_sq(void *, void *, Vec_80367270 *);
 extern const f64 lbl_8047A358[];
 extern int enable_v2_features;
 s32 apply_actor_gravity(void *, int, f32);
@@ -189,7 +189,7 @@ extern const f32 lbl_805E02C8;
 extern const f32 TObjEneIllGill__data_805E02CC;
 extern const f32 lbl_805E02D0;
 extern const f32 lbl_805E02D4;
-void initialize__9TObjEnemyFPv(void *, s32, void *);
+void __ct__9TObjEnemyFP7TObject(void *, s32, void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 __vt__14TObjEneIllGill[];
 extern s32 TObjEneIllGill_class_name;
@@ -1219,7 +1219,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
             bind_enemy_combat_stats((u8 *)0, (u8 *)(ill_gill_combat_parameter_variants[F(s32, 0x394)]), (u8 *)0);
             return 1;
         }
-        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, F(u8 *, 0x2A8), &v);
+        dist = calc_xz_distance_sq(this, F(u8 *, 0x2A8), &v);
         ang = angle_difference_abs(F(s32, 0x60), (s32)(TObjEneIllGill__data_8047A348 * atan2_float(v.x, v.z)));
         pl = F(u8 *, 0x2A8);
         if (*(u8 **)((s8 *)pl + 0xA4) != NULL) {
@@ -1772,7 +1772,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
 
 #define G6FD0 ((u8 *)TObjEneIllGill__shared_effect)
 u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
-    initialize__9TObjEnemyFPv(self, arg1, arg2);
+    __ct__9TObjEnemyFP7TObject(self, arg1, arg2);
     FIG_8036858C(void *, 0x18) = __vt__14TObjEneIllGill;
     ((TUnk_80494938 *)(self + 0x374))->init_common();
     FIG_8036858C(s32, 0) = TObjEneIllGill_class_name;

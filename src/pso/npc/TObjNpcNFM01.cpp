@@ -25,7 +25,7 @@ extern u32 TObjNpcNFW00__named_object_resource;
 extern u32 TObjNpcNFW00__texture_gvm_handle;
 extern char lbl_8043FD90[];
 extern char lbl_8043FDA4[];
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -72,7 +72,7 @@ void * TObjNpcNFW00__create(void *arg0) {
 
 void TObjNpcNFW00::free_resources() {
     if ((u32) TObjNpcNFW00__texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcNFW00__texture_gvm_handle);
+        release_texture_list((void*)TObjNpcNFW00__texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcNFW00__texture_gvm_handle);
         TObjNpcNFW00__texture_gvm_handle = 0U;
     }

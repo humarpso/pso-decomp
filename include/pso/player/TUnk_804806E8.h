@@ -3,6 +3,8 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
 
+struct Vec;
+
 struct DirectAttackPayload {
     s32 kind;
     f32 power;
@@ -10,6 +12,7 @@ struct DirectAttackPayload {
 
 class TUnk_804806E8 : public TObjMotion {
 public:
+    TUnk_804806E8(TObject *parent);
     virtual ~TUnk_804806E8();
     u8 obj_isState3_324();
     u8 obj_isState2_324();
@@ -50,7 +53,7 @@ public:
     virtual s32 select_melee_contact_body(void *, f32);
     virtual int calc_distance_accuracy_penalty(void *, void *, void *, float);
     virtual f32 receive_physical_attack(void *, f32);
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
     virtual f32 receive_weapon_special_attack(void *, void *);
     virtual void apply_knockback_from_attacker(u8 *);
     virtual s32 try_start_action(s32, s32);
@@ -69,7 +72,7 @@ public:
     virtual s32 update_movement_status();
     virtual s32 update_shock_clock();
     virtual s32 update_attack_stat_status();
-    virtual s32 vfunc_42();
+    virtual s32 update_defense_stat_status();
     virtual s32 vfunc_43();
     virtual void apply_poison_status();
     virtual void apply_paralysis();
@@ -92,7 +95,7 @@ public:
     virtual void vfunc_62();
     virtual void vfunc_63();
     virtual void reset_pose();
-    virtual void vfunc_65(s32, s32);
+    virtual void get_anim_node_position(s32 node, Vec *out);
     virtual int vfunc_66();
     virtual int vfunc_67(f32 damage_scale);
     virtual void get_pos(s32);
@@ -228,8 +231,7 @@ public:
     f32 m_304;
     u8 unk_308[0x2];
     s16 m_30a;
-    u16 m_30c;
-    u8 unk_30E[0x2];
+    f32 y_speed;
     f32 m_310;
     s32 m_314;
     u32 m_318;
@@ -242,6 +244,13 @@ public:
     s16 hp;
     u16 m_32e;
     u8 unk_330[0x4];
+
+    // Typed views of the vectors the fields above split up: the movement
+    // destination at 0x29C, the body centre other actors measure distance to
+    // at 0x2FC, and the velocity at 0x308.
+    Vec *destination() { return (Vec *)&m_29c; }
+    Vec *body_center() { return (Vec *)&m_2fc; }
+    Vec *velocity() { return (Vec *)unk_308; }
 };
 
 #endif

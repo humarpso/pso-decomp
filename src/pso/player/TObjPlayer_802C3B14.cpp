@@ -3,6 +3,7 @@
 #include "pso/player/TObjPlayer_801BFED4.h"
 #include "pso/player/TObjPlayer_802C3B14.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/Language.h"
 
 extern "C" {
 
@@ -13,7 +14,6 @@ s32 get_action_data__10TObjPlayerFv(void *);
 s32 init_new_character_stats(void *);
 s32 copy_entries(s32, s32, s32);
 
-extern s32 current_language;
 
 s32 begin_action_state__10TObjPlayerFPv(u8 *player) {
     s32 temp_r31;

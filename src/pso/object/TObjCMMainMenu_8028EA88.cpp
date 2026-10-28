@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyCharData.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TKeyBoardControl_80131C58.h"
 #include "pso/misc/TLoadCtrl_80227390.h"
@@ -10,7 +11,7 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC_8029A914.h"
 #include "pso/unk/text_8028D8B8.h"
 #include "pso/unk/text_802910EC.h"
-#include "pso/unk/text_80291290.h"
+#include "pso/camera/CreationCamera.h"
 #include "pso/object/TObjCMMainMenu.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TCharaMaking.h"
@@ -57,7 +58,7 @@ void init_creation_menu_scene(void) {
         TCameraCtrl__ct((u8 *)p, (void *)tl_camera);
     }
     TCameraCtrl::select_active_controller(8);
-    fn_80291290();
+    begin_creation_view();
     register_texture_f256_ad_pic_2();
     register_texture_f256_backtext();
     TLobby::update_keyboard_menu();
@@ -85,7 +86,7 @@ void init_creation_menu_scene(void) {
             TObjCMMainMenu__sub_8028EC18();
             TObjCMMainMenu::select_char_menu();
             TObjCMMainMenu__sub_8028D9F8();
-            TCharaMaking::create((void *)tl_03, (void *)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370));
+            TCharaMaking::create((void *)tl_03, (void *)&get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)->m_disp_data.m_disp_part2);
             TObjCMMainMenu::create_fade_effect((void *)0xF, (void *)1);
         }
     }

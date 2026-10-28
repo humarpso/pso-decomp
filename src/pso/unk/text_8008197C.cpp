@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/unk/TEF_PvrWave.h"
+#include "pso/effect/TEF_PvrWave.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Ent_8008197C { s32 a; s32 b; s32 c; };
 

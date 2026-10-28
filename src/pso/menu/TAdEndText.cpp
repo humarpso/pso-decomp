@@ -128,7 +128,7 @@ extern s32 TAdEndText__class_name;
 extern const f32 lbl_805D7DF0;
 extern const f32 lbl_805D7DFC;
 extern const f32 lbl_805D7E40;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 extern s32 ending_scene_active;
 
@@ -293,7 +293,7 @@ u8 *__ct__10TAdEndTextFv(u8 *object) {
 
 void TAdEndText::free_resources() {
     if ((u32) TAdEndText__loaded_font_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TAdEndText__loaded_font_texture_list);
+        release_texture_list((void*)TAdEndText__loaded_font_texture_list);
         TAdEndText__loaded_font_texture_list = 0U;
     }
     if ((u32) TAdEndText__credit_script_lines != 0U) {

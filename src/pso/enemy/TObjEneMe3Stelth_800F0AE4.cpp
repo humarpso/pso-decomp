@@ -26,11 +26,11 @@ extern const f32 TObjEneMe3Stelth__data_805DA80C;
 s32 play_sound_effect(s32, s32, s32, s32);
 extern const f32 lbl_805DA814;
 extern const f32 lbl_805DA818;
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TObjEneMe3Stelth::destroy_resources() {
     if ((u32) blob_shadow_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)blob_shadow_texture_list);
+        release_texture_list((void*)blob_shadow_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(blob_shadow_texture_list);
         blob_shadow_texture_list = 0U;
     }

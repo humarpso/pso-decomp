@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/effect/TEffect.h"
 #include "pso/object/TUnk_804CCAA8.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/system/vector.h"
@@ -6,8 +7,8 @@
 #include "pso/unk/text_8023601C.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804CCC68.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CC148.h"
 #include "pso/technique/TechniqueContact.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
@@ -33,13 +34,11 @@ struct RecoveredGlobal_80235F60_lbl_804CCAA8 {
 
 struct Vec_80235C44 { f32 x, y, z; };
 
-struct Col_80235C44 { f32 a, r, g, b; };
-
 struct Light_80235C44 {
     u8 task[0x1C];
     s32 duration;
     u32 phase;
-    Col_80235C44 color;
+    NJS_ARGB color;
     Vec_80235C44 desired;
     Vec_80235C44 direction;
     s32 age;
@@ -60,7 +59,6 @@ extern s32 __vt__13TUnk_804CCAA8[];
 
 u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4, u8 *arg5, f32 farg0);
 void queue_destruction__7TObjectFv(void *arg0);
-s32 TObjLight__sub_800827E0(void *, void *, f32);
 void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1);
 void publish_light_direction_color(u32 id, void *dir, void *color);
 s32 approach_vector_fixed_distance(void *, void *, void *, f32);
@@ -72,8 +70,8 @@ extern Base_80235C44 TObjLight__scene_light_state;
 void TUnk_804CCAA8::run_task() {
     Light_80235C44 *arg0 = (Light_80235C44 *)this;
     Vec_80235C44 baseDir;
-    Col_80235C44 baseColor;
-    Col_80235C44 unused;
+    NJS_ARGB baseColor;
+    NJS_ARGB unused;
     f32 mid;
     f32 frac;
     if (get_player_by_client_id(arg0->actor) == 0) {
@@ -91,7 +89,7 @@ void TUnk_804CCAA8::run_task() {
         publish_actor_light_scalars((u16) obj_getField1c((void *)arg0->source), inten1, amb1);
         ((TRaderMapCore *)(&unused))->copy_vec4(&baseColor);
         approach_vector_fixed_distance(&arg0->direction, &arg0->desired, &arg0->direction, arg0->step);
-        TObjLight__sub_800827E0(&unused, &arg0->color, 0.1f);
+        approach_rgb_clamped(&unused, &arg0->color, 0.1f);
     } else {
         f32 amb2;
         f32 inten2;
@@ -100,7 +98,7 @@ void TUnk_804CCAA8::run_task() {
         inten2 = frac * (TObjLight__scene_light_state.f1c - arg0->intensity) + arg0->intensity;
         publish_actor_light_scalars((u16) obj_getField1c((void *)arg0->source), inten2, amb2);
         approach_vector_fixed_distance(&arg0->direction, &baseDir, &arg0->direction, arg0->step);
-        TObjLight__sub_800827E0(&arg0->color, &baseColor, 0.1f);
+        approach_rgb_clamped(&arg0->color, &baseColor, 0.1f);
     }
     publish_light_direction_color((u16) obj_getField1c((void *)arg0->source), &arg0->direction, &arg0->color);
     arg0->age++;

@@ -2,9 +2,9 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC_8001ED80.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern s32 system_save_payload;
+extern u8 *system_save_payload;
 
-s32 TAdSinglePlyChrSelectGC::get_global_state() {
+u8 *TAdSinglePlyChrSelectGC::get_global_state() {
     return system_save_payload;
 }
 

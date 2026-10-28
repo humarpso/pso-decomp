@@ -2,7 +2,7 @@
 #define PSO_MISC_TTECMEGID_H
 
 #include "types.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 
 struct TTecMegid : public TUnk_804CCC68 {
     virtual ~TTecMegid();

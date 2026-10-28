@@ -13,11 +13,11 @@ extern const s32 lbl_804661E4[];
 extern const s32 lbl_804661F8[];
 extern const s32 current_language;
 extern u32 lbl_805D6630;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 void TLobby::free_dialog_global() {
     if ((u32) lbl_805D6630 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6630);
+        release_texture_list((void*)lbl_805D6630);
         lbl_805D6630 = 0U;
     }
 }

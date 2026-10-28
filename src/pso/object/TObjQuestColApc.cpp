@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TQuestThread.h"
-#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjQuestColApc.h"
 
 struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radius; };
@@ -23,7 +23,7 @@ int TObjQuestColApc::vfunc_15() {
     for (i = 0; i < 12; i++) {
         p = (Obj_80196448 *)get_player_by_client_id(i);
         if (p != 0 && obj_isState3_324__13TUnk_804806E8Fv(p) == 1) {
-            if (xyz_distance_squared((u8 *)p->pos, (u8 *)self->pos) < self->radius * self->radius) {
+            if (xyz_distance_squared((Vec *)p->pos, (Vec *)self->pos) < self->radius * self->radius) {
                 return 1;
             }
         }

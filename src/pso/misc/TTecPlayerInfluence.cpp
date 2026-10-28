@@ -91,13 +91,12 @@ typedef struct Rabarta_80237494
 } Rabarta_80237494;
 
 extern "C" {
-s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
 u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
-void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+void *__ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
@@ -114,8 +113,8 @@ void TTecPlayerInfluence::render() {
     stack.sp8 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 0);
     stack.spC = *(s32 *)((s8 *)&lbl_8044D8EC.value + 4);
     stack.sp10 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 8);
-    approach_vector_in_place(arg0 + 0x3C, (void *)&stack.sp8, (f32) ((2.7f)));
-    TObjRoomId__sub_80141CF4(arg0 + 0x20, (u8 *)&this->field_2c, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
+    approach_vector_in_place(&scale, (const Vec *)&stack.sp8, 2.7f);
+    TObjRoomId__sub_80141CF4(arg0 + 0x20, (u8 *)&this->color, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
 void TTecPlayerInfluence::tick_lifetime() {
@@ -183,7 +182,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   p = __nw__7TObjectFUl(0xAC);
   if (p != 0)
   {
-    p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, self);
+    p = __ct__13TUnk_804AF8A0FP7TObject(p, self);
   }
   self->fdc = p;
   if (self->fdc != 0)

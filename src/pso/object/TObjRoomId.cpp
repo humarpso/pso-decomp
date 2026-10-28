@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -186,7 +185,7 @@ void TObjRoomId::run_task() {
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjRoomId;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

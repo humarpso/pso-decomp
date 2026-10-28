@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
@@ -540,7 +541,7 @@ void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void stop_sound_request(s32 idx);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
@@ -617,7 +618,7 @@ void *TOTrapSeabed01::create(void *arg0) {
 
 void TOTrapSeabed01::free_static_resources() {
     if ((u32) (*(u32 *)&TOTrapSeabed01__texture_file) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&TOTrapSeabed01__texture_file));
+        release_texture_list((void*)(*(u32 *)&TOTrapSeabed01__texture_file));
         TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&TOTrapSeabed01__texture_file));
         (*(u32 *)&TOTrapSeabed01__texture_file) = 0U;
     }
@@ -634,7 +635,7 @@ void TOTrapSeabed01::load_resources() {
     }
     (*(u32 *)&TOTrapSeabed01__bml_resource) = (u32)p;
     (*(u32 *)&TOTrapSeabed01__texture_file) = (u32)load_gvm_texture_file((s32)lbl_804720E8);
-    s32 n = ((TObjSeabedSuisoBrakable *)(get_bml_model((*(u32 *)&TOTrapSeabed01__bml_resource), 0)))->count_linked_switches(5);
+    s32 n = (s32)find_object_node((NJS_OBJECT *)(get_bml_model((*(u32 *)&TOTrapSeabed01__bml_resource), 0)), 5);
     u32 t = (*(u32 *)&TOTrapSeabed01__texture_file);
     (*(s32 *)&TOTrapSeabed01__ginja_model) = n;
     lbl_805D681C = 0;
@@ -710,7 +711,7 @@ void vfunc_74__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 void vfunc_63__13TUnk_804806E8Fv();
 void vfunc_62__13TUnk_804806E8Fv();
 void vfunc_61__13TUnk_804806E8Fv();
@@ -740,6 +741,7 @@ void clear_harmful_statuses__13TUnk_804806E8Fv();
 void consume_timer_field__13TUnk_804806E8Fl();
 void cure_paralysis__13TUnk_804806E8Fv();
 void cure_poison_ailment__13TUnk_804806E8Fv();
+void apply_defense_stat_status__13TUnk_804806E8FPv();
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void find_target_player__6TOTrapFv();
@@ -758,12 +760,12 @@ void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void submit_cursor_and_notify__6TOTrapFv();
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-s32 update_defense_stat_status(u8 *arg0);
+s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -830,7 +832,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&update_movement_status__13TUnk_804806E8Fv,
     (void *)&update_shock_clock__13TUnk_804806E8Fv,
     (void *)&update_attack_stat_status__13TUnk_804806E8Fv,
-    (void *)&update_defense_stat_status,
+    (void *)&update_defense_stat_status__13TUnk_804806E8Fv,
     (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv,
     (void *)&apply_paralysis__13TUnk_804806E8Fv,
@@ -840,7 +842,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&apply_shock_status__13TUnk_804806E8Fv,
     (void *)&clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&TObjPlayer::apply_defense_stat_status,
+    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv,
     (void *)&cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)&cure_paralysis__13TUnk_804806E8Fv,
     (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
@@ -853,13 +855,13 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&vfunc_62__13TUnk_804806E8Fv,
     (void *)&vfunc_63__13TUnk_804806E8Fv,
     (void *)&reset_pose__13TUnk_804806E8Fv,
-    (void *)&vfunc_65__13TUnk_804806E8Fll,
+    (void *)&get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (void *)&vfunc_66__13TUnk_804806E8Fv,
     (void *)&vfunc_67__14TOTrapSeabed01Ff,
     (void *)&get_pos__13TUnk_804806E8Fl,
     (void *)&apply_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (void *)&vfunc_73__13TUnk_804806E8Fv,
     (void *)&vfunc_74__13TUnk_804806E8Fl,

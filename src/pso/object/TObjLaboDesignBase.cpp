@@ -52,7 +52,7 @@ s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1);
 s32 init_collision_body_parts(void *, int, int);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
+s32 __ct__13TUnk_804AF8A0FP7TObject();
 s32 create__10TObjMapCsnFl(void *, f32, f32);
 u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *TObjLaboDesignBase__create(void *arg0);
@@ -309,7 +309,7 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xBC)); *(s32 *)((s8 *)arg0 + 0xBC) = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -322,7 +322,7 @@ u8 *TObjLaboDesignBase__ct(u8 *player, s32 arg1, s32 arg2, s32 arg3) {
     struct CopyStack_80365210 { u8 bytes[0x3C]; };
     CopyStack_80365210 copy_storage_80365210;
     s32 temp_r0;
-    construct_collider_proxy__13TUnk_804AF8A0Fv();
+    __ct__13TUnk_804AF8A0FP7TObject();
     *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
     *(s32 *)((s8 *)player + 0) = (s32) TObjLaboDesignBase_class_name;
     ((VObj_18_1a504b *)(player))->m5(arg2);

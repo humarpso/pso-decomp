@@ -23,5 +23,12 @@ struct TBreakUpMdl : public TObject {
     u8 *init_from_model(s32 arg1);
 };
 
+// The 0x10-byte breakup model built by init_from_model (vtable 0x8048FA00).
+class TUnk_8048FA00 {
+public:
+    u8 pad_0[0xC];
+    virtual ~TUnk_8048FA00();
+};
+
 typedef char TBreakUpMdl_size[sizeof(TBreakUpMdl) == 0x54 ? 1 : -1];
 #endif

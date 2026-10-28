@@ -22,14 +22,14 @@ extern u32 TObjNpcNHW01__model_object;
 extern u32 TObjNpcNHW01__texture_handle;
 extern char lbl_8043FE38[];
 extern char lbl_8043FE4C[];
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjNpcNHW01::free_resources() {
     if ((u32) TObjNpcNHW01__texture_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcNHW01__texture_handle);
+        release_texture_list((void*)TObjNpcNHW01__texture_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcNHW01__texture_handle);
         TObjNpcNHW01__texture_handle = 0U;
     }

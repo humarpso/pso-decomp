@@ -3,13 +3,33 @@
 #include "types.h"
 #include "pso/boss/TUnk_804999E8.h"
 
+typedef void (*VoloptFadeCallback)();
+
+// Fades the screen in from white for Vol Opt: alpha falls from 255 to 0, then
+// on_done runs (or the task ends) and volopt_fade_in_done is set.
 class TUnk_804848A0 : public TUnk_804999E8 {
 public:
+    VoloptFadeCallback on_done;
+
+    TUnk_804848A0(TObject *parent, VoloptFadeCallback on_done);
     virtual ~TUnk_804848A0();
     virtual void run_task();
-    void *init_fade_color(void *, void *);
-    u8 unk_24[0x4];
 };
 typedef char TUnk_804848A0_size[sizeof(TUnk_804848A0) == 0x28 ? 1 : -1];
+
+// Fades the screen out to white for Vol Opt: alpha rises from 0 to 255, then
+// on_done runs (or the task ends) and volopt_fade_out_done is set.
+class TUnk_804848B8 : public TUnk_804999E8 {
+public:
+    VoloptFadeCallback on_done;
+
+    TUnk_804848B8(TObject *parent, VoloptFadeCallback on_done);
+    virtual ~TUnk_804848B8();
+    virtual void run_task();
+};
+typedef char TUnk_804848B8_size[sizeof(TUnk_804848B8) == 0x28 ? 1 : -1];
+
+extern s32 volopt_fade_out_done;
+extern s32 volopt_fade_in_done;
 
 #endif

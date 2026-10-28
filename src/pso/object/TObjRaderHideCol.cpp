@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObject_8001A448.h"
-#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjRaderHideCol.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjMotion.h"
 
 struct RecoveredGlobal_80197490___vt__16TObjRaderHideCol {
     s32 value;
@@ -28,7 +28,7 @@ void TObjRaderHideCol::run_task() {
     Hide_801973B0 *arg0 = (Hide_801973B0 *)this;
     Pl_801973B0 *p = (Pl_801973B0 *)get_player_by_client_id(local_client_id);
     if (p != 0) {
-        if (xyz_distance_squared((u8 *)arg0->pos, (u8 *)p->pos) < arg0->f90 * arg0->f90) {
+        if (xyz_distance_squared((Vec *)arg0->pos, (Vec *)p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {
                 TRaderMapCore::hide_radar();
                 arg0->f94 = 1;
@@ -43,7 +43,7 @@ void TObjRaderHideCol::run_task() {
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRaderHideCol;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

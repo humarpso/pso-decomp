@@ -115,7 +115,6 @@ struct TBoss4Type3 : public TObjEnemy {
 
     void run_task();
 
-    static void spawn_effect(s16 arg0, s16 arg1, s16 arg2);
     void calc_grid_index();
     void turn_toward_player(s32 arg1);
     static s32 get_random_scaled(void * _w0);

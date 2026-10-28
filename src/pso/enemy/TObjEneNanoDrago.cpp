@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -69,7 +70,6 @@ int get_player_data__10TObjPlayerFi(int a0);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f32 atan2_float(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, s32);
 void vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, Vec_800D9C7C *, void *);
 extern Vec_800D9C7C lbl_8043C8E4;
@@ -118,7 +118,7 @@ void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1) {
                 pop_matrix();
                 return;
             }
-            d = horizontal_distance__10TObjPlayerFPUc(arg0 + 0x38, h->x4) - bias;
+            d = vec_xz_distance((Vec *)(arg0 + 0x38), (Vec *)h->x4) - bias;
             if (bestv < d) {
                 bestv = d;
                 best = ang;
@@ -158,8 +158,8 @@ void TObjPlayer::render_model_transformed() {
     scale_matrix(0, temp_f1, temp_f1, temp_f1);
     ((TObjEnemy *)((u8 *)this))->render_anim_model(*(f32 *)&this->m_c0);
     pop_matrix();
-    this->vfunc_65(0x55, (s32)((u8 *)this + 0x39C));
-    this->vfunc_65(0x54, (s32)((u8 *)this + 0x3A8));
+    this->get_anim_node_position(0x55, (Vec *)((u8 *)this + 0x39C));
+    this->get_anim_node_position(0x54, (Vec *)((u8 *)this + 0x3A8));
 }
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self) {
     s32 i;
@@ -433,7 +433,6 @@ u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void enemy_turn_toward_dest(void *, s32);
-f32 xz_distance_squared(void *, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
@@ -495,7 +494,7 @@ void TObjPlayer::spawn_directional_particle_at_slot(s32 i) {
 void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *actor, Vec_800DA508 *center, f32 radius) {
     s32 ang;
     f32 r;
-    if (xz_distance_squared(&actor->pos, &actor->dest) < 400.0f) {
+    if (xz_distance_squared((Vec *)&actor->pos, (Vec *)&actor->dest) < 400.0f) {
         ang = (s32)(182.04445f * (360.0f * calc_boss4_scale__10TObjPlayerFi(actor)));
         r = 0.4f * (radius * (1.0f + calc_boss4_scale__10TObjPlayerFi(actor)));
         actor->dest.x = r * cos_table_lookup(ang) + center->x;
@@ -630,7 +629,7 @@ void TObjPlayer__sub_800DA7E4(u8 *player) {
             entity = (u32)find_entity_by_id(((TObjPlayer *)player)->m_2d4);
             if (entity != 0) {
                 var_r30 = 1;
-                if ((((TObjPlayer *)player)->actorFlags & 0x01000000) && (xz_distance_squared(player + 0x38, (u8 *)entity + 0x38) > 400.0f)) {
+                if ((((TObjPlayer *)player)->actorFlags & 0x01000000) && (xz_distance_squared((Vec *)(player + 0x38), (Vec *)((u8 *)entity + 0x38)) > 400.0f)) {
                     var_r30 = 0;
                 }
             }
@@ -752,7 +751,7 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
             F(f32, 0x30C) = 0.0f;
             VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
             vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-            if (xz_distance_squared(arg0 + 0x38, arg0 + 0x390) <= (10.0f + F(f32, 0x3D8)) * (10.0f + F(f32, 0x3D8))) {
+            if (xz_distance_squared((Vec *)(arg0 + 0x38), (Vec *)(arg0 + 0x390)) <= (10.0f + F(f32, 0x3D8)) * (10.0f + F(f32, 0x3D8))) {
                 F(s32, 0x37C) = 2;
                 F(f32, 0x310) = 0.0f;
                 F(f32, 0x308) = 0.0f;
@@ -1188,7 +1187,7 @@ s32 register_boss__6TLobbyFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
-void TObjEnemyCustom__ct(void *, s32, void *);
+void __ct__15TObjEnemyCustomFP7TObject(void *, s32, void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void init_and_activate__10TObjPlayerFv();
@@ -1222,7 +1221,7 @@ extern u32 nano_drago_entry_params_resource;
 extern void *tl_04;
 
 extern "C" {
-void vfunc_65__15TObjEnemyCustomFll();
+void get_anim_node_position__15TObjEnemyCustomFlP3Vec();
 }
 extern "C" {
 void vfunc_6__13TUnk_804B9870FPsl();
@@ -1420,13 +1419,14 @@ extern "C" {
 extern u8 lbl_8043C8A8[];
 }
 extern "C" {
-void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
+void receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll();
 }
 extern "C" {
 void receive_physical_attack__13TUnk_804806E8FPvf();
 }
 extern "C" {
-void receive_weapon_special_attack__10TObjPlayerFv();
+void receive_weapon_special_attack__13TUnk_804806E8FPvPv();
+void apply_defense_stat_status__13TUnk_804806E8FPv();
 }
 extern "C" {
 void render_shadows__9TObjEnemyFv(u8 *arg0);
@@ -1444,7 +1444,7 @@ extern "C" {
 void select_melee_contact_body__13TUnk_804806E8FPvf();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -1459,7 +1459,7 @@ extern "C" {
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 }
 extern "C" {
-s32 update_defense_stat_status(u8 *arg0);
+s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -1519,19 +1519,19 @@ void *lbl_80494C90[83] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
-    (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
+    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll,
+    (void *)&receive_weapon_special_attack__13TUnk_804806E8FPvPv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__16TObjEneNanoDragoFv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status__13TUnk_804806E8Fv, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)&apply_defense_stat_status__13TUnk_804806E8FPv, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__16TObjEneNanoDragoFv, (void *)&vfunc_59__16TObjEneNanoDragoFv,
     (void *)&vfunc_60__16TObjEneNanoDragoFv, (void *)&vfunc_61__16TObjEneNanoDragoFv, (void *)&vfunc_62__16TObjEneNanoDragoFv, (void *)&vfunc_63__16TObjEneNanoDragoFv,
-    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&get_anim_node_position__15TObjEnemyCustomFlP3Vec, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Ff,
+    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__15TObjEnemyCustomFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
@@ -1709,7 +1709,7 @@ void TObjEneNanoDrago::run_task() {
         temp_r3_4 = (unsigned char *) (((TObjEneNanoDrago *)arg0)->m_a4);
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
-    if (xz_distance_squared((u8 *)&this->position, (u8 *)&this->m_44) > 2500.0f) {
+    if (xz_distance_squared((Vec *)&this->position, (Vec *)&this->m_44) > 2500.0f) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
@@ -1778,7 +1778,7 @@ Obj_800DC0FC *__dt__16TObjEneNanoDragoFv(Obj_800DC0FC *arg0, s16 arg1) {
 
 u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 i;
-    TObjEnemyCustom__ct(arg0, arg1, arg2);
+    __ct__15TObjEnemyCustomFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80494C90;
     ((TUnk_80494938 *)(arg0 + 0x3E8))->init_common();
     __construct_array(arg0 + 0x40C, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);

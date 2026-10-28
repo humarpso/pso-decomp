@@ -5,14 +5,14 @@
 extern "C" {
 
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 extern s32 lbl_805D4B50;
 extern u32 dragon_common_texture_list;
 
 void TLobby::free_char_select() {
     if ((u32) dragon_common_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)dragon_common_texture_list);
+        release_texture_list((void*)dragon_common_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(dragon_common_texture_list);
         dragon_common_texture_list = 0U;
     }

@@ -5,7 +5,6 @@
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjLuker.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -484,7 +483,7 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
                 arg0->wins[i] = 0;
             }
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

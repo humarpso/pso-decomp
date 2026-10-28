@@ -622,7 +622,7 @@ void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *boss4_dark_falz) {
             Vec_8004B7DC v = base;
             v.x += 2.5e+02f * sin_table_lookup(ang);
             v.z += 2.5e+02f * cos_table_lookup(ang);
-            ((TBoss4DarkFalz *)p)->set_position_from(&v);
+            ((TUnk_804B9870 *)p)->set_position_from(&v);
             ((TBoss4DarkFalz *)p)->save_position();
             get_hit_data__14TBoss4DarkFalzFv(p)->f4 = ang + 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -649,7 +649,7 @@ void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *boss4_dark_falz) {
             Vec_8004B8F8 v = base;
             v.x += 12.5f * sin_table_lookup(ang);
             v.z += 12.5f * cos_table_lookup(ang);
-            ((TBoss4DarkFalz *)p)->set_position_from((Vec_8004B7DC *)(&v));
+            ((TUnk_804B9870 *)p)->set_position_from((Vec_8004B7DC *)(&v));
             ((TBoss4DarkFalz *)p)->save_position();
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFv(p))->f4 = 0x8000;
             ((TObjPlayer *)p)->refresh_equipment_slot();
@@ -765,7 +765,7 @@ extern s32 __vt__14TBoss4DarkFalz[];
 extern s32 dark_falz_controller_instance;
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
 void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
-s32 initialize__9TObjEnemyFPv();
+s32 __ct__9TObjEnemyFP7TObject();
 u16 register_entity_by_id(void *ov);
 void *fn_8030A83C(void *arg0);
 }
@@ -855,7 +855,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     s32 temp_r29_2;
     s32 temp_r30;
     s32 temp_r30_2;
-    initialize__9TObjEnemyFPv();
+    __ct__9TObjEnemyFP7TObject();
     *(s32 **)((s8 *)boss4_dark_falz + 0x18) = __vt__14TBoss4DarkFalz;
     *(s32 *)((s8 *)boss4_dark_falz + 0) = (s32) TBoss4DarkFalz__name;
     ((TBoss4DarkFalz *)boss4_dark_falz)->sub_8004AFB8();

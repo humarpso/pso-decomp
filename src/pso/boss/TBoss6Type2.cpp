@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss6Mag.h"
@@ -18,6 +19,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TBoss6SwordWave.h"
 #include "pso/enemy/TObjEneDD.h"
+extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct TBoss6Type2_802BD014;
 typedef void (TBoss6Type2_802BD014::*Fn_802BD014)();
@@ -236,7 +238,7 @@ void __dl__7TObjectFPv(void *);
 s32 __dt__11TBoss6Type2Fv(s32 self_, s16 flag);
 extern const s32 lbl_8047133C[];
 struct AttackMsg_802BD430 { s32 type; s32 value; };
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
 f32 vfunc_23__11TBoss6Type2FPvPvPvll(TBoss6Type2 *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
 void set_screen_pos__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
@@ -971,7 +973,7 @@ void TBoss6Type2::init_collected_entries() {
     T2_802BA000 *arg0 = (T2_802BA000 *)this;
     s32 i;
     for (i = 0; i < 2; i++) {
-        arg0->e[i].p = (s32 *)(TBoss3Volopt::collect_and_count(arg0->o[i].h, 0x28) + 0x18);
+        arg0->e[i].p = (s32 *)((u8 *)find_model_node(arg0->o[i].h, 0x28) + 0x18);
         arg0->e[i].a = *arg0->e[i].p;
         arg0->e[i].b = 0;
     }
@@ -2500,7 +2502,7 @@ void TBoss6Type2::run_task() {
     ((TBoss6Type2 *)arg0)->sub_802BB498();
     ((TBoss6Type2 *)arg0)->sub_802BC124();
     ((TBoss6PlotFalz *)(arg0 + 0x768))->scroll_strips_uv(8, 0);
-    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(TBoss3Volopt::collect_and_count(get_bml_model(this->m_3fc, 1), 1)) + 4)) + 4)), 8, 0, 0);
+    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(find_model_node(get_bml_model(this->m_3fc, 1), 1)) + 4)) + 4)), 8, 0, 0);
     ((TBoss6Type2 *)arg0)->sub_802BB554();
     copy_vec_array();
     if ((s32) this->m_418 != 0) {
@@ -2627,7 +2629,7 @@ f32 vfunc_23__11TBoss6Type2FPvPvPvll(TBoss6Type2 *self, void *attacker, AttackMs
         self->spawn_hit_effects();
         return TBoss6Type2__data_805DE410;
     }
-    return receive_direct_attack__13TUnk_804806E8FPvPvPvll(self, attacker, msg, collision, tech, arg5);
+    return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(self, attacker, msg, collision, tech, arg5);
 }
 
 #pragma push
@@ -3144,7 +3146,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     Tmp_802BE0D4 tmp;
     s32 i;
     s32 id;
-    ((TObjEnemy *)arg0)->initialize((void*)parent);
+    __ct__9TObjEnemyFP7TObject(arg0, (void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type2;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB8;
     *(s32 *)((s8 *)arg0 + 0x3F8) = arg2[0];

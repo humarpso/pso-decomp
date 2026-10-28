@@ -11,7 +11,7 @@ extern u32 TRaderMapCore__data_805D5F4C;
 extern "C" {
 s32 get_current_floor();
 s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
-s32 TLobby__sub_803DA16C(int);
+s32 release_texture_list(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
 void copy_name(s32 arg0);
@@ -59,7 +59,7 @@ void TRaderMapCore::unload_floor_map() {
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {
         temp_r3 = *(u32 *)((s8 *)TRaderMapCore__floor_map_resource + 4);
         if (temp_r3 != 0U) {
-            TLobby__sub_803DA16C((int)temp_r3);
+            release_texture_list((int)temp_r3);
         }
     }
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {

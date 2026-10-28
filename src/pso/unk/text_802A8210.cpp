@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/misc/TEffIndirectCtrl.h"
+#include "pso/effect/TEffIndirectCtrl.h"
 #include "pso/unk/text_802A8210.h"
 #include "pso/player/TObjPlayer.h"
 

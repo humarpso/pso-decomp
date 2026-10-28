@@ -123,7 +123,7 @@ extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 s32 try_start_action__13TUnk_804806E8Fll(void *, void *, void *);
 s32 roll_physical_accuracy__13TUnk_804806E8FPvlf(void *, void *, void *, f32);
-s32 initialize__9TObjEnemyFPv(void *);
+s32 __ct__9TObjEnemyFP7TObject(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
 extern s32 __vt__13TOCtrlDubchik[];
@@ -144,7 +144,7 @@ void submit_cursor_candidate(void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
 void TObjPlayer__sub_800A8C1C(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
-f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, s32, Pair_8015D518, void *, s32, s32);
+f32 receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(void *, s32, Pair_8015D518, void *, s32, s32);
 f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -360,7 +360,7 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
 u8 *TOCtrlDubchik__ct(TOCtrlDubchik *ctrl_dubchik, s32 arg1, s32 arg2) {
-    initialize__9TObjEnemyFPv(ctrl_dubchik);
+    __ct__9TObjEnemyFP7TObject(ctrl_dubchik);
     *(s32 **)((s8 *)ctrl_dubchik + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
     *(s32 *)((s8 *)ctrl_dubchik + 0) = (s32) lbl_805D2F1C;
     ((TOCtrlDubchik *)(ctrl_dubchik))->apply_set_data((void *)arg2);
@@ -395,7 +395,7 @@ s32 TOCtrlDubchik::select_melee_contact_body(void *, f32) {
 
 f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3) {
     if (arg0->f326 != 0) {
-        return receive_direct_attack__13TUnk_804806E8FPvPvPvll(arg0, arg1, arg2, arg3, -1, -1);
+        return receive_direct_attack__13TUnk_804806E8FPv19DirectAttackPayloadPvll(arg0, arg1, arg2, arg3, -1, -1);
     }
     return TOCtrlDubchik__data_805DB3A8;
 }

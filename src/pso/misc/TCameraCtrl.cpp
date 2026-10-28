@@ -3,6 +3,7 @@
 #include "pso/misc/TUnk_80488A28.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/camera/CreationCamera.h"
 
 struct RecoveredGlobal_8006ABAC_lbl_804FF610 {
     s32 value;
@@ -725,9 +726,6 @@ extern "C" {
 void *TCameraCtrl__vt7(void);
 }
 extern "C" {
-void *TCameraCtrl__vt8(void);
-}
-extern "C" {
 void *TCameraCtrl__vt9(void);
 }
 extern "C" {
@@ -746,7 +744,7 @@ void *camera_controller_registry[13] = {
 void *lbl_80488A8C[13] = {
     (void *)&TCameraCtrl__vt0, (void *)&TCameraCtrl__vt0, (void *)&TCameraCtrl__vt0, (void *)&TCameraCtrl__vt0,
     (void *)&TCameraCtrl__vt4, (void *)&TCameraCtrl__vt5, (void *)&TCameraCtrl__vt6, (void *)&TCameraCtrl__vt7,
-    (void *)&TCameraCtrl__vt8, (void *)&TCameraCtrl__vt9, (void *)&TCameraCtrl__vt10, (void *)&TCameraCtrl__vt11,
+    (void *)&CreationCamera::create, (void *)&TCameraCtrl__vt9, (void *)&TCameraCtrl__vt10, (void *)&TCameraCtrl__vt11,
     (void *)&TCameraCtrl__vt12,
 };
 void *lbl_80488AC0[6] = {

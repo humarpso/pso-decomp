@@ -9,7 +9,7 @@ struct RecoveredGlobal_80197F78_lbl_8050DD24 {
 
 extern "C" {
 s32 safe_free__23TAdSinglePlyChrSelectGCFUl();
-void **TLobby__sub_803DA16C();
+void **release_texture_list();
 extern RecoveredGlobal_80197F78_lbl_8050DD24 signboard_texture_list;
 extern int TObjSinBoard__texture_buffer;
 
@@ -24,7 +24,7 @@ void **TLobby::free_global_buffer() {
         (*(void ** *)&TObjSinBoard__texture_buffer) = NULL;
         var_r3 = (void **)(&signboard_texture_list.value);
         if ((u32) *(u32 *)((s8 *)signboard_texture_list.value + 8) != 0U) {
-            var_r3 = (void **)(TLobby__sub_803DA16C());
+            var_r3 = (void **)(release_texture_list());
         }
     }
     return var_r3;

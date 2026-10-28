@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
@@ -10,7 +11,7 @@ u8 is_valid_player_motion_variant(u32 arg0);
 u8 TLobby__sub_802A7278(u32 arg0);
 int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 struct Tbl_802A6F98 { s32 w[5]; };
 struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
@@ -35,7 +36,7 @@ extern u32 TObjSeabedSuisoBrakable__texture_gvm_handle;
 
 void TObjSeabedSuisoBrakable::free_static_resources() {
     if ((u32) TObjSeabedSuisoBrakable__texture_gvm_handle != 0U) {
-        TLobby__sub_803DA16C((void*)TObjSeabedSuisoBrakable__texture_gvm_handle);
+        release_texture_list((void*)TObjSeabedSuisoBrakable__texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(TObjSeabedSuisoBrakable__texture_gvm_handle);
         TObjSeabedSuisoBrakable__texture_gvm_handle = 0U;
     }
@@ -87,14 +88,14 @@ void TObjSeabedSuisoBrakable::load_resources() {
         break;
     }
     if ((item = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xC)) != NULL) {
-        TObjSeabedSuisoBrakable__model12_render_nodes[0] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(1);
-        TObjSeabedSuisoBrakable__model12_render_nodes[1] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(2);
-        TObjSeabedSuisoBrakable__model12_render_nodes[2] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(4);
+        TObjSeabedSuisoBrakable__model12_render_nodes[0] = (int)find_object_node((NJS_OBJECT *)item, 1);
+        TObjSeabedSuisoBrakable__model12_render_nodes[1] = (int)find_object_node((NJS_OBJECT *)item, 2);
+        TObjSeabedSuisoBrakable__model12_render_nodes[2] = (int)find_object_node((NJS_OBJECT *)item, 4);
     }
     if ((p = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xD)) != NULL) {
-        suiso_brakable_linked_switch_counts[0] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(1);
-        suiso_brakable_linked_switch_counts[1] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(2);
-        suiso_brakable_linked_switch_counts[2] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(3);
+        suiso_brakable_linked_switch_counts[0] = (int) find_object_node((NJS_OBJECT *)p, 1);
+        suiso_brakable_linked_switch_counts[1] = (int) find_object_node((NJS_OBJECT *)p, 2);
+        suiso_brakable_linked_switch_counts[2] = (int) find_object_node((NJS_OBJECT *)p, 3);
         ptrs = (s32 **)suiso_brakable_linked_switch_counts;
         for (i = 0; i < 3; i++) {
             if (ptrs[i] != NULL) {

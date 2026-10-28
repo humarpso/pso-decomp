@@ -1,9 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjTradeCollision.h"
 #include "pso/misc/TWindowSubTradeMain_802D3924.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTradeCollision.h"
 #include "pso/player/TObjPlayer.h"
+extern "C" void *__ct__13TUnk_804AF8A0FP7TObject(void *, s32);
 
 struct RecoveredGlobal_802C8034___vt__18TObjTradeCollision {
     s32 value;
@@ -32,22 +34,17 @@ void run_task__18TObjTradeCollisionFv(s32 arg0) {
     } while (var_r31 < 4);
 }
 
-void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjTradeCollision;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjTradeCollision::~TObjTradeCollision() {
+
+}
+extern "C" {
 
 extern void *tl_05;
 
 typedef char RecoveredGlobal_802C8034___vt__18TObjTradeCollision_size[sizeof(RecoveredGlobal_802C8034___vt__18TObjTradeCollision) == 0x38 ? 1 : -1];
 u8 *TObjTradeCollision__ct(u8 *trade_collision, s32 arg1, s32 arg2) {
-    ((TUnk_804AF8A0 *)trade_collision)->construct_collider_proxy();
+    __ct__13TUnk_804AF8A0FP7TObject(trade_collision, arg1);
     *(s32 **)((s8 *)trade_collision + 0x18) = &(*(RecoveredGlobal_802C8034___vt__18TObjTradeCollision *)&__vt__18TObjTradeCollision).value;
     *(s32 *)((s8 *)trade_collision + 0) = (s32) TObjTradeCollision__name;
     ((TObjTradeCollision *)(trade_collision))->apply_object_set_data((void *)arg2);

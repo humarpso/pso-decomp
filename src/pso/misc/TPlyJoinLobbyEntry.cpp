@@ -27,6 +27,7 @@
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #include "pso/ui/TAdScrollWinGC.h"
 #include "pso/ui/TWindowRoom.h"
+#include "pso/ui/Language.h"
 
 struct Entry_8013634C {
     u8 tag[8];
@@ -3615,7 +3616,6 @@ extern s32 lobby_class_name;
 extern s32 TLobby__data_805D4E30;
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
-extern s32 current_language;
 extern u8 *TLobby__protocol_instance;
 extern s32 TLobby__lobby_entered_flag;
 extern s32 TLobby__data_805D5588;

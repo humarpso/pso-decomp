@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TLobby_8030A6A8.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
@@ -87,7 +88,7 @@ void TOCapsuleLabo::load_resources() {
     (*(u8 * *)&TOCapsuleLabo__model_resource) = (unsigned char *) ((void *) var_r0);
     bml_model = get_bml_model((void *) var_r0, 0);
     if (bml_model != 0) {
-        (*(s32 *)&capsule_labo_switch_flags_ptr) = ((TObjSeabedSuisoBrakable *)bml_model)->count_linked_switches(3);
+        (*(s32 *)&capsule_labo_switch_flags_ptr) = (s32)find_object_node((NJS_OBJECT *)bml_model, 3);
     }
 }
 

@@ -29,7 +29,7 @@ s32 get_bml_model(s32, s32);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TBoss5GryphonSnarl::render() {  }
 
@@ -149,7 +149,7 @@ void TBoss5GryphonSnarl__sub_80066E88(void *self) {
 
 void TLobby__sub_80066EC0(void) {
     if ((u32) boss5_common_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)boss5_common_texture_list);
+        release_texture_list((void*)boss5_common_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(boss5_common_texture_list);
         boss5_common_texture_list = 0U;
     }

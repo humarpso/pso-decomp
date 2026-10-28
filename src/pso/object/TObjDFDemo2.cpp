@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
@@ -11,7 +12,6 @@
 #include "pso/object/TObjDFDemo3.h"
 #include "pso/object/TObjDFDemo2.h"
 #include "pso/boss/TBoss4DarkFalz.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Uro.h"
@@ -144,7 +144,7 @@ void TObjDFDemo2::run_task() {
             ((TBoss4Type2 *)e)->set_flags(0x40);
         }
         play_sound_effect(0x4003AD15, arg0->fac, 0, 1);
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     while (arg0->ftimer >= 0xB4) {
         if (arg0->fa8 != 0 || arg0->ftimer <= 0xDC) {
@@ -166,7 +166,7 @@ void TObjDFDemo2::run_task() {
 void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFDemo2;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -63,12 +63,12 @@ void TUnk_80488D70::vfunc_6() {
         temp_r31 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
         player = get_player_by_client_id(0);
         if (player != NULL) {
-            *(f32 *)&this->unk_48 = (f32) *(f32 *)((s8 *)player + 0x38);
-            this->m_4c = (f32) (19.8f + *(f32 *)((s8 *)player + 0x3C));
+            this->target.x = (f32) *(f32 *)((s8 *)player + 0x38);
+            this->target.y = (f32) (19.8f + *(f32 *)((s8 *)player + 0x3C));
             *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)player + 0x40);
-            this->m_3c = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
-            *(f32 *)&this->unk_40 = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
-            this->m_44 = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
+            this->position.x = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
+            this->position.y = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
+            this->position.z = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
             this->m_58 = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
         }
     }

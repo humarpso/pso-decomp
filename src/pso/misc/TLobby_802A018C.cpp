@@ -17,16 +17,16 @@ extern u32 door_labo_bml_resource;
 extern u32 lbl_805D6604;
 extern u32 lbl_805D6608;
 s32 TLobby__sub_8001FE7C(s32, s32);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 
 void TLobby::free_chr_select_slots() {
     if ((u32) lbl_805D6608 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6608);
+        release_texture_list((void*)lbl_805D6608);
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D6608);
         lbl_805D6608 = 0U;
     }
     if ((u32) lbl_805D6604 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6604);
+        release_texture_list((void*)lbl_805D6604);
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D6604);
         lbl_805D6604 = 0U;
     }

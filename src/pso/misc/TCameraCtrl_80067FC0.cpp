@@ -129,7 +129,7 @@ TUnk_80488838::TUnk_80488838() : TUnk_80488A28() {
     ((O_80068018 *)this)->v5();
 }
 
-void TUnk_80488DA0::set_target_pos(void*q) { *(f32 *)&this->unk_48 = *(f32*)((char*)q + 0x0); (this->m_4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x50) = *(f32*)((char*)q + 0x8); }
+void TUnk_80488DA0::set_target_pos(void*q) { this->target.x = *(f32*)((char*)q + 0x0); this->target.y = *(f32*)((char*)q + 0x4); this->target.z = *(f32*)((char*)q + 0x8); }
 
 #pragma push
 #pragma fp_contract on
@@ -212,7 +212,7 @@ s32 TUnk_80488E00::predict_obstruction() {
 void TCameraCtrl__sub_80068354(void) {  }
 void TCameraCtrl__sub_80068358(void) {  }
 
-void TCameraCtrl::post_update_view() {
+void TUnk_80488A28::post_update_view() {
     Vec_8006835C e;
     Vec_8006835C d;
     Vec_8006835C *t;
@@ -291,15 +291,15 @@ void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 TUnk_80488A28::TUnk_80488A28() : TObject(0) {
-    this->m_3c = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)this + 0x40) = (f32) TCameraCtrl__data_805D8F84;
-    this->m_44 = (f32) TCameraCtrl__data_805D8F84;
+    this->position.x = (f32) TCameraCtrl__data_805D8F84;
+    this->position.y = (f32) TCameraCtrl__data_805D8F84;
+    this->position.z = (f32) TCameraCtrl__data_805D8F84;
     this->m_2c = 0;
     *(s32 *)((s8 *)this + 0x30) = 0;
     this->m_34 = 0;
-    *(f32 *)((s8 *)this + 0x48) = (f32) TCameraCtrl__data_805D8F84;
-    this->m_4c = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)this + 0x50) = (f32) TCameraCtrl__data_805D8F80;
+    this->target.x = (f32) TCameraCtrl__data_805D8F84;
+    this->target.y = (f32) TCameraCtrl__data_805D8F84;
+    this->target.z = (f32) TCameraCtrl__data_805D8F80;
     this->m_60 = (f32) TCameraCtrl__data_805D8F84;
     *(f32 *)((s8 *)this + 0x64) = (f32) TCameraCtrl__data_805D8F84;
     this->m_68 = (f32) TCameraCtrl__data_805D8F84;
@@ -308,6 +308,6 @@ TUnk_80488A28::TUnk_80488A28() : TObject(0) {
     this->m_38 = 0;
     this->m_58 = (f32) TCameraCtrl__data_805D8F84;
     *(f32 *)((s8 *)this + 0x5C) = (f32) lbl_805D8FA0;
-    this->m_54 = 0x36C1;
+    this->projection_angle = 0x36C1;
     this->m_20 = 0xFFFF;
 }

@@ -15,7 +15,7 @@ struct RecoveredGlobal_8022F068_lbl_804CC934 {
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-s32 TLobby__sub_803DA16C(void *, s32);
+s32 release_texture_list(void *, s32);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
 extern u8 *technique_effect_bml;
 extern void **lbl_805D63B0;
@@ -65,12 +65,12 @@ void TLobby__sub_8022F068(void) {
     u8 *temp_r4;
     clear_zonde_beam_vertex_pointer();
     if ((u32) *(u32 *)((s8 *)technique_ringwave_texture_list.value + 8) != 0U) {
-        TLobby__sub_803DA16C(&technique_ringwave_texture_list.value, (s32) technique_ringwave_texture_list.value);
+        release_texture_list(&technique_ringwave_texture_list.value, (s32) technique_ringwave_texture_list.value);
     }
     if ((void **) lbl_805D63B0 != NULL) {
         temp_r4 = (u8 *)(*lbl_805D63B0);
         if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
-            TLobby__sub_803DA16C(lbl_805D63B0, (s32) temp_r4);
+            release_texture_list(lbl_805D63B0, (s32) temp_r4);
         }
         TAdSinglePlyChrSelectGC::safe_free((u32) lbl_805D63B0);
         lbl_805D63B0 = NULL;

@@ -19,7 +19,7 @@ struct BmlResource {
 };
 
 extern "C" {
-void TLobby__sub_803DA16C(void *);
+void release_texture_list(void *);
 void TLobby__sub_8001FE7C(void *, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
@@ -76,7 +76,7 @@ void free_boss7_common_resources(void) {
         boss7_dermt_slot_table[i] = 0;
     }
     if (boss7_common_texture_list != 0) {
-        TLobby__sub_803DA16C(boss7_common_texture_list);
+        release_texture_list(boss7_common_texture_list);
         boss7_common_texture_list = 0;
     }
     TLobby__sub_8001FE7C(boss7_common_bml_resource, 1);

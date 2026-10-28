@@ -6,6 +6,7 @@
 #include "pso/menu/T_ATS_DrawCalendar.h"
 #include "pso/ui/TAdPlyStatusGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -22,7 +23,6 @@ int sprintf(char *, const char *, ...);
 extern char ply_status_date_format[];
 extern char ply_status_date_format_mdy[];
 extern char lbl_8047296C[];
-extern s32 current_language;
 extern const f32 lbl_805DE8E8;
 extern const f32 lbl_805DE8EC;
 extern const f32 lbl_805DE8F0;
@@ -74,7 +74,7 @@ void T_ATS_DrawCalendar::render() {
         getDateStamp((DateStamp *)&date);
         wd = date.wday + 13;
         switch (current_language) {
-        case 0:
+        case LANGUAGE_JAPANESE:
             sprintf(buf, ply_status_date_format, date.year, date.month, date.day, get_localized_text_entry(0x1C, wd));
             s = buf;
             w = lbl_805DE8F0 * (f32)calc_text_width(s);

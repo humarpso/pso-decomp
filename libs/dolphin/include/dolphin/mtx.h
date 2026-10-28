@@ -11,7 +11,7 @@ extern "C" {
 
 #define MTXDegToRad(a) ((a) * 0.01745329252f)
 
-typedef struct {
+typedef struct Vec {
 	f32 x, y, z;
 } Vec, *VecPtr, Point3d, *Point3dPtr;
 

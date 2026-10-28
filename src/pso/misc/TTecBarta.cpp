@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TTecBarta.h"
-#include "pso/unk/TUnk_804CC148.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CCC68.h"
 
 struct RecoveredGlobal_8022B6FC_lbl_804CC510
 {

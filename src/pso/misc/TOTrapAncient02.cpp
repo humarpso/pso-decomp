@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TMainTask.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/TObject.h"
@@ -370,7 +371,7 @@ extern const f32 lbl_805DBAA4;
 
 #pragma push
 #pragma fp_contract on
-void receive_direct_attack__16TOTrapAncient02RFPvPvPvll();
+void receive_direct_attack__16TOTrapAncient02RFPv19DirectAttackPayloadPvll();
 void receive_weapon_special_attack__16TOTrapAncient02RFPvPv();
 void vfunc_86__16TOTrapAncient02RFv();
 void vfunc_88__16TOTrapAncient02RFv();
@@ -382,7 +383,7 @@ void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
 void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 void vfunc_63__13TUnk_804806E8Fv();
 void vfunc_62__13TUnk_804806E8Fv();
 void vfunc_61__13TUnk_804806E8Fv();
@@ -411,6 +412,7 @@ void clear_harmful_statuses__13TUnk_804806E8Fv();
 void consume_timer_field__13TUnk_804806E8Fl();
 void cure_paralysis__13TUnk_804806E8Fv();
 void cure_poison_ailment__13TUnk_804806E8Fv();
+void apply_defense_stat_status__13TUnk_804806E8FPv();
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void vfunc_78__13TUnk_804806E8Fl();
@@ -432,12 +434,12 @@ void roll_physical_accuracy__16TOTrapAncient02RFPvlf();
 void select_melee_contact_body__16TOTrapAncient02RFPvf();
 void calc_distance_accuracy_penalty__16TOTrapAncient02RFPvPvPvf();
 void vfunc_6__6TOTrapFPsl();
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-s32 update_defense_stat_status(u8 *arg0);
+s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -515,7 +517,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&select_melee_contact_body__16TOTrapAncient02RFPvf,
     (s32)&calc_distance_accuracy_penalty__16TOTrapAncient02RFPvPvPvf,
     (s32)&receive_physical_attack__16TOTrapAncient02RFPvf,
-    (s32)&receive_direct_attack__16TOTrapAncient02RFPvPvPvll,
+    (s32)&receive_direct_attack__16TOTrapAncient02RFPv19DirectAttackPayloadPvll,
     (s32)&receive_weapon_special_attack__16TOTrapAncient02RFPvPv,
     (s32)&apply_knockback_from_attacker__6TOTrapFPUc,
     (s32)&try_start_action__16TOTrapAncient02RFll,
@@ -534,7 +536,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&update_movement_status__13TUnk_804806E8Fv,
     (s32)&update_shock_clock__13TUnk_804806E8Fv,
     (s32)&update_attack_stat_status__13TUnk_804806E8Fv,
-    (s32)&update_defense_stat_status,
+    (s32)&update_defense_stat_status__13TUnk_804806E8Fv,
     (s32)&vfunc_43__13TUnk_804806E8Fv,
     (s32)&apply_poison_status__13TUnk_804806E8Fv,
     (s32)&apply_paralysis__13TUnk_804806E8Fv,
@@ -544,7 +546,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&apply_shock_status__13TUnk_804806E8Fv,
     (s32)&clear_harmful_statuses__13TUnk_804806E8Fv,
     (s32)&apply_attack_stat_status__13TUnk_804806E8FPv,
-    (s32)&TObjPlayer::apply_defense_stat_status,
+    (s32)&apply_defense_stat_status__13TUnk_804806E8FPv,
     (s32)&cure_poison_ailment__13TUnk_804806E8Fv,
     (s32)&cure_paralysis__13TUnk_804806E8Fv,
     (s32)&clear_all_status_effects__13TUnk_804806E8Fv,
@@ -557,13 +559,13 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&vfunc_62__13TUnk_804806E8Fv,
     (s32)&vfunc_63__13TUnk_804806E8Fv,
     (s32)&reset_pose__13TUnk_804806E8Fv,
-    (s32)&vfunc_65__13TUnk_804806E8Fll,
+    (s32)&get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (s32)&vfunc_66__13TUnk_804806E8Fv,
     (s32)&vfunc_67__13TUnk_804806E8Ff,
     (s32)&get_pos__13TUnk_804806E8Fl,
     (s32)&apply_switch_attack__13TUnk_804806E8Fv,
     (s32)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (s32)&trigger_switch_attack__10TObjPlayerFi,
+    (s32)&trigger_switch_attack__13TUnk_804806E8Fv,
     (s32)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)&vfunc_73__13TUnk_804806E8Fv,
     (s32)&vfunc_74__13TUnk_804806E8Fl,
@@ -1181,7 +1183,7 @@ void TOTrapAncient02::load_resources() {
             obj = load_resource_from_descriptor(obj, 1, base + 0x20, 0, 0, 0);
         }
         TOTrapAncient02__shared_resource = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(((TObjSeabedSuisoBrakable *)(get_bml_model(obj, 0)))->count_linked_switches(2) + 4);
+        lbl_805D5AE0 = (u32)find_object_node((NJS_OBJECT *)get_bml_model(obj, 0), 2)->model;
         lbl_805D5AE4 = 2;
         lbl_805D5ADC = 0;
         break;
@@ -1199,7 +1201,7 @@ void TOTrapAncient02::load_resources() {
             obj = load_resource_from_descriptor(obj, 1, base + 0x38, 0, 0, 0);
         }
         TOTrapAncient02__shared_resource = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(((TObjSeabedSuisoBrakable *)(get_bml_model(obj, 0)))->count_linked_switches(2) + 4);
+        lbl_805D5AE0 = (u32)find_object_node((NJS_OBJECT *)get_bml_model(obj, 0), 2)->model;
         lbl_805D5AE4 = 1;
         lbl_805D5ADC = 0;
         break;

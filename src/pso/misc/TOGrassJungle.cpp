@@ -28,7 +28,7 @@ extern u32 TOGrassJungle__grass_gvm_texture;
 extern const f32 lbl_805DDD28;
 extern const f32 lbl_805DDD2C;
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -43,7 +43,7 @@ void *TOGrassJungle__create(void *arg0) {
 
 void TOGrassJungle::release_static_instance() {
     if ((u32) TOGrassJungle__grass_gvm_texture != 0U) {
-        TLobby__sub_803DA16C((void*)TOGrassJungle__grass_gvm_texture);
+        release_texture_list((void*)TOGrassJungle__grass_gvm_texture);
         TAdSinglePlyChrSelectGC::safe_free(TOGrassJungle__grass_gvm_texture);
         TOGrassJungle__grass_gvm_texture = 0U;
     }

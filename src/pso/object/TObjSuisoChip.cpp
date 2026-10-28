@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/TObjChip.h"
 #include "pso/TObjSuisoChip.h"
 #include "pso/TObject.h"
@@ -171,7 +172,6 @@ u8 is_current_floor_switch_set(u16);
 void free_collision_body_parts(void *);
 struct Obj_802A6DA8; Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *, s32, s32);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
-void *count_linked_switches__23TObjSeabedSuisoBrakableFl(s32, s32);
 s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(s32);
 
 extern s32 actor_frame_tick;
@@ -184,7 +184,7 @@ void TObjSeabedSuisoBrakable__vt12(TObjSeabedSuisoBrakable *seabed_suiso_brakabl
     void *temp_r31_2;
 
     if ((s32) seabed_suiso_brakable->m_bc == 2) {
-        temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)seabed_suiso_brakable + 0x34), 2);
+        temp_r31 = find_object_node((NJS_OBJECT *)*(s32 *)((s8 *)seabed_suiso_brakable + 0x34), 2);
         if ((s32) suiso_brakable_last_tick != (s32) actor_frame_tick) {
             if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
                 break_data = TObjSeabedSuisoBrakable::get_break_data(1);
@@ -196,7 +196,7 @@ void TObjSeabedSuisoBrakable__vt12(TObjSeabedSuisoBrakable *seabed_suiso_brakabl
         }
     }
     if ((s32) seabed_suiso_brakable->m_bc == 0) {
-        temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)seabed_suiso_brakable + 0x34), 8);
+        temp_r31_2 = find_object_node((NJS_OBJECT *)*(s32 *)((s8 *)seabed_suiso_brakable + 0x34), 8);
         if ((s32) suiso_brakable_last_tick != (s32) actor_frame_tick) {
             if ((temp_r31_2 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31_2 + 4) != 0U)) {
                 temp_r3_2 = TObjSeabedSuisoBrakable::get_break_data(2);
@@ -399,7 +399,7 @@ void notify_break__23TObjSeabedSuisoBrakableFPv(void *seabed_suiso_ch) {
     s32 break_data;
     void *temp_r31;
 
-    temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_d4, 4);
+    temp_r31 = find_object_node((NJS_OBJECT *)((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_d4, 4);
     if ((s32) suiso_brakable_last_frame_tick != (s32) actor_frame_tick) {
         if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
             break_data = TObjSeabedSuisoBrakable::get_break_data(0);

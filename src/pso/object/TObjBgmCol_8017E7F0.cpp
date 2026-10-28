@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjBgmCol_8017E7F0.h"
 #include "pso/object/TObjBgmCol.h"
-#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 
@@ -13,7 +13,7 @@ extern s32 __vt__10TObjBgmCol[];
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

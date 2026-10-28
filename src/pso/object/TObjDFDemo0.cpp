@@ -2,6 +2,9 @@
 
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
+#include "pso/object/TObjDFDemo1.h"
+#include "pso/system/NinjaUtil.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/player/TObjPlayer_80052374.h"
 #include "pso/player/TObjPlayer_803E4954.h"
@@ -68,7 +71,6 @@ extern "C" {
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void post_translate_matrix(void *);
-Outer_8004E068 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 extern Tbl_8004E068 lbl_8048561C[];
 extern s32 model_render_flags;
@@ -110,7 +112,7 @@ void TObjDFDemo1::sub_8004E068() {
   {
     alpha = (t - 0x7C) / 12.0f;
   }
-  col = collect_and_count__12TBoss3VoloptFUll(self->recs[1].a, 0x6A)->in->col;
+  col = ((Outer_8004E068 *)find_model_node(self->recs[1].a, 0x6A))->in->col;
   t = self->f110;
   f = 0.0f;
   if (t >= 0xF0)
@@ -138,7 +140,7 @@ void TObjDFDemo1::sub_8004E068() {
   for (i = 0; i < 3; i++)
   {
     e = &lbl_8048561C[i];
-    col = collect_and_count__12TBoss3VoloptFUll(self->recs[e->idx].a, e->id)->in->col;
+    col = ((Outer_8004E068 *)find_model_node(self->recs[e->idx].a, e->id))->in->col;
     new_var = col;
     new_var2 = new_var[e->slot];
     col[e->slot] = (new_var2 & 0xFF) | hi;
@@ -217,7 +219,6 @@ void TObjDFDemo1::render() { draw_fading_model(); sub_8004E068(); }
 
 #pragma push
 
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
@@ -286,7 +287,7 @@ void TObjDFDemo1::run_task() {
         }
     }
     if (self->timer == 0x46 || self->timer == 0x2C) {
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
     }
     if (self->timer == 0x7C) {
         play_sound_effect(0x4003AA26, self->pos, 0, 1);
@@ -316,27 +317,21 @@ struct S_8004E634 {
 extern "C" {
 void fn_8004AA04(void *);
 void __dl__7TObjectFPv(void *);
-extern u8 lbl_80485640[];
-S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag);
-S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
+extern u8 __vt__11TObjDFDemo1[];
+S_8004E634 *__dt__11TObjDFDemo1Fv(S_8004E634 *o, s16 flag);
+}
+TObjDFDemo1::~TObjDFDemo1() {
     s32 i;
-    if (o != 0) {
-        o->vt = lbl_80485640;
-        fn_8004AA04(o->f11c);
-        for (i = 0; i < 4; i++) {
-            if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->ptr[i]);
-                o->ptr[i] = 0;
-            }
-        }
-        restore_player_cameras();
-        TParticleCtrl::destroy_particle(o, 0);
-        if (flag > 0) {
-            __dl__7TObjectFPv(o);
+    fn_8004AA04(((S_8004E634 *)this)->f11c);
+    for (i = 0; i < 4; i++) {
+        if (((S_8004E634 *)this)->ptr[i] != 0) {
+            TBoss4Type2::request_destroy((u32)((S_8004E634 *)this)->ptr[i]);
+            ((S_8004E634 *)this)->ptr[i] = 0;
         }
     }
-    return o;
+    restore_player_cameras();
 }
+extern "C" {
 
 }
 

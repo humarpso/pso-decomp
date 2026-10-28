@@ -809,7 +809,7 @@ void TObjPlayer::handle_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
 
     if (arg3 == 0) {
-        this->vfunc_65(0x30, (s32)&sp8);
+        this->get_anim_node_position(0x30, (Vec *)&sp8);
         spawn_particle_effect(&sp8, 0x68);
     }
     if (arg3 == 1) {

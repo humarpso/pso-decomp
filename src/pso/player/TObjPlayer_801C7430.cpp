@@ -1269,7 +1269,6 @@ int try_apply_status_action__10TObjPlayerFi(void*);
 s32 set_action_state__10TObjPlayerFPvss(void *, s32, s32);
 u8 * get_player_by_client_id(u16);
 s32 check_camera_mode__10TObjPlayerFv();
-s32 TObjPlayer__sub_801BE2D0(s32);
 s32 get_model_field_m25__10TObjPlayerFv(void *);
 s16 get_action_animation__10TObjPlayerFv(void *);
 s32 call_model_m24__10TObjPlayerFv(void *);
@@ -1471,7 +1470,7 @@ void release_control_lock__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D0F70(void* p);
 int copy_position__10TObjPlayerFPv(void* p);
 int query_field_340__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801D1018(void* p);
+int is_android_player(void* p);
 void TObjPlayer__sub_801D1024(void* p, s32 v);
 void TObjPlayer__sub_801D102C(void* p, s32 v);
 s32 TObjPlayer__sub_801D1034(void* p);
@@ -2353,7 +2352,7 @@ void handle_6x56_set_player_position_and_angle(void *arg0) {
         p = ((Player_801C8B5C *)((u8 * (*)(s32))get_player_by_client_id)((s32)(m.slot)));
         if (p != NULL) {
             p->ang = m.c;
-            ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+            ((TUnk_804B9870 *)p)->set_position_from(m.vec);
             ((TUnk_804806E8 *)p)->calc_attach_pos();
             ((void (*)(void *, s32, s32))run_action_state_phase__10TObjPlayerFisi)(p, 0x15, 0);
         }
@@ -2434,7 +2433,7 @@ void TObjPlayer::update_warp_relocation() {
             var_f31 = 0.0f;
             this->phase = 3;
             this->rotation_y = *(s32 *)((s8 *)((u8 *)this) + 0x65C);
-            ((TBoss4DarkFalz *)((u8 *)this))->set_position_from(((u8 *)this) + 0x660);
+            ((TUnk_804B9870 *)((u8 *)this))->set_position_from(((u8 *)this) + 0x660);
             refresh_equipment_slot();
             this->clear_flag_4000();
             this->update_actor_ground_y();
@@ -2502,7 +2501,7 @@ void handle_6x55_intra_map_warp(s32 arg0) {
         p = get_player_by_client_id(cmd.client);
         if (p != NULL && is_in_tl03_state__10TObjPlayerFv(p) != 0 && test_action_mask__10TObjPlayerFl(p, 0x8200) == 0) {
             *(s32 *)(p + 0x65C) = cmd.area;
-            ((TBoss4DarkFalz *)p)->set_position_from(&cmd.a);
+            ((TUnk_804B9870 *)p)->set_position_from(&cmd.a);
             VecCopy__FP3VecPC3Vec(p + 0x660, &cmd.pos);
             ((void (*)(void *, s32, s32))run_action_state_phase__10TObjPlayerFisi)(p, 0x14, 0);
         }
@@ -5980,10 +5979,10 @@ void TObjPlayer::update_action(s32 arg0) {
     } else if (temp_r3 == 1U) {
         ((TObjPlayer *)arg0)->rewind_position_history();
     }
-    if ((TObjPlayer__sub_801BE2D0(arg0) != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
+    if ((((TObjPlayer *)arg0)->is_newman() != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
         add_actor_tp(arg0, 1);
     }
-    if ((((s32 (*)(s32))TObjPlayer__sub_801D1018)(arg0) != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
+    if ((((s32 (*)(s32))is_android_player)(arg0) != 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
         add_actor_hp(arg0, 1);
     }
 }
@@ -6004,7 +6003,7 @@ void handle_6x3F_set_position(void *arg0) {
     if (validate_6x3F_set_position(&m) != 0) {
         p = (Player_801D0634 *)((void * (*)(s32))get_player_by_client_id)(m.id);
         if (p != NULL) {
-            ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+            ((TUnk_804B9870 *)p)->set_position_from(m.vec);
             set_flag_400000__10TObjPlayerFi((s32)p);
             if (m.floor >= 0) {
                 ((TObjPlayer *)p)->set_floor(m.floor);
@@ -6037,7 +6036,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
     if (p == NULL) {
         return;
     }
-    ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
+    ((TUnk_804B9870 *)p)->set_position_from(m.vec);
     if (m.floor >= 0) {
         ((TObjPlayer *)p)->set_floor(m.floor);
         ((TObjPlayer *)p)->set_floor_index(TLobby::get_player_floor(m.floor));
@@ -6307,7 +6306,7 @@ void TObjPlayer::set_float_param(s16 arg1) {
 
 int query_field_340__10TObjPlayerFPv(void* p) { return ((TObjPlayer *)((char*)p + 0x340))->update_action_palette(); }
 
-int TObjPlayer__sub_801D1018(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
+int is_android_player(void* p) { return (((TObjPlayer *)p)->class_flags & CLASS_FLAG_ANDROID) != 0; }
 
 void TObjPlayer__sub_801D1024(void* p, s32 v) { *(s32*)((char*)p + 0x10) = v; }
 

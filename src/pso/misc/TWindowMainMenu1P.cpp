@@ -49,7 +49,7 @@ void TWindowMainMenu1P::update_backdrop_transition() {
       if (temp_r3_2 & 2)
       {
         *((s32 *) (((s8 *) arg0) + 0x4C)) = (s32) (temp_r3_2 & 0xFFFFFFFD);
-        TCameraCtrl__sub_800694A8();
+        end_view_override();
       }
     }
   }
@@ -94,7 +94,7 @@ void TWindowMainMenu1P::update_backdrop_transition() {
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (lbl_805DD8C8 * (this->m_a4));
   if ((*((s32 *) (((s8 *) arg0) + 0x4C))) & 2)
   {
-    ((TCameraCtrl *)(((u8 *) arg0) + 0x64))->apply_view_params_if_flagged();
+    ((CameraViewParams *)(((u8 *) arg0) + 0x64))->apply_if_overridden();
   }
 }
 
@@ -111,7 +111,7 @@ u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80288838___vt__17TWindowMainMenu1P *)&__vt__17TWindowMainMenu1P).value;
         if (*(s32 *)((s8 *)arg0 + 0x4C) & 2) {
-            TCameraCtrl__sub_800694A8();
+            end_view_override();
         }
         __dt__15TWindowMainMenuFv(arg0, 0);
         if (arg1 > 0) {

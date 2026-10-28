@@ -21,10 +21,6 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     u32 m_30;
     u32 m_34;
     void init_item_entry();
-    static void accumulate_rumble_strength(s16 *arg0, s32 arg1);
-    static f32 calc_rumble_strength(s16 *arg0);
-    static f32 calc_rumble_intensity(s16 *arg0);
-    s32 update_rumble_pattern(s16 *arg1);
     static void try_load_system_file();
     static s32 wait_for_card_load(s32 arg0);
     static void format_challenge_stage_times(s32 arg0, s32 arg1);
@@ -41,7 +37,7 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void cleanup();
     virtual void run_task();
     static u8 get_chr_select_state();
-    static s32 get_global_state();
+    static u8 *get_global_state();
     static int get_state();
     int alloc();
     static void safe_free(u32 arg0);
@@ -101,9 +97,6 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void*copy_item_data(void* a1);
     void*init_guild_card_tag();
     void clear_inventory_slot();
-    void reset_state();
-    static void init_slots();
-    int test_card_flag8();
     static void draw_window_bg(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static void load_player(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     int load_player_slot(int a1, int a2);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyCharData.h"
 #include "pso/object/TObjCMMainMenu_8028D9A8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/object/TObjCMMainMenu.h"
@@ -57,7 +58,7 @@ void TObjCMMainMenu::copy_char_name() {
 }
 
 void TObjCMMainMenu::select_char_menu() {
-    ((TObjCMMainMenu *)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370))->copy_char_name();
+    ((TObjCMMainMenu *)&get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)->m_disp_data.m_disp_part2)->copy_char_name();
 }
 
 s32 TObjCMMainMenu::validate_character_name(s8 *arg0) {

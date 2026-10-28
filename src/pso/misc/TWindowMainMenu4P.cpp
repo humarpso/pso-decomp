@@ -32,7 +32,7 @@ void TWindowMainMenu4P::vfunc_6() {
     if (!(this->m_4c & 1)) {
         player = (u8 *)(get_player_by_client_id(this->m_54));
         if (player != NULL) {
-            if (((TObjPlayer *)player)->is_ready() != 0) {
+            if (((TObjPlayer *)player)->is_android() != 0) {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D0530.value);
             } else {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D04F8.value);

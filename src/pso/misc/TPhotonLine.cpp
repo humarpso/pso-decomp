@@ -55,7 +55,7 @@ struct Line_801ACB14 {
 };
 
 extern "C" {
-void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
+void __ct__13TUnk_804806E8FP7TObject(void *, void *);
 void *find_entity_by_id(u16);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 photon_line_collision_body_part[];
@@ -132,7 +132,7 @@ void *__dt__11TPhotonLineFv(void *arg0, s16 arg1) {
 }
 Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *parent, u16 arg3) {
     s32 i;
-    construct_actor_base__10TObjPlayerFPvPv(self, parent);
+    __ct__13TUnk_804806E8FP7TObject(self, parent);
     self->vt18 = ((s32 *)&__vt__11TPhotonLine);
     self->f0 = lbl_805D3500;
     VecCopy((Vec *)&self->f50, (const Vec *)(VecCopy((Vec *)((Vec *)&self->f38), (const Vec *)((const Vec *)&p->pos))));

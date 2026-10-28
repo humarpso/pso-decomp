@@ -92,7 +92,7 @@ void spawn_disp_objects__6TOMineFv(u8 *arg0);
 void apply_object_set_data__6TOMineFPv();
 void vfunc_85__6TOMineFv();
 void vfunc_6__6TOMineFPsl();
-void receive_direct_attack__6TOMineFPvPvPvll();
+void receive_direct_attack__6TOMineFPv19DirectAttackPayloadPvll();
 void vfunc_86__6TOMineFv();
 void render__6TOMineFv();
 void vfunc_29__13TUnk_804806E8Fv();
@@ -102,7 +102,7 @@ void vfunc_28__13TUnk_804806E8Fv();
 void consume_timer_field__13TUnk_804806E8Fl();
 void vfunc_67__13TUnk_804806E8Ff();
 void vfunc_66__13TUnk_804806E8Fv();
-void vfunc_65__13TUnk_804806E8Fll();
+void get_anim_node_position__13TUnk_804806E8FlP3Vec();
 void vfunc_63__13TUnk_804806E8Fv();
 void vfunc_62__13TUnk_804806E8Fv();
 void vfunc_61__13TUnk_804806E8Fv();
@@ -132,6 +132,7 @@ void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
 void cure_poison_ailment__13TUnk_804806E8Fv();
+void apply_defense_stat_status__13TUnk_804806E8FPv();
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void vfunc_78__13TUnk_804806E8Fl();
@@ -149,12 +150,12 @@ void reset_pose__13TUnk_804806E8Fv();
 void run_task__6TOMineFv();
 void spawn_effect__10TOMineTrapFv();
 void receive_physical_attack__6TOMineFPvf();
-void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
+void trigger_switch_attack__13TUnk_804806E8Fv(s32 arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
-s32 update_defense_stat_status(u8 *arg0);
+s32 update_defense_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -184,7 +185,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)can_trigger__10TOMineTrapFUl,
     (void *)check_trigger__10TOMineTrapFUl,
     (void *)receive_physical_attack__6TOMineFPvf,
-    (void *)receive_direct_attack__6TOMineFPvPvPvll,
+    (void *)receive_direct_attack__6TOMineFPv19DirectAttackPayloadPvll,
     (void *)receive_weapon_special_attack__6TOMineFPvPv,
     (void *)apply_knockback_from_attacker__6TOMineFPUc,
     (void *)try_start_action__6TOMineFll,
@@ -203,7 +204,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)update_movement_status__13TUnk_804806E8Fv,
     (void *)update_shock_clock__13TUnk_804806E8Fv,
     (void *)update_attack_stat_status__13TUnk_804806E8Fv,
-    (void *)update_defense_stat_status,
+    (void *)update_defense_stat_status__13TUnk_804806E8Fv,
     (void *)vfunc_43__13TUnk_804806E8Fv,
     (void *)apply_poison_status__13TUnk_804806E8Fv,
     (void *)apply_paralysis__13TUnk_804806E8Fv,
@@ -213,7 +214,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)apply_shock_status__13TUnk_804806E8Fv,
     (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)TObjPlayer::apply_defense_stat_status,
+    (void *)apply_defense_stat_status__13TUnk_804806E8FPv,
     (void *)cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)cure_paralysis__13TUnk_804806E8Fv,
     (void *)clear_all_status_effects__13TUnk_804806E8Fv,
@@ -226,13 +227,13 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)vfunc_62__13TUnk_804806E8Fv,
     (void *)vfunc_63__13TUnk_804806E8Fv,
     (void *)reset_pose__13TUnk_804806E8Fv,
-    (void *)vfunc_65__13TUnk_804806E8Fll,
+    (void *)get_anim_node_position__13TUnk_804806E8FlP3Vec,
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Ff,
     (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
-    (void *)trigger_switch_attack__10TObjPlayerFi,
+    (void *)trigger_switch_attack__13TUnk_804806E8Fv,
     (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (void *)vfunc_73__13TUnk_804806E8Fv,
     (void *)vfunc_74__13TUnk_804806E8Fl,

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 #include "pso/TTecCtrl.h"
 #include "pso/item/TItemEquipBase.h"
 

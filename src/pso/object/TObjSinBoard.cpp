@@ -121,7 +121,7 @@ void TObjSinBoard::run_task() {  }
 void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjSinBoard;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1302,7 +1302,7 @@ void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0);
 void TWindowTimer__sub_8019A6F8(void* p);
 int close_timer_window__11TWindowCtrlFv(void*);
 int TWindowTimer__sub_8019A770(void* p);
-u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
+u8 * __ct__13TUnk_804806E8FP7TObject(void *);
 }
 extern s32 lbl_804B8E18[];
 void add_gogo_ball_three_point_score(s32 i);
@@ -1490,7 +1490,7 @@ typedef char RecoveredGlobal_8019A574_lbl_804B8E18_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8019A574_lbl_8050DD58_size[sizeof(RecoveredGlobal_8019A574_lbl_8050DD58) == 0x54 ? 1 : -1];
 typedef char RecoveredGlobal_8019A574_lbl_8050DDAC_size[sizeof(RecoveredGlobal_8019A574_lbl_8050DDAC) == 0x1C ? 1 : -1];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
-    construct_actor_base__10TObjPlayerFPvPv(arg0);
+    __ct__13TUnk_804806E8FP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019A574_lbl_804B8E18 *)&lbl_804B8E18).value;
     ((TUnk_804B8E18 *)arg0)->m_390 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x394) = (f32) (0.0f);

@@ -5,6 +5,7 @@
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804887C8.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct Stack_800676A0 {
     f32 sp8;
@@ -19,7 +20,6 @@ struct RecoveredGlobal_800677D4_lbl_804887C8 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-int TCameraCtrl__sub_8003CFF4(void);
 f32 vector_length(void *, int, f32, f32);
 s32 normalize_vector(void *);
 extern const f32 lbl_805D8F28;
@@ -57,7 +57,7 @@ void TUnk_804887C8::run_task() {
     u8 *temp_r4;
     this->m_58 = (f32) lbl_805D8F28;
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) != NULL) {
-        temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
+        temp_r3 = (u8 *)TBoss3Volopt::get_camera_focus();
         if (temp_r3 != NULL) {
             VecCopy((Vec *)(arg0 + 0x48), (const Vec *)(temp_r3));
             temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
@@ -68,9 +68,9 @@ void TUnk_804887C8::run_task() {
             stack.sp10 = temp_f1;
             if (lbl_805D8F2C != vector_length(&stack.sp8, (int)temp_r4, (f32)temp_f1, (f32)temp_f2)) {
                 normalize_vector(&stack.sp8);
-                this->m_3c = (f32) ((lbl_805D8F30 * stack.sp8) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x38));
-                *(f32 *)&this->unk_40 = (f32) (lbl_805D8F34 + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x3C));
-                this->m_44 = (f32) ((lbl_805D8F30 * stack.sp10) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x40));
+                this->position.x = (f32) ((lbl_805D8F30 * stack.sp8) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x38));
+                this->position.y = (f32) (lbl_805D8F34 + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x3C));
+                this->position.z = (f32) ((lbl_805D8F30 * stack.sp10) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x40));
             }
         }
     }

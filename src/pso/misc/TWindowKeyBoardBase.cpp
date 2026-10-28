@@ -5,6 +5,7 @@
 #include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/Language.h"
 
 struct RecoveredGlobal_8025E9E4_lbl_804CFA70 { s32 value; u8 remaining[0x10]; };
 typedef char RecoveredGlobal_8025E9E4_lbl_804CFA70_size[sizeof(RecoveredGlobal_8025E9E4_lbl_804CFA70) == 0x14 ? 1 : -1];
@@ -21,7 +22,6 @@ extern "C" {
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 TWindowKeyBoardBase__window_descriptor;
 extern s32 __vt__19TWindowKeyBoardBase[];
 extern s32 keyboard_base_type_name_pointer;
-extern s32 current_language;
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
 s32 set_stream_and_load_file__6TLobbyFi(s32 *);
 s32 Dolphin_ARAlloc(s32);

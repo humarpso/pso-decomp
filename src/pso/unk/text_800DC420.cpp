@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/TUnk_80494E10.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneNanoDrago.h"
@@ -68,7 +70,6 @@ extern D_800DC448 *nano_drago_entry_params_resource;
 u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 spawn_particle_effect(void *, int);
-f32 xyz_distance_squared(void *, void *);
 extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
 extern s32 local_client_id;
@@ -85,11 +86,10 @@ extern const f32 lbl_805DA478;
 f32 atan2_float(f32, f32);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, int);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
-extern s32 lbl_80494E10[];
+extern s32 __vt__13TUnk_80494E10[];
 extern s32 tl_06;
 extern const f32 lbl_805DA47C;
 u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4);
@@ -134,7 +134,7 @@ void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 
     if (obj->flags & 0x4000A00) {
         return;
     }
-    if (xyz_distance_squared(arg0->pos, obj->pos) > lbl_805D525C * lbl_805D525C) {
+    if (xyz_distance_squared((Vec *)arg0->pos, (Vec *)obj->pos) > lbl_805D525C * lbl_805D525C) {
         return;
     }
     Parm_800DC4B4 parm = {0, 0.0f};
@@ -203,23 +203,17 @@ void TUnk_80494E10::run_task() {
     }
 }
 
-void *__dt__13TUnk_80494E10Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
-        if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); *(s32 *)((s8 *)arg0 + 0xE0) = 0; }
-        if (*(void **)((s8 *)arg0 + 0xE4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE4)); ((TUnk_80494E10 *)arg0)->m_e4 = 0; }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_80494E10::~TUnk_80494E10() {
+    if (*(void **)((s8 *)this + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xE0)); *(s32 *)((s8 *)this + 0xE0) = 0; }
+    if (*(void **)((s8 *)this + 0xE4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xE4)); this->m_e4 = 0; }
+}
+extern "C" {
 u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
     Ang_800DC83C ang;
     f32 s;
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
+    __ct__13TUnk_804AF8A0FP7TObject(arg0, tl_06);
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_80494E10;
     ((TUnk_80494E10 *)arg0)->m_f4 = arg3;
     VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)arg1);
     ((TUnk_80494E10 *)arg0)->m_dc = lbl_805DA47C;
@@ -232,7 +226,7 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     ((TUnk_80494E10 *)arg0)->m_fc = obj_getField1c(arg4);
     ang.x = 0;
     ang.y = (s32)(10430.38043493439 * atan2_float(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
-    ang.z = 0x4000 - (s32)(10430.38043493439 * atan2_float(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPUc(arg2, arg1)));
+    ang.z = 0x4000 - (s32)(10430.38043493439 * atan2_float(arg2->y - arg1->y, vec_xz_distance((Vec *)arg2, (Vec *)arg1)));
     *(s32 *)((s8 *)arg0 + 0xE0) = (s32)spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (((TUnk_80494E10 *)arg0)->m_f4 != 0) {
         VecCopy((Vec *)(arg0 + 0xE8), (const Vec *)(arg0 + 0xAC));

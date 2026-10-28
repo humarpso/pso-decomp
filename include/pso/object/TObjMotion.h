@@ -10,7 +10,7 @@ public:
     virtual void apply_object_set_data(void *);
     virtual void reset_motion_fields();
     virtual void*vfunc_9();
-    virtual s16 update_object_view_visibility(f32, f32);
+    virtual s32 update_object_view_visibility(f32, f32);
     virtual s16 classify_actor_view_detail(f32, f32, f32);
     virtual int vfunc_12();
     void obj_clearFlags30(u32);
@@ -18,6 +18,7 @@ public:
     s32 mask_object_set_row_flags(s32);
     s32 set_event_source_flag(s32);
     void set_item_count(s16);
+    int set_position_from(void *pos);
     u16 m_1c;
     s16 m_1e;
     u8 m_20;
@@ -25,8 +26,14 @@ public:
     u8 m_22;
     u8 unk_23[0x1];
     s32 texture_id;
-    void* m_28;
-    void * m_2c;
+    union {
+        void* m_28;
+        s16 group_ids[2];
+    };
+    union {
+        void * m_2c;
+        s16 group_index;
+    };
     u32 actorFlags;
     void* model;
     f32 position[3];
@@ -50,8 +57,24 @@ public:
     u8 * m_88;
     u32 m_8c;
 };
+// The derived destructors still written out by hand call the base ones by
+// their symbols.
+extern "C" void *__dt__13TUnk_804B9870Fv(void *, s16);
+extern "C" void *__dt__13TUnk_804AF8A0Fv(void *, s16);
+
+// One collision sphere of an actor (TUnk_804AF8A0::m_a4 points at the actor's
+// array of them); init_collision_body_parts copies a static table of these.
+struct CollisionBody {
+    f32 offset[3];
+    f32 radius;
+    u8 pad_10[0x8];
+    u32 flags;
+    u8 pad_1c[0x10];
+};
+
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
+    TUnk_804AF8A0(TObject *parent);
     virtual ~TUnk_804AF8A0();
     virtual void reset_motion_fields();
     void*find_actor_body_contact(u8*, f32);
@@ -68,8 +91,6 @@ public:
     u16 unregister_object_by_id();
     void send_object_state_update(void *);
     virtual void vfunc_13(s32);
-    u8 *construct_collider_proxy();
-    void *destroy_particle_controller(s16);
     s32 set_flag8();
     u8 sub_8010319C();
     void set_shadow_flag();
@@ -78,12 +99,20 @@ public:
     u16 m_94;
     u8 unk_96[0x2];
     void* m_98;
-    s16 m_9c;
-    u8 unk_9E[0x2];
+    void *m_9c;
     u32 m_a0;
-    void * m_a4;
-    u8 unk_A8[0x4];
+    CollisionBody *m_a4;
+    s32 body_count;
 };
+// One entry of TObjMotion::action_table.
+struct TObjMotionAction {
+    s16 mode;
+    s16 next;
+    s32 motion;
+    f32 speed;
+    u32 flags;
+};
+
 class TObjMotion : public TUnk_804AF8A0 {
 public:
     virtual ~TObjMotion();
@@ -107,7 +136,10 @@ public:
     short m_ba;
     u32 m_bc;
     f32 m_c0;
-    u8 unk_C4[0x4];
+    union {
+        u8 unk_C4[0x4];
+        f32 anim_end_frame;
+    };
     f32 m_c8;
     u8 unk_CC[0x4];
     f32 m_d0;
@@ -125,6 +157,7 @@ public:
 };
 typedef char TUnk_804B9870Size[sizeof(TUnk_804B9870)==0x90?1:-1];
 typedef char TUnk_804AF8A0Size[sizeof(TUnk_804AF8A0)==0xAC?1:-1];
+typedef char CollisionBodySize[sizeof(CollisionBody)==0x2C?1:-1];
 typedef char TObjMotionSize[sizeof(TObjMotion)==0xFC?1:-1];
 typedef char WorldActorModelOffset[offsetof(TUnk_804B9870,model)==0x34?1:-1];
 typedef char MotionActionsOffset[offsetof(TObjMotion,action_table)==0xD8?1:-1];

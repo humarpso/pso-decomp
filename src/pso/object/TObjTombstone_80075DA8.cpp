@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjTombstone.h"
 #include "pso/object/TObjTombstone_80075DA8.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -111,15 +112,10 @@ void TObjTombstone::run_task() {
 
 extern s32 __vt__13TObjTombstone[];
 
-void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTombstone;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjTombstone::~TObjTombstone() {
+
+}
+extern "C" {
 
 }

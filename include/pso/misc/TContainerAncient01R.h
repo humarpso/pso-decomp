@@ -7,7 +7,7 @@
 struct TContainerAncient01R : public TUnk_804806E8 {
     virtual ~TContainerAncient01R();
     virtual int calc_distance_accuracy_penalty(void *, void *, void *, float);
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, DirectAttackPayload, void *, s32, s32);
     virtual f32 receive_physical_attack(void *, f32);
     void open_container();
     void check_open_trigger();

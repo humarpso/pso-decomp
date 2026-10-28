@@ -7,6 +7,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
 struct Stack_80067AB0 {
     f32 sp8;
     f32 spC;
@@ -32,7 +33,6 @@ extern const f32 lbl_805D8F50;
 extern const f32 lbl_805D8F54;
 extern const f32 lbl_805D8F58;
 extern const f32 lbl_805D8F5C;
-int TCameraCtrl__sub_8003CFF4(void);
 void normalize_vector(void *);
 extern const f32 lbl_805D8F3C;
 extern const f32 lbl_805D8F40;
@@ -62,7 +62,7 @@ void TCameraCtrl::update_target_follow() {
     f32 temp_f1_2;
     u8 *temp_r3;
     u8 *temp_r4;
-    temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
+    temp_r3 = (u8 *)TBoss3Volopt::get_camera_focus();
     if (temp_r3 != NULL) {
         temp_r4 = *(u8 **)((s8 *)arg0 + 0x1C);
         stack.sp8 = *(f32 *)((s8 *)temp_r4 + 0x38) - *(f32 *)((s8 *)temp_r3 + 0);
@@ -122,8 +122,8 @@ void TUnk_804887F8::update_follow_flags() {
     Stack_80067AB0 stack;
     this->m_38 = 0x15;
     this->m_58 = (f32) lbl_805D8F50;
-    stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - *(f32 *)&this->unk_48;
-    stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - this->m_4c;
+    stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - this->target.x;
+    stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - this->target.y;
     stack.sp10 = *(f32 *)((s8 *)camera_ctrl_instance + 0x18C) - *(f32 *)((s8 *)arg0 + 0x50);
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length(&stack.sp8)) / lbl_805D8F4C);
     if (((TUnk_80488E00 *)arg0)->predict_obstruction() != 0) {

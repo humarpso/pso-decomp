@@ -11,7 +11,7 @@ struct RecoveredGlobal_800EBC28___vt__12TObjEneSlime {
 };
 
 extern "C" {
-s32 initialize__9TObjEnemyFPv(void *);
+s32 __ct__9TObjEnemyFP7TObject(void *);
 extern s32 __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
 void TLobby__sub_8001FE7C(void*, int);
@@ -35,7 +35,7 @@ extern u32 slime_bml_resource;
 typedef char RecoveredGlobal_800EBC28___vt__12TObjEneSlime_size[sizeof(RecoveredGlobal_800EBC28___vt__12TObjEneSlime) == 0x150 ? 1 : -1];
 u8 *TObjEneSlime__ct(TObjEneSlime *ene_slime, s32 arg1, u8 *arg2) {
     s32 temp_r0;
-    initialize__9TObjEnemyFPv(ene_slime);
+    __ct__9TObjEnemyFP7TObject(ene_slime);
     *(s32 **)((s8 *)ene_slime + 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
     *(s32 *)((s8 *)ene_slime + 0) = (s32) lbl_805D2AD8;
     ((TObjEneSlime *)(ene_slime))->apply_set_data(arg2);

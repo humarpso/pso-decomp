@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/item/TObjItemLight.h"
+#include "pso/item/TObjItemLight.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
@@ -48,17 +48,11 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
     }
 }
 
-void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjItemLight;
-        if (*(void **)((s8 *)arg0 + 0x94) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x94))); ((TObjItemLight *)arg0)->m_94 = 0; }
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjItemLight::~TObjItemLight() {
+    if (*(void **)((s8 *)this + 0x94) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x94))); this->m_94 = 0; }
+}
+extern "C" {
 
 extern s32 TObjItemLight__class_name;
 extern const f32 lbl_805DBE40;

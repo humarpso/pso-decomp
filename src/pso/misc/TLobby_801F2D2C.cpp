@@ -1,4 +1,5 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/quest/QuestVm.h"
 #include "types.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TLobby_801F2D2C.h"
@@ -9,17 +10,8 @@
 #include "pso/object/TObjLuker.h"
 #include "pso/player/TObjPlayer.h"
 
-struct RecoveredGlobal_801F301C_TLobby__data_80512220 { s32 value; u8 remaining[0x1C]; };
-typedef char RecoveredGlobal_801F301C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512220) == 0x20 ? 1 : -1];
-
-struct RecoveredGlobal_801F301C_TLobby__data_80512240 { s32 value; u8 remaining[0xFC]; };
-typedef char RecoveredGlobal_801F301C_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512240) == 0x100 ? 1 : -1];
-
 struct RecoveredGlobal_801F2EF4_TLobby__data_80512220 { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_801F2EF4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F2EF4_TLobby__data_80512220) == 0x20 ? 1 : -1];
-
-struct RecoveredGlobal_801F2EF4_TLobby__data_80512240 { s32 value; u8 remaining[0xFC]; };
-typedef char RecoveredGlobal_801F2EF4_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F2EF4_TLobby__data_80512240) == 0x100 ? 1 : -1];
 
 struct RecoveredGlobal_801F3268_lbl_80512B18 {
     s32 value;
@@ -67,20 +59,12 @@ struct Ctx_801F3124 {
 extern "C" {
 int bswap_32__FPUl(void*);
 s32 memcpy(void *, void *, int);
-extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_stack;
-extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
-extern unsigned char* TLobby__quest_data_base;
-extern s32 TLobby__data_805D5E74;
-extern s32 TLobby__script_reg_array;
 extern u32 TLobby__quest_message_window;
 extern u32 TLobby__quest_choice_window;
 extern u8 TLobby__active_window_index;
-extern s32 TLobby__script_stack_depth;
-extern int TLobby__quest_script_pc;
 extern s32 lbl_805D5E94;
 extern s32 lbl_805D5E9C;
 extern s32 quest_message_speaker_id;
-extern s32 TLobby__quest_arg_stack_count;
 extern u8 TLobby__data_805D5EA8;
 extern u8 TLobby__data_805D5EA9;
 extern u16 TLobby__data_805D5EAA;
@@ -104,7 +88,7 @@ int VecCopy__FP3VecPC3Vec(void*);
 void queue_destruction__7TObjectFv(void *arg0);
 int set_flags__10TObjPlayerFUl(void*, int);
 
-unsigned char TLobby::read_packet_byte() { return TLobby__quest_data_base[TLobby__quest_script_pc++]; }
+unsigned char TLobby::read_packet_byte() { return qst_code[qst_pc++]; }
 
 s32 TLobby::dispatch_quest() {
     s32 arg0 = (s32)this;
@@ -175,20 +159,20 @@ s32 dispatch_quest_opcode(void) {
 }
 
 void TLobby::save_quest_state_to_record() {
-    *(s32 *)&this->m_name = (s32) (*(s32 *)&TLobby__quest_data_base);
-    *(s32 *)&this->m_flags = (s32) TLobby__data_805D5E74;
-    *(s32 *)&this->m_prev = (s32) TLobby__script_reg_array;
+    *(u8 **)&this->m_name = qst_code;
+    *(s32 **)&this->m_flags = qst_function_table;
+    *(s32 **)&this->m_prev = qst_registers;
     *(s32 *)&this->m_next = (s32) (*(s32 *)&TLobby__quest_message_window);
     *(s32 *)&this->m_up = (s32) (*(s32 *)&TLobby__quest_choice_window);
     *(u8 *)&this->m_down = (u8) TLobby__active_window_index;
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = (s32) TLobby__script_stack_depth;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = (s32) (*(s32 *)&TLobby__quest_script_pc);
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = qst_call_stack_depth;
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = qst_pc;
     *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) lbl_805D5E94;
     *(s32 *)((s8 *)((u8 *)this) + 0x28) = (s32) lbl_805D5E9C;
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) quest_message_speaker_id;
-    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) TLobby__quest_arg_stack_count;
-    memcpy((void *) (((u8 *)this) + 0x34), &TLobby__quest_argument_stack.value, 0x20);
-    memcpy((void *) (((u8 *)this) + 0x54), &TLobby__script_value_stack.value, 0x100);
+    *(s32 *)((s8 *)((u8 *)this) + 0x30) = qst_arg_count;
+    memcpy((void *) (((u8 *)this) + 0x34), qst_args, 0x20);
+    memcpy((void *) (((u8 *)this) + 0x54), qst_call_stack, 0x100);
     (*(s32 *)&TLobby__quest_message_window) = 0;
     (*(s32 *)&TLobby__quest_choice_window) = 0;
     *(u8 *)((s8 *)((u8 *)this) + 0x154) = (u8) TLobby__data_805D5EA8;
@@ -210,20 +194,20 @@ void TLobby::save_quest_state_to_record() {
 }
 
 void TLobby::load_quest_globals() {
-    (*(s32 *)&TLobby__quest_data_base) = *(s32 *)&this->m_name;
-    TLobby__data_805D5E74 = *(s32 *)&this->m_flags;
-    TLobby__script_reg_array = *(s32 *)&this->m_prev;
+    qst_code = *(u8 **)&this->m_name;
+    qst_function_table = *(s32 **)&this->m_flags;
+    qst_registers = *(s32 **)&this->m_prev;
     (*(s32 *)&TLobby__quest_message_window) = *(s32 *)&this->m_next;
     (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)&this->m_up;
     TLobby__active_window_index = *(u8 *)&this->m_down;
-    TLobby__script_stack_depth = *(s32 *)((s8 *)((u8 *)this) + 0x1C);
-    (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)((u8 *)this) + 0x20);
+    qst_call_stack_depth = *(s32 *)((s8 *)((u8 *)this) + 0x1C);
+    qst_pc = *(s32 *)((s8 *)((u8 *)this) + 0x20);
     lbl_805D5E94 = *(s32 *)((s8 *)((u8 *)this) + 0x24);
     lbl_805D5E9C = *(s32 *)((s8 *)((u8 *)this) + 0x28);
     quest_message_speaker_id = *(s32 *)((s8 *)((u8 *)this) + 0x2C);
-    TLobby__quest_arg_stack_count = *(s32 *)((s8 *)((u8 *)this) + 0x30);
-    memcpy(&TLobby__quest_argument_stack.value, (void *) (((u8 *)this) + 0x34), 0x20);
-    memcpy(&TLobby__script_value_stack.value, (void *) (((u8 *)this) + 0x54), 0x100);
+    qst_arg_count = *(s32 *)((s8 *)((u8 *)this) + 0x30);
+    memcpy(qst_args, (void *) (((u8 *)this) + 0x34), 0x20);
+    memcpy(qst_call_stack, (void *) (((u8 *)this) + 0x54), 0x100);
     TLobby__data_805D5EA8 = *(u8 *)((s8 *)((u8 *)this) + 0x154);
     TLobby__data_805D5EA9 = *(u8 *)((s8 *)((u8 *)this) + 0x155);
     TLobby__data_805D5EAA = *(u16 *)((s8 *)((u8 *)this) + 0x156);

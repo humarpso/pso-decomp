@@ -7,7 +7,7 @@
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804CCC68.h"
+#include "pso/effect/TUnk_804CCC68.h"
 #include "pso/misc/TTecGiBarta.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/player/TObjPlayer.h"

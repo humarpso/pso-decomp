@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/ui/Language.h"
 
 struct TWindowDD_803431C0 {
     u8 pad0[0x20];
@@ -958,7 +959,6 @@ struct WordList_80344114 { u8 *words; s32 count; };
 extern "C++" void ws_data_load(void);
 void *mem_alloc(u32 size);
 void *memset(void *dst, int c, u32 n);
-extern s32 current_language;
 extern u32 TWindowDD__ws_data_base;
 extern u32 lbl_805D6E34;
 extern u32 lbl_805D6E4C;

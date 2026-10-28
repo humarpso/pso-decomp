@@ -6,7 +6,6 @@
 #include "pso/system/CityTraffic.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/object/TUnk_804B5C08.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 extern const f32 lbl_805DBC00;
 
@@ -141,7 +140,7 @@ void *create_city_vertical_model(void *arg0) {
 void *destroy_city_vertical_model(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_vertical_model_vtable;
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

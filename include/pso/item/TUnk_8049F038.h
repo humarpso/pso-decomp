@@ -5,6 +5,7 @@
 
 class TUnk_8049F038 : public TUnk_804AF8A0 {
 public:
+    TUnk_8049F038(TObject *parent, s16 a, s32 b);
     virtual ~TUnk_8049F038();
     void *destroy(s16);
     virtual void*vfunc_9();

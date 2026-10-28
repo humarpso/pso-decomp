@@ -2,7 +2,7 @@
 extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 #include "pso/misc/TTecKafun.h"
 
 struct RecoveredGlobal_802A9948___vt__9TTecKafun { s32 value; u8 remaining[0x24]; };

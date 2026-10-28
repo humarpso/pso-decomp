@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/object/TObjFogCollision.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjFogCollision.h"
-#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_80153FD0___vt__16TObjFogCollision {
     s32 value;
@@ -18,16 +18,11 @@ void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjFogCollision;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjFogCollision::~TObjFogCollision() {
+
+}
+extern "C" {
 
 extern void *tl_05;
 

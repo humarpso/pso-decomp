@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObjFish_800E2FFC.h"
@@ -260,7 +261,7 @@ void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
     case 0xEB:
     case 0x122:
     case 0x136:
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     }
     self->frame++;

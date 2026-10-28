@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2CeilJunk.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/object/TObject_80019A50.h"
@@ -8,7 +9,6 @@
 #include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss2CeilJunk.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -286,16 +286,11 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
     }
 }
 
-void *__dt__17TObjBoss2CeilJunkFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss2CeilJunk;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjBoss2CeilJunk::~TObjBoss2CeilJunk() {
+
+}
+extern "C" {
 extern const f32 lbl_805D85A0 = 6.0f;
 #pragma push
 #pragma opt_dead_assignments off

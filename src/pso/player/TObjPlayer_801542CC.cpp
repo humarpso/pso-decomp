@@ -62,20 +62,6 @@ struct Hit_801561C4 { u8 pad[0x18]; u32 flags; };
 
 struct TObjPlayer_801561C4 { u8 pad[0xA4]; Hit_801561C4 *hit; };
 
-struct Actor_801569F4 {
-    u8 pad0[0x18];
-    void *vtable;
-    u8 pad1[0x90 - 0x1C];
-    s32 f90;
-    u16 f94;
-    u8 pad2[0x98 - 0x96];
-    u8 f98[8];
-    s32 f9c_unused;
-    u8 fa0[4];
-    s32 fa4;
-    s32 fa8;
-};
-
 struct E_801546D0 { u32 a; s32 b; };
 
 struct G_80156720 { u8 pad0[0x9C]; u8 *f9c; u8 pad_A0[4]; void *fa4; };
@@ -119,7 +105,6 @@ struct Vec_80155294 { f32 x, y, z; };
 
 #include "pso/protocol/subcmd_6x.h"
 #include "pso/TObject.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
 union ObjectSavedState_801548A8 {
     u32 word;
@@ -179,8 +164,6 @@ int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D5868;
 extern const f32 TObjPlayer__data_805DB298;
 void TObjPlayer__sub_80156934(void);
-void __dl__7TObjectFPv(void *);
-extern s32 lbl_804AF8A0[];
 void TObjPlayer__sub_80156A74(void* p);
 f32 horizontal_distance_squared(void *, void *);
 s16 angle_diff_s16(s32 a, s32 b);
@@ -195,7 +178,6 @@ Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src,
 void *get_player_by_client_id(u32 id);
 void TLobby__sub_80156BA8(void *p);
 void check_enemy_body_collisions(void *arg0);
-void __ct__13TUnk_804B9870FP7TObject(void);
 extern unsigned char lbl_8050DAD0[];
 extern int player_unique_pair_entry_count;
 void mem_free(void *p);
@@ -1098,7 +1080,7 @@ void TObjPlayer::check_object_collisions() {
 }
 void TObjPlayer::update_collisions() { check_object_collisions(); check_enemy_body_collisions(this); }
 void TUnk_804AF8A0::clear_obj_links() { *(s32*)((char*)this + 0x9c) = 0; *(s32*)((char*)this + 0xa4) = 0; }
-void*TUnk_804AF8A0::initialize_linked_object_reference(void*a1) { *(int*)((char*)this + 0xa8) = 1; this->m_a4 = a1; *(void**)((char*)this + 0x9c) = (char*)this + 0xa0; refresh_collision_body_centers(); return this->m_a4; }
+void*TUnk_804AF8A0::initialize_linked_object_reference(void*a1) { *(int*)((char*)this + 0xa8) = 1; this->m_a4 = (CollisionBody *)a1; *(void**)((char*)this + 0x9c) = (char*)this + 0xa0; refresh_collision_body_centers(); return this->m_a4; }
 
 void free_collision_body_parts(G_80156720 *arg0) {
     u8 *p = arg0->f9c;
@@ -1164,33 +1146,20 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
 void TUnk_804AF8A0::reset_motion_fields() { void* m = *(void**)((char*)this + 0x90); if (m) ((TObjPlayer *)m)->clear_ground_candidates(); }
 void TObjPlayer__sub_80156934(void) { TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
 void TObjPlayer::reset() { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&registered_entity_count) = 0; TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
-void *TUnk_804AF8A0::destroy_particle_controller(s16 arg1) {
-    if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_804AF8A0;
-        *(s32 *)((s8 *)this + 0xA8) = 0;
-        *(s32 *)((s8 *)this + 0xA4) = 0;
-        TParticleCtrl::destroy_particle(this, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(this);
-        }
-    }
-    return this;
+TUnk_804AF8A0::~TUnk_804AF8A0() {
+    body_count = 0;
+    m_a4 = NULL;
 }
 
-u8 *TUnk_804AF8A0::construct_collider_proxy() {
-    u8 *arg0 = (u8 *)this;
-    struct Actor_801569F4 *s = (struct Actor_801569F4 *) arg0;
-    __ct__13TUnk_804B9870FP7TObject();
-    s->vtable = ((void * *)&lbl_804AF8A0);
-    TObjPlayer__sub_80156A74((void*)(arg0 + 0x98));
-    ((TObjPlayer *)((u8 *)&this->m_a0))->init_forward();
-    *(s32 *)(arg0 + 0x90) = 0;
-    *(s32 *)(arg0 + 0xA8) = 0;
-    *(s32 *)(arg0 + 0xA4) = 0;
-    *(u16 *)(arg0 + 0x94) = 0xFFFF;
-    *(s32 *)(arg0 + 0x9C) = 0;
-    ((TUnk_804AF8A0 *)arg0)->sub_80156A68();
-    return arg0;
+TUnk_804AF8A0::TUnk_804AF8A0(TObject *parent) : TUnk_804B9870(parent) {
+    TObjPlayer__sub_80156A74(&m_98);
+    ((TObjPlayer *)&m_a0)->init_forward();
+    m_90 = 0;
+    body_count = 0;
+    m_a4 = NULL;
+    m_94 = 0xFFFF;
+    m_9c = 0;
+    sub_80156A68();
 }
 
 void TUnk_804AF8A0::sub_80156A68() { *(s16*)((char*)this + 0x96) = 0; }

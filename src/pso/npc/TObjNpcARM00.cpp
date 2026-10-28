@@ -24,14 +24,14 @@ extern u32 TObjNpcARM00__texture_list;
 extern char lbl_8043F470[];
 extern char lbl_8043F484[];
 s32 play_sound_effect(s32, s32, s32, s32);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjNpcARM00::free_resources() {
     if ((u32) TObjNpcARM00__texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcARM00__texture_list);
+        release_texture_list((void*)TObjNpcARM00__texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TObjNpcARM00__texture_list);
         TObjNpcARM00__texture_list = 0U;
     }

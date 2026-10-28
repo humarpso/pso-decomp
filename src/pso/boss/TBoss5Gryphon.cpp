@@ -10,7 +10,7 @@ extern "C" {
 
 void *TBoss5Gryphon__ct(void *, void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void *__nw__7TObjectFUl(int);
 
 extern u32 boss5_gryphon_body_bml_resource;
@@ -23,7 +23,7 @@ void TBoss5Gryphon::cleanup() {
     TBoss8Dragon__sub_80355A1C();
     TBoss8Dragon__sub_80066A4C();
     if ((u32) boss5_gryphon_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)boss5_gryphon_texture_list);
+        release_texture_list((void*)boss5_gryphon_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(boss5_gryphon_texture_list);
         boss5_gryphon_texture_list = 0U;
     }

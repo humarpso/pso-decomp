@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/boss/Boss6Type2Death.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
@@ -344,7 +345,7 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
     case 0xFA:
     case 0x10E:
     case 0x23C:
-        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
+        start_pad_rumble_all(0xC0, 0xF);
         break;
     }
     arg0->timer++;

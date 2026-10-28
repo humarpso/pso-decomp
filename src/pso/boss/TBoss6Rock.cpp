@@ -478,10 +478,7 @@ void TBoss6Rock__sub_803542E8(TBoss6Rock *rock, s32 landed) {
             s32 damage = TBoss6PlotFalz::rand_vary_count(lbl_805D6EFC, lbl_805DFF90);
             h.kind = 0;
             h.power = damage;
-            {
-                DirectAttackPayload t = h;
-                player->receive_direct_attack(TBoss6Rock__data_805D6EF8, &t, 0, -1, -1);
-            }
+            player->receive_direct_attack(TBoss6Rock__data_805D6EF8, h, 0, -1, -1);
         }
     }
 }

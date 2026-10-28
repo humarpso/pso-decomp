@@ -197,7 +197,7 @@ void TBoss7DeRolLeC::run_task() {
     }
     temp_r30 = query_teammate_state__9TObjEneDDFv();
     this->update_attack_stat_status();
-    this->vfunc_42();
+    this->update_defense_stat_status();
     if (temp_r30 == 0) {
         if ((this->mode == 0x1C) || (this->mode == 0x1D) || (this->mode == 0x1B)) {
             this->actorFlags = (s32) (this->actorFlags | 0x800);

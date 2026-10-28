@@ -74,11 +74,11 @@ void *__ct__12TAdBackTxtGCFv(void *ad_back_txt_gc) {
     };
     __declspec(section ".data") TexList_804DC0D4 TAdBackTxtGC_backtext_tex_list = { lbl_804DC098, 5 };
 extern u32 TAdBackTxtGC__backtext_texture_list;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 void TAdSinglePlyChrSelectGC::free_singleton_805D65C0() {
     if ((u32) TAdBackTxtGC__backtext_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TAdBackTxtGC__backtext_texture_list);
+        release_texture_list((void*)TAdBackTxtGC__backtext_texture_list);
         TAdBackTxtGC__backtext_texture_list = 0U;
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/camera/CameraViewParams.h"
 #include "pso/misc/TUnk_804CE018.h"
 struct TCameraCtrl;
 
@@ -36,7 +37,6 @@ extern s32 __vt__15TWindowUserSort[];
 extern s32 TWindowUserSort__name;
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1);
-s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0);
 void __dl__7TObjectFPv(void *);
 s32 close_and_clear_flags__15TWindowMainMenuFv();
 int initialize_subwindow__9TWindowDDFv(void*);
@@ -81,7 +81,7 @@ void TWindowMainMenu1P::vfunc_7() {
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x4C);
     if (!(temp_r3 & 2)) {
         *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (temp_r3 | 2);
-        TCameraCtrl__sub_800695A0((TCameraCtrl *)(arg0 + 0x64));
+        ((CameraViewParams *)(arg0 + 0x64))->begin_override();
     }
 }
 
@@ -96,7 +96,7 @@ void TWindowMainMenu1P::vfunc_6() {
     if (!(*(s32 *)((s8 *)arg0 + 0x4C) & 1)) {
         player = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
         if (player != NULL) {
-            if (((TObjPlayer *)player)->is_ready() != 0) {
+            if (((TObjPlayer *)player)->is_android() != 0) {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D04A0.value);
             } else {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D0460.value);

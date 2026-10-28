@@ -22,7 +22,7 @@ struct Obj_8032A9BC {
 struct Alt_8032A9BC { u8 pad[0x120]; s32 f120, f124, f128, f12C, f130; };
 
 extern "C" {
-s32 TLobby__sub_803DA16C(void *, s32);
+s32 release_texture_list(void *, s32);
 extern int TAdMcSelectMcGC__texture_list_ptr;
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__15TAdMcSelectMcGC[];
@@ -62,7 +62,7 @@ void release_selected_entry__15TAdMcSelectMcGCFv(void) {
     if ((void **) (*(void ** *)&TAdMcSelectMcGC__texture_list_ptr) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectMcGC__texture_list_ptr));
         if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
-            TLobby__sub_803DA16C((*(void ** *)&TAdMcSelectMcGC__texture_list_ptr), (s32) temp_r4);
+            release_texture_list((*(void ** *)&TAdMcSelectMcGC__texture_list_ptr), (s32) temp_r4);
         }
     }
 }

@@ -233,13 +233,13 @@ extern const f32 lbl_805DDCD4;
 
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 
 void TODoorJungleMain::free_static_resources() {
     if ((u32) door_jungle_main_gvm_texture != 0U) {
-        TLobby__sub_803DA16C((void*)door_jungle_main_gvm_texture);
+        release_texture_list((void*)door_jungle_main_gvm_texture);
         TAdSinglePlyChrSelectGC::safe_free(door_jungle_main_gvm_texture);
         door_jungle_main_gvm_texture = 0U;
     }

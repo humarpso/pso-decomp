@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/misc/TCameraCtrl_8006A03C.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -12,7 +13,6 @@ struct Sel_8006A13C { u8 busy; u8 pad1; u16 slot; u8 pad4[0xC]; };
 
 extern void *camera_ctrl_instance;
 extern "C" {
-s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(u32, s32);
 s32 is_split_screen();
 }
@@ -37,7 +37,7 @@ void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
         (*(O_8006A044 * *)&camera_ctrl_instance)->v = v;
         p = (*(O_8006A044 * *)&camera_ctrl_instance);
         p->id = id;
-        queue_event_1D__12TBoss3VoloptFss(0x60, (s32)((s16)id), p);
+        start_pad_rumble_all(0x60, id);
     }
 }
 
@@ -50,19 +50,19 @@ void TCameraCtrl::set_shake_preset(s32 arg0) {
             *(s32 *)((s8 *)camera_ctrl_instance + 0x1C0) = 0x14;
             p = camera_ctrl_instance;
             *(f32 *)((s8 *)p + 0x1C4) = (f32) lbl_805D8FE8;
-            queue_event_1D__12TBoss3VoloptFss(0x60, 0x14, p);
+            start_pad_rumble_all(0x60, 0x14);
             return;
         case 1:
             *(s32 *)((s8 *)camera_ctrl_instance + 0x1C0) = 0x1E;
             p = camera_ctrl_instance;
             *(f32 *)((s8 *)p + 0x1C4) = (f32) lbl_805D8FEC;
-            queue_event_1D__12TBoss3VoloptFss(0xA0, 0x1E, p);
+            start_pad_rumble_all(0xA0, 0x1E);
             return;
         case 2:
             *(s32 *)((s8 *)camera_ctrl_instance + 0x1C0) = 0x1E;
             p = camera_ctrl_instance;
             *(f32 *)((s8 *)p + 0x1C4) = (f32) lbl_805D8FF0;
-            queue_event_1D__12TBoss3VoloptFss(0xE0, 0x1E, p);
+            start_pad_rumble_all(0xE0, 0x1E);
             break;
         }
     }

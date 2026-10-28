@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TOTrapChainSaw.h"
 #include "pso/misc/TOTrapChainSawEdge.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
@@ -30,17 +31,17 @@ void TObjSeabedSuisoBrakable::load_shared_models() {
     if (p != NULL) {
         h = get_bml_model(p, 3);
         if (h != 0) {
-            seabed_suiso_linked_switch_counts[1] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(3);
-            seabed_suiso_linked_switch_counts[2] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(4);
-            seabed_suiso_linked_switch_counts[3] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(5);
-            seabed_suiso_linked_switch_counts[4] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(6);
+            seabed_suiso_linked_switch_counts[1] = (s32)find_object_node((NJS_OBJECT *)h, 3);
+            seabed_suiso_linked_switch_counts[2] = (s32)find_object_node((NJS_OBJECT *)h, 4);
+            seabed_suiso_linked_switch_counts[3] = (s32)find_object_node((NJS_OBJECT *)h, 5);
+            seabed_suiso_linked_switch_counts[4] = (s32)find_object_node((NJS_OBJECT *)h, 6);
         }
         h = get_bml_model(lbl_805D6808, 4);
         if (h != 0) {
-            seabed_suiso_switch_counts[1] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(3);
-            seabed_suiso_switch_counts[2] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(4);
-            seabed_suiso_switch_counts[3] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(5);
-            seabed_suiso_switch_counts[4] = ((TObjSeabedSuisoBrakable *)h)->count_linked_switches(6);
+            seabed_suiso_switch_counts[1] = (s32)find_object_node((NJS_OBJECT *)h, 3);
+            seabed_suiso_switch_counts[2] = (s32)find_object_node((NJS_OBJECT *)h, 4);
+            seabed_suiso_switch_counts[3] = (s32)find_object_node((NJS_OBJECT *)h, 5);
+            seabed_suiso_switch_counts[4] = (s32)find_object_node((NJS_OBJECT *)h, 6);
         }
     }
 }

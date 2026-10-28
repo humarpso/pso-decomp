@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyCharData.h"
 #include "pso/player/TUnk_804C4540.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
@@ -41,7 +42,6 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
     virtual s8 m31();
 };
 
-int set_position_from__14TBoss4DarkFalzFPv(void*);
 s32 advance_item_id_counter();
 void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
 void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
@@ -51,7 +51,6 @@ s32 get_field_d8__5TItemFv();
 s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
 void *lookup_inventory_item__10TObjPlayerFv(void *);
 u16 obj_getField1c(void *);
-int set_animation__10TObjMotionFs(void*);
 void set_flag_20000__10TObjPlayerFi(s32 arg0);
 
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *player) {
@@ -101,23 +100,21 @@ s32 rotate_matrix_y(int, int);
 void TObjPlayer__sub_801D877C(u8 *arg0);
 void TObjPlayer__sub_801D8864(void);
 
-int TObjPlayer::query_darkfalz_state() { return set_position_from__14TBoss4DarkFalzFPv(this); }
-int TObjPlayer::set_animation_default() { return set_animation__10TObjMotionFs(this); }
+int TUnk_804C4540::set_position_from(void *pos) { return TUnk_804B9870::set_position_from(pos); }
+void TUnk_804C4540::set_animation_default(s16 index) { set_animation(index); }
 
-struct Player_801D88C8;
-struct Src_801D88C8;
-s32 TObjPlayer::create_ending_player() {
+TUnk_804C4540 *TUnk_804C4540::create(TPlyCharData *data) {
     Rec_801D86F8 sp8;
-    s32 var_r0;
+    TUnk_804C4540 *player;
     ((TObjPlayer *)(&sp8))->init_inventory();
-    copy_player_visual_record(&sp8, (void *) (((u8 *)this) + 0x370));
-    copy_data__6TLobbyFPvPv((sp8.c), (((u8 *)this) + 0x34C));
-    fn_801D40D4((void *) (*((u8 *)this)), (void *) (((TObjPlayer *)((u8 *)this))->get_ptr_4()), sp8.b);
-    var_r0 = __nw__7TObjectFUl(0xDB8);
-    if (var_r0 != 0) {
-        var_r0 = (s32)create_ending_sequence_player((Player_801D88C8 *)var_r0, (void *)tl_03, (Src_801D88C8 *) (&sp8));
+    copy_player_visual_record(&sp8, &data->m_disp_data.m_disp_part2);
+    copy_data__6TLobbyFPvPv(sp8.c, &data->m_disp_data);
+    fn_801D40D4((void *)data->m_inventory.m_num_items, (void *)((TObjPlayer *)data)->get_ptr_4(), sp8.b);
+    player = (TUnk_804C4540 *)TObject::operator new(0xDB8);
+    if (player != NULL) {
+        player = (TUnk_804C4540 *)create_ending_sequence_player((Player_801D88C8 *)player, (void *)tl_03, (Src_801D88C8 *)&sp8);
     }
-    return var_r0;
+    return player;
 }
 
 void TObjPlayer__sub_801D877C(u8 *arg0) {
@@ -580,12 +577,12 @@ void TObjPlayer::select_normal_attack_marker() {
   s16 temp_r30;
   s16 falz_phase;
   s16 new_var;
-  s32 move_mode;
-  move_mode = get_move_mode();
+  s32 class_flags;
+  class_flags = get_class_flags();
   new_var = ((TObjPlayer *)(((u8 *)this) + 0x7CC))->get_stage_strike_count();
   temp_r30 = new_var;
   falz_phase = this->get_falz_phase();
-  lookup_attack_marker((s32) get_handle_value(), falz_phase, temp_r30, move_mode);
+  lookup_attack_marker((s32) get_handle_value(), falz_phase, temp_r30, class_flags);
 }
 
 #pragma pop
@@ -597,7 +594,7 @@ f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     case 14:
         return *(f32 *)((s8 *)((u8 *)(((u8 *)attack_marker_table_double_saber + (arg2 * 0xC))) + (arg1 * 4)) + 0);
     case 15:
-        if (arg3 & 1) {
+        if (arg3 & CLASS_FLAG_MALE) {
             return *(f32 *)((s8 *)((u8 *)(((u8 *)twin_sword_male_marker_table + (arg2 * 0xC))) + (arg1 * 4)) + 0);
         }
         return *(f32 *)((s8 *)((u8 *)(((u8 *)twin_sword_female_marker_table + (arg2 * 0xC))) + (arg1 * 4)) + 0);
@@ -656,7 +653,7 @@ player_stats *TObjPlayer::get_class_stat_entry(u8 *player) {
 
 f32 TObjPlayer::get_tp_class_factor() {
     u8 *arg0 = (u8 *)this;
-    if (this->m_890 & 0x10) {
+    if (this->class_flags & CLASS_FLAG_ANDROID) {
         return lbl_805DC400;
     }
     return player_profession_stat_factors[((TObjPlayer *)arg0)->get_clamped_index()].tp;

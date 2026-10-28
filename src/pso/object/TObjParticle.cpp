@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/object/TObjParticle.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/object/TObject_8001A448.h"
-#include "pso/unk/text_8013157C.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjParticle.h"
 #include "pso/TObject.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -78,7 +78,7 @@ void TObjParticle::run_task() {
     if (((s32) this->m_8c == 1) && ((s32) this->m_84 == 1)) {
         var_f31 = lbl_805DBEE8;
     }
-    if (xyz_distance_squared((u8 *)&this->position, (u8 *)(camera_ctrl_instance + 0x178)) > var_f31) {
+    if (xyz_distance_squared((Vec *)&this->position, (Vec *)(camera_ctrl_instance + 0x178)) > var_f31) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -88,18 +88,12 @@ void TObjParticle::run_task() {
     }
 }
 
-void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjParticle;
-        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x90))); ((TObjParticle *)arg0)->m_90 = 0; }
-        ((TUnk_804B9870 *)arg0)->mask_object_set_row_flags(-3);
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjParticle::~TObjParticle() {
+    if (*(void **)((s8 *)this + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)this + 0x90))); this->m_90 = 0; }
+    ((TUnk_804B9870 *)this)->mask_object_set_row_flags(-3);
+}
+extern "C" {
 
 Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 parent, Src_80195400 *arg2) {
     u32 i;

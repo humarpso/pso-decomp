@@ -274,13 +274,13 @@ u8 *__ct__8TEndingCFv(u8 *object, u8 *arg1) {
 }
 
 void release_lobby__8TEndingCFv(void);
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 extern u32 TEndingC__wall_texture_list;
 
 void release_lobby__8TEndingCFv(void) {
     if ((u32) TEndingC__wall_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TEndingC__wall_texture_list);
+        release_texture_list((void*)TEndingC__wall_texture_list);
         TEndingC__wall_texture_list = 0U;
     }
 }

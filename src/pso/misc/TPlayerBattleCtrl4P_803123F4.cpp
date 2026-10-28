@@ -3,6 +3,7 @@
 #include "pso/misc/TWindowSubComCard_80244774.h"
 
 #include "types.h"
+#include "pso/ui/Language.h"
 
 typedef void (TPlayerBattleCtrl4P::*BattleAction)();
 
@@ -143,7 +144,6 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 clear_split_screen_battle_window_slots(void *);
 extern s32 TPlayerBattleCtrl4P__name;
-extern s32 current_language;
 
 }
 TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
@@ -158,7 +158,7 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
     this->menu_window = 0;
     clear_split_screen_battle_window_slots(((void *)this));
     p = lbl_804E7D4C;
-    if (current_language == 0) {
+    if (current_language == LANGUAGE_JAPANESE) {
         p = TPlayerBattleCtrl4P__message_table_language0;
     }
     *(void ** *)&this->message_table = p;

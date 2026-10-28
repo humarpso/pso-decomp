@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/misc/TOSwitchTimer.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjMotion.h"
 
 struct Stack_801783BC {
     f32 sp8;
@@ -104,7 +104,7 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
         if ((u32) ((TOSwitchTimer *)arg0)->m_98 == 0U) {
             clear_floor_switch_flag(((TOSwitchTimer *)arg0)->m_a8, (s16) ((TOSwitchTimer *)arg0)->m_b4);
         }
-        TParticleCtrl::destroy_particle(arg0, 0);
+        __dt__13TUnk_804B9870Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

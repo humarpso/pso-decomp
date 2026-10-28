@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonConcentrate.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
@@ -12,7 +13,7 @@
 extern "C" {
 
 void *create_particle_emitter(void *pos, s32 id);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(s32, s32);
+s32 __ct__13TUnk_804AF8A0FP7TObject(s32, s32);
 s32 find_entity_by_id(s32, f32);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
@@ -138,38 +139,30 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
 
 }
 
-void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
-        if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); ((TPhotonConcentrate *)arg0)->m_f8 = 0; }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TPhotonConcentrate::~TPhotonConcentrate() {
+    if (*(void **)((s8 *)this + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xF8)); this->m_f8 = 0; }
+}
+extern "C" {
 
-u8 *TPhotonConcentrate__ct(u8 *photon_concentrate, u8 *arg1, s32 arg2, s32 arg3) {
+}
+TPhotonConcentrate::TPhotonConcentrate(u8 *arg1, s32 arg2, s32 arg3) : TUnk_804AF8A0((TObject *)arg2) {
     f32 temp_f1;
-
-    construct_collider_proxy__13TUnk_804AF8A0Fv((s32)photon_concentrate, arg2);
-    *(s32 **)((s8 *)photon_concentrate + 0x18) = __vt__18TPhotonConcentrate;
-    *(s32 *)((s8 *)photon_concentrate + 0) = (s32) lbl_805D34D0;
-    VecCopy((Vec *)(photon_concentrate + 0xAC), (const Vec *)(VecCopy((Vec *)(photon_concentrate + 0xB8), (const Vec *)((const Vec *)arg1))));
-    VecCopy((Vec *)(photon_concentrate + 0xD0), (const Vec *)(arg1 + 0xC));
-    VecCopy((Vec *)(photon_concentrate + 0xC4), (const Vec *)(arg1 + 0x18));
-    *(f32 *)((s8 *)photon_concentrate + 0xC4) = (f32) (*(f32 *)((s8 *)photon_concentrate + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
-    *(f32 *)((s8 *)photon_concentrate + 0xC8) = (f32) (*(f32 *)((s8 *)photon_concentrate + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
-    temp_f1 = ((TPhotonConcentrate *)photon_concentrate)->m_cc;
-    ((TPhotonConcentrate *)photon_concentrate)->m_cc = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
-    ((TPhotonConcentrate *)photon_concentrate)->m_e4 = (f32) *(f32 *)((s8 *)arg1 + 0x24);
-    *(f32 *)((s8 *)photon_concentrate + 0xE8) = (f32) *(f32 *)((s8 *)arg1 + 0x2C);
-    ((TPhotonConcentrate *)photon_concentrate)->m_f0 = (s32) *(s32 *)((s8 *)arg1 + 0x30);
-    ((TPhotonConcentrate *)photon_concentrate)->m_ec = (s32) *(s32 *)((s8 *)arg1 + 0x34);
-    ((TPhotonConcentrate *)photon_concentrate)->m_fc = find_entity_by_id(arg3, temp_f1);
-    ((TPhotonConcentrate *)photon_concentrate)->m_f8 = (s32)create_particle_emitter(photon_concentrate + 0xB8, 0x135);
-    return photon_concentrate;
+    *(s32 *)((s8 *)this + 0) = (s32) lbl_805D34D0;
+    VecCopy((Vec *)(((u8 *)this) + 0xAC), (const Vec *)(VecCopy((Vec *)(((u8 *)this) + 0xB8), (const Vec *)((const Vec *)arg1))));
+    VecCopy((Vec *)(((u8 *)this) + 0xD0), (const Vec *)(arg1 + 0xC));
+    VecCopy((Vec *)(((u8 *)this) + 0xC4), (const Vec *)(arg1 + 0x18));
+    *(f32 *)((s8 *)this + 0xC4) = (f32) (*(f32 *)((s8 *)this + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
+    *(f32 *)((s8 *)this + 0xC8) = (f32) (*(f32 *)((s8 *)this + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
+    temp_f1 = this->m_cc;
+    this->m_cc = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
+    this->m_e4 = (f32) *(f32 *)((s8 *)arg1 + 0x24);
+    *(f32 *)((s8 *)this + 0xE8) = (f32) *(f32 *)((s8 *)arg1 + 0x2C);
+    this->m_f0 = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    this->m_ec = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    this->m_fc = find_entity_by_id(arg3, temp_f1);
+    this->m_f8 = (s32)create_particle_emitter(((u8 *)this) + 0xB8, 0x135);
 }
+extern "C" {
 
 }

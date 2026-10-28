@@ -1,7 +1,7 @@
 #pragma push
 
 #include "types.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 
 #include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
@@ -11,7 +11,6 @@ struct V3_8022BEAC { s32 x; s32 y; s32 z; };
 struct T_8022BEAC { u8 pad[0x20]; u8 f20[0xC]; u8 f2c[0x10]; f32 f3c; u8 pad2[0x2c]; s32 state; };
 
 extern "C" {
-void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
@@ -45,18 +44,18 @@ void TTecReverser::sub_8022BE64(u8 *arg1, s32 arg2) {
 void TUnk_804CC148::render() {
     T_8022BEAC *self = (T_8022BEAC *)this;
     V3_8022BEAC v = TTecLuker__render_scale_vec;
-    switch (this->field_6c) {
+    switch (this->state) {
     case 0:
         break;
     case 1:
-        approach_vector_in_place(&self->f3c, &v, lbl_805DC7B0);
+        approach_vector_in_place(&scale, (const Vec *)&v, lbl_805DC7B0);
         break;
     }
     TObjRoomId__sub_80141CF4(self->f20, self->f2c, self->f3c);
 }
 
 void TUnk_804CC148::tick_lifetime() {
-    this->field_6c = 1;
+    this->state = 1;
     this->age = (this->age + 1);
     if ((f32) this->age > *(f32 *)((s8 *)this + 0x70)) {
         queue_destruction__7TObjectFv(this);
@@ -72,7 +71,7 @@ void TUnk_804CC148::count_if_within_range() {
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
     stack.sp10 = temp_f1 - this->m_84;
     if (vector_length(&stack.sp8, temp_f1) <= *(f32 *)((s8 *)arg0 + 0x64)) {
-        this->field_6c = (this->field_6c + 1);
+        this->state = (this->state + 1);
     }
 }
 
@@ -93,7 +92,7 @@ void free_collision_body_parts(void *);
 
 void TUnk_804CC148::run_task() {
 
-    switch (this->field_6c) {
+    switch (this->state) {
     case 0:
         sub_8022C008__13TUnk_804CC148Fv();
         count_if_within_range__13TUnk_804CC148Fv(this);
@@ -121,7 +120,7 @@ u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(void *p);
 void *__ct__7TEffectFv(void *);
 s32 init_collision_body_parts(u32, void *, s32);
-u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
+u32 __ct__13TUnk_804AF8A0FP7TObject(u32, void *);
 u32 __nw__7TObjectFUl(s32);
 extern const f32 lbl_805DC7B4;
 extern const f32 lbl_805DC7B8;
@@ -176,7 +175,7 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, this);
+        var_r0 = __ct__13TUnk_804AF8A0FP7TObject(var_r0, this);
     }
     this->m_e8 = var_r0;
     if (this->m_e8 != 0U) {
@@ -228,7 +227,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, arg0);
+        var_r0 = __ct__13TUnk_804AF8A0FP7TObject(var_r0, arg0);
     }
     ((TUnk_804CC148 *)arg0)->m_e8 = var_r0;
     if (((TUnk_804CC148 *)arg0)->m_e8 != 0U) {

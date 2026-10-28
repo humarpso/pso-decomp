@@ -6,7 +6,7 @@ extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TTecLuker.h"
-#include "pso/unk/TUnk_804CC148.h"
+#include "pso/effect/TUnk_804CC148.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804CC9D4.h"
 
@@ -174,7 +174,7 @@ extern s32 recovery_technique_charge_vtable[];
 u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2);
 s32 obj_setFlags30(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
+s32 __ct__13TUnk_804AF8A0FP7TObject(void *, void *);
 void TTecLuker__sub_80234F68(void* p);
 extern RecoveredGlobal_80233D18_lbl_804CC9A8 telepipe_field_collision_body_template;
 extern s32 telepipe_field_collider_vtable[];
@@ -318,7 +318,7 @@ void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804CC9D4 *)arg0)->m_b0 = 0;
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
+        __dt__13TUnk_804AF8A0Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -329,7 +329,7 @@ void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
 u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(this, (void *)arg2);
+    __ct__13TUnk_804AF8A0FP7TObject(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1));
     init_collision_body_parts(this, &telepipe_field_collision_body_template.value, 1);
@@ -722,7 +722,7 @@ void TTecLuker::setup_telepipe_field() {
     s->visual = v;
     s->phase = 1;
     if (s->collider != 0) {
-        ((TBoss4DarkFalz *)(s->collider))->set_position_from(&s->pos);
+        ((TUnk_804B9870 *)(s->collider))->set_position_from(&s->pos);
     } else {
         u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
         if (c != 0) {

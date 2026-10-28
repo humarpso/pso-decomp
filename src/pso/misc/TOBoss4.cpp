@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOBoss4.h"
-#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOBoss4.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80159D24_lbl_804AFD0C { s32 value; u8 remaining[0xC]; };
@@ -36,16 +36,11 @@ void TOBoss4::load_static_resource() {
     (*(s32 *)&lbl_805D58A8) = var_r0;
 }
 
-void *__dt__7TOBoss4Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TOBoss4;
-        TParticleCtrl::destroy_particle(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOBoss4::~TOBoss4() {
+
+}
+extern "C" {
 
 extern void *tl_05;
 extern const f32 lbl_805DB310;

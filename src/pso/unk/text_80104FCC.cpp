@@ -42,7 +42,6 @@ struct Obj_8010567C {
     s32 f8c;
 };
 
-struct Player_80105348 { u8 pad[0x890]; s32 traits; };
 
 struct Rec_80105538 { s32 a; u16 b; u16 b2; s32 c; };
 
@@ -88,7 +87,7 @@ s32 TObjPlayer__sub_80104840(s32);
 extern s32 TLobby__designated_client_id;
 extern Entry_8010567C *TLobby__data_805D6140;
 extern s32 local_client_id;
-int check_class_equip_permission(Player_80105348 *player, s32 perm);
+int check_class_equip_permission(TObjPlayer *player, s32 perm);
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 is_valid_drop_floor();
 }
@@ -100,25 +99,25 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self);
 int roll_weapon_special_channel15(void* p);
 int roll_weapon_special_for_stars(void*);
 
-int check_class_equip_permission(Player_80105348 *player, s32 perm) {
-    s32 t = player->traits;
-    if (t & 0x20) {
+int check_class_equip_permission(TObjPlayer *player, s32 perm) {
+    s32 t = player->class_flags;
+    if (t & CLASS_FLAG_HUNTER) {
         if (!(perm & 1)) return 0;
-    } else if (t & 0x40) {
+    } else if (t & CLASS_FLAG_RANGER) {
         if (!(perm & 2)) return 0;
     } else if (!(perm & 4)) {
         return 0;
     }
-    if (t & 0x10) {
+    if (t & CLASS_FLAG_ANDROID) {
         if (!(perm & 0x10)) return 0;
-    } else if (t & 8) {
+    } else if (t & CLASS_FLAG_NEWMAN) {
         if (!(perm & 0x20)) return 0;
-    } else if (t & 4) {
+    } else if (t & CLASS_FLAG_HUMAN) {
         if (!(perm & 8)) return 0;
     }
-    if (t & 1) {
+    if (t & CLASS_FLAG_MALE) {
         if (!(perm & 0x40)) return 0;
-    } else if (t & 2) {
+    } else if (t & CLASS_FLAG_FEMALE) {
         if (!(perm & 0x80)) return 0;
     }
     return 1;

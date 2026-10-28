@@ -9,11 +9,11 @@ extern const s32 lobby_menu_cursor_resource_name_table[];
 extern const s32 menu_cursor_resource_name_table_b[];
 extern const s32 current_language;
 extern u32 lbl_805D6D78;
-void TLobby__sub_803DA16C(void*);
+void release_texture_list(void*);
 
 void TLobby::free_global_object() {
     if ((u32) lbl_805D6D78 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6D78);
+        release_texture_list((void*)lbl_805D6D78);
         lbl_805D6D78 = 0U;
     }
 }

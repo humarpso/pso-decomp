@@ -1,6 +1,6 @@
 #include "pso/misc/TEnding.h"
 #include "pso/unk/text_80203418.h"
-#include "pso/item/TItemMag_8001A468.h"
+#include "pso/misc/TEndingPicStage.h"
 #include "pso/misc/ParticleRadial.h"
 #include "pso/misc/TEndingAB_8008CE08.h"
 #include "pso/misc/TEndingC_8008D00C.h"
@@ -35,8 +35,7 @@ void TEnding::run_task() {
         ending_frame_counter = ticks;
         s32 rate = timing_rate;
         if (ticks > (u32)(rate * 140)) {
-            void *child = TObject::operator new(0x1C);
-            if (child != NULL) TObjPlayer__sub_8001A8F0((u8 *)child, (s32)this);
+            new TEndingPicStage(this);
             phase = 1;
             return;
         }

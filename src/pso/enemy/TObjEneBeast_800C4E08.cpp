@@ -564,7 +564,7 @@ void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 extern s32 lbl_80493450[];
 void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
-int initialize__9TObjEnemyFPv(void);
+int __ct__9TObjEnemyFP7TObject(void);
     extern const float lbl_805DA058;
     extern const float lbl_805DA05C;
     extern const float lbl_805DA060;
@@ -614,8 +614,8 @@ s32 TUnk_80493450::update_target_near_flag() {
     if ((obj_getField1c(temp_r0) < 0x1000U) && (this->is_actor_cadence_frame(0x1E) != 0)) {
         temp_r31 = this->target;
         temp_f31 = horizontal_distance_squared(temp_r31 + 0x38, (void *) ((u8 *)this + 0x38));
-        switch (*(s32 *)((s8 *)temp_r31 + 0x890) & 0xE0) {
-        case 0x20:
+        switch (((TObjPlayer *)temp_r31)->class_flags & CLASS_FLAG_TYPE_MASK) {
+        case CLASS_FLAG_HUNTER:
             if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x100000) != 0) {
                 if (lbl_805DA028 < temp_f31) {
                     obj_clearFlags30(0x100000);
@@ -1280,5 +1280,5 @@ void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void*TUnk_80493450::init_enemy_base() { initialize__9TObjEnemyFPv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short *)&(this->mode) = 0; *(short *)&(this->phase) = 0; *(short *)&this->m_374 = 0; *(short *)&this->m_376 = 0; *(int *)&this->m_378 = 0; *(int *)&this->m_37c = 0; *(float *)&this->unk_380 = (*(const float *)&lbl_805DA034); *(float *)&(*(void * *)&this->m_384) = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; (*(int *)&this->m_38c) = 0; *(int *)&this->m_390 = 0; this->m_398 = lbl_805DA060; *(float *)&(*(s16 *)((u8 *)this + 0x39C)) = lbl_805DA064; *(float *)&(*(s32 *)&this->unk_394) = lbl_805DA060; (this->m_3a0) = lbl_805DA060; *(float *)&this->unk_3A4 = lbl_805DA064; return this; }
+void*TUnk_80493450::init_enemy_base() { __ct__9TObjEnemyFP7TObject(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short *)&(this->mode) = 0; *(short *)&(this->phase) = 0; *(short *)&this->m_374 = 0; *(short *)&this->m_376 = 0; *(int *)&this->m_378 = 0; *(int *)&this->m_37c = 0; *(float *)&this->unk_380 = (*(const float *)&lbl_805DA034); *(float *)&(*(void * *)&this->m_384) = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; (*(int *)&this->m_38c) = 0; *(int *)&this->m_390 = 0; this->m_398 = lbl_805DA060; *(float *)&(*(s16 *)((u8 *)this + 0x39C)) = lbl_805DA064; *(float *)&(*(s32 *)&this->unk_394) = lbl_805DA060; (this->m_3a0) = lbl_805DA060; *(float *)&this->unk_3A4 = lbl_805DA064; return this; }
 }

@@ -264,7 +264,7 @@ s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
 s32 TItemData__sub_8010B808(void *);
 s32 TItemData__sub_8010B810(int);
-u8 *TItem__ct(u8 *self, void *parent, u8 *item);
+u8 *__ct__5TItemFP7TObjectPUc(u8 *self, void *parent, u8 *item);
 s32 __nw__15TItemHeapObjectFUl(int);
 s32 __ct__15TItemHeapObjectFP7TObject(int, void *);
 extern s32 __vt__14TItemEquipBase[];
@@ -697,7 +697,7 @@ void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1) {
 u8 *TItemEquipBase__ct(u8 *arg0, s32 parent, s32 item) {
     s32 temp_r3;
     s32 var_r0;
-    TItem__ct((arg0), (void *)parent, (u8 *)item);
+    __ct__5TItemFP7TObjectPUc((arg0), (void *)parent, (u8 *)item);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8010B684___vt__14TItemEquipBase *)&__vt__14TItemEquipBase).value;
     ((TObjPlayer *)(arg0 + 0x178))->init_forward();
     *(s32 *)((s8 *)arg0 + 0) = (s32) item_equip_base_class_name;

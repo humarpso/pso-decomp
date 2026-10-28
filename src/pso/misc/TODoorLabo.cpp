@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/NinjaUtil.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TODoorFourLightBase.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -93,7 +94,7 @@ extern s32 lbl_80465FF8[];
 extern s32 TODoorLabo__bml_resource;
 Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
+s32 release_texture_list(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
@@ -147,12 +148,12 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
 
 void TODoorLabo::free_resources() {
     if ((u32) TODoorLaboNormal__red_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TODoorLaboNormal__red_texture_list);
+        release_texture_list((void*)TODoorLaboNormal__red_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TODoorLaboNormal__red_texture_list);
         TODoorLaboNormal__red_texture_list = 0U;
     }
     if ((u32) TODoorLaboNormal__green_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TODoorLaboNormal__green_texture_list);
+        release_texture_list((void*)TODoorLaboNormal__green_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TODoorLaboNormal__green_texture_list);
         TODoorLaboNormal__green_texture_list = 0U;
     }
@@ -227,7 +228,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     tbl = door_labo_link_table;
     for (i = 0; i < 8; i++) {
         if (tbl.v[i] != -1) {
-            arg0->sw[i] = ((TObjSeabedSuisoBrakable *)(arg0->fD4))->count_linked_switches(tbl.v[i]);
+            arg0->sw[i] = (s32)find_object_node((NJS_OBJECT *)(arg0->fD4), tbl.v[i]);
         }
     }
     arg0->fF8 = 1;
@@ -237,12 +238,12 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
 
 void TAdSinglePlyChrSelectGC::free_all_resources() {
     if ((u32) labo_door_red_textures != 0U) {
-        TLobby__sub_803DA16C((void*)labo_door_red_textures);
+        release_texture_list((void*)labo_door_red_textures);
         TAdSinglePlyChrSelectGC::safe_free(labo_door_red_textures);
         labo_door_red_textures = 0U;
     }
     if ((u32) TODoorLabo__green_texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TODoorLabo__green_texture_list);
+        release_texture_list((void*)TODoorLabo__green_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TODoorLabo__green_texture_list);
         TODoorLabo__green_texture_list = 0U;
     }
@@ -332,7 +333,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     {
         Tbl_8029FD70 tbl = door_four_light_seabed_u_table;
         for (i = 0; i < 8; i++) {
-            self->fD8[i] = ((TObjSeabedSuisoBrakable *)(self->fD4))->count_linked_switches(tbl.w[i]);
+            self->fD8[i] = (s32)find_object_node((NJS_OBJECT *)(self->fD4), tbl.w[i]);
         }
     }
     ((TODoorFourLightBase *)arg0)->clamp_light_index();
@@ -349,12 +350,12 @@ extern s32 lbl_804660FC[];
 extern s32 bm_o_door_seabed01_u_resource_descriptor[];
 void TLobby::free_global_buffers() {
     if ((u32) TODoorFourLightSeabedU__texture_list != 0U) {
-        TLobby__sub_803DA16C((void*)TODoorFourLightSeabedU__texture_list);
+        release_texture_list((void*)TODoorFourLightSeabedU__texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TODoorFourLightSeabedU__texture_list);
         TODoorFourLightSeabedU__texture_list = 0U;
     }
     if ((u32) seabed_four_light_door_textures != 0U) {
-        TLobby__sub_803DA16C((void*)seabed_four_light_door_textures);
+        release_texture_list((void*)seabed_four_light_door_textures);
         TAdSinglePlyChrSelectGC::safe_free(seabed_four_light_door_textures);
         seabed_four_light_door_textures = 0U;
     }
@@ -456,7 +457,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     {
         Tbl_802A0068 tbl = door_four_light_seabed_index_table;
         for (i = 0; i < 8; i++) {
-            self->fD8[i] = ((TObjSeabedSuisoBrakable *)(self->fD4))->count_linked_switches(tbl.w[i]);
+            self->fD8[i] = (s32)find_object_node((NJS_OBJECT *)(self->fD4), tbl.w[i]);
         }
     }
     ((TODoorFourLightBase *)arg0)->clamp_light_index();
