@@ -130,18 +130,7 @@ struct Board_801F526C {
     u8 pad0[0x10];
     void *thread;
     u8 pad14[0x1C - 0x14];
-    u8 sub1C[0x24 - 0x1C];
-    s32 *ids;
-    void *win28;
-    void *win2C;
-    u8 idx;
-    u8 pad31[0x178 - 0x31];
-    void *kb178;
-    void *card17C;
-    void *card180;
-    void *win184;
-    void *win188;
-    u8 pad18C[4];
+    QuestVmContext ctx;
     s32 state;
 };
 
@@ -149,18 +138,7 @@ struct TQuestThread_801F5828 {
     u8 pad0[0x10];
     void *m10;
     u8 pad14[0x1C - 0x14];
-    u8 m1C[0x24 - 0x1C];
-    s32 *slots;
-    u8 pad28[0x2C - 0x28];
-    void *comCard;
-    u8 slot;
-    u8 pad31[0x178 - 0x31];
-    void *kbd;
-    void *com;
-    void *board;
-    void *list;
-    void *help;
-    u32 pad18C;
+    QuestVmContext ctx;
     u32 state;
 };
 extern "C" {
@@ -402,7 +380,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     switch (o->state) {
     case QST_RUNNING:
     case QST_SUSPEND_SYNC:
-        o->state = ((TLobby *)(o->sub1C))->dispatch_quest();
+        o->state = o->ctx.dispatch();
         break;
     case QST_SUSPEND_RETURN:
         ((void (*)(void *))queue_destruction__7TObjectFv)(o);
@@ -439,10 +417,10 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     case QST_SUSPEND_6:
         break;
     case QST_WAIT_LIST:
-        if (((TWindowMenu *)(o->win2C))->is_visible() != 0) {
-            o->ids[o->idx] = get_selected_menu_value(o->win2C);
-            TWindow__close(o->win2C);
-            o->win2C = NULL;
+        if (((TWindowMenu *)(o->ctx.list_window))->is_visible() != 0) {
+            o->ctx.registers[o->ctx.result_register] = get_selected_menu_value(o->ctx.list_window);
+            TWindow__close(o->ctx.list_window);
+            o->ctx.list_window = NULL;
             o->state = QST_RUNNING;
             TLobby__sub_8024AC20(local_client_id);
             TWindowCtrl::clear_flag();
@@ -450,13 +428,13 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
         }
         if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 8) != 0 ||
             has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) {
-            if (o->win28 != NULL) {
-                TWindow__close(o->win28);
-                o->win28 = NULL;
+            if (o->ctx.message_window != NULL) {
+                TWindow__close(o->ctx.message_window);
+                o->ctx.message_window = NULL;
             }
-            if (o->win2C != NULL) {
-                TWindow__close(o->win2C);
-                o->win2C = NULL;
+            if (o->ctx.list_window != NULL) {
+                TWindow__close(o->ctx.list_window);
+                o->ctx.list_window = NULL;
             }
             TWindowCtrl::clear_flag();
             TWindowCtrl::clear_flag_2();
@@ -470,41 +448,41 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
         }
         break;
     case QST_WAIT_ITEM_NAME_ENTRY:
-        if (((TWindowSubComCard *)(o->kb178))->process_keyboard_input() != 0) {
-            ((void (*)(void *))queue_destruction__7TObjectFv)(o->kb178);
-            o->kb178 = NULL;
+        if (((TWindowSubComCard *)(o->ctx.item_name_entry))->process_keyboard_input() != 0) {
+            ((void (*)(void *))queue_destruction__7TObjectFv)(o->ctx.item_name_entry);
+            o->ctx.item_name_entry = NULL;
             o->state = QST_RUNNING;
         }
         break;
     case QST_WAIT_ITEM_NAME_SELECT: {
-        s32 r = update_com_card__12TQuestThreadFv(o->card17C);
+        s32 r = update_com_card__12TQuestThreadFv(o->ctx.item_name_select);
         if (r >= 0) {
             ((void (*)(s32))set_item_name_selection_index)(r);
-            ((void (*)(void *))queue_destruction__7TObjectFv)(o->card17C);
-            o->card17C = NULL;
+            ((void (*)(void *))queue_destruction__7TObjectFv)(o->ctx.item_name_select);
+            o->ctx.item_name_select = NULL;
             o->state = QST_RUNNING;
         }
         break;
     }
     case QST_WAIT_ITEM_OK:
-        if (update_board_card__12TQuestThreadFv(o->card180) != 0) {
-            o->ids[o->idx] = tick_com_card__12TQuestThreadFv(o->card180);
-            ((void (*)(void *))queue_destruction__7TObjectFv)(o->card180);
-            o->card180 = NULL;
+        if (update_board_card__12TQuestThreadFv(o->ctx.item_ok_window) != 0) {
+            o->ctx.registers[o->ctx.result_register] = tick_com_card__12TQuestThreadFv(o->ctx.item_ok_window);
+            ((void (*)(void *))queue_destruction__7TObjectFv)(o->ctx.item_ok_window);
+            o->ctx.item_ok_window = NULL;
             o->state = QST_RUNNING;
         }
         break;
     case QST_WAIT_ITEM_CHOICE: {
-        s32 v = select_cursor_entry__22TWindowSubShortCutListFv(o->win184);
-        if (v != o->ids[o->idx]) {
-            o->ids[o->idx] = v;
-            TWindowHelpItem__set_displayed_item_by_id(o->win188, v);
+        s32 v = select_cursor_entry__22TWindowSubShortCutListFv(o->ctx.pack_select_window);
+        if (v != o->ctx.registers[o->ctx.result_register]) {
+            o->ctx.registers[o->ctx.result_register] = v;
+            TWindowHelpItem__set_displayed_item_by_id(o->ctx.pack_select_help_window, v);
         }
-        if (((TUnk_804D0618 *)(o->win184))->get_status_flag() != 0) {
-            TWindow__close(o->win184);
-            o->win184 = NULL;
-            TWindow__close(o->win188);
-            o->win188 = NULL;
+        if (((TUnk_804D0618 *)(o->ctx.pack_select_window))->get_status_flag() != 0) {
+            TWindow__close(o->ctx.pack_select_window);
+            o->ctx.pack_select_window = NULL;
+            TWindow__close(o->ctx.pack_select_help_window);
+            o->ctx.pack_select_help_window = NULL;
             o->state = QST_RUNNING;
             TLobby__sub_8024AC20(local_client_id);
             TWindowCtrl::clear_flag_bit2();
@@ -621,7 +599,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
     switch (t->state) {
     case QST_RUNNING:
     case QST_SUSPEND_SYNC:
-        t->state = ((TLobby *)(t->m1C))->dispatch_quest();
+        t->state = t->ctx.dispatch();
         break;
     case QST_SUSPEND_RETURN:
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(t);
@@ -653,10 +631,10 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         }
         break;
     case QST_WAIT_LIST:
-        if (((TWindowMenu *)(t->comCard))->is_visible() != 0) {
-            t->slots[t->slot] = get_selected_menu_value(t->comCard);
-            TWindow__close(t->comCard);
-            t->comCard = 0;
+        if (((TWindowMenu *)(t->ctx.list_window))->is_visible() != 0) {
+            t->ctx.registers[t->ctx.result_register] = get_selected_menu_value(t->ctx.list_window);
+            TWindow__close(t->ctx.list_window);
+            t->ctx.list_window = 0;
             t->state = QST_RUNNING;
             ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
             TWindowCtrl::clear_flag();
@@ -669,42 +647,42 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         }
         break;
     case QST_WAIT_ITEM_NAME_ENTRY:
-        if (((TWindowSubComCard *)(t->kbd))->process_keyboard_input() != 0) {
-            ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->kbd);
-            t->kbd = 0;
+        if (((TWindowSubComCard *)(t->ctx.item_name_entry))->process_keyboard_input() != 0) {
+            ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->ctx.item_name_entry);
+            t->ctx.item_name_entry = 0;
             t->state = QST_RUNNING;
         }
         break;
     case QST_WAIT_ITEM_NAME_SELECT:
-        if (update_com_card__12TQuestThreadFv(t->com) >= 0) {
+        if (update_com_card__12TQuestThreadFv(t->ctx.item_name_select) >= 0) {
             ((void (*)(void))set_item_name_selection_index)();
-            ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->com);
-            t->com = 0;
+            ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->ctx.item_name_select);
+            t->ctx.item_name_select = 0;
             t->state = QST_RUNNING;
         }
         break;
     case QST_WAIT_ITEM_OK:
-        if (update_board_card__12TQuestThreadFv(t->board) != 0) {
-            t->slots[t->slot] = tick_com_card__12TQuestThreadFv(t->board);
-            ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->board);
-            t->board = 0;
+        if (update_board_card__12TQuestThreadFv(t->ctx.item_ok_window) != 0) {
+            t->ctx.registers[t->ctx.result_register] = tick_com_card__12TQuestThreadFv(t->ctx.item_ok_window);
+            ((s32 (*)(void *))queue_destruction__7TObjectFv)(t->ctx.item_ok_window);
+            t->ctx.item_ok_window = 0;
             t->state = QST_RUNNING;
         }
         break;
     case QST_WAIT_ITEM_CHOICE: {
-        s32 sel = select_cursor_entry__22TWindowSubShortCutListFv(t->list);
-        if (sel != t->slots[t->slot]) {
-            t->slots[t->slot] = sel;
-            TWindowHelpItem__set_displayed_item_by_id(t->help, sel);
+        s32 sel = select_cursor_entry__22TWindowSubShortCutListFv(t->ctx.pack_select_window);
+        if (sel != t->ctx.registers[t->ctx.result_register]) {
+            t->ctx.registers[t->ctx.result_register] = sel;
+            TWindowHelpItem__set_displayed_item_by_id(t->ctx.pack_select_help_window, sel);
         }
-        if (((TUnk_804D0618 *)(t->list))->get_status_flag() != 0 || ((TLobby *)(t->list))->get_flag_bit2() != 0) {
-            if (((TLobby *)(t->list))->get_flag_bit2() != 0) {
-                t->slots[t->slot] = -1;
+        if (((TUnk_804D0618 *)(t->ctx.pack_select_window))->get_status_flag() != 0 || ((TLobby *)(t->ctx.pack_select_window))->get_flag_bit2() != 0) {
+            if (((TLobby *)(t->ctx.pack_select_window))->get_flag_bit2() != 0) {
+                t->ctx.registers[t->ctx.result_register] = -1;
             }
-            TWindow__close(t->list);
-            t->list = 0;
-            TWindow__close(t->help);
-            t->help = 0;
+            TWindow__close(t->ctx.pack_select_window);
+            t->ctx.pack_select_window = 0;
+            TWindow__close(t->ctx.pack_select_help_window);
+            t->ctx.pack_select_help_window = 0;
             t->state = QST_RUNNING;
             ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
             TWindowCtrl::clear_flag_bit2();
