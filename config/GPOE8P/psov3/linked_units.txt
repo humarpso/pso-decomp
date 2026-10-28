@@ -1901,6 +1901,7 @@ pso/misc/TWindowSubStatusDisp_8006F044.cpp
 pso/misc/TWindowSubStatusDisp_80071774.cpp
 pso/misc/TWindowSubStatusDisp_80077760.cpp
 pso/misc/TWindowSubStatusDisp_800FBD74.cpp
+pso/misc/TWindowSubStatusDisp_800FC3E0.cpp
 pso/misc/TWindowSubStatusDisp_800FFE1C.cpp
 pso/misc/TWindowSubStatusDisp_80100DD0.cpp
 pso/misc/TWindowSubStatusDisp_801059B4.cpp
