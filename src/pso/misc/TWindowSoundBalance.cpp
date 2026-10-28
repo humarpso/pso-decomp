@@ -34,8 +34,6 @@ u32 calc_text_width();
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 get_field_20__17TWindowSubComCardFv();
 s32 refresh_status_display__9TWindowDDFv(u8 *);
-s32 TWindowSoundBalance__sub_80270748(void *, s32);
-s32 TWindowSoundBalance__sub_802707D4(void *, s32);
 extern s32 window_sound_balance_settings[];
 extern s32 __vt__19TWindowSoundBalance[];
 extern s32 TWindowSoundBalance__name;
@@ -130,8 +128,8 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = TWindowSoundBalance__name;
     ((TWindowSoundBalance *)arg0)->m_60 = 0;
     ((TWindowSoundBalance *)arg0)->m_61 = 0;
-    ((TWindowSoundBalance *)arg0)->m_62 = 1;
-    ((TWindowSoundBalance *)arg0)->m_64 = 1;
+    ((TWindowSoundBalance *)arg0)->music_gain = 1;
+    ((TWindowSoundBalance *)arg0)->sound_effect_gain = 1;
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0);
     get_field_20__17TWindowSubComCardFv();
     *(f32 *)((s8 *)e + 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
@@ -142,11 +140,11 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     refresh_status_display__9TWindowDDFv(e);
     st = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (st == 0) {
-        TWindowSoundBalance__sub_802707D4(arg0, 0);
-        TWindowSoundBalance__sub_80270748(arg0, 0);
+        ((TWindowSoundBalance *)arg0)->set_music_gain(0);
+        ((TWindowSoundBalance *)arg0)->set_sound_effect_gain(0);
     } else {
-        TWindowSoundBalance__sub_802707D4(arg0, st->f4);
-        TWindowSoundBalance__sub_80270748(arg0, st->f6);
+        ((TWindowSoundBalance *)arg0)->set_music_gain(st->f4);
+        ((TWindowSoundBalance *)arg0)->set_sound_effect_gain(st->f6);
     }
     return arg0;
 }
