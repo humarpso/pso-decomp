@@ -833,6 +833,7 @@ pso/misc/ChallengeMode.cpp
 pso/misc/CharacterAppearanceTables.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/EndingSceneTables.cpp
+pso/misc/GbaDownloadRuntime.cpp
 pso/misc/KeyboardCharacterMaps.cpp
 pso/misc/RenderFadeState.cpp
 pso/misc/ShopToolStock.cpp
