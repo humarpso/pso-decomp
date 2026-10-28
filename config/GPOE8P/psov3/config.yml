@@ -14,6 +14,13 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
+  - TLobby__sub_8032C9A8
+  - TLobby__sub_8032CB6C
+  - TLobby__sub_8032CDC0
+  - TLobby__sub_8032CDD0
+  - calc_joyboot_checksum__6TLobbyFv
+  - gba_joyboot_transfer_callback__Fll
+  - start_gba_joyboot__6TLobbyFv
   - "@14"
   - "@28@__dt__17TMedicalCenterMesFv"
   - "@28@__dt__22TQuestVmDownLoadServerFv"
