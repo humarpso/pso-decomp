@@ -4,6 +4,7 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEnemy.h"
+#include "pso/map/FloorArea.h"
 
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
@@ -11,7 +12,6 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/RenderFadeState.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 struct Stack_802CE68C {
@@ -224,7 +224,7 @@ void TObjEneBm9Mericarol::render() {
         return;
     }
     if (is_main_phase_15__9TObjEneDDFv() != 0) {
-        if (TOKeyMachine01::get_global_state() == 0x23) {
+        if (get_current_floor_area() == AREA_TOWER) {
             mode = ((Obj_802CE8CC *)((u8 *)this))->m9(600.0f, 600.0f, lbl_805DE704);
         } else {
             mode = ((Obj_802CE8CC *)((u8 *)this))->m9(lbl_805D9E88, lbl_805D9E84, lbl_805DE704);

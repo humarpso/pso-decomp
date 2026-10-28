@@ -2,6 +2,7 @@
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/misc/TScene.h"
+#include "pso/map/FloorArea.h"
 
 #include "pso/misc/TSceneMaterial.h"
 
@@ -176,7 +177,6 @@ void *get_player_by_client_id(s32 i);
 
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -475,14 +475,14 @@ s32 TScene__sub_80205874(void *) {
     }
     s32 phase = get_main_phase();
     if (phase == 14) {
-        if (is_split_screen() == 1 && TOKeyMachine01::get_global_state() == 1) {
+        if (is_split_screen() == 1 && get_current_floor_area() == AREA_FOREST1) {
             return 1;
         }
         return 0;
     } else if (phase == 15) {
-        switch (TOKeyMachine01::get_global_state()) {
-        case 1:
-        case 2:
+        switch (get_current_floor_area()) {
+        case AREA_FOREST1:
+        case AREA_FOREST2:
             return 1;
         }
         return 0;
@@ -507,10 +507,10 @@ void TScene::render_map_sections() {
             if (sec->flags & 0x10000) {
                 if (sec->flags & 0x80000) {
                     push_matrix();
-                    switch (TOKeyMachine01::get_global_state()) {
-                    case 0:
-                    case 0xF:
-                    case 0x12:
+                    switch (get_current_floor_area()) {
+                    case AREA_PIONEER2_EP1:
+                    case AREA_LOBBY:
+                    case AREA_PIONEER2_EP2:
                         render_static_map_section(sec, 0);
                         render_animated_map_section(sec, 0);
                         break;

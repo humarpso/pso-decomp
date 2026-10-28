@@ -2,7 +2,7 @@
 #include "pso/misc/TScene_80203304.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TScene.h"
-#include "pso/misc/TOKeyMachine01.h"
+#include "pso/map/FloorArea.h"
 
 struct Tbl_8020335C { s32 v[8]; };
 
@@ -32,10 +32,10 @@ void TScene::set_active_scene(int a0) { TScene__active_scene_callback = a0; }
 void TScene::set_id(int a0) { TScene__map_section_render_callback = a0; }
 s32 TContainerAncient01::is_global_state_in_table() {
     struct Tbl_8020335C t = group_selection_area_id_table;
-    s32 state = TOKeyMachine01::get_global_state();
+    s32 area = get_current_floor_area();
     s32 i;
     for (i = 0; t.v[i] != -1;) {
-        if (state == t.v[i++]) {
+        if (area == t.v[i++]) {
             return 1;
         }
     }

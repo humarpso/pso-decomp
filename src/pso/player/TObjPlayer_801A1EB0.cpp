@@ -7,7 +7,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TContainerAncient01.h"
-#include "pso/misc/TOKeyMachine01.h"
+#include "pso/map/FloorArea.h"
 
 struct Vec_801A1F48 { f32 x, y, z; };
 
@@ -22,14 +22,14 @@ extern u16 lbl_805D5CD2;
 extern u16 lbl_805D5CD8;
 
 s16 TUnk_804B9870::get_stat_by_key_state() {
-    s32 global_state;
+    s32 area;
 
-    if ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12)) {
+    if ((get_current_floor_area() == AREA_PIONEER2_EP1) || (get_current_floor_area() == AREA_PIONEER2_EP2)) {
         return 0;
     }
     if ((u16) this->m_1c < 0x1000U) {
-        global_state = TOKeyMachine01::get_global_state();
-        if (((global_state - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (global_state == 0xC) || (global_state == 0x20)) {
+        area = get_current_floor_area();
+        if (((area - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (area == AREA_DE_ROL_LE) || (area == AREA_BARBA_RAY)) {
             return *(s16 *)&(*(short *)((u8 *)this + 0x2E));
         }
         return *(s16 *)&this->m_28;

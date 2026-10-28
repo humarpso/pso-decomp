@@ -6,8 +6,8 @@
 #include "pso/misc/TLobby_80207DA8.h"
 #include "pso/misc/TScene_80206494.h"
 #include "pso/unk/text_800F8A18.h"
+#include "pso/map/FloorArea.h"
 
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjButterflyLobby.h"
@@ -106,7 +106,7 @@ u8 *TScene__ct(TScene *scene, s32 arg1) {
     scene->m_38 = 0x32;
     scene->m_3c = 0;
     TScene__sub_80206410(scene);
-    if ((TOKeyMachine01::get_global_state() == 1) && ((u32) TScene__texture_wave_resource != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) *(u32 *)((s8 *)(*(u8 * *)&TScene__data_805D5FCC) + 0x14) != 0U)) {
+    if ((get_current_floor_area() == AREA_FOREST1) && ((u32) TScene__texture_wave_resource != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) *(u32 *)((s8 *)(*(u8 * *)&TScene__data_805D5FCC) + 0x14) != 0U)) {
         TScene::create_texture_wave_tasks((s32)scene);
     }
     scene->init_material_nodes();
@@ -290,7 +290,7 @@ void TScene::load_file_to_buffer(s32 name) {
     scene_file_buffer_size = 0;
     replace_file_extension__6TLobbyFPvPvPv((char *)(sp8), (char *)(name), (char *)(lbl_8044A98C));
     temp_r31 = ((TScene *)sp8)->update_lobby_scene();
-    if (TOKeyMachine01::get_global_state() == 0xF) {
+    if (get_current_floor_area() == AREA_LOBBY) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
             temp_r3 = ((TQuestVmDownLoadServer *)0x100)->alloc();
             TScene__material_info_buffer = temp_r3;
@@ -322,7 +322,7 @@ void TScene::load_floor_bin_file(s32 name) {
         replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)name, (char *)((s32 *)lbl_8044A99C));
     }
     size = ((TScene *)sp8)->update_lobby_scene();
-    if (TOKeyMachine01::get_global_state() == 0xF) {
+    if (get_current_floor_area() == AREA_LOBBY) {
         if (size > 0 && (u32)size <= 0x100U) {
             TScene__data_805D6020 = ((TQuestVmDownLoadServer *)0x100)->alloc();
             if (TScene__data_805D6020 != 0U) {
@@ -341,12 +341,12 @@ void TScene::load_floor_bin_file(s32 name) {
 
 void TScene::load_map_texture_archive(s32 name) {
     char sp8[0x20];
-    s32 global_state;
+    s32 area;
     s32 var_r30;
     u32 temp_r3;
     u32 temp_r3_2;
 
-    global_state = TOKeyMachine01::get_global_state();
+    area = get_current_floor_area();
     TScene__texture_animation_buffer = 0U;
     var_r30 = 0;
     lbl_805D6018 = 0;
@@ -358,7 +358,7 @@ void TScene::load_map_texture_archive(s32 name) {
         replace_file_extension__6TLobbyFPvPvPv((char *)(sp8), (char *)(name), (char *)(lbl_8044A940));
         var_r30 = ((TScene *)sp8)->update_lobby_scene();
     }
-    if (global_state == 0xF) {
+    if (area == AREA_LOBBY) {
         if ((var_r30 > 0) && ((u32) var_r30 <= 0x100U)) {
             temp_r3 = ((TQuestVmDownLoadServer *)0x100)->alloc();
             TScene__texture_animation_buffer = temp_r3;
@@ -396,9 +396,9 @@ void TScene::load_supplementary_t_rel(s32 name) {
 
 void TScene::load_scene_rel_file(s32 arg0) {
     u8 id[0x28];
-    s32 state;
+    s32 area;
     s32 size;
-    state = TOKeyMachine01::get_global_state();
+    area = get_current_floor_area();
     TScene__data_805D5FCC = NULL;
     size = 0;
     TScene__map_rel_load_buffer = 0U;
@@ -412,7 +412,7 @@ void TScene::load_scene_rel_file(s32 arg0) {
         replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)id), (char *)arg0, (char *)((s32 *)lbl_8044A948));
         size = ((TScene *)id)->update_lobby_scene();
     }
-    if (state == 0xF) {
+    if (area == AREA_LOBBY) {
         if (size > 0 && (u32)size <= 0x80000U) {
             TScene__map_rel_load_buffer = ((TQuestVmDownLoadServer *)0x80000)->alloc();
             if (TScene__map_rel_load_buffer != 0U) {
@@ -450,7 +450,7 @@ void TScene::load_scene_data(s32 name) {
     lbl_805D6014 = 0;
     replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)((s32 *)&sp8)), (char *)(name), (char *)(lbl_8044A950));
     temp_r31 = ((TScene *)((s32 *)&sp8))->update_lobby_scene();
-    if (TOKeyMachine01::get_global_state() == 0xF) {
+    if (get_current_floor_area() == AREA_LOBBY) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
             temp_r3 = ((TQuestVmDownLoadServer *)0x10000)->alloc();
             TScene__collision_file_buffer = temp_r3;

@@ -7,6 +7,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
+#include "pso/map/FloorArea.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -18,7 +19,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss8Dragon.h"
 
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 
 struct VBase_14_2f517b { char pad[0x14]; };
 
@@ -394,7 +394,7 @@ void TObjPlayer__sub_800C44C4(void) {
 
     u8 *temp_r5;
 
-    if (TOKeyMachine01::get_global_state() == 0x23) {
+    if (get_current_floor_area() == AREA_TOWER) {
         lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBE0.value);
     } else if (TObjEneDD::check_v2_mode() != 0) {
         lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBF4.value);

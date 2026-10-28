@@ -9,7 +9,6 @@
 #include "pso/item/TObjContainerItem.h"
 #include "pso/system/vector.h"
 #include "pso/item/TObjContainerBase.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/unk/text_80156BBC.h"
 #include "pso/misc/TLazerFenceSw.h"
@@ -24,6 +23,7 @@
 #include "pso/misc/TLanguage_801E4874.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/map/FloorArea.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -374,54 +374,54 @@ void TUnk_804B6C24::spawn_item(s32 arg1) {
 }
 void play_container_break_sound(s32 arg0);
 void play_container_break_sound(s32 arg0) {
-    u32 global_state;
-    global_state = TOKeyMachine01::get_global_state();
-    switch (global_state) {
-    case 1:
-    case 2:
+    u32 area;
+    area = get_current_floor_area();
+    switch (area) {
+    case AREA_FOREST1:
+    case AREA_FOREST2:
         play_sound_effect(0x4BC10, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 3:
-    case 4:
-    case 5:
+    case AREA_CAVE1:
+    case AREA_CAVE2:
+    case AREA_CAVE3:
         play_sound_effect(0x43C0F, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 6:
-    case 7:
+    case AREA_MINE1:
+    case AREA_MINE2:
         play_sound_effect(0x4004BC09, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 8:
-    case 9:
-    case 10:
+    case AREA_RUINS1:
+    case AREA_RUINS2:
+    case AREA_RUINS3:
         play_sound_effect(0x4004BC10, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 16:
-    case 17:
+    case AREA_BATTLE1:
+    case AREA_BATTLE2:
         play_sound_effect(0x4004BC05, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 19:
-    case 20:
+    case AREA_VR_TEMPLE_ALPHA:
+    case AREA_VR_TEMPLE_BETA:
         play_sound_effect(0x4BC05, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 21:
-    case 22:
+    case AREA_VR_SPACESHIP_ALPHA:
+    case AREA_VR_SPACESHIP_BETA:
         play_sound_effect(0x4004BC05, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 23:
-    case 24:
-    case 25:
-    case 26:
-    case 27:
+    case AREA_CENTRAL_CONTROL_AREA:
+    case AREA_JUNGLE_NORTH:
+    case AREA_JUNGLE_EAST:
+    case AREA_MOUNTAIN:
+    case AREA_SEASIDE:
         play_sound_effect(0x4BC16, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 28:
-    case 29:
+    case AREA_SEABED_UPPER:
+    case AREA_SEABED_LOWER:
         play_sound_effect(0x4004BC16, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 34:
+    case AREA_SEASIDE_NIGHT:
         play_sound_effect(0x4004BC16, (void *)(arg0 + 0x38), 0, 0);
         return;
-    case 35:
+    case AREA_TOWER:
         play_sound_effect(0x4004BC16, (void *)(arg0 + 0x38), 0, 0);
     default:
         return;
@@ -720,10 +720,10 @@ void TLobby::free_chr_select_slot() {
 void TLobby::load_console_resources() {
     void *p;
     container_breakup_model_archive = 0;
-    switch (TOKeyMachine01::get_global_state()) {
-    case 28:
-    case 29:
-    case 31:
+    switch (get_current_floor_area()) {
+    case AREA_SEABED_UPPER:
+    case AREA_SEABED_LOWER:
+    case AREA_OLGA_FLOW:
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, &bm_obj_seabed_con_rare_resource_descriptor, 0, 0, 0);
@@ -731,7 +731,7 @@ void TLobby::load_console_resources() {
         container_breakup_model_archive = (BmlResource *)p;
         lbl_805D5B8C = (u32)load_gvm_texture_file((s32)seabed_rare_console_texture_filename);
         break;
-    case 30:
+    case AREA_GAL_GRYPHON:
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
@@ -764,10 +764,10 @@ void load_forest_box_resources(void) {
     u32 *node;
     lbl_805D5B78 = NULL;
     lbl_805D5B7C = 0;
-    switch (TOKeyMachine01::get_global_state()) {
-    case 28:
-    case 29:
-    case 31:
+    switch (get_current_floor_area()) {
+    case AREA_SEABED_UPPER:
+    case AREA_SEABED_LOWER:
+    case AREA_OLGA_FLOW:
         bundle = (void *)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (bundle != NULL) {
             bundle = load_resource_from_descriptor(bundle, 5, &bm_obj_seabed_con_resource_descriptor, 0, 0, 0);

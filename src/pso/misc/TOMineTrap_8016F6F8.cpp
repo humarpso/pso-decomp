@@ -6,8 +6,8 @@
 #include "pso/misc/TOMineTrap.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
 
@@ -350,16 +350,16 @@ void TOMine::update_state() {
 }
 void TOMineTrap::spawn_effect() {
     s32 arg0 = (s32)this;
-    s32 idx = TOKeyMachine01::get_global_state();
-    s32 elem = *(s32 *)(mine_trap_effect_table + idx * 4);
+    s32 area = get_current_floor_area();
+    s32 elem = *(s32 *)(mine_trap_effect_table + area * 4);
     if (elem != -1) {
         play_sound_effect(elem, arg0 + 0x38, 0, 0);
     }
 }
 void TOMineTrap::attach_to_keymachine() {
     s32 arg0 = (s32)this;
-    s32 idx = TOKeyMachine01::get_global_state();
-    s32 elem = *(s32 *)(mine_trap_keymachine_table + idx * 4);
+    s32 area = get_current_floor_area();
+    s32 elem = *(s32 *)(mine_trap_keymachine_table + area * 4);
     if (elem != -1) {
         play_sound_effect(elem, arg0 + 0x38, 0, 0);
     }

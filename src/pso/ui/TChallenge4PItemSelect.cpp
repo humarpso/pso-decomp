@@ -14,8 +14,8 @@
 #include "pso/misc/TLobby_80291D94.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowMessagePage.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/map/FloorArea.h"
 
 struct Stack_8034B158 {
     s8 sp8;
@@ -121,7 +121,7 @@ TChallenge4PResult::~TChallenge4PResult() {
 }
 
 void TChallenge4PResult::run_task() {
-    if ((TOKeyMachine01::get_global_state() != 0xE) || (is_active__11TBoss4Type2Fv() != 1)) {
+    if ((get_current_floor_area() != AREA_DARK_FALZ) || (is_active__11TBoss4Type2Fv() != 1)) {
         switch (state_1c) {
         case 0:
             update_input();

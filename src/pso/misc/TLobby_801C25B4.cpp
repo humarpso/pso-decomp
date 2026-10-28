@@ -4,7 +4,6 @@
 #include "pso/TPlayerBattleCtrl.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/misc/TPlayerBattleCtrl4P.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -14,6 +13,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/quest/TQuestThread.h"
+#include "pso/map/FloorArea.h"
 
 #include "types.h"
 #include "pso/ui/Language.h"
@@ -524,7 +524,7 @@ void TLobby::start_duel_battle() {
     char *name;
     void *obj;
     u32 p;
-    s32 st;
+    s32 area;
     s32 i;
     TObjEneRe4Sorcerer__sub_801E3F14(4);
     TObjEneRe4Sorcerer__sub_801E3F18();
@@ -534,8 +534,8 @@ void TLobby::start_duel_battle() {
         obj_clear_flag30_20000((void *)p);
     }
     clear_counter__6TLobbyFPv(this);
-    st = TOKeyMachine01::get_global_state();
-    name = (st == 0x10) ? lbl_80446FF0 : lbl_80446FFC;
+    area = get_current_floor_area();
+    name = (area == AREA_BATTLE1) ? lbl_80446FF0 : lbl_80446FFC;
     obj = __nw__7TObjectFUl(0x40);
     if (obj != NULL) {
         init_with_name__6TLobbyFPvPvPvPv(obj, this, name, 0x2D);

@@ -8,7 +8,6 @@
 #include "pso/TObjItemOKWindow.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TLobby_801F2D2C.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/quest/TQuestListVM.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -39,6 +38,7 @@
 #include "pso/misc/TWindowSubComCard_80265410.h"
 #include "pso/unk/text_80131ADC.h"
 #include "pso/unk/text_8026CB5C.h"
+#include "pso/map/FloorArea.h"
 
 #pragma readonly_strings on
 
@@ -732,17 +732,17 @@ void TQuestThread::destroy_quest_obj() {
 void load_area_dialogue_script() {
     s32 bank;
 
-    switch (TOKeyMachine01::get_global_state()) {
-    case 0: if (get_main_phase() == 14) { bank = 0; } else { bank = 1; } break;
-    case 1: case 2: bank = 2; break;
-    case 3: case 4: case 5: bank = 3; break;
-    case 6: case 7: case 13: bank = 4; break;
-    case 8: case 9: case 10: bank = 5; break;
-    case 18: if (get_main_phase() == 14) { bank = 6; } else { bank = 7; } break;
-    case 19: case 20: case 32: bank = 8; break;
-    case 21: case 22: case 33: bank = 9; break;
-    case 23: case 24: case 25: case 26: case 27: case 30: bank = 10; break;
-    case 28: case 29: case 31: bank = 11; break;
+    switch (get_current_floor_area()) {
+    case AREA_PIONEER2_EP1: if (get_main_phase() == 14) { bank = 0; } else { bank = 1; } break;
+    case AREA_FOREST1: case AREA_FOREST2: bank = 2; break;
+    case AREA_CAVE1: case AREA_CAVE2: case AREA_CAVE3: bank = 3; break;
+    case AREA_MINE1: case AREA_MINE2: case AREA_VOL_OPT: bank = 4; break;
+    case AREA_RUINS1: case AREA_RUINS2: case AREA_RUINS3: bank = 5; break;
+    case AREA_PIONEER2_EP2: if (get_main_phase() == 14) { bank = 6; } else { bank = 7; } break;
+    case AREA_VR_TEMPLE_ALPHA: case AREA_VR_TEMPLE_BETA: case AREA_BARBA_RAY: bank = 8; break;
+    case AREA_VR_SPACESHIP_ALPHA: case AREA_VR_SPACESHIP_BETA: case AREA_GOL_DRAGON: bank = 9; break;
+    case AREA_CENTRAL_CONTROL_AREA: case AREA_JUNGLE_NORTH: case AREA_JUNGLE_EAST: case AREA_MOUNTAIN: case AREA_SEASIDE: case AREA_GAL_GRYPHON: bank = 10; break;
+    case AREA_SEABED_UPPER: case AREA_SEABED_LOWER: case AREA_OLGA_FLOW: bank = 11; break;
     default: return;
     }
     if (enable_v2_features == 1 && game_difficulty_selection == 3) {

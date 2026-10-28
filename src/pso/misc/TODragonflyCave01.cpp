@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TODragonfly.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODragonflyCave01.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/map/FloorArea.h"
 
 extern char lbl_80441100[];
 extern char lbl_80441110[];
@@ -63,7 +63,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void TODragonflyCave01::load_resources() {
     void *o;
 
-    switch (TOKeyMachine01::get_global_state()) {
+    switch (get_current_floor_area()) {
     default:
         o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
@@ -71,9 +71,9 @@ void TODragonflyCave01::load_resources() {
         }
         TODragonflyCave01__static_model_resource = (u32)o;
         break;
-    case 0x10:
-    case 0x15:
-    case 0x16:
+    case AREA_BATTLE1:
+    case AREA_VR_SPACESHIP_ALPHA:
+    case AREA_VR_SPACESHIP_BETA:
         o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODragonflyCave01__resource_descriptor, 0, 0, 0);

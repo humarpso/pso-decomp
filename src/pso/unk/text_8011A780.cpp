@@ -3,11 +3,11 @@
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLobby_80105A2C.h"
 #include "pso/unk/text_8011A780.h"
+#include "pso/map/FloorArea.h"
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
 #include "pso/item/TItemData.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 struct Stack_8011AED8 {
     s8 sp8;
@@ -96,7 +96,7 @@ u32 build_item_id(u16 arg0) {
 
 void TLobby::observe_item_id() {
     int id = (int)this;
-    if (TOKeyMachine01::get_global_state() != 0xf) {
+    if (get_current_floor_area() != AREA_LOBBY) {
         s32 lo = 0x10000;
         if (lo < id && id < 0x2010000) {
             s32 idx = id >> 21;
@@ -271,7 +271,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
 void handle_6x62(void) {  }
 
 u32 advance_item_id_counter(s32 client) {
-    if (TOKeyMachine01::get_global_state() == 0xF)
+    if (get_current_floor_area() == AREA_LOBBY)
         return ((u32*)item_id_counter_table)[(u16)client]++;
     return ((u32*)item_sync_counter_table)[(u16)client]++;
 }

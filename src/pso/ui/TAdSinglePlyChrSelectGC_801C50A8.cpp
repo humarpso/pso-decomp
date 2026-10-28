@@ -2,7 +2,7 @@
 #include "pso/unk/text_801C51D4.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801C50A8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/misc/TOKeyMachine01.h"
+#include "pso/map/FloorArea.h"
 
 extern "C" {
 extern int active_character_save_record;
@@ -39,10 +39,10 @@ void TAdSinglePlyChrSelectGC::destroy() {
 }
 void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&ad_single_ply_chr_select_instance) = 0; }
 s32 TAdSinglePlyChrSelectGC::create_if_key_pressed() {
-    s32 global_state;
+    s32 area;
     u32 var_r0;
-    global_state = TOKeyMachine01::get_global_state();
-    if ((global_state != 0x10) && (global_state != 0x11)) {
+    area = get_current_floor_area();
+    if ((area != AREA_BATTLE1) && (area != AREA_BATTLE2)) {
         return 0;
     }
     if ((u32) ad_single_ply_chr_select_instance != 0U) {

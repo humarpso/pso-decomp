@@ -1,9 +1,9 @@
 #include "pso/packet_classes.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TPlyJoinLobbyEntry.h"
 #include "pso/system/debug_print.h"
 #include <stdio.h>
+#include "pso/map/FloorArea.h"
 
 extern "C" {
 extern PsoCommandHandler pso_command_dispatch_table[];
@@ -40,7 +40,7 @@ void TPsoDataBuf::recv_pso_data_buf(size_t size) {
             if ((u8)command->command == pso_command_dispatch_table[i].command) {
                 sprintf(message, lbl_8044975C, (u8)command->command, (u8)command->size);
                 debug_print(message);
-                if (pso_command_dispatch_table[i].area_mask & subcommand_area_masks[TOKeyMachine01::get_global_state()]) {
+                if (pso_command_dispatch_table[i].area_mask & subcommand_area_masks[get_current_floor_area()]) {
                     pso_command_dispatch_table[i].handle(command);
                 }
                 break;

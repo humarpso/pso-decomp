@@ -7199,7 +7199,7 @@ pso/unk/text_802033DC.cpp:
 pso/unk/text_80203418.cpp:
 	.text       start:0x80203418 end:0x802034A8
 
-pso/misc/TOKeyMachine01.cpp:
+pso/map/FloorArea.cpp:
 	.text       start:0x802034A8 end:0x802034B0
 
 pso/unk/text_802034B0.cpp:

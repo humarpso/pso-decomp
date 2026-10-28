@@ -1,10 +1,10 @@
 #include "pso/object/ObjectFactoryTables.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/map/FloorArea.h"
 
 #include "types.h"
 #include "pso/TSetManager.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -181,7 +181,7 @@ void spawn_decorations_in_range(void *arg0) {
     Rec_8020D5AC *p;
     s32 i;
     u8 *obj;
-    tbl = floor_object_factory_tables[TOKeyMachine01::get_global_state()];
+    tbl = floor_object_factory_tables[get_current_floor_area()];
     if (tbl == NULL) {
         return;
     }

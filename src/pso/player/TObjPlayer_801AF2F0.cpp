@@ -50,6 +50,7 @@
 #include "pso/misc/TWindowActionPalette.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
+#include "pso/map/FloorArea.h"
 
 #define M0(x) virtual void m##x();
 struct Base_801AF2F0 { char pad[0x18]; };
@@ -2967,17 +2968,17 @@ s8 TObjPlayer__sub_801AFDBC(s8 arg0) {
 }
 
 s32 TObjPlayer::check_technique_castable(s32 arg0) {
-    s32 global_state;
+    s32 area;
 
     if ((((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0) || (is_camera_mode_active__10TObjPlayerFv() != 0) || (is_boss_area() != 0)) {
         ((TObjPlayer *)arg0)->check_technique_flag();
         return 0;
     }
-    global_state = TOKeyMachine01::get_global_state();
-    switch (global_state) {
-    case 0:
-    case 15:
-    case 18:
+    area = get_current_floor_area();
+    switch (area) {
+    case AREA_PIONEER2_EP1:
+    case AREA_LOBBY:
+    case AREA_PIONEER2_EP2:
         ((TObjPlayer *)arg0)->check_technique_flag();
         return 0;
     default:
@@ -2987,12 +2988,12 @@ s32 TObjPlayer::check_technique_castable(s32 arg0) {
 }
 
 u8 is_key_machine_ready__10TObjPlayerFv(void) {
-    s32 global_state;
+    s32 area;
     s32 var_r0;
 
-    global_state = TOKeyMachine01::get_global_state();
+    area = get_current_floor_area();
     var_r0 = 0;
-    if ((global_state == 0) || (global_state == 0x12)) {
+    if ((area == AREA_PIONEER2_EP1) || (area == AREA_PIONEER2_EP2)) {
         var_r0 = 1;
     }
     return (u8) var_r0;
@@ -3003,7 +3004,7 @@ u8 is_volopt_phase_final__10TObjPlayerFv(void) {
 }
 
 u8 is_lobby_floor_15__15TFontSmallLobbyFv(void) {
-    return (u8) (TOKeyMachine01::get_global_state() == 0xF);
+    return (u8) (get_current_floor_area() == AREA_LOBBY);
 }
 
 u8 is_on_current_floor__10TObjPlayerFi(s32 arg0) {
@@ -3022,7 +3023,7 @@ void TObjPlayer::sync_current_area() {
     *(s32 *)((s8 *)((u8 *)this) + 0x3E0) = TObjPlayer::get_key_machine_global_state(this);
 }
 
-int TObjPlayer::get_key_machine_global_state(void* p) { return ((int)TOKeyMachine01::get_global_state()); }
+int TObjPlayer::get_key_machine_global_state(void* p) { return ((int)get_current_floor_area()); }
 
 s32 TObjPlayer__sub_801AFFD0(u8 *arg0) {
     f32 v;
@@ -5955,7 +5956,7 @@ void TObjPlayer::update_status_effects() {
   {
     if (set_flag_02000000__10TObjPlayerFv((void *) arg0) == 0)
     {
-      TOKeyMachine01::get_global_state();
+      get_current_floor_area();
       *((s16 *) (((s8 *) arg0) + 0x28)) = TScene::get_player_ctrl_field(((u16 (*)(void *))obj_getField1c)(arg0));
     }
   }

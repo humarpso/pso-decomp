@@ -2,7 +2,7 @@
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TOKeyMachine01.h"
+#include "pso/map/FloorArea.h"
 extern "C" {
 s32 get_player_by_client_id(s32);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
@@ -71,7 +71,7 @@ void TObjDeadListWin::refresh_names() {
         }
     }
     me = (u8*)get_player_by_client_id(local_client_id);
-    if ((TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0x12)
+    if ((get_current_floor_area() == AREA_PIONEER2_EP1 || get_current_floor_area() == AREA_PIONEER2_EP2)
         && TWindowCtrlMain__sub_8024CE58() != 0 && me != NULL
         && obj_testFlags30__13TUnk_804AF8A0FUl((s32)me, 0x02000000) == 0) {
         build_dead_list_window();

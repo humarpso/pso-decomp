@@ -10,8 +10,8 @@
 #include "pso/TAdRicoRing.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemData.h"
-#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOTrapAncient02.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80101088_lbl_8050BEC0 {
     s32 value;
@@ -211,7 +211,7 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
 }
 void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
-    if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
+    if (((u32) this->m_f0 != 0U) && (get_current_floor_area() != AREA_LOBBY) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
         TObjPlayer__sub_80102D84((u8 *)&stack.sp8);
         stack.spC = this->get_field_d8();
         stack.sp10 = arg1;
@@ -220,7 +220,7 @@ void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
 }
 void handle_6x61_activate_mag_effect(TObjPlayer *player) {
     struct VObj_80101350_80100E00 *obj;
-    if (TOKeyMachine01::get_global_state() != 0xF) {
+    if (get_current_floor_area() != AREA_LOBBY) {
         player->swap_6x61_fields();
         obj = (VObj_80101350_80100E00 *)find_item_by_id(*(s32 *)((s8 *)player + 4));
         if ((obj != NULL) && ((u32) *(u32 *)((s8 *)obj + 0xF0) != 0U)) {

@@ -1333,7 +1333,7 @@ pso/misc/TOKeyCave01.cpp
 pso/misc/TOKeyCol.cpp
 pso/misc/TOKeyGenericSw.cpp
 pso/misc/TOKeyJungleMain.cpp
-pso/misc/TOKeyMachine01.cpp
+pso/map/FloorArea.cpp
 pso/misc/TOKeyMachine01_8016D448.cpp
 pso/misc/TOKeyMachine01_8029E764.cpp
 pso/misc/TOKey_8015845C.cpp
