@@ -11659,11 +11659,11 @@ pso/misc/TWindowDD_803411E8.cpp:
 	.text       start:0x803411E8 end:0x80341334
 
 pso/misc/TWindowDD_80341334.cpp:
-	.text       start:0x80341334 end:0x80341A08
+	.text       start:0x80341334 end:0x80341500
 	.ctors      start:0x80434008 end:0x8043400C
 
 pso/misc/TWindowDD_80341A08.cpp:
-	.text       start:0x80341A08 end:0x80342254
+	.text       start:0x80341500 end:0x80342254
 	.rodata     start:0x80478610 end:0x80478618
 
 pso/misc/TWindowDD_80342254.cpp:
