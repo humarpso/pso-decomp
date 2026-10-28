@@ -401,7 +401,6 @@ void init__6TLobbyFPv(void *arg0);
 void TLobby__sub_8020BB18(void);
 void TLobby__sub_8020BCE4(void);
 void clear_trap_counts(s8 *arg0);
-s32 destroy_children_with_tag(s32);
 
 s32 set_flag_270__6TLobbyFPv();
 s32 set_type__10TObjPlayerFl(s32, s32);
@@ -507,7 +506,7 @@ void init__6TLobbyFPv(void *arg0) {
     }
     TOMineTrap::destroy_matching_traps();
     queue_destroy_event_descendants((TObject*)tl_01);
-    destroy_children_with_tag(tl_00);
+    TQuestThread::destroy_all_in((TObject *)tl_00);
     TLobby__sub_8020BCE4();
     TAdSinglePlyChrSelectGC::destroy();
     TLobby__sub_8020BB18();

@@ -7,6 +7,7 @@
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/quest/TQuestThread.h"
 
 struct Base_803107D0_8031058C { char pad[0x18]; };
 struct VObj_803107D0_8031058C : Base_803107D0_8031058C {
@@ -188,7 +189,6 @@ void TLobby__sub_8020BB18(void);
 void TLobby__sub_8020BCE4(void);
 void end_player_keyboard_hold(s32 arg0);
 void clear_trap_counts(s8 *arg0);
-s32 destroy_children_with_tag(s32);
 
 void begin_player_keyboard_hold(s32 arg0);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(u32, s32);
@@ -823,7 +823,7 @@ void TPlayerBattleCtrl4P::update() {
         var_r31 += 1;
     } while (var_r31 < 4);
     queue_destroy_event_descendants((TObject*)tl_01);
-    destroy_children_with_tag(tl_00);
+    TQuestThread::destroy_all_in((TObject *)tl_00);
     TLobby__sub_8020BCE4();
     TLobby__sub_8020BB18();
     var_r31_2 = 0;

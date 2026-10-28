@@ -1864,7 +1864,6 @@ extern "C" {
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 int create__16TObjItemOKWindowFPv(void*);
 int create__18TObjItemNameSelectFPv(void*);
-s32 destroy_children_with_tag(TObject *);
 }
 extern "C" {
 s32 get_character_save_record(u32);
@@ -3390,7 +3389,7 @@ void qst_op_reset_map(void) {
     if ((u32) quest_mission_manager != 0U) {
         TQuestThread::clear_buffer((void *)quest_mission_manager);
     }
-    destroy_children_with_tag(tl_00);
+    TQuestThread::destroy_all_in((TObject *)tl_00);
     TLobby::init_sub_objects();
     TLobby::reset_id_tables();
     clear_floor_event_flags();

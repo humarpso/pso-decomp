@@ -15,6 +15,8 @@ public:
     virtual ~TObjItemOKWindow();
 public:
     static void *create(void *arg0);
+    s32 get_result();
+    s32 is_done();
 };
 
 #endif

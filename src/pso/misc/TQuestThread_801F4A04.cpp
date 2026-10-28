@@ -1,26 +1,21 @@
 #include "types.h"
+#include "pso/TObjItemOKWindow.h"
 #include "pso/misc/TWindowMenu.h"
-#include "pso/quest/TQuestThread.h"
-#include "pso/misc/TWindowSubComCard.h"
 
-extern "C" {
+extern "C" s32 get_selected_menu_value(void *);
 
-s32 get_selected_menu_value(void *);
-
-s32 TQuestThread::tick_com_card() {
-    void *temp_r3 = *(void **)((s8 *)this + 0x60);
-    if (temp_r3 != NULL) {
-        return get_selected_menu_value(temp_r3);
+s32 TObjItemOKWindow::get_result() {
+    void *menu = m_60;
+    if (menu != NULL) {
+        return get_selected_menu_value(menu);
     }
     return -1;
 }
 
-s32 TQuestThread::update_board_card() {
-    void *window_menu = *(void **)((s8 *)this + 0x60);
-    if (window_menu != NULL) {
-        return ((TWindowMenu *)window_menu)->is_visible();
+s32 TObjItemOKWindow::is_done() {
+    void *menu = m_60;
+    if (menu != NULL) {
+        return ((TWindowMenu *)menu)->is_visible();
     }
     return 0;
-}
-
 }
