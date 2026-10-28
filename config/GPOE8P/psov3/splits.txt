@@ -11323,6 +11323,7 @@ pso/ui/TAdEnterSerialAccessGC_8032AD30.cpp:
 
 pso/unk/text_8032B318.cpp:
 	.text       start:0x8032B318 end:0x8032B38C
+	.rodata     start:0x80477270 end:0x80477278
 
 pso/ui/TAdEnterBaseGC_8032B38C.cpp:
 	.text       start:0x8032B38C end:0x8032B58C
