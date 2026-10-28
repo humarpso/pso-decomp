@@ -2538,51 +2538,50 @@ void TBoss8Dragon::calc_product_and_ratio(void *arg1, s32 arg2) {
 }
 #pragma pop
 
-void dispatch_state_event__13TBoss5GryphonFPvii(TBoss5Gryphon *self, void *state, int event) {
-    typedef void (TBoss5Gryphon::*StateAction)(int);
-    static StateAction actions[35] = {
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063714,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8006369C,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063570,
-        (StateAction)&TBoss5Gryphon::update_active_player_count__19TPlayerBattleCtrl4PFPvi,
-        (StateAction)&TBoss5Gryphon::TBoss3Volopt__sub_800627E4,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062BA0,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063320,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063088,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062660,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062550,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800623E4,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062E94,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062114,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062018,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80061D34,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80061B8C,
-        (StateAction)&TBoss5Gryphon::update_dive_motion__12TBoss8DragonFPvi,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800615FC,
-        (StateAction)&TBoss5Gryphon::handle_descend_state__13TBoss5GryphonFPvi,
-        (StateAction)&TBoss5Gryphon::handle_takeoff_state__13TBoss5GryphonFPvi,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800610D0,
-        (StateAction)&TBoss5Gryphon::state_move__13TBoss5GryphonFPvi,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060D9C,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060CA4,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060BF8,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060B18,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060A58,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8006084C,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060788,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800605E8,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060020,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8005FEF8,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8005FE18,
-        (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8005FD34,
-        (StateAction)&TBoss5Gryphon::handle_message__13TBoss5GryphonFPvi,
-    };
-    StateAction *action = actions + (s32)state;
-
-    if (*action != NULL) {
-        (self->**action)(event);
-    }
+typedef void (TBoss5Gryphon::*StateAction)(int);
+#pragma push
+#pragma inline on
+static inline StateAction *dispatch_state_actions() {
+static StateAction actions[35] = {
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063714,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8006369C,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063570,
+    (StateAction)&TBoss5Gryphon::update_active_player_count__19TPlayerBattleCtrl4PFPvi,
+    (StateAction)&TBoss5Gryphon::TBoss3Volopt__sub_800627E4,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062BA0,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063320,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80063088,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062660,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062550,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800623E4,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062E94,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062114,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80062018,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80061D34,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80061B8C,
+    (StateAction)&TBoss5Gryphon::update_dive_motion__12TBoss8DragonFPvi,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800615FC,
+    (StateAction)&TBoss5Gryphon::handle_descend_state__13TBoss5GryphonFPvi,
+    (StateAction)&TBoss5Gryphon::handle_takeoff_state__13TBoss5GryphonFPvi,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800610D0,
+    (StateAction)&TBoss5Gryphon::state_move__13TBoss5GryphonFPvi,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060D9C,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060CA4,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060BF8,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060B18,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060A58,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8006084C,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060788,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_800605E8,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_80060020,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8005FEF8,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8005FE18,
+    (StateAction)&TBoss5Gryphon::TBoss8Dragon__sub_8005FD34,
+    (StateAction)&TBoss5Gryphon::handle_message__13TBoss5GryphonFPvi,
+};
+    return actions;
 }
+#pragma pop
 
 void *lbl_8048802C[16] = {
     (void *)0x0, (void *)0x42860000, (void *)0x0, (void *)0x0,
@@ -4994,6 +4993,16 @@ void TBoss5Gryphon::TBoss8Dragon__sub_8006369C(u32 arg1) {
 }
 
 void TBoss5Gryphon::TBoss8Dragon__sub_80063714() {  }
+
+
+void dispatch_state_event__13TBoss5GryphonFPvii(TBoss5Gryphon *self, void *state, int event) {
+    StateAction *actions = dispatch_state_actions();
+    StateAction *action = actions + (s32)state;
+
+    if (*action != NULL) {
+        (self->**action)(event);
+    }
+}
 #pragma pop
 
 
