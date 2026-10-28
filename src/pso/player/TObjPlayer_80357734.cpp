@@ -92,6 +92,7 @@ typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_8
 
 #include <stddef.h>
 #include "pso/misc/TNowLoading.h"
+#include "pso/map/FloorArea.h"
 struct Stack_80358048 {
     s32 sp8;
     s32 spC;
@@ -215,7 +216,6 @@ extern s32 tl_05;
 u16 obj_getField1c(void *);
 int get_item_field_6__10TObjPlayerFPv(void *p);
 u8 get_field_ec__5TItemFv();
-s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
@@ -820,7 +820,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 (*temp_r12)(s32, u32, s32, s32);
     s32 temp_r3;
     u8 temp_r3_2;
-    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *)arg0) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)arg0), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
+    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *)arg0) < 0xC) && (is_current_area_item_enabled() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)arg0), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
         if (((TItemWeapon *)temp_r3)->test_flags_1b8(0x400020) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)arg0, (void *)arg1, (void *)arg2, (s32)arg3);
             return;

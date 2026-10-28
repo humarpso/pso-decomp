@@ -4,6 +4,7 @@
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_80186AF4_lbl_804FF800 {
     s32 value;
@@ -28,7 +29,6 @@ s32 update_warp_flags_from_story__16TObjCityMainWarpFv();
 s32 init_visible_mask__16TObjCityMainWarpFv();
 }
 extern const Bits_80186A3C city_main_warp_floor_bit_table;
-s32 is_warp_excluded_area(s32);
 s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__enabled_destinations;
 extern s32 TObjCityMainWarp__visible_destination_mask;

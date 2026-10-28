@@ -7193,20 +7193,8 @@ pso/unk/text_802032AC.cpp:
 pso/misc/TScene_80203304.cpp:
 	.text       start:0x80203304 end:0x802033DC
 
-pso/unk/text_802033DC.cpp:
-	.text       start:0x802033DC end:0x80203418
-
-pso/unk/text_80203418.cpp:
-	.text       start:0x80203418 end:0x802034A8
-
 pso/map/FloorArea.cpp:
-	.text       start:0x802034A8 end:0x802034B0
-
-pso/unk/text_802034B0.cpp:
-	.text       start:0x802034B0 end:0x802034EC
-
-pso/player/TObjPlayer_802034EC.cpp:
-	.text       start:0x802034EC end:0x80203510
+	.text       start:0x802033DC end:0x80203510
 
 pso/misc/TScene_80203510.cpp:
 	.text       start:0x80203510 end:0x80205A54
@@ -9585,7 +9573,7 @@ pso/object/TObjFish.cpp:
 	.rodata     start:0x80465A40 end:0x80465E08
 	.data       start:0x804DC640 end:0x804DC7B4
 
-pso/misc/TOKeyMachine01_8029E764.cpp:
+pso/map/FloorArea_8029E764.cpp:
 	.text       start:0x8029E764 end:0x8029E7BC
 
 pso/unk/text_8029E7BC.cpp:

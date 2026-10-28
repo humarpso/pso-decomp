@@ -18,6 +18,7 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/quest/TQuestThread.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_801A3540_lbl_804C1F68 {
     s32 value;
@@ -163,7 +164,6 @@ s32 TObjPlayer__sub_801B1C8C();
 s32 set_copy_clear_color_argb(s32, s32, s32);
 s32 TLobby__sub_801F3774();
 s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv();
-s32 set_current_floor_area(s32);
 }
 void clear_resource_load_tasks(void);
 void run_single_view_frame(void);

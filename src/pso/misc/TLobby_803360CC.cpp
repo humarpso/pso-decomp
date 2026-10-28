@@ -8,7 +8,7 @@
 struct TCameraCtrl;
 #include "pso/player/TObjPlayer_8023E480.h"
 
-#include "pso/unk/text_80203418.h"
+#include "pso/map/FloorArea.h"
 #include "pso/unk/text_802A1144.h"
 
 #include "pso/unk/TUnk_804EEF80.h"

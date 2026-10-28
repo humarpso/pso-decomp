@@ -191,7 +191,6 @@ s32 get_mag_feed_result(s32 arg0, s32 arg1);
 void assign_default_photon_blast_palette_slots(u8 *arg0);
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
 extern "C" {
-s32 is_boss_area();
 s32 play_sound_effect(int, int, int, int);
 void create__10TTecDebandFlll(void *, void *, int);
 s32 is_challenge_mode_active();
@@ -1514,7 +1513,6 @@ s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void TItemMag__vt25(Self_801134CC *self);
-s32 reset_key_machine_state__10TObjPlayerFv();
 void TItemMag__vt14(Self_80113310 *self);
 void TObjPlayer__sub_80364198();
 void TObjPlayer__sub_8036414C();
@@ -1557,7 +1555,7 @@ void TItemMag__vt14(Self_80113310 *self) {
     }
     events = ((TItemMag *)self)->collect_support_events();
     if (((TItemMag *)self)->get_status_flag() != 0) {
-        if (reset_key_machine_state__10TObjPlayerFv() != 0) {
+        if (is_current_area_item_enabled() != 0) {
             ((TItemMag *)self)->feed_by_item_flags(events);
             ((void (*)(void *))TItemMag__sub_8011271C)(self);
         } else {

@@ -19,6 +19,7 @@
 #include "pso/object/TObjDoor.h"
 #include "pso/ui/TAdDialingGC.h"
 #include "pso/quest/TQuestThread.h"
+#include "pso/map/FloorArea.h"
 
 struct RecoveredGlobal_801A4820_main_task { s32 value; u8 remaining[0x30]; };
 typedef char RecoveredGlobal_801A4820_main_task_size[sizeof(RecoveredGlobal_801A4820_main_task) == 0x34 ? 1 : -1];
@@ -177,7 +178,6 @@ s32 set_copy_clear_color_argb(int, int, int);
 s32 TGameProtocol__ct(void *, void *);
 s32 TLobby__sub_801F3774();
 int init__23TAdSinglePlyChrSelectGCFv(void);
-s32 set_current_floor_area(int);
 s32 TLobby__sub_80207F10();
 s32 TLobby__sub_8020A6B0(int);
 s32 TAdDialingGC__sub_80328730();

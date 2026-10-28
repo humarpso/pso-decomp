@@ -42,6 +42,11 @@ enum floor_area {
     AREA_TOWER                = 0x23,
 };
 
+s32 is_warp_excluded_area(s32 area);
+s32 is_boss_area();
+void set_current_floor_area(s32 floor);
 floor_area get_current_floor_area();
+s32 is_current_area_item_enabled();
+s32 is_central_control_area();
 
 #endif

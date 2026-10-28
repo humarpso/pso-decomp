@@ -477,7 +477,6 @@ s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void run_area_scene_cleanup(u8 *arg0);
 void promote_area_floor(u8 *arg0);
-void set_current_floor_area(s32 arg0);
 void load_area_scene_and_init(u8 *arg0);
 s32 TLobby__sub_802401C8(void *);
 s32 update_sound_frame(void *);

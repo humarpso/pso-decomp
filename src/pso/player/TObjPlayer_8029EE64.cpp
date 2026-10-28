@@ -60,7 +60,6 @@ int set_instance__6TSceneFi(void *f);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 fabs_float(f32);
 void *get_player_by_client_id(s32 i);
-s32 is_boss_area();
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 s32 fn_8029EC3C(Vec_8029EFFC *, s32);
 void TScene__sub_8029F5D8();

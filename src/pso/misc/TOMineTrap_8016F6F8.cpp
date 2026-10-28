@@ -19,8 +19,6 @@ extern u8 lobby_rule_settings[];
 u16 obj_getField1c(void *);
 u8 *TOMineTrap__ct(u8 *, u8 *, s32, s32);
 void *get_player_by_client_id(s32 i);
-s32 is_boss_area();
-s32 reset_key_machine_state__10TObjPlayerFv();
 void *__nw__7TObjectFUl(u32);
 extern s32 enable_v2_features;
 s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2);
@@ -222,7 +220,7 @@ s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2) {
         arg1 < 0 || arg1 >= 4 || arg2 < 0 || arg2 > 0x14) {
         return 0;
     }
-    if (is_boss_area() == 1 || reset_key_machine_state__10TObjPlayerFv() == 0) {
+    if (is_boss_area() == 1 || is_current_area_item_enabled() == 0) {
         return 0;
     }
     obj = __nw__7TObjectFUl(0x384);

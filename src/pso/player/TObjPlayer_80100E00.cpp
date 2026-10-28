@@ -53,7 +53,6 @@ struct Stack_801012DC {
 extern "C" {
 s32 is_flag_20000_set__10TObjPlayerFv(int);
 s32 test_flag_2000000__10TObjPlayerFPv(int);
-s32 reset_key_machine_state__10TObjPlayerFv();
 s32 test_flags_any(s32 *, s32);
 extern s32 lbl_805D53EC;
 extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
@@ -88,7 +87,7 @@ void TItem::update_owner_visibility() {
     u32 temp_r0;
     temp_r0 = this->m_f0;
     if (temp_r0 != 0U) {
-        if ((test_flag_2000000__10TObjPlayerFPv(temp_r0) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv(this->m_f0) == 0)) {
+        if ((test_flag_2000000__10TObjPlayerFPv(temp_r0) == 0) && (is_current_area_item_enabled() == 1) && (is_flag_20000_set__10TObjPlayerFv(this->m_f0) == 0)) {
             ((TItem *)arg0)->sub_80102C68();
             return;
         }

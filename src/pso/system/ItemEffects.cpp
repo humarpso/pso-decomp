@@ -4,11 +4,12 @@
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer_80100CC8.h"
 #include "pso/system/ItemEffects.h"
-#include "pso/unk/text_802034B0.h"
+#include "pso/map/FloorArea.h"
+
+extern "C" s32 is_item_area_enabled(s32 area);
 #include "pso/item/TItem.h"
 #include "pso/item/TUnk_804A2678.h"
 #include "pso/system/TUnk_804A2660.h"
-#include "pso/map/FloorArea.h"
 
 #include "dolphin/mtx.h"
 #include "pso/player/TObjPlayer.h"
