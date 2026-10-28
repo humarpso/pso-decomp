@@ -7195,6 +7195,7 @@ pso/misc/TScene_80203304.cpp:
 
 pso/map/FloorArea.cpp:
 	.text       start:0x802033DC end:0x80203510
+	.sbss       start:0x805D5FC0 end:0x805D5FC8
 
 pso/misc/TScene_80203510.cpp:
 	.text       start:0x80203510 end:0x80205A54

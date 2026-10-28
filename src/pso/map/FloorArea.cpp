@@ -11,8 +11,9 @@ extern "C" s32 is_item_area_enabled(s32 area);
 
 extern s32 boss_area_id_table[];
 extern s32 item_disabled_area_table[];
-extern s32 current_floor_index;
-extern floor_area current_floor_area_type;
+
+s32 current_floor_index;
+floor_area current_floor_area_type;
 
 s32 is_warp_excluded_area(s32 area) {
     s32 i = 0;
