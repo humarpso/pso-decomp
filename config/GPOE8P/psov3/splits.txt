@@ -8831,16 +8831,9 @@ pso/misc/TWindowSubStatusDisp_8026F6DC.cpp:
 pso/misc/TWindowSimpleStatus.cpp:
 	.text       start:0x80270514 end:0x80270748
 
-pso/misc/TWindowSoundBalance_80270748.cpp:
-	.text       start:0x80270748 end:0x802708B8
-	.rodata     start:0x8044F630 end:0x8044F638
-
-pso/misc/TWindowSoundBalance_802708B8.cpp:
-	.text       start:0x802708B8 end:0x80270910
-
 pso/misc/TWindowSoundBalance.cpp:
-	.text       start:0x80270910 end:0x80270F14
-	.rodata     start:0x8044F638 end:0x8044F640
+	.text       start:0x80270748 end:0x80270F14
+	.rodata     start:0x8044F630 end:0x8044F640
 
 pso/misc/TWindowStatus.cpp:
 	.text       start:0x80270F14 end:0x80271400
