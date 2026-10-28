@@ -197,12 +197,13 @@ pso/boss/Boss5GryphonBehavior.cpp
 pso/boss/Boss6Type1Appearance.cpp
 pso/boss/Boss6Type2Appearance.cpp
 pso/boss/Boss6Type2Death.cpp
+pso/boss/TBoss1Dragon.cpp
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
 pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss1DragonEffTail.cpp
-pso/boss/TBoss1Dragon_8002B0CC.cpp
+pso/boss/TBoss1Dragon_8002B108.cpp
 pso/boss/TBoss1Dragon_800BC3C4.cpp
 pso/boss/TBoss2Fin.cpp
 pso/boss/TBoss2Joint.cpp
@@ -308,7 +309,6 @@ pso/boss/TBoss8DragonDemo.cpp
 pso/boss/TBoss8DragonEffBreath.cpp
 pso/boss/TBoss8DragonEffBullet.cpp
 pso/boss/TBoss8DragonEffTail.cpp
-pso/boss/TBoss8Dragon_8002AE38.cpp
 pso/boss/TBoss8Dragon_8005D6F4.cpp
 pso/boss/TBoss8Dragon_8005D700.cpp
 pso/boss/TBoss8Dragon_8005D708.cpp
@@ -474,7 +474,6 @@ pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
 pso/enemy/TObjEneMe1GiGue_802CDB1C.cpp
 pso/enemy/TObjEneMe3ShinowaReal.cpp
-pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp
 pso/enemy/TObjEneMe3SinowZoa.cpp
 pso/enemy/TObjEneMe3SinowZoaReal.cpp
 pso/enemy/TObjEneMe3SinowZoaReal_8031B220.cpp
@@ -497,7 +496,6 @@ pso/enemy/TObjEneMorfosArm_80335218.cpp
 pso/enemy/TObjEneMorfos_80337500.cpp
 pso/enemy/TObjEneNanoDrago.cpp
 pso/enemy/TObjEnePanarmsAtkColli.cpp
-pso/enemy/TObjEnePanarms_8002AE74.cpp
 pso/enemy/TObjEnePanarms_800DFB74.cpp
 pso/enemy/TObjEnePanarms_800F5E90.cpp
 pso/enemy/TObjEneRe2Flower.cpp
@@ -845,7 +843,6 @@ pso/misc/TBGLightningCtrl.cpp
 pso/misc/TBreakUpMdl.cpp
 pso/misc/TButterfly.cpp
 pso/misc/TButterfly_8017F364.cpp
-pso/misc/TCameraCtrl_8002ADD0.cpp
 pso/misc/TCameraCtrl_80067654.cpp
 pso/misc/TCameraCtrl_8006782C.cpp
 pso/misc/TCameraCtrl_80067C88.cpp
@@ -978,8 +975,6 @@ pso/misc/TLoadingCur_801A6DE0.cpp
 pso/misc/TLobby.cpp
 pso/misc/TLobby_80019E24.cpp
 pso/misc/TLobby_8001D6A0.cpp
-pso/misc/TLobby_8002ADC8.cpp
-pso/misc/TLobby_8002B058.cpp
 pso/misc/TLobby_8002C140.cpp
 pso/misc/TLobby_8002C838.cpp
 pso/misc/TLobby_8003A95C.cpp
@@ -2254,7 +2249,6 @@ pso/player/TObjPlayer_80011014.cpp
 pso/player/TObjPlayer_8001BED8.cpp
 pso/player/TObjPlayer_8001BF10.cpp
 pso/player/TObjPlayer_80020898.cpp
-pso/player/TObjPlayer_8002AE7C.cpp
 pso/player/TObjPlayer_8002E784.cpp
 pso/player/TObjPlayer_80036824.cpp
 pso/player/TObjPlayer_8004FA98.cpp
@@ -2844,7 +2838,6 @@ pso/unk/text_80019EB8.cpp
 pso/unk/text_8001A3BC.cpp
 pso/unk/text_8001B424.cpp
 pso/unk/text_8001C388.cpp
-pso/unk/text_8002B094.cpp
 pso/unk/text_8002B164.cpp
 pso/unk/text_8002C190.cpp
 pso/unk/text_8002E090.cpp

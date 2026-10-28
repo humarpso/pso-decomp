@@ -166,38 +166,16 @@ pso/player/TObjPlayer_80020898.cpp:
 	.text       start:0x80020898 end:0x800208B4
 
 pso/boss/TBoss1Dragon.cpp:
-	.text       start:0x800208B4 end:0x8002ADC8
+	.text       start:0x800208B4 end:0x8002B108
+	.ctors      start:0x80433F24 end:0x80433F28
 	.rodata     start:0x80435360 end:0x80435388
 	.data       start:0x80480CE0 end:0x80481B34
-	.sdata2     start:0x805D7F24 end:0x805D8008
+	.bss        start:0x804FE168 end:0x804FE1E8
+	.sbss       start:0x805D4AF0 end:0x805D4B44
+	.sdata2     start:0x805D7F18 end:0x805D8008
 
-pso/misc/TLobby_8002ADC8.cpp:
-	.text       start:0x8002ADC8 end:0x8002ADD0
-
-pso/misc/TCameraCtrl_8002ADD0.cpp:
-	.text       start:0x8002ADD0 end:0x8002ADD8
-
-pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp:
-	.text       start:0x8002ADD8 end:0x8002AE38
-
-pso/boss/TBoss8Dragon_8002AE38.cpp:
-	.text       start:0x8002AE38 end:0x8002AE74
-
-pso/enemy/TObjEnePanarms_8002AE74.cpp:
-	.text       start:0x8002AE74 end:0x8002AE7C
-
-pso/player/TObjPlayer_8002AE7C.cpp:
-	.text       start:0x8002AE7C end:0x8002B058
-
-pso/misc/TLobby_8002B058.cpp:
-	.text       start:0x8002B058 end:0x8002B094
-
-pso/unk/text_8002B094.cpp:
-	.text       start:0x8002B094 end:0x8002B0CC
-
-pso/boss/TBoss1Dragon_8002B0CC.cpp:
-	.text       start:0x8002B0CC end:0x8002B164
-	.ctors      start:0x80433F24 end:0x80433F28
+pso/boss/TBoss1Dragon_8002B108.cpp:
+	.text       start:0x8002B108 end:0x8002B164
 
 pso/unk/text_8002B164.cpp:
 	.text       start:0x8002B164 end:0x8002B1C0
