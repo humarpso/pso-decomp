@@ -1,8 +1,13 @@
 #include "types.h"
+#include <string.h>
+#include "pso/TMainTask.h"
 #include "pso/TObject.h"
+#include "pso/TProtocol.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TObjItemNameSelect.h"
 #include "pso/TObjItemOKWindow.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TLobby_801F2D2C.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/quest/TQuestListVM.h"
@@ -10,7 +15,9 @@
 #include "pso/misc/TScene.h"
 #include "pso/misc/TUnk_804C8678.h"
 #include "pso/misc/TUnk_804D0618.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowCtrl_8024B1A0.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -19,7 +26,19 @@
 #include "pso/quest/QuestVm.h"
 #include "pso/quest/TQuestThread.h"
 #include "pso/ui/Language.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "stdio.h"
+#include "pso/misc/TOBoss4Rock.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/player/TObjPlayer_80011014.h"
+#include "pso/unk/text_800F8A18.h"
+#include "pso/item/TItemData_8010EDA8.h"
+#include "pso/player/TObjPlayer_801AF2F0.h"
+#include "pso/unk/text_8024AB98.h"
+#include "pso/misc/TWindowSubComCard_80265410.h"
+#include "pso/unk/text_80131ADC.h"
+#include "pso/unk/text_8026CB5C.h"
 
 #pragma readonly_strings on
 
@@ -30,50 +49,22 @@ struct ByteBlock_20 { u8 bytes[0x20]; };
 struct ByteBlock_100 { u8 bytes[0x100]; };
 
 extern "C" {
-s32 memcpy(s32, s32, s32);
-int memset(void *, void *, void *);
-s32 strcmp(s32, s32 *);
-s32 strncpy(void *, void *, int);
-void mem_free(void *p);
-s32 get_main_phase();
-s32 get_current_floor(void);
-void copy_name(s32 name);
 void read_disc_file(void *, s32);
-s32 get_text_collection(s32 id);
-int queue_destruction__7TObjectFv(void *);
-s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 s32 init_quest_script_context(s32, void *);
-s32 bswap_header__6TLobbyFPv();
-void *get_player_by_client_id(s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
-s32 get_window_id__11TWindowCtrlFv(void);
-void complete_actor_speech_balloons(s32);
-s32 is_actor_speech_balloon_done(s32);
-void TLobby__sub_8024AC20(s32);
 void TWindow__close(void *);
 void *get_window_layout_position(s32);
-void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
-int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-void send_and_handle__6TLobbyFii(void *, void *, s32);
 void *update_window_mode_from_progress__6TLobbyFPv(void *, WindowPos *);
-void TWindowSubComCard__sub_80265500(u8 *);
 s32 align_menu_entry_positions(u32);
 s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 void TWindowHelpItem__set_displayed_item_by_id(void *, s32);
 u32 TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
-void fn_80131ADC(u8 *, u8 *);
-void fn_80131B18(u8 *, u8 *);
-char *fn_8026CB5C(void);
 void TQuestThread__sub_801F5D88(void);
 void fn_801F6520(void *p);
-u32 __nw__7TObjectFUl(s32);
-int sprintf(char *, const char *, ...);
-u8 *init_shop_judgment_window(void *);
-s32 *TObjItemOKWindow__sub_801F3268(void);
 void __dt__16TObjItemOKWindowFv();
 void __dt__18TObjItemNameSelectFv();
 void __dt__17TObjItemNameEntryFv();
@@ -87,11 +78,7 @@ void render_shadows__7TObjectFv();
 
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
-extern s32 enable_v2_features;
 extern s32 evt2_random_enemies_mode;
-extern s32 tl_00;
-extern s32 tl_04;
-extern s32 tl_su;
 extern u8 controller_input_state[];
 extern int TQuestListVM__decompression_capacity;
 extern int quest_bin_decompressed_size;
@@ -190,7 +177,7 @@ TObjItemOKWindow::TObjItemOKWindow(TObject *parent) : TObject(parent) {
     pos.y = 80.0f;
     m_64 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
     if (m_64 != NULL) {
-        send_and_handle__6TLobbyFii(m_64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
+        ((TLobby *)m_64)->send_and_handle(TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
     }
 }
 
@@ -243,12 +230,12 @@ TObjItemNameSelect::TObjItemNameSelect(TObject *parent) : TObject(parent) {
     pos.y = 80.0f;
     m_20 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
     if (m_20 != NULL) {
-        send_and_handle__6TLobbyFii(m_20, TQuestVmDownLoadServer__sub_8006EF6C(0x46), 0x81);
+        ((TLobby *)m_20)->send_and_handle(TQuestVmDownLoadServer__sub_8006EF6C(0x46), 0x81);
     }
 }
 
 void TObjItemNameEntry::set_entered_name(const char *name) {
-    strncpy(entered_item_name, (void *)name, 8);
+    strncpy(entered_item_name, name, 8);
     entered_item_name[8] = 0;
 }
 
@@ -257,7 +244,7 @@ s32 TObjItemNameEntry::process_keyboard_input() {
 
     if (m_1c != NULL && ((TWindowSubComCard *)m_1c)->update_keyboard() != 0) {
         text = ((TWindowSubComCard *)m_1c)->realloc_buffer();
-        if (strcmp(text, (s32 *)"") == 0) {
+        if (strcmp((const char *)text, "") == 0) {
             mem_free((void *)text);
             free_menu_object(m_1c);
             return 0;
@@ -287,7 +274,7 @@ TObjItemNameEntry::TObjItemNameEntry(TObject *parent) : TObject(parent) {
     u32 keyboard;
 
     m_name = TObjItemNameEntry__class_name;
-    if ((keyboard = __nw__7TObjectFUl(0x2C)) != 0U) {
+    if ((keyboard = (u32)TObject::operator new(0x2C)) != 0U) {
         keyboard = TKeyBoardControl__ct((void *)keyboard, this, 8, 0, 1, local_client_id);
     }
     m_1c = (void *)keyboard;
@@ -298,7 +285,7 @@ TObjItemNameEntry::TObjItemNameEntry(TObject *parent) : TObject(parent) {
     }
     m_20 = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x56), 1);
     if (m_20 != NULL) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(m_20, (int)TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(m_20, TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }
     ((TWindowSubComCardList *)m_20)->set_scroll_target(442.0f, 64.0f);
     align_menu_entry_positions((u32)m_20);
@@ -310,7 +297,7 @@ TQuestThreadBoard *TQuestThreadBoard::create_instance(int label) {
 
     if (quest_mission_manager != NULL) {
         board = new TQuestThreadBoard(quest_mission_manager, label);
-        board->set_parent((TObject *)tl_00);
+        board->set_parent(tl_00);
         return board;
     }
     return NULL;
@@ -334,7 +321,7 @@ void TQuestThreadBoard::run_task() {
         void *player = get_player_by_client_id(local_client_id);
         if (player != NULL && check_flag_100__10TObjPlayerFPv(player) == 0 &&
             TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
-            s32 id = get_window_id__11TWindowCtrlFv();
+            u16 id = TWindowCtrl::get_window_id();
             if (is_actor_speech_balloon_done(id) == 0) {
                 complete_actor_speech_balloons(id);
             } else {
@@ -498,7 +485,7 @@ void TQuestThread::destroy_all_in(TObject *parent) {
     while (parent->m_down != NULL && child != NULL) {
         TObject *cur = child;
         child = child->m_next;
-        if (check_value_equals__13TUnk_804B6C24Fl(cur, (s32)TQuestThread__class_name) != 0) {
+        if (((TUnk_804B6C24 *)cur)->check_value_equals((s32)TQuestThread__class_name) != 0) {
             queue_destruction__7TObjectFv(cur);
         } else {
             destroy_all_in(cur);
@@ -524,7 +511,7 @@ void TQuestThread::run_task() {
         void *player = get_player_by_client_id(local_client_id);
         if (player != NULL && check_flag_100__10TObjPlayerFPv(player) == 0 &&
             TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
-            s32 id = get_window_id__11TWindowCtrlFv();
+            u16 id = TWindowCtrl::get_window_id();
             if (is_actor_speech_balloon_done(id) == 0) {
                 complete_actor_speech_balloons(id);
             } else {
@@ -628,7 +615,7 @@ TQuestThread *TQuestThread::create(int label) {
     if (quest_mission_manager != NULL) {
         thread = new TQuestThread(quest_mission_manager, label);
         if (thread != NULL) {
-            thread->set_parent((TObject *)tl_00);
+            thread->set_parent(tl_00);
             return thread;
         }
         return NULL;
@@ -678,7 +665,7 @@ void TQuestThread::clear_all_floor_handlers() {
 
 void TQuestThread::clear_buffer(void *root) {
     if (((TUnk_804C8678 *)root)->ctx.registers != NULL) {
-        memset(((TUnk_804C8678 *)root)->ctx.registers, (void *)0, (void *)1024);
+        memset(((TUnk_804C8678 *)root)->ctx.registers, 0, 1024);
     }
 }
 
@@ -686,7 +673,7 @@ void handle_6x77_sync_quest_register(u8 *packet) {
     TUnk_804C8678 *root;
     s32 *registers;
     u16 index;
-    bswap_header__6TLobbyFPv();
+    bswap_header__6TLobbyFPv(packet);
     root = quest_mission_manager;
     if (root != NULL) {
         index = *(u16 *)(packet + 4);
@@ -713,7 +700,7 @@ const char *TObjItemOKWindow__class_name = "TObjItemOKWindow";
 __declspec(section ".rodata") extern const char TObjItemOKWindow__text_format[] = "%s %s";
 
 void TQuestThread::clear_thread_state() {
-    memset(quest_board_handlers, (void *)0, (void *)0xD8);
+    memset(quest_board_handlers, 0, 0xD8);
 }
 
 s32 TQuestThread::get_register(void *root, int index) {
@@ -759,27 +746,27 @@ void load_area_dialogue_script() {
     default: return;
     }
     if (enable_v2_features == 1 && game_difficulty_selection == 3) {
-        new TUnk_804C8678((TObject *)tl_04, area_dialogue_ultimate_script_files[current_language][bank], 1);
+        new TUnk_804C8678(tl_04, area_dialogue_ultimate_script_files[current_language][bank], 1);
     } else {
-        new TUnk_804C8678((TObject *)tl_04, area_dialogue_script_files[current_language][bank], 1);
+        new TUnk_804C8678(tl_04, area_dialogue_script_files[current_language][bank], 1);
     }
 }
 
 TUnk_804C8678 *TQuestThread::create_by_mode() {
     switch (evt2_random_enemies_mode) {
     case 1:
-        return new TUnk_804C8678((TObject *)tl_su, get_offline_quest_filename());
+        return new TUnk_804C8678(tl_su, get_offline_quest_filename());
     case 2:
-        return new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListOnline::get_quest_data(), TQuestListOnline::get_quest_size());
+        return new TUnk_804C8678(tl_su, (void *)TQuestListOnline::get_quest_data(), TQuestListOnline::get_quest_size());
     case 3: {
-        TUnk_804C8678 *root = new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListVM::get_instance(), TQuestListVM::get_quest_size());
+        TUnk_804C8678 *root = new TUnk_804C8678(tl_su, (void *)TQuestListVM::get_instance(), TQuestListVM::get_quest_size());
         TQuestListVM::reset();
         return root;
     }
     case 4:
-        return new TUnk_804C8678((TObject *)tl_su, (void *)TQuestListOnline::get_quest_data(), TQuestListOnline::get_quest_size());
+        return new TUnk_804C8678(tl_su, (void *)TQuestListOnline::get_quest_data(), TQuestListOnline::get_quest_size());
     case 5:
-        return new TUnk_804C8678((TObject *)tl_su, get_offline_quest_filename());
+        return new TUnk_804C8678(tl_su, get_offline_quest_filename());
     default:
         return NULL;
     }
@@ -792,7 +779,7 @@ TUnk_804C8678::TUnk_804C8678(TObject *parent, void *data, s32 size) : TObject(pa
     } else {
         alloc_size = size + 0x400;
         script = ((TQuestVmDownLoadServer *)alloc_size)->alloc();
-        memcpy(script, (s32)data, alloc_size);
+        memcpy((void *)script, data, alloc_size);
         quest_mission_manager = this;
         init_quest_script_context(script, &ctx);
         kind = 0;
@@ -858,7 +845,7 @@ void TQuestThread::set_status_flag_80(void *window) { *(u16 *)((u8 *)window + 0x
 
 void TObjItemNameSelect::set_selection_index(int index) { item_name_selection_index = index; }
 
-int TQuestThread::queue_destruction(void *obj) { return queue_destruction__7TObjectFv(obj); }
+void TQuestThread::queue_destruction(void *obj) { queue_destruction__7TObjectFv(obj); }
 
 void free_menu_object(void *window) {
     void *menu = *(void **)((u8 *)window + 0x20);

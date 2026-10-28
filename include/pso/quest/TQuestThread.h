@@ -30,7 +30,7 @@ public:
     static void clear_thread_state();
     static char *get_quest_name();
     static s32 get_register(void *root, int index);
-    static int queue_destruction(void *obj);
+    static void queue_destruction(void *obj);
     static void set_status_flag_80(void *window);
 };
 
