@@ -2697,7 +2697,6 @@ s32 TBoss8Dragon__sub_8005EE04(TBoss8Dragon *self, void *out, u32 *entry) {
         dynamic[32] = null;
         dynamic[33] = null;
         dynamic[34] = null;
-        dynamic[35] = null;
         lbl_805D4DC5 = 1;
     }
     index = *entry;
@@ -4239,8 +4238,6 @@ struct Motion_800623E4 {
     s32 turn_rate;
 };
 
-#pragma push
-#pragma scheduling off
 inline s32 initial_angle_800623E4(TBoss5Gryphon *self) {
     Motion_800623E4 *motion = (Motion_800623E4 *)self->motion;
     f32 initial_dx = motion->x - self->position[0];
@@ -4248,7 +4245,6 @@ inline s32 initial_angle_800623E4(TBoss5Gryphon *self) {
     initial_dz -= self->position[2];
     return (s32)(((const f64 *)&lbl_80437EB0)[0] * atan2_float(initial_dx, initial_dz));
 }
-#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -4262,10 +4258,7 @@ void TBoss8Dragon__sub_800623E4(TBoss5Gryphon *self, s32 event) {
         self->vfunc_96();
         set_flag_4e4__12TBoss8DragonFPv(self);
         self->reset_float_3c();
-#pragma push
-#pragma scheduling off
         self->m_6ec = initial_angle_800623E4(self);
-#pragma pop
         break;
     case 0:
         advance_animation_playback(self);
@@ -4958,7 +4951,7 @@ void TBoss8Dragon__sub_80063714(void) {  }
 
 void dispatch_state_event__13TBoss5GryphonFPvii(TBoss5Gryphon *self, void *state, int event) {
     typedef void (TBoss5Gryphon::*StateAction)(int);
-    MemberPointerWords *actions = (MemberPointerWords *)(lbl_80487CD8 + 4);
+    MemberPointerWords *actions = (MemberPointerWords *)(lbl_80487CD8 + 3);
     MemberPointerWords *dynamic = actions + 35;
     StateAction *action;
 
