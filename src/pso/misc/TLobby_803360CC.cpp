@@ -265,7 +265,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     if (p != 0) {
         ((TLobby *)p)->init_fade((void *)tl_fade, (void *)TLobby::destroy_download_server);
     }
-    TItemReverseTechCtrl::create(arg0);
+    TItemReverseTechCtrl::create((TObject *)arg0);
     return arg0;
 }
 

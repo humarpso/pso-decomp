@@ -14,6 +14,14 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
+  - __ct__20TItemReverseTechCtrlFP7TObject
+  - __dt__20TItemReverseTechCtrlFv
+  - __vt__20TItemReverseTechCtrl
+  - lbl_804A0440
+  - lbl_804A044C
+  - lbl_804A0458
+  - lbl_804A0468
+  - run_task__20TItemReverseTechCtrlFv
   - "@14"
   - "@28@__dt__17TMedicalCenterMesFv"
   - "@28@__dt__22TQuestVmDownLoadServerFv"
