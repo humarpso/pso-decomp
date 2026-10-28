@@ -926,6 +926,7 @@ pso/misc/TEndingPic.cpp
 pso/misc/TEndingPicStage.cpp
 pso/misc/TEnding_8008C5C0.cpp
 pso/misc/TEneEffHamon.cpp
+pso/misc/TEneParticleCtrl.cpp
 pso/misc/TFogCtrl.cpp
 pso/misc/TFontSmallHelp.cpp
 pso/misc/TFontSmallLobby_801C013C.cpp
