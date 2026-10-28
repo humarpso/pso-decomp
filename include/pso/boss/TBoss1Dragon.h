@@ -2,7 +2,10 @@
 #define PSO_BOSS_TBOSS1DRAGON_H
 
 #include "types.h"
+#include "pso/misc/CameraObstructionFade.h"
 #include "pso/enemy/TObjEneDD_ST.h"
+
+class TBoss1DragonEffTail;
 
 struct DragonModelVector { f32 x, y, z; };
 struct DragonModelAngles { s32 x, y, z; };
@@ -34,6 +37,8 @@ extern "C" void copy_model_node(u8 *dst, u8 *src);
 struct TBoss1Dragon : public TObjEneDD_ST {
     virtual ~TBoss1Dragon();
     void load_resources();
+    void request_state_change(u32 state);
+    virtual void dispatch_action(u32 state, s32 reason);
     virtual void run_task();
     virtual void vfunc_88();
     virtual void render();
@@ -56,8 +61,8 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     static s32 countModelNodes(DragonModelNode* source);
     void updateFacingPosition();
     void handleFallState(u32 reason);
-    int setState1();
-    int initDefault();
+    int apply_foot_attack_pair_1();
+    int apply_foot_attack_pair_0();
     void saveCurrentDestination();
     void setDestinationX(int x);
     void saveTargetDestination();
@@ -69,11 +74,11 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void setActive();
     void clearState();
     void update_damage_threshold();
-    void fn_80025168(u32 reason);
-    s32 isHpPhaseComplete();
-    s32 isHpPhasePending();
-    void setHpPhaseValue(int complete);
-    void resetHpPhase();
+    void update_spinning_projectile_attack(u32 reason);
+    s32 is_secondary_sequence();
+    s32 is_primary_sequence();
+    void select_sequence(int secondary);
+    void restart_primary_sequence();
     static void clearControlOverride();
     static void setControlOverride(s16 controlId);
     static void requestActionRefresh();
@@ -103,15 +108,18 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     f32 airTurnFinalVelocity;
     f32 airTurnMidpointAngle;
     f32 airTurnTime;
-    s32 hpPhaseValue;
+    s32 sequenceCursor;
     s16 hpThreshold;
     s16 finalHpThreshold;
-    u8 unknown684[0x690 - 0x684];
+    TBoss1DragonEffTail *tail;
+    u8 unknown688[0x690 - 0x688];
     f32 destinationX;
     f32 destinationZ;
     f32 savedX;
     f32 savedZ;
-    u8 unknown6A0[0x768 - 0x6A0];
+    u8 unknown6A0[0x6E8 - 0x6A0];
+    CameraObstructionFade viewFade[4];
+    u8 unknown758[0x768 - 0x758];
     s32 controlTimer;
     s32 facingAngle;
     u8 unknown770[0x778 - 0x770];
@@ -126,7 +134,7 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     f32 fallVelocity;
     f32 rootHeight;
     u8 unknown884[0x8BC - 0x884];
-    void action(s32 arg1);
+    void wait_for_players(s32 arg1);
     void update_appearance_state(u32 reason);
     void update_wander_state(s32 arg1);
     void handle_fall_state(u32 arg1);
@@ -210,7 +218,7 @@ DRAGON_OFFSET(targetX, 0x394);
 DRAGON_OFFSET(flags, 0x3C0);
 DRAGON_OFFSET(phase, 0x3E4);
 DRAGON_OFFSET(height, 0x5D8);
-DRAGON_OFFSET(hpPhaseValue, 0x67C);
+DRAGON_OFFSET(sequenceCursor, 0x67C);
 DRAGON_OFFSET(hpThreshold, 0x680);
 DRAGON_OFFSET(destinationX, 0x690);
 DRAGON_OFFSET(savedX, 0x698);

@@ -13477,7 +13477,7 @@ force_active:
   - TBoss1Dragon__sub_80028AFC
   - TBoss1Dragon__sub_80028B28
   - TBoss1Dragon__sub_80028BE0
-  - action__12TBoss1DragonFl
+  - wait_for_players__12TBoss1DragonFl
   - advance_air_turn__12TBoss1DragonFv
   - apply_confusion_status__12TBoss1DragonFv
   - apply_foot_step_attack__12TBoss1DragonFi
@@ -13526,22 +13526,22 @@ force_active:
   - copy_params__12TBoss1DragonFPv
   - countModelNodes__12TBoss1DragonFP15DragonModelNode
   - destroy__12TBoss1DragonFPvs
-  - dispatch_action__12TBoss1DragonFiUii
+  - dispatch_action__12TBoss1DragonFUll
   - dragon_capture_node_points__Fv
   - draw__12TBoss1DragonFv
   - filter_input_flags__12TBoss1DragonFiii
   - find_player_on_floor__12TBoss1DragonFPv
-  - fn_80025168__12TBoss1DragonFUl
+  - update_spinning_projectile_attack__12TBoss1DragonFUl
   - handleFallState__12TBoss1DragonFUl
   - handle_fall_state__12TBoss1DragonFUl
   - handle_state__12TBoss1DragonFUl
   - hold_captured_player__12TBoss1DragonFv
-  - initDefault__12TBoss1DragonFv
+  - apply_foot_attack_pair_0__12TBoss1DragonFv
   - init_air_turn__12TBoss1DragonFl
   - init_base__13TUnk_80481B34Fv
   - init_control_mode__12TBoss1DragonFv
-  - isHpPhaseComplete__12TBoss1DragonFv
-  - isHpPhasePending__12TBoss1DragonFv
+  - is_secondary_sequence__12TBoss1DragonFv
+  - is_primary_sequence__12TBoss1DragonFv
   - is_destination_ahead__12TBoss1DragonFPv
   - is_sphere_visible__12TBoss1DragonFf
   - lbl_80480D20
@@ -13574,8 +13574,8 @@ force_active:
   - render__12TBoss1DragonFv
   - render_low_detail__12TBoss1DragonFv
   - render_shadows__12TBoss1DragonFv
-  - request_state_change__12TBoss1DragonFPvs
-  - resetHpPhase__12TBoss1DragonFv
+  - request_state_change__12TBoss1DragonFUl
+  - restart_primary_sequence__12TBoss1DragonFv
   - restorePosition__12TBoss1DragonFv
   - restoreTargetPosition__12TBoss1DragonFv
   - run_task__12TBoss1DragonFv
@@ -13588,9 +13588,9 @@ force_active:
   - send_state_sync__12TBoss1DragonFPv
   - setActive__12TBoss1DragonFv
   - setDestinationX__12TBoss1DragonFi
-  - setHpPhaseValue__12TBoss1DragonFi
+  - select_sequence__12TBoss1DragonFi
   - setPhase2__12TBoss1DragonFv
-  - setState1__12TBoss1DragonFv
+  - apply_foot_attack_pair_1__12TBoss1DragonFv
   - set_params__12TBoss1DragonFPv
   - set_result_flag__12TBoss1DragonFll
   - set_type_dragon__10TObjPlayerFv
