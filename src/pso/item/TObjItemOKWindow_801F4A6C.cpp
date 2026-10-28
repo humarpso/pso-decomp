@@ -3,6 +3,7 @@
 #include "pso/misc/TLobby_801F2D2C.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/quest/TQuestThread.h"
 
 extern "C" void TWindow__close(u8 *arg0);
 
@@ -27,7 +28,6 @@ struct Self_801F4B10 {
 extern "C" {
 
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-void set_status_flag_80__12TQuestThreadFPv(void *);
 void align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 u8 *init_shop_judgment_window(void *p);
@@ -69,7 +69,7 @@ TObjItemOKWindow::TObjItemOKWindow(TObject *parent) : TObject(parent) {
     }
     ((TWindowSubComCardList *)(((Self_801F4B10 *)this)->win5C))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(((Self_801F4B10 *)this)->win5C);
-    set_status_flag_80__12TQuestThreadFPv(((Self_801F4B10 *)this)->win5C);
+    TQuestThread::set_status_flag_80(((Self_801F4B10 *)this)->win5C);
     pos.x = lbl_805DC4F4;
     pos.y = lbl_805DC4F8;
     ((Self_801F4B10 *)this)->win64 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);

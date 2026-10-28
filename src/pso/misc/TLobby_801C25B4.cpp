@@ -13,6 +13,7 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/quest/TQuestThread.h"
 
 #include "types.h"
 #include "pso/ui/Language.h"
@@ -904,7 +905,6 @@ s32 calc_player_rankings__6TLobbyFPv(Lobby_801C484C *);
 void TLobby__sub_801036CC(void);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 update_battle_controller__10TObjPlayerFv();
-s32 clear_buffer__12TQuestThreadFPv(u32);
 void TLobby__sub_8020BC50(void);
 void TLobby__sub_801C38A4(void);
 void init_and_set_flag__6TLobbyFv(void);
@@ -1207,7 +1207,7 @@ void TLobby__sub_801C38E8(void *arg0) {
             TLobby__sub_8020BC50();
             TLobby__sub_801036CC();
             if (quest_mission_manager != 0) {
-                clear_buffer__12TQuestThreadFPv(quest_mission_manager);
+                TQuestThread::clear_buffer((void *)quest_mission_manager);
             }
             TLobby::stop_audio_streams();
             lbl_805D5DB4 = 0;

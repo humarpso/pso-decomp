@@ -148,7 +148,7 @@ s32 TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelASlotGC *self, s32 kind) {
     w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, kind + 0x2B), 0x20, 0);
     ((TAdChrSelASlotGC *)w)->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    TQuestThread::set_status_flag_80((void *)w);
     ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
     return w;
 }
@@ -167,7 +167,7 @@ s32 TAdChrSelASlotGC__sub_8030C5C0(TAdChrSelASlotGC *self, s32 kind) {
     w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, kind + 0x29), 0x20, 0);
     ((TAdChrSelASlotGC *)w)->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    TQuestThread::set_status_flag_80((void *)w);
     ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
     return w;
 }
@@ -186,7 +186,7 @@ s32 TAdChrSelASlotGC__sub_8030C688(TAdChrSelASlotGC *self, s32 kind) {
     w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, kind + 0x27), 0x20, 0);
     ((TAdChrSelASlotGC *)w)->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    TQuestThread::set_status_flag_80((void *)w);
     ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
     return w;
 }
@@ -283,7 +283,7 @@ u32 TAdChrSelASlotGC__sub_8030CB08(TAdChrSelASlotGC *ad_chr_sel_a_slot_gc, s32 k
     w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, text), 0x21, 0);
     ((TAdChrSelASlotGC *)w)->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    TQuestThread::set_status_flag_80((void *)w);
     ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
     return (u32)w;
 }

@@ -1,6 +1,7 @@
 #include "pso/TMainTask.h"
 #include "pso/quest/QuestVm.h"
 #include "pso/quest/BattleRules.h"
+#include "pso/quest/TQuestThread.h"
 
 extern "C" {
 void qst_call_stack_push(s32 value);
@@ -1863,13 +1864,9 @@ extern "C" {
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 int create__16TObjItemOKWindowFPv(void*);
 int create__18TObjItemNameSelectFPv(void*);
-void *create__17TObjItemNameEntryFPv(void *arg0);
 s32 destroy_children_with_tag(TObject *);
 }
-void clear_floor_handler(s32 i);
-void set_floor_handler(s32 i, s32 v);
 extern "C" {
-s32 clear_buffer__12TQuestThreadFPv(u32);
 s32 get_character_save_record(u32);
 s32 get_floor_map_terrain(s32 arg0);
 }
@@ -3391,7 +3388,7 @@ void qst_op_get_chl_retry_choice(s32 arg0) {
 void qst_op_reset_map(void) {
     TLobby__sub_801036CC();
     if ((u32) quest_mission_manager != 0U) {
-        clear_buffer__12TQuestThreadFPv(quest_mission_manager);
+        TQuestThread::clear_buffer((void *)quest_mission_manager);
     }
     destroy_children_with_tag(tl_00);
     TLobby::init_sub_objects();
@@ -4073,7 +4070,7 @@ void qst_op_award_item_give(u8 arg0) {
 
 void qst_op_award_item_select() { qst_item_name_select = (void *)create__18TObjItemNameSelectFPv((void*)tl_01); qst_suspend_reason = QST_WAIT_ITEM_NAME_SELECT; }
 
-void qst_op_award_item_name() { qst_item_name_entry = (void *)create__17TObjItemNameEntryFPv((void *)tl_01); qst_suspend_reason = QST_WAIT_ITEM_NAME_ENTRY; }
+void qst_op_award_item_name() { qst_item_name_entry = (void *)TObjItemNameEntry::create((void *)tl_01); qst_suspend_reason = QST_WAIT_ITEM_NAME_ENTRY; }
 
 void qst_op_set_cmode_rank_result(void) {
     s32 temp_r31;
@@ -5196,11 +5193,11 @@ void qst_op_set_qt_failure(u16 arg0) {
 }
 
 void qst_op_clr_floor_handler(void) {
-    clear_floor_handler((qst_args[0]));
+    TQuestThread::clear_floor_handler(qst_args[0]);
 }
 
 void qst_op_set_floor_handler(void) {
-    set_floor_handler((qst_args[0]), ((u16) qst_args[1]));
+    TQuestThread::set_floor_handler(qst_args[0], (u16)qst_args[1]);
 }
 extern "C" {
 
@@ -6467,11 +6464,9 @@ namespace pf2_p6 { extern "C" { s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(
 #define dispatch_by_main_phase__14TBoss4DarkFalzFUs pf2_p6::dispatch_by_main_phase__14TBoss4DarkFalzFUs
 void qst_op_thread_stg(u16 arg0);
 extern "C" {
-u32 create__12TQuestThreadFi(s32 arg0);
 }
 void qst_op_thread(u16 arg0);
 extern "C" {
-u8 *create_quest_thread(s32 arg0);
 void qst_op_rev(s32 arg0);
 void qst_op_clear(s32 arg0);
 void qst_op_set(s32 arg0);
@@ -6542,11 +6537,11 @@ void qst_op_let(s32 arg0, s32 arg1) {
 }
 
 void qst_op_thread_stg(u16 arg0) {
-    create__12TQuestThreadFi((arg0));
+    TQuestThread::create((arg0));
 }
 
 void qst_op_thread(u16 arg0) {
-    create_quest_thread((arg0));
+    TQuestThread::create_in_root(arg0);
 }
 
 void qst_op_sync(void) { qst_suspend_reason = QST_SUSPEND_SYNC; }

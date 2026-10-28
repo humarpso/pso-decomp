@@ -26,30 +26,6 @@ public:
     virtual void render();
     virtual ~TObjItemNameSelect();
 };
-class TObjItemNameEntry : public TObject {
-public:
- void* m_1c;
- void* m_20;
-public:
-    virtual void render();
-    virtual ~TObjItemNameEntry();
-};
-class TQuestThreadBoard : public TObject {
-public:
-    u8 _pad1C[0xC];
- void* m_28;
- void* m_2c;
-
-    virtual void render();
-    virtual ~TQuestThreadBoard();
-    virtual void run_task();
-};
-class TQuestThread : public TObject {
-public:
-    virtual void render();
-    virtual ~TQuestThread();
-    virtual void run_task();
-};
 
 struct Self_801F4DFC {
     const char *name;
@@ -134,18 +110,9 @@ struct QuestThreadBoardObj {
     u8 pad14[0x18 - 0x14];
     void *vt;
     QuestVmContext ctx;
-    s32 state;
+    quest_suspend_reason state;
 };
 
-struct QuestThreadObj {
-    s32 name;
-    u8 pad4[0x10 - 0x4];
-    void *parent;
-    u8 pad14[0x18 - 0x14];
-    void *vt;
-    QuestVmContext ctx;
-    u32 state; // quest_suspend_reason
-};
 extern "C" {
 
 s32 memcpy(s32, s32, s32);
@@ -167,34 +134,12 @@ s32 check_flag_100__10TObjPlayerFPv(void *);
 void * get_player_by_client_id(s32);
 s32 init_quest_script_context(s32, void *);
 s32 bswap_header__6TLobbyFPv();
-s32 tick_com_card__12TQuestThreadFv(void *);
-s32 update_board_card__12TQuestThreadFv(void *);
-s32 update_com_card__12TQuestThreadFv(void *);
-void fn_801F4F20(s32 arg0);
-void * create__17TObjItemNameEntryFPv(void *arg0);
 void * TObjItemNameEntry__ct(void *arg0, void *parent);
-s32 create_instance__17TQuestThreadBoardFi(s32 arg0);
 u8 * TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 void destroy_children_with_tag(Node_801F57B4* arg0);
-u8 * create_floor_quest_thread(void);
-u32 create__12TQuestThreadFi(s32 arg0);
-u8 * create_quest_thread(s32 arg0);
-u8 * __ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
-void TQuestThread__sub_801F5D88(void* p);
-void clear_all_floor_handlers(void* _w0);
-void clear_buffer__12TQuestThreadFPv(void* p);
-char * get_quest_name__12TQuestThreadFv(void);
-void clear_thread_state__12TQuestThreadFv(void);
-s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
+void TQuestThread__sub_801F5D88(void);
 void * __dt__13TUnk_804C8678Fv(void *arg0, s16 arg1);
-void destroy_quest_obj__12TQuestThreadFv(void);
-s32 create_by_mode__12TQuestThreadFv(void);
-u8 * init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-QuestRoot * construct_load_quest__12TQuestThreadFPvPvPv(QuestRoot *self, void *parent, void *scene);
-void set_status_flag_80__12TQuestThreadFPv(void* p);
 void set_item_name_selection_index(int a0);
-int queue_destruction__12TQuestThreadFPv(void* p);
-void free_menu_object(void* p);
 void fn_801F6520(void* p);
 int TQuestListVM__sub_801F6530(void);
 int TQuestListOnline__sub_801F6540(void);
@@ -223,10 +168,6 @@ void * get_window_layout_position(s32);
 s32 strcmp(s32, s32 *);
 s32 strncpy(void *, void *, int);
 }
-void clear_floor_handler(s32 i);
-void set_floor_handler(s32 i, s32 v);
-void handle_6x77_sync_quest_register(u8 *arg0);
-u8 * load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
 extern s32 TQuestThread__data_804C8678[];
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__floor_handler_ids;
 extern void *__vt__12TQuestThread[];
@@ -242,7 +183,7 @@ extern Entry_801F4DFC lbl_804C8488[];
 extern u8 controller_input_state[];
 extern RecoveredGlobal_801F5E7C_lbl_805129F8 quest_board_handlers;
 extern RecoveredGlobal_801F4F20_lbl_80512B18 lbl_80512B18;
-extern s32 TQuestThread__class_name;
+extern const char *TQuestThread__class_name;
 extern s32 TQuestThreadBoard__class_name;
 extern s32 TObjItemNameEntry__class_name;
 extern const char *TObjItemNameSelect__class_name;
@@ -324,7 +265,7 @@ s32 TWindowSubComCard::process_keyboard_input() {
     return 0;
 }
 
-void *create__17TObjItemNameEntryFPv(void *arg0) {
+void *TObjItemNameEntry::create(void *arg0) {
     void *o = (void *)__nw__7TObjectFUl(0x24);
     if (o != NULL) {
         o = TObjItemNameEntry__ct(o, arg0);
@@ -360,11 +301,11 @@ void *TObjItemNameEntry__ct(void *arg0, void *parent) {
     }
     ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0x20));
-    set_status_flag_80__12TQuestThreadFPv((void *)*(u32 *)((s8 *)arg0 + 0x20));
+    TQuestThread::set_status_flag_80((void *)*(u32 *)((s8 *)arg0 + 0x20));
     return arg0;
 }
 
-s32 create_instance__17TQuestThreadBoardFi(s32 arg0) {
+s32 TQuestThreadBoard::create_instance(int arg0) {
     s32 var_r31;
 
     if ((u32) quest_mission_manager != 0U) {
@@ -390,7 +331,7 @@ void run_task__17TQuestThreadBoardFv(QuestThreadBoardObj *o) {
         queue_destruction__7TObjectFv(o);
         break;
     case QST_SUSPEND_EXIT:
-        queue_destruction__12TQuestThreadFPv(parent);
+        TQuestThread::queue_destruction(parent);
         break;
     case QST_WAIT_MESSAGE: {
         void *p = get_player_by_client_id(local_client_id);
@@ -459,7 +400,7 @@ void run_task__17TQuestThreadBoardFv(QuestThreadBoardObj *o) {
         }
         break;
     case QST_WAIT_ITEM_NAME_SELECT: {
-        s32 r = update_com_card__12TQuestThreadFv(o->ctx.item_name_select);
+        s32 r = ((TQuestThread *)o->ctx.item_name_select)->update_com_card();
         if (r >= 0) {
             set_item_name_selection_index(r);
             queue_destruction__7TObjectFv(o->ctx.item_name_select);
@@ -469,8 +410,8 @@ void run_task__17TQuestThreadBoardFv(QuestThreadBoardObj *o) {
         break;
     }
     case QST_WAIT_ITEM_OK:
-        if (update_board_card__12TQuestThreadFv(o->ctx.item_ok_window) != 0) {
-            o->ctx.registers[o->ctx.result_register] = tick_com_card__12TQuestThreadFv(o->ctx.item_ok_window);
+        if (((TQuestThread *)o->ctx.item_ok_window)->update_board_card() != 0) {
+            o->ctx.registers[o->ctx.result_register] = ((TQuestThread *)o->ctx.item_ok_window)->tick_com_card();
             queue_destruction__7TObjectFv(o->ctx.item_ok_window);
             o->ctx.item_ok_window = NULL;
             o->state = QST_RUNNING;
@@ -515,49 +456,49 @@ u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(board, NULL);
     board->vt = __vt__17TQuestThreadBoard;
     board->name = TQuestThreadBoard__class_name;
-    copy_quest_script_context(&board->ctx, &((QuestRoot *)arg1)->ctx);
+    board->ctx.copy(&((QuestRoot *)arg1)->ctx);
     board->ctx.pc = board->ctx.function_table[arg2];
     board->state = QST_RUNNING;
     (*(u8 * *)&quest_thread_board) = arg0;
     return arg0;
 }
 
-void copy_quest_script_context(QuestVmContext *dst, QuestVmContext *src) {
+void QuestVmContext::copy(QuestVmContext *src) {
     s32 tmp;
     s32 to;
     u8 *from;
     tmp = (s32)src->code;
     from = (u8 *)src + 0x30;
-    to = (s32)((u8 *)dst + 0x30);
-    dst->code = (u8 *)tmp;
-    dst->function_table = src->function_table;
-    dst->registers = src->registers;
-    dst->message_window = src->message_window;
-    dst->list_window = src->list_window;
-    dst->result_register = src->result_register;
-    dst->unk18 = src->unk18;
-    dst->call_stack_depth = src->call_stack_depth;
-    dst->pc = src->pc;
-    dst->unk24 = src->unk24;
-    dst->unk28 = src->unk28;
-    dst->message_speaker = src->message_speaker;
+    to = (s32)((u8 *)this + 0x30);
+    code = (u8 *)tmp;
+    function_table = src->function_table;
+    registers = src->registers;
+    message_window = src->message_window;
+    list_window = src->list_window;
+    result_register = src->result_register;
+    unk18 = src->unk18;
+    call_stack_depth = src->call_stack_depth;
+    pc = src->pc;
+    unk24 = src->unk24;
+    unk28 = src->unk28;
+    message_speaker = src->message_speaker;
     tmp = *(s32 *)((s8 *)src + 0x30);
-    *(s32 *)((s8 *)dst + 0x30) = tmp;
+    *(s32 *)((s8 *)this + 0x30) = tmp;
     *(ByteBlock_20 *)(to + 4) = *(const ByteBlock_20 *)((s32)from + 4);
-    to = (s32)((u8 *)dst + 0x50);
+    to = (s32)((u8 *)this + 0x50);
     from = (u8 *)src + 0x50;
     *(ByteBlock_100 *)(to + 4) = *(const ByteBlock_100 *)((s32)from + 4);
-    dst->unk154 = src->unk154;
-    dst->unk155 = src->unk155;
-    dst->unk156 = src->unk156;
-    dst->unk158 = src->unk158;
-    dst->item_name_entry = src->item_name_entry;
-    dst->item_name_select = src->item_name_select;
-    dst->item_ok_window = src->item_ok_window;
-    dst->pack_select_window = src->pack_select_window;
-    dst->pack_select_help_window = src->pack_select_help_window;
-    dst->statistic_arg1 = src->statistic_arg1;
-    dst->statistic_arg2 = src->statistic_arg2;
+    unk154 = src->unk154;
+    unk155 = src->unk155;
+    unk156 = src->unk156;
+    unk158 = src->unk158;
+    item_name_entry = src->item_name_entry;
+    item_name_select = src->item_name_select;
+    item_ok_window = src->item_ok_window;
+    pack_select_window = src->pack_select_window;
+    pack_select_help_window = src->pack_select_help_window;
+    statistic_arg1 = src->statistic_arg1;
+    statistic_arg2 = src->statistic_arg2;
 }
 
 extern "C" {
@@ -566,7 +507,7 @@ void destroy_children_with_tag(Node_801F57B4* arg0) {
     while (arg0->child != 0 && n != 0) {
         Node_801F57B4* cur = n;
         n = n->next;
-        if (check_value_equals__13TUnk_804B6C24Fl(cur, TQuestThread__class_name) != 0) {
+        if (check_value_equals__13TUnk_804B6C24Fl(cur, (s32)TQuestThread__class_name) != 0) {
             queue_destruction__7TObjectFv(cur);
         } else {
             destroy_children_with_tag(cur);
@@ -574,8 +515,8 @@ void destroy_children_with_tag(Node_801F57B4* arg0) {
     }
 }
 
-void run_task__12TQuestThreadFv(QuestThreadObj *t) {
-    void *parent = t->parent;
+void run_task__12TQuestThreadFv(TQuestThread *t) {
+    TObject *parent = t->m_up;
     switch (t->state) {
     case QST_RUNNING:
     case QST_SUSPEND_SYNC:
@@ -585,7 +526,7 @@ void run_task__12TQuestThreadFv(QuestThreadObj *t) {
         queue_destruction__7TObjectFv(t);
         break;
     case QST_SUSPEND_EXIT:
-        queue_destruction__12TQuestThreadFPv(parent);
+        TQuestThread::queue_destruction(parent);
         break;
     case QST_WAIT_MESSAGE: {
         void *p = get_player_by_client_id(local_client_id);
@@ -636,7 +577,7 @@ void run_task__12TQuestThreadFv(QuestThreadObj *t) {
         }
         break;
     case QST_WAIT_ITEM_NAME_SELECT: {
-        s32 r = update_com_card__12TQuestThreadFv(t->ctx.item_name_select);
+        s32 r = ((TQuestThread *)t->ctx.item_name_select)->update_com_card();
         if (r >= 0) {
             set_item_name_selection_index(r);
             queue_destruction__7TObjectFv(t->ctx.item_name_select);
@@ -646,8 +587,8 @@ void run_task__12TQuestThreadFv(QuestThreadObj *t) {
         break;
     }
     case QST_WAIT_ITEM_OK:
-        if (update_board_card__12TQuestThreadFv(t->ctx.item_ok_window) != 0) {
-            t->ctx.registers[t->ctx.result_register] = tick_com_card__12TQuestThreadFv(t->ctx.item_ok_window);
+        if (((TQuestThread *)t->ctx.item_ok_window)->update_board_card() != 0) {
+            t->ctx.registers[t->ctx.result_register] = ((TQuestThread *)t->ctx.item_ok_window)->tick_com_card();
             queue_destruction__7TObjectFv(t->ctx.item_ok_window);
             t->ctx.item_ok_window = 0;
             t->state = QST_RUNNING;
@@ -680,89 +621,71 @@ void run_task__12TQuestThreadFv(QuestThreadObj *t) {
 
 TQuestThread::~TQuestThread() {}
 
-u8 *create_floor_quest_thread(void) {
+u8 *TQuestThread::create_for_floor() {
     s32 floor;
-    u8 *quest_thread;
     floor = get_current_floor();
     if ((&TQuestThread__floor_handler_ids.value)[floor] != -1 && quest_mission_manager != 0U) {
-        quest_thread = (u8 *)__nw__7TObjectFUl(0x194);
-        if (quest_thread != NULL) {
-            quest_thread = __ct__12TQuestThreadFv(quest_thread, quest_mission_manager, (&TQuestThread__floor_handler_ids.value)[floor]);
-        }
-        return quest_thread;
+        return (u8 *)new TQuestThread((TObject *)quest_mission_manager, (&TQuestThread__floor_handler_ids.value)[floor]);
     }
     return NULL;
 }
 
-u32 create__12TQuestThreadFi(s32 arg0) {
-    u32 var_r31;
+u32 TQuestThread::create(int arg0) {
+    TQuestThread *t;
 
     if ((u32) quest_mission_manager != 0U) {
-        var_r31 = __nw__7TObjectFUl(0x194);
-        if (var_r31 != 0U) {
-            var_r31 = (u32)__ct__12TQuestThreadFv((u8 *)var_r31, quest_mission_manager, arg0);
-        }
-        if (var_r31 != 0U) {
-            ((TObject *)var_r31)->set_parent((TObject *)tl_00);
-            return var_r31;
+        t = new TQuestThread((TObject *)quest_mission_manager, arg0);
+        if (t != NULL) {
+            t->set_parent((TObject *)tl_00);
+            return (u32)t;
         }
         return 0U;
     }
     return 0U;
 }
 
-u8 *create_quest_thread(s32 label) {
-    u8 *quest_thread;
+TQuestThread *TQuestThread::create_in_root(s32 label) {
     if (quest_mission_manager != 0U) {
-        quest_thread = (u8 *)__nw__7TObjectFUl(0x194);
-        if (quest_thread != NULL) {
-            quest_thread = __ct__12TQuestThreadFv(quest_thread, quest_mission_manager, label);
-        }
-        return quest_thread;
+        return new TQuestThread((TObject *)quest_mission_manager, label);
     }
     return NULL;
 }
 
-u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
-    QuestThreadObj *t;
-    __ct__7TObjectFP7TObject(arg0, (void *)arg1);
-    t = (QuestThreadObj *)arg0;
-    t->vt = __vt__12TQuestThread;
-    t->name = TQuestThread__class_name;
-    copy_quest_script_context(&t->ctx, &((QuestRoot *)arg1)->ctx);
-    t->ctx.pc = t->ctx.function_table[arg2];
-    t->state = QST_RUNNING;
-    if (t->ctx.pc == -1) {
-        queue_destruction__7TObjectFv(t);
+TQuestThread::TQuestThread(TObject *parent, s32 label) : TObject(parent) {
+    m_name = TQuestThread__class_name;
+    ctx.copy(&((QuestRoot *)parent)->ctx);
+    ctx.pc = ctx.function_table[label];
+    state = QST_RUNNING;
+    if (ctx.pc == -1) {
+        queue_destruction__7TObjectFv(this);
     }
-    return arg0;
 }
 }
 
-void clear_floor_handler(s32 i) {
+void TQuestThread::clear_floor_handler(s32 i) {
     if (i < 0 || i > 0x11) {
         return;
     }
     ((s32 *)&TQuestThread__floor_handler_ids)[i] = -1;
 }
 
-void set_floor_handler(s32 i, s32 v) {
+void TQuestThread::set_floor_handler(s32 i, s32 v) {
     if (i < 0 || i > 0x11) {
         return;
     }
     ((s32 *)&TQuestThread__floor_handler_ids)[i] = v;
 }
 
-void TQuestThread__sub_801F5D88(void* p) { clear_all_floor_handlers(p); }
+void TQuestThread__sub_801F5D88(void) { TQuestThread::clear_all_floor_handlers(); }
 
-void clear_all_floor_handlers(void* _w0) {
+void TQuestThread::clear_all_floor_handlers() {
     s32 i;
     for (i = 0; i < 0x12; i++) {
         ((s32 *)&TQuestThread__floor_handler_ids)[i] = -1;
     }
 }
 
-void clear_buffer__12TQuestThreadFPv(void* p) {
+void TQuestThread::clear_buffer(void *p) {
     QuestRoot *root = (QuestRoot *)p;
     if (root->ctx.registers != NULL) {
         memset(root->ctx.registers, (void*)0, (void*)1024);
@@ -784,18 +707,18 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
     }
 }
 
-char *get_quest_name__12TQuestThreadFv(void) {
+char *TQuestThread::get_quest_name() {
     if ((*(QuestRoot **)&quest_mission_manager) != 0) {
         return ((QuestScriptHeader *)(*(QuestRoot **)&quest_mission_manager)->script)->name;
     }
     return lbl_8044A5D0;
 }
 
-void clear_thread_state__12TQuestThreadFv(void) {
+void TQuestThread::clear_thread_state() {
     memset(&quest_board_handlers.value, (void*)(0), (void*)(0xD8));
 }
 
-s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {
+s32 TQuestThread::get_register(void *arg0, int arg1) {
     if (arg0 != NULL) {
         return ((QuestRoot *)arg0)->ctx.registers[arg1];
     }
@@ -810,7 +733,7 @@ void *__dt__13TUnk_804C8678Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = TQuestThread__data_804C8678;
         if (root->kind == 0) {
             (*(s32 *)&quest_mission_manager) = 0;
-            clear_thread_state__12TQuestThreadFv();
+            TQuestThread::clear_thread_state();
         } else {
             (*(s32 *)&quest_area_manager) = 0;
         }
@@ -823,7 +746,7 @@ void *__dt__13TUnk_804C8678Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void destroy_quest_obj__12TQuestThreadFv(void) {
+void TQuestThread::destroy_quest_obj() {
     if ((u32) quest_area_manager != 0U) {
         queue_destruction__7TObjectFv((void*)((void*)quest_area_manager));
         quest_area_manager = 0U;
@@ -860,7 +783,7 @@ void load_area_dialogue_script(void) {
     }
 }
 
-s32 create_by_mode__12TQuestThreadFv(void) {
+s32 TQuestThread::create_by_mode() {
     s32 temp_r31;
     s32 quest_count;
     s32 object;
@@ -872,20 +795,20 @@ s32 create_by_mode__12TQuestThreadFv(void) {
     case 1:
         temp_r31 = __nw__7TObjectFUl(0x1A4);
         if (temp_r31 != 0) {
-            temp_r31 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QuestRoot *)(temp_r31), (void *)tl_su, (void *)(TQuestThread__sub_801F6548())));
+            temp_r31 = ((s32)construct_load_quest((QuestRoot *)temp_r31, (void *)tl_su, (void *)(TQuestThread__sub_801F6548())));
         }
         return temp_r31;
     case 2:
         object = __nw__7TObjectFUl(0x1A4);
         if (object != 0) {
             temp_r31 = TQuestListOnline::get_quest_count();
-            object = (s32)init_from_script__12TQuestThreadFPviii((u8 *)object, (s32)tl_su, (s32)(TQuestListOnline__sub_801F6540()), (s32)temp_r31);
+            object = (s32)init_from_script((void *)object, (s32)tl_su, (s32)(TQuestListOnline__sub_801F6540()), (s32)temp_r31);
         }
         return object;
     case 3:
         var_r30_2 = __nw__7TObjectFUl(0x1A4);
         if (var_r30_2 != 0) {
-            var_r30_2 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)var_r30_2, (s32)tl_su, (s32)(TQuestListVM::get_instance()), (s32)TQuestListVM__sub_801F6530());
+            var_r30_2 = (s32)init_from_script((void *)var_r30_2, (s32)tl_su, (s32)(TQuestListVM::get_instance()), (s32)TQuestListVM__sub_801F6530());
         }
         TQuestListVM::reset();
         return var_r30_2;
@@ -893,13 +816,13 @@ s32 create_by_mode__12TQuestThreadFv(void) {
         var_r30_3 = __nw__7TObjectFUl(0x1A4);
         if (var_r30_3 != 0) {
             quest_count = TQuestListOnline::get_quest_count();
-            var_r30_3 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)var_r30_3, (s32)tl_su, (s32)(TQuestListOnline__sub_801F6540()), (s32)quest_count);
+            var_r30_3 = (s32)init_from_script((void *)var_r30_3, (s32)tl_su, (s32)(TQuestListOnline__sub_801F6540()), (s32)quest_count);
         }
         return var_r30_3;
     case 5:
         var_r30_4 = __nw__7TObjectFUl(0x1A4);
         if (var_r30_4 != 0) {
-            var_r30_4 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QuestRoot *)(var_r30_4), (void *)tl_su, (void *)(TQuestThread__sub_801F6548())));
+            var_r30_4 = ((s32)construct_load_quest((QuestRoot *)var_r30_4, (void *)tl_su, (void *)(TQuestThread__sub_801F6548())));
         }
         return var_r30_4;
     default:
@@ -907,7 +830,7 @@ s32 create_by_mode__12TQuestThreadFv(void) {
     }
 }
 
-u8 *init_from_script__12TQuestThreadFPviii(u8 *object, s32 arg1, s32 arg2, s32 arg3) {
+void *TQuestThread::init_from_script(void *object, int arg1, int arg2, int arg3) {
     QuestRoot *root = (QuestRoot *)object;
     s32 temp_r31;
     __ct__7TObjectFP7TObject(object, (void *)arg1);
@@ -918,11 +841,11 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *object, s32 arg1, s32 arg2, s32 a
         temp_r31 = arg3 + 0x400;
         root->script = ((TQuestVmDownLoadServer *)temp_r31)->alloc();
         memcpy(root->script, arg2, temp_r31);
-        (*(u8 * *)&quest_mission_manager) = object;
+        *(void **)&quest_mission_manager = object;
         init_quest_script_context(root->script, &root->ctx);
         root->kind = 0;
     }
-    clear_thread_state__12TQuestThreadFv();
+    clear_thread_state();
     return object;
 }
 
@@ -947,12 +870,9 @@ u8 *load_quest_root_script(u8 *object, void *parent, void *scene, s32 arg3) {
             copy_name((s32)&lbl_805DC50C);
             (*(u8 * *)&quest_mission_manager) = object;
             init_quest_script_context(root->script, &root->ctx);
-            mem = (void *)__nw__7TObjectFUl(0x194);
-            if (mem != NULL) {
-                __ct__12TQuestThreadFv((u8 *)mem, (s32)object, 0);
-            }
+            new TQuestThread((TObject *)object, 0);
         }
-        clear_thread_state__12TQuestThreadFv();
+        TQuestThread::clear_thread_state();
         break;
     case 1:
         size = ((TScene *)scene)->update_lobby_scene();
@@ -973,7 +893,7 @@ u8 *load_quest_root_script(u8 *object, void *parent, void *scene, s32 arg3) {
 }
 extern "C" {
 
-QuestRoot *construct_load_quest__12TQuestThreadFPvPvPv(QuestRoot *self, void *parent, void *scene) {
+QuestRoot *TQuestThread::construct_load_quest(QuestRoot *self, void *parent, void *scene) {
     s32 r;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = ((u8 *)&TQuestThread__data_804C8678);
@@ -989,15 +909,15 @@ QuestRoot *construct_load_quest__12TQuestThreadFPvPvPv(QuestRoot *self, void *pa
         init_quest_script_context(self->script, &self->ctx);
         self->kind = 0;
     }
-    clear_thread_state__12TQuestThreadFv();
+    clear_thread_state();
     return self;
 }
 
-void set_status_flag_80__12TQuestThreadFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x80; }
+void TQuestThread::set_status_flag_80(void *p) { *(u16*)((char*)p + 0x70) |= 0x80; }
 
 void set_item_name_selection_index(int a0) { item_name_selection_index = a0; }
 
-int queue_destruction__12TQuestThreadFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TQuestThread::queue_destruction(void *p) { return queue_destruction__7TObjectFv(p); }
 
 void free_menu_object(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_801F6520(m); }
 

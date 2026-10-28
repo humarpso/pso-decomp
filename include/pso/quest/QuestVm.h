@@ -47,7 +47,8 @@ struct QuestVmContext {
     u16 statistic_arg1;
     u16 statistic_arg2;
 
-    s32 dispatch();
+    quest_suspend_reason dispatch();
+    void copy(QuestVmContext *src);
     void save_globals();
     void load_globals();
 };
@@ -64,7 +65,7 @@ extern s32 qst_call_stack_depth;
 extern s32 *qst_registers;
 extern s32 qst_args[8];
 extern s32 qst_arg_count;
-extern s32 qst_suspend_reason;
+extern quest_suspend_reason qst_suspend_reason;
 // register a finished wait writes its result into
 extern u8 qst_result_register;
 

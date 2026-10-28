@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowMenu.h"
-#include "pso/TQuestThread.h"
+#include "pso/quest/TQuestThread.h"
 #include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {

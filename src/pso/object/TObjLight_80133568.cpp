@@ -7,6 +7,7 @@
 #include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
+#include "pso/quest/TQuestThread.h"
 
 struct RecoveredGlobal_801336E0_TObjLight__data_80506320 {
     s32 value;
@@ -173,7 +174,6 @@ extern void *lbl_805D5564;
 int TAdSinglePlyChrSelectGC__sub_801334E4(void*);
 int TAdSinglePlyChrSelectGC__sub_80133544(void*);
 int TAdSinglePlyChrSelectGC__sub_80133548(void);
-int create_quest_thread(void*);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -763,7 +763,7 @@ void *__dt__13TUnk_804A7008Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TLobby__sub_80134A20(void* p) { return create_quest_thread(p); }
+int TLobby__sub_80134A20(void* p) { return (int)TQuestThread::create_in_root((s32)p); }
 
 __declspec(section ".sdata2") extern const float TObjLight__data_805DB088 = 0.0f;
 __declspec(section ".sdata2") extern const float lbl_805DB08C = 5.0f;

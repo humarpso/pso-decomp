@@ -51,8 +51,8 @@ int set_flags__10TObjPlayerFUl(void*, int);
 
 unsigned char TLobby::read_packet_byte() { return qst_code[qst_pc++]; }
 
-s32 QuestVmContext::dispatch() {
-    s32 reason;
+quest_suspend_reason QuestVmContext::dispatch() {
+    quest_suspend_reason reason;
 
     load_globals();
     reason = dispatch_quest_opcode();
@@ -99,7 +99,7 @@ void TLobby::close_windows() {
 
 extern u32 quest_mission_manager;
 
-s32 dispatch_quest_opcode(void) {
+quest_suspend_reason dispatch_quest_opcode(void) {
     s32 op;
     qst_suspend_reason = QST_RUNNING;
     while (qst_suspend_reason == QST_RUNNING) {
