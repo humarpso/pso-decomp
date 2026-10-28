@@ -4227,9 +4227,12 @@ force_active:
   - game_join_player_records
   - game_state_load
   - gather_player_contacts__10TObjPlayerFUlll
+  - gcrna_audio_buffers
   - gcrna_error_callback
   - gcrna_error_context
   - gcrna_error_text
+  - gcrna_stream_callback
+  - gcrna_version_pointer
   - generate_shop_inventory__6TLobbyFl
   - generate_shop_weapon_stock__Fl
   - generate_tool_drop__9TItemDropFiiPv
