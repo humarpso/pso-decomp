@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 TOExplosiveMachine__ct();
+void *__ct__18TOExplosiveMachineFv(TOExplosiveMachine *);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 void *get_bml_model(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -35,17 +35,17 @@ extern s32 TOExplosiveMachine01__class_name;
 extern s32 explosive_machine_model_archive;
 
 void *TOExplosiveMachine01__ct(TOExplosiveMachine01 *explosive_machine01, s32 arg1) {
-    TOExplosiveMachine__ct();
+    __ct__18TOExplosiveMachineFv(explosive_machine01);
     *(s32 **)((s8 *)explosive_machine01 + 0x18) = __vt__20TOExplosiveMachine01;
     *(s32 *)((s8 *)explosive_machine01 + 0) = (s32) TOExplosiveMachine01__class_name;
     explosive_machine01->apply_object_set_data((void *)arg1);
     explosive_machine01->model = get_bml_model(explosive_machine_model_archive, 0);
     explosive_machine01->texlist = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 0);
-    explosive_machine01->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)explosive_machine01->model + 4)) + 0x14);
-    *(void **)((s8 *)explosive_machine01 + 0x9C) = get_bml_model(explosive_machine_model_archive, 1);
-    explosive_machine01->m_a4 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 1);
-    *(void **)((s8 *)explosive_machine01 + 0xA0) = get_bml_model(explosive_machine_model_archive, 2);
-    explosive_machine01->m_a8 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 2);
+    explosive_machine01->view_radius = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)explosive_machine01->model + 4)) + 0x14);
+    explosive_machine01->debris_models[0] = get_bml_model(explosive_machine_model_archive, 1);
+    explosive_machine01->debris_textures[0] = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 1);
+    explosive_machine01->debris_models[1] = get_bml_model(explosive_machine_model_archive, 2);
+    explosive_machine01->debris_textures[1] = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 2);
     return explosive_machine01;
 }
 
