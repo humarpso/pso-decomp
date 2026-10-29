@@ -3,6 +3,7 @@
 
 #include "pso/item/TUnk_8049F148.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItem.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/map/FloorArea.h"
@@ -91,7 +92,6 @@ int get_item_system_generation(void);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
 extern "C" {
-s32 TObjPlayer__sub_8010A058(void* p);
 s32 get_field_3e0__12TBoss3VoloptFv();
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *spawn_particle_effect(void *pos, s32 id);
@@ -106,8 +106,8 @@ s32 get_current_floor();
 int get_item_field_6__10TObjPlayerFPv(void *p);
 u8 get_item_group__5TItemFv();
 
-s32 TObjPlayer::get_texture_id() { return this->texlist; }
-s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
+s32 TObjBase::get_texlist() { return texlist; }
+NJS_OBJECT *TItem::get_item_model() { return item_model; }
 
 extern const f32 lbl_805DAB58;
 

@@ -169,6 +169,7 @@ struct TItem : public TObjCollidable {
     s32 get_item_flags();
     u8 get_item_group();
     u8 get_item_index();
+    NJS_OBJECT *get_item_model();
     static void push_equipped_id(s32 id);
 
     CollisionBody collision_body;  // the pick-up sphere (item_collider_body)

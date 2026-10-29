@@ -47,7 +47,6 @@ extern "C" {
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 get_texture_id__10TObjPlayerFv();
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 
@@ -60,7 +59,7 @@ void TUnk_804A5D10::render() {
     if (temp_r3 != NULL) {
         temp_r31 = *(u32 *)((s8 *)temp_r3 + 0x188);
         if (temp_r31 != 0U) {
-            set_texlist(get_texture_id__10TObjPlayerFv());
+            set_texlist(((TItem *)temp_r3)->get_texlist());
             push_matrix();
             post_translate_matrix(arg0 + 0x2C);
             rotate_matrix_y(0, *(s32 *)&this->unk_3C);

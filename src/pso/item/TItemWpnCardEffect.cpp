@@ -150,7 +150,7 @@ void TUnk_804EDD20::render() {
         model_render_flags |= 0x20;
         set_constant_material((const NJS_ARGB *)var_r3);
         var_r3 = (s32 *) var_r31;
-        set_texlist(((TObjPlayer *)var_r3)->get_texture_id());
+        set_texlist(((TObjBase *)var_r3)->get_texlist());
         push_matrix();
         var_r3 = (s32 *)(var_r29 + 0x64);
         post_translate_matrix((int) var_r3);

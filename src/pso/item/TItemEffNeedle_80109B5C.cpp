@@ -50,8 +50,8 @@ void create_needle_effect(s32 item_id, void *arg1) {
         var_r31 = __ct__14TItemEffNeedleFv(var_r31, tl_05, temp_r29, (s32)(get_entity_id(temp_r30)), (s32)(*(s32 *)((s8 *)temp_r30 + 0xA8)));
     }
     if (var_r31 != NULL) {
-        *(s32 *)((s8 *)var_r31 + 0x3C) = TObjPlayer__sub_8010A058((void *)temp_r29);
-        *(s32 *)((s8 *)var_r31 + 0x40) = ((TObjPlayer *)temp_r29)->get_texture_id();
+        *(s32 *)((s8 *)var_r31 + 0x3C) = (s32)((TItem *)temp_r29)->get_item_model();
+        *(s32 *)((s8 *)var_r31 + 0x40) = ((TItem *)temp_r29)->get_texlist();
         *(s32 *)((s8 *)var_r31 + 0x44) = (s32) (*(s32 *)((s8 *)var_r31 + 0x44) + 0x8000);
     }
     temp_r7 = *(void **)((s8 *)arg1 + 0);
