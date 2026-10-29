@@ -3160,7 +3160,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)lbl_80471068);
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(lbl_80471074);
+    copy_xyz(arg0 + 0x5C, lbl_80471074);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     init_collision_body_parts(arg0, boss6_type2_collision_parts, 3);
     ((TBoss6Type2 *)arg0)->advance_position();

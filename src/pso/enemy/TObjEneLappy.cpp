@@ -1861,7 +1861,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     ((TObjEneLappy *)self)->apply_set_data(set);
     *(s32 *)(self + 0xDC) = *(s32 *)((u8 *)rappy_bml_resource + 0x430);
     VecCopy((Vec *)(self + 0x38), (const Vec *)set->pos);
-    ((TObjPlayer *)(self + 0x5C))->copy_xyz(set->rot);
+    copy_xyz(self + 0x5C, set->rot);
     for (i = 0; i < 5; i++) {
         ((Lappy_800C1C4C *)self)->params[i] = set->params[i];
     }

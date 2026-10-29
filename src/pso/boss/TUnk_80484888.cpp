@@ -34,7 +34,7 @@ TUnk_80484888::TUnk_80484888(Vec *pos, s32 effect_id, s32 lifetime, s32 *rotatio
     this->lifetime = lifetime;
     this->rate = rate;
     if (rotation != NULL) {
-        ((TObjPlayer *)this->rotation)->copy_xyz(rotation);
+        copy_xyz(this->rotation, rotation);
     } else {
         this->rotation[0] = 0;
         this->rotation[1] = 0;

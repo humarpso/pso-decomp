@@ -307,7 +307,7 @@ u8 *TObjButterflyLobby__ct(TObjButterflyLobby *butterfly_lobby, int arg1, u8 *ar
     *(s32 **)((s8 *)butterfly_lobby + 0x18) = __vt__18TObjButterflyLobby;
     *(s32 *)((s8 *)butterfly_lobby + 0) = (s32) lbl_805D4360;
     VecCopy((Vec *)((u8 *)butterfly_lobby + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)((u8 *)butterfly_lobby + 0x5C))->copy_xyz(arg2 + 0x18);
+    copy_xyz((u8 *)butterfly_lobby + 0x5C, arg2 + 0x18);
     VecCopy((Vec *)((u8 *)butterfly_lobby + 0x68), (const Vec *)(arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
         butterfly_lobby->m_90 = 0;

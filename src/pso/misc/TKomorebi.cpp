@@ -109,7 +109,7 @@ u8 *TKomorebi__ct(u8 *komorebi, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)komorebi + 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
     *(s32 *)((s8 *)komorebi + 0) = (s32) komorebi_class_name;
     VecCopy((Vec *)(komorebi + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(komorebi + 0x5C))->copy_xyz((void *)(arg2 + 0x18));
+    copy_xyz(komorebi + 0x5C, (void *)(arg2 + 0x18));
     VecCopy((Vec *)(komorebi + 0x68), (const Vec *)(arg2 + 0x24));
     *(s32 *)((s8 *)komorebi + 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
     ((TKomorebi *)komorebi)->texlist = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);

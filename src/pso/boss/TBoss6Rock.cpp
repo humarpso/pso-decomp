@@ -149,7 +149,7 @@ void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f3
     *(s32 *)&this->entity_id = arg1;
     if ((s32) *(s32 *)&this->entity_id != 0) {
         VecCopy((Vec *)(arg0 + 0x20), (const Vec *)((const void *)(arg2)));
-        ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *)arg3);
+        copy_xyz(arg0 + 0x30, (void *)arg3);
         *(f32 *)&this->set_index = farg0;
         *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
         *(s32 *)((s8 *)arg0 + 0x40) = arg5;
@@ -386,7 +386,7 @@ void TBoss6Rock::sub_80353F5C() {
   if (this->m_b0 == 0)
   {
     VecCopy((Vec *)&blk.v1, (const Vec *)(((u8 *) o) + 0xD4));
-    ((TObjPlayer *)(&blk.v2))->copy_xyz(lbl_80479280);
+    copy_xyz(&blk.v2, lbl_80479280);
     new_var2 = (u8 *) ((Elem_80353F5C *)&TBoss6Rock__data_80479258);
     new_var2 = (this->m_b4 * 0x14) + new_var2;
     new_var = (Elem_80353F5C *) new_var2;

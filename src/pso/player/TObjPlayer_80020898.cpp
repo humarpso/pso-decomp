@@ -1,4 +1,7 @@
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
+#include "pso/system/vector.h"
 
-void TObjPlayer::copy_xyz(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); *(u32*)((char*)this + 0x8) = *(u32*)((char*)q + 0x8); }
+void copy_xyz(void *dst, void *src) {
+    ((u32 *)dst)[0] = ((u32 *)src)[0];
+    ((u32 *)dst)[1] = ((u32 *)src)[1];
+    ((u32 *)dst)[2] = ((u32 *)src)[2];
+}

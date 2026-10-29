@@ -7,6 +7,7 @@
 #include "pso/object/TObject_8001A448.h"
 #include "pso/TItemEffShield.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/system/vector.h"
 
 struct RecoveredGlobal_8010A404_lbl_8049F148 {
     s32 value;
@@ -155,7 +156,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
     Recipe_8010A4C0 *r;
     if (p != NULL) {
         p->get_joint_pos(self->m_40, self->m_1c);
-        ((TObjPlayer *)(self->m_28))->copy_xyz((u8 *)p + 0x5C);
+        copy_xyz(self->m_28, (u8 *)p + 0x5C);
     }
     if (p != NULL && self->m_3c != (r = self->m_34)->m_28) {
         switch (self->m_3c) {

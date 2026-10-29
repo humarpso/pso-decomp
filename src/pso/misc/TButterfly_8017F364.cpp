@@ -18,7 +18,7 @@ void *TButterfly__ct(void *butterfly, void *arg1, void *arg2) {
     *(s32 **)((s8 *)butterfly + 0x18) = __vt__10TButterfly;
     *(void * *)&((TButterfly *)butterfly)->m_name = TButterfly__name;
     VecCopy((Vec *)((char *)butterfly + 56), (const Vec *)((char *)arg2 + 12));
-    ((TObjPlayer *)((char *)butterfly + 92))->copy_xyz((void *)((char *)arg2 + 24));
+    copy_xyz((char *)butterfly + 92, (void *)((char *)arg2 + 24));
     VecCopy((Vec *)((char *)butterfly + 104), (const Vec *)((char *)arg2 + 36));
     ((TButterfly *)butterfly)->init_motion();
     return butterfly;

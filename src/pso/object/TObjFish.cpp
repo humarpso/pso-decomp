@@ -624,7 +624,7 @@ u8 *TObjFish__ct(u8 *fish, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)fish + 0) = (s32) lbl_805D3D58;
     ((TObjFish *)fish)->m_a0 = 0;
     VecCopy((Vec *)(fish + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(fish + 0x5C))->copy_xyz(arg2 + 0x18);
+    copy_xyz(fish + 0x5C, arg2 + 0x18);
     VecCopy((Vec *)(fish + 0x68), (const Vec *)(arg2 + 0x24));
     var_f1 = ((TObjFish *)fish)->scale.x;
     temp_f0 = ((TObjFish *)fish)->scale.y;

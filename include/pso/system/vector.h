@@ -5,5 +5,7 @@
 #include <dolphin/mtx.h>
 
 Vec * VecCopy(Vec *dst, const Vec *src);
+// Copies three words: a Vec, or an x/y/z angle triple.
+void copy_xyz(void *dst, void *src);
 
 #endif

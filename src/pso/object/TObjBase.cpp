@@ -82,7 +82,7 @@ void TObjBase::apply_object_set_data(void *data) {
     s32 i;
     entity_id = src->entity_id;
     VecCopy(&home_position, VecCopy(&position, &src->position));
-    ((TObjPlayer *)&rotation_x)->copy_xyz(src->rotation);
+    copy_xyz(&rotation_x, src->rotation);
     VecCopy(&scale, &src->scale);
     room = src->room;
     for (i = 0; i < 3; i++) {

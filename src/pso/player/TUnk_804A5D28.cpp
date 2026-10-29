@@ -109,7 +109,7 @@ u8 *TObjPlayer::construct_weapon_casing(u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, 
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &__vt__13TUnk_804A5D10.value;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = ((TItem *)arg2)->get_item_id();
     VecCopy((Vec *)(((u8 *)this) + 0x2C), (const Vec *)arg3);
-    ((TObjPlayer *)(((u8 *)this) + 0x38))->copy_xyz(arg5);
+    copy_xyz(((u8 *)this) + 0x38, arg5);
     VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg4);
     *(f32 *)&this->m_20 = (f32) (*(f32 *)&this->m_20 * ((0.5f * (3.0517578e-05f * (f32) rand())) + 0.5f));
     *(f32 *)&this->texlist = (f32) (*(f32 *)&this->texlist * ((0.5f * (3.0517578e-05f * (f32) rand())) + 0.5f));

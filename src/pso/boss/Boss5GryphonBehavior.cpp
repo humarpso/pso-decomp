@@ -3731,14 +3731,14 @@ void TBoss5Gryphon::fn_800627E4(u32 arg1) {
             break;
         case 1:
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) ((u8 *)this + 0x38), (void *)lbl_80437DC4);
-            ((TObjPlayer *)((u8 *)this + 0x5C))->copy_xyz((void *)lbl_80437DD0);
+            copy_xyz((u8 *)this + 0x5C, (void *)lbl_80437DD0);
             ((s32 (*)(void *))advance_animation_playback)((void *)this);
             return;
         }
         break;
     case ENEMY_STATE_LEAVE:
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) ((u8 *)this + 0x38), (void *)lbl_80437DC4);
-        ((TObjPlayer *)((u8 *)this + 0x5C))->copy_xyz((void *)lbl_80437DD0);
+        copy_xyz((u8 *)this + 0x5C, (void *)lbl_80437DD0);
         *(f32 *)((s8 *)this + 0x484) = (f32) lbl_805D8D5C;
         *(f32 *)((s8 *)this + 0x488) = (f32) lbl_805D8D5C;
         *(f32 *)((s8 *)this + 0x48C) = (f32) lbl_805D8D5C;

@@ -15,6 +15,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/object/TObjMotion.h"
+#include "pso/system/vector.h"
 
 extern char lbl_804796E0[];
 extern char lbl_804796F4[];
@@ -183,7 +184,7 @@ void TPlyPhotonChair::render() {
         self->pos.x = out.x;
         self->pos.y = out.y - lbl_805E0124;
         self->pos.z = out.z;
-        ((TObjPlayer *)(self->rot))->copy_xyz((u8 *)pl + 0x5C);
+        copy_xyz(self->rot, (u8 *)pl + 0x5C);
         if (((TObjPlayer *)pl)->is_inactive() != 0) {
             TPlyPhotonChair::update_parts2(self->parts);
             TObjFish::set_global_param(self->x24);

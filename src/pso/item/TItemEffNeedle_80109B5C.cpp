@@ -30,7 +30,7 @@ void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     entity = (u8 *)find_entity_by_id(*(u16 *)((s8 *)self + 0x50));
     if (entity != NULL) {
         VecCopy((Vec *)(self + 0x30), (const Vec *)(*(Rec_80109B5C **)((s8 *)entity + 0xA4))[*(s32 *)((s8 *)self + 0x54)].pos);
-        ((TObjPlayer *)(self + 0x58))->copy_xyz(self + 0x44);
+        copy_xyz(self + 0x58, self + 0x44);
         *(s32 *)((s8 *)self + 0x5C) = (s32) (*(s32 *)((s8 *)self + 0x5C) - *(s32 *)((s8 *)entity + 0x60));
     }
     return arg0;

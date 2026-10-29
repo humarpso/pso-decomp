@@ -352,7 +352,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(entity + 0x38));
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         VecCopy((Vec *)(*(s32 *)&this->bodies + 0x1C), (const Vec *)(arg0 + 0x38));
-        ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *)(entity + 0x5C));
+        copy_xyz(arg0 + 0x5C, (void *)(entity + 0x5C));
         temp_r4 = this->actorFlags & 0xFFFFF7FF;
         this->actorFlags = temp_r4;
         this->actorFlags = 0x20000000;

@@ -754,7 +754,7 @@ void TObjEnemy::apply_set_data(void *arg1_arg) {
     arg0->f1C = arg1->f6;
     VecCopy((Vec *)&arg0->v50, (const Vec *)&arg1->v10);
     VecCopy((Vec *)&arg0->v38, (const Vec *)&arg0->v50);
-    ((TObjPlayer *)(&arg0->v5C))->copy_xyz(&arg1->v1C);
+    copy_xyz(&arg0->v5C, &arg1->v1C);
     for (i = 0; i < 5; i++) {
         arg0->f354[i] = arg1->f28[i];
     }

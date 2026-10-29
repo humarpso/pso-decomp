@@ -370,7 +370,6 @@ struct TObjPlayer : public TObjChara {
     static s32 get_player_count();
     s32 register_object();
     void clear_ground_candidates();
-    void copy_xyz(void* q);
     void reset_lobby_model();
     void reset_type();
     void set_type(s32 v);
