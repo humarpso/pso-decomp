@@ -169,7 +169,7 @@ void TObjCityAirCar_Car::run_task() {
             VecCopy((Vec *)&v, (const Vec *)&((Car_80180E70 *)this)->pos);
             v.x -= scale * sin_table_lookup(((Car_80180E70 *)this)->yaw);
             v.z -= scale * cos_table_lookup(((Car_80180E70 *)this)->yaw);
-            ((TNowLoading *)(((Car_80180E70 *)this)->light))->copy_pos(&v);
+            ((TParticleCtrl *)((Car_80180E70 *)this)->light)->set_position(&v);
         }
     }
 }

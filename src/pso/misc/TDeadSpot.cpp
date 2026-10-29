@@ -41,6 +41,7 @@ struct RecoveredGlobal_800D7F60_lbl_804949F4 {
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 struct Stack_800D7CF4 {
     f32 sp8;
     f32 spC;
@@ -144,7 +145,7 @@ void TUnk_804949D8::vfunc_6() {
     stack.sp10 = this->m_28 * cos_table_lookup(temp_r3);
     vec3_add_to(&stack.sp8, (u8 *)&this->unk_1C);
     TObjBoss2Tunnel::adjust_to_ground((s32)&stack.sp8, &stack.sp8);
-    ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
+    ((TParticleCtrl *)this->m_34)->set_position(&stack.sp8);
 }
 #pragma pop
 
@@ -190,7 +191,7 @@ void TUnk_804949F4::vfunc_6() {
   stack.sp8 = temp_f1;
   stack.sp10 = (this->m_28) * cos_table_lookup((int) temp_r3);
   vec3_add_to(&stack.sp8, (u8 *)&this->unk_1C);
-  ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
+  ((TParticleCtrl *)this->m_34)->set_position(&stack.sp8);
 }
 
 void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1) {

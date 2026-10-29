@@ -3,8 +3,10 @@
 
 #include "types.h"
 
+class TParticleCtrl;
+
 extern "C" {
-void *create_particle_emitter(void *pos, s32 id);
+TParticleCtrl *create_particle_emitter(void *pos, s32 id);
 }
 
 #endif

@@ -13,6 +13,6 @@ void spawn_land_hit_effect(s32 arg0, u32 item, u32 arg2, u32 arg3, s32 arg4) {
         if (p != 0) {
             p = TItemEffLandHit__ct((u8 *)p, (u8 *)arg0, (u8 *)item, (u8 *)arg2, (u8 *)arg3);
         }
-        TItemAttacker::spawn_item_timer((s32)p, (s32)invoke_menu_callback_if_set__10TObjPlayerFUl, (s32)arg4);
+        TItemAttacker::spawn_item_timer((TObject *)p, (ItemTimerCallback)invoke_menu_callback_if_set__10TObjPlayerFUl, arg4);
     }
 }

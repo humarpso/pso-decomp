@@ -1,4 +1,5 @@
 #include "pso/player/TObjPlayer_80011014.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/TItemEffEquip.h"
 #include "pso/item/TUnk_8049F038.h"
 #include "pso/TObject.h"
@@ -27,7 +28,7 @@ void run_task__13TItemEffEquipFv(Equip_Self *self) {
 void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
     if (self != NULL) {
         self->vt = __vt__13TItemEffEquip;
-        TBoss4Type2::request_destroy((u32)self->m_20);
+        TParticleCtrl::release(self->m_20);
         __dt__7TObjectFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -58,7 +59,6 @@ struct Obj_80108C90 {
 void __ct__14TObjCollidableFP7TObject(void *, void *);
 extern u8 lbl_8043E1A0[];
 
-#include "pso/TItemEffFlame.h"
 #include "pso/TItemAttacker.h"
 
 extern "C" {
@@ -89,8 +89,8 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x24 = arg5;
     if (self->src != NULL) {
         ((TItemEffEquip *)arg0)->spawn_equip_particle_effect((s32)arg4);
-        TItemAttacker::spawn_item_timer((s32)arg0, (s32)TItemEffEquip__sub_801088F8, 0xA);
-        TItemAttacker::spawn_item_timer((s32)arg0, (s32)retire_equipment_effect, 0x14);
+        TItemAttacker::spawn_item_timer((TObject *)arg0, (ItemTimerCallback)TItemEffEquip__sub_801088F8, 0xA);
+        TItemAttacker::spawn_item_timer((TObject *)arg0, (ItemTimerCallback)retire_equipment_effect, 0x14);
     } else {
         queue_destruction__7TObjectFv((TObject *)arg0);
     }
@@ -295,11 +295,6 @@ TUnk_8049F038::TUnk_8049F038(TObject *parent, s16 a, s32 b) : TObjCollidable(par
 }
 extern "C" {
 
-}
-
-void TItemEffFlame::play_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    spawn_particle_effect((void *)arg3, 0x45);
-    play_sound_effect(0x4001C112, 0, 0, 0);
 }
 
 void render__7TObjectFv(void);

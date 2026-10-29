@@ -7,6 +7,7 @@
 #include "pso/boss/TBoss6Type2.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
@@ -67,7 +68,7 @@ void TBoss6EffFlowSoul::run_task() {
         vec3_add_to(&self->pos, &d);
     }
     if (self->f20 != NULL) {
-        ((TNowLoading *)(self->f20))->copy_pos(&self->pos);
+        ((TParticleCtrl *)self->f20)->set_position(&self->pos);
     }
     self->age++;
     if (self->age > self->duration) {
@@ -78,5 +79,5 @@ void TBoss6EffFlowSoul::run_task() {
 }
 
 TBoss6EffFlowSoul::~TBoss6EffFlowSoul() {
-    if (m_20 != nullptr) TBoss4Type2::request_destroy((u32)m_20);
+    if (m_20 != nullptr) TParticleCtrl::release(m_20);
 }

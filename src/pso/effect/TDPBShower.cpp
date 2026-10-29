@@ -6,6 +6,7 @@
 #include "types.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_8035D7D0___vt__10TDPBShower {
     s32 value;
@@ -27,7 +28,7 @@ void TDPBShower::run_task() {
     if (query_teammate_state__9TObjEneDDFv(this) == 0) {
         m_position[1] += lbl_805E01C0;
         if (m_2c != NULL) {
-            ((TNowLoading *)m_2c)->copy_pos(m_position);
+            ((TParticleCtrl *)m_2c)->set_position(m_position);
         }
         if (--m_countdown < 0) {
             queue_destruction__7TObjectFv(this);
@@ -36,7 +37,7 @@ void TDPBShower::run_task() {
 }
 
 TDPBShower::~TDPBShower() {
-    if (m_2c != nullptr) TBoss4Type2::request_destroy((u32)m_2c);
+    if (m_2c != nullptr) TParticleCtrl::release(m_2c);
 }
 
 typedef char RecoveredGlobal_8035D7D0___vt__10TDPBShower_size[sizeof(RecoveredGlobal_8035D7D0___vt__10TDPBShower) == 0x18 ? 1 : -1];

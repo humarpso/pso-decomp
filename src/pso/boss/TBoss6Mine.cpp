@@ -20,6 +20,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 struct Stack_803242C0 {
     f32 sp8;
@@ -382,7 +383,7 @@ void TBoss6Mine::run_task() {
         this->fade_amount = 0.0f;
     }
     if (this->emitter != 0) {
-        ((TNowLoading *)this->emitter)->copy_pos(&this->position);
+        ((TParticleCtrl *)this->emitter)->set_position(&this->position);
     }
     if (is_far_from_origin() != 0) {
         queue_destruction();
@@ -392,7 +393,7 @@ void TBoss6Mine::run_task() {
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss6Mine;
-        if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3CC))); ((TBoss6Mine *)arg0)->emitter = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x3CC)); ((TBoss6Mine *)arg0)->emitter = 0; }
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(*(void **)((s8 *)arg0 + 0x378)); }
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);

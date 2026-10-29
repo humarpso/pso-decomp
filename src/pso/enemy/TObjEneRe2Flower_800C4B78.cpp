@@ -15,6 +15,7 @@
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 typedef struct Vec_800C4A5C {
     f32 x, y, z;
@@ -110,7 +111,7 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
         a.x = (2e+01f) * b.x + a.x;
         a.y = (2e+01f) * b.y + a.y;
         a.z = (2e+01f) * b.z + a.z;
-        ((TNowLoading *)(o->effect))->copy_pos(&a);
+        ((TParticleCtrl *)o->effect)->set_position(&a);
     }
 }
 #pragma pop

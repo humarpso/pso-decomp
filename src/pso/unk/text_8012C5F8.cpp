@@ -84,7 +84,7 @@ void TUnk_804A535C::emit_marker_effects() {
             var_r30 += 1;
         } while (var_r30 != 2);
         ((FlagWord *)(arg0 + 0x1F8))->set(2);
-        TItemAttacker::spawn_item_timer((s32)arg0, (s32)rocket_punch_return_timer, 0x3C);
+        TItemAttacker::spawn_item_timer((TObject *)arg0, (ItemTimerCallback)rocket_punch_return_timer, 0x3C);
         ((FlagWord *)(arg0 + 0x1F8))->set(4);
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x1FC, 0, 0, 1) == 1) {
             ((FlagWord *)(arg0 + 0x1F8))->clear(4);

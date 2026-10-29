@@ -627,7 +627,7 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
         ((s32 (*)(void *))render_anim_model_at_pos__15TObjEnemyCustomFv)(arg0);
         ((VObj_18_fe09eb *)arg0)->m63(0x22, arg0 + 0x410);
         if (*(u32 *)((s8 *)arg0 + 0x3A8) != 0U) {
-            ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x3A8)))->copy_pos(arg0 + 0x410);
+            ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x3A8))->set_position(arg0 + 0x410);
         }
         if (--*(s16 *)((s8 *)arg0 + 0x33C) <= 0) {
             void *o;

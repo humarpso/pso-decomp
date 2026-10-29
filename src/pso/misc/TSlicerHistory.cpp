@@ -19,7 +19,7 @@ u8 *__ct__14TSlicerHistoryFv(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TSlicerHistory;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D382C;
-    ((TObjPlayer *)(arg0 + 0x1C))->copy_xyz((void *)(arg1 + 0x5C));
+    copy_xyz(arg0 + 0x1C, (void *)(arg1 + 0x5C));
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg1 + 0x38));
     *(s32 *)((s8 *)arg0 + 0x38) = arg2;
     if (arg3 != 0U) {

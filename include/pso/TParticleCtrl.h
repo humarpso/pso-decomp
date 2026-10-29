@@ -2,12 +2,18 @@
 #define PSO_TPARTICLECTRL_H
 #include "pso/TObject.h"
 #include "types.h"
+#include <dolphin/mtx/GeoTypes.h>
 
 class TParticleCtrl : public TObject {
 public:
     virtual ~TParticleCtrl();
     virtual void run_task();
 public:
+    // Moves the emitter.
+    // pos points at a Vec.
+    void set_position(void *pos);
+    // Queues the emitter's destruction; nothing when it is NULL.
+    static void release(void *emitter);
     // Who owns the effect; a client id of 0xFFFF leaves it unchanged.
     void set_owner_id(u16 id);
     void set_tint_color(s32 arg1);
@@ -44,6 +50,9 @@ public:
     static void free_all();
     static void init_particle_buffer();
     static s32 get_particle_by_index(s32 arg0);
+
+    u8 pad_1c[0x44];
+    Vec position;
 };
 
 #endif

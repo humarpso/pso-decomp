@@ -19,6 +19,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct O_8033E5A8 {
     u8 pad0[0x18];
@@ -296,10 +297,10 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
                         ((TBoss4Type2 *)(arg0->emit[i]))->set_flags(0x40);
                     }
                 } else {
-                    ((TNowLoading *)(arg0->emit[i]))->copy_pos(ptrs[i]);
+                    ((TParticleCtrl *)arg0->emit[i])->set_position(ptrs[i]);
                 }
             } else if (arg0->emit[i] != 0) {
-                TBoss4Type2::request_destroy((u32)arg0->emit[i]);
+                TParticleCtrl::release(arg0->emit[i]);
                 arg0->emit[i] = 0;
             }
         }
@@ -360,7 +361,7 @@ TBoss6Demo21_TYPE2_DEAD::~TBoss6Demo21_TYPE2_DEAD() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (((O_8033E5A8 *)this)->fa0[i] != NULL) {
-            TBoss4Type2::request_destroy((u32)(((O_8033E5A8 *)this)->fa0[i]));
+            TParticleCtrl::release(((O_8033E5A8 *)this)->fa0[i]);
             ((O_8033E5A8 *)this)->fa0[i] = NULL;
         }
     }

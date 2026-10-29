@@ -5106,7 +5106,7 @@ void fill_player_record__10TObjPlayerFPvPv(Src_801B4CE4 *src, Dst_801B4CE4 *dst)
     dst->f2 = src->f2E;
     dst->f4 = src->f30 & ~0x02000000;
     VecCopy((Vec *)dst->f8, (const Vec *)src->pos38);
-    ((TObjPlayer *)(dst->f14))->copy_xyz(src->f5C);
+    copy_xyz(dst->f14, src->f5C);
     dst->f20 = src->f326;
     dst->f22 = src->f32C;
     for (i = 0; i < 5; i++) {

@@ -1950,7 +1950,7 @@ void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1) {
                     a.x += 2.0f * (5.0f * self->dir.x);
                     a.y += 5.0f * self->dir.y;
                     a.z += 5.0f * self->dir.z;
-                    ((TNowLoading *)(self->ptcl))->copy_pos(&a);
+                    ((TParticleCtrl *)self->ptcl)->set_position(&a);
                 }
             } else if (self->ptcl != NULL) {
                 queue_destruction__7TObjectFv(self->ptcl);
@@ -1986,7 +1986,7 @@ void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1) {
                 b.x += 2.0f * (5.0f * self->dir.x);
                 b.y += 5.0f * self->dir.y;
                 b.z += 5.0f * self->dir.z;
-                ((TNowLoading *)(self->ptcl))->copy_pos(&b);
+                ((TParticleCtrl *)self->ptcl)->set_position(&b);
             }
             {
                 Vec_8002FE60 e;
@@ -2823,9 +2823,9 @@ void TBoss2DeRolLe__sub_800313F8(DR_800313F8 *o, u32 arg1, s32 arg2) {
             } else if (o->fC0 >= lbl_805D8368 && o->fC0 <= TBoss2DeRolLe__data_805D82DC) {
                 o->f6EC++;
                 if (o->f6EC % 4 == 0) {
-                    ((TNowLoading *)(o->f73C))->copy_pos(&o->v44C);
+                    ((TParticleCtrl *)o->f73C)->set_position(&o->v44C);
                 } else if (o->f6EC % 4 == 2) {
-                    ((TNowLoading *)(o->f73C))->copy_pos(&o->v458);
+                    ((TParticleCtrl *)o->f73C)->set_position(&o->v458);
                 } else {
                     ((TParticleCtrl *)(o->f73C))->enable();
                 }
@@ -3929,9 +3929,9 @@ void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o) {
                     lim -= r;
                     t.y = TBoss2DeRolLe__data_805D82A8;
                     t.x += lim;
-                    ((TNowLoading *)(o->ctl[k * 2]))->copy_pos(&t);
+                    ((TParticleCtrl *)o->ctl[k * 2])->set_position(&t);
                     t.x -= TBoss2DeRolLe__data_805D82A0 * lim;
-                    ((TNowLoading *)(o->ctl[k * 2 + 1]))->copy_pos(&t);
+                    ((TParticleCtrl *)o->ctl[k * 2 + 1])->set_position(&t);
                 } else {
                     ((TParticleCtrl *)(o->ctl[k * 2]))->enable();
                     ((TParticleCtrl *)(o->ctl[k * 2 + 1]))->enable();
@@ -3941,9 +3941,9 @@ void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o) {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, &o->pos[o->f758]);
             t.y = TBoss2DeRolLe__data_805D82A8;
             t.x += TBoss2DeRolLe__data_805D8294;
-            ((TNowLoading *)(o->ctl[0]))->copy_pos(&t);
+            ((TParticleCtrl *)o->ctl[0])->set_position(&t);
             t.x -= TBoss2DeRolLe__data_805D82A4;
-            ((TNowLoading *)(o->ctl[1]))->copy_pos(&t);
+            ((TParticleCtrl *)o->ctl[1])->set_position(&t);
             for (m = 2; m < 6; m++) {
                 ((TParticleCtrl *)(o->ctl[m]))->enable();
             }

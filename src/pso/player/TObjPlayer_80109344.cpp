@@ -10,15 +10,6 @@ union V_801093B4 { W_801093B4 w; struct { f32 x; f32 y; f32 z; } f; };
 
 extern "C" {
 extern const f32 lbl_805DAB38;
-s32 __ct__14TItemEffHeavenFP7TObjectlsl(u32, s32, u32, u16, s32);
-u32 __nw__7TObjectFUl(s32);
-
-void TObjPlayer::spawn_heaven_effect(s32 arg0, u32 arg1, u16 arg2, s32 arg3) {
-    u32 obj;
-    if ((arg0 != 0) && ((u16) arg2 != 0xFFFF) && (arg1 != 0U) && ((obj = __nw__7TObjectFUl(0x4C)) != 0U)) {
-        __ct__14TItemEffHeavenFP7TObjectlsl(obj, arg0, arg1, arg2, arg3);
-    }
-}
 
 #pragma push
 #pragma opt_propagation off

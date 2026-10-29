@@ -4,6 +4,7 @@
 #include "pso/system/ModelDrawContext.h"
 
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo {
     s32 value;
@@ -89,10 +90,10 @@ void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     if (idx >= 0 && idx < arg0->count) {
         transform_to_view__11TCameraCtrlFii((s32)lbl_80450CDC, (s32)sp);
         if (arg0->a != NULL && arg0->a[idx] != NULL) {
-            ((TNowLoading *)(arg0->a[idx]))->copy_pos(sp);
+            ((TParticleCtrl *)arg0->a[idx])->set_position(sp);
         }
         if (arg0->b != NULL && arg0->b[idx] != NULL) {
-            ((TNowLoading *)(arg0->b[idx]))->copy_pos(sp);
+            ((TParticleCtrl *)arg0->b[idx])->set_position(sp);
         }
     }
 }

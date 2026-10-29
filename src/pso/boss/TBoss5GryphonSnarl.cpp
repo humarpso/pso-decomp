@@ -64,7 +64,7 @@ void TBoss5GryphonSnarl::run_task() {
                 v.x = inner * sin_table_lookup(angle) + position.x;
                 v.y = lbl_805D8F08;
                 v.z = inner * cos_table_lookup(angle) + position.z;
-                ((TNowLoading *)children_20[i])->copy_pos(&v);
+                ((TParticleCtrl *)children_20[i])->set_position(&v);
             }
             if (children_a0[i] == NULL) {
                 children_a0[i] = (TObject *)spawn_continuous_particle_effect_with_flags(&position, TBoss5GryphonSnarl__effect_table[1], 0x40);
@@ -76,7 +76,7 @@ void TBoss5GryphonSnarl::run_task() {
                 v.x = outer * sin_table_lookup(angle) + position.x;
                 v.y = lbl_805D8F08;
                 v.z = outer * cos_table_lookup(angle) + position.z;
-                ((TNowLoading *)children_a0[i])->copy_pos(&v);
+                ((TParticleCtrl *)children_a0[i])->set_position(&v);
             }
         }
         frame++;

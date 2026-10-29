@@ -10,6 +10,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/boss/TBoss4Type2_8033FEEC.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 void *TObjFish__sub_8034029C(TBoss6Demo15_TYPE2_WAIT *, TObjFish *);
@@ -31,7 +32,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->sub_8033FE30();
         temp_r3 = this->m_20;
         if (temp_r3 != NULL) {
-            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_40);
+            ((TParticleCtrl *)temp_r3)->set_position((u8 *)&this->m_40);
         }
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->check_any_player_near();
         play_persistent_sound(0x4003A126, (s32)arg0, (u32)(arg0 + 0x40), 0, 0);
@@ -44,7 +45,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
 void *TBoss6Demo15_TYPE2_WAIT::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(u32 *)((u8 *)this + 0x18)) = lbl_804EFB78;
-        if (this->m_20 != NULL) { TBoss4Type2::request_destroy((u32)this->m_20); this->m_20 = 0; }
+        if (this->m_20 != NULL) { TParticleCtrl::release(this->m_20); this->m_20 = 0; }
         fn_80340040(this);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

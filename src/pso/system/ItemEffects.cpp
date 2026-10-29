@@ -55,7 +55,7 @@ void TUnk_804A2660::run_task() {
         if ((var_r30 != 0) && (get_mode__5TItemFv() == 2)) {
             var_r31 = 1;
             if (((TItemWeapon *)var_r30)->get_joint_position(this->m_20, sp8) != 0) {
-                ((TNowLoading *)(*(u32 *)&this->unk_24))->copy_pos(sp8);
+                ((TParticleCtrl *)*(u32 *)&this->unk_24)->set_position(sp8);
                 if ((((TItem *)var_r30)->is_hidden() == 0) || (obj_testFlags30__14TObjCollidableFUl(var_r30, 0x08000000) == 0)) {
                     ((TParticleCtrl *)(*(u32 *)&this->unk_24))->clear_active_flag();
                 } else {

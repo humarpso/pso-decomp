@@ -3,6 +3,7 @@
 #include "pso/boss/TBoss4Type2.h"
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 struct Vec_80359EF0 { s32 x, y, z; };
 
@@ -18,11 +19,11 @@ void TBoss6CrushPtcl::run_task() {
     m_1C++;
     if (m_1C >= 6) {
         if (m_20 != 0) {
-            TBoss4Type2::request_destroy(m_20);
+            TParticleCtrl::release((void *)m_20);
             m_20 = 0;
         }
         if (m_24 != 0) {
-            TBoss4Type2::request_destroy(m_24);
+            TParticleCtrl::release((void *)m_24);
             m_24 = 0;
         }
         queue_destruction__7TObjectFv(this);

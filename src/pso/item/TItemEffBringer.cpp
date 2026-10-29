@@ -1,4 +1,5 @@
 #include "pso/TItemEffBringer.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 
@@ -50,7 +51,7 @@ void TItemEffBringer::hook() {
 
 TItemEffBringer::~TItemEffBringer() {
     for (int i = 0; i != this->m_particle_count; i++) {
-        TBoss4Type2::request_destroy(this->m_particles[i]);
+        TParticleCtrl::release((void *)this->m_particles[i]);
     }
 }
 

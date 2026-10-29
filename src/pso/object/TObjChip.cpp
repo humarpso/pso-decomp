@@ -520,7 +520,7 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
     VecCopy((Vec *)(arg0 + 0xC), (const Vec *)(arg1 + 0xC));
     VecCopy((Vec *)(arg0 + 0x18), (const Vec *)(arg1 + 0x18));
-    ((TObjPlayer *)(arg0 + 0x24))->copy_xyz(arg1 + 0x24);
+    copy_xyz(arg0 + 0x24, arg1 + 0x24);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0x38);

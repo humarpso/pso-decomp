@@ -2,6 +2,7 @@
 #include "pso/enemy/TObjEneHoldEffect.h"
 #include "pso/enemy/TObjEneHoldEffect.h"
 #include "pso/boss/TBoss4Type2.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
@@ -12,7 +13,7 @@ extern s32 __vt__17TObjEneHoldEffect[];
 
 }
 TObjEneHoldEffect::~TObjEneHoldEffect() {
-    if (*(void **)((s8 *)this + 0x90) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x90))); this->m_90 = 0; }
+    if (*(void **)((s8 *)this + 0x90) != NULL) { TParticleCtrl::release(*(void **)((s8 *)this + 0x90)); this->m_90 = 0; }
 }
 extern "C" {
 

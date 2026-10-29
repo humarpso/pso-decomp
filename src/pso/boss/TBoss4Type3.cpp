@@ -1084,10 +1084,10 @@ void TBoss4Type3::run_task() {
     pop_matrix();
     if (e != 0) {
         if (this->effect_parts[5] != 0) {
-            ((TNowLoading *)(this->effect_parts[5]))->copy_pos(v[0]);
+            ((TParticleCtrl *)this->effect_parts[5])->set_position(v[0]);
         }
         if (this->effect_parts[6] != 0) {
-            ((TNowLoading *)(this->effect_parts[6]))->copy_pos(v[1]);
+            ((TParticleCtrl *)this->effect_parts[6])->set_position(v[1]);
         }
     }
     __dt__11TBoss4Type3FPvs((s32 *)p, 1);
@@ -1263,7 +1263,7 @@ void TBoss4Type3::destroy_parts() {
     s32 i;
     for (i = 0; i < 13; i++) {
         if (self->parts[i] != 0) {
-            TBoss4Type2::request_destroy((u32)self->parts[i]);
+            TParticleCtrl::release(self->parts[i]);
             self->parts[i] = 0;
         }
     }
@@ -1278,13 +1278,13 @@ void TBoss4Type3::copy_positions_to_parts() {
     s32 i;
     for (i = 0; i < 8; i++, p++) {
         if (((Obj_8005A1AC *)this)->f404[i] != 0 && *p != 0) {
-            ((TNowLoading *)(((Obj_8005A1AC *)this)->f404[i]))->copy_pos(*p);
+            ((TParticleCtrl *)((Obj_8005A1AC *)this)->f404[i])->set_position(*p);
         }
     }
     if (((Obj_8005A1AC *)this)->f3ba == 0xFFFF) {
-        ((TNowLoading *)(((Obj_8005A1AC *)this)->f404[7]))->copy_pos(lbl_80487150);
+        ((TParticleCtrl *)((Obj_8005A1AC *)this)->f404[7])->set_position(lbl_80487150);
     } else {
-        ((TNowLoading *)(((Obj_8005A1AC *)this)->f404[7]))->copy_pos(&((Obj_8005A1AC *)this)->f480);
+        ((TParticleCtrl *)((Obj_8005A1AC *)this)->f404[7])->set_position(&((Obj_8005A1AC *)this)->f480);
     }
 }
 
@@ -1293,7 +1293,7 @@ void TBoss4Type3__sub_8005A150(TBoss4Type3 *self) {
     for (i = 8; i < 13; i++) {
         u32 *slot = &((Obj_8005A300 *)self)->f404[i];
         if (*slot != 0) {
-            TBoss4Type2::request_destroy(*slot);
+            TParticleCtrl::release((void *)*slot);
             *slot = 0;
         }
     }
@@ -1877,11 +1877,11 @@ void TBoss4Type3::update_homing() {
         ((TBoss4Type3 *)o)->set_anim_state(6);
     } else if (o->f398 == 0x75) {
         if (o->f424 != 0) {
-            TBoss4Type2::request_destroy((u32)o->f424);
+            TParticleCtrl::release(o->f424);
             o->f424 = 0;
         }
         if (o->f428 != 0) {
-            TBoss4Type2::request_destroy((u32)o->f428);
+            TParticleCtrl::release(o->f428);
             o->f428 = 0;
         }
         o->f52c = 0;
@@ -1905,10 +1905,10 @@ void TBoss4Type3::update_homing() {
         v += step;
     }
     if (o->f424 != 0) {
-        ((TNowLoading *)(o->f424))->copy_pos(a);
+        ((TParticleCtrl *)o->f424)->set_position(a);
     }
     if (o->f428 != 0) {
-        ((TNowLoading *)(o->f428))->copy_pos(b);
+        ((TParticleCtrl *)o->f428)->set_position(b);
     }
     if (--o->f398 < 0) {
         ((TBoss4Type3 *)o)->set_action_from_table(1);
@@ -2063,7 +2063,7 @@ void TBoss4Type3::update_capture() {
     pos = (u8 *)&this->m_474;
     if (this->m_398 < 0x12) {
         if (*(void **)((s8 *)arg0 + 0x42C) != NULL) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x42C)));
+            TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x42C));
             *(void **)((s8 *)arg0 + 0x42C) = NULL;
         }
     } else if (this->m_398 <= 0x21 && *(u32 *)((s8 *)arg0 + 0x42C) == 0) {
@@ -2074,7 +2074,7 @@ void TBoss4Type3::update_capture() {
         }
     }
     if (*(void **)((s8 *)arg0 + 0x42C) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x42C)))->copy_pos(pos);
+        ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x42C))->set_position(pos);
     }
     if (this->m_398 == 0x21) {
         TBoss4Type3::create_yutai((void *)arg0, (void *)0, (void *)((void *)this->m_3b8));
@@ -2088,11 +2088,11 @@ void TBoss4Type3::update_capture() {
     pos = &v;
     if (this->m_398 < 2) {
         if (*(void **)((s8 *)arg0 + 0x430) != NULL) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x430)));
+            TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x430));
             *(void **)((s8 *)arg0 + 0x430) = NULL;
         }
         if (*(void **)((s8 *)arg0 + 0x434) != NULL) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x434)));
+            TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x434));
             *(void **)((s8 *)arg0 + 0x434) = NULL;
         }
     } else if (this->m_398 <= 0x12) {
@@ -2112,10 +2112,10 @@ void TBoss4Type3::update_capture() {
         }
     }
     if (*(void **)((s8 *)arg0 + 0x430) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x430)))->copy_pos(pos);
+        ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x430))->set_position(pos);
     }
     if (*(void **)((s8 *)arg0 + 0x434) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x434)))->copy_pos(pos);
+        ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x434))->set_position(pos);
     }
     if (--this->m_398 < 0) {
         ((TBoss4Type3 *)arg0)->set_action_from_table(1);

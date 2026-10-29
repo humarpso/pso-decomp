@@ -5,6 +5,7 @@
 #include "pso/enemy/TObjEneHoldEffect.h"
 #include "pso/TObject.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 struct Vec_8036CF30 { f32 x, y, z; };
 
 struct Hold_8036CF30 {
@@ -63,9 +64,9 @@ void run_task__17TObjEneHoldEffectFv(Hold_8036CE20 *o) {
             out.x = o->pos.x - lbl_805E03B0 * d.x;
             out.y = o->pos.y;
             out.z = o->pos.z - lbl_805E03B0 * d.z;
-            ((TNowLoading *)(o->x90))->copy_pos(&out);
+            ((TParticleCtrl *)o->x90)->set_position(&out);
         } else {
-            ((TNowLoading *)(o->x90))->copy_pos(&o->pos);
+            ((TParticleCtrl *)o->x90)->set_position(&o->pos);
         }
     }
     if (o->x9c-- < 0) {
@@ -90,7 +91,7 @@ void TObjEneHoldEffect::render() {
         out.x = o->pos.x - lbl_805E03B0 * d.x;
         out.y = o->pos.y;
         out.z = o->pos.z - lbl_805E03B0 * d.z;
-        ((TNowLoading *)(o->x90))->copy_pos(&out);
+        ((TParticleCtrl *)o->x90)->set_position(&out);
     }
 }
 #pragma pop

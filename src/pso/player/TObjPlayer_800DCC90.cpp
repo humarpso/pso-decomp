@@ -99,7 +99,7 @@ void TObjPlayer::update_homing_shot() {
         VecCopy((Vec *)&arg0->prev, (const Vec *)&arg0->pos);
         vec3_add_to(&arg0->pos, &arg0->vel);
         if (arg0->effect != NULL) {
-            ((TNowLoading *)(arg0->effect))->copy_pos(&arg0->pos);
+            ((TParticleCtrl *)arg0->effect)->set_position(&arg0->pos);
         }
         if (csnVector(&arg0->prev, &arg0->pos, -1) != 0) {
             queue_destruction__7TObjectFv(arg0);

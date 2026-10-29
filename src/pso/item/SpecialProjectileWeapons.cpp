@@ -491,7 +491,7 @@ void TUnk_804A2164::emit_marker_effects() {
     s32 temp_r31;
     s32 var_r30;
     if ((s32) ((RecoilWeaponView *)this)->projectileVisible == 1) {
-        TItemAttacker::spawn_item_timer((s32)((RecoilWeaponView *)this), (s32)drill_launcher_return_timer, 0x1E);
+        TItemAttacker::spawn_item_timer((RecoilWeaponView *)this, (ItemTimerCallback)drill_launcher_return_timer, 0x1E);
         ((RecoilWeaponView *)this)->projectileVisible = 0;
     }
     ((RecoilWeaponView *)this)->recoilPhase = 2;

@@ -155,7 +155,7 @@ void TUnk_804E4788::run_task() {
             m_particle->enable();
             break;
         case 1:
-            ((TNowLoading *)m_particle)->copy_pos(&m_points[m_cur]);
+            ((TParticleCtrl *)m_particle)->set_position(&m_points[m_cur]);
             m_cur++;
             if (m_cur >= NUM_POINTS) {
                 m_cur = 0;

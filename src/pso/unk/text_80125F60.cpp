@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
-#include "pso/unk/text_80108F04.h"
+#include "pso/item/TItemEffFlame.h"
 #include "pso/unk/text_80125F60.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"

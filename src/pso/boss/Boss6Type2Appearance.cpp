@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/system/PadRumble.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
@@ -246,10 +247,10 @@ void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
                     ((TBoss4Type2 *)(self->h[i]))->set_flags(0x40);
                 }
             } else {
-                ((TNowLoading *)(self->h[i]))->copy_pos(p);
+                ((TParticleCtrl *)self->h[i])->set_position(p);
             }
         } else if (self->h[i] != NULL) {
-            TBoss4Type2::request_destroy((u32)self->h[i]);
+            TParticleCtrl::release(self->h[i]);
             self->h[i] = NULL;
         }
     }
@@ -276,7 +277,7 @@ O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
         arg0->f18 = __vt__25TBoss6Demo20_TYPE2_APPEAR;
         for (i = 0; i < 9; i++) {
             if (arg0->h[i] != 0) {
-                TBoss4Type2::request_destroy((u32)arg0->h[i]);
+                TParticleCtrl::release(arg0->h[i]);
                 arg0->h[i] = 0;
             }
         }

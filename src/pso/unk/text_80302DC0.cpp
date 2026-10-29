@@ -5,6 +5,7 @@
 #include "pso/system/vector.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 typedef struct Vec_80302DC0 { f32 x; f32 y; f32 z; } Vec_80302DC0;
 
@@ -35,7 +36,7 @@ void fn_80302DC0(u8 *arg0) {
             b.x += ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4 * *(f32 *)((s8 *)arg0 + 0xB0);
             b.z += ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4 * *(f32 *)((s8 *)arg0 + 0xB8);
             if (((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_cc != NULL) {
-                ((TNowLoading *)(((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_cc))->copy_pos(&b);
+                ((TParticleCtrl *)((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_cc)->set_position(&b);
             }
             ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4 += step;
         }

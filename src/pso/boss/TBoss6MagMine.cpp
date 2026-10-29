@@ -17,6 +17,7 @@ struct Mine_80368C14 { u8 pad[0x38]; Vec_80368C14 pos; };
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 struct VBase_18_5673ef { char pad[0x18]; };
 
@@ -401,14 +402,14 @@ void TUnk_804F322C::run_task() {
         break;
     }
     if (self->f3B0 != 0) {
-        ((TNowLoading *)(self->f3B0))->copy_pos(&self->pos);
+        ((TParticleCtrl *)self->f3B0)->set_position(&self->pos);
     }
 }
 
 void *__dt__13TUnk_804F322CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F322C;
-        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3B0))); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x3B0)); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {

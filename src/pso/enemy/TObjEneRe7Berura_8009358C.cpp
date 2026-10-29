@@ -586,7 +586,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
                     }
                 } else {
                     for (s32 i = 0; i < 2; i++) {
-                        ((TNowLoading *)(EMIT_(i)))->copy_pos(&ARMP[i]);
+                        ((TParticleCtrl *)EMIT_(i))->set_position(&ARMP[i]);
                     }
                 }
             }

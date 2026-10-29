@@ -5,6 +5,7 @@
 #include "pso/effect/TUnk_804CCC68.h"
 #include "pso/misc/TTecFoie.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_802302A0___vt__8TTecFoie { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_802302A0___vt__8TTecFoie_size[sizeof(RecoveredGlobal_802302A0___vt__8TTecFoie) == 0x28 ? 1 : -1];
@@ -36,7 +37,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
     }
     for (i = 0; i < TTecFoie__emitter_profile_table[self->band].count; i++) {
         if (self->emitters[i] != 0) {
-            ((TNowLoading *)(self->emitters[i]))->copy_pos(self->pos);
+            ((TParticleCtrl *)self->emitters[i])->set_position(self->pos);
         }
     }
     ((TUnk_804CCC68 *)self)->move_technique_projectile();

@@ -13,6 +13,7 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/map/FloorArea.h"
+#include "pso/system/vector.h"
 
 struct O_80087638 { u8 pad[0x2e]; u16 x2e; };
 
@@ -24,14 +25,14 @@ extern s32 particle_global_entry_table;
 extern s32 particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 
-void *create_particle_emitter(void *pos, s32 id) {
+TParticleCtrl *create_particle_emitter(void *pos, s32 id) {
     void *p;
     if (particle_pool_limit > id) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_800874F4 * *)&particle_global_entry_table)[id]), 0, 0, 0, 0);
         }
-        return p;
+        return (TParticleCtrl *)p;
     }
     if (particle_pool_limit + 0x40 > id) {
         s32 idx = id - 0x200;
@@ -39,7 +40,7 @@ void *create_particle_emitter(void *pos, s32 id) {
         if (p != 0) {
             p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_800874F4 * *)&particle_area_entry_table)[idx]), 0, 0, 0, 0);
         }
-        return p;
+        return (TParticleCtrl *)p;
     }
     return 0;
 }
@@ -73,7 +74,11 @@ void TParticleCtrl::set_tint_color(s32 arg1) {
 
 }
 
-void TNowLoading::copy_pos(void* q) { *(f32*)((char*)this + 0x60) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x64) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x68) = *(f32*)((char*)q + 0x8); }
+void TParticleCtrl::set_position(void *pos) {
+    position.x = ((Vec *)pos)->x;
+    position.y = ((Vec *)pos)->y;
+    position.z = ((Vec *)pos)->z;
+}
 
 #pragma readonly_strings on
 
@@ -192,7 +197,7 @@ s32 is_split_screen();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 extern u8 *camera_ctrl_instance;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-int TParticleCtrl__sub_800884F0(void* p);
+void TParticleCtrl__sub_800884F0(void *p, void *dir);
 void set_particle_draw_scale(void* p, f32 a, f32 b);
 s32 TLoadCtrl__sub_8001C60C();
 f32 horizontal_distance_squared(void *, void *);
@@ -213,7 +218,6 @@ extern char lbl_804394D4[];
 extern "C" {
 
 void clear_active_flag__13TParticleCtrlFv(void* p);
-int copy_xyz__10TObjPlayerFPv(void*);
 
 #pragma push
 #pragma fp_contract on
@@ -326,7 +330,7 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
             p = particle_ctrl_generator_table[kind].fn(self->def, &self->pos, self->tex);
             if (p != NULL) {
                 set_particle_draw_scale(p, self->sx, self->sy);
-                ((int (*)(void *, void *))TParticleCtrl__sub_800884F0)(p, &self->dir);
+                TParticleCtrl__sub_800884F0(p, &self->dir);
                 if (self->flags & 0x100) {
                     Color_8008767C c = self->color;
                     f32 rgba[4];
@@ -612,7 +616,7 @@ void *TParticleCtrl::initialize(const void *position, s32 particle_index, s32 fi
 
 }
 
-int TParticleCtrl__sub_800884F0(void* p) { return copy_xyz__10TObjPlayerFPv((char*)p + 0x98); }
+void TParticleCtrl__sub_800884F0(void *p, void *dir) { copy_xyz((char *)p + 0x98, dir); }
 
 void TParticleCtrl::attach_model(s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     *(s32 *)((s8 *)((u8 *)this) + 0xB0) = arg1;

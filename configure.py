@@ -484,6 +484,10 @@ GAME_EXCEPTIONS: Dict[str, Dict[str, Any]] = {
     "pso/item/TItemMag.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
     "pso/item/TItemProUnit.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
     "pso/item/TItemProShield.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
+    # TItemEffNeedle.cpp too: its three vtables come out in the order only
+    # deferred code generation gives (TItemEffNeedlePos keeps the implicit
+    # destructor).
+    "pso/item/TItemEffNeedle.cpp": {"cflags": _switch(cflags_pso, "-inline off,deferred")},
     # TItemEquipBase.cpp keeps its class-name string in .rodata.
     "pso/item/TItemEquipBase.cpp": {"cflags": _switch(cflags_pso, "-str reuse,readonly")},
     # TItemObject's vtable precedes its switch table: deferred, and written

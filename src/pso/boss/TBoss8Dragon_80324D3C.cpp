@@ -2,6 +2,7 @@
 #include "pso/TBoss5GryphonLightningWing.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
@@ -18,16 +19,16 @@ void TBoss5GryphonLightningWing::update_wing_segments() {
     eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x48, (int) (*(s32 *)((s8 *)arg0 + 0x90)), 0, arg0 + 0x20, (f32) (*(f32 *)((s8 *)arg0 + 0x88)));
     eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x48, (int) (*(s32 *)((s8 *)arg0 + 0x90)), 0, arg0 + 0x2C, (f32) (*(f32 *)((s8 *)arg0 + 0x8C)));
     if (this->m_38 != 0) {
-        ((TNowLoading *)(this->m_38))->copy_pos(arg0 + 0x20);
+        ((TParticleCtrl *)this->m_38)->set_position(arg0 + 0x20);
     }
     if (this->m_3c != 0) {
-        ((TNowLoading *)(this->m_3c))->copy_pos(arg0 + 0x20);
+        ((TParticleCtrl *)this->m_3c)->set_position(arg0 + 0x20);
     }
     if (this->m_40 != 0) {
-        ((TNowLoading *)(this->m_40))->copy_pos(arg0 + 0x2C);
+        ((TParticleCtrl *)this->m_40)->set_position(arg0 + 0x2C);
     }
     if (this->m_44 != 0) {
-        ((TNowLoading *)(this->m_44))->copy_pos(arg0 + 0x2C);
+        ((TParticleCtrl *)this->m_44)->set_position(arg0 + 0x2C);
     }
 }
 

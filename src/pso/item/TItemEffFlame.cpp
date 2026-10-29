@@ -1,43 +1,61 @@
-#include "pso/TItemEffFlame.h"
+#pragma readonly_strings on
+#define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/item/TItemEffFlame.h"
+#include "pso/TItemAttacker.h"
+#include "pso/TMainTask.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/player/TObjPlayer_80011014.h"
+#include "pso/player/TObjPlayer_801542CC.h"
+#include "pso/system/SoundEffect.h"
+#include "pso/unk/text_80087278.h"
+#include <stdlib.h>
 
-#include "types.h"
-#include "pso/boss/TBoss4Type2.h"
-#include "pso/misc/TNowLoading.h"
+const char *TItemEffFlame__class_name = "TItemEffFlame";
 
-#pragma fp_contract on
-extern "C" {
+static void release_flame(TObject *flame);
 
-struct Vec_80108D6C { f32 x, y, z; };
-struct Rec_80108D6C { u8 pad0[0x1C]; Vec_80108D6C pos; u8 pad28[0x4]; };
-struct Photon_80108D6C { u8 pad0[0xA4]; Rec_80108D6C *recs; };
-struct Flame_80108D6C { u8 pad0[0x1C]; void *m_1c; u16 m_20; u8 pad22[2]; s32 m_24; };
-
-void *find_entity_by_id(u16 id);
-s32 rand();
-extern const f32 lbl_805DAB20;
-extern const f32 lbl_805DAB24;
-
-void TItemEffFlame::run_task() {
-    Flame_80108D6C *self = (Flame_80108D6C *)this;
-    Photon_80108D6C *p;
-
-    if (self->m_1c == NULL) {
-        return;
-    }
-    p = (Photon_80108D6C *)find_entity_by_id(self->m_20);
-    if (p == NULL) {
-        return;
-    }
-    Vec_80108D6C *src = &p->recs[self->m_24].pos;
-    Vec_80108D6C v = *src;
-    v.x += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
-    v.y += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
-    v.z += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
-    ((TNowLoading *)(self->m_1c))->copy_pos(&v);
+void spawn_flame_wall_impact(TObject *parent, TItemEquipBase *weapon, const Vec *from, Vec *hit) {
+    spawn_particle_effect(hit, 0x45);
+    play_sound_effect(0x4001C112, NULL, 0, 0);
 }
 
+#pragma fp_contract on
+void TItemEffFlame::run_task() {
+    if (emitter == NULL) {
+        return;
+    }
+    TObjCollidable *target = find_entity_by_id(target_id);
+    if (target == NULL) {
+        return;
+    }
+    CollisionBody *body = &target->bodies[body_index];
+    Vec pos = body->center;
+    pos.x += 5.0f * ((1.0f / 32768.0f) * rand());
+    pos.y += 5.0f * ((1.0f / 32768.0f) * rand());
+    pos.z += 5.0f * ((1.0f / 32768.0f) * rand());
+    emitter->set_position(&pos);
 }
 
 TItemEffFlame::~TItemEffFlame() {
-    TBoss4Type2::request_destroy((u32)this->m_1c);
+    TParticleCtrl::release(emitter);
+}
+
+TItemEffFlame::TItemEffFlame(TObject *parent, ActorBodyHit *hit) : TObject(parent) {
+    m_name = TItemEffFlame__class_name;
+    target_id = get_entity_id(hit->target);
+    body_index = hit->body;
+    emitter = create_particle_emitter(&hit->target->bodies[body_index].center, 0x1BB);
+    disallow_rendering();
+}
+
+void spawn_flame_effect(void *unused, ActorBodyHit *hit) {
+    if (hit != NULL) {
+        TItemEffFlame *flame = new TItemEffFlame(tl_05, hit);
+        TItemAttacker::spawn_item_timer(flame, release_flame, 30);
+    }
+}
+
+static void release_flame(TObject *flame) {
+    flame->queue_destruction();
 }

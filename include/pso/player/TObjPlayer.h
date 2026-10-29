@@ -370,7 +370,6 @@ struct TObjPlayer : public TObjChara {
     static s32 get_player_count();
     s32 register_object();
     void clear_ground_candidates();
-    void copy_xyz(void* q);
     void reset_lobby_model();
     void reset_type();
     void set_type(s32 v);
@@ -479,11 +478,9 @@ struct TObjPlayer : public TObjChara {
     static void init_game_resources();
     u8 is_script_controlled();
     int activate_d04_slot();
-    static void spawn_heaven_effect(s32 arg0, u32 arg1, u16 arg2, s32 arg3);
     void spawn_hit_particle_trio();
     static void forward_item_effect_callback(s32 arg0, s32 arg1);
     static void invoke_menu_callback_if_set(u32 arg0);
-    s32 get_texture_id();
     void init_item_data(s32 arg1);
     void bswap_fields_x4();
     void bswap_and_send_item();

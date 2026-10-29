@@ -16,6 +16,7 @@
 #include "pso/object/TObjButterflyLobby_8007A5D8.h"
 #include "pso/player/TObjPlayer_801542CC.h"
 #include "pso/unk/text_803D8F74.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 void rotate_vector_by_matrix(s32 matrix, const Vec *src, Vec *dst);
@@ -75,11 +76,11 @@ void TUnk_80484A94::run_task() {
     direction_to_rotation_yx((u8 *)&velocity, &rotation_y, &rotation_z);
     rotation_z -= 0x4000;
     if (trail != NULL) {
-        ((TNowLoading *)trail)->copy_pos(&position);
+        ((TParticleCtrl *)trail)->set_position(&position);
         ((TBoss4Type2 *)trail)->copy_vec3(&rotation_x);
     }
     if (glow != NULL) {
-        ((TNowLoading *)glow)->copy_pos(&position);
+        ((TParticleCtrl *)glow)->set_position(&position);
         ((TBoss4Type2 *)glow)->copy_vec3(&rotation_x);
     }
     if (csnVector(&prev_position, &position, -1) != 0) {

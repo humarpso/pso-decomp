@@ -1526,15 +1526,15 @@ void TBoss5Gryphon::free_parts() {
 
 void TBoss5Gryphon::update_particle_positions() {
     if (*(void **)((s8 *)this + 0x724) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)this + 0x724)))->copy_pos(gryphon_particle_position_vec);
+        ((TParticleCtrl *)*(void **)((s8 *)this + 0x724))->set_position(gryphon_particle_position_vec);
         ((TParticleCtrl *)(*(void **)((s8 *)this + 0x724)))->enable();
     }
     if (*(void **)((s8 *)this + 0x728) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)this + 0x728)))->copy_pos(gryphon_particle_position_vec);
+        ((TParticleCtrl *)*(void **)((s8 *)this + 0x728))->set_position(gryphon_particle_position_vec);
         ((TParticleCtrl *)(*(void **)((s8 *)this + 0x728)))->enable();
     }
     if (*(void **)((s8 *)this + 0x72C) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)this + 0x72C)))->copy_pos(gryphon_particle_position_vec);
+        ((TParticleCtrl *)*(void **)((s8 *)this + 0x72C))->set_position(gryphon_particle_position_vec);
         ((TParticleCtrl *)(*(void **)((s8 *)this + 0x72C)))->enable();
     }
 }
@@ -1554,19 +1554,19 @@ void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self) {
         self->eff[0] = spawn_continuous_particle_effect_with_flags(&pos, self->res->f18, 0x2040);
         ((TBoss4Type2 *)(self->eff[0]))->copy_vec3(&rot);
     } else {
-        ((TNowLoading *)(self->eff[0]))->copy_pos(&pos);
+        ((TParticleCtrl *)self->eff[0])->set_position(&pos);
         ((TBoss4Type2 *)(self->eff[0]))->copy_vec3(&rot);
     }
     if (self->eff[1] == NULL) {
         self->eff[1] = spawn_continuous_particle_effect_with_flags(&pos, self->res->f1C, 0x40);
     } else {
-        ((TNowLoading *)(self->eff[1]))->copy_pos(&pos);
+        ((TParticleCtrl *)self->eff[1])->set_position(&pos);
     }
     if (self->eff[2] == NULL) {
         self->eff[2] = spawn_continuous_particle_effect_with_flags(&pos, self->res->f20, 0x40);
         ((TBoss4Type2 *)(self->eff[2]))->copy_vec3(&rot);
     } else {
-        ((TNowLoading *)(self->eff[2]))->copy_pos(&pos);
+        ((TParticleCtrl *)self->eff[2])->set_position(&pos);
         ((TBoss4Type2 *)(self->eff[2]))->copy_vec3(&rot);
     }
 }
@@ -1586,7 +1586,7 @@ void TBoss5Gryphon::enable_particles() {
     s32 i;
     for (i = 0; i < 16; i++) {
         if (((Obj_8005E52C *)this)->parts[i] != 0) {
-            ((TNowLoading *)(((Obj_8005E52C *)this)->parts[i]))->copy_pos(gryphon_particle_enable_pos);
+            ((TParticleCtrl *)((Obj_8005E52C *)this)->parts[i])->set_position(gryphon_particle_enable_pos);
             ((TParticleCtrl *)(((Obj_8005E52C *)this)->parts[i]))->enable();
         }
     }
@@ -1650,7 +1650,7 @@ void TBoss5Gryphon::update_ground_effects() {
         if (arg0->parts[i] == NULL) {
             arg0->parts[i] = spawn_continuous_particle_effect_with_flags(q, arg0->fx->f14, 0x40);
         } else {
-            ((TNowLoading *)(arg0->parts[i]))->copy_pos(q);
+            ((TParticleCtrl *)arg0->parts[i])->set_position(q);
         }
     }
 }
@@ -3726,14 +3726,14 @@ void TBoss5Gryphon::fn_800627E4(u32 arg1) {
             break;
         case 1:
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) ((u8 *)this + 0x38), (void *)lbl_80437DC4);
-            ((TObjPlayer *)((u8 *)this + 0x5C))->copy_xyz((void *)lbl_80437DD0);
+            copy_xyz((u8 *)this + 0x5C, (void *)lbl_80437DD0);
             ((s32 (*)(void *))advance_animation_playback)((void *)this);
             return;
         }
         break;
     case ENEMY_STATE_LEAVE:
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) ((u8 *)this + 0x38), (void *)lbl_80437DC4);
-        ((TObjPlayer *)((u8 *)this + 0x5C))->copy_xyz((void *)lbl_80437DD0);
+        copy_xyz((u8 *)this + 0x5C, (void *)lbl_80437DD0);
         *(f32 *)((s8 *)this + 0x484) = (f32) lbl_805D8D5C;
         *(f32 *)((s8 *)this + 0x488) = (f32) lbl_805D8D5C;
         *(f32 *)((s8 *)this + 0x48C) = (f32) lbl_805D8D5C;
@@ -3947,7 +3947,7 @@ void TBoss5Gryphon::fn_80063088(u32 arg1) {
                     self->fx = spawn_continuous_particle_effect_with_flags(&self->fxPos, self->res->fC, 0x40);
                 }
             } else if (speed <= lbl_805D8E5C) {
-                ((TNowLoading *)(self->fx))->copy_pos(&self->fxPos);
+                ((TParticleCtrl *)self->fx)->set_position(&self->fxPos);
             } else {
                 queue_destruction__7TObjectFv(self->fx);
                 self->fx = NULL;

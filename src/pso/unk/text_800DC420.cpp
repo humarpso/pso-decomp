@@ -8,6 +8,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/TParticleCtrl.h"
 
 struct D_800DC420 { u8 pad[0x18]; s32 arr[1]; };
 
@@ -170,7 +171,7 @@ void TUnk_80494E10::run_task() {
     Vec_800DC648 old = arg0->pos;
     vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->link0 != NULL) {
-        ((TNowLoading *)(arg0->link0))->copy_pos(&arg0->pos);
+        ((TParticleCtrl *)arg0->link0)->set_position(&arg0->pos);
     }
     arg0->timer += lbl_805D525C;
     if (arg0->trail != 0) {
@@ -181,7 +182,7 @@ void TUnk_80494E10::run_task() {
             TObjPlayer::snap_to_ground((s32)arg0, (s32)&arg0->prev);
         }
         if (arg0->link1 != NULL) {
-            ((TNowLoading *)(arg0->link1))->copy_pos(&arg0->prev);
+            ((TParticleCtrl *)arg0->link1)->set_position(&arg0->prev);
         }
     }
     if (arg0->timer >= lbl_805DA478) {

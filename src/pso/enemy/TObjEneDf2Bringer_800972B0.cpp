@@ -1163,7 +1163,7 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
                 } else if (F_8009(0xC0, f32) < TObjEneDf2Bringer__data_805D97F4 || F_8009(0xC0, f32) > lbl_805D97F8) {
                     ((TParticleCtrl *)e)->enable();
                 } else {
-                    ((TNowLoading *)e)->copy_pos(arg0 + 0x474);
+                    ((TParticleCtrl *)e)->set_position(arg0 + 0x474);
                 }
             }
             break;
@@ -1231,7 +1231,7 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
             } else if (F_8009(0xC0, f32) < TObjEneDf2Bringer__data_805D9808 || F_8009(0xC0, f32) > lbl_805D97FC) {
                 ((TParticleCtrl *)e)->enable();
             } else {
-                ((TNowLoading *)e)->copy_pos(arg0 + 0x468);
+                ((TParticleCtrl *)e)->set_position(arg0 + 0x468);
             }
             break;
         case 3:
@@ -1277,9 +1277,9 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
                 ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0x4C4)))->enable();
             }
         } else if (*(s32 *)((s8 *)arg0 + 0x484) & 1) {
-            ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x4C4)))->copy_pos(arg0 + 0x450);
+            ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x4C4))->set_position(arg0 + 0x450);
         } else {
-            ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x4C4)))->copy_pos(arg0 + 0x45C);
+            ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x4C4))->set_position(arg0 + 0x45C);
         }
         ((TObjEneDD *)arg0)->vfunc_102();
         ((TObjEneDD *)arg0)->vfunc_89();

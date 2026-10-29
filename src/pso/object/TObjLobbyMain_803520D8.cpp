@@ -153,7 +153,7 @@ void TObjLobbyMain::update_emitter_positions() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
-        ((TNowLoading *)(*(void **)(arg0 + 0xD8)))->copy_pos(&v);
+        ((TParticleCtrl *)*(void **)(arg0 + 0xD8))->set_position(&v);
         pop_matrix();
     }
     if (*(void **)(arg0 + 0xDC) != NULL) {
@@ -164,7 +164,7 @@ void TObjLobbyMain::update_emitter_positions() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
-        ((TNowLoading *)(*(void **)(arg0 + 0xDC)))->copy_pos(&v);
+        ((TParticleCtrl *)*(void **)(arg0 + 0xDC))->set_position(&v);
         pop_matrix();
     }
         break;

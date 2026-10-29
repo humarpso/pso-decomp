@@ -150,7 +150,7 @@ void TUnk_804EDD20::render() {
         model_render_flags |= 0x20;
         set_constant_material((const NJS_ARGB *)var_r3);
         var_r3 = (s32 *) var_r31;
-        set_texlist(((TObjPlayer *)var_r3)->get_texture_id());
+        set_texlist(((TObjBase *)var_r3)->get_texlist());
         push_matrix();
         var_r3 = (s32 *)(var_r29 + 0x64);
         post_translate_matrix((int) var_r3);
@@ -332,7 +332,7 @@ void TUnk_804EDD44::run_task() {
     ((TUnk_804EDD44 *)arg0)->anchor_card_effect();
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
-            ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos((u8 *)&this->unk_64);
+            ((TParticleCtrl *)((O_8032DFF8 *)arg0)->o[i])->set_position((u8 *)&this->unk_64);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x30) == 0) {

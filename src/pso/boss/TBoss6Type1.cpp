@@ -535,7 +535,7 @@ void TBoss6Type1__sub_802B4A9C(void *p) {
     for (i = 0; i < lbl_805DE2D4; i++) {
         u32 slot = ((Obj_802B4B34 *)boss)->arr[i];
         if (slot != 0U) {
-            TBoss4Type2::request_destroy(slot);
+            TParticleCtrl::release((void *)slot);
             ((Obj_802B4B34 *)boss)->arr[i] = 0;
         }
     }
@@ -563,7 +563,7 @@ void TBoss6Type1::release_effect_slot(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x4F8);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy(temp_r3);
+        TParticleCtrl::release((void *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x4F8) = 0U;
     }
 }
@@ -603,7 +603,7 @@ void TBoss6Type1::sub_802B4C28() {
             if (k >= 0) {
                 VecCopy((Vec *)&v, (const Vec *)&o->pts[k]);
             }
-            ((TNowLoading *)(o->parts[i]))->copy_pos(&v);
+            ((TParticleCtrl *)o->parts[i])->set_position(&v);
             switch (i) {
             case 0:
             case 1:
@@ -2449,7 +2449,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&lbl_80470CD4);
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(lbl_80470D1C);
+    copy_xyz(arg0 + 0x5C, lbl_80470D1C);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     init_collision_body_parts(arg0, lbl_804DF4E0, 7);
     ((TBoss6Type1 *)arg0)->update_position();

@@ -31,7 +31,6 @@ void post_translate_matrix(const Vec *v);
 void rotate_matrix_x(s32 matrix, s32 angle);
 void scale_matrix(s32 matrix, f32 x, f32 y, f32 z);
 void matrix_mult_vec(s32 matrix, const Vec *src, Vec *dst);
-void subtract_vector(Vec *v, const Vec *sub);
 void play_sound_effect(s32 id, const Vec *pos, s32 a2, s32 a3);
 extern GC_Mtx identity_matrix;
 }

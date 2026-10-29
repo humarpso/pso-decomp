@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/system/PadRumble.h"
 #include "pso/player/PlayerClassFlags.h"
 #include "pso/object/TObjDFHorming.h"
@@ -300,7 +301,7 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
                 rot.y = 0;
                 ((TBoss4Type2 *)((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358)))->copy_vec3(&rot);
             }
-            ((TNowLoading *)((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358)))->copy_pos(arg0 + 0x2FC);
+            ((TParticleCtrl *)(void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358))->set_position(arg0 + 0x2FC);
         }
     }
     minimap_render_dot(arg0 + 0x2FC, -0x5DB4, 1, 0);
@@ -315,7 +316,7 @@ S_80050A68 *__dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag) {
         o->vt = __vt__13TObjDFHorming;
         for (i = 0; i < 2; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->ptr[i]);
+                TParticleCtrl::release(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }
@@ -529,7 +530,7 @@ void TObjDFRecBall::run_task() {
     o->vel.y = o->speed * (lbl_805D8AB4 * o->vel.y + lbl_805D8AB8 * d.y);
     o->vel.z = o->speed * (lbl_805D8AB4 * o->vel.z + lbl_805D8AB8 * d.z);
     vec3_add_to(&o->pos, &o->vel);
-    ((TNowLoading *)(o->model))->copy_pos(&o->pos);
+    ((TParticleCtrl *)o->model)->set_position(&o->pos);
     if (((f32 (*)(void *, void *))xyz_distance)(&o->pos, &o->target) <= o->speed) {
         queue_destruction__7TObjectFv(o);
     }
@@ -538,7 +539,7 @@ void TObjDFRecBall::run_task() {
 
 }
 TObjDFRecBall::~TObjDFRecBall() {
-    if (m_44 != nullptr) TBoss4Type2::request_destroy((u32)m_44);
+    if (m_44 != nullptr) TParticleCtrl::release(m_44);
 }
 
 extern "C" {
@@ -804,9 +805,9 @@ void TObjDFRecover::run_task() {
         }
         break;
     case 1:
-        ((TNowLoading *)effect)->copy_pos(position);
+        ((TParticleCtrl *)effect)->set_position(position);
         if (countdown <= 0) {
-            TBoss4Type2::request_destroy((u32)effect);
+            TParticleCtrl::release(effect);
             effect = NULL;
             start_pad_rumble_client(0xC0, 0xF, (int) ((s16) target_id));
             countdown = 0xB;
@@ -830,7 +831,7 @@ void TObjDFRecover::run_task() {
 void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__13TObjDFRecover;
-        if (((TObjDFRecover *)arg0)->effect != 0) TBoss4Type2::request_destroy((u32)(((TObjDFRecover *)arg0)->effect));
+        if (((TObjDFRecover *)arg0)->effect != 0) TParticleCtrl::release(((TObjDFRecover *)arg0)->effect);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -917,7 +918,7 @@ void TObjDFTenchuFuru::run_task() {
     s32 temp_r0;
     this->m_20 = (f32) (this->m_20 + lbl_805D8AC0);
     if ((u32) this->m_2c != 0U) {
-        ((TNowLoading *)(this->m_2c))->copy_pos((u8 *)&this->unk_1C);
+        ((TParticleCtrl *)this->m_2c)->set_position((u8 *)&this->unk_1C);
     }
     temp_r0 = this->m_28 - 1;
     this->m_28 = temp_r0;
@@ -929,7 +930,7 @@ void TObjDFTenchuFuru::run_task() {
 
 typedef char RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru_size[sizeof(RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru) == 0x18 ? 1 : -1];
 TObjDFTenchuFuru::~TObjDFTenchuFuru() {
-    if (m_2c != nullptr) TBoss4Type2::request_destroy((u32)m_2c);
+    if (m_2c != nullptr) TParticleCtrl::release(m_2c);
 }
 u8 *TObjDFTenchuFuru__ct(u8 *object, u8 *arg1, u8 *arg2) {
     u8 *particle_emitter;

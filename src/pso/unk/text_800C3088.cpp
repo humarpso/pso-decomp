@@ -266,7 +266,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
         temp_r3_2 = *(u32 *)((s8 *)owner + 0x428);
         if (temp_r3_2 != 0U) {
             if (((TObjEneRe2Flower *)owner)->m_c0 < lbl_805D9FD8) {
-                ((TNowLoading *)temp_r3_2)->copy_pos(owner + 0x3E8);
+                ((TParticleCtrl *)temp_r3_2)->set_position(owner + 0x3E8);
             } else {
                 ((TParticleCtrl *)temp_r3_2)->enable();
             }

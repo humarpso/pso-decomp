@@ -196,7 +196,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
                 ((TParticleCtrl *)(this->m_110))->enable();
             }
         } else {
-            ((TNowLoading *)(this->m_110))->copy_pos((u8 *)&this->m_b4);
+            ((TParticleCtrl *)this->m_110)->set_position((u8 *)&this->m_b4);
         }
         if (*(void * *)&this->unk_114 == NULL) {
             r2.x = 0;
@@ -207,7 +207,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
                 ((TParticleCtrl *)(*(void * *)&this->unk_114))->enable();
             }
         } else {
-            ((TNowLoading *)(*(void * *)&this->unk_114))->copy_pos((u8 *)&this->m_b4);
+            ((TParticleCtrl *)*(void * *)&this->unk_114)->set_position((u8 *)&this->m_b4);
         }
         break;
     }

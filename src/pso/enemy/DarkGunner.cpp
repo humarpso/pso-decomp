@@ -996,8 +996,8 @@ struct VObj_18_800A28A4 : VBase_18_800A2F94 {
     Vec_800A159C shadow_pos;
     u8 pad3C0[0x3F0 - 0x3C0];
     TObjPlayer *children[4];
-    TNowLoading *trail_emitter;
-    TNowLoading *glow_emitter;
+    TParticleCtrl *trail_emitter;
+    TParticleCtrl *glow_emitter;
     MaterialColorFade fade;
     u8 pad420[0x424 - 0x420];
     s32 material_phase;
@@ -1025,7 +1025,7 @@ extern s32 lbl_805D5020;
 extern s32 lbl_805D5024;
 extern s32 lbl_805D5028;
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
-TNowLoading *create_particle_emitter(void *pos, s32 id);
+TParticleCtrl *create_particle_emitter(void *pos, s32 id);
 }
 
 
@@ -1535,7 +1535,7 @@ void TObjPlayer__sub_800A28A4(VObj_18_800A28A4 *self) {
         if (self->glow_emitter == NULL) {
             self->glow_emitter = create_particle_emitter(&self->ground_pos, 0xDB);
         } else {
-            self->glow_emitter->copy_pos(&self->ground_pos);
+            self->glow_emitter->set_position(&self->ground_pos);
         }
     } else if (self->glow_emitter != NULL) {
         queue_destruction__7TObjectFv(self->glow_emitter);
@@ -1549,7 +1549,7 @@ void TObjPlayer__sub_800A28A4(VObj_18_800A28A4 *self) {
                 self->trail_emitter = create_particle_emitter(&self->shadow_pos, 0xD4);
             }
         } else {
-            self->trail_emitter->copy_pos(&self->shadow_pos);
+            self->trail_emitter->set_position(&self->shadow_pos);
         }
     } else if (self->trail_emitter != NULL) {
         queue_destruction__7TObjectFv(self->trail_emitter);

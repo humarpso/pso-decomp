@@ -9,6 +9,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdLdQuestPrtGC.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_80322994___vt__13TBoss6Kakusan { s32 value; u8 remaining[0x14]; };
 
@@ -236,7 +237,7 @@ void TBoss6Kakusan::run_task() {
     }
     vec3_add_to((u8 *)&this->m_30, (u8 *)&this->m_3c);
     if (*(void * *)&this->m_54 != NULL) {
-        ((TNowLoading *)(*(void * *)&this->m_54))->copy_pos((u8 *)&this->m_30);
+        ((TParticleCtrl *)*(void * *)&this->m_54)->set_position((u8 *)&this->m_30);
         VecCopy((Vec *)&a, (const Vec *)&this->m_30);
         subtract_vector(&a, (u8 *)&this->m_48);
         direction_to_rotation_xz((u8 *)&a, (s32 *)&b.x, (s32 *)&b.z);
@@ -253,7 +254,7 @@ void TBoss6Kakusan::run_task() {
 
 }
 TBoss6Kakusan::~TBoss6Kakusan() {
-    if (*(void **)((s8 *)this + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x54))); this->m_54 = 0; }
+    if (*(void **)((s8 *)this + 0x54) != NULL) { TParticleCtrl::release(*(void **)((s8 *)this + 0x54)); this->m_54 = 0; }
 }
 
 

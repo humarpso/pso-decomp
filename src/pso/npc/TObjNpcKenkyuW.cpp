@@ -169,7 +169,7 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
     a.y = lbl_805DDF60 * (a.y + sd->y);
     a.z = lbl_805DDF60 * (a.z + sd->z);
     VecCopy((Vec *)(self->body + 0x38), (const Vec *)&a);
-    ((TObjPlayer *)(self->body + 0x5C))->copy_xyz(&self->fA0);
+    copy_xyz(self->body + 0x5C, &self->fA0);
     for (i = 0; i < TLobby::get_lobby_flag(); i++) {
         p = (Pl_802A3DE8 *)get_player_data__10TObjPlayerFi(i);
         if (p == 0) continue;
@@ -214,7 +214,7 @@ TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
     a.y = lbl_805DDF60 * (a.y + sd->y);
     a.z = lbl_805DDF60 * (a.z + sd->z);
     VecCopy((Vec *)(self->body + 0x38), (const Vec *)&a);
-    ((TObjPlayer *)(self->body + 0x5C))->copy_xyz(&self->fA0);
+    copy_xyz(self->body + 0x5C, &self->fA0);
     for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
         p = ((Pl_802A3FDC *)get_player_data__10TObjPlayerFi(i));
         if (p == 0) continue;
@@ -257,7 +257,7 @@ TechniqueContactList *TObjPlayer::collect_technique_contacts(void *src) {
     a.y = lbl_805DDF60 * (a.y + sd->y);
     a.z = lbl_805DDF60 * (a.z + sd->z);
     VecCopy((Vec *)(((Obj_802A41CC *)this)->body + 0x38), (const Vec *)&a);
-    ((TObjPlayer *)(((Obj_802A41CC *)this)->body + 0x5C))->copy_xyz(&((Obj_802A41CC *)this)->fA0);
+    copy_xyz(((Obj_802A41CC *)this)->body + 0x5C, &((Obj_802A41CC *)this)->fA0);
     if ((u16)get_entity_id(src) < 4) {
         n = TLobby::get_lobby_flag();
         for (i = 0; i < n; i++) {

@@ -12,6 +12,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 typedef char Thanks_current_motion[offsetof(TBoss6Thanks,current_motion)==0x20?1:-1];
 typedef char Thanks_frame0[offsetof(TBoss6Thanks,frame0)==0x28?1:-1];
@@ -103,7 +104,7 @@ void TBoss6Thanks::update_particle_emitters() {
             }
         } else {
             if (o->p[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)o->p[i]);
+                TParticleCtrl::release(o->p[i]);
                 o->p[i] = NULL;
             }
         }
@@ -115,7 +116,7 @@ void TBoss6Thanks::destroy_effects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
-            TBoss4Type2::request_destroy((u32)arg0->e[i].p);
+            TParticleCtrl::release(arg0->e[i].p);
             arg0->e[i].p = NULL;
         }
     }

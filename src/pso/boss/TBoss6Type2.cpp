@@ -19,6 +19,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TBoss6SwordWave.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/TParticleCtrl.h"
 extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct TBoss6Type2_802BD014;
@@ -779,7 +780,7 @@ void TBoss6Type2::destroy_part(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x77C);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy(temp_r3);
+        TParticleCtrl::release((void *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x77C) = 0U;
     }
 }
@@ -808,7 +809,7 @@ void TBoss6Type2::update_part_positions() {
             if (idx >= 0) {
                 VecCopy((Vec *)((Vec_802B9A68 *)(&v)), (const Vec *)((Vec_802B9A68 *)((Vec_802B9C80 *)((u8 *)o + idx * 0xC + 0x59C))));
             }
-            ((TNowLoading *)((s32)o->arr[i]))->copy_pos(&v);
+            ((TParticleCtrl *)(s32)o->arr[i])->set_position(&v);
         }
         i++;
     } while (i < 14);
@@ -3160,7 +3161,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)lbl_80471068);
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(lbl_80471074);
+    copy_xyz(arg0 + 0x5C, lbl_80471074);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     init_collision_body_parts(arg0, boss6_type2_collision_parts, 3);
     ((TBoss6Type2 *)arg0)->advance_position();

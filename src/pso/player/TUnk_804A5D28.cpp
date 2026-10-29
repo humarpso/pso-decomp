@@ -24,7 +24,7 @@ void TObjPlayer::spawn_weapon_casing(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32
         if (p != 0) {
             p = ((TObjPlayer *)p)->construct_weapon_casing((u8 *)arg0, (u8 *)arg1, (u8 *)arg2, (u8 *)arg3, (u8 *)arg4);
         }
-        TItemAttacker::spawn_item_timer((s32)p, (s32)expire_weapon_casing, 0xF);
+        TItemAttacker::spawn_item_timer((TObject *)p, (ItemTimerCallback)expire_weapon_casing, 0xF);
     }
 }
 
@@ -36,7 +36,7 @@ void TObjPlayer::launch_weapon_casing(s32 arg0, u32 arg1, s32 arg2, u32 arg3, u3
         if (var_r0 != NULL) {
             var_r0 = ((TObjPlayer *)var_r0)->construct_weapon_casing((u8 *)arg0, (u8 *)arg1, (u8 *)sp8, (u8 *)arg3, (u8 *)arg4);
         }
-        TItemAttacker::spawn_item_timer((s32)var_r0, (s32)expire_weapon_casing, 0xF);
+        TItemAttacker::spawn_item_timer((TObject *)var_r0, (ItemTimerCallback)expire_weapon_casing, 0xF);
     }
 }
 
@@ -47,7 +47,6 @@ extern "C" {
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 get_texture_id__10TObjPlayerFv();
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 
@@ -60,7 +59,7 @@ void TUnk_804A5D10::render() {
     if (temp_r3 != NULL) {
         temp_r31 = *(u32 *)((s8 *)temp_r3 + 0x188);
         if (temp_r31 != 0U) {
-            set_texlist(get_texture_id__10TObjPlayerFv());
+            set_texlist(((TItem *)temp_r3)->get_texlist());
             push_matrix();
             post_translate_matrix(arg0 + 0x2C);
             rotate_matrix_y(0, *(s32 *)&this->unk_3C);
@@ -109,7 +108,7 @@ u8 *TObjPlayer::construct_weapon_casing(u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, 
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &__vt__13TUnk_804A5D10.value;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = ((TItem *)arg2)->get_item_id();
     VecCopy((Vec *)(((u8 *)this) + 0x2C), (const Vec *)arg3);
-    ((TObjPlayer *)(((u8 *)this) + 0x38))->copy_xyz(arg5);
+    copy_xyz(((u8 *)this) + 0x38, arg5);
     VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg4);
     *(f32 *)&this->m_20 = (f32) (*(f32 *)&this->m_20 * ((0.5f * (3.0517578e-05f * (f32) rand())) + 0.5f));
     *(f32 *)&this->texlist = (f32) (*(f32 *)&this->texlist * ((0.5f * (3.0517578e-05f * (f32) rand())) + 0.5f));
@@ -177,10 +176,10 @@ extern "C" {
 
 int __ct__11TItemWeaponFP7TObjectPUc(void);
 
-    extern unsigned char play_effect__13TItemEffFlameFllll[];
+    extern unsigned char spawn_flame_wall_impact[];
     extern unsigned char create_shoot_model_with_particles[];
     extern unsigned char lbl_804A5D28[];
     
-void*TUnk_804A5D28::setup_flame_effect() { __ct__11TItemWeaponFP7TObjectPUc(); *(int*)((char*)this + 0x18) = (int)lbl_804A5D28; *(float*)((char*)this + 0x1f8) = 0.0f; *(int *)&(*(s32 * *)((u8 *)this + 0x1EC)) = (int)play_effect__13TItemEffFlameFllll; *(int *)&(this->m_1fc) = 0; *(int *)&(*(s32 * *)((u8 *)this + 0x1F4)) = (int)play_target_impact_effect; *(int*)((char*)this + 0x1f0) = (int)create_shoot_model_with_particles; (*(float *)((u8 *)this + 0x1E4)) = 15.0f; return this; }
+void*TUnk_804A5D28::setup_flame_effect() { __ct__11TItemWeaponFP7TObjectPUc(); *(int*)((char*)this + 0x18) = (int)lbl_804A5D28; *(float*)((char*)this + 0x1f8) = 0.0f; *(int *)&(*(s32 * *)((u8 *)this + 0x1EC)) = (int)spawn_flame_wall_impact; *(int *)&(this->m_1fc) = 0; *(int *)&(*(s32 * *)((u8 *)this + 0x1F4)) = (int)play_target_impact_effect; *(int*)((char*)this + 0x1f0) = (int)create_shoot_model_with_particles; (*(float *)((u8 *)this + 0x1E4)) = 15.0f; return this; }
 
 }

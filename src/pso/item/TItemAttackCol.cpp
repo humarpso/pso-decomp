@@ -294,15 +294,15 @@ void TItemAttackCol::run_task() {
     }
     temp_r3_2 = this->m_130;
     if (temp_r3_2 != 0U) {
-        ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->m_24);
+        ((TParticleCtrl *)temp_r3_2)->set_position((u8 *)&this->m_24);
     }
     temp_r3_3 = this->m_134;
     if (temp_r3_3 != 0U) {
-        ((TNowLoading *)temp_r3_3)->copy_pos((u8 *)&this->m_24);
+        ((TParticleCtrl *)temp_r3_3)->set_position((u8 *)&this->m_24);
     }
     temp_r3_4 = this->m_140;
     if (temp_r3_4 != 0U) {
-        ((TNowLoading *)temp_r3_4)->copy_pos((u8 *)&this->m_24);
+        ((TParticleCtrl *)temp_r3_4)->set_position((u8 *)&this->m_24);
     }
     ((TUnk_804E355C *)arg0)->check_hits();
     if ((this->m_dc <= vec_distance_squared((u8 *)&this->m_24, (u8 *)&this->m_c4)) || (test_flags_any((u8 *)&this->m_e0, 1) != 0)) {

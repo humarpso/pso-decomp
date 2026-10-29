@@ -5,6 +5,7 @@
 #include "pso/enemy/TObjEneMorfos.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -103,7 +104,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     Vec_80337644 v = arg0->pos;
     vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->fE0 != 0) {
-        ((TNowLoading *)(arg0->fE0))->copy_pos(&arg0->pos);
+        ((TParticleCtrl *)arg0->fE0)->set_position(&arg0->pos);
     }
     arg0->fDC += morfos_projectile_speed;
     if (arg0->fF0 != 0) {

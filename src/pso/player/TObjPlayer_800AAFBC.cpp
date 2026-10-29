@@ -306,7 +306,7 @@ void TUnk_80491460::run_task() {
   now_loading = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x5C)));
   if (now_loading != 0)
   {
-    ((TNowLoading *)now_loading)->copy_pos((u8 *)&this->unk_1C);
+    ((TParticleCtrl *)now_loading)->set_position((u8 *)&this->unk_1C);
   }
   ((TUnk_80491460 *)arg0)->m_58 = (f32) ((((TUnk_80491460 *)arg0)->m_58) + lbl_805D9B5C);
   if ((((TUnk_80491460 *)arg0)->m_58) >= lbl_805D9B60)

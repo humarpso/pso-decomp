@@ -1670,7 +1670,7 @@ void TItemMag::snap_to_owner() {
     for (i = 0; i != 2; i++) {
         if (children[i] != 0) {
             children[i]->set_flags(2);
-            TItemAttacker::spawn_item_timer((s32)children[i], (s32)((void *)TItemMagSub::clear_optional_oscillation_flag), 0x1e);
+            TItemAttacker::spawn_item_timer(children[i], (ItemTimerCallback)TItemMagSub::clear_optional_oscillation_flag, 0x1e);
         }
     }
 }

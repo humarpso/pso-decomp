@@ -90,7 +90,6 @@ struct TBoss4Type2
     void set_motion_index(s32 arg1);
     static u8 is_active();
     void scroll_strips();
-    static void request_destroy(u32 arg0);
     void set_param_ptr(s32 arg1);
     void copy_vec3(void* q);
     void set_flags(u32 v);

@@ -15,6 +15,7 @@ extern "C" { void setup_photon_blast_camera__13TUnk_804C3248Fv(u8 *); }
 #pragma push
 
 #include <stddef.h>
+#include "pso/TParticleCtrl.h"
 struct Stack_801A7310 {
     s8 sp8;
     s8 sp9;
@@ -337,9 +338,9 @@ void TUnk_804C3248::update_photon_blast_attachments() {
         e = &self->effects[i];
         if (e->obj != NULL) {
             if (e->flag >= 0) {
-                ((TNowLoading *)(e->obj))->copy_pos(&e->pos);
+                ((TParticleCtrl *)e->obj)->set_position(&e->pos);
             } else {
-                ((TNowLoading *)(e->obj))->copy_pos(&self->pos);
+                ((TParticleCtrl *)e->obj)->set_position(&self->pos);
             }
         }
     }

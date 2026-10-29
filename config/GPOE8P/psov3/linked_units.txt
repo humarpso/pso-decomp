@@ -603,9 +603,6 @@ pso/item/TItemEffHeaven.cpp
 pso/item/TItemEffLandHit.cpp
 pso/item/TItemEffLavis.cpp
 pso/item/TItemEffNeedle.cpp
-pso/item/TItemEffNeedleBase_80109D48.cpp
-pso/item/TItemEffNeedlePos_801097F0.cpp
-pso/item/TItemEffNeedle_80109B5C.cpp
 pso/item/TItemEffOrgaFlowShot.cpp
 pso/item/TItemEffPG.cpp
 pso/item/TItemEffPG_8034FF4C.cpp
@@ -2935,12 +2932,8 @@ pso/unk/text_801036CC.cpp
 pso/unk/text_80104F4C.cpp
 pso/unk/text_801057A8.cpp
 pso/unk/text_80108860.cpp
-pso/unk/text_80108F04.cpp
 pso/unk/text_801094D8.cpp
 pso/unk/text_801095EC.cpp
-pso/unk/text_80109974.cpp
-pso/unk/text_80109AE4.cpp
-pso/unk/text_80109CBC.cpp
 pso/unk/text_8010EF14.cpp
 pso/unk/text_8010F168.cpp
 pso/unk/text_8010F210.cpp

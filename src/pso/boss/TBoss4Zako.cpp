@@ -282,6 +282,7 @@ void render__9TBoss4UroFv(void);
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct O_8005D6B0 { u8 pad[0x374]; s32 f374; };
@@ -420,7 +421,7 @@ void *__dt__10TBoss4ZakoFv(void *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0x384) = 0;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x3B4) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3B4)));
+            TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x3B4));
             *(u32 *)((s8 *)arg0 + 0x3B4) = 0U;
         }
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
@@ -473,7 +474,7 @@ void TBoss4Zako::run_task() {
             } else {
                 p.y += lbl_805D8CD8;
             }
-            ((TNowLoading *)(self->m_3b4))->copy_pos(&p);
+            ((TParticleCtrl *)self->m_3b4)->set_position(&p);
         }
         self->m_3b0 = lbl_805D8CBC;
         if (self->m_3a8 != 0) {
@@ -794,7 +795,7 @@ void run_task__9TBoss4UroFv(TBoss4Uro *self) {
         } else {
             v.y += lbl_805D8CD8;
         }
-        ((TNowLoading *)(self->f3B4))->copy_pos(&v);
+        ((TParticleCtrl *)self->f3B4)->set_position(&v);
         if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             self->f60 += 0x1111;
         }
@@ -1007,7 +1008,7 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
         } else {
             v.y += lbl_805D8CD8;
         }
-        ((TNowLoading *)(self->f3B4))->copy_pos(&v);
+        ((TParticleCtrl *)self->f3B4)->set_position(&v);
         if (((TBoss4Zako *)self)->sub_8005D698() != 0) {
             self->f60 += 0x1111;
         }

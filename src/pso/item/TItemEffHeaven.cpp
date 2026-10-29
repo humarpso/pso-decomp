@@ -1,142 +1,93 @@
-#include "pso/TItemEffHeaven.h"
-#include "pso/item/TItemEffHeaven.h"
-#include "pso/object/TObject_8001A448.h"
-#include "pso/unk/text_80087278.h"
-#include "pso/system/vector.h"
-#include "pso/boss/TBoss4Type2.h"
-#include "pso/misc/TNowLoading.h"
-
-#include "types.h"
-struct Obj_801092A8 {
-    u8 pad0[0x18];
-    void *vt;
-    s16 f_1C;
-    u8 pad1E[2];
-    s32 f_20;
-    s32 f_24;
-    s32 f_28;
-    s32 arr[3];
-    s32 f_38;
-    s32 f_3C;
-    f32 v[3];
-};
-
-struct VBase_8010900C { u8 pad[0x18]; };
-struct VObj_8010900C : VBase_8010900C {
-    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
-    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
-    virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20();
-    virtual void v21(u32, void *, s32, s32, s32);
-};
-
-struct Vec_8010900C { f32 x, y, z; };
-struct Rec_8010900C { u8 pad[0x1C]; Vec_8010900C pos; u8 pad28[4]; };
-struct Src_8010900C { u8 pad[0xA4]; Rec_8010900C *recs; };
-struct Parm_8010900C { s32 t; f32 v; };
-struct Self_8010900C {
-    u8 pad0[0x1C];
-    u16 f1C;
-    u8 pad1e[2];
-    VObj_8010900C *f20;
-    s32 f24;
-    s32 f28;
-    void *arr[3];
-    f32 f38;
-    u32 f3C;
-    Vec_8010900C pos;
-};
-
 #pragma readonly_strings on
+#define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/item/TItemEffHeaven.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjChara.h"
+#include "pso/player/TObjPlayer_801542CC.h"
+#include "pso/system/SoundEffect.h"
+#include "pso/system/vector.h"
+#include "pso/unk/text_80087278.h"
+
 const char *TItemEffHeaven__class_name = "TItemEffHeaven";
 
-extern "C" {
-int queue_destruction__7TObjectFv(void*);
-void *resolve_hittable_target(u16 actorId, s16 collider);
-void play_sound_effect(s32, void *, s32, s32);
-}
-
-int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
-
 void TItemEffHeaven::run_task() {
-    Self_8010900C *self = (Self_8010900C *)this;
     s32 i;
     s32 j;
 
-    if (this->m_20 == NULL) {
-        this->m_20 = (VObj_8010900C *)resolve_hittable_target(self->f1C, self->f24);
-        if (this->m_20 != NULL) {
-            VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)this->m_20)->recs[self->f24].pos));
+    if (target == NULL) {
+        target = resolve_hittable_target(target_id, body_index);
+        if (target != NULL) {
+            VecCopy(&position, &target->bodies[body_index].center);
         }
     }
-    if (this->m_28 == 0) {
-        self->arr[0] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x13B, 0x40);
+    if (frame == 0) {
+        emitters[0] = spawn_continuous_particle_effect_with_flags(&position, 0x13B, 0x40);
     }
-    if (this->m_28 == 0xF) {
-        play_sound_effect(0x4002A408, &self->pos, 0, 0);
-        self->arr[1] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x134, 0x40);
-        self->f38 = 200.0f;
+    if (frame == 15) {
+        play_sound_effect(0x4002A408, &position, 0, 0);
+        emitters[1] = spawn_continuous_particle_effect_with_flags(&position, 0x134, 0x40);
+        rise_speed = 200.0f;
     }
-    if (this->m_28 >= 0xF && this->m_28 < 0x19) {
-        self->f38 -= 20.0f;
-        self->pos.y += self->f38;
+    if (frame >= 15 && frame < 25) {
+        rise_speed -= 20.0f;
+        position.y += rise_speed;
     }
-    if (this->m_28 == 0x19) {
+    if (frame == 25) {
         for (i = 0; i != 2; i++) {
-            TBoss4Type2::request_destroy((u32)self->arr[i]);
-            self->arr[i] = 0;
+            TParticleCtrl::release(emitters[i]);
+            emitters[i] = NULL;
         }
-        u32 id = self->f3C;
-        if (id != 0) {
-            VObj_8010900C *o = *(VObj_8010900C * *)&this->m_20;
-            if (o != NULL) {
-                Parm_8010900C b;
-                b.t = 4;
-                b.v = 2000.0f;
-                Parm_8010900C a = b;
-                o->v21(id, &a, 0, -1, -1);
-            }
+        if (attacker != NULL && target != NULL) {
+            DirectAttackPayload payload;
+            payload.kind = 4;
+            payload.power = 2000.0f;
+            target->receive_direct_attack(attacker, payload, NULL, -1, -1);
         }
     }
-    if (this->m_28 == 0x14) {
-        self->arr[2] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x139, 0x40);
+    if (frame == 20) {
+        emitters[2] = spawn_continuous_particle_effect_with_flags(&position, 0x139, 0x40);
     }
-    if (this->m_28 == 0x28) {
-        TBoss4Type2::request_destroy((u32)self->arr[2]);
-        self->arr[2] = 0;
-        queue_destruction__7TObjectFv(self);
+    if (frame == 40) {
+        TParticleCtrl::release(emitters[2]);
+        emitters[2] = NULL;
+        queue_destruction();
         return;
     }
     for (j = 0; j != 3; j++) {
-        if (self->arr[j] != 0) {
-            ((TNowLoading *)(self->arr[j]))->copy_pos(&self->pos);
+        if (emitters[j] != NULL) {
+            emitters[j]->set_position(&position);
         }
     }
-    this->m_20 = NULL;
-    this->m_28++;
+    target = NULL;
+    frame++;
 }
 
 TItemEffHeaven::~TItemEffHeaven() {
     for (int i = 0; i != 3; i++) {
-        TBoss4Type2::request_destroy((u32)m_arr[i]);
+        TParticleCtrl::release(emitters[i]);
     }
 }
 
-TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(parent) {
+TItemEffHeaven::TItemEffHeaven(TObject *parent, TObjPlayer *attacker, u16 target_id, s32 body_index)
+    : TObject(parent) {
     s32 i;
     m_name = TItemEffHeaven__class_name;
-    ((Obj_801092A8 *)this)->f_1C = b;
-    ((Obj_801092A8 *)this)->f_20 = 0;
-    ((Obj_801092A8 *)this)->f_3C = a;
-    ((Obj_801092A8 *)this)->f_24 = c;
-    ((Obj_801092A8 *)this)->v[2] = 0.0f;
-    ((Obj_801092A8 *)this)->v[1] = 0.0f;
-    ((Obj_801092A8 *)this)->v[0] = 0.0f;
-    ((Obj_801092A8 *)this)->f_28 = 0;
+    this->target_id = target_id;
+    target = NULL;
+    this->attacker = attacker;
+    this->body_index = body_index;
+    position.z = 0.0f;
+    position.y = 0.0f;
+    position.x = 0.0f;
+    frame = 0;
     for (i = 0; i < 3; i++) {
-        ((Obj_801092A8 *)this)->arr[i] = 0;
+        emitters[i] = NULL;
     }
-    disallow_rendering__7TObjectFv(this);
+    disallow_rendering();
+}
+
+void spawn_heaven_effect(TObject *parent, TObjPlayer *attacker, u16 target_id, s32 body_index) {
+    if (parent != NULL && target_id != 0xFFFF && attacker != NULL) {
+        new TItemEffHeaven(parent, attacker, target_id, body_index);
+    }
 }

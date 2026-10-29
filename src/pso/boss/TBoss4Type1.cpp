@@ -706,12 +706,12 @@ void TBoss4Type2__sub_800525AC(u8 *boss4_type2) {
         if (temp_f1 > lbl_805D8AF8) {
             temp_r3 = *(u32 *)((s8 *)boss4_type2 + 0x41C);
             if (temp_r3 != 0) {
-                TBoss4Type2::request_destroy((u32)temp_r3);
+                TParticleCtrl::release((void *)temp_r3);
                 *(u32 *)((s8 *)boss4_type2 + 0x41C) = 0U;
             }
             temp_r3_2 = *(u32 *)((s8 *)boss4_type2 + 0x424);
             if (temp_r3_2 != 0) {
-                TBoss4Type2::request_destroy((u32)temp_r3_2);
+                TParticleCtrl::release((void *)temp_r3_2);
                 *(u32 *)((s8 *)boss4_type2 + 0x424) = 0U;
             }
         } else if (temp_f1 >= lbl_805D8AFC) {
@@ -732,11 +732,11 @@ void TBoss4Type2__sub_800525AC(u8 *boss4_type2) {
         }
         temp_r3_5 = *(u32 *)((s8 *)boss4_type2 + 0x41C);
         if (temp_r3_5 != 0) {
-            ((TNowLoading *)temp_r3_5)->copy_pos(temp_r31);
+            ((TParticleCtrl *)temp_r3_5)->set_position(temp_r31);
         }
         temp_r3_6 = *(u32 *)((s8 *)boss4_type2 + 0x424);
         if (temp_r3_6 != 0) {
-            ((TNowLoading *)temp_r3_6)->copy_pos(temp_r30);
+            ((TParticleCtrl *)temp_r3_6)->set_position(temp_r30);
         }
     }
     if ((s32) *(s32 *)((s8 *)boss4_type2 + 0x3E4) == 0xE) {
@@ -744,22 +744,22 @@ void TBoss4Type2__sub_800525AC(u8 *boss4_type2) {
         if (temp_f1_2 > lbl_805D8B00) {
             temp_r3_7 = *(u32 *)((s8 *)boss4_type2 + 0x41C);
             if (temp_r3_7 != 0) {
-                TBoss4Type2::request_destroy((u32)temp_r3_7);
+                TParticleCtrl::release((void *)temp_r3_7);
                 *(u32 *)((s8 *)boss4_type2 + 0x41C) = 0U;
             }
             temp_r3_8 = *(u32 *)((s8 *)boss4_type2 + 0x420);
             if (temp_r3_8 != 0) {
-                TBoss4Type2::request_destroy((u32)temp_r3_8);
+                TParticleCtrl::release((void *)temp_r3_8);
                 *(u32 *)((s8 *)boss4_type2 + 0x420) = 0U;
             }
             temp_r3_9 = *(u32 *)((s8 *)boss4_type2 + 0x424);
             if (temp_r3_9 != 0) {
-                TBoss4Type2::request_destroy((u32)temp_r3_9);
+                TParticleCtrl::release((void *)temp_r3_9);
                 *(u32 *)((s8 *)boss4_type2 + 0x424) = 0U;
             }
             temp_r3_10 = *(u32 *)((s8 *)boss4_type2 + 0x428);
             if (temp_r3_10 != 0) {
-                TBoss4Type2::request_destroy((u32)temp_r3_10);
+                TParticleCtrl::release((void *)temp_r3_10);
                 *(u32 *)((s8 *)boss4_type2 + 0x428) = 0U;
             }
         } else if (temp_f1_2 >= lbl_805D8B04) {
@@ -795,19 +795,19 @@ void TBoss4Type2__sub_800525AC(u8 *boss4_type2) {
         }
         temp_r3_15 = *(u32 *)((s8 *)boss4_type2 + 0x41C);
         if (temp_r3_15 != 0) {
-            ((TNowLoading *)temp_r3_15)->copy_pos(temp_r31);
+            ((TParticleCtrl *)temp_r3_15)->set_position(temp_r31);
         }
         temp_r3_16 = *(u32 *)((s8 *)boss4_type2 + 0x420);
         if (temp_r3_16 != 0) {
-            ((TNowLoading *)temp_r3_16)->copy_pos(temp_r31);
+            ((TParticleCtrl *)temp_r3_16)->set_position(temp_r31);
         }
         temp_r3_17 = *(u32 *)((s8 *)boss4_type2 + 0x424);
         if (temp_r3_17 != 0) {
-            ((TNowLoading *)temp_r3_17)->copy_pos(temp_r30);
+            ((TParticleCtrl *)temp_r3_17)->set_position(temp_r30);
         }
         temp_r3_18 = *(u32 *)((s8 *)boss4_type2 + 0x428);
         if (temp_r3_18 != 0) {
-            ((TNowLoading *)temp_r3_18)->copy_pos(temp_r30);
+            ((TParticleCtrl *)temp_r3_18)->set_position(temp_r30);
         }
     }
     temp_r0_2 = *(s32 *)((s8 *)boss4_type2 + 0x398) - 1;
@@ -841,7 +841,7 @@ void update_tech_charge__11TBoss4Type2FPv(u8 *arg0) {
     ent = &((Obj_8005294C *)arg0)->ents[idx];
     if (*(f32 *)((s8 *)arg0 + 0x3E8) > lbl_805D8B10) {
         if (*(u32 *)((s8 *)arg0 + 0x418) != 0) {
-            TBoss4Type2::request_destroy((u32)(*(u32 *)((s8 *)arg0 + 0x418)));
+            TParticleCtrl::release((void *)*(u32 *)((s8 *)arg0 + 0x418));
             *(u32 *)((s8 *)arg0 + 0x418) = 0;
         }
     } else if (*(f32 *)((s8 *)arg0 + 0x3E8) >= lbl_805D8B14 && *(u32 *)((s8 *)arg0 + 0x418) == 0) {
@@ -1104,10 +1104,10 @@ void TBoss4Type1::sub_80053440() {
         VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
         vec3_add_to(&v, &boss4_type1_vec_table[i]);
         if (arg0->a[i] != NULL) {
-            ((TNowLoading *)(arg0->a[i]))->copy_pos(&v);
+            ((TParticleCtrl *)arg0->a[i])->set_position(&v);
         }
         if (arg0->b[i] != NULL) {
-            ((TNowLoading *)(arg0->b[i]))->copy_pos(&v);
+            ((TParticleCtrl *)arg0->b[i])->set_position(&v);
         }
     }
     ((TBoss4Type2 *)(arg0->f378))->scroll_strips();
@@ -1453,7 +1453,7 @@ void TBoss4Type2::set_state(s32 arg1) {
     for (i = 8; i < 13; i++) {
         p = &((Boss_800542B0 *)this)->items[i];
         if (*p != NULL) {
-            TBoss4Type2::request_destroy((u32)(*p));
+            TParticleCtrl::release(*p);
             *p = NULL;
         }
     }
@@ -1619,7 +1619,7 @@ S_80054938 *__dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag) {
         fn_8004AA04(o->f378);
         for (i = 0; i < 13; i++) {
             if (o->parts[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->parts[i]);
+                TParticleCtrl::release(o->parts[i]);
                 o->parts[i] = 0;
             }
         }

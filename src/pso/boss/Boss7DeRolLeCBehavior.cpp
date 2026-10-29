@@ -58,7 +58,7 @@ void TObjFish::update_attached_orientation() {
         ang.x = -(s32)(10430.38043493439 * atan2_float(d.y, newton_sqrtf(d.x * d.x + d.z * d.z))) - 0x4000;
         ang.y = (s32)(10430.38043493439 * atan2_float(d.x, d.z));
         ang.z = 0;
-        ((TNowLoading *)(o->f7B0))->copy_pos(&o->pos);
+        ((TParticleCtrl *)o->f7B0)->set_position(&o->pos);
         ((TBoss4Type2 *)(o->f7B0))->copy_vec3(&ang);
     }
 }
@@ -2396,9 +2396,9 @@ void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2) {
                 self->count++;
                 r = self->count % 4;
                 if (r == 0) {
-                    ((TNowLoading *)(self->ptcl))->copy_pos(&self->p440);
+                    ((TParticleCtrl *)self->ptcl)->set_position(&self->p440);
                 } else if (r == 2) {
-                    ((TNowLoading *)(self->ptcl))->copy_pos(&self->p44C);
+                    ((TParticleCtrl *)self->ptcl)->set_position(&self->p44C);
                 } else {
                     ((TParticleCtrl *)(self->ptcl))->enable();
                 }
@@ -3328,9 +3328,9 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
                     w -= r;
                     v.y = lbl_805DEA60;
                     v.x += w;
-                    ((TNowLoading *)(o->objs[k * 2]))->copy_pos(&v);
+                    ((TParticleCtrl *)o->objs[k * 2])->set_position(&v);
                     v.x -= lbl_805DEA44 * w;
-                    ((TNowLoading *)(o->objs[k * 2 + 1]))->copy_pos(&v);
+                    ((TParticleCtrl *)o->objs[k * 2 + 1])->set_position(&v);
                 } else {
                     ((TParticleCtrl *)(o->objs[k * 2]))->enable();
                     ((TParticleCtrl *)(o->objs[k * 2 + 1]))->enable();
@@ -3340,9 +3340,9 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
             ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, &o->pos[o->idx]);
             v.y = lbl_805DEA60;
             v.x += lbl_805DEA30;
-            ((TNowLoading *)(o->objs[0]))->copy_pos(&v);
+            ((TParticleCtrl *)o->objs[0])->set_position(&v);
             v.x -= lbl_805DEABC;
-            ((TNowLoading *)(o->objs[1]))->copy_pos(&v);
+            ((TParticleCtrl *)o->objs[1])->set_position(&v);
             for (j = 2; j < 6; j++) {
                 ((TParticleCtrl *)(o->objs[j]))->enable();
             }

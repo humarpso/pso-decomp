@@ -70,7 +70,7 @@ Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0) {
     arg0->bg = 0;
     for (i = 0; i < 12; i++) {
         VecCopy((Vec *)&arg0->slots[i].pos, (const Vec *)(p = &floor_load_particle_positions[i]));
-        ((TObjPlayer *)(&arg0->slots[i].ang))->copy_xyz(a = &TAdFloorLoadPrtGC__emitter_angles[i]);
+        copy_xyz(&arg0->slots[i].ang, a = &TAdFloorLoadPrtGC__emitter_angles[i]);
         arg0->slots[i].ctrl = create_particle_controller_with_angles(p, a, 0x65, 1, 0x40);
     }
     arg0->bg = create_particle_controller_with_angles(lbl_80478B48, lbl_80478B54, 0x2F, 1, 0x40);

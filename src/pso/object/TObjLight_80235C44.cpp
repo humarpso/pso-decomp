@@ -523,7 +523,7 @@ u8 *TUnk_804CCC68::query_technique_enemy_contacts(s32 arg) {
     pos.y = 0.5f * (pos.y + pp[1]);
     pos.z = 0.5f * (pos.z + pp[2]);
     VecCopy((Vec *)((u8 *)s->proxy + 0x38), (const Vec *)&pos);
-    ((TObjPlayer *)((u8 *)s->proxy + 0x5C))->copy_xyz((u8 *)this + 0x54);
+    copy_xyz((u8 *)s->proxy + 0x5C, (u8 *)this + 0x54);
     for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
         pd = (PD_802367D8 *)get_player_data__10TObjPlayerFi(i);
         if (pd == 0) continue;
@@ -582,7 +582,7 @@ u8 *TUnk_804CCC68::query_technique_player_contacts(s32 arg) {
     pos.y = 0.5f * (pos.y + pp[1]);
     pos.z = 0.5f * (pos.z + pp[2]);
     VecCopy((Vec *)((u8 *)s->proxy + 0x38), (const Vec *)&pos);
-    ((TObjPlayer *)((u8 *)s->proxy + 0x5C))->copy_xyz((u8 *)this + 0x54);
+    copy_xyz((u8 *)s->proxy + 0x5C, (u8 *)this + 0x54);
     if (get_entity_id((void *)arg) < 4) {
         n = TLobby::get_lobby_flag();
         for (i = 0; i < n; i++) {

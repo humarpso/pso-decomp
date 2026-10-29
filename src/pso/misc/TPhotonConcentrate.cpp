@@ -130,7 +130,7 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
         vec3_add_to(&posn, &xf);
         if (self->emitter != 0)
         {
-          ((TNowLoading *)(self->emitter))->copy_pos(&posn);
+          ((TParticleCtrl *)self->emitter)->set_position(&posn);
         }
       }
     }

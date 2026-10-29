@@ -56,21 +56,21 @@ void *spawn_particle_effect(void *pos, s32 id) {
     return 0;
 }
 
-void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags) {
+TParticleCtrl *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags) {
     void *p;
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, parent, &particle_global_entry_table[idx], 0, 0, 0, 0, flags);
         }
-        return p;
+        return (TParticleCtrl *)p;
     } else if (particle_pool_limit + 0x40 > idx) {
         s32 j = idx - 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, parent, &particle_area_entry_table[j], 0, 0, 0, 0, flags);
         }
-        return p;
+        return (TParticleCtrl *)p;
     } else {
         return 0;
     }
