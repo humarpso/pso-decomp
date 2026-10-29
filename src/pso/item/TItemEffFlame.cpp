@@ -13,7 +13,7 @@
 
 const char *TItemEffFlame__class_name = "TItemEffFlame";
 
-static void release_flame(void *flame);
+static void release_flame(TObject *flame);
 
 void spawn_flame_wall_impact(TObject *parent, TItemEquipBase *weapon, const Vec *from, Vec *hit) {
     spawn_particle_effect(hit, 0x45);
@@ -56,6 +56,6 @@ void spawn_flame_effect(void *unused, ActorBodyHit *hit) {
     }
 }
 
-static void release_flame(void *flame) {
-    ((TObject *)flame)->queue_destruction();
+static void release_flame(TObject *flame) {
+    flame->queue_destruction();
 }

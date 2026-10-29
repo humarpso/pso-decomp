@@ -86,7 +86,7 @@ void TUnk_804A403C::emit_marker_effects() {
             var_r30 += 1;
         } while (var_r30 != 2);
         ((FlagWord *)(arg0 + 0x1FC))->set(2);
-        TItemAttacker::spawn_item_timer(arg0, (ItemTimerCallback)clear_rico_ring_flag__10TObjPlayerFv, 0x3C);
+        TItemAttacker::spawn_item_timer((TObject *)arg0, (ItemTimerCallback)clear_rico_ring_flag__10TObjPlayerFv, 0x3C);
         ((FlagWord *)(arg0 + 0x1FC))->set(4);
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x200, 0, 0, 1) == 1) {
             ((FlagWord *)(arg0 + 0x1FC))->clear(4);

@@ -138,7 +138,7 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
         if (object != 0) {
             object = (s32)__ct__13TItemAttackerFllll((u8 *)object, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
         }
-        TItemAttacker::spawn_item_timer((void *)object, (ItemTimerCallback)TItemAttacker__sub_8010349C, arg2);
+        TItemAttacker::spawn_item_timer((TObject *)object, (ItemTimerCallback)TItemAttacker__sub_8010349C, arg2);
     }
 }
 
@@ -168,7 +168,7 @@ void TItemAttacker::copy_from(void *arg1) {
     *(f32 *)&this->m_down = (f32) *(f32 *)((s8 *)arg1 + 0x14);
 }
 
-void TItemAttacker::spawn_item_timer(void *object, ItemTimerCallback expire, s32 frames) {
+void TItemAttacker::spawn_item_timer(TObject *object, ItemTimerCallback expire, s32 frames) {
     void *item_timer;
     if (object != NULL) {
         item_timer = (void *)__nw__7TObjectFUl(0x28);

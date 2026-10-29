@@ -76,12 +76,12 @@ void TUnk_804A0CB8::emit_marker_effects() {
     if (((TItemWeapon *)self)->is_mode_two_and_ready() != 0) {
         self->fn1f0 = (void *)belra_cannon_create_extra_shot;
         self->f1f8 = 0;
-        TItemAttacker::spawn_item_timer(self, (ItemTimerCallback)belra_cannon_return_timer, 0x1E);
+        TItemAttacker::spawn_item_timer((TObject *)self, (ItemTimerCallback)belra_cannon_return_timer, 0x1E);
         ((TObjPlayer *)self)->launch_rare_weapon_special(0, 1, lbl_805DACD0);
     } else {
         self->fn1f0 = (void *)belra_cannon_create_shot;
         self->f1f8 = 0;
-        TItemAttacker::spawn_item_timer(self, (ItemTimerCallback)belra_cannon_return_timer, 0x1E);
+        TItemAttacker::spawn_item_timer((TObject *)self, (ItemTimerCallback)belra_cannon_return_timer, 0x1E);
         ((TItemWeapon *)self)->get_joint_position(1, &v);
         self->m49(&v, 0, 0, 1);
     }
