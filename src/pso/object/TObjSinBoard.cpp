@@ -484,7 +484,7 @@ void TUnk_804B8DE8::run_task() {
         }
         self->pos.y = (0.001f) * (f32)(self->timer * self->timer) + self->pos.y;
         if (self->effect != NULL) {
-            ((TNowLoading *)(self->effect))->copy_pos(&self->pos);
+            ((TParticleCtrl *)self->effect)->set_position(&self->pos);
         }
     }
 }

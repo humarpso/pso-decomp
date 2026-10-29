@@ -25,6 +25,7 @@ extern "C" void render__15TObjIllGillKageFv();
 #include "pso/object/TObjFish.h"
 
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/TParticleCtrl.h"
 
 struct IllGillBase_80367984_8036690C { char pad[0x14]; };
 struct IllGillVObj_80367984_8036690C : IllGillBase_80367984_8036690C {
@@ -684,10 +685,10 @@ void TObjEneIllGill::update_ai() {
         }
         play_persistent_sound(0x4003A34F, o, &o->pos, 0, 0);
         if (o->fx414 != 0 && ((TObject *)(o->fx414))->all_parents_unqueued_for_destruction() != 0) {
-            ((TNowLoading *)(o->fx414))->copy_pos(&o->f3c8);
+            ((TParticleCtrl *)o->fx414)->set_position(&o->f3c8);
         }
         if (o->fx418 != 0 && ((TObject *)(o->fx414))->all_parents_unqueued_for_destruction() != 0) {
-            ((TNowLoading *)(o->fx418))->copy_pos(&o->f3d4);
+            ((TParticleCtrl *)o->fx418)->set_position(&o->f3d4);
         }
         break;
     }
@@ -983,15 +984,15 @@ void TObjEneIllGill__sub_803669B0(u8 *player) {
 void TObjEneIllGill::vfunc_61() { obj_clearFlags30(256); }
 void TObjEneIllGill::free_resources() {
     if ((u32) this->m_414 != 0U) {
-        TBoss4Type2::request_destroy(this->m_414);
+        TParticleCtrl::release((void *)this->m_414);
         this->m_414 = 0U;
     }
     if ((u32) this->m_418 != 0U) {
-        TBoss4Type2::request_destroy(this->m_418);
+        TParticleCtrl::release((void *)this->m_418);
         this->m_418 = 0U;
     }
     if ((u32) this->m_41c != 0U) {
-        TBoss4Type2::request_destroy(this->m_41c);
+        TParticleCtrl::release((void *)this->m_41c);
         this->m_41c = 0U;
     }
 }
@@ -1145,15 +1146,15 @@ void TObjEneIllGill__sub_80366AE4(u8 *actor) {
         }
         temp_r3_10 = *(u32 *)((s8 *)actor + 0x414);
         if ((temp_r3_10 != 0U) && (((TObject *)temp_r3_10)->all_parents_unqueued_for_destruction() != 0)) {
-            ((TNowLoading *)(*(u32 *)((s8 *)actor + 0x414)))->copy_pos(actor + 0x3B0);
+            ((TParticleCtrl *)*(u32 *)((s8 *)actor + 0x414))->set_position(actor + 0x3B0);
         }
         temp_r3_11 = *(u32 *)((s8 *)actor + 0x418);
         if ((temp_r3_11 != 0U) && (((TObject *)temp_r3_11)->all_parents_unqueued_for_destruction() != 0)) {
-            ((TNowLoading *)(*(u32 *)((s8 *)actor + 0x418)))->copy_pos(actor + 0x3B0);
+            ((TParticleCtrl *)*(u32 *)((s8 *)actor + 0x418))->set_position(actor + 0x3B0);
         }
         temp_r3_12 = *(u32 *)((s8 *)actor + 0x41C);
         if ((temp_r3_12 != 0U) && (((TObject *)temp_r3_12)->all_parents_unqueued_for_destruction() != 0)) {
-            ((TNowLoading *)(*(u32 *)((s8 *)actor + 0x41C)))->copy_pos(actor + 0x3B0);
+            ((TParticleCtrl *)*(u32 *)((s8 *)actor + 0x41C))->set_position(actor + 0x3B0);
         }
         if ((u32) *(u32 *)((s8 *)actor + 0xB4) != 4U) {
             *(s16 *)((s8 *)actor + 0x328) = 3;

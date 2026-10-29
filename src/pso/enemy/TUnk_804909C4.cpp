@@ -127,7 +127,7 @@ void TUnk_804909C4::run_task() {
     {
         void *p = (void *) this->m_d0;
         if (p != NULL) {
-            ((TNowLoading *)p)->copy_pos((u8 *)&this->position);
+            ((TParticleCtrl *)p)->set_position((u8 *)&this->position);
         }
     }
     if (((TUnk_804909C4 *)arg0)->sub_800A3290((s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {

@@ -1,4 +1,5 @@
 #include "pso/player/TObjPlayer_80011014.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/TItemEffEquip.h"
 #include "pso/item/TUnk_8049F038.h"
 #include "pso/TObject.h"
@@ -27,7 +28,7 @@ void run_task__13TItemEffEquipFv(Equip_Self *self) {
 void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
     if (self != NULL) {
         self->vt = __vt__13TItemEffEquip;
-        TBoss4Type2::request_destroy((u32)self->m_20);
+        TParticleCtrl::release(self->m_20);
         __dt__7TObjectFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);

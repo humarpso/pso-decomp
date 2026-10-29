@@ -3686,7 +3686,7 @@ void TBoss8Dragon__sub_802F6838(u8 *arg0, u32 arg1) {
                     *(void **)((s8 *)arg0 + 0x894) = spawn_particle_effect_with_rotation(arg0 + 0x410, &r, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x760)) + 0x1C), 0x40);
                 }
                 if (*(void **)((s8 *)arg0 + 0x894) != 0) {
-                    ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x894)))->copy_pos(arg0 + 0x428);
+                    ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x894))->set_position(arg0 + 0x428);
                     ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x894)))->copy_vec3(&r);
                 }
             } else if (*(void **)((s8 *)arg0 + 0x894) != 0) {
@@ -5036,7 +5036,7 @@ void TBoss8DragonEffBullet__sub_802F8F88(u8 *arg0, u32 arg1) {
                     F(u32, 0x894) = spawn_continuous_particle_effect_with_flags(arg0 + 0x410, (void *)*(s32 *)((s8 *)(F(u8 *, 0x760)) + 0x20), 0x40);
                 }
             } else if (F(f32, 0xC0) <= lbl_805DEDF0) {
-                ((TNowLoading *)(F(void *, 0x894)))->copy_pos(arg0 + 0x410);
+                ((TParticleCtrl *)F(void *, 0x894))->set_position(arg0 + 0x410);
             } else {
                 queue_destruction__7TObjectFv(F(void *, 0x894));
                 F(u32, 0x894) = 0;
@@ -5440,7 +5440,7 @@ void state_breath_attack__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
                         ((TParticleCtrl *)(F(void *, 0x894)))->enable();
                     }
                 } else {
-                    ((TNowLoading *)(F(void *, 0x894)))->copy_pos(arg0 + 0x428);
+                    ((TParticleCtrl *)F(void *, 0x894))->set_position(arg0 + 0x428);
                     ((TBoss4Type2 *)(F(void *, 0x894)))->copy_vec3(&rot);
                 }
                 if (F(void *, 0x898) == 0) {
@@ -5451,7 +5451,7 @@ void state_breath_attack__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
                         ((TParticleCtrl *)(F(void *, 0x898)))->enable();
                     }
                 } else {
-                    ((TNowLoading *)(F(void *, 0x898)))->copy_pos(arg0 + 0x428);
+                    ((TParticleCtrl *)F(void *, 0x898))->set_position(arg0 + 0x428);
                     ((TBoss4Type2 *)(F(void *, 0x898)))->copy_vec3(&rot);
                 }
                 if (F(void *, 0x89C) == 0) {
@@ -5460,7 +5460,7 @@ void state_breath_attack__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
                         ((TParticleCtrl *)(F(void *, 0x89C)))->enable();
                     }
                 } else {
-                    ((TNowLoading *)(F(void *, 0x89C)))->copy_pos(arg0 + 0x428);
+                    ((TParticleCtrl *)F(void *, 0x89C))->set_position(arg0 + 0x428);
                     ((TBoss4Type2 *)(F(void *, 0x89C)))->copy_vec3(&rot);
                 }
             }

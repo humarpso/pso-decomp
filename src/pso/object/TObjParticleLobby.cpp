@@ -179,7 +179,7 @@ void TObjParticleLobby::setup_emitter() {
         set_flags__11TBoss4Type2FUl(*(void * *)&this->m_d4, flags);
     }
     if (*(void * *)&this->m_d4 != NULL) {
-        ((TNowLoading *)(*(void * *)&this->m_d4))->copy_pos((u8 *)this + 0x38);
+        ((TParticleCtrl *)*(void * *)&this->m_d4)->set_position((u8 *)this + 0x38);
     }
 }
 

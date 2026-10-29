@@ -1,6 +1,8 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/boss/TBoss4Type2_80086C44.h"
 #include "pso/boss/TBoss4Type2.h"
+#include "pso/TParticleCtrl.h"
 
 struct Ent_800868C4 { u8 data[0x98]; };
 
@@ -10,13 +12,13 @@ void *__nw__7TObjectFUl(int);
 extern s32 particle_pool_limit;
 extern Ent_800868C4 *particle_global_entry_table;
 extern Ent_800868C4 *particle_area_entry_table;
-int queue_destruction__7TObjectFv();
 
-void TBoss4Type2::request_destroy(u32 arg0) {
-    if (arg0 != 0U) {
-        queue_destruction__7TObjectFv();
-    }
 }
+
+void TParticleCtrl::release(void *emitter) {
+    if (emitter != NULL) {
+        ((TParticleCtrl *)emitter)->queue_destruction();
+    }
 }
 #pragma push
 #pragma opt_propagation off

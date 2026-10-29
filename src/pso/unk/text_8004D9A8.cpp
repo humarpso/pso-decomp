@@ -16,6 +16,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
@@ -107,7 +108,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         s32 t = *(s32 *)((s8 *)self + 0x90);
         if (t >= e->end) {
             if (((Self_8004DA7C *)self)->p[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)(((Self_8004DA7C *)self)->p[i]));
+                TParticleCtrl::release(((Self_8004DA7C *)self)->p[i]);
                 ((Self_8004DA7C *)self)->p[i] = NULL;
             }
         } else if (t >= e->start) {
@@ -129,7 +130,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
                     b.x *= (1.95f);
                     b.z *= (1.95f);
                     vec3_add_to(&a, &b);
-                    ((TNowLoading *)(((Self_8004DA7C *)self)->p[i]))->copy_pos(&a);
+                    ((TParticleCtrl *)((Self_8004DA7C *)self)->p[i])->set_position(&a);
                 }
             }
             break;
@@ -228,7 +229,7 @@ S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag) {
         fn_8004AA04(o->f94);
         for (i = 0; i < 5; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->ptr[i]);
+                TParticleCtrl::release(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

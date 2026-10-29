@@ -151,7 +151,7 @@ void TItemEffArmorParticle::run_task() {
                         particle->enable();
                     }
                     active = 1;
-                    ((TNowLoading *)particle)->copy_pos(&player->m_2fc);
+                    ((TParticleCtrl *)particle)->set_position(&player->m_2fc);
                 }
             }
         }

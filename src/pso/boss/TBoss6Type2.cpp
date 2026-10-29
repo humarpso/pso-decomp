@@ -19,6 +19,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TBoss6SwordWave.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/TParticleCtrl.h"
 extern "C" TObjEnemy *__ct__9TObjEnemyFP7TObject(void *, void *);
 
 struct TBoss6Type2_802BD014;
@@ -779,7 +780,7 @@ void TBoss6Type2::destroy_part(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x77C);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy(temp_r3);
+        TParticleCtrl::release((void *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x77C) = 0U;
     }
 }
@@ -808,7 +809,7 @@ void TBoss6Type2::update_part_positions() {
             if (idx >= 0) {
                 VecCopy((Vec *)((Vec_802B9A68 *)(&v)), (const Vec *)((Vec_802B9A68 *)((Vec_802B9C80 *)((u8 *)o + idx * 0xC + 0x59C))));
             }
-            ((TNowLoading *)((s32)o->arr[i]))->copy_pos(&v);
+            ((TParticleCtrl *)(s32)o->arr[i])->set_position(&v);
         }
         i++;
     } while (i < 14);

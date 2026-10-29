@@ -7,6 +7,7 @@
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
@@ -47,7 +48,7 @@ void TBoss5GryphonShockWave::run_task() {
             this->m_3c = spawn_continuous_particle_effect_with_flags((u8 *)&this->m_2c, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 0), 0x40);
         }
         if ((u32) this->m_3c != 0U) {
-            ((TNowLoading *)(this->m_3c))->copy_pos((u8 *)&this->m_2c);
+            ((TParticleCtrl *)this->m_3c)->set_position((u8 *)&this->m_2c);
         }
         temp_r3 = *(s32 *)&this->m_20;
         *(s32 *)&this->m_20 = (temp_r3 + 1);

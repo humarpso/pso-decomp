@@ -3,6 +3,7 @@
 #include "pso/misc/TWindowEffectParty.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct Obj_8024FB80 { u8 pad[0x78]; void *arr[1]; };
 
@@ -54,14 +55,14 @@ void TWindowEffectParty::run_task() {
     }
     if ((u32) this->m_30 != 0U) {
         calc_effect_position(&sp8);
-        ((TNowLoading *)(this->m_30))->copy_pos(&sp8);
+        ((TParticleCtrl *)this->m_30)->set_position(&sp8);
     }
 }
 
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowEffectParty;
-        TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x30)));
+        TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x30));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

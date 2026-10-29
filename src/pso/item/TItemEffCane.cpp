@@ -7,6 +7,7 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 extern const char* TItemEffCane__class_name;
@@ -25,11 +26,11 @@ void TItemEffCane::run_task() {
         return;
     }
     ((TItemWeapon *)item)->get_joint_position(attachment_index, position);
-    ((TNowLoading *)effect)->copy_pos(position);
+    ((TParticleCtrl *)effect)->set_position(position);
 }
 
 TItemEffCane::~TItemEffCane() {
-    TBoss4Type2::request_destroy((u32)effect);
+    TParticleCtrl::release(effect);
 }
 
 TItemEffCane::TItemEffCane(TObject* parent, TItem* item, s32 attachment, s32 effect_id)

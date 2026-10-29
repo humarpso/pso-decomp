@@ -19,6 +19,7 @@
 #include "pso/misc/TScene.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct Obj_8002CACC { s32 f0; u8 pad4[0x14]; void *vt; f32 f1c; f32 f20; f32 f24; s32 f28[4]; };
 
@@ -97,7 +98,7 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
                 if (self->objs[i] == NULL) {
                     self->objs[i] = create_particle_emitter(&pos, 0x144);
                 } else {
-                    ((TNowLoading *)(self->objs[i]))->copy_pos(&pos);
+                    ((TParticleCtrl *)self->objs[i])->set_position(&pos);
                 }
             } else if (self->objs[i] != NULL) {
                 queue_destruction__7TObjectFv(self->objs[i]);

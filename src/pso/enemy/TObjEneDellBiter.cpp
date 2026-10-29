@@ -1650,7 +1650,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
                     if ((temp_f1 >= TObjEneDellBiter__data_805DEFD8) && (temp_f1 <= lbl_805DEFEC)) {
                         VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
                         stack.spC += TObjEneDellBiter__data_805DEFE0;
-                        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x4C0)))->copy_pos(&stack.sp8);
+                        ((TParticleCtrl *)*(u32 *)((s8 *)arg0 + 0x4C0))->set_position(&stack.sp8);
                     }
                 }
             } else if (objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFD8) != 0) {
@@ -2447,20 +2447,20 @@ void TObjEneDellBiter::update_particle_emitters() {
                 if (temp_r3_2 == NULL) {
                     *(u8 **)((s8 *)arg0 + 0x4C4) = (u8 *)create_particle_emitter(&stack.sp8, 0x216);
                 } else {
-                    ((TNowLoading *)temp_r3_2)->copy_pos(&stack.sp8);
+                    ((TParticleCtrl *)temp_r3_2)->set_position(&stack.sp8);
                 }
             } else {
                 temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4C4));
                 if (temp_r3_3 == NULL) {
                     *(u8 **)((s8 *)arg0 + 0x4C4) = (u8 *)create_particle_emitter(&stack.sp8, 0x215);
                 } else {
-                    ((TNowLoading *)temp_r3_3)->copy_pos(&stack.sp8);
+                    ((TParticleCtrl *)temp_r3_3)->set_position(&stack.sp8);
                 }
                 temp_r3_4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4C8));
                 if (temp_r3_4 == NULL) {
                     *(u8 **)((s8 *)arg0 + 0x4C8) = (u8 *)create_particle_emitter(&stack.sp8, 0x219);
                 } else {
-                    ((TNowLoading *)temp_r3_4)->copy_pos(&stack.sp8);
+                    ((TParticleCtrl *)temp_r3_4)->set_position(&stack.sp8);
                 }
             }
         }

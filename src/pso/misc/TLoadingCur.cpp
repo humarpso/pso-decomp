@@ -7,6 +7,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/unk/text_80086FE0.h"
 #include "pso/object/TObject_80019A50.h"
+#include "pso/TParticleCtrl.h"
 
 struct Stack_8001CAD4 {
     s32 sp8;
@@ -69,7 +70,7 @@ void TLoadingCur::update_camera_facing_offset() {
         rotate_vector_by_matrix(0, arg0 + 0x20, (u8 *)&this->_pad48);
         pop_matrices(1);
         vec3_add_to((u8 *)&this->_pad48, arg0 + 0x44);
-        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos((u8 *)&this->_pad48);
+        ((TParticleCtrl *)*(u32 *)((s8 *)arg0 + 0x1C))->set_position((u8 *)&this->_pad48);
     }
 }
 #pragma push

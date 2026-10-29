@@ -7,6 +7,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/TParticleCtrl.h"
 
 struct Stack_8001D19C {
     f32 sp8;
@@ -77,19 +78,19 @@ void TNowLoading::run_task() {
         this->m_34 = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 8));
         temp_r3 = this->m_1c;
         if (temp_r3 != 0U) {
-            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_2c);
+            ((TParticleCtrl *)temp_r3)->set_position((u8 *)&this->m_2c);
         }
         temp_r3_2 = this->m_20;
         if (temp_r3_2 != 0U) {
-            ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->m_2c);
+            ((TParticleCtrl *)temp_r3_2)->set_position((u8 *)&this->m_2c);
         }
         temp_r3_3 = this->m_24;
         if (temp_r3_3 != 0U) {
-            ((TNowLoading *)temp_r3_3)->copy_pos((u8 *)&this->m_2c);
+            ((TParticleCtrl *)temp_r3_3)->set_position((u8 *)&this->m_2c);
         }
         temp_r3_4 = this->m_28;
         if (temp_r3_4 != 0U) {
-            ((TNowLoading *)temp_r3_4)->copy_pos((u8 *)&this->m_2c);
+            ((TParticleCtrl *)temp_r3_4)->set_position((u8 *)&this->m_2c);
         }
     } else {
         stack.sp8 = (lbl_805D7EC0 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 0);
@@ -97,19 +98,19 @@ void TNowLoading::run_task() {
         stack.sp10 = (lbl_805D7EC0 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 8);
         temp_r3_5 = this->m_1c;
         if (temp_r3_5 != 0U) {
-            ((TNowLoading *)temp_r3_5)->copy_pos((void *)&stack.sp8);
+            ((TParticleCtrl *)temp_r3_5)->set_position((void *)&stack.sp8);
         }
         temp_r3_6 = this->m_20;
         if (temp_r3_6 != 0U) {
-            ((TNowLoading *)temp_r3_6)->copy_pos((void *)&stack.sp8);
+            ((TParticleCtrl *)temp_r3_6)->set_position((void *)&stack.sp8);
         }
         temp_r3_7 = this->m_24;
         if (temp_r3_7 != 0U) {
-            ((TNowLoading *)temp_r3_7)->copy_pos((void *)&stack.sp8);
+            ((TParticleCtrl *)temp_r3_7)->set_position((void *)&stack.sp8);
         }
         temp_r3_8 = this->m_28;
         if (temp_r3_8 != 0U) {
-            ((TNowLoading *)temp_r3_8)->copy_pos((void *)&stack.sp8);
+            ((TParticleCtrl *)temp_r3_8)->set_position((void *)&stack.sp8);
         }
     }
 }

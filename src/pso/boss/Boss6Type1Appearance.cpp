@@ -14,6 +14,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct Ent_8033CB4C
 {
@@ -127,7 +128,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *boss6_de
     case 0x1AC:
     case 0x8E:
         if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)boss6_demo10_type1_appear + 0x64)));
+            TParticleCtrl::release(*(void **)((s8 *)boss6_demo10_type1_appear + 0x64));
             *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = 0U;
         }
         *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = (u32)create_particle_emitter((temp_r30), 0x211);
@@ -137,7 +138,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *boss6_de
         break;
     case 0x11D:
         if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)boss6_demo10_type1_appear + 0x64)));
+            TParticleCtrl::release(*(void **)((s8 *)boss6_demo10_type1_appear + 0x64));
             *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = 0U;
         }
         *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
@@ -147,7 +148,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *boss6_de
         break;
     }
     if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
-        ((TNowLoading *)(*(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64)))->copy_pos((void*)temp_r30);
+        ((TParticleCtrl *)*(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64))->set_position((void*)temp_r30);
     }
     boss6_demo10_type1_appear->m_38 = (boss6_demo10_type1_appear->m_38 + 1);
     if (((s32) boss6_demo10_type1_appear->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)boss6_demo10_type1_appear + 0x3C)))->get_phase() != 1)) {
@@ -166,7 +167,7 @@ TBoss6Demo10_TYPE1_APPEAR::~TBoss6Demo10_TYPE1_APPEAR() {
         this->m_60 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x64) != 0U) {
-        TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x64)));
+        TParticleCtrl::release(*(void **)((s8 *)this + 0x64));
         *(u32 *)((s8 *)this + 0x64) = 0U;
     }
 }

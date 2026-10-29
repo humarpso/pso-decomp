@@ -95,6 +95,7 @@ typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_8
 #include "pso/misc/TNowLoading.h"
 #include "pso/item/TItem.h"
 #include "pso/map/FloorArea.h"
+#include "pso/TParticleCtrl.h"
 struct Stack_80358048 {
     s32 sp8;
     s32 spC;
@@ -492,7 +493,7 @@ void TUnk_804F166C::run_task() {
     ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
     now_loading = (u8 *)(*(u8 * *)&this->unk_4C);
     if (now_loading != NULL) {
-        ((TNowLoading *)now_loading)->copy_pos((u8 *)&this->m_34);
+        ((TParticleCtrl *)now_loading)->set_position((u8 *)&this->m_34);
     }
     temp_r3_2 = this->m_48;
     if (temp_r3_2 > 0) {

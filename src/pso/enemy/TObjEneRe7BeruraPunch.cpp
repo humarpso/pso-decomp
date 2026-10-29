@@ -370,7 +370,7 @@ void TObjEneRe7BeruraPunch::run_task() {
             v.y = 3.0f;
             v.z = 4e+01f * c;
             vec3_add_to(&v, (u8 *)&this->m_dc);
-            ((TNowLoading *)(*(void * *)&this->m_d0))->copy_pos(&v);
+            ((TParticleCtrl *)*(void * *)&this->m_d0)->set_position(&v);
             ((TBoss4Type2 *)(*(void * *)&this->m_d0))->copy_vec3(&ang);
         }
         if (*(void * *)&this->m_d4 == NULL) {
@@ -384,7 +384,7 @@ void TObjEneRe7BeruraPunch::run_task() {
             v.y = 5.0f;
             v.z = (-2e+01f) * c;
             vec3_add_to(&v, (u8 *)&this->m_dc);
-            ((TNowLoading *)(*(void * *)&this->m_d4))->copy_pos(&v);
+            ((TParticleCtrl *)*(void * *)&this->m_d4)->set_position(&v);
             ((TBoss4Type2 *)(*(void * *)&this->m_d4))->copy_vec3(&ang);
         }
     } else {

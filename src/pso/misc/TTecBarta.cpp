@@ -18,6 +18,7 @@ struct RecoveredGlobal_8022B6FC_lbl_804CC55C
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct HitInfo_8022B8F4 { s32 type; f32 power; };
 
@@ -312,10 +313,10 @@ void TTecBarta::run_task() {
             pos.y -= lbl_805DC7A4;
         }
         if (this->emitters[i] != NULL) {
-            ((TNowLoading *)(this->emitters[i]))->copy_pos(&pos);
+            ((TParticleCtrl *)this->emitters[i])->set_position(&pos);
         }
         if (this->band == 5 && i == 5 && this->emitters[i] != NULL) {
-            ((TNowLoading *)(this->emitters[i]))->copy_pos(&pos);
+            ((TParticleCtrl *)this->emitters[i])->set_position(&pos);
         }
     }
     if (this->band == 5) {

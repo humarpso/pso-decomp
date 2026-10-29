@@ -513,7 +513,7 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
                     stack.sp8 += TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(this->rotation_y);
                     stack.spC += lbl_805DA5D0;
                     stack.sp10 += TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(this->rotation_y);
-                    ((TNowLoading *)(*(u8 **)((s8 *)((u8 *)this) + 0x424)))->copy_pos(&stack.sp8);
+                    ((TParticleCtrl *)*(u8 **)((s8 *)((u8 *)this) + 0x424))->set_position(&stack.sp8);
                 }
             }
             break;
@@ -603,7 +603,7 @@ void TObjEneMe3ShinowaReal::vfunc_114(s32 arg1) {
                 v.x = TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(I(0x60)) + v.x;
                 v.y += lbl_805DA5D0;
                 v.z = TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(I(0x60)) + v.z;
-                ((TNowLoading *)(P(0x424)))->copy_pos(&v);
+                ((TParticleCtrl *)P(0x424))->set_position(&v);
             }
         }
         V->m100();

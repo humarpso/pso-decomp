@@ -4,6 +4,7 @@
 #include "pso/system/vector.h"
 #include "pso/object/TObjMistCtrl.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct Vec_802AF64C { f32 x, y, z; };
 
@@ -33,7 +34,7 @@ void TObjMistCtrl::sub_802AF64C() {
     vec3_add_to(&v, &camera_ctrl_instance->v178);
     VecCopy((Vec *)&arg0->pos, (const Vec *)&v);
     if (arg0->x90 != NULL) {
-        ((TNowLoading *)(arg0->x90))->copy_pos(&arg0->pos);
+        ((TParticleCtrl *)arg0->x90)->set_position(&arg0->pos);
     }
 }
 

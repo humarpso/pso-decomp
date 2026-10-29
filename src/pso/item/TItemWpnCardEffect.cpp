@@ -332,7 +332,7 @@ void TUnk_804EDD44::run_task() {
     ((TUnk_804EDD44 *)arg0)->anchor_card_effect();
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
-            ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos((u8 *)&this->unk_64);
+            ((TParticleCtrl *)((O_8032DFF8 *)arg0)->o[i])->set_position((u8 *)&this->unk_64);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x30) == 0) {

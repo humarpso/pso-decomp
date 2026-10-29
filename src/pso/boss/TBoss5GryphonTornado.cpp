@@ -99,13 +99,13 @@ void TBoss5GryphonTornado::run_task() {
             o->p58 = spawn_continuous_particle_effect_with_flags(&o->pos, gryphon_tornado_particle_id_table[2], 0x40);
         }
         if (o->p50 != NULL) {
-            ((TNowLoading *)(o->p50))->copy_pos(&o->pos);
+            ((TParticleCtrl *)o->p50)->set_position(&o->pos);
         }
         if (o->p54 != NULL) {
-            ((TNowLoading *)(o->p54))->copy_pos(&o->pos);
+            ((TParticleCtrl *)o->p54)->set_position(&o->pos);
         }
         if (o->p58 != NULL) {
-            ((TNowLoading *)(o->p58))->copy_pos(&o->pos);
+            ((TParticleCtrl *)o->p58)->set_position(&o->pos);
         }
         if (o->timer > 0x168) {
             o->state = 2;

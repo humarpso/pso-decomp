@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2_80086C44.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/object/CitySeason.h"
@@ -111,7 +112,7 @@ void TObjCity_Season_FireWork::run_task() {
                 queue_destruction__7TObjectFv(self->handle);
                 self->handle = NULL;
             } else {
-                ((TNowLoading *)(self->handle))->copy_pos(self->pos);
+                ((TParticleCtrl *)self->handle)->set_position(self->pos);
             }
         }
         break;

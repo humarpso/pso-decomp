@@ -1429,7 +1429,7 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
                     if (self->mouth == 0) {
                         self->mouth = spawn_particle_effect_with_rotation(&self->fxpos, &rot, (void *) self->tbl->e14, 0x40);
                     } else {
-                        ((TNowLoading *)((void *) self->mouth))->copy_pos(&self->fxpos);
+                        ((TParticleCtrl *)(void *) self->mouth)->set_position(&self->fxpos);
                         ((TBoss4Type2 *)((void *) self->mouth))->copy_vec3(&rot);
                     }
                 } else {
@@ -1495,7 +1495,7 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
                     if (self->mouth == 0) {
                         self->mouth = spawn_particle_effect_with_rotation(&self->fxpos, &rot, (void *) self->tbl->e14, 0x40);
                     } else {
-                        ((TNowLoading *)((void *) self->mouth))->copy_pos(&self->fxpos);
+                        ((TParticleCtrl *)(void *) self->mouth)->set_position(&self->fxpos);
                         ((TBoss4Type2 *)((void *) self->mouth))->copy_vec3(&rot);
                     }
                 } else {
@@ -1558,7 +1558,7 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
                     if (self->mouth == 0) {
                         self->mouth = spawn_particle_effect_with_rotation(&self->fxpos, &rot, (void *) self->tbl->e14, 0x40);
                     } else {
-                        ((TNowLoading *)((void *) self->mouth))->copy_pos(&self->fxpos);
+                        ((TParticleCtrl *)(void *) self->mouth)->set_position(&self->fxpos);
                         ((TBoss4Type2 *)((void *) self->mouth))->copy_vec3(&rot);
                     }
                 } else {
@@ -2335,7 +2335,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                     F(u32, 0x8AC) = spawn_particle_effect_with_rotation(arg0 + 0x40C, &rot, (void *)*(s32 *)((s8 *)(F(u8 *, 0x778)) + 0x14), 0x40);
                 }
                 if (F(u32, 0x8AC) != 0) {
-                    ((TNowLoading *)(F(void *, 0x8AC)))->copy_pos(arg0 + 0x424);
+                    ((TParticleCtrl *)F(void *, 0x8AC))->set_position(arg0 + 0x424);
                     ((TBoss4Type2 *)(F(void *, 0x8AC)))->copy_vec3(&rot);
                 }
             } else if (F(u32, 0x8AC) != 0) {
@@ -3618,7 +3618,7 @@ void TBoss1Dragon::update_air_fire_state(u32 arg1) {
                     *(u32 *)((s8 *)arg0 + 0x8AC) = (u32)spawn_continuous_particle_effect_with_flags(arg0 + 0x40C, *(s32 *)((s8 *)this->effectResource + 0x18), 0x40);
                 }
             } else if (this->m_c0 <= (40.0f)) {
-                ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x8AC)))->copy_pos(arg0 + 0x40C);
+                ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x8AC))->set_position(arg0 + 0x40C);
             } else {
                 queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x8AC));
                 *(u32 *)((s8 *)arg0 + 0x8AC) = 0;
@@ -4016,7 +4016,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
                         ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0x8AC)))->enable();
                     }
                 } else {
-                    ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x8AC)))->copy_pos(arg0 + 0x424);
+                    ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x8AC))->set_position(arg0 + 0x424);
                     ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x8AC)))->copy_vec3(&sp8);
                 }
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x8B4) == 0U) {
@@ -4026,7 +4026,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
                         return;
                     }
                 } else {
-                    ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x8B4)))->copy_pos(arg0 + 0x424);
+                    ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x8B4))->set_position(arg0 + 0x424);
                     ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x8B4)))->copy_vec3(&sp8);
                     return;
                 }

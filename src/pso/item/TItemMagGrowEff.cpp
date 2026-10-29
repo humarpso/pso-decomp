@@ -5,6 +5,7 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/item/TItemMagSub.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 void TItemMagGrowEff::run_task() {
     f32 position[3];
@@ -23,10 +24,10 @@ void TItemMagGrowEff::run_task() {
     if ((effect != NULL) && (active_mag = mag, (active_mag != NULL))) {
         if (((TItemMagSub *)active_mag)->get_world_position((void*)position) != 0) {
             if (progress_ticks == 0xA) {
-                TBoss4Type2::request_destroy((u32)effect);
+                TParticleCtrl::release(effect);
                 effect = (u8 *) (create_particle_emitter(position, 0x9E));
             }
-            ((TNowLoading *)effect)->copy_pos(position);
+            ((TParticleCtrl *)effect)->set_position(position);
             ticks = progress_ticks;
             if (ticks == 0x14) {
                 queue_destruction__7TObjectFv(this);
@@ -40,7 +41,7 @@ void TItemMagGrowEff::run_task() {
 }
 
 TItemMagGrowEff::~TItemMagGrowEff() {
-    TBoss4Type2::request_destroy((u32)effect);
+    TParticleCtrl::release(effect);
     if (mag != nullptr) ((TItemMagSub *)mag)->clear_growth_flag();
 }
 

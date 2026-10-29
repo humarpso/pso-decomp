@@ -3618,7 +3618,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
                     ((TParticleCtrl *)(o->f4A0))->enable();
                 }
             } else {
-                ((TNowLoading *)(o->f4A0))->copy_pos(o->f414);
+                ((TParticleCtrl *)o->f4A0)->set_position(o->f414);
             }
             o->timer++;
             if (o->timer > o->prm->f18) {

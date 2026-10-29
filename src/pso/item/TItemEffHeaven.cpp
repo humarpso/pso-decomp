@@ -7,6 +7,7 @@
 #include "pso/misc/TNowLoading.h"
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 struct Obj_801092A8 {
     u8 pad0[0x18];
     void *vt;
@@ -85,7 +86,7 @@ void TItemEffHeaven::run_task() {
     }
     if (this->m_28 == 0x19) {
         for (i = 0; i != 2; i++) {
-            TBoss4Type2::request_destroy((u32)self->arr[i]);
+            TParticleCtrl::release(self->arr[i]);
             self->arr[i] = 0;
         }
         u32 id = self->f3C;
@@ -104,14 +105,14 @@ void TItemEffHeaven::run_task() {
         self->arr[2] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x139, 0x40);
     }
     if (this->m_28 == 0x28) {
-        TBoss4Type2::request_destroy((u32)self->arr[2]);
+        TParticleCtrl::release(self->arr[2]);
         self->arr[2] = 0;
         queue_destruction__7TObjectFv(self);
         return;
     }
     for (j = 0; j != 3; j++) {
         if (self->arr[j] != 0) {
-            ((TNowLoading *)(self->arr[j]))->copy_pos(&self->pos);
+            ((TParticleCtrl *)self->arr[j])->set_position(&self->pos);
         }
     }
     this->m_20 = NULL;
@@ -120,7 +121,7 @@ void TItemEffHeaven::run_task() {
 
 TItemEffHeaven::~TItemEffHeaven() {
     for (int i = 0; i != 3; i++) {
-        TBoss4Type2::request_destroy((u32)m_arr[i]);
+        TParticleCtrl::release(m_arr[i]);
     }
 }
 

@@ -396,7 +396,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
         self->vtable = __vt__13TOHealGeneral;
         for (i = 0; i < 2; i++) {
             if (self->handles[i] != 0) {
-                TBoss4Type2::request_destroy(self->handles[i]);
+                TParticleCtrl::release((void *)self->handles[i]);
             }
         }
         ((TObjCollidable *)self)->unregister_object_by_id();

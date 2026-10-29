@@ -260,7 +260,7 @@ void TObjEneRe2Flower_Bomb::run_task() {
             ((TParticleCtrl *)(o->fFC))->enable();
         }
     } else {
-        ((TNowLoading *)((int)o->fFC))->copy_pos(&o->start);
+        ((TParticleCtrl *)(int)o->fFC)->set_position(&o->start);
     }
 }
 

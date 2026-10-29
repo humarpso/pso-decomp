@@ -56,13 +56,13 @@ void TAdLoadQuestPrtTxtGC::run_task() {
                 if (self->particles[i] != NULL) {
                     ((TParticleCtrl *)(self->particles[i]))->clear_active_flag();
                     self->pos[i].x += lbl_805DFD20;
-                    ((TNowLoading *)(self->particles[i]))->copy_pos(&self->pos[i]);
+                    ((TParticleCtrl *)self->particles[i])->set_position(&self->pos[i]);
                 }
             } else {
                 if (self->particles[i] != NULL) {
                     ((TParticleCtrl *)(self->particles[i]))->enable();
                     self->pos[i].x = lbl_805DFD24;
-                    ((TNowLoading *)(self->particles[i]))->copy_pos(&self->pos[i]);
+                    ((TParticleCtrl *)self->particles[i])->set_position(&self->pos[i]);
                 }
             }
         }

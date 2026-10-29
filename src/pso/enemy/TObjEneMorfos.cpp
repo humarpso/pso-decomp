@@ -1279,7 +1279,7 @@ void TObjEneMorfos::state_rotating_projectile_burst(s32 arg1) {
         switch (F(0x4B0, s32)) {
         case 0:
             if (F(0x494, u32) != 0) {
-                ((TNowLoading *)(F(0x494, void *)))->copy_pos(arg0 + 0x498);
+                ((TParticleCtrl *)F(0x494, void *))->set_position(arg0 + 0x498);
             }
             F(0x4C0, s32) = F(0x60, s32);
             F(0x60, s32) = F(0x60, s32) + D->f28;

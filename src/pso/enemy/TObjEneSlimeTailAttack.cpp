@@ -1252,7 +1252,7 @@ void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
         }
     }
     if (arg0->link != NULL) {
-        ((TNowLoading *)(arg0->link))->copy_pos(&arg0->pos);
+        ((TParticleCtrl *)arg0->link)->set_position(&arg0->pos);
     }
     if (((TObjEneSlimeOne *)(arg0->owner))->is_in_water_bomb_states() != 0 || ((s32 (*)(void *))water_bomb_hit_nearby)(arg0) != 0) {
         die = 1;
@@ -1279,7 +1279,7 @@ void *TObjEneSlimeWaterBomb::create(void *arg1) {
 void *__dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneSlimeWaterBomb;
-        if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x388))); ((TObjEneSlimeWaterBomb *)arg0)->m_388 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x388)); ((TObjEneSlimeWaterBomb *)arg0)->m_388 = 0; }
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1426,11 +1426,11 @@ void TBoss8Dragon__sub_800E92D8(TObjEneSlimeOne *self) {
         }
     }
     if (self->m_3e8 != NULL) {
-        ((TNowLoading *)self->m_3e8)->copy_pos(&self->position);
+        ((TParticleCtrl *)self->m_3e8)->set_position(&self->position);
     }
     if (landed != 0) {
         if (self->m_3e8 != NULL) {
-            TBoss4Type2::request_destroy((u32)self->m_3e8);
+            TParticleCtrl::release(self->m_3e8);
             self->m_3e8 = NULL;
         }
         for (angle = 0; angle < 0xFFFF; angle += 0x1000) {
@@ -2132,7 +2132,7 @@ void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneSlimeOne;
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-        if (((TObjEneSlimeOne *)arg0)->m_3e8 != NULL) { TBoss4Type2::request_destroy((u32)(((TObjEneSlimeOne *)arg0)->m_3e8)); *(s32 *)((s8 *)arg0 + 0x3E8) = 0; }
+        if (((TObjEneSlimeOne *)arg0)->m_3e8 != NULL) { TParticleCtrl::release(((TObjEneSlimeOne *)arg0)->m_3e8); *(s32 *)((s8 *)arg0 + 0x3E8) = 0; }
         __dt__15TObjEneSlimeOneFis((s32)(*(void **)((s8 *)arg0 + 0x388)), 1);
         ((TObjEneSlimeOne *)arg0)->m_388 = 0;
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);

@@ -23,6 +23,7 @@
 #include "pso/object/TObjButterflyLobby_8007A5D8.h"
 #include "pso/player/TObjPlayer_801542CC.h"
 #include "pso/unk/text_803D8F74.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 s32 push_matrix(void);
@@ -105,7 +106,7 @@ void TUnk_80484AFC::run_task() {
         ((TBoss4Type2 *)trail)->copy_vec3(trail_rotation);
         vec_set_length(&back, 10.0f);
         vec3_add_to(&back, &position);
-        ((TNowLoading *)trail)->copy_pos(&back);
+        ((TParticleCtrl *)trail)->set_position(&back);
     }
     if (csnVector(&prev_position, &position, -1) != 0) {
         explode_and_destroy();

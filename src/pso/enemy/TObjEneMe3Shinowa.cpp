@@ -2363,7 +2363,7 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
                 }
             } else {
                 ((TBoss4Type2 *)(F(void *, 0x424)))->copy_vec3(rot);
-                ((TNowLoading *)(F(void *, 0x424)))->copy_pos(arg0 + 0x38);
+                ((TParticleCtrl *)F(void *, 0x424))->set_position(arg0 + 0x38);
             }
             if (F(void *, 0x428) == 0) {
                 F(void *, 0x428) = create_particle_emitter(arg0 + 0x38, 0x116);
@@ -2373,7 +2373,7 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
                 }
             } else {
                 ((TBoss4Type2 *)(F(void *, 0x428)))->copy_vec3(rot);
-                ((TNowLoading *)(F(void *, 0x428)))->copy_pos(arg0 + 0x38);
+                ((TParticleCtrl *)F(void *, 0x428))->set_position(arg0 + 0x38);
             }
         }
         VO->m86();

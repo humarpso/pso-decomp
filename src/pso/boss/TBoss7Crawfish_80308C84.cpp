@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss7Crawfish.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct Craw_80308D1C {
     u8 pad0[0x60];
@@ -37,7 +38,7 @@ void TBoss7Crawfish::update_motion_and_release() {
     {
         void *temp_ptr = (void *) this->m_3cc;
         if (temp_ptr != NULL) {
-            ((TNowLoading *)temp_ptr)->copy_pos((u8 *)&this->position);
+            ((TParticleCtrl *)temp_ptr)->set_position((u8 *)&this->position);
         }
     }
     if (TBoss7Crawfish__sub_80308ED8(arg0, (u8 *)&this->unk_308) == 0) {

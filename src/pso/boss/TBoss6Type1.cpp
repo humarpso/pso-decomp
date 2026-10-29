@@ -535,7 +535,7 @@ void TBoss6Type1__sub_802B4A9C(void *p) {
     for (i = 0; i < lbl_805DE2D4; i++) {
         u32 slot = ((Obj_802B4B34 *)boss)->arr[i];
         if (slot != 0U) {
-            TBoss4Type2::request_destroy(slot);
+            TParticleCtrl::release((void *)slot);
             ((Obj_802B4B34 *)boss)->arr[i] = 0;
         }
     }
@@ -563,7 +563,7 @@ void TBoss6Type1::release_effect_slot(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x4F8);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy(temp_r3);
+        TParticleCtrl::release((void *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x4F8) = 0U;
     }
 }
@@ -603,7 +603,7 @@ void TBoss6Type1::sub_802B4C28() {
             if (k >= 0) {
                 VecCopy((Vec *)&v, (const Vec *)&o->pts[k]);
             }
-            ((TNowLoading *)(o->parts[i]))->copy_pos(&v);
+            ((TParticleCtrl *)o->parts[i])->set_position(&v);
             switch (i) {
             case 0:
             case 1:

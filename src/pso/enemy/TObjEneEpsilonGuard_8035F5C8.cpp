@@ -1170,7 +1170,7 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
     case 0:
         advance_animation_playback(this);
         if (g->emitter != 0) {
-            ((TNowLoading *)((void *)g->emitter))->copy_pos(g->f2fc);
+            ((TParticleCtrl *)(void *)g->emitter)->set_position(g->f2fc);
         }
         switch (g->state) {
         case 0:
@@ -1280,7 +1280,7 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
                 play_sound_effect(0x4003A344, arg0 + 0x38, 0, 0);
             }
             if (F_8036(0x434, u32) != 0) {
-                ((TNowLoading *)(F_8036(0x434, void *)))->copy_pos(arg0 + 0x38);
+                ((TParticleCtrl *)F_8036(0x434, void *))->set_position(arg0 + 0x38);
             }
             break;
         case 3:
@@ -1289,7 +1289,7 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
                 F_8036(0x4E4, s32) = 5;
             }
             if (F_8036(0x434, u32) != 0) {
-                ((TNowLoading *)(F_8036(0x434, void *)))->copy_pos(arg0 + 0x38);
+                ((TParticleCtrl *)F_8036(0x434, void *))->set_position(arg0 + 0x38);
             }
             break;
         }

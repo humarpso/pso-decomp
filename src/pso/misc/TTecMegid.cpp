@@ -5,6 +5,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_80235348_lbl_804CC510
 {
@@ -426,9 +427,9 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
             p.x = self->pos.x + off.x;
             p.y = self->pos.y + off.y;
             p.z = self->pos.z + off.z;
-            ((TNowLoading *)(self->emitters[i]))->copy_pos(&p);
+            ((TParticleCtrl *)self->emitters[i])->set_position(&p);
         } else {
-            ((TNowLoading *)(self->emitters[i]))->copy_pos(&self->pos);
+            ((TParticleCtrl *)self->emitters[i])->set_position(&self->pos);
         }
     }
     ((TUnk_804CCC68 *)self)->move_technique_projectile();

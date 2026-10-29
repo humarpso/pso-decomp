@@ -453,7 +453,7 @@ void TBoss3VoloptP01::run_state_machine() {
         state = 3;
     case 3:
         if (glow_effect != NULL) {
-            ((TNowLoading *)glow_effect)->copy_pos(&m_2fc);
+            ((TParticleCtrl *)glow_effect)->set_position(&m_2fc);
         }
         effect_timer--;
         if (effect_timer <= 0) {

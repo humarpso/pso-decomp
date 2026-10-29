@@ -3,6 +3,7 @@
 #include "types.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 #pragma fp_contract on
 extern "C" {
@@ -33,11 +34,11 @@ void TItemEffFlame::run_task() {
     v.x += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
     v.y += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
     v.z += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
-    ((TNowLoading *)(self->m_1c))->copy_pos(&v);
+    ((TParticleCtrl *)self->m_1c)->set_position(&v);
 }
 
 }
 
 TItemEffFlame::~TItemEffFlame() {
-    TBoss4Type2::request_destroy((u32)this->m_1c);
+    TParticleCtrl::release(this->m_1c);
 }

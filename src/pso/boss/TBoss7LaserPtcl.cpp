@@ -10,6 +10,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjOnlineEnding.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 extern const f32 lbl_805DE9F0;
 #pragma push
@@ -164,7 +165,7 @@ void TBoss7LaserPtcl::run_task() {
     p = o->particles;
     for (i = 2; i != 0; i--) {
         if (*p != NULL) {
-            ((TNowLoading *)(*p++))->copy_pos(&o->position);
+            ((TParticleCtrl *)*p++)->set_position(&o->position);
         }
     }
     if (o->state == 1) {

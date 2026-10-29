@@ -667,7 +667,7 @@ void TBoss4Type2::md_recover_update() {
     temp_r3 = *((unsigned int *) (((s8 *) boss4_type2) + 0x448));
     if (temp_r3 != 0)
     {
-      TBoss4Type2::request_destroy((u32)((int) temp_r3));
+      TParticleCtrl::release((void *)temp_r3);
       *((unsigned int *) (((s8 *) boss4_type2) + 0x448)) = 0;
     }
   }
@@ -810,12 +810,12 @@ void TBoss4Type2::tenchu_update() {
         if (temp_f1 > 28.0f) {
             temp_r3 = *(u32 *)((s8 *)arg0 + 0x438);
             if (temp_r3 != 0) {
-                TBoss4Type2::request_destroy((u32)((void *)temp_r3));
+                TParticleCtrl::release((void *)temp_r3);
                 *(u32 *)((s8 *)arg0 + 0x438) = 0U;
             }
             temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x440);
             if (temp_r3_2 != 0) {
-                TBoss4Type2::request_destroy((u32)((void *)temp_r3_2));
+                TParticleCtrl::release((void *)temp_r3_2);
                 *(u32 *)((s8 *)arg0 + 0x440) = 0U;
             }
         } else if (temp_f1 >= 15.0f) {
@@ -836,11 +836,11 @@ void TBoss4Type2::tenchu_update() {
         }
         temp_r3_5 = *(u32 *)((s8 *)arg0 + 0x438);
         if (temp_r3_5 != 0) {
-            ((TNowLoading *)temp_r3_5)->copy_pos(&sp14);
+            ((TParticleCtrl *)temp_r3_5)->set_position(&sp14);
         }
         temp_r3_6 = *(u32 *)((s8 *)arg0 + 0x440);
         if (temp_r3_6 != 0) {
-            ((TNowLoading *)temp_r3_6)->copy_pos(&sp8);
+            ((TParticleCtrl *)temp_r3_6)->set_position(&sp8);
         }
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3C8) == 9) {
@@ -848,22 +848,22 @@ void TBoss4Type2::tenchu_update() {
         if (temp_f1_2 > 10.0f) {
             temp_r3_7 = *(u32 *)((s8 *)arg0 + 0x438);
             if (temp_r3_7 != 0) {
-                TBoss4Type2::request_destroy((u32)((void *)temp_r3_7));
+                TParticleCtrl::release((void *)temp_r3_7);
                 *(u32 *)((s8 *)arg0 + 0x438) = 0U;
             }
             temp_r3_8 = *(u32 *)((s8 *)arg0 + 0x43C);
             if (temp_r3_8 != 0) {
-                TBoss4Type2::request_destroy((u32)((void *)temp_r3_8));
+                TParticleCtrl::release((void *)temp_r3_8);
                 *(u32 *)((s8 *)arg0 + 0x43C) = 0U;
             }
             temp_r3_9 = *(u32 *)((s8 *)arg0 + 0x440);
             if (temp_r3_9 != 0) {
-                TBoss4Type2::request_destroy((u32)((void *)temp_r3_9));
+                TParticleCtrl::release((void *)temp_r3_9);
                 *(u32 *)((s8 *)arg0 + 0x440) = 0U;
             }
             temp_r3_10 = *(u32 *)((s8 *)arg0 + 0x444);
             if (temp_r3_10 != 0) {
-                TBoss4Type2::request_destroy((u32)((void *)temp_r3_10));
+                TParticleCtrl::release((void *)temp_r3_10);
                 *(u32 *)((s8 *)arg0 + 0x444) = 0U;
             }
         } else if (temp_f1_2 >= 2.0f) {
@@ -899,19 +899,19 @@ void TBoss4Type2::tenchu_update() {
         }
         temp_r3_15 = *(u32 *)((s8 *)arg0 + 0x438);
         if (temp_r3_15 != 0) {
-            ((TNowLoading *)temp_r3_15)->copy_pos(&sp14);
+            ((TParticleCtrl *)temp_r3_15)->set_position(&sp14);
         }
         temp_r3_16 = *(u32 *)((s8 *)arg0 + 0x43C);
         if (temp_r3_16 != 0) {
-            ((TNowLoading *)temp_r3_16)->copy_pos(&sp14);
+            ((TParticleCtrl *)temp_r3_16)->set_position(&sp14);
         }
         temp_r3_17 = *(u32 *)((s8 *)arg0 + 0x440);
         if (temp_r3_17 != 0) {
-            ((TNowLoading *)temp_r3_17)->copy_pos(&sp8);
+            ((TParticleCtrl *)temp_r3_17)->set_position(&sp8);
         }
         temp_r3_18 = *(u32 *)((s8 *)arg0 + 0x444);
         if (temp_r3_18 != 0) {
-            ((TNowLoading *)temp_r3_18)->copy_pos(&sp8);
+            ((TParticleCtrl *)temp_r3_18)->set_position(&sp8);
         }
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) > 6) {
@@ -951,7 +951,7 @@ void TBoss4Type2::beam_update() {
         t = *(f32 *)((s8 *)arg0 + 0x3D0);
         if (t > 17.0f) {
             if (*(u32 *)((s8 *)arg0 + 0x434) != 0) {
-                TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x434)));
+                TParticleCtrl::release(*(void **)((s8 *)arg0 + 0x434));
                 *(u32 *)((s8 *)arg0 + 0x434) = 0;
             }
         } else if (t >= 8.0f && *(u32 *)((s8 *)arg0 + 0x434) == 0) {
@@ -1424,7 +1424,7 @@ void TBoss4Type2::change_action(s32 action) {
     for (i = 2; i < 8; i++) {
         void **part = &self->parts[i];
         if (*part != NULL) {
-            TBoss4Type2::request_destroy((u32)*part);
+            TParticleCtrl::release(*part);
             *part = NULL;
         }
     }
@@ -1606,10 +1606,10 @@ void TBoss4Type2::update_main() {
         dir.y = 50.0f;
         vec3_add_to(&pos, &dir);
         if (*(void **)((s8 *)arg0 + 0x42C) != NULL) {
-            ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x42C)))->copy_pos(&pos);
+            ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x42C))->set_position(&pos);
         }
         if (*(void **)((s8 *)arg0 + 0x430) != NULL) {
-            ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x430)))->copy_pos(&pos);
+            ((TParticleCtrl *)*(void **)((s8 *)arg0 + 0x430))->set_position(&pos);
         }
         ((TBoss4Type2 *)(arg0 + 0x378))->scroll_strips();
     }
@@ -1651,7 +1651,7 @@ S_800578E8 *__dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag) {
         fn_8004AA04(o->f378);
         for (i = 0; i < 8; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->ptr[i]);
+                TParticleCtrl::release(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

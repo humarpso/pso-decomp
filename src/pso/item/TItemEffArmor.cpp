@@ -18,6 +18,7 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/TItemLoad.h"
 #include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 u16 get_entity_id(void *);
@@ -233,7 +234,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
 }
 
 TItemEffArmor::~TItemEffArmor() {
-    TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x1C)));
+    TParticleCtrl::release(*(void **)((s8 *)this + 0x1C));
 }
 
 void TItemEffArmor::run_task() {
@@ -249,7 +250,7 @@ void TItemEffArmor::run_task() {
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((this->m_24 * this->m_58) / 29.0f));
     temp_r3 = (u8 *)this->m_1c;
     if (temp_r3 != NULL) {
-        ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_2c);
+        ((TParticleCtrl *)temp_r3)->set_position((u8 *)&this->m_2c);
     }
     *(f32 *)&this->m_38 = (f32) (1.0f - (this->m_24 / 29.0f));
     temp_r3_2 = (u8 *)this->m_6c;

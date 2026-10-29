@@ -93,7 +93,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     o->f36C += 0x24;
     vec3_add_to(&o->f340, &o->f34C);
     if (o->f364 != 0) {
-        ((TNowLoading *)(o->f364))->copy_pos(&o->f340);
+        ((TParticleCtrl *)o->f364)->set_position(&o->f340);
     }
     owner = find_entity_by_id(o->f370);
     if (owner == 0) {

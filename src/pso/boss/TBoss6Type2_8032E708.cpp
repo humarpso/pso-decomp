@@ -381,7 +381,7 @@ void TBoss6Type2::destroy_part_object(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x43C);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy(temp_r3);
+        TParticleCtrl::release((void *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x43C) = 0U;
     }
 }
@@ -409,7 +409,7 @@ void TBoss6Mag::update_effect_positions() {
             if (ep->b >= 0) {
                 VecCopy((Vec *)&p, (const Vec *)&arg0->v[ep->b]);
             }
-            ((TNowLoading *)(arg0->h[i]))->copy_pos(&p);
+            ((TParticleCtrl *)arg0->h[i])->set_position(&p);
         }
     }
 }

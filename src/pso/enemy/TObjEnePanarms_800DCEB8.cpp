@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/TObject.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -385,7 +386,7 @@ void TObjEnePanarms::update_wait_then_set_state() {
     if (this->m_c0 >= TObjEnePanarms__data_805DA49C) {
         temp_r3 = *(u32 *)&this->unk_394;
         if (temp_r3 != 0) {
-            TBoss4Type2::request_destroy(temp_r3);
+            TParticleCtrl::release((void *)temp_r3);
             *(u32 *)&this->unk_394 = 0U;
         }
     }
@@ -451,7 +452,7 @@ void TObjEnePanarms::update_destroy_child() {
     if (this->m_c0 >= TObjEnePanarms__data_805DA49C) {
         temp_r3 = *(u32 *)&this->unk_394;
         if (temp_r3 != 0) {
-            TBoss4Type2::request_destroy(temp_r3);
+            TParticleCtrl::release((void *)temp_r3);
             *(u32 *)&this->unk_394 = 0U;
         }
     }
@@ -1054,7 +1055,6 @@ void TObjEnePanarms::draw_shadow() {
 void TObjEnePanarms__sub_800DEEF8(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); TObjFish::set_global_param((s32)(*(void**)((char*)p + 0x24))); ((TObjFish *)(((TObjEneRe7Berura *)p)->m_39c))->set_draw_callback_list(); ((TObjMotion *)p)->draw(); clear_render_callback__8TObjFishFv(((TObjEneRe7Berura *)p)->m_39c); pop_matrix(); }
 
 #include "pso/misc/RenderFadeState.h"
-#include "pso/TParticleCtrl.h"
 
 // The camera-obstruction fade (vtable lbl_804949A8) keeps its vtable pointer at +0x14.
 struct VFade_800DEF5C {
@@ -1166,7 +1166,7 @@ void TObjEnePanarms::destroy_handles() {
     s32 i;
     for (i = 0; i < 2; i++) {
         if (((Obj_800DF1B8 *)this)->handles[i] != 0) {
-            TBoss4Type2::request_destroy(((Obj_800DF1B8 *)this)->handles[i]);
+            TParticleCtrl::release((void *)((Obj_800DF1B8 *)this)->handles[i]);
             ((Obj_800DF1B8 *)this)->handles[i] = 0;
         }
     }

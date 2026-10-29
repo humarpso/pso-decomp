@@ -406,7 +406,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
         arg0_->emit1 = (u32)create_particle_emitter(arg0_->f2FC, 0x128);
         break;
     case 1:
-        ((TNowLoading *)(arg0_->emit1))->copy_pos(arg0_->f2FC);
+        ((TParticleCtrl *)arg0_->emit1)->set_position(arg0_->f2FC);
         advance_animation_playback(arg0_);
         apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         all = 1;
@@ -444,14 +444,14 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
         }
         break;
     case 2:
-        ((TNowLoading *)(arg0_->emit1))->copy_pos(arg0_->f2FC);
+        ((TParticleCtrl *)arg0_->emit1)->set_position(arg0_->f2FC);
         advance_animation_playback(arg0_);
         apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         if (arg0_->fC0 < lbl_805D9638) {
             ((TParticleCtrl *)(arg0_->emit2))->enable();
         } else {
             ((TParticleCtrl *)(arg0_->emit2))->clear_active_flag();
-            ((TNowLoading *)(arg0_->emit2))->copy_pos(arg0_->f2FC);
+            ((TParticleCtrl *)arg0_->emit2)->set_position(arg0_->f2FC);
         }
         if (arg0_->fB8 != 0xB) {
             queue_destruction__7TObjectFv((void *)arg0_->emit1);
@@ -466,7 +466,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
         }
         break;
     case 3:
-        ((TNowLoading *)(arg0_->emit2))->copy_pos(arg0_->f2FC);
+        ((TParticleCtrl *)arg0_->emit2)->set_position(arg0_->f2FC);
         advance_animation_playback(arg0_);
         apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         if (--arg0_->f33C <= 0) {

@@ -3,6 +3,7 @@
 #include "pso/system/ModelDrawContext.h"
 #include "pso/unk/text_8028ADDC.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct O_8028AE1C { u8 pad[0x1c]; s32 count; void **a; void **b; };
 
@@ -22,10 +23,10 @@ void fn_8028AE1C(O_8028AE1C *arg0) {
     s32 i;
     for (i = 0; i < arg0->count; i++) {
         if (arg0->a[i] != 0) {
-            ((TNowLoading *)(arg0->a[i]))->copy_pos(lbl_80450CD0);
+            ((TParticleCtrl *)arg0->a[i])->set_position(lbl_80450CD0);
         }
         if (arg0->b[i] != 0) {
-            ((TNowLoading *)(arg0->b[i]))->copy_pos(lbl_80450CD0);
+            ((TParticleCtrl *)arg0->b[i])->set_position(lbl_80450CD0);
         }
     }
 }

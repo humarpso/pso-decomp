@@ -5,6 +5,7 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct Light_80191F90 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x18]; f32 rot[3]; u8 pad68[0x28]; f32 f90; void *f94; };
 
@@ -30,7 +31,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
     s32 i;
     Ply_80191F90 *p;
     if (arg0->f94 != 0) {
-        ((TNowLoading *)(arg0->f94))->copy_pos(arg0->pos);
+        ((TParticleCtrl *)arg0->f94)->set_position(arg0->pos);
         ((TBoss4Type2 *)(arg0->f94))->copy_vec3(arg0->rot);
     }
     if (is_item_light_interaction_blocked() != 0) {
@@ -50,7 +51,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
 
 }
 TObjItemLight::~TObjItemLight() {
-    if (*(void **)((s8 *)this + 0x94) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x94))); this->m_94 = 0; }
+    if (*(void **)((s8 *)this + 0x94) != NULL) { TParticleCtrl::release(*(void **)((s8 *)this + 0x94)); this->m_94 = 0; }
 }
 extern "C" {
 

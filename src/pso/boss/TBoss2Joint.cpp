@@ -522,7 +522,7 @@ void TUnk_80482C58::run_task() {
             ((TParticleCtrl *)(self->ptcl))->enable();
             break;
         case 1:
-            ((TNowLoading *)(self->ptcl))->copy_pos(&self->pts[self->cur]);
+            ((TParticleCtrl *)self->ptcl)->set_position(&self->pts[self->cur]);
             self->cur++;
             if (self->cur >= 20) {
                 self->cur = 0;

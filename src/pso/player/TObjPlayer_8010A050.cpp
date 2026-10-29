@@ -190,7 +190,7 @@ void TUnk_8049F148::run_task() {
             } else {
                 ((TParticleCtrl *)(*(u32 *)&this->unk_1C))->enable();
             }
-            ((TNowLoading *)(*(u32 *)&this->unk_1C))->copy_pos(sp8);
+            ((TParticleCtrl *)*(u32 *)&this->unk_1C)->set_position(sp8);
         }
     } else {
         queue_destruction__7TObjectFv(this);

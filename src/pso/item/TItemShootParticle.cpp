@@ -3,6 +3,7 @@
 #include "pso/object/TObject_8001A448.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/boss/TBoss4Type2.h"
+#include "pso/TParticleCtrl.h"
 
 struct TItemShootParticle_8011B77C { u8 pad[0x18]; void *vt; u8 pad1c[0x58 - 0x1c]; u32 parts[2]; };
 
@@ -22,7 +23,7 @@ s32 TItemShootParticle::spawn_slot_emitter(s32 arg1, s32 arg2) {
     s32 temp_r31;
     if ((arg2 >= 0) && (arg2 < 2)) {
         temp_r31 = (arg2 * 4) + 0x58;
-        TBoss4Type2::request_destroy(*(s32 *)((s8 *)((u8 *)this) + temp_r31));
+        TParticleCtrl::release((void *)*(s32 *)((s8 *)((u8 *)this) + temp_r31));
         *(s32 *)((s8 *)((u8 *)this) + temp_r31) = (s32)spawn_particle_effect_with_rotation((((u8 *)this) + 0x1C), (((u8 *)this) + 0x28), arg1, (s32) (u16) (this->m_60 | 0x40));
         return *(s32 *)((s8 *)((u8 *)this) + temp_r31);
     }
@@ -35,7 +36,7 @@ TItemShootParticle_8011B77C *__dt__18TItemShootParticleFv(TItemShootParticle_801
     if (self != 0) {
         self->vt = __vt__18TItemShootParticle;
         for (i = 0; i != 2; i++) {
-            TBoss4Type2::request_destroy(self->parts[i]);
+            TParticleCtrl::release((void *)self->parts[i]);
         }
         __dt__10TItemShootFv(self, 0);
         if (flag > 0) {

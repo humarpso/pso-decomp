@@ -14,6 +14,7 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 struct Stack_80038DCC {
     s32 sp8;
     s32 spC;
@@ -94,7 +95,7 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
     if (*(u32 *)((s8 *)arg0 + 0xE4) == 0) {
         *(u32 *)((s8 *)arg0 + 0xE4) = (u32)spawn_continuous_particle_effect_with_flags(arg0 + 0xC0, 0xDF, 0x40);
     } else {
-        ((TNowLoading *)((void *)*(u32 *)((s8 *)arg0 + 0xE4)))->copy_pos(arg0 + 0xC0);
+        ((TParticleCtrl *)(void *)*(u32 *)((s8 *)arg0 + 0xE4))->set_position(arg0 + 0xC0);
     }
     if (*(s32 *)((s8 *)arg0 + 0xD8) % 15 == 0) {
         if (project_actor_to_ground(arg0, arg0 + 0x38, arg0 + 0xCC) != 0) {

@@ -14,6 +14,7 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct Range_8033CDF8 { s32 lo; s32 hi; s32 idx; };
 
@@ -131,14 +132,14 @@ void TBoss6Demo11_TYPE1_DEAD::run_task() {
                     ((TBoss4Type2 *)(F(void *, 0x8C)))->set_flags(0x40);
                 }
             } else {
-                ((TNowLoading *)(F(void *, 0x8C)))->copy_pos(p);
+                ((TParticleCtrl *)F(void *, 0x8C))->set_position(p);
             }
             found = 1;
             break;
         }
     }
     if (found == 0 && F(void *, 0x8C) != NULL) {
-        TBoss4Type2::request_destroy((u32)(F(void *, 0x8C)));
+        TParticleCtrl::release(F(void *, 0x8C));
         F(void *, 0x8C) = NULL;
     }
     switch (F(s32, 0x44)) {
@@ -164,7 +165,7 @@ void *TBoss6Demo11_TYPE1_DEAD::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EF9EC;
         restore_player_cameras();
         if (*(void * *)&(this->m_88) != NULL) { TObjFish::init_state_1(*(void * *)&(this->m_88)); *(s32 *)&(this->m_88) = 0; }
-        if (*(void * *)&(this->unk_8C) != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&(this->unk_8C))); *(s32 *)&(this->unk_8C) = 0; }
+        if (*(void * *)&(this->unk_8C) != NULL) { TParticleCtrl::release(*(void * *)&(this->unk_8C)); *(s32 *)&(this->unk_8C) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

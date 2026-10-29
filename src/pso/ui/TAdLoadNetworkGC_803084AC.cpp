@@ -5,6 +5,7 @@
 #include "pso/ui/TAdLoadNetworkGC.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 struct V_803084AC { f32 x, y, z; };
 
 struct Net_803084AC { u8 pad0[0x20]; void *obj[5]; V_803084AC pos; };
@@ -29,7 +30,7 @@ void TAdLoadNetworkGC::run_task() {
     Net_803084AC *o = (Net_803084AC *)this;
     u32 i;
     for (i = 0; i < 5; i++) {
-        ((TNowLoading *)(o->obj[i]))->copy_pos(&o->pos);
+        ((TParticleCtrl *)o->obj[i])->set_position(&o->pos);
         ((TBoss4Type2 *)(o->obj[i]))->copy_vec3(&TAdLoadNetworkGC__object_offset_table[i]);
     }
 }

@@ -957,7 +957,7 @@ void TPlayerSoul::run_task() {
         if (h != 0) {
             p->get_pos(1, &v);
             v.y += lbl_805DC338;
-            ((TNowLoading *)h)->copy_pos(&v);
+            ((TParticleCtrl *)h)->set_position(&v);
         }
     } else {
         queue_destruction();

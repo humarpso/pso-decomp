@@ -136,10 +136,10 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
         VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
         vec3_add_to(&self->pos, &self->vel);
         if (self->ptcl0 != NULL) {
-            ((TNowLoading *)(self->ptcl0))->copy_pos(&self->pos);
+            ((TParticleCtrl *)self->ptcl0)->set_position(&self->pos);
         }
         if (self->ptcl1 != NULL) {
-            ((TNowLoading *)(self->ptcl1))->copy_pos(&self->pos);
+            ((TParticleCtrl *)self->ptcl1)->set_position(&self->pos);
         }
         if (csnVector(&self->prev, &self->pos, -1) != 0) {
             queue_destruction__7TObjectFv(self);

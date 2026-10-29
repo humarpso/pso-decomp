@@ -6,6 +6,7 @@
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/ui/TAdLdQuestPrtGC.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_80323214_lbl_80476658 {
     s32 value;
@@ -39,11 +40,11 @@ void fn_80323134(Obj_80323134 *arg0) {
                 c = (Ctl_80323134 *)get_player_by_client_id((u16)(i - 5));
                 if (c != 0) {
                     VecCopy((Vec *)&v, (const Vec *)&c->pos);
-                    ((TNowLoading *)(arg0->items[i]))->copy_pos(&v);
+                    ((TParticleCtrl *)arg0->items[i])->set_position(&v);
                 }
                 break;
             default:
-                ((TNowLoading *)(arg0->items[i]))->copy_pos(&arg0->pos);
+                ((TParticleCtrl *)arg0->items[i])->set_position(&arg0->pos);
                 break;
             }
         }
@@ -63,7 +64,7 @@ void TBoss6GravBall::destroy_part(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0xD4);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy(temp_r3);
+        TParticleCtrl::release((void *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0xD4) = 0U;
     }
 }

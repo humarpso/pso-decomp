@@ -5,6 +5,7 @@
 
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_802FE378_lbl_80474B68 {
     s32 value;
@@ -97,11 +98,11 @@ void TBoss8DragonEffBullet::run_task() {
         }
         temp_r3 = arg0->field_4C;
         if (temp_r3 != NULL) {
-            ((TNowLoading *)temp_r3)->copy_pos(&arg0->field_1C);
+            ((TParticleCtrl *)temp_r3)->set_position(&arg0->field_1C);
         }
         temp_r3_2 = arg0->field_50;
         if (temp_r3_2 != NULL) {
-            ((TNowLoading *)temp_r3_2)->copy_pos(&arg0->field_1C);
+            ((TParticleCtrl *)temp_r3_2)->set_position(&arg0->field_1C);
         }
         return;
     case 1:

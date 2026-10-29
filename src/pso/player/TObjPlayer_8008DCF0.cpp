@@ -408,13 +408,13 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
         o->f3FC = FLD(s32, 0x60) + 0x4000;
         o->f400 = -0x4000;
         if (FLD(f32, 0xC0) >= lbl_805D9638 && FLD(f32, 0xC0) < lbl_805D965C) {
-            ((TNowLoading *)(o->p3E4))->copy_pos(o->f3EC);
+            ((TParticleCtrl *)o->p3E4)->set_position(o->f3EC);
             ((TBoss4Type2 *)(o->p3E4))->copy_vec3(&o->f3F8);
         } else {
             ((TParticleCtrl *)(o->p3E4))->enable();
         }
         if (FLD(f32, 0xC0) >= lbl_805D9660 && FLD(f32, 0xC0) < lbl_805D965C) {
-            ((TNowLoading *)(o->p3E8))->copy_pos(o->f3EC);
+            ((TParticleCtrl *)o->p3E8)->set_position(o->f3EC);
             ((TBoss4Type2 *)(o->p3E8))->copy_vec3(&o->f3F8);
         } else {
             ((TParticleCtrl *)(o->p3E8))->enable();

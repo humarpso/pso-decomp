@@ -914,7 +914,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
         case 1:
             *(f32 *)((s8 *)((u8 *)this) + 0x458) += 0.1f;
             if (*(void **)((s8 *)((u8 *)this) + 0x440) != NULL) {
-                ((TNowLoading *)(*(void **)((s8 *)((u8 *)this) + 0x440)))->copy_pos(((u8 *)this) + 0x2FC);
+                ((TParticleCtrl *)*(void **)((s8 *)((u8 *)this) + 0x440))->set_position(((u8 *)this) + 0x2FC);
             }
             if (*(f32 *)((s8 *)((u8 *)this) + 0x458) >= 1.0f) {
                 *(f32 *)((s8 *)((u8 *)this) + 0x458) = 1.0f;
@@ -924,7 +924,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
         case 2:
             (*(s32 *)((s8 *)((u8 *)this) + 0x450))++;
             if (*(void **)((s8 *)((u8 *)this) + 0x440) != NULL) {
-                ((TNowLoading *)(*(void **)((s8 *)((u8 *)this) + 0x440)))->copy_pos(((u8 *)this) + 0x2FC);
+                ((TParticleCtrl *)*(void **)((s8 *)((u8 *)this) + 0x440))->set_position(((u8 *)this) + 0x2FC);
             }
             if (*(s32 *)((s8 *)((u8 *)this) + 0x450) >= *(s32 *)((s8 *)TObjEneEpsilonGuard__movement_params + 0x18)) {
                 *(f32 *)((s8 *)((u8 *)this) + 0x458) = 1.0f;
@@ -934,7 +934,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
         case 3:
             *(f32 *)((s8 *)((u8 *)this) + 0x458) -= 0.1f;
             if (*(void **)((s8 *)((u8 *)this) + 0x440) != NULL) {
-                ((TNowLoading *)(*(void **)((s8 *)((u8 *)this) + 0x440)))->copy_pos(((u8 *)this) + 0x2FC);
+                ((TParticleCtrl *)*(void **)((s8 *)((u8 *)this) + 0x440))->set_position(((u8 *)this) + 0x2FC);
             }
             if (*(f32 *)((s8 *)((u8 *)this) + 0x458) <= 0.0f) {
                 *(f32 *)((s8 *)((u8 *)this) + 0x458) = 0.0f;

@@ -676,7 +676,7 @@ void TBoss3VoloptP02::fn_80046CB8() {
         vec3_add_to(&out, &position);
         pop_matrix();
         if (emitter != NULL) {
-            ((TNowLoading *)emitter)->copy_pos(&out);
+            ((TParticleCtrl *)emitter)->set_position(&out);
         }
         play_persistent_sound(0x4003AD1A, this, &position, 0, 0);
         if (--*(s16 *)&timer <= 0) {
@@ -798,7 +798,7 @@ void TBoss3VoloptP02::fn_800465B0() {
         matrix_mult_vec(0, &v, &v);
         pop_matrix();
         if (emitter != NULL) {
-            ((TNowLoading *)emitter)->copy_pos(&v);
+            ((TParticleCtrl *)emitter)->set_position(&v);
         }
         if (--*(s16 *)&timer <= 0) {
             if (emitter != NULL) {
@@ -1656,7 +1656,7 @@ void TBoss3VoloptP02::fn_80044680() {
         vec3_add_to(&out, &position);
         pop_matrix();
         if (emitter != NULL) {
-            ((TNowLoading *)emitter)->copy_pos(&out);
+            ((TParticleCtrl *)emitter)->set_position(&out);
         }
         play_persistent_sound(0x4003AD1A, this, &position, 0, 0);
         if (--*(s16 *)&timer <= 0) {

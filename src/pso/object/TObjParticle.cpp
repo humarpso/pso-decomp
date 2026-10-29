@@ -11,6 +11,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/map/FloorArea.h"
+#include "pso/TParticleCtrl.h"
 
 struct P_8019527C { u8 pad[0x90]; u32 f90; };
 
@@ -83,7 +84,7 @@ void TObjParticle::run_task() {
         return;
     }
     if ((u32) this->m_90 != 0U) {
-        ((TNowLoading *)(this->m_90))->copy_pos((u8 *)&this->position);
+        ((TParticleCtrl *)this->m_90)->set_position((u8 *)&this->position);
         ((TBoss4Type2 *)(this->m_90))->copy_vec3((u8 *)&this->rotation_x);
     }
 }

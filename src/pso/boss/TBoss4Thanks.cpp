@@ -10,6 +10,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_8035C83C___vt__12TBoss4Thanks { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035C83C___vt__12TBoss4Thanks_size[sizeof(RecoveredGlobal_8035C83C___vt__12TBoss4Thanks) == 0x18 ? 1 : -1];
@@ -98,7 +99,7 @@ void TBoss4Thanks::update_particle_emitters() {
             }
         } else {
             if (o->p[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)o->p[i]);
+                TParticleCtrl::release(o->p[i]);
                 o->p[i] = NULL;
             }
         }
@@ -110,7 +111,7 @@ void TBoss4Thanks::destroy_effects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
-            TBoss4Type2::request_destroy((u32)arg0->e[i].p);
+            TParticleCtrl::release(arg0->e[i].p);
             arg0->e[i].p = NULL;
         }
     }

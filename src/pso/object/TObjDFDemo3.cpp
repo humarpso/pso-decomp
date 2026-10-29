@@ -16,6 +16,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 #pragma readonly_strings on
 
 extern "C" {
@@ -127,7 +128,7 @@ void TObjDFDemo3::run_task() {
     u32 temp_r3;
     if ((s32) this->m_b0 >= 0x5A) {
         if ((u32) this->m_90 != 0U) {
-            TBoss4Type2::request_destroy(this->m_90);
+            TParticleCtrl::release((void *)this->m_90);
             this->m_90 = 0U;
         }
     } else {
@@ -138,7 +139,7 @@ void TObjDFDemo3::run_task() {
                 ((TBoss4Type2 *)((void *) this->m_90))->set_flags(0x40);
             }
         } else if (temp_r3 != 0U) {
-            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_bc);
+            ((TParticleCtrl *)temp_r3)->set_position((u8 *)&this->m_bc);
         }
     }
     if ((s32) this->m_b0 == 0x86) {
@@ -172,7 +173,7 @@ S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
         }
         for (i = 0; i < 1; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)o->ptr[i]);
+                TParticleCtrl::release(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

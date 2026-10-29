@@ -223,6 +223,7 @@ void TObjDFDemo1::render() { draw_fading_model(); sub_8004E068(); }
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/unk/text_80087278.h"
+#include "pso/TParticleCtrl.h"
 
 struct DFDemo1Emitter {
     s32 effect;
@@ -261,7 +262,7 @@ void TObjDFDemo1::run_task() {
         e = &lbl_80485590[i];
         if (self->timer >= e->end) {
             if (self->emitters[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)self->emitters[i]);
+                TParticleCtrl::release(self->emitters[i]);
                 self->emitters[i] = NULL;
             }
         } else if (self->timer >= e->start) {
@@ -325,7 +326,7 @@ TObjDFDemo1::~TObjDFDemo1() {
     fn_8004AA04(((S_8004E634 *)this)->f11c);
     for (i = 0; i < 4; i++) {
         if (((S_8004E634 *)this)->ptr[i] != 0) {
-            TBoss4Type2::request_destroy((u32)((S_8004E634 *)this)->ptr[i]);
+            TParticleCtrl::release(((S_8004E634 *)this)->ptr[i]);
             ((S_8004E634 *)this)->ptr[i] = 0;
         }
     }

@@ -20,6 +20,7 @@ extern const f32 lbl_805E0380;
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
@@ -32,7 +33,7 @@ void TBoss6EffHyoui::run_task() {
     if ((u32) this->m_1c != 0U) {
         player = (s32)get_player_by_client_id((*(u16 *)((s8 *)arg0 + 0x20)));
         if ((player != 0) && (is_active__14TBoss6PlotFalzFv() != 0)) {
-            ((TNowLoading *)(this->m_1c))->copy_pos((void *)(player + 0x38));
+            ((TParticleCtrl *)this->m_1c)->set_position((void *)(player + 0x38));
         }
     }
     *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
@@ -42,7 +43,7 @@ void TBoss6EffHyoui::run_task() {
 }
 
 TBoss6EffHyoui::~TBoss6EffHyoui() {
-    if (m_1c != nullptr) TBoss4Type2::request_destroy((u32)m_1c);
+    if (m_1c != nullptr) TParticleCtrl::release(m_1c);
 }
 void *TBoss6EffHyoui__ct(void *object, void *arg1, void *arg2, void *arg3, void *arg4) {
     u8 *self = (u8 *)object;
