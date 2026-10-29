@@ -1,7 +1,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #pragma defer_codegen on
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TObjBoss5Pillar_8028B810.h"
 #include "pso/boss/TObjBoss5Pillar_8028B714.h"
 #include "pso/misc/obj_band.h"

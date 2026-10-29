@@ -266,7 +266,7 @@ s32 fn_80095DD0(void *);
 s32 fn_80095DF4(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 scroll_strip_uvs(s32, int, int);
 s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -341,7 +341,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
         berura_node_matrix_ptr_b[1] = o->f3C8 >> 16;
         scroll_strip_uvs(belra_uv_animation_buffer, (s16)o->f3D0, 0);
         fade = (s32)&o->fades[cam];
-        update_obstruction_fade((void *)fade);
+        update__15RenderFadeStateFv((void *)fade);
         cam = ((RenderFadeState *)fade)->updateFromCamera((const f32*)(&o->f2FC));
         TObjFish::set_global_param(o->f24);
         push_matrix();

@@ -181,7 +181,7 @@ void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(s32);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 __dt__13TUnk_804949A8Fv[];
+extern s32 __dt__15RenderFadeStateFv[];
 extern s32 __vt__14TObjEnePanarms[];
 u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1);
 void TObjEnePanarms__sub_800DE2B0(void* p);
@@ -1056,7 +1056,7 @@ void TObjEnePanarms__sub_800DEEF8(void* p) { push_matrix(p); post_translate_matr
 #include "pso/misc/RenderFadeState.h"
 #include "pso/TParticleCtrl.h"
 
-// The camera-obstruction fade (vtable lbl_804949A8) keeps its vtable pointer at +0x14.
+// The camera-obstruction fade (vtable __vt__15RenderFadeState) keeps its vtable pointer at +0x14.
 struct VFade_800DEF5C {
     u8 pad[0x14];
     virtual void m0();
@@ -1072,7 +1072,7 @@ struct VFade_800DEF5C {
 extern "C" {
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-void update_obstruction_fade(RenderFadeState *);
+void update__15RenderFadeStateFv(RenderFadeState *);
 s32 defer_render__7TObjectFv(void *);
 extern s32 model_render_flags;
 extern s32 saved_model_render_flags;
@@ -1113,7 +1113,7 @@ void TObjEnePanarms::render() {
     TObjPlayer::toggle_particle_effect();
     saved_model_render_flags = model_render_flags;
     fade = &((Obj_800DEF5C *)this)->fades[cam];
-    update_obstruction_fade(fade);
+    update__15RenderFadeStateFv(fade);
     if (fade->updateFromCamera(&this->m_2fc) != 0) {
         ((VFade_800DEF5C *)fade)->begin_draw();
         draw = 1;
@@ -1181,7 +1181,7 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         ((TObjEnePanarms *)arg0)->m_390 = 0;
         ((TObjEnePanarms *)arg0)->destroy_handles();
-        __destroy_arr(arg0 + 0x400, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x400, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

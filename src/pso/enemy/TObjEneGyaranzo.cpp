@@ -728,9 +728,9 @@ void run_task__15TObjEneGyaranzoFv(u8 *arg0);
 Obj_800D3E54 * fn_800D3E54(Obj_800D3E54 *arg0, s16 arg1);
 u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2);
 s32 __dt__13TUnk_80494938Fv(void *, s16);
-s32 update_fade_value(int);
-void __dt__13TUnk_804949A8Fv();
-void init_and_activate__10TObjPlayerFv(void *);
+s32 update_fast__15RenderFadeStateFv(int);
+void __dt__15RenderFadeStateFv();
+void __ct__15RenderFadeStateFv(void *);
 void create_dead_spot__10TObjPlayerFllf(void *, s32, f32);
 s32 set_param__9TObjEnemyFl(void *, int, int, int);
 }
@@ -1433,7 +1433,7 @@ void TObjEneGyaranzo::render() {
         if (temp_r3 != 0) {
             saved_model_render_flags = model_render_flags;
             var_r30 = (s32)&((Obj_800D35D8 *)((u8 *)this))->arr[var_r30];
-            update_fade_value(var_r30);
+            update_fast__15RenderFadeStateFv(var_r30);
             if (((RenderFadeState *)var_r30)->updateFromCamera((const f32*)(((u8 *)this) + 0x2FC)) != 0) {
                 ((VObj_14_fddec9 *)(var_r30))->m6();
                 if (defer_render__7TObjectFv(this) != 0) {
@@ -1675,7 +1675,7 @@ Obj_800D3E54 *fn_800D3E54(Obj_800D3E54 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         arg0->vt = gyaranzo_actor_vtable_ops;
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3EC, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *)arg0 + 0x3EC, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80494938Fv((u8 *)arg0 + 0x3D0, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
@@ -1694,7 +1694,7 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     ((void (*)(void *, s32, void *)) __ct__15TObjEnemyCustomFP7TObject)(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *) ((void * *)gyaranzo_actor_vtable_ops);
     ((TUnk_80494938 *)((u8 *)arg0 + 0x3D0))->init_common();
-    __construct_array((u8 *)arg0 + 0x3EC, &init_and_activate__10TObjPlayerFv, &__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array((u8 *)arg0 + 0x3EC, &__ct__15RenderFadeStateFv, &__dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A78;
     ((TObjEneGyaranzo *)(arg0))->apply_set_data(arg2);
     VecCopy((Vec *)((u8 *)arg0 + 0x290), (const Vec *)(VecCopy((Vec *)((u8 *)arg0 + 0x29C), (const Vec *)((u8 *)arg0 + 0x38))));
@@ -1731,7 +1731,7 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
         ((TObjEnemyCustom *)arg0)->sub_800C7860();
     }
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Gy_800D3ED8 *) arg0)->e3EC[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Gy_800D3ED8 *) arg0)->e3EC[i]))->activate_and_dispatch();
     }
     ((TObjEneGyaranzo *)(arg0))->clear_lobby_object_state();
     return (u8 *)arg0;

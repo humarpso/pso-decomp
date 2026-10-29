@@ -29,7 +29,7 @@ extern "C" void test_flag_256__9TObjCharaFv();
 #include "pso/misc/TLanguage_801E4874.h"
 #include "pso/enemy/SaverLifecycle.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/TParticleCtrl.h"
 #pragma readonly_strings on
 
@@ -998,7 +998,7 @@ struct VObj_18_800A28A4 : VBase_18_800A2F94 {
     TObjPlayer *children[4];
     TNowLoading *trail_emitter;
     TNowLoading *glow_emitter;
-    TUnk_80494AE0 fade;
+    MaterialColorFade fade;
     u8 pad420[0x424 - 0x420];
     s32 material_phase;
 };

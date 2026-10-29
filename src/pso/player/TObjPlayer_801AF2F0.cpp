@@ -6,7 +6,7 @@
 #include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/misc/TLockOnCursor.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/object/obj_band.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"

@@ -412,7 +412,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(TObjEneRe4Sorcerer *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_obstruction_fade(int);
+s32 update__15RenderFadeStateFv(int);
 s32 defer_render__7TObjectFv(void *);
 extern s32 TObjEneRe4Sorcerer__render_node_index;
 extern s32 TObjEneRe4Sorcerer__saved_render_flags;
@@ -814,8 +814,8 @@ f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
 
-extern s32 __dt__13TUnk_804949A8Fv[];
-extern s32 init_and_activate__10TObjPlayerFv[];
+extern s32 __dt__15RenderFadeStateFv[];
+extern s32 __ct__15RenderFadeStateFv[];
 extern Params_800F0464 re4_sorcerer_spawn_descriptor;
 extern u8 lbl_8043D418[];
 extern Map_800F06B4 area_sound_remap_table_a[];
@@ -1203,7 +1203,7 @@ void render__18TObjEneRe4SorcererFv(u8 *ene_re7_berura) {
         var_r30 = get_camera_mode__11TCameraCtrlFv();
     }
     var_r30 = (s32)&((Sorc_800EDCCC *)ene_re7_berura)->fades[var_r30];
-    update_obstruction_fade((int) (((u8 *)var_r30)));
+    update__15RenderFadeStateFv((int) (((u8 *)var_r30)));
     temp_r31 = ((RenderFadeState *)var_r30)->updateFromCamera((const f32*)(ene_re7_berura + 0x2FC));
     if (!(*(s32 *)((s8 *)ene_re7_berura + 0x3C8) & 2)) {
         var_r28 = 0;
@@ -2325,7 +2325,7 @@ Obj_800F0054 *__dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1) {
             arg0->handles[i] = 0xFFFF;
         }
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *) arg0 + 0x474, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *) arg0 + 0x474, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80490470Fv((u8 *) arg0 + 0x3FC, -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
@@ -2387,7 +2387,7 @@ void TObjEneRe4Sorcerer::init_enemy() {
     ((VObj_14_fa0828 *)(arg0 + (1020)))->m3();
     ((s32 (*)(void *))fn_80044330)(arg0 + 0x418);
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&self->e474[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&self->e474[i]))->activate_and_dispatch();
     }
     ((s32 (*)(void *))TObjEneRe4Sorcerer__sub_800EF844)(arg0);
 }
@@ -2398,7 +2398,7 @@ void *TObjEneRe4Sorcerer__ct(void *ene_re4_sorcerer, void *arg1, void *arg2) {
     *(s32 **)((s8 *)ene_re4_sorcerer + 0x18) = __vt__18TObjEneRe4Sorcerer;
     ((TUnk_80490470 *)((char *)ene_re4_sorcerer + 1020))->init_vtable_and_field18();
     ((TObjPlayer *)((char *)ene_re4_sorcerer + 1048))->construct_target_cursor_records();
-    __construct_array((void *)((char *)ene_re4_sorcerer + 1140), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    __construct_array((void *)((char *)ene_re4_sorcerer + 1140), __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 28, 4);
     *(void **)((s8 *)ene_re4_sorcerer + 0x0) = lbl_805D2AF0;
     invoke_initialization_hook__9TObjEneDDFv(ene_re4_sorcerer, arg2);
     ((void (*)(void *))TObjEneRe4Sorcerer__sub_800EFE30)(ene_re4_sorcerer);

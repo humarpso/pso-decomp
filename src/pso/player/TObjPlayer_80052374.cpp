@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/player/TObjPlayer_80052374.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/player/TObjPlayer.h"

@@ -1,7 +1,7 @@
 #include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TObjPlayer_800D8FDC.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -29,7 +29,7 @@ extern int saved_chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
-void TObjPlayer__sub_800D9718(void *);
+void __ct__17MaterialColorFadeFv(void *);
 
 void TUnk_804AF8D8::clear_flag_and_notify() { copy_argb((NJS_ARGB *)model_material_color, (NJS_ARGB *)saved_model_draw_color); chunk_polygon_flags_and_mask = saved_chunk_polygon_flags_and_mask; chunk_polygon_flags_or_mask = saved_chunk_polygon_flags_or_mask; model_render_flags = saved_model_render_flags; }
 
@@ -51,7 +51,7 @@ void TUnk_804AF8D8::set_flags_and_apply_damage_color() {
 void *TUnk_804AF8D8::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_804AF8D8;
-        __dt__13TUnk_80494AE0Fv(this, 0);
+        __dt__17MaterialColorFadeFv(this, 0);
         if (arg1 > 0) {
             ::operator delete(this);
         }
@@ -60,7 +60,7 @@ void *TUnk_804AF8D8::destroy(s16 arg1) {
 }
 
 void *TUnk_804AF8D8::init_vtable_804AF8D8() {
-    TObjPlayer__sub_800D9718(this);
+    __ct__17MaterialColorFadeFv(this);
     *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_804AF8D8;
     sub_80156CEC();
     return this;

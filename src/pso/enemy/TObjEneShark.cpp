@@ -200,7 +200,7 @@ void vfunc_93__12TObjEneSharkFv(Obj_800ABB38 *o);
 void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 defer_render__7TObjectFv(void *);
@@ -403,7 +403,7 @@ void TObjEneShark::render() {
   if (TObjEneDD::check_v2_mode() != 0)
   {
     u8 *f = (u8 *) (&((Owner_800ABDD8 *) arg0)->fades[mode]);
-    update_obstruction_fade(f);
+    update__15RenderFadeStateFv(f);
     fade = ((RenderFadeState *)f)->updateFromCamera((const f32*)(arg0 + 0x2FC));
   }
   select_actor_lighting(arg0);
@@ -579,7 +579,7 @@ void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __destroy_arr(void *, void *, int, int);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-extern u8 __dt__13TUnk_804949A8Fv[];
+extern u8 __dt__15RenderFadeStateFv[];
 O_800AC5EC *__dt__12TObjEneSharkFv(O_800AC5EC *arg0, s16 arg1);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
@@ -906,7 +906,7 @@ O_800AC5EC *__dt__12TObjEneSharkFv(O_800AC5EC *arg0, s16 arg1) {
         }
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3CC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *)arg0 + 0x3CC, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80494938Fv((u8 *)arg0 + 0x3A8, -1);
         __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
@@ -1003,7 +1003,7 @@ int initialize_enemy_photon_effect(void *p);
 extern "C" {
 void init_collision_body_parts(void *, void *, s32);
 void *__construct_array(void *, void *, void *, s32, s32);
-void init_and_activate__10TObjPlayerFv(void *);
+void __ct__15RenderFadeStateFv(void *);
 extern s32 TObjEneShark_name_ref;
 extern const f32 lbl_805D9BD0;
 extern const f32 lbl_805D9BD4;
@@ -1017,7 +1017,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((void (*)(void *, void *))init_enemy_base__13TUnk_80493450Fv)(self, arg1);
     *(void **)((u8 *)self + 0x18) = lbl_8049168C;
     ((TUnk_80494938 *)((u8 *)arg0 + 0x3A8))->init_common();
-    __construct_array(self->f3CC, (void *)init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(self->f3CC, (void *)__ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)self = TObjEneShark_name_ref;
     self->m79(arg2);
     ((TObjPlayer *)self)->init_position_vectors();
@@ -1082,7 +1082,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f39C = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[2];
     self->f3A4 = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[3];
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(self->f3CC[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(self->f3CC[i]))->activate_and_dispatch();
     }
     self->m80();
     return self;

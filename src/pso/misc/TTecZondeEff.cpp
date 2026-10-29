@@ -1,6 +1,6 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/TTecZondeEff.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecZonde.h"

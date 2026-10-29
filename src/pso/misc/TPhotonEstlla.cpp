@@ -5,7 +5,7 @@
 #include "pso/misc/TPhotonEstlla.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>

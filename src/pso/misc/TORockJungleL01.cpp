@@ -41,12 +41,13 @@ struct Rd_8029C094 {
 };
 
 extern "C" {
+void __ct__15RenderFadeStateFv(void *);
 s32 isFading__15RenderFadeStateCFv(void *);
 void matrix_mult_vec(s32, void *, void *);
 
-int update_obstruction_fade(void*);
+int update__15RenderFadeStateFv(void*);
 
-void TORockJungleL01::run_task() { update_obstruction_fade((char*)this + 0xb4); }
+void TORockJungleL01::run_task() { update__15RenderFadeStateFv((char*)this + 0xb4); }
 
 void TORockJungleL01::vfunc_15() {
     u8 *arg0 = (u8 *)this;
@@ -107,7 +108,7 @@ void *TORockJungleL01::destroy(s16 arg1) {
         if (*(void * *)&this->m_d4 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_d4); *(s32 *)&this->m_d4 = 0; }
         unregister_object_by_id();
         free_collision_body_parts(this);
-        __dt__13TUnk_804949A8Fv((s8 *)this + 0xB4, -1);
+        __dt__15RenderFadeStateFv((s8 *)this + 0xB4, -1);
         __dt__10TORockCaveFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -196,7 +197,7 @@ void *lbl_804DC448[16] = {
 u8 *TORockJungleL01__ct(u8 *rock_cave, s32 arg1) {
     __ct__10TORockCaveFv(rock_cave);
     *(s32 **)((s8 *)rock_cave + 0x18) = (s32 *)lbl_804DC448;
-    ((TObjPlayer *)(rock_cave + 0xB4))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)(rock_cave + 0xB4)));
     *(s32 *)((s8 *)rock_cave + 0) = TORockJungleL01_name_ref;
     ((TORockJungleL01 *)(rock_cave))->apply_object_set_data((void *)arg1);
     ((TORockJungleL01 *)rock_cave)->model = TORockJungleS01::get_model(4);
@@ -210,7 +211,7 @@ u8 *TORockJungleL01__ct(u8 *rock_cave, s32 arg1) {
         VecCopy((Vec *)((u8 *)&c + 0x24), (const Vec *)rock_jungle_vec3_table);
         ((TORockJungleL01 *)rock_cave)->m_d4 = TObjMapCsn::create((s32)&c);
     }
-    ((TObjPlayer *)(rock_cave + 0xB4))->activate_and_dispatch();
+    ((RenderFadeState *)(rock_cave + 0xB4))->activate_and_dispatch();
     return rock_cave;
 }
 #undef rock_jungle_collision_body_parts
@@ -331,11 +332,11 @@ extern u8 identity_matrix[];
 extern void *tl_05;
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
-int update_obstruction_fade(void*);
+int update__15RenderFadeStateFv(void*);
 void __dl__7TObjectFPv(void *);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 
-void TORockJungleM01::run_task() { update_obstruction_fade((char*)this + 0xbc); update_break_state(); }
+void TORockJungleM01::run_task() { update__15RenderFadeStateFv((char*)this + 0xbc); update_break_state(); }
 
 void TORockJungleM01::vfunc_18() {
     s32 arg0 = (s32)this;
@@ -384,7 +385,7 @@ void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); ((TORockJungleM01 *)arg0)->m_dc = 0; }
         ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xBC, -1);
+        __dt__15RenderFadeStateFv((s8 *)arg0 + 0xBC, -1);
         __dt__18TORockCaveBrakableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -402,7 +403,7 @@ u8 *TORockJungleM01__ct(u8 *rock_cave_brakable, s32 arg1) {
     s32 temp_r0;
     TORockCaveBrakable__ct((rock_cave_brakable));
     *(s32 **)((s8 *)rock_cave_brakable + 0x18) = &(*(RecoveredGlobal_8029C588___vt__15TORockJungleM01 *)&__vt__15TORockJungleM01).value;
-    ((TObjPlayer *)(rock_cave_brakable + 0xBC))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)(rock_cave_brakable + 0xBC)));
     *(s32 *)((s8 *)rock_cave_brakable + 0) = (s32) TORockJungleM01_name_ref;
     ((TORockJungleM01 *)(rock_cave_brakable))->apply_object_set_data((void *)arg1);
     ((TORockJungleM01 *)rock_cave_brakable)->model = TORockJungleS01::get_model(2);
@@ -419,7 +420,7 @@ u8 *TORockJungleM01__ct(u8 *rock_cave_brakable, s32 arg1) {
     *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)((arg1 - 4) + 4);
     VecCopy((Vec *)((copy_storage_8029C588.bytes + 0x24)), (const Vec *)rock_jungle_vec3_table);
     ((TORockJungleM01 *)rock_cave_brakable)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
-    ((TObjPlayer *)(rock_cave_brakable + 0xBC))->activate_and_dispatch();
+    ((RenderFadeState *)(rock_cave_brakable + 0xBC))->activate_and_dispatch();
     return rock_cave_brakable;
 }
 

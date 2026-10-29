@@ -24,7 +24,7 @@
 #include "pso/unk/text_80198960.h"
 #include "pso/unk/TUnk_804B8DE8.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TLobby.h"

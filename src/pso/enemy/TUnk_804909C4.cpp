@@ -23,7 +23,7 @@
 #include "pso/misc/TLanguage_801E4874.h"
 #include "pso/enemy/SaverLifecycle.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/TParticleCtrl.h"
 
 struct VBase_18_4a35f9 { char pad[0x18]; };

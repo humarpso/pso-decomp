@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/boss/TObjBoss2CeilJunk.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"

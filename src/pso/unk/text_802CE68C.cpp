@@ -122,7 +122,7 @@ extern const f32 lbl_805DE704;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 defer_render__7TObjectFv(void *);
 s32 translate_matrix(int, f32, f32, f32);
 s32 set_global_state__16TObjEneRe7BeruraFl(void *, int, void *);
@@ -219,7 +219,7 @@ void TObjEneBm9Mericarol::render() {
         cam = get_camera_mode__11TCameraCtrlFv();
     }
     fade = &self->fades[cam];
-    update_obstruction_fade(fade);
+    update__15RenderFadeStateFv(fade);
     vis = ((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->cam));
     if (self->f326 == 0xC) {
         return;

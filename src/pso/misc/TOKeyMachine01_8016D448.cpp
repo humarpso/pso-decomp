@@ -5,7 +5,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKey.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLanguage_801E4874.h"
 #include "pso/misc/TOKeyMachine01_8016D448.h"

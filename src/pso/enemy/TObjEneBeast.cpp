@@ -121,7 +121,7 @@ extern void *beast_claw_trail_instance;
 extern void *boss4_type3_instance;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 extern s32 saved_model_render_flags;
 #define play_sound_effect (*(s32 (*)(s32, s32, s32, s32))&play_sound_effect)
 extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
@@ -275,7 +275,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
     fade = 0;
     if (TObjEneDD::check_v2_mode() != 0) {
         fade = (s32)&o->fades[cam];
-        update_obstruction_fade((void *)fade);
+        update__15RenderFadeStateFv((void *)fade);
         fade = ((RenderFadeState *)fade)->updateFromCamera((const f32*)(&o->f2FC));
     }
     saved_model_render_flags = model_render_flags;
@@ -382,7 +382,7 @@ void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
-extern u8 __dt__13TUnk_804949A8Fv[];
+extern u8 __dt__15RenderFadeStateFv[];
 O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
@@ -717,7 +717,7 @@ O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1) {
         }
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3B0, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *)arg0 + 0x3B0, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -757,7 +757,7 @@ void obj_setFlags30(void *, u32);
 void init_enemy_base__13TUnk_80493450Fv(void *, void *);
 // init_collision_body_parts: declared once above (s32 return, int arg)
 void __construct_array(void *, void *, void *, int, int);
-extern u8 init_and_activate__10TObjPlayerFv[];
+extern u8 __ct__15RenderFadeStateFv[];
 struct Rec2C_800927DC { u8 b[0x2C]; };
 struct Rec1C_800927DC { u8 b[0x1C]; };
 struct Elem_800927DC { u8 b[0x1C]; };
@@ -771,7 +771,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
 
     init_enemy_base__13TUnk_80493450Fv(arg0, arg1);
     F(arg0, u8 *, 0x18) = (u8 *)__vt__12TObjEneBeast;
-    __construct_array(arg0 + 0x3B0, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(arg0 + 0x3B0, __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 0x1C, 4);
     F(arg0, s32, 0) = lbl_805D2980;
     ((VObj_800927DC *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
@@ -810,7 +810,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, f32, 0x3A4) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][3];
     F(arg0, s32, 0x390) = 1;
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Obj_800927DC *)arg0)->arr[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Obj_800927DC *)arg0)->arr[i]))->activate_and_dispatch();
     }
     ((VObj_800927DC *)arg0)->m80();
     return arg0;

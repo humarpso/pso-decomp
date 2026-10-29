@@ -1142,7 +1142,7 @@ struct Nano_800DBABC { u8 pad[0x40C]; Fade_800DBABC fades[2]; };
 extern "C" {
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 update_obstruction_fade(int);
+s32 update__15RenderFadeStateFv(int);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 defer_render__7TObjectFv(void *);
@@ -1189,8 +1189,8 @@ u8 * load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void __ct__15TObjEnemyCustomFP7TObject(void *, s32, void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
-void init_and_activate__10TObjPlayerFv();
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
+void __ct__15RenderFadeStateFv();
 s32 find_active_entity_by_id(int);
 
 void TObjPlayer__sub_800DBAB8(void);
@@ -1562,7 +1562,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
     if (!(((TObjEneNanoDrago *)arg0)->actorFlags & 0x02000000) && (temp_r3 = ((VObj_18 *)(arg0))->m9(150.0f, 400.0f, 20.0f), ((temp_r3 == 0) == 0)) && ((TObjPlayer::check_demo_mode() == 1) || !(((TObjEneNanoDrago *)arg0)->m_388 & 0x40000))) {
         saved_model_render_flags = model_render_flags;
         var_r29 = (s32)&((Nano_800DBABC *)arg0)->fades[var_r29];
-        update_obstruction_fade((int) (((u8 *)var_r29)));
+        update__15RenderFadeStateFv((int) (((u8 *)var_r29)));
         if (((RenderFadeState *)var_r29)->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
             ((VObj_14 *)(((u8 *)var_r29)))->m6();
             if (defer_render__7TObjectFv(arg0) != 0) {
@@ -1766,7 +1766,7 @@ Obj_800DC0FC *__dt__16TObjEneNanoDragoFv(Obj_800DC0FC *arg0, s16 arg1) {
     if (arg0 != NULL) {
         arg0->vt = lbl_80494C90;
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x40C, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *)arg0 + 0x40C, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80494938Fv((u8 *)arg0 + 0x3E8, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
@@ -1781,7 +1781,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     __ct__15TObjEnemyCustomFP7TObject(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80494C90;
     ((TUnk_80494938 *)(arg0 + 0x3E8))->init_common();
-    __construct_array(arg0 + 0x40C, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(arg0 + 0x40C, (void *)&__ct__15RenderFadeStateFv, (void *)&__dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2AA8;
     ((TObjEneNanoDrago *)arg0)->apply_set_data(arg2);
     VecCopy((Vec *)(arg0 + 0x290), (const Vec *)(VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x38))));
@@ -1826,7 +1826,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     }
     ((TObjEneNanoDrago *)arg0)->m_404 = 0.0f;
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Self_800DC180 *)arg0)->subs[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Self_800DC180 *)arg0)->subs[i]))->activate_and_dispatch();
     }
     obj_setFlags30(arg0, 0x1000000);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));

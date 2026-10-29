@@ -19,6 +19,7 @@
 struct Vec_8018BEE4 { f32 x, y, z; };
 
 extern "C" {
+void __ct__15RenderFadeStateFv(void *);
 s32 get_bml_model(int, int);
 s32 init_collision_body_parts(void *, void *, int);
 
@@ -171,7 +172,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 void *spawn_particle_effect(void *pos, s32 id);
-int update_obstruction_fade(void*);
+int update__15RenderFadeStateFv(void*);
 extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
 extern u8 identity_matrix[];
@@ -263,7 +264,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             pop_matrix();
         }
     }
-    update_obstruction_fade(self->f0);
+    update__15RenderFadeStateFv(self->f0);
 }
 #pragma pop
 
@@ -314,7 +315,7 @@ extern s32 obj_container_ido_class_name;
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 release_texture_list(void*);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 
 void TObjContainerIdo::free_resources() {
     if ((u32) container_ido_texture_gvm_handle != 0U) {
@@ -349,7 +350,7 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
         ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xF0, -1);
+        __dt__15RenderFadeStateFv((s8 *)arg0 + 0xF0, -1);
         ((TUnk_804B97C0 *)arg0)->dt(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -362,7 +363,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 i;
     ((TUnk_804B97C0 *)arg0)->init_positions();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
-    ((TObjPlayer *)(arg0 + 0xF0))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)(arg0 + 0xF0)));
     *(s32 *)((s8 *)arg0 + 0) = obj_container_ido_class_name;
     ((TObjContainerIdo *)(arg0))->apply_object_set_data((void *)arg2);
     VecCopy((Vec *)(arg0 + 0xC0), (const Vec *)(arg0 + 0x38));
@@ -387,7 +388,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xE4) = 0.0f;
     ((TObjContainerIdo *)arg0)->m_e8 = ((TObjContainerIdo *)arg0)->scale.x / *(s32 *)&((TObjContainerIdo *)arg0)->m_dc;
     *(f32 *)((s8 *)arg0 + 0xEC) = ((TObjContainerIdo *)arg0)->scale.y;
-    ((TObjPlayer *)(arg0 + 0xF0))->activate_and_dispatch();
+    ((RenderFadeState *)(arg0 + 0xF0))->activate_and_dispatch();
     init_collision_body_parts(arg0, container_ido_collision_parts, 1);
     ((TObjContainerIdo *)arg0)->actorFlags |= 0x40000000;
     ((TObjPlayer *)arg0)->register_object_by_id();

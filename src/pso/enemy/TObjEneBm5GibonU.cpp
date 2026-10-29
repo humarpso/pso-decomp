@@ -1654,7 +1654,7 @@ void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 draw_blob_shadow(s32);
 s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_z(s32, s32);
@@ -1927,7 +1927,7 @@ void TObjEneBm5GibonU::render() {
     if (!(*(s32 *)((s8 *)((u8 *)this) + 0x4AC) & 2) && this->mode != 0x12) {
         fade = 0;
         if (*(s32 *)((s8 *)((u8 *)this) + 0x464) != 0) {
-            update_obstruction_fade(&((Obj_800CD204 *)((u8 *)this))->fades[cam]);
+            update__15RenderFadeStateFv(&((Obj_800CD204 *)((u8 *)this))->fades[cam]);
             fade = ((RenderFadeState *)(&((Obj_800CD204 *)((u8 *)this))->fades[cam]))->updateFromCamera((const f32*)(((u8 *)this) + 0x2FC));
         }
         if (is_main_phase_15__9TObjEneDDFv() != 0) {
@@ -4405,7 +4405,7 @@ void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 void init_object__12TObjEneDD_STFv(void *, s32, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
@@ -4414,7 +4414,7 @@ void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *__ct__14TObjCollidableFP7TObject(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
-void init_and_activate__10TObjPlayerFv();
+void __ct__15RenderFadeStateFv();
 extern s32 lbl_805D2A70;
 u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
 void vfunc_61__16TObjEneBm5GibonUFv(void);
@@ -4501,7 +4501,7 @@ Gibon_800D13B8 *TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1) {
             ((TObjEneBm5GibonU *)arg0)->forward_hit_to_enemy_list();
         }
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0->f3F4, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0->f3F4, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80494938Fv(arg0->f3D8, -1);
         TObjEneBm5GibonU::destroy((s32)arg0->f3CC, -1);
         TObjEneBm5GibonU::destroy((s32)arg0->f3C0, -1);
@@ -4530,7 +4530,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *ene_bm5_gibon_u, s32 arg1, s32 arg2) {
     TObjEneBm5GibonU__sub_800D1CF8((O_800D1CF8 *)(ene_bm5_gibon_u + 0x3C0));
     TObjEneBm5GibonU__sub_800D1CF8((O_800D1CF8 *)(ene_bm5_gibon_u + 0x3CC));
     ((TUnk_80494938 *)(ene_bm5_gibon_u + 0x3D8))->init_common();
-    __construct_array(ene_bm5_gibon_u + 0x3F4, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(ene_bm5_gibon_u + 0x3F4, (void *)&__ct__15RenderFadeStateFv, (void *)&__dt__15RenderFadeStateFv, 0x1C, 4);
     ((TObjPlayer *)(ene_bm5_gibon_u + 0x4B0))->construct_target_cursor_records();
     *(s32 *)((s8 *)ene_bm5_gibon_u + 0) = lbl_805D2A70;
     invoke_initialization_hook__9TObjEneDDFv(ene_bm5_gibon_u, arg2);
@@ -4608,7 +4608,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *ene_bm5_gibon_u, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)ene_bm5_gibon_u + 0x326) = 0;
     ((VObj_18_484afe *)ene_bm5_gibon_u)->m85(*(s16 *)((s8 *)ene_bm5_gibon_u + 0x326), 4);
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Self_800D14AC *)ene_bm5_gibon_u)->subs[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Self_800D14AC *)ene_bm5_gibon_u)->subs[i]))->activate_and_dispatch();
     }
     return ene_bm5_gibon_u;
 }

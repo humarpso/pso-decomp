@@ -5,7 +5,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/system/ChunkMaterialState.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 
 struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
     s32 value;

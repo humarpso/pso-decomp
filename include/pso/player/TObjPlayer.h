@@ -439,9 +439,6 @@ struct TObjPlayer : public TObjChara {
     void draw_model_no_fog();
     void update_invincibility();
     static void update_effect_sequence();
-    void activate_and_dispatch();
-    static void init_effect_9472();
-    void *init_and_activate();
     static void toggle_particle_effect();
     static void create_dead_spot(s32 arg0, s32 arg1, f32 farg0);
     static void spawn_effect_f8(s32 arg1, s32 arg2);
@@ -456,7 +453,6 @@ struct TObjPlayer : public TObjChara {
     static void spawn_dead_spot_here(s32 arg0, s32 arg1);
     static void spawn_dead_spot_type2(s32 arg0, s32 arg1);
     static void destroy_static_lobby();
-    static void set_flags_and_apply_damage_color();
     static s32 lookup_entry_by_value(void *arg0, f32 farg0);
     void copy_vec3(void* q);
     static void init_render_globals();
