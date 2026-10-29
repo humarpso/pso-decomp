@@ -616,9 +616,10 @@ force_active:
   - TODragonflyCave01__ct
   - TODragonflyCave01__resource_descriptor
   - TODummyKeyCave01__ct
-  - TOExplosiveMachine01__ct
-  - TOExplosiveMachine02__ct
-  - TOExplosiveMachine03__ct
+  - TOExplosiveMachine01__class_name
+  - TOExplosiveMachine02__class_name
+  - TOExplosiveMachine03__class_name
+  - TOExplosiveMachine__class_name
   - TOFenceAncient01__ct
   - TOFenceAncient02__ct
   - TOFenceAncient03__ct
@@ -1613,6 +1614,7 @@ force_active:
   - __ct__18TChCrTagOccupationFv
   - __ct__18TChallenge4PResultFP7TObjectUsl
   - __ct__18TItemReverseTechBGFv
+  - __ct__18TOExplosiveMachineFv
   - __ct__18TObjItemNameSelectFP7TObject
   - __ct__18TPlayerLobbyMarkerFP7TObjectsSc
   - __ct__19TBoss3VoloptMonitorFP7TObjectPv
@@ -1623,6 +1625,9 @@ force_active:
   - __ct__20TBoss3VoloptHiraisinFP7TObjectPv
   - __ct__20TEffStarLight2D_BaseFP7TObjectPv
   - __ct__20TItemReverseTechCtrlFP7TObject
+  - __ct__20TOExplosiveMachine01FPv
+  - __ct__20TOExplosiveMachine02FPv
+  - __ct__20TOExplosiveMachine03FPv
   - __ct__20TObjChallenge4PRetryFP7TObject
   - __ct__20TObjLiveMonitorSmallFv
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
@@ -1973,6 +1978,7 @@ force_active:
   - __dt__18TItemLockCountCtrlFv
   - __dt__18TItemReverseTechBGFv
   - __dt__18TOChatSensorFolderFv
+  - __dt__18TOExplosiveMachineFv
   - __dt__18TOTrapChainSawEdgeFv
   - __dt__18TObjChallengeRetryFv
   - __dt__18TObjCityDoor_LobbyFPvs
@@ -2012,6 +2018,9 @@ force_active:
   - __dt__20TEffStarLight2D_BaseFv
   - __dt__20TItemReverseTechCtrlFv
   - __dt__20TODragonflyMachine01Fv
+  - __dt__20TOExplosiveMachine01Fv
+  - __dt__20TOExplosiveMachine02Fv
+  - __dt__20TOExplosiveMachine03Fv
   - __dt__20TOTrapChainSawDamageFv
   - __dt__20TObjBoss5PillarSmokeFv
   - __dt__20TObjChallenge4PRetryFv
@@ -2422,6 +2431,7 @@ force_active:
   - __vt__18TChallenge4PResult
   - __vt__18TItemLockCountCtrl
   - __vt__18TItemReverseTechBG
+  - __vt__18TOExplosiveMachine
   - __vt__18TOTrapChainSawEdge
   - __vt__18TObjChallengeRetry
   - __vt__18TObjCityDoor_Guild
@@ -2460,6 +2470,9 @@ force_active:
   - __vt__20TEffStarLight2D_Base
   - __vt__20TItemReverseTechCtrl
   - __vt__20TODragonflyMachine01
+  - __vt__20TOExplosiveMachine01
+  - __vt__20TOExplosiveMachine02
+  - __vt__20TOExplosiveMachine03
   - __vt__20TOTrapChainSawDamage
   - __vt__20TObjBoss5PillarSmoke
   - __vt__20TObjChallenge4PRetry
@@ -3029,6 +3042,8 @@ force_active:
   - bm_npc_kenkyu2_motion_names
   - bm_o_container_ancient_motion_names
   - bm_o_container_ancient_resource_bundle
+  - bm_o_explosive_machine_model_names
+  - bm_o_explosive_machine_motion_names
   - bm_o_grass_jungle_model_names
   - bm_o_grass_jungle_motion_names
   - bm_o_rock_cave01_motion_names
@@ -4278,6 +4293,8 @@ force_active:
   - explode__22TObjEneMe1GiGueMissileFPv
   - explode_and_destroy__13TUnk_80484AFCFv
   - explode_damage_players__10TBoss6MineFv
+  - explosive_machine_model_archive
+  - explosive_machine_resource_desc
   - export_player_record__10TObjPlayerFPvPv
   - f064_wordmojitex_eng_gvp
   - f064_wordmojitex_fre_gvp
@@ -11482,6 +11499,7 @@ force_active:
   - render__18TBoss7PhotonBulletFv
   - render__18TChCrTagOccupationFv
   - render__18TItemReverseTechBGFv
+  - render__18TOExplosiveMachineFv
   - render__18TObjButterflyLobbyFPv
   - render__18TObjCityDoor_GuildFv
   - render__18TObjCityDoor_LobbyFv
@@ -11995,6 +12013,7 @@ force_active:
   - run_task__18TBoss7PhotonBulletFv
   - run_task__18TChallenge4PResultFv
   - run_task__18TItemReverseTechBGFv
+  - run_task__18TOExplosiveMachineFv
   - run_task__18TObjChallengeRetryFv
   - run_task__18TObjCityDoor_GuildFv
   - run_task__18TObjCityDoor_LobbyFv

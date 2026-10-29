@@ -3,6 +3,11 @@
 
 #include "pso/object/TObjMotion.h"
 
+struct ExplosiveMachineModel {
+    u8 unknown00[0x14];
+    f32 radius;
+};
+
 struct TOExplosiveMachine : public TObjBase {
     TOExplosiveMachine();
     virtual ~TOExplosiveMachine();
