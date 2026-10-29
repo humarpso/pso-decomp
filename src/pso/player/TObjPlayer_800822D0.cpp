@@ -4,7 +4,7 @@
 #include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/player/TObjPlayer.h"
 
-void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *) {  }
+void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *, f32) {  }
 void TObjPlayer::set_position_xy(f32 a, f32 b) { this->position.z = a; this->prev_position.x = b; }
 
 f32 TObjChara::get_speed() { return this->m_c0; }

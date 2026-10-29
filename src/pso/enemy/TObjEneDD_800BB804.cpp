@@ -351,7 +351,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 subtractive_rng_seed(void *, int);
-s32 vfunc_79__9TObjEnemyFv();
+s32 vfunc_79__9TObjEnemyFPl();
 int fn_800FD8A0(void*);
 
 extern s32 area_random_seed;
@@ -391,11 +391,11 @@ void TObjEneDD::invoke_initialization_hook() {
     o->m79();
 }
 
-void TObjEneDD::vfunc_79() {
+void TObjEneDD::vfunc_79(s32 *state) {
     s16 temp_r31;
 
     temp_r31 = this->mode;
-    vfunc_79__9TObjEnemyFv();
+    TObjEnemy::vfunc_79(state);
     this->mode = temp_r31;
 }
 
