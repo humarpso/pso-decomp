@@ -2511,28 +2511,12 @@ pso/item/TItemEffLavis.cpp:
 pso/item/TItemShootModel_dtor.cpp:
 	.text       start:0x80109798 end:0x801097F0
 
-pso/item/TItemEffNeedlePos_801097F0.cpp:
-	.text       start:0x801097F0 end:0x80109974
-	.rodata     start:0x8043E268 end:0x8043E270
-
-pso/unk/text_80109974.cpp:
-	.text       start:0x80109974 end:0x80109AE4
-
-pso/unk/text_80109AE4.cpp:
-	.text       start:0x80109AE4 end:0x80109B5C
-
-pso/item/TItemEffNeedle_80109B5C.cpp:
-	.text       start:0x80109B5C end:0x80109CBC
-
-pso/unk/text_80109CBC.cpp:
-	.text       start:0x80109CBC end:0x80109D48
-
-pso/item/TItemEffNeedleBase_80109D48.cpp:
-	.text       start:0x80109D48 end:0x80109F40
-
 pso/item/TItemEffNeedle.cpp:
-	.text       start:0x80109F40 end:0x8010A050
+	.text       start:0x801097F0 end:0x8010A050
+	.rodata     start:0x8043E228 end:0x8043E270
 	.data       start:0x8049F0D8 end:0x8049F12C
+	.sdata      start:0x805D2BC8 end:0x805D2BD4
+	.sdata2     start:0x805DAB48 end:0x805DAB58
 
 pso/player/TObjPlayer_8010A050.cpp:
 	.text       start:0x8010A050 end:0x8010A390

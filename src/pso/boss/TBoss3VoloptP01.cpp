@@ -35,7 +35,6 @@ extern "C" {
 u16 get_entity_id(void *obj);
 void obj_setFlags30(void *obj, u32 flags);
 s32 play_sound_effect(s32 id, void *pos, s32 a2, s32 a3);
-s32 subtract_vector(Vec *a, const Vec *b);
 f32 normalize_vector(Vec *v);
 void vec3_add_to(Vec *a, const Vec *b);
 void matrix_mult_vec(s32 matrix, const Vec *in, Vec *out);

@@ -12,11 +12,10 @@ struct Part_800BA934 { u8 pad[0x1c]; u8 f1c[0x10]; };
 
 struct Obj_800BA934 { u8 pad[0x38]; u8 f38[0x28]; void *f60; u8 pad2[0x40]; Part_800BA934 *parts; s32 count; };
 
-struct Vec_800BAAE4 { f32 x, y, z; };
 
-struct Part_800BAAE4 { Vec_800BAAE4 a; u8 pad[0x10]; Vec_800BAAE4 b; u8 pad2[4]; };
+struct Part_800BAAE4 { Vec a; u8 pad[0x10]; Vec b; u8 pad2[4]; };
 
-struct Obj_800BAAE4 { u8 pad[0x38]; Vec_800BAAE4 pos; u8 pad2[0x1c]; s32 angle; u8 pad3[0x40]; Part_800BAAE4 *parts; };
+struct Obj_800BAAE4 { u8 pad[0x38]; Vec pos; u8 pad2[0x1c]; s32 angle; u8 pad3[0x40]; Part_800BAAE4 *parts; };
 
 struct Vec_800BA9BC { f32 x, y, z; };
 
@@ -35,7 +34,6 @@ int push_matrix(void);
 f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int matrix_mult_vec(void *, void *, void *);
-void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
@@ -58,9 +56,9 @@ void TObjEneDD::transform_part_positions() {
 
 void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
     Vec_800BA9BC *p;
-    VecCopy((Vec *)((Vec_800BAAE4 *)(&self->parts[i].a)), (const Vec *)((const Vec_800BAAE4 *)(v)));
+    VecCopy((Vec *)((Vec *)(&self->parts[i].a)), (const Vec *)((const Vec *)(v)));
     p = &self->parts[i].b;
-    VecCopy((Vec *)((Vec_800BAAE4 *)(p)), (const Vec *)((const Vec_800BAAE4 *)(v)));
+    VecCopy((Vec *)((Vec *)(p)), (const Vec *)((const Vec *)(v)));
     rotate_xz_pair_by_angle(&p->x, &p->z, self->angle);
     vec3_add_to(p, &self->pos);
 }
@@ -72,7 +70,7 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     rotate_matrix_y((void *)(0), (void *)(-arg0->rot));
     translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
     for (i = 0; i < arg0->count; i++) {
-        VecCopy((Vec *)((Vec_800BAAE4 *)(&arg0->cols[i].pos)), (const Vec *)((const Vec_800BAAE4 *)(arg1)));
+        VecCopy((Vec *)((Vec *)(&arg0->cols[i].pos)), (const Vec *)((const Vec *)(arg1)));
         matrix_mult_vec(0, arg1, &arg0->cols[i]);
         arg1++;
     }
@@ -80,10 +78,10 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
 }
 
 void TObjEneDD::set_part_local_pos(void *v, s32 i) {
-    Vec_800BAAE4 *p;
-    VecCopy((Vec *)&((Obj_800BAAE4 *)this)->parts[i].b, (const Vec *)((Vec_800BAAE4 *)v));
+    Vec *p;
+    VecCopy((Vec *)&((Obj_800BAAE4 *)this)->parts[i].b, (const Vec *)((Vec *)v));
     p = &((Obj_800BAAE4 *)this)->parts[i].a;
-    VecCopy((Vec *)p, (const Vec *)((Vec_800BAAE4 *)v));
+    VecCopy((Vec *)p, (const Vec *)((Vec *)v));
     subtract_vector(p, &((Obj_800BAAE4 *)this)->pos);
     rotate_xz_pair_by_angle(&p->x, &p->z, -((Obj_800BAAE4 *)this)->angle);
 }

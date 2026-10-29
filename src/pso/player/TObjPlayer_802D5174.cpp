@@ -103,11 +103,11 @@ void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *player, void *arg1) {
     }
 }
 
-    extern unsigned char fn_80109974[];
+    extern unsigned char create_needle_pos_effect[];
     extern unsigned char do_action_447_from_packet__10TObjPlayerFPvPv[];
     extern unsigned char lbl_804E1CA8[];
     extern const float lbl_805DE790;
-void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E1CA8; *(float*)((char*)a0 + 0x200) = lbl_805DE790; ((TItemWeapon *)a0)->set_weapon_flags(32); ((TUnk_804E1CA8 *)a0)->m_208 = (int)do_action_447_from_packet__10TObjPlayerFPvPv; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; return a0; }
+void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E1CA8; *(float*)((char*)a0 + 0x200) = lbl_805DE790; ((TItemWeapon *)a0)->set_weapon_flags(32); ((TUnk_804E1CA8 *)a0)->m_208 = (int)do_action_447_from_packet__10TObjPlayerFPvPv; *(int*)((char*)a0 + 0x204) = (int)create_needle_pos_effect; return a0; }
 
 }
 
@@ -141,11 +141,11 @@ void set_radar_marker_flag__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg1 + 0x50) = 0x8000;
 }
 
-    extern unsigned char fn_80109974[];
+    extern unsigned char create_needle_pos_effect[];
     extern unsigned char create_needle_effect[];
     extern unsigned char lbl_804E20FC[];
     extern const float lbl_805DE78C;
-void* init_needle_effect__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E20FC; *(float*)((char*)a0 + 0x200) = lbl_805DE78C; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; ((TUnk_804E20FC *)a0)->m_208 = (int)create_needle_effect; return a0; }
+void* init_needle_effect__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E20FC; *(float*)((char*)a0 + 0x200) = lbl_805DE78C; *(int*)((char*)a0 + 0x204) = (int)create_needle_pos_effect; ((TUnk_804E20FC *)a0)->m_208 = (int)create_needle_effect; return a0; }
 
 void spawn_hit_particles__10TObjPlayerFiPv(s32 pos, const P_802D5478 *arg1) {
     s32 v[3];

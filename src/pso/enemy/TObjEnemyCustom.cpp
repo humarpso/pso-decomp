@@ -2,6 +2,7 @@
 #include "pso/map/CsnQuery.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/obj_band.h"
+#include "pso/math/MatrixTransforms.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/obj_band.h"
@@ -33,7 +34,6 @@ void matrix_mult_vec(s32 matrix, const Vec *src, Vec *dst);
 void vec3_add_to(Vec *dst, const Vec *add);
 f32 vec3_dot(const Vec *a, const Vec *b);
 void vec3_cross(const Vec *a, const Vec *b, Vec *out);
-void subtract_vector(Vec *dst, const Vec *sub);
 extern Mtx34 identity_matrix;
 extern Mtx34 *anim_model_matrix_array;
 extern s32 local_client_id;
