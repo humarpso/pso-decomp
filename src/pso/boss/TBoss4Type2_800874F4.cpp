@@ -25,14 +25,14 @@ extern s32 particle_global_entry_table;
 extern s32 particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 
-void *create_particle_emitter(void *pos, s32 id) {
+TParticleCtrl *create_particle_emitter(void *pos, s32 id) {
     void *p;
     if (particle_pool_limit > id) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_800874F4 * *)&particle_global_entry_table)[id]), 0, 0, 0, 0);
         }
-        return p;
+        return (TParticleCtrl *)p;
     }
     if (particle_pool_limit + 0x40 > id) {
         s32 idx = id - 0x200;
@@ -40,7 +40,7 @@ void *create_particle_emitter(void *pos, s32 id) {
         if (p != 0) {
             p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_800874F4 * *)&particle_area_entry_table)[idx]), 0, 0, 0, 0);
         }
-        return p;
+        return (TParticleCtrl *)p;
     }
     return 0;
 }
