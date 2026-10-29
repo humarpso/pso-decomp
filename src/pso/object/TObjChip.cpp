@@ -1,7 +1,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjCamera_8017F80C.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/system/vector.h"
 class TObjChip : public TObject {
 public:

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TODummyKeyCave01.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/system/TODummyKeyCave01Sound.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/GinjaMaterial.h"

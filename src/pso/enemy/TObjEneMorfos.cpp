@@ -658,7 +658,7 @@ s32 clear_attack_receipts__9TObjEneDDFv();
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 angle_difference_abs(s32, s32);
 s32 angle_diff_s16(s32);
 s32 free_collision_body_parts(void *);
@@ -787,8 +787,8 @@ extern int TObjEneMorfos__instance;
 extern s32 TObjEneMorfos__phase;
 extern s32 TObjEneMorfos__camera_path_cursor;
 extern const f32 TObjEneMorfos__data_805DF89C;
-extern s32 __dt__13TUnk_804949A8Fv[];
-extern s32 init_and_activate__10TObjPlayerFv[];
+extern s32 __dt__15RenderFadeStateFv[];
+extern s32 __ct__15RenderFadeStateFv[];
 extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
 extern void *morfos_class_name;
 extern s32 actor_frame_tick;
@@ -979,7 +979,7 @@ void TObjEneMorfos::render_part(s32 idx, s32 mode) {
     Part_803329E4 *part;
     Self_803329E4 *self = (Self_803329E4 *)this;
     part = &self->parts[idx];
-    update_obstruction_fade(part);
+    update__15RenderFadeStateFv(part);
     vis = ((RenderFadeState *)part)->updateFromCamera((const f32*)(self->cam));
     TObjFish::set_global_param(this->texlist);
     TObjPlayer::toggle_particle_effect();
@@ -1968,7 +1968,7 @@ u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x494) = 0U;
         }
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0 + 0x424, &__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x424, &__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80494938Fv((arg0 + 0x408), -1);
         __dt__13TUnk_80490470Fv((arg0 + 0x3EC), -1);
         __dt__12TObjEneDD_STFv((arg0), 0);
@@ -2124,7 +2124,7 @@ void TObjEneMorfos::init_instance() {
     ((VSub_80334D74 *)((u8 *)this + 0x3EC))->m2();
     ((VSub_80334D74 *)((u8 *)this + 0x408))->m2();
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Arr_80334D74 *)this)->e[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Arr_80334D74 *)this)->e[i]))->activate_and_dispatch();
     }
     *(f32 *)((s8 *)this + 0x498) = TObjEneMorfos__data_805DF874;
     this->m_49c = TObjEneMorfos__data_805DF874;
@@ -2150,7 +2150,7 @@ void *TObjEneMorfos__ct(void *ene_morfos, void *arg1, void *arg2) {
     *(s32 **)((s8 *)ene_morfos + 0x18) = __vt__13TObjEneMorfos;
     ((TUnk_80490470 *)((char *)ene_morfos + 1004))->init_vtable_and_field18();
     ((TUnk_80494938 *)((char *)ene_morfos + 1032))->init_common();
-    __construct_array((void *)((char *)ene_morfos + 1060), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    __construct_array((void *)((char *)ene_morfos + 1060), __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 28, 4);
     *(void * *)&((TObjEneMorfos *)ene_morfos)->m_name = morfos_class_name;
     invoke_initialization_hook__9TObjEneDDFv(ene_morfos, arg2);
     ((TObjEneMorfos *)ene_morfos)->init_target_offsets();

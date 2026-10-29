@@ -1,3 +1,4 @@
+#include "pso/misc/RenderFadeState.h"
 #include "types.h"
 #include "pso/system/PadRumble.h"
 #include "pso/enemy/TObjEneEpsilon.h"
@@ -289,7 +290,7 @@ s32 queue_destruction__7TObjectFv(void *);
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv(void *);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 void release_grabbed_player__12TBoss8DragonFPv(TBoss8Dragon *arg0);
 s32 is_health_low__12TBoss8DragonFPv(TBoss8Dragon *arg0);
@@ -1430,7 +1431,7 @@ int setup_instance__9TObjEneDDFllPUcl(void*);
 s32 is_alive__9TObjEneDDFv(void);
 s32 update_local_colliders_from_world(void *, void *);
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 u8 *get_enemy_entity(u16 arg0);
 void free_collision_body_parts(void *);
 void send_6x2F_change_player_hp(s32 arg0, s32 arg1, s32 arg2);
@@ -6700,7 +6701,7 @@ void TBoss8Dragon::run_task() {
     project_sound_origin_from_camera((s32)(arg0 + 0x38), (u8 *)(arg0 + 0x634), lbl_805DEEE4);
     if (!(*(s32 *)&this->m_3c0 & 0x100)) {
         for (i = 0; i < 4; i++) {
-            update_obstruction_fade((void *) &((Fade_802FCF00 *) arg0)->e[i]);
+            update__15RenderFadeStateFv((void *) &((Fade_802FCF00 *) arg0)->e[i]);
         }
     }
 }
@@ -6724,7 +6725,7 @@ u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1) {
         if (TBoss8Dragon__data_805D69AC == arg0) {
             TBoss8Dragon__data_805D69AC = NULL;
         }
-        __destroy_arr(arg0 + 0x6DC, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x6DC, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
         TObjBoss2Tunnel::maybe_delete((s32)(arg0 + 0x610), (s16)(-1));
         TObjBoss2Tunnel::maybe_delete((s32)(arg0 + 0x5EC), (s16)(-1));
         __dt__7TObjectFv(arg0 + 0x3C4, -1);
@@ -6854,7 +6855,7 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1);
 void *TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1);
 void *TBoss8DragonEffTail__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-void init_and_activate__10TObjPlayerFv(void *);
+void __ct__15RenderFadeStateFv(void *);
 extern s32 boss8_dragon_class_name;
 extern const f32 TBoss8Dragon__data_805DED60;
 #define TBoss8Dragon__data_805D6988 ((u8 *)TBoss8Dragon__data_805D6988)
@@ -6875,7 +6876,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0 + 0x3C4, 0);
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x5EC));
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x610));
-    __construct_array(arg0 + 0x6DC, (void *) init_and_activate__10TObjPlayerFv, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(arg0 + 0x6DC, (void *) __ct__15RenderFadeStateFv, (void *) __dt__15RenderFadeStateFv, 0x1C, 4);
     __ct__14SubtractiveRngFv(arg0 + 0x764);
     ((TBoss8Dragon *)arg0)->m_0 = boss8_dragon_class_name;
     if (TBoss8Dragon__data_805D69AC == NULL) {
@@ -6968,7 +6969,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     ((TBoss8Dragon *)arg0)->m_6d0 = 0;
     for (j = 0; j < 4; j++) {
-        ((TObjPlayer *)(&d->e6DC[j]))->activate_and_dispatch();
+        ((RenderFadeState *)(&d->e6DC[j]))->activate_and_dispatch();
     }
     ((TBoss8Dragon *)arg0)->m_74c = 0;
     ((TBoss8Dragon *)arg0)->m_750 = 0xFFFF;

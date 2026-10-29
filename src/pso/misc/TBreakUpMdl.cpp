@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TBreakUpMdl.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
 #include "pso/misc/TCameraCtrl_803D6538.h"

@@ -8,7 +8,7 @@ void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(s32);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 __dt__13TUnk_804949A8Fv[];
+extern s32 __dt__15RenderFadeStateFv[];
 extern s32 __vt__11TObjEneMoja[];
 u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1) {
     u8 *object;
@@ -20,7 +20,7 @@ u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1) {
             *(u8 **)((s8 *)arg0 + 0x398) = NULL;
         }
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0 + 0x39C, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x39C, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

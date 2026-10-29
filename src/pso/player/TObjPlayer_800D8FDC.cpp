@@ -3,7 +3,7 @@
 #include "pso/misc/TDeadSpot.h"
 #include "pso/player/TObjPlayer_800D8FDC.h"
 #include "pso/system/memory.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -163,101 +163,87 @@ void load_corpse_mark_resource(void) {
 }
 extern "C" {
 
-s32 TUnk_80494AE0::has_visible_opacity() {
-    f32 *arg0 = (f32 *)this;
-    return *arg0 > lbl_805DA3D8;
+s32 MaterialColorFade::has_visible_opacity() {
+    return color.a > lbl_805DA3D8;
 }
 
-void TUnk_80494AE0::clear_flag_and_notify() {
+void MaterialColorFade::clear_flag_and_notify() {
     model_render_flags &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);
     set_chunk_blend(0x2500);
 }
 
 
-void TObjPlayer::set_flags_and_apply_damage_color() {
+void MaterialColorFade::set_flags_and_apply_damage_color() {
     model_render_flags |= 0x8820;
-    ((void (*)(void))set_constant_material)();
+    set_constant_material(&color);
     set_chunk_material_override_pair(0xFF00, 0x800);
 }
 
 extern const f32 lbl_805DA3DC;
 
-s32 TUnk_80494AE0::advance_toward_max() {
+s32 MaterialColorFade::advance_toward_max() {
     f32 temp_f1;
     s32 var_r0;
 
-    temp_f1 = *(f32 *)&this->unk_0;
+    temp_f1 = this->color.a;
     var_r0 = 0;
     if (temp_f1 < lbl_805DA3DC) {
-        *(f32 *)&this->unk_0 = (f32) (temp_f1 + *(f32 *)&this->unk_10);
+        this->color.a = (f32) (temp_f1 + this->rate);
     } else {
-        *(f32 *)&this->unk_0 = (f32) lbl_805DA3DC;
+        this->color.a = (f32) lbl_805DA3DC;
         var_r0 = 1;
     }
     return var_r0;
 }
 
-s32 TUnk_80494AE0::decay_value_toward_floor() {
+s32 MaterialColorFade::decay_value_toward_floor() {
     f32 temp_f1;
     s32 var_r0;
 
-    temp_f1 = *(f32 *)&this->unk_0;
+    temp_f1 = this->color.a;
     var_r0 = 0;
     if (temp_f1 > lbl_805DA3D8) {
-        *(f32 *)&this->unk_0 = (f32) (temp_f1 - *(f32 *)&this->unk_10);
+        this->color.a = (f32) (temp_f1 - this->rate);
     } else {
-        *(f32 *)&this->unk_0 = (f32) lbl_805DA3D8;
+        this->color.a = (f32) lbl_805DA3D8;
         var_r0 = 1;
     }
     return var_r0;
 }
 
-void TUnk_80494AE0::reset_obstruction_fade() { *(float *)&this->unk_0 = lbl_805DA3D8; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }
+void MaterialColorFade::reset_obstruction_fade() {
+    this->color.a = lbl_805DA3D8;
+    this->color.r = lbl_805DA3DC;
+    this->color.g = lbl_805DA3DC;
+    this->color.b = lbl_805DA3DC;
+}
 }
 
-struct Raw_800D9718 { u8 pad[0x10]; f32 f10; s32 *vt; };
-
-struct B_800D9718 { u8 pad[0x14]; };
-
-struct V_800D9718 : B_800D9718 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-};
-
 extern "C" {
-extern s32 lbl_80494AE0[];
 extern const f32 lbl_805DA3E4;
-V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
-void TUnk_80494AE0::vfunc_4() { *(float *)&this->unk_0 = lbl_805DA3DC; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }
+void MaterialColorFade::reset_color() {
+    this->color.a = lbl_805DA3DC;
+    this->color.r = lbl_805DA3DC;
+    this->color.g = lbl_805DA3DC;
+    this->color.b = lbl_805DA3DC;
+}
 
 extern const f32 lbl_805DA3E0;
 
-void TUnk_80494AE0::set_rate_from_divisor(s32 arg1) {
-    *(f32 *)&this->unk_10 = (f32) (lbl_805DA3E0 / (f32) arg1);
+void MaterialColorFade::set_rate_from_divisor(s32 arg1) {
+    this->rate = (f32) (lbl_805DA3E0 / (f32) arg1);
 }
 
-void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x14) = lbl_80494AE0;
-        if (arg1 > 0) {
-            ::operator delete(arg0);
-        }
-    }
-    return arg0;
-}
+MaterialColorFade::~MaterialColorFade() {}
 
+MaterialColorFade::MaterialColorFade() {
+    rate = lbl_805DA3E4;
+    reset_color();
+}
 extern const f32 lbl_805DA3E8;
-
-V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self) {
-    ((Raw_800D9718 *)self)->vt = ((s32 *)&lbl_80494AE0);
-    ((Raw_800D9718 *)self)->f10 = lbl_805DA3E4;
-    self->m2();
-    return self;
-}
 
 s32 TObjPlayer::lookup_entry_by_value(void *arg0, f32 farg0) {
     void *var_r31;

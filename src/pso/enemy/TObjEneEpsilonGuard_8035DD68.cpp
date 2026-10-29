@@ -417,7 +417,7 @@ struct G_8035E430;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_mode__11TCameraCtrlFPv(void *);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -604,7 +604,7 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *ene_re7_berura, s32 arg1) {
     saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
     saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
     r = (VObj_8035E018 *)&((Self_8035E018 *)ene_re7_berura)->recs[i];
-    update_obstruction_fade(r);
+    update__15RenderFadeStateFv(r);
     if (((RenderFadeState *)r)->updateFromCamera((const f32*)(ene_re7_berura + 0x2FC)) != 0) {
         r->m6();
         if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
@@ -1420,7 +1420,7 @@ void *TObjEneEpsilonGuard__ct(void *ene_epsilon_guard, void *arg1, void *arg2, v
     ((TObjEneEpsilonGuard *)(ene_epsilon_guard))->vfunc_95();
     *(s32 *)((s8 *)ene_epsilon_guard + 0x46C) = (s32) (*(s32 *)((s8 *)ene_epsilon_guard + 0x46C) | 0x10);
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Self_8035F4B4 *)ene_epsilon_guard)->recs[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Self_8035F4B4 *)ene_epsilon_guard)->recs[i]))->activate_and_dispatch();
     }
     return ene_epsilon_guard;
 }

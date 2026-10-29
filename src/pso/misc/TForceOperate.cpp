@@ -4,7 +4,7 @@
 #include "pso/system/FlagWord.h"
 #include "pso/misc/TKeyBoardControl_803DE9C4.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TForceOperate.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TMainCursor.h"

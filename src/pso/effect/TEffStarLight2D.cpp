@@ -53,14 +53,14 @@ void *__nw__7TObjectFUl(u32);
 void matrix_mult_vec(int, void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void project_world_to_screen(int, void *, void *);
-extern u32 lbl_805D292C;
+extern u32 TEffStarLight2D__name;
 void queue_destruction__7TObjectFv(void *arg0);
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
 f32 newton_sqrtf(f32);
 extern void *__vt__18TEffStarLightChild[];
-extern s32 lbl_805D2928;
+extern s32 TEffStarLightChild__name;
 void run_task__15TEffStarLight2DFv(Star_800851B0 *self);
 void run_task__18TEffStarLightChildFv(Star_80085424 *self);
 Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a, Pt_800855F8 *b, void *parent, f32 w, f32 speed);
@@ -102,7 +102,7 @@ TEffStarLight2D::~TEffStarLight2D() {}
 #pragma opt_common_subs off
 TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *object) : TObject(object) {
     P2_80085388 p;
-    ((O_80085388 *)this)->f0 = lbl_805D292C;
+    ((O_80085388 *)this)->f0 = TEffStarLight2D__name;
     ((TEffStarLight2D *)((u8 *)this + 0x38))->copy_from(arg2);
     VecCopy((Vec *)((u8 *)this + 0x2C), (const Vec *)arg1);
     project_world_to_screen(0, (u8 *)this + 0x2C, &p);
@@ -159,7 +159,7 @@ Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a,
     Vec_800855F8 d;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__18TEffStarLightChild;
-    self->name = lbl_805D2928;
+    self->name = TEffStarLightChild__name;
     if (speed <= 0.0f) {
         speed = 1.0f;
     }

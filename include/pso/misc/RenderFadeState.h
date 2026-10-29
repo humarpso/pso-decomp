@@ -1,23 +1,26 @@
 #ifndef PSO_MISC_RENDERFADESTATE_H
 #define PSO_MISC_RENDERFADESTATE_H
 
-#include "types.h"
+#include "pso/misc/MaterialColorFade.h"
 
-struct RenderFadeState {
+class RenderFadeState : public MaterialColorFade {
+public:
+    RenderFadeState();
+    virtual ~RenderFadeState();
+    virtual void set_flags_and_apply_damage_color();
+    void activate_and_dispatch();
     s32 updateFromCamera(const f32* position);
     s32 isFading() const;
     void restore();
     void fadeOut();
-
-    f32 adjustment;
-    u8 unknown04[0x14 - 0x04];
-    void* virtualTable;
+    void update();
+    void update_fast();
     s32 restoring;
 };
 
 #include <stddef.h>
-typedef char RenderFadeAdjustmentOffset[(offsetof(RenderFadeState, adjustment) == 0) ? 1 : -1];
-typedef char RenderFadeVtableOffset[(offsetof(RenderFadeState, virtualTable) == 0x14) ? 1 : -1];
+typedef char RenderFadeAdjustmentOffset[(offsetof(RenderFadeState, color) == 0) ? 1 : -1];
 typedef char RenderFadeDirectionOffset[(offsetof(RenderFadeState, restoring) == 0x18) ? 1 : -1];
+typedef char RenderFadeSize[(sizeof(RenderFadeState) == 0x1C) ? 1 : -1];
 
 #endif

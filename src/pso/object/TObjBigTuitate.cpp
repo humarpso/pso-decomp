@@ -48,6 +48,7 @@ struct Vec_8019AA18 { f32 x, y, z; };
 struct ByteBlock_3C { u8 bytes[0x3c]; };
 
 extern "C" {
+void __ct__15RenderFadeStateFv(void *);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 isFading__15RenderFadeStateCFv(void *);
@@ -67,7 +68,7 @@ extern s32 lbl_805D3454;
 
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
-int update_obstruction_fade(void*);
+int update__15RenderFadeStateFv(void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -108,7 +109,7 @@ void TObjBigTuitate::render() {
     TObjFish::set_cull_none();
 }
 
-void TObjBigTuitate::run_task() { { (void)(update_obstruction_fade((char*)this + 0xac)); return; } }
+void TObjBigTuitate::run_task() { { (void)(update__15RenderFadeStateFv((char*)this + 0xac)); return; } }
 
 void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -116,7 +117,7 @@ void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xC8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xC8)); *(s32 *)((s8 *)arg0 + 0xC8) = 0; }
         ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xAC, -1);
+        __dt__15RenderFadeStateFv((s8 *)arg0 + 0xAC, -1);
         __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -134,7 +135,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     CopyStack_8019ABE8 copy_storage_8019ABE8;
     __ct__14TObjCollidableFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjBigTuitate;
-    ((TObjPlayer *)((u8 *)arg0 + 0xAC))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)((u8 *)arg0 + 0xAC)));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3454;
     ((TObjBigTuitate *)(arg0))->apply_object_set_data((void *)((s32)arg2));
     init_collision_body_parts(arg0, big_tuitate_collision_body, 1);
@@ -145,7 +146,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     (*(f32 *)(copy_storage_8019ABE8.bytes + 0x28)) = 4e+01f;
     (*(f32 *)(copy_storage_8019ABE8.bytes + 0x2C)) = 12.0f;
     *(s32 *)((s8 *)arg0 + 0xC8) = TObjMapCsn::create((s32)((void *) ((copy_storage_8019ABE8.bytes))));
-    ((TObjPlayer *)((u8 *)arg0 + 0xAC))->activate_and_dispatch();
+    ((RenderFadeState *)((u8 *)arg0 + 0xAC))->activate_and_dispatch();
     return arg0;
 }
 #pragma pop
@@ -240,7 +241,7 @@ extern s32 TObjTuitate__class_name;
 
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
-int update_obstruction_fade(void*);
+int update__15RenderFadeStateFv(void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -281,7 +282,7 @@ void TObjTuitate::render() {
     TObjFish::set_cull_none();
 }
 
-void TObjTuitate::run_task() { { (void)(update_obstruction_fade((char*)this + 0xac)); return; } }
+void TObjTuitate::run_task() { { (void)(update__15RenderFadeStateFv((char*)this + 0xac)); return; } }
 
 void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -289,7 +290,7 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xC8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xC8)); *(s32 *)((s8 *)arg0 + 0xC8) = 0; }
         ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xAC, -1);
+        __dt__15RenderFadeStateFv((s8 *)arg0 + 0xAC, -1);
         __dt__14TObjCollidableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -307,7 +308,7 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     CopyStack_8019AF6C copy_storage_8019AF6C;
     __ct__14TObjCollidableFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
-    ((TObjPlayer *)((u8 *)arg0 + 0xAC))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)((u8 *)arg0 + 0xAC)));
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTuitate__class_name;
     ((TObjTuitate *)(arg0))->apply_object_set_data((void *)((s32)arg2));
     init_collision_body_parts(arg0, TObjTuitate__collision_parts, 1);
@@ -318,7 +319,7 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x28)) = 2e+01f;
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x2C)) = 12.0f;
     *(s32 *)((s8 *)arg0 + 0xC8) = TObjMapCsn::create((s32)((void *) ((copy_storage_8019AF6C.bytes))));
-    ((TObjPlayer *)((u8 *)arg0 + 0xAC))->activate_and_dispatch();
+    ((RenderFadeState *)((u8 *)arg0 + 0xAC))->activate_and_dispatch();
     return arg0;
 }
 #pragma pop

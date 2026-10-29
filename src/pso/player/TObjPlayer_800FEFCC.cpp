@@ -1,6 +1,6 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/system/vector.h"
 #include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjHMS_EZRope_Player.h"

@@ -147,7 +147,7 @@ extern const f32 lbl_805DE860;
 extern const f32 lbl_805DE864;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
 s32 defer_render__7TObjectFv(void *);
@@ -188,8 +188,8 @@ void init_collision_body_parts(void *, void *, int);
 void *__ct__14TObjCollidableFP7TObject(void *, int);
 void * __nw__7TObjectFUl(int);
 void __construct_array(void *, void *, void *, int, int);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
-void init_and_activate__10TObjPlayerFv(void);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
+void __ct__15RenderFadeStateFv(void);
 extern s32 lbl_805D3F60;
 u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2);
 s32 update_movement_status__9TObjCharaFv();
@@ -2334,7 +2334,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
         vis = self->m9(lbl_805DE884, lbl_805DE87C, lbl_805DE880);
     }
     if (vis != 0) {
-        update_obstruction_fade(&self->fades[cam]);
+        update__15RenderFadeStateFv(&self->fades[cam]);
         fade = ((RenderFadeState *)(&self->fades[cam]))->updateFromCamera((const f32*)((u8 *)arg0 + 0x2FC));
         select_actor_lighting((s32)arg0);
         TObjFish::set_global_param(arg0->texlist);
@@ -2582,7 +2582,7 @@ Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1) {
             self->p3b8 = NULL;
         }
         free_collision_body_parts(self);
-        __destroy_arr((u8 *)self + 0x3DC, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *)self + 0x3DC, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80494938Fv((u8 *)self + 0x3C0, -1);
         __dt__9TObjEnemyFv((TObjEnemy *)self, 0);
         if (arg1 > 0) {
@@ -2598,7 +2598,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     __ct__9TObjEnemyFP7TObject(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = (void *)lbl_804E29F0;
     ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
-    __construct_array(arg0 + 0x3DC, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(arg0 + 0x3DC, (void *)__ct__15RenderFadeStateFv, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F60;
     ((TObjEneGibbles *)arg0)->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
@@ -2647,7 +2647,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     init_collision_body_parts(((TObjEneGibbles *)arg0)->m_3b8, (u8 *)lbl_804E296C + 0x58, 1);
     ((VObj_14_802DBA18 *)(arg0 + 0x3C0))->m3();
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((G_802DBA18 *)arg0)->parts[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((G_802DBA18 *)arg0)->parts[i]))->activate_and_dispatch();
     }
     ((TObjEneGibbles *)arg0)->clear_lobby_object_state();
     return arg0;

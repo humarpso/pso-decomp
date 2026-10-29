@@ -29,7 +29,7 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/network/client_id.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/protocol/subcmd_6x.h"
 #include "pso/render/model_render_state.h"
 #include "pso/system/byteswap.h"

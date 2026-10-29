@@ -484,7 +484,7 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1);
 extern u8 epsilon_guard_destroy_breakup_params[];
 extern s32 lbl_805D6FA4;
 s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 set_guard_part_colors(void *, void *, void *, int);
 extern s32 saved_model_render_flags;
 extern s32 saved_chunk_polygon_flags_and_mask;
@@ -852,7 +852,7 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
     set_guard_part_colors((void *)arg0, (void *) (arg0 + 0x4A0), (void *)chunk_polygon_flags_and_mask, (int)model_render_flags);
     r = (VObj_8036033C *)&((Self_8036033C *)arg0)->recs[i];
-    update_obstruction_fade(r);
+    update__15RenderFadeStateFv(r);
     if (((RenderFadeState *)r)->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
         r->m6();
         if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {

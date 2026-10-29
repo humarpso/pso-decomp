@@ -1,5 +1,5 @@
 #include "pso/enemy/EnemyStateEvent.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "types.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -36,9 +36,6 @@ extern "C" void test_flag_256__9TObjCharaFv();
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
-struct Fade_800653C4 { char b[0x1C]; };
-
-struct Dragon_800653C4 { char pad[0x580]; Fade_800653C4 fade[4]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -186,7 +183,6 @@ int check_demo_mode__10TObjPlayerFv(void*);
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_obstruction_fade(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8DAC;
@@ -622,8 +618,7 @@ void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
-s32 isFading__15RenderFadeStateCFv(int);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 u8 *get_enemy_entity(u16 arg0);
 s32 TObjLight__sub_801337F8(void *);
 s32 angle_diff_s16(s32, s32);
@@ -1386,7 +1381,7 @@ void TBoss5Gryphon::render_with_fade(s32 arg1) {
     }
     fade = &this->renderFadeStates[arg1];
     if (fade->isFading() != 0) {
-        ((TUnk_80494AE0 *)fade)->set_flags_and_apply_damage_color();
+        fade->set_flags_and_apply_damage_color();
     }
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
@@ -4946,7 +4941,7 @@ void TBoss5Gryphon::run_task() {
     }
     project_sound_origin_from_camera((s32)(arg0 + 0x38), (u8 *)(arg0 + 0x560), lbl_805D8DAC);
     for (i = 0; i < 4; i++) {
-        update_obstruction_fade(&((Dragon_800653C4 *)arg0)->fade[i]);
+        renderFadeStates[i].update();
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x4E4) != 0) {
         ((TBoss5Gryphon *)arg0)->update_collider_from_table();
@@ -4975,7 +4970,7 @@ Obj_80065658 *__dt__13TBoss5GryphonFv(Obj_80065658 *o, s16 flag) {
         if (boss5_gryphon_instance == o) {
             boss5_gryphon_instance = 0;
         }
-        __destroy_arr(o->f580, (void *)__dt__13TUnk_804949A8Fv, 0x1c, 4);
+        __destroy_arr(o->f580, (void *)__dt__15RenderFadeStateFv, 0x1c, 4);
         __dt__7TObjectFv(o->f4c4, -1);
         __dt__12TObjEneDD_STFv(o, 0);
         if (flag > 0) {
@@ -4989,14 +4984,13 @@ extern "C" {
 void init_object__12TObjEneDD_STFv(void *, void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-void init_and_activate__10TObjPlayerFv(void *);
+void __ct__15RenderFadeStateFv(void *);
 void __ct__14SubtractiveRngFv(void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
 void *TBoss5GryphonColli__ct(void *, void *);
-void activate_and_dispatch__10TObjPlayerFv(void *);
 extern const char *boss5_gryphon_type_name_pointer;
 extern u8 lbl_80437958[];
 extern u8 lbl_804EC238[];
@@ -5009,7 +5003,7 @@ TBoss5Gryphon *TBoss5Gryphon__ct(TBoss5Gryphon *self, void *parent, void *data) 
     init_object__12TObjEneDD_STFv(self, parent, data);
     ((Obj_80065658 *)self)->vt = __vt__13TBoss5Gryphon;
     __ct__7TObjectFP7TObject(&self->m_4c4, 0);
-    __construct_array(self->renderFadeStates, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(self->renderFadeStates, (void *)__ct__15RenderFadeStateFv, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
     __ct__14SubtractiveRngFv(self->rng);
     self->m_name = boss5_gryphon_type_name_pointer;
     if (boss5_gryphon_instance == NULL) {
@@ -5079,7 +5073,7 @@ TBoss5Gryphon *TBoss5Gryphon__ct(TBoss5Gryphon *self, void *parent, void *data) 
     }
     self->demo = (TBoss5GryphonDemo *)p;
     for (i = 0; i < 4; i++) {
-        activate_and_dispatch__10TObjPlayerFv(&self->renderFadeStates[i]);
+        self->renderFadeStates[i].activate_and_dispatch();
     }
     switch (TBoss8Dragon__sub_8005D700()) {
     case 0:

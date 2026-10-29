@@ -164,7 +164,7 @@ extern const f32 lbl_805DF43C;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_obstruction_fade(int);
+s32 update__15RenderFadeStateFv(int);
 s32 defer_render__7TObjectFv(void *);
 extern s32 saved_model_render_flags;
 extern s32 saved_chunk_polygon_flags_and_mask;
@@ -268,7 +268,7 @@ void TObjEneRecobox::render() {
                 }
 block_18:
                 temp_r29 = &((Holder_8031EA70 *)arg0)->arr[var_r29];
-                update_obstruction_fade((int)temp_r29);
+                update__15RenderFadeStateFv((int)temp_r29);
                 temp_r30 = ((RenderFadeState *)temp_r29)->updateFromCamera((const f32*)(arg0 + 0x2FC));
                 if ((var_r27 == 0) && (temp_r30 != 0)) {
                     if (defer_render__7TObjectFv(arg0) != 0) {

@@ -786,8 +786,8 @@ u32 load_enemy_bml_resource_named(void *, void *);
 s32 load_enemy_bml_resource(u8 *arg0);
 s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
-s32 update_obstruction_fade(void *);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+s32 update__15RenderFadeStateFv(void *);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 s32 set_field_e4__10TObjPlayerFll(void *, int, f32);
 void spawn_dead_spot_scale15(s32 point, s32 delay);
 int copy_target_state__14TObjEnePanarmsFPv(void*);
@@ -1126,7 +1126,7 @@ void TObjEneBm3FlyNest::render() {
             saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
             saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
             cm = &self->cams[cam];
-            update_obstruction_fade(cm);
+            update__15RenderFadeStateFv(cm);
             if (((RenderFadeState *)cm)->updateFromCamera((const f32*)(&self->f2FC)) != 0) {
                 ((VObj_14_aa9368 *)(cm))->m6();
                 if (defer_render__7TObjectFv(this) != 0) {
@@ -1833,7 +1833,7 @@ Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag) {
     if (self != 0) {
         self->vtbl = lbl_80491EE4;
         free_collision_body_parts(self);
-        __destroy_arr(self->arr, (void *)__dt__13TUnk_804949A8Fv, 0x1c, 4);
+        __destroy_arr(self->arr, (void *)__dt__15RenderFadeStateFv, 0x1c, 4);
         __dt__9TObjEneDDFv(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
@@ -1887,7 +1887,7 @@ struct Nest_800B3EB8 {
 
 void *TObjEneDD__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-void init_and_activate__10TObjPlayerFv(void *);
+void __ct__15RenderFadeStateFv(void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void init_model__9TObjEneDDFv(void *, void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
@@ -1901,7 +1901,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
 
     TObjEneDD__ct(self, arg1, arg2);
     self->vt = lbl_80491EE4;
-    __construct_array(self->f440, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(self->f440, __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 0x1C, 4);
     self->id = bm3_fly_nest_class_name;
     invoke_initialization_hook__9TObjEneDDFv(self, arg2);
     ((TObjEneDD *)self)->init_position_vectors();
@@ -1943,7 +1943,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
         VecCopy((Vec *)&self->f3E0[i], (const Vec *)&self->pos);
     }
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&self->f440[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&self->f440[i]))->activate_and_dispatch();
     }
     self->f4B0 = 0.0f;
     self->f4B4[0] = 0;

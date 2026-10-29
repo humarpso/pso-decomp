@@ -1,3 +1,4 @@
+#include "pso/misc/RenderFadeState.h"
 #include "types.h"
 #include "pso/system/NinjaUtil.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -534,8 +535,8 @@ extern const f32 TObjEneRe7Berura__data_805D9730;
 extern const f32 TObjEneRe7Berura__data_805D9738;
 extern const f32 TObjEneRe7Berura__data_805D9740;
 extern const f32 TObjEneRe7Berura__data_805D9764;
-extern s32 __dt__13TUnk_804949A8Fv[];
-extern s32 init_and_activate__10TObjPlayerFv[];
+extern s32 __dt__15RenderFadeStateFv[];
+extern s32 __ct__15RenderFadeStateFv[];
 extern s32 lbl_80439DA0[];
 extern Atk_800959F8 ene_re7_berura_attack_def;
 extern u8 lbl_80439EF8[];
@@ -1136,7 +1137,7 @@ Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
             self->effect = 0;
         }
         free_collision_body_parts(self);
-        __destroy_arr(self->arr, (void *)((s32 *)&__dt__13TUnk_804949A8Fv), 0x1C, 4);
+        __destroy_arr(self->arr, (void *)((s32 *)&__dt__15RenderFadeStateFv), 0x1C, 4);
         __dt__13TUnk_80490470Fv(self->motionB, -1);
         __dt__13TUnk_80490470Fv(self->motionA, -1);
         __dt__12TObjEneDD_STFv(self, 0);
@@ -1191,7 +1192,7 @@ void TObjEneRe7Berura::init_enemy() {
     *(s32 *)((s8 *)arg0 + 0x440) = create__12TObjEneSaverFPvPv(0xFF00FF00, 0xA0703030);
     *(s32 *)((s8 *)arg0 + 0x444) = create__12TObjEneSaverFPvPv(0xFF00FF00, 0xA0703030);
     for (j = 0; j < 4; j++) {
-        ((TObjPlayer *)(&S->subs[j]))->activate_and_dispatch();
+        ((RenderFadeState *)(&S->subs[j]))->activate_and_dispatch();
     }
     *(s32 *)((s8 *)arg0 + 0x4B8) = 0;
     *(s32 *)((s8 *)arg0 + 0x4BC) = 0;
@@ -1214,7 +1215,7 @@ void *TObjEneRe7Berura__ct(void *ene_re7_berura, void *arg1, void *arg2) {
     *(s32 **)((s8 *)ene_re7_berura + 0x18) = __vt__16TObjEneRe7Berura;
     ((TUnk_80490470 *)((char *)ene_re7_berura + 984))->init_vtable_and_field18();
     ((TUnk_80490470 *)((char *)ene_re7_berura + 1020))->init_vtable_and_field18();
-    __construct_array((void *)((char *)ene_re7_berura + 1096), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    __construct_array((void *)((char *)ene_re7_berura + 1096), __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 28, 4);
     *(void * *)&((TObjEneRe7Berura *)ene_re7_berura)->m_name = lbl_805D2988;
     invoke_initialization_hook__9TObjEneDDFv(ene_re7_berura, arg2);
     ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(ene_re7_berura);

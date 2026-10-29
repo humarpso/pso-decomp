@@ -13,7 +13,7 @@
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TObjChara.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -504,8 +504,6 @@ s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 TBoss1Dragon__sub_8002B108(s32, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFv(void *, f32, f32);
-s32 isFading__15RenderFadeStateCFv(void *);
-void update_obstruction_fade(void *);
 u8 *find_entity_by_id(s32);
 s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_z(s32, s32);
@@ -620,7 +618,7 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 Obj_80029C78 *destroy__12TBoss1DragonFPvs(Obj_80029C78 *o, s16 flag);
 void render_shadows__12TBoss1DragonFv(u8 *arg0);
 
@@ -635,7 +633,7 @@ void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-extern u8 init_and_activate__10TObjPlayerFv[];
+extern u8 __ct__15RenderFadeStateFv[];
 extern u8 boss1_dragon_normal_action_table[];
 extern u8 boss1_dragon_normal_particle_table[];
 extern s32 lbl_805D2650;
@@ -1072,7 +1070,7 @@ void TBoss1Dragon::render() {
     s32 view;
     s32 saved;
     s32 i;
-    CameraObstructionFade *ch;
+    RenderFadeState *ch;
     s32 visible;
     s16 state;
     u8 *ent;
@@ -1169,12 +1167,12 @@ void TBoss1Dragon::render() {
                 }
             }
             if (hit != 0) {
-                ((RenderFadeState *)ch)->fadeOut();
+                ch->fadeOut();
             } else {
-                ((RenderFadeState *)ch)->restore();
+                ch->restore();
             }
-            update_obstruction_fade(ch);
-            if (isFading__15RenderFadeStateCFv(ch) != 0) {
+            ch->update();
+            if (ch->isFading() != 0) {
                 ch->set_flags_and_apply_damage_color();
                 visible = 0;
             }
@@ -5773,7 +5771,7 @@ Obj_80029C78 *destroy__12TBoss1DragonFPvs(Obj_80029C78 *o, s16 flag) {
         if ((Obj_80029C78 *)TBoss1Dragon__data_805D4B2C == o) {
             TBoss1Dragon__data_805D4B2C = 0;
         }
-        __destroy_arr(o->f6E8, (void *)__dt__13TUnk_804949A8Fv, 0x1c, 4);
+        __destroy_arr(o->f6E8, (void *)__dt__15RenderFadeStateFv, 0x1c, 4);
         TObjBoss2Tunnel::maybe_delete((s32)o->f618, (s16)(-1));
         TObjBoss2Tunnel::maybe_delete((s32)o->f5F4, (s16)(-1));
         __dt__7TObjectFv(o->f3C4, -1);
@@ -5801,7 +5799,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0 + 0x3C4, 0);
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x5F4));
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x618));
-    __construct_array(arg0 + 0x6E8, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(arg0 + 0x6E8, __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 0x1C, 4);
     __ct__14SubtractiveRngFv(arg0 + 0x77C);
     F_29DE4(arg0, s32, 0) = lbl_805D2650;
     if ((u32)TBoss1Dragon__data_805D4B2C == 0U) {
@@ -5899,7 +5897,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     F_29DE4(arg0, void *, 0x6D8) = p;
     F_29DE4(arg0, void *, 0x6DC) = 0;
     for (j = 0; j < 4; j++) {
-        ((TObjPlayer *)(&O_29DE4->e[j]))->activate_and_dispatch();
+        ((TBoss1Dragon *)arg0)->viewFade[j].activate_and_dispatch();
     }
     F_29DE4(arg0, s32, 0x758) = 0;
     F_29DE4(arg0, s32, 0x75C) = 0xA8C;

@@ -1,7 +1,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"

@@ -1,7 +1,7 @@
 #include "pso/system/NinjaTypes.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/system/vector.h"
 #include "pso/TObject.h"
 #include "pso/misc/TCameraCtrl.h"

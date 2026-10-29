@@ -1,3 +1,4 @@
+#include "pso/misc/RenderFadeState.h"
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -169,7 +170,7 @@ void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, u32, u32);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1);
 void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
@@ -357,7 +358,7 @@ void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void *__ct__14TObjCollidableFP7TObject(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
-void init_and_activate__10TObjPlayerFv(void *);
+void __ct__15RenderFadeStateFv(void *);
 extern const s32 lbl_80472318[];
 extern s32 lbl_805D3F28;
 extern const f32 lbl_805DE6EC;
@@ -645,7 +646,7 @@ u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
         }
         free_collision_body_parts(arg0);
         __dt__13TUnk_80494938Fv(arg0 + 0x46C, -1);
-        __destroy_arr(arg0 + 0x3C8, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x3C8, (void *) __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -661,7 +662,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
 
     init_object__12TObjEneDD_STFv(self, parent);
     self->vt18 = TObjEneBm9Mericarol__vtable;
-    __construct_array(self->a3C8, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(self->a3C8, (void *)__ct__15RenderFadeStateFv, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
     ((TUnk_80494938 *)(self->o46C))->init_common();
     self->f0 = lbl_805D3F28;
     invoke_initialization_hook__9TObjEneDDFv(self, arg2);
@@ -730,7 +731,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((VObj18_802D0D3C *)self)->m85(self->f326, 4);
     ((TObjEnemy *)self)->sub_8002AE64();
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(self->a3C8[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(self->a3C8[i]))->activate_and_dispatch();
     }
     return self;
 }

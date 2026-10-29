@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/object/TObjCMMainMenu_8028EA88.h"
 #include "pso/unk/text_80141550.h"
 #include "pso/unk/text_803E2D70.h"

@@ -3,7 +3,7 @@
 #include "pso/item/TItem.h"
 #include "pso/item/TUnk_804F0BF0.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/item/TItemEffPG_8034FF4C.h"

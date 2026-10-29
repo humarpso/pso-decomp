@@ -804,8 +804,8 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __destroy_arr(void *, void *, s32, s32);
 u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1);
-extern s32 __dt__13TUnk_804949A8Fv[];
-extern s32 init_and_activate__10TObjPlayerFv[];
+extern s32 __dt__15RenderFadeStateFv[];
+extern s32 __ct__15RenderFadeStateFv[];
 extern S_80305E1C lbl_8047528C[];
 extern s32 lbl_804752A0[];
 extern char lbl_804752AC[];
@@ -938,7 +938,7 @@ void *__ct__14TObjCollidableFP7TObject(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 defer_render__7TObjectFv(void *);
 extern Vec_80303574 lbl_80475294[];
 extern s32 saved_model_render_flags;
@@ -1317,7 +1317,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
         TObjPlayer::toggle_particle_effect();
         draw = 1;
         fade = ((Obj_80303574 *)arg0)->arr[cam].b;
-        update_obstruction_fade(fade);
+        update__15RenderFadeStateFv(fade);
         cam = ((RenderFadeState *)fade)->updateFromCamera((const f32*)(arg0 + 0x2FC));
         if (F(s32, 0x3C0) & 2) {
             ((VObj_14_aa9368 *)(arg0 + 0x3D4))->m6();
@@ -2564,7 +2564,7 @@ u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1) {
             *(VD_803062D4 **)((s8 *)arg0 + 0x49C) = NULL;
         }
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0 + 0x3F0, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x3F0, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80490470Fv(arg0 + 0x3D4, -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
@@ -2605,7 +2605,7 @@ void TObjEneDellBiter::init_params() {
     self->f3C0 |= 1;
     ((V3D4_80306468 *)self->sub3D4)->m3();
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&self->arr3F0[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&self->arr3F0[i]))->activate_and_dispatch();
     }
     for (i = 0; i < 3; i++) {
         VecCopy((Vec *)&self->v460[i], (const Vec *)&self->pos);
@@ -2652,7 +2652,7 @@ void *TObjEneDellBiter__ct(void *ene_dell_biter, void *arg1, void *arg2) {
     ((TObjEneDD_ST *)ene_dell_biter)->init_object();
     *(s32 **)((s8 *)ene_dell_biter + 0x18) = __vt__16TObjEneDellBiter;
     ((TUnk_80490470 *)((char *)ene_dell_biter + 980))->init_vtable_and_field18();
-    __construct_array((void *)((char *)ene_dell_biter + 1008), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    __construct_array((void *)((char *)ene_dell_biter + 1008), __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 28, 4);
     *(void **)((s8 *)ene_dell_biter + 0x0) = TObjEneDellBiter__class_name;
     invoke_initialization_hook__9TObjEneDDFv(ene_dell_biter, arg2);
     ((TObjEneDellBiter *)ene_dell_biter)->init_target_offsets();

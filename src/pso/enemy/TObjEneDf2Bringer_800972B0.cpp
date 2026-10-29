@@ -38,7 +38,7 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 __dt__13TUnk_804949A8Fv[];
+extern s32 __dt__15RenderFadeStateFv[];
 u8 *__dt__17TObjEneDf2BringerFv(u8 *arg0, s16 arg1);
 void render__17TObjEneDf2BringerFv(u8 *arg0);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
@@ -878,7 +878,7 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 scroll_strip_uvs(int, int, int);
 s32 defer_render__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -980,7 +980,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
         TObjPlayer::toggle_particle_effect();
         temp_r28 = &S->fades[mode];
         var_r27 = 1;
-        update_obstruction_fade(temp_r28);
+        update__15RenderFadeStateFv(temp_r28);
         temp_r29 = ((RenderFadeState *)temp_r28)->updateFromCamera((const f32*)(arg0 + 0x2FC));
         if (*(s32 *)((s8 *)arg0 + 0x3C0) & 2) {
             ((VObj_14_aa9368 *)(arg0 + (964)))->m6();
@@ -2549,7 +2549,7 @@ void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void TObjEneDf2Bringer::vfunc_63() { if (*(short*)((char*)this + 0x326) != 10) { transition_enemy_state__9TObjEneDDFs(this, (void*)10); } }
 void TObjEneDf2Bringer::vfunc_28() {  }
 
-extern s32 init_and_activate__10TObjPlayerFv[];
+extern s32 __ct__15RenderFadeStateFv[];
 extern void *lbl_805D29A0;
 
 void run_task__17TObjEneDf2BringerFv(u8 *arg0) {
@@ -2613,7 +2613,7 @@ u8 *__dt__17TObjEneDf2BringerFv(u8 *arg0, s16 arg1) {
         }
         *(void **)((s8 *)arg0 + 0x498) = NULL;
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0 + 0x3E0, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x3E0, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80490470Fv(arg0 + 0x3C4, -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
@@ -2648,7 +2648,7 @@ void TObjEneDf2Bringer::init_enemy() {
     *(s32 *)((s8 *)arg0 + 0x3C0) |= 1;
     ((VObj_14_fa0828 *)(arg0 + 0x3C4))->m3();
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Arr_80099800 *)arg0)->slot[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Arr_80099800 *)arg0)->slot[i]))->activate_and_dispatch();
     }
     for (i = 0; i < 4; i++) {
         VecCopy((Vec *)(&((Arr_80099800 *)arg0)->v[i]), (const Vec *)(arg0 + 0x38));
@@ -2691,7 +2691,7 @@ void *TObjEneDf2Bringer__ct(void *ene_df2_bringer, void *arg1, void *arg2) {
     ((TObjEneDD_ST *)ene_df2_bringer)->init_object();
     *(s32 **)((s8 *)ene_df2_bringer + 0x18) = __vt__17TObjEneDf2Bringer;
     ((TUnk_80490470 *)((char *)ene_df2_bringer + 964))->init_vtable_and_field18();
-    __construct_array((void *)((char *)ene_df2_bringer + 992), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    __construct_array((void *)((char *)ene_df2_bringer + 992), __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 28, 4);
     *(void **)((s8 *)ene_df2_bringer + 0x0) = lbl_805D29A0;
     invoke_initialization_hook__9TObjEneDDFv(ene_df2_bringer, arg2);
     TObjEneDf2Bringer__sub_800994F8(ene_df2_bringer);

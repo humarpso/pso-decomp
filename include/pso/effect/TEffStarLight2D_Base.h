@@ -1,26 +1,21 @@
-#ifndef PSO_MISC_TEFFSTARLIGHT2D_BASE_H
-#define PSO_MISC_TEFFSTARLIGHT2D_BASE_H
+#ifndef PSO_TEFFSTARLIGHT2D_BASE_H
+#define PSO_TEFFSTARLIGHT2D_BASE_H
 
-#include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TEffStarLight2D_Base
-{
+class TEffStarLight2D;
+
+class TEffStarLight2D_Base : public TObjBase {
+public:
+    static void *create(void *set_data);
+    TEffStarLight2D_Base(TObject *parent, void *set_data);
+    virtual ~TEffStarLight2D_Base();
+    virtual void run_task();
+    virtual void render();
+
+    TEffStarLight2D *light;
 };
 
-extern "C" {
-void *TEffStarLight2D_Base__create(void *arg0, s32 _w1);
-u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1);
-int copy_position__15TEffStarLight2DFPv(void *p);
-}
-
-// --- C functions defined in TEffStarLight2D_Base.cpp ---
-extern "C" {
-void *TEffStarLight2D_Base__create(void *arg0, s32 _w1);
-u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1);
-int copy_position__15TEffStarLight2DFPv(void *p);
-}
-// --- end of C functions
+typedef char TEffStarLight2D_BaseSize[sizeof(TEffStarLight2D_Base) == 0x94 ? 1 : -1];
 
 #endif

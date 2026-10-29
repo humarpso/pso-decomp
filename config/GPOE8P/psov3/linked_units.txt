@@ -401,6 +401,7 @@ pso/effect/TEffGuard.cpp
 pso/effect/TEffHit.cpp
 pso/effect/TEffIndirectCtrl.cpp
 pso/effect/TEffIndirectCtrl_802A9284.cpp
+pso/effect/TEffStarLight2D_Base.cpp
 pso/effect/TEffect.cpp
 pso/effect/TUnk_804CCC68.cpp
 pso/encryption/PSOV3Encryption.cpp
@@ -2632,6 +2633,7 @@ pso/ui/TAdDialingGC_80328E90.cpp
 pso/ui/TAdDialingMessageWindow.cpp
 pso/ui/TAdDialingMessageWindow_8036A064.cpp
 pso/ui/TAdDrawLineCtrl.cpp
+pso/ui/TAdDrawLineTask.cpp
 pso/ui/TAdEnterBaseGC.cpp
 pso/ui/TAdEnterBaseGC_8032B38C.cpp
 pso/ui/TAdEnterPPPPassGC.cpp

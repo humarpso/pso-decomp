@@ -3,7 +3,7 @@
 #include "types.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/player/TUnk_804EDC28.h"
 #include "pso/player/TUnk_804EDD20.h"
 #include "pso/item/TUnk_804EDD44.h"

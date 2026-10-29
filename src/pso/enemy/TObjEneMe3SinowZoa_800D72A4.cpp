@@ -25,7 +25,7 @@ s32 TUnk_80494938::has_visible_opacity() {
     return *(f32 *)&this->unk_18 > (*(const f32 *)&lbl_805DA348);
 }
 
-void TUnk_80494938::set_flags_and_apply_damage_color() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(8448); }
+void TUnk_80494938::set_flags_and_apply_damage_color() { MaterialColorFade::set_flags_and_apply_damage_color(); set_chunk_blend(8448); }
 
 s32 TObjEneMe3SinowZoa::advance_timer(f32 farg0) {
     *(f32 *)((s8 *)((u8 *)this) + 0x18) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x18) + *(f32 *)&this->m_up);
@@ -35,14 +35,14 @@ s32 TObjEneMe3SinowZoa::advance_timer(f32 farg0) {
 
 s32 TUnk_80494938::advance_toward_max() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)&this->unk_18 = (f32) ((*(f32 *)&this->unk_18) + *(f32 *)&this->unk_10);
+    *(f32 *)&this->unk_18 = (f32) ((*(f32 *)&this->unk_18) + this->rate);
     ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)&this->unk_18 >= lbl_805DA34C;
 }
 
 s32 TUnk_80494938::decay_value_toward_floor() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)&this->unk_18 = (f32) ((*(f32 *)&this->unk_18) - *(f32 *)&this->unk_10);
+    *(f32 *)&this->unk_18 = (f32) ((*(f32 *)&this->unk_18) - this->rate);
     ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)&this->unk_18 <= (*(const f32 *)&lbl_805DA348);
 }
@@ -51,25 +51,25 @@ void TUnk_80494938::sub_800D741C() {
     f32 temp_f2;
     temp_f2 = *(f32 *)&this->unk_18;
     if (temp_f2 <= (*(const f32 *)&lbl_805DA348)) {
-        *(f32 *)&this->unk_0 = (f32) (*(const f32 *)&lbl_805DA350);
+        this->color.a = (f32) (*(const f32 *)&lbl_805DA350);
         return;
     }
     if (temp_f2 < lbl_805DA34C) {
-        *(f32 *)&this->unk_0 = (f32) (temp_f2 - lbl_805DA354);
-        if ((*(const f32 *)&lbl_805DA348) == *(f32 *)&this->unk_0) {
-            *(f32 *)&this->unk_0 = (f32) lbl_805DA358;
+        this->color.a = (f32) (temp_f2 - lbl_805DA354);
+        if ((*(const f32 *)&lbl_805DA348) == this->color.a) {
+            this->color.a = (f32) lbl_805DA358;
         }
         return;
     }
-    *(f32 *)&this->unk_0 = (f32) lbl_805DA354;
+    this->color.a = (f32) lbl_805DA354;
 }
 
 void TObjEneMe3SinowZoa::copy_position_vector(void* q) { *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); }
 
-void TUnk_80494938::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805DA348; *(float *)&this->unk_0 = lbl_805DA350; this->m_4 = lbl_805DA348; *(float *)&this->unk_8 = lbl_805DA348; this->m_c = lbl_805DA348; }
+void TUnk_80494938::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805DA348; this->color.a = lbl_805DA350; this->color.r = lbl_805DA348; this->color.g = lbl_805DA348; this->color.b = lbl_805DA348; }
 
     extern const float lbl_805DA34C;
-void TUnk_80494938::vfunc_4() { *(float *)&this->unk_18 = lbl_805DA34C; *(float *)&this->unk_0 = lbl_805DA348; this->m_4 = lbl_805DA348; *(float *)&this->unk_8 = lbl_805DA348; this->m_c = lbl_805DA348; }
+void TUnk_80494938::reset_color() { *(float *)&this->unk_18 = lbl_805DA34C; this->color.a = lbl_805DA348; this->color.r = lbl_805DA348; this->color.g = lbl_805DA348; this->color.b = lbl_805DA348; }
 
 void TObjEneMe3SinowZoa::set_field_10(f32 v) { *(f32 *)&this->m_up = v; }
 
@@ -98,7 +98,7 @@ extern const f32 lbl_805DA348;
 void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self);
 extern const f32 lbl_805DA35C;
 void TUnk_80494938::set_rate_from_divisor(s32 arg1) {
-    *(f32 *)&this->unk_10 = (f32) (lbl_805DA34C / (f32) arg1);
+    this->rate = (f32) (lbl_805DA34C / (f32) arg1);
 }
 
 #pragma push
@@ -127,7 +127,7 @@ extern s32 lbl_80494938[];
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_80494938;
-        __dt__13TUnk_80494AE0Fv(arg0, 0);
+        __dt__17MaterialColorFadeFv(arg0, 0);
         if (arg1 > 0) {
             ::operator delete(arg0);
         }
@@ -135,8 +135,8 @@ void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjPlayer__sub_800D9718(void);
+int __ct__17MaterialColorFadeFv(void);
 
-void*TUnk_80494938::init_common() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80494938; *(float *)&this->unk_18 = lbl_805DA348; return this; }
+void*TUnk_80494938::init_common() { __ct__17MaterialColorFadeFv(); *(int*)((char*)this + 0x14) = (int)lbl_80494938; *(float *)&this->unk_18 = lbl_805DA348; return this; }
 
 }
