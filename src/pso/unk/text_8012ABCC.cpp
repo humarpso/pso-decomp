@@ -3,6 +3,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/map/FloorArea.h"
+#include "pso/item/TItemEffHeaven.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -185,9 +186,7 @@ extern "C" {
 s32 send_activate_effect__5TItemFl(void *, int);
 s32 get_current_floor();
 u32 *copy_attack_targets(u32 *dst, u32 *src);
-void spawn_heaven_effect__10TObjPlayerFlUlUsl(s32, s32, u32, s16);
 s32 get_captured_target_collider_index(s32);
-u32 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(void *, s32);
 s32 get_captured_target_count(void *);
 extern s32 tl_05;
@@ -227,7 +226,7 @@ void TUnk_804A4B80::heaven_punisher_strike_locks() {
         for (i = 0; i != get_captured_target_count(arg0->f1f8); i++) {
             e = get_captured_target_entry(arg0->f1f8, i);
             v = get_captured_target_collider_index(e);
-            spawn_heaven_effect__10TObjPlayerFlUlUsl(tl_05, arg0->f0, get_uid__10TObjPlayerFv(e), v);
+            spawn_heaven_effect((TObject *)tl_05, (TObjPlayer *)arg0->f0, ((TObjPlayer *)e)->get_uid(), v);
         }
     } else {
         ((TItemWeapon *)arg0)->get_gun_point(buf);

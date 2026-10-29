@@ -119,6 +119,12 @@ public:
     CollisionBody *bodies;
     s32 body_count;
 };
+// The actor and collision body a weapon's hit reports.
+struct ActorBodyHit {
+    TObjCollidable *target;
+    s32 body;  // index into target->bodies
+};
+
 // One entry of TObjMotion::action_table.
 struct TObjMotionAction {
     s16 mode;

@@ -482,7 +482,6 @@ struct TObjPlayer : public TObjChara {
     static void init_game_resources();
     u8 is_script_controlled();
     int activate_d04_slot();
-    static void spawn_heaven_effect(s32 arg0, u32 arg1, u16 arg2, s32 arg3);
     void spawn_hit_particle_trio();
     static void forward_item_effect_callback(s32 arg0, s32 arg1);
     static void invoke_menu_callback_if_set(u32 arg0);

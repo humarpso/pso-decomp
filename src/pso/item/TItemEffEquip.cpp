@@ -59,7 +59,6 @@ struct Obj_80108C90 {
 void __ct__14TObjCollidableFP7TObject(void *, void *);
 extern u8 lbl_8043E1A0[];
 
-#include "pso/TItemEffFlame.h"
 #include "pso/TItemAttacker.h"
 
 extern "C" {
@@ -296,11 +295,6 @@ TUnk_8049F038::TUnk_8049F038(TObject *parent, s16 a, s32 b) : TObjCollidable(par
 }
 extern "C" {
 
-}
-
-void TItemEffFlame::play_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    spawn_particle_effect((void *)arg3, 0x45);
-    play_sound_effect(0x4001C112, 0, 0, 0);
 }
 
 void render__7TObjectFv(void);

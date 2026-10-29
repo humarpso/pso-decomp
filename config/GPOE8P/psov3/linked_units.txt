@@ -2930,7 +2930,6 @@ pso/unk/text_801036CC.cpp
 pso/unk/text_80104F4C.cpp
 pso/unk/text_801057A8.cpp
 pso/unk/text_80108860.cpp
-pso/unk/text_80108F04.cpp
 pso/unk/text_801094D8.cpp
 pso/unk/text_801095EC.cpp
 pso/unk/text_8010EF14.cpp

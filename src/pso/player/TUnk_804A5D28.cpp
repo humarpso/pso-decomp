@@ -176,10 +176,10 @@ extern "C" {
 
 int __ct__11TItemWeaponFP7TObjectPUc(void);
 
-    extern unsigned char play_effect__13TItemEffFlameFllll[];
+    extern unsigned char spawn_flame_wall_impact[];
     extern unsigned char create_shoot_model_with_particles[];
     extern unsigned char lbl_804A5D28[];
     
-void*TUnk_804A5D28::setup_flame_effect() { __ct__11TItemWeaponFP7TObjectPUc(); *(int*)((char*)this + 0x18) = (int)lbl_804A5D28; *(float*)((char*)this + 0x1f8) = 0.0f; *(int *)&(*(s32 * *)((u8 *)this + 0x1EC)) = (int)play_effect__13TItemEffFlameFllll; *(int *)&(this->m_1fc) = 0; *(int *)&(*(s32 * *)((u8 *)this + 0x1F4)) = (int)play_target_impact_effect; *(int*)((char*)this + 0x1f0) = (int)create_shoot_model_with_particles; (*(float *)((u8 *)this + 0x1E4)) = 15.0f; return this; }
+void*TUnk_804A5D28::setup_flame_effect() { __ct__11TItemWeaponFP7TObjectPUc(); *(int*)((char*)this + 0x18) = (int)lbl_804A5D28; *(float*)((char*)this + 0x1f8) = 0.0f; *(int *)&(*(s32 * *)((u8 *)this + 0x1EC)) = (int)spawn_flame_wall_impact; *(int *)&(this->m_1fc) = 0; *(int *)&(*(s32 * *)((u8 *)this + 0x1F4)) = (int)play_target_impact_effect; *(int*)((char*)this + 0x1f0) = (int)create_shoot_model_with_particles; (*(float *)((u8 *)this + 0x1E4)) = 15.0f; return this; }
 
 }

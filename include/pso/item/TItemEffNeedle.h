@@ -53,12 +53,6 @@ public:
 typedef char TItemEffNeedleBaseSize[(sizeof(TItemEffNeedleBase) == 0x50) ? 1 : -1];
 typedef char TItemEffNeedleSize[(sizeof(TItemEffNeedle) == 0x64) ? 1 : -1];
 
-// The actor and collision body a weapon's hit reports.
-struct ActorBodyHit {
-    TObjCollidable *target;
-    s32 body;
-};
-
 // Weapon hit callbacks that leave needles.
 extern "C" {
 void create_needle_pos_effect(s32 item_id, const Vec *pos, Vec *dir);
