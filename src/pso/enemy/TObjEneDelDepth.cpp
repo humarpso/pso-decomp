@@ -3,6 +3,7 @@
 #include "types.h"
 #include "pso/map/CsnQuery.h"
 #include "pso/TObjControl.h"
+#include "pso/render/reflection.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjChara.h"
@@ -26,7 +27,7 @@
 #include "pso/unk/text_803E2D70.h"
 
 extern "C" {
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 random_ratio__9TObjCharaFv(void *);
 f64 atan2_float(f32, f32);
 
 s32 angle_difference_abs(s32, s32);
@@ -424,7 +425,7 @@ void TObjEneDelDepth::render() {
 s32 TObjEneDelDepth::draw_if_visible() {
     TObjEneDelDepth *o = this;
     if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x20) {
-        if (((TObjEneRecon *)(&o->groundPoint))->push_reflect_matrix() != 0) {
+        if (push_reflection_matrix((Vec *)(&o->groundPoint)) != 0) {
             push_matrix();
             Vec v = o->position;
             v.y += o->drawOffsetY;
@@ -451,7 +452,7 @@ void TObjEneDelDepth::set_action_state(s32 i) {
 }
 
 void TObjEneDelDepth::set_depth_offset(s32 minimum, s32 range) {
-    timer = minimum + (s32)((f32)range * calc_boss4_scale__10TObjPlayerFi(this));
+    timer = minimum + (s32)((f32)range * random_ratio__9TObjCharaFv(this));
 }
 
 #pragma push
@@ -662,7 +663,7 @@ void TObjEneDelDepth::start_move_toward_player() {
         this->set_action_state(2);
         return;
     }
-    temp_r31 = (s32) (lbl_805DF2B0 * calc_boss4_scale__10TObjPlayerFi(actor));
+    temp_r31 = (s32) (lbl_805DF2B0 * random_ratio__9TObjCharaFv(actor));
     this->direction.x += TObjEneDelDepth__data_805DF270 * sin_table_lookup(temp_r31);
     this->direction.z += TObjEneDelDepth__data_805DF270 * cos_table_lookup(temp_r31);
     if (vector_length((u8 *)&this->direction.x) <= lbl_805DF288) {
@@ -670,7 +671,7 @@ void TObjEneDelDepth::start_move_toward_player() {
         return;
     }
     normalize_vector((u8 *)&this->direction.x);
-    temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(actor)) + lbl_805DF2B4;
+    temp_f1 = (lbl_805DF2B8 * random_ratio__9TObjCharaFv(actor)) + lbl_805DF2B4;
     this->m_38c = temp_f1;
     this->opacity = TObjEneDelDepth__data_805DF260;
     this->motionController->set_motion(7);
@@ -740,7 +741,7 @@ void TObjEneDelDepth::update_movement() {
                 VecCopy((Vec *)&p, (const Vec *)&arg0->position);
                 w.x = hit->contact->normal.z;
                 w.z = -hit->contact->normal.x;
-                ((TObjBoss2Tunnel *)(&w))->clamp_velocity();
+                normalize_vector_xz((Vec *)(&w));
                 if (n.x * w.x + n.z * w.z >= TObjEneDelDepth__data_805DF258) {
                     n.x = w.x;
                     n.z = w.z;
@@ -829,10 +830,10 @@ void TObjEneDelDepth::try_enter_appear() {
 
 void TObjEneDelDepth::fn_80314500() {
     targetPlayer = 0xFFFF;
-    m_394 = ((s32)(lbl_805DF2A0 * calc_boss4_scale__10TObjPlayerFi(this)) + 4) << 16;
+    m_394 = ((s32)(lbl_805DF2A0 * random_ratio__9TObjCharaFv(this)) + 4) << 16;
     timer = 0x7FFFFFFF;
     m_3bc = TObjEneDelDepth__tune_params->turnSpeed;
-    if (calc_boss4_scale__10TObjPlayerFi(this) > TObjEneDelDepth__data_805DF298) {
+    if (random_ratio__9TObjCharaFv(this) > TObjEneDelDepth__data_805DF298) {
         m_3bc *= -1;
     }
     motionController->set_motion(0);
@@ -888,7 +889,7 @@ void TObjEneDelDepth::fn_803142DC() {
 void TObjEneDelDepth::init_depth() {
     this->set_depth_offset(0x1E, 0x1E);
     this->m_3bc = 0x888;
-    if (calc_boss4_scale__10TObjPlayerFi(this) > TObjEneDelDepth__data_805DF298) {
+    if (random_ratio__9TObjCharaFv(this) > TObjEneDelDepth__data_805DF298) {
         this->m_3bc = this->m_3bc * 0xFFFFFFFF;
     }
     this->motionController->set_motion(0);
@@ -947,7 +948,7 @@ void TObjEneDelDepth::move_toward_target() {
         VecCopy(&this->position, &this->prev_position);
     }
     if (--this->timer <= 0) {
-        if (vector_length(&v) > TObjEneDelDepth__data_805DF280 || calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805DF290) {
+        if (vector_length(&v) > TObjEneDelDepth__data_805DF280 || random_ratio__9TObjCharaFv(arg0) < lbl_805DF290) {
             this->set_action_state(9);
         } else {
             this->set_action_state(0xA);
