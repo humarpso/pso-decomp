@@ -145,7 +145,7 @@ Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-void init_and_activate__10TObjPlayerFv(void *);
+void __ct__15RenderFadeStateFv(void *);
 extern s32 lbl_804B4844[];
 extern s32 TOTrapAncient01__class_name;
 extern const f32 lbl_805DBA54;
@@ -160,7 +160,7 @@ extern s32 lbl_805D3530;
 extern const f32 lbl_805DBA48;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-void update_obstruction_fade(void *);
+void update__15RenderFadeStateFv(void *);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
@@ -327,7 +327,7 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
         i = get_camera_mode__11TCameraCtrlFv();
     }
     fade = &self->fades[i];
-    update_obstruction_fade(fade);
+    update__15RenderFadeStateFv(fade);
     self->f340 = self->m8(lbl_805DBA58, lbl_805DBA5C);
     if (self->f340 == 1) {
         if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->pos38)) == 1) {
@@ -412,7 +412,7 @@ Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
         self->vt = __vt__15TOTrapAncient01;
         ((TObjCollidable *)self)->unregister_object_by_id();
         free_collision_body_parts(self);
-        __destroy_arr(self->arr, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(self->arr, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__6TOTrapFv(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
@@ -428,7 +428,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
     TOTrap__ct(arg0, arg1, arg2);
     *(s32 **)((s8 *)self + 0x18) = __vt__15TOTrapAncient01;
-    __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(self + 0x358, (void *)__ct__15RenderFadeStateFv, (void *)__dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
     ((TOTrapAncient01 *)arg0)->apply_object_set_data((void *)((s32)arg2));
     ((TObjPlayer *)arg0)->init_position_vectors();
@@ -470,7 +470,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjChara *)arg0)->get_or_assign_entity_id(0);
     ((TObjPlayer *)arg0)->register_object_by_id();
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(((Self_80179F40 *)arg0)->arr[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(((Self_80179F40 *)arg0)->arr[i]))->activate_and_dispatch();
     }
     return arg0;
 }

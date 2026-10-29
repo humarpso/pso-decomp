@@ -2,7 +2,7 @@
 #define PSO_BOSS_TBOSS1DRAGON_H
 
 #include "types.h"
-#include "pso/misc/CameraObstructionFade.h"
+#include "pso/misc/RenderFadeState.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 
 class TBoss1DragonEffTail;
@@ -118,7 +118,7 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     f32 savedX;
     f32 savedZ;
     u8 unknown6A0[0x6E8 - 0x6A0];
-    CameraObstructionFade viewFade[4];
+    RenderFadeState viewFade[4];
     u8 unknown758[0x768 - 0x758];
     s32 controlTimer;
     s32 facingAngle;

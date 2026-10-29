@@ -1,5 +1,5 @@
 #include "pso/TBoss5GryphonLightningEff.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TTecZondeEff.h"
 #include "pso/boss/TBoss5GryphonLightningEff.h"
 #include "pso/system/ChunkMaterialState.h"

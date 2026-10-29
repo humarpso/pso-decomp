@@ -1,7 +1,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/boss/TObjBoss1Rock.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/player/TObjPlayer_8002E784.h"
 #include "pso/system/vector.h"

@@ -4,7 +4,7 @@
 #include "pso/TPlyOnCountOver.h"
 #include "pso/system/FlagWord.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TPlyOnCreated.h"
 #define TOBJECT_OUT_OF_LINE_HELPERS

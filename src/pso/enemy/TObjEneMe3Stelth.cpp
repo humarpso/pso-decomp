@@ -9,7 +9,7 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"

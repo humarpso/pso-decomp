@@ -49,12 +49,10 @@ s32 push_matrix();
 extern s32 model_render_flags;
 void free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 s32 play_persistent_sound(s32, void *, void *, s16, s32);
 s32 rand(void);
 extern s32 actor_frame_tick;
 s32 minimap_render_dot(void *, s32, s16, s32);
-s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 play_sound_effect(s32, void *, s16, s32);
 void advance_animation_playback(void *);
@@ -149,18 +147,7 @@ public:
     virtual s32 update_object_view_visibility(f32 radius, f32 margin);
 };
 
-class ObstructionFade {
-public:
-    u8 pad_0[0x14];
-    virtual void vfunc_0();
-    virtual void vfunc_1();
-    virtual void vfunc_2();
-    virtual void vfunc_3();
-    virtual void vfunc_4();
-    virtual void vfunc_5();
-    virtual void fade_out();
-    virtual void restore();
-};
+
 
 const char *TBoss3VoloptP02_name = "TBoss3VoloptP02";
 
@@ -271,7 +258,6 @@ s32 TBoss3VoloptP02::get_int_param(s32 index) {
 }
 
 TBoss3VoloptP02::TBoss3VoloptP02(TObject *parent, void *set_data) : TObjEnemyCustom(parent) {
-    ((TObjPlayer *)&fade)->init_and_activate();
     apply_set_data(set_data);
     init_params();
 }
@@ -332,7 +318,6 @@ TBoss3VoloptP02::~TBoss3VoloptP02() {
     }
     destroy_children();
     destroy_sub_objects();
-    __dt__13TUnk_804949A8Fv(&fade, -1);
 }
 
 void *TBoss3VoloptP02::create(void *set_data) {
@@ -460,7 +445,7 @@ void TBoss3VoloptP02::run_task() {
             ((TBoss3VoloptHiraisin *)this)->copy_position();
             submit_cursor_candidate(this, -1);
             minimap_render_dot(&position, -0x5DB4, 1, 0);
-            update_obstruction_fade(&fade);
+            fade.update();
             clear_all_status_effects();
         }
     }
@@ -488,7 +473,7 @@ void TBoss3VoloptP02::run_state() {
 void TBoss3VoloptP02::render() {
     if (!(actorFlags & 0x02000000) && (((ViewCulledObject *)this)->update_object_view_visibility(400.0f, 40.0f) != 0)) {
         if (fade.updateFromCamera((const f32 *)&m_2fc) != 0) {
-            ((ObstructionFade *)&fade)->fade_out();
+            fade.set_flags_and_apply_damage_color();
         }
         TObjFish::set_global_param(texlist);
         select_actor_lighting((s32)this);
@@ -505,7 +490,7 @@ void TBoss3VoloptP02::render() {
         pop_matrix();
         restore_scene_lighting();
         TParticleCtrl::end_effect_render();
-        ((ObstructionFade *)&fade)->restore();
+        fade.clear_flag_and_notify();
     }
 }
 

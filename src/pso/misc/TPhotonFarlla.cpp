@@ -1,7 +1,7 @@
 #include "pso/system/NinjaTypes.h"
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/player/TObjPlayer_801AADE8.h"

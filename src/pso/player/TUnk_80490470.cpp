@@ -14,11 +14,11 @@ s32 TUnk_80490470::has_visible_opacity() {
     return *(f32 *)&this->unk_18 > 0.0f;
 }
 
-void TUnk_80490470::set_flags_and_apply_damage_color() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(7424); }
+void TUnk_80490470::set_flags_and_apply_damage_color() { MaterialColorFade::set_flags_and_apply_damage_color(); set_chunk_blend(7424); }
 s32 TUnk_80490470::advance_toward_max() {
     f32 temp_f1;
     temp_f1 = *(f32 *)&this->unk_18;
-    *(f32 *)&this->unk_18 = (f32) (temp_f1 + *(f32 *)&this->unk_10);
+    *(f32 *)&this->unk_18 = (f32) (temp_f1 + this->rate);
     calc_recoil_offsets__13TUnk_80490470Fv(temp_f1);
     return *(f32 *)&this->unk_18 >= 2.0f;
 }
@@ -54,31 +54,31 @@ void TUnk_80490470::calc_recoil_offsets() {
     temp_f1 = *(f32 *)&this->unk_18;
     if (temp_f1 > 1.0f) {
         if (temp_f1 > 2.0f) {
-            *(f32 *)&this->unk_0 = (f32) 0.0f;
+            this->color.a = (f32) 0.0f;
         } else {
-            *(f32 *)&this->unk_0 = (f32) (temp_f1 - 2.0f);
+            this->color.a = (f32) (temp_f1 - 2.0f);
         }
-        this->m_4 = (f32) 0.0f;
-        *(f32 *)&this->unk_8 = (f32) 0.0f;
-        this->m_c = (f32) 0.0f;
+        this->color.r = (f32) 0.0f;
+        this->color.g = (f32) 0.0f;
+        this->color.b = (f32) 0.0f;
         return;
     }
-    *(f32 *)&this->unk_0 = (f32) (-1.0f);
+    this->color.a = (f32) (-1.0f);
     var_f0 = *(f32 *)&this->unk_18 - 1.0f;
     if (var_f0 < (-1.0f)) {
         var_f0 = (-1.0f);
     }
-    this->m_4 = var_f0;
-    *(f32 *)&this->unk_8 = var_f0;
-    this->m_c = var_f0;
+    this->color.r = var_f0;
+    this->color.g = var_f0;
+    this->color.b = var_f0;
 }
 
     
     
-void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = 0.0f; *(float *)&this->unk_0 = (-1.0f); this->m_4 = (-1.0f); *(float *)&this->unk_8 = (-1.0f); this->m_c = (-1.0f); }
+void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = 0.0f; this->color.a = (-1.0f); this->color.r = (-1.0f); this->color.g = (-1.0f); this->color.b = (-1.0f); }
 
     
-void TUnk_80490470::vfunc_4() { *(float *)&this->unk_18 = 2.0f; *(float *)&this->unk_0 = 0.0f; this->m_4 = 0.0f; *(float *)&this->unk_8 = 0.0f; this->m_c = 0.0f; }
+void TUnk_80490470::reset_color() { *(float *)&this->unk_18 = 2.0f; this->color.a = 0.0f; this->color.r = 0.0f; this->color.g = 0.0f; this->color.b = 0.0f; }
 
 struct Base_800A04F0 { f32 v0, v4, v8, vc; f32 rate; };
 
@@ -102,7 +102,7 @@ void TObjPlayer__sub_800A04F0(Obj_800A04F0 *self);
 
 void TObjPlayer__sub_800A0554(Obj_800A0554 *self);
 void TUnk_80490470::set_rate_from_divisor(s32 arg1) {
-    *(f32 *)&this->unk_10 = (f32) (2.0f / (f32) arg1);
+    this->rate = (f32) (2.0f / (f32) arg1);
 }
 #pragma push
 #pragma fp_contract on
@@ -130,7 +130,7 @@ extern s32 lbl_80490470[];
 void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_80490470;
-        __dt__13TUnk_80494AE0Fv(arg0, 0);
+        __dt__17MaterialColorFadeFv(arg0, 0);
         if (arg1 > 0) {
             ::operator delete(arg0);
         }
@@ -151,9 +151,9 @@ struct Obj_800A0728 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4];
 extern "C" {
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self);
 s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self);
-int TObjPlayer__sub_800D9718(void);
+int __ct__17MaterialColorFadeFv(void);
 
-void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float *)&this->unk_18 = 0.0f; return this; }
+void*TUnk_80490470::init_vtable_and_field18() { __ct__17MaterialColorFadeFv(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float *)&this->unk_18 = 0.0f; return this; }
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {

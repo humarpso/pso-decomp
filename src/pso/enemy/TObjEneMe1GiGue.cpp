@@ -45,6 +45,7 @@ struct Vec_802CB8F0;
 struct IV3_802CB824 { s32 x, y, z; };
 
 extern "C" {
+void __ct__15RenderFadeStateFv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, void *);
 void * __nw__7TObjectFUl(int);
 void TObjPlayer__sub_802CDEB4(void *, void *, u16, void *, s32, s32, u16);
@@ -1722,7 +1723,7 @@ s32 register_boss__6TLobbyFl(int);
 s32 TLobby__sub_8001FE7C(s32, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 find_active_entity_by_id(int);
 void * TObjControl__ct(void *, void *);
 s32 submit_cursor_candidate(void *, int);
@@ -2009,7 +2010,7 @@ void TObjEneMe1GiGue::run_task() {
         temp_r3_4 = (unsigned char *) (((TObjEneMe1GiGue *)arg0)->bodies);
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
-    update_obstruction_fade((u8 *)&this->m_418);
+    update__15RenderFadeStateFv((u8 *)&this->m_418);
     if (xz_distance_squared((Vec *)&this->position, &this->prev_position) > 2500.0f) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
@@ -2106,7 +2107,7 @@ struct G_802CDAC4 { u8 pad[0x18]; s32 v[1]; };
 
 extern "C" {
 void free_collision_body_parts(void *);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
@@ -2124,7 +2125,7 @@ void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = lbl_804E135C;
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0x418, -1);
+        __dt__15RenderFadeStateFv((s8 *)arg0 + 0x418, -1);
         __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3FC, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
@@ -2138,7 +2139,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 enemy_custom, u8 *arg2) {
     __ct__15TObjEnemyCustomFP7TObject(arg0, enemy_custom);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804E135C;
     ((TUnk_80494938 *)(arg0 + 0x3FC))->init_common();
-    ((TObjPlayer *)(arg0 + 0x418))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)(arg0 + 0x418)));
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F18;
     ((TObjEneMe1GiGue *)arg0)->apply_set_data(arg2);
     VecCopy((Vec *)(arg0 + 0x290), (const Vec *)((void *) VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x38))));
@@ -2193,7 +2194,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 enemy_custom, u8 *arg2) {
     }
     project_actor_to_ground(arg0, arg0 + 0x38, 0);
     ((TObjEneMe1GiGue *)arg0)->m_3ec = 0.0f;
-    ((TObjPlayer *)(arg0 + 0x418))->activate_and_dispatch();
+    ((RenderFadeState *)(arg0 + 0x418))->activate_and_dispatch();
     obj_setFlags30(arg0, 0x01000000);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     ((TObjEneMe1GiGue *)arg0)->clear_lobby_object_state();

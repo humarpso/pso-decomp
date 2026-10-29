@@ -1,3 +1,4 @@
+#include "pso/misc/RenderFadeState.h"
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -128,8 +129,8 @@ void init_model__9TObjEneDDFv(void *, void *, int);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
-void init_and_activate__10TObjPlayerFv();
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
+void __ct__15RenderFadeStateFv();
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
@@ -392,7 +393,7 @@ Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
     if (arg0 != 0) {
         arg0->vt = TObjEneRecobox__vtable;
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x460, ((u8 *)__dt__13TUnk_804949A8Fv), 0x1C, 4);
+        __destroy_arr((u8 *)arg0 + 0x460, ((u8 *)__dt__15RenderFadeStateFv), 0x1C, 4);
         __dt__13TUnk_80494938Fv((u8 *)arg0 + 0x3C0, -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
@@ -409,7 +410,7 @@ u8 *TObjEneRecobox__ct(u8 *ene_recobox, s32 arg1, u8 *arg2) {
     init_object__12TObjEneDD_STFv(ene_recobox, arg1, arg2);
     *(u8 **)((s8 *)ene_recobox + 0x18) = TObjEneRecobox__vtable;
     ((TUnk_80494938 *)(ene_recobox + 0x3C0))->init_common();
-    __construct_array(ene_recobox + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(ene_recobox + 0x460, (void *)&__ct__15RenderFadeStateFv, (void *)&__dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)((s8 *)ene_recobox + 0) = TObjEneRecobox_name_ref;
     invoke_initialization_hook__9TObjEneDDFv(ene_recobox, arg2);
     ((TObjEneDD *)ene_recobox)->init_position_vectors();
@@ -453,7 +454,7 @@ u8 *TObjEneRecobox__ct(u8 *ene_recobox, s32 arg1, u8 *arg2) {
         S->f418[i] = 0xFFFF;
     }
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&S->subs[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&S->subs[i]))->activate_and_dispatch();
     }
     *(s32 *)((s8 *)ene_recobox + 0x4D8) = 0;
     *(s32 *)((s8 *)ene_recobox + 0x4DC) = 0;

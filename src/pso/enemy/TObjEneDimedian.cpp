@@ -121,7 +121,7 @@ extern s32 lbl_805D5088;
 
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 defer_render__7TObjectFv(void *);
@@ -327,7 +327,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
     }
     fading = 0;
     if (TObjEneDD::check_v2_mode() != 0) {
-        update_obstruction_fade(&self->fades[mode]);
+        update__15RenderFadeStateFv(&self->fades[mode]);
         fading = ((RenderFadeState *)(&self->fades[mode]))->updateFromCamera((const f32*)(self->cam));
     }
     select_actor_lighting(self);
@@ -497,7 +497,7 @@ int initialize_enemy_photon_effect(void *p);
 extern "C" {
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
-void init_and_activate__10TObjPlayerFv();
+void __ct__15RenderFadeStateFv();
 extern s32 TObjEneDimedian_name_ref;
 
 void __dt__13TUnk_80493450Fv(void *, int);
@@ -505,7 +505,7 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void __dt__13TUnk_80490470Fv(void *, int);
-extern u8 __dt__13TUnk_804949A8Fv[];
+extern u8 __dt__15RenderFadeStateFv[];
 O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
@@ -823,7 +823,7 @@ O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
         }
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3CC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr((u8 *)arg0 + 0x3CC, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__13TUnk_80490470Fv((u8 *)arg0 + 0x3A8, -1);
         __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
@@ -845,7 +845,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((void (*)(void *, s32, s32))init_enemy_base__13TUnk_80493450Fv)(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneDimedian;
     ((TUnk_80490470 *)(arg0 + 0x3A8))->init_vtable_and_field18();
-    __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    __construct_array(arg0 + 0x3CC, (void *)&__ct__15RenderFadeStateFv, (void *)&__dt__15RenderFadeStateFv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = TObjEneDimedian_name_ref;
     ((VObj_18_c99286 *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
@@ -910,7 +910,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     *(f32 *)((s8 *)arg0 + 0x39C) = ((f32 **)(*(s32 **)&dimedian_buffer_ptr))[*(s32 *)((s8 *)arg0 + 0x334)][2];
     *(f32 *)((s8 *)arg0 + 0x3A4) = ((f32 **)(*(s32 **)&dimedian_buffer_ptr))[*(s32 *)((s8 *)arg0 + 0x334)][3];
     for (i = 0; i < 4; i++) {
-        ((TObjPlayer *)(&((Self_800A8530 *)arg0)->subs[i]))->activate_and_dispatch();
+        ((RenderFadeState *)(&((Self_800A8530 *)arg0)->subs[i]))->activate_and_dispatch();
     }
     ((VObj_18_c99286 *)arg0)->m80();
     return arg0;

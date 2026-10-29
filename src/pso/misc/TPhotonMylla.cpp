@@ -3,7 +3,7 @@
 #include "types.h"
 #include "pso/misc/TPhotonMylla.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/map/FloorArea.h"
 struct TPhotonYoulla;

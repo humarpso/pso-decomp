@@ -4,7 +4,7 @@
 #include "pso/unk/TUnk_8049EFB8.h"
 #include "pso/unk/text_80107D4C.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/item/TItemEffArmor_80107DA4.h"
 #include "pso/object/TObjLight_80133568.h"

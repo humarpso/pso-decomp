@@ -281,7 +281,7 @@ u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 get_camera_mode__11TCameraCtrlFv();
 u32 csnLookAt(void *, void *);
 s32 spawn_particle_effect(void *, int, f32);
-s32 update_obstruction_fade(int, int);
+s32 update__15RenderFadeStateFv(int, int);
 void TObjEnePanarms__sub_800DFE08(u8 *arg0);
 void TObjEnePanarms__sub_800E0048(u8 *arg0);
 void TObjEnePanarms__sub_800E0344(u8 *arg0);
@@ -347,7 +347,7 @@ extern const f32 TObjEnePanarms__data_805DA52C;
 extern const f32 TObjEnePanarms__data_805DA544;
 extern const f32 TObjEnePanarms__data_805DA550;
 extern const f32 TObjEnePanarms__data_805DA560;
-extern u8 __dt__13TUnk_804949A8Fv[];
+extern u8 __dt__15RenderFadeStateFv[];
 extern Vec_800E1A44 panarms_part_offset_table[];
 extern s32 lbl_8043CD58[];
 extern Vec_800E1A44 panarms_parent_offset_table[];
@@ -1466,7 +1466,7 @@ void TObjEnePanarms::draw_with_fade() {
     saved_model_render_flags = temp_r4;
     model_render_flags = temp_r4 | 0x01000000 | 1;
     temp_r31 = &((Obj_800E20D0 *) ((u8 *)this))->fades[var_r31];
-    update_obstruction_fade((int)temp_r31, (int)temp_r4);
+    update__15RenderFadeStateFv((int)temp_r31, (int)temp_r4);
     if (((RenderFadeState *)temp_r31)->updateFromCamera((const f32*)(((u8 *)this) + 0x2FC)) != 0) {
         temp_r31->m6();
         var_r30 = 1;
@@ -1557,7 +1557,7 @@ Obj_800E24A4 *fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         arg0->f37C = 0;
         TObjFish::init_state_1((void *)arg0->f3DC);
-        __destroy_arr(arg0->f3EC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0->f3EC, __dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

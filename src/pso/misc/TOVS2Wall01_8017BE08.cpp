@@ -35,8 +35,9 @@ struct VObj_14_1eb8da : VBase_14_1eb8da {
 };
 
 extern "C" {
+void __ct__15RenderFadeStateFv(void *);
 s32 TOVS2Wall01__sub_8017B9AC(void *);
-s32 update_obstruction_fade(void *);
+s32 update__15RenderFadeStateFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -52,7 +53,7 @@ void __ct__9TObjCharaFP7TObject(void *, void *);
 void obj_setFlags30(void *, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-void activate_and_dispatch__10TObjPlayerFv(void *, s32, f32);
+void activate_and_dispatch__15RenderFadeStateFv(void *, s32, f32);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 ovs2wall01_collision_parts[];
 extern s32 __vt__11TOVS2Wall01[];
@@ -64,7 +65,7 @@ extern const f32 lbl_805DBAB0;
 void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1);
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+void *__dt__15RenderFadeStateFv(void *arg0, s16 arg1);
 int submit_cursor_candidate(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -94,7 +95,7 @@ void TOVS2Wall01::run_task() {
 void TOVS2Wall01::render() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;
-    update_obstruction_fade((u8 *)&this->m_340);
+    update__15RenderFadeStateFv((u8 *)&this->m_340);
     *(s32 *)&this->m_35c = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)&this->unk_334, this->m_338);
     if ((s32) this->m_35c == 1) {
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -136,7 +137,7 @@ void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
         ((TObjCollidable *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0x340, -1);
+        __dt__15RenderFadeStateFv((s8 *)arg0 + 0x340, -1);
         ((TObjChara *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -150,7 +151,7 @@ void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1) {
     s32 t;
     __ct__9TObjCharaFP7TObject(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
-    ((TObjPlayer *)((u8 *)arg0 + 0x340))->init_and_activate();
+    __ct__15RenderFadeStateFv(((void *)((u8 *)arg0 + 0x340)));
     *(s32 *)((s8 *)arg0 + 0) = TOVS2Wall01__class_name;
     arg0->apply_object_set_data(arg1);
     ((TObjChara *)arg0)->calc_attach_pos();
@@ -165,7 +166,7 @@ void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1) {
     arg0->m_338 = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14);
     t = arg0->set_params[0];
     arg0->m_33c = t + 0x100;
-    activate_and_dispatch__10TObjPlayerFv((u8 *)arg0 + 0x340, t, lbl_805DBAB0);
+    activate_and_dispatch__15RenderFadeStateFv((u8 *)arg0 + 0x340, t, lbl_805DBAB0);
     arg0->m_35c = 1;
     return arg0;
 }

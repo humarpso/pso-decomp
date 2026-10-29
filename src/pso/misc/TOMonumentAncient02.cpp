@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/misc/TLobby_8030A6A8.h"

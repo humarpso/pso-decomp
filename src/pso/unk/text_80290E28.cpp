@@ -2,7 +2,7 @@
 #pragma opt_lifetimes off
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/unk/text_80290E28.h"

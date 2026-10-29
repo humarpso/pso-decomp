@@ -555,7 +555,7 @@ extern const f32 lbl_805D9C48;
 void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self);
 s32 render_with_position_override__9TObjEnemyFPUcl(void *, f32 *, s32, f32);
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 update_obstruction_fade(void *, s32, s32, s32);
+s32 update__15RenderFadeStateFv(void *, s32, s32, s32);
 s32 restore_scene_lighting(s32, s32);
 s32 select_actor_lighting(void *);
 s32 defer_render__7TObjectFv(void *);
@@ -1521,7 +1521,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
     saved_chunk_polygon_flags_and_mask = chunk_polygon_flags_and_mask;
     saved_chunk_polygon_flags_or_mask = chunk_polygon_flags_or_mask;
     model_render_flags = id | 1;
-    update_obstruction_fade(fade, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask, id);
+    update__15RenderFadeStateFv(fade, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask, id);
     draw = 1;
     if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(arg0 + 0x38)) == 1) {
         fade->m6();

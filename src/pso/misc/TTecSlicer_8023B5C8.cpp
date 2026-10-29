@@ -4,7 +4,7 @@
 #include "pso/unk/text_801036CC.h"
 #include "pso/system/FlagWord.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TTecSlicer_8023B5C8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecSlicer.h"

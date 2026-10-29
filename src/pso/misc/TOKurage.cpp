@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/misc/TOKey_8015845C.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/unk/text_803D853C.h"

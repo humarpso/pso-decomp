@@ -1,7 +1,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "types.h"
 #include "pso/object/TObjCamera.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/object/TObjCamera_8017F80C.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/misc/TUnk_804AFBF8.h"

@@ -178,7 +178,7 @@ extern s32 anim_model_matrix_array;
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 __dt__13TUnk_804949A8Fv[];
+extern s32 __dt__15RenderFadeStateFv[];
 extern s32 __vt__14TObjEneEpsilon[];
 u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
@@ -220,7 +220,7 @@ void construct_srank_weapon(void *);
 void __construct_array(void *, void *, void *, int, int);
 void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 
-extern s32 init_and_activate__10TObjPlayerFv[];
+extern s32 __ct__15RenderFadeStateFv[];
 extern void *TObjEneEpsilon__class_name;
 
 typedef char RecoveredGlobal_803626A8_lbl_80479FBC_size[sizeof(RecoveredGlobal_803626A8_lbl_80479FBC) == 0xC ? 1 : -1];
@@ -308,7 +308,7 @@ void TObjEneEpsilonGuard::load_assets() {
 u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
-        __destroy_arr(arg0 + 0x3C0, &__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __destroy_arr(arg0 + 0x3C0, &__dt__15RenderFadeStateFv, 0x1C, 4);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -320,7 +320,7 @@ u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
 void *TObjEneEpsilon__ct(void *ene_epsilon) {
     ((TObjEneDD_ST *)ene_epsilon)->init_object();
     *(s32 **)((s8 *)ene_epsilon + 0x18) = __vt__14TObjEneEpsilon;
-    __construct_array((void *)((char *)ene_epsilon + 960), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    __construct_array((void *)((char *)ene_epsilon + 960), __ct__15RenderFadeStateFv, __dt__15RenderFadeStateFv, 28, 4);
     *(void * *)&((TObjEneEpsilon *)ene_epsilon)->m_name = TObjEneEpsilon__class_name;
     ((TObjEneDD *)ene_epsilon)->check_state_flag_4();
     return ene_epsilon;

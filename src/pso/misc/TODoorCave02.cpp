@@ -1,6 +1,6 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "types.h"
-#include "pso/player/TUnk_80494AE0.h"
+#include "pso/misc/MaterialColorFade.h"
 #include "pso/unk/text_80158360.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
