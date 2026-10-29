@@ -3,6 +3,9 @@
 #include "pso/TObject.h"
 #include "types.h"
 
+// Called with a timer's object when the timer runs out.
+typedef void (*ItemTimerCallback)(void *object);
+
 class TItemAttacker : public TObject {
 public:
     TItemAttacker(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -10,7 +13,8 @@ public:
     virtual void run_task();
 public:
     void copy_from(void *arg1);
-    static void spawn_item_timer(s32 arg0, s32 arg1, s32 arg2);
+    // Calls expire(object) after frames frames; nothing when object is NULL.
+    static void spawn_item_timer(void *object, ItemTimerCallback expire, s32 frames);
 };
 
 #endif

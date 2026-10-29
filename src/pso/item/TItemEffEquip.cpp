@@ -90,8 +90,8 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x24 = arg5;
     if (self->src != NULL) {
         ((TItemEffEquip *)arg0)->spawn_equip_particle_effect((s32)arg4);
-        TItemAttacker::spawn_item_timer((s32)arg0, (s32)TItemEffEquip__sub_801088F8, 0xA);
-        TItemAttacker::spawn_item_timer((s32)arg0, (s32)retire_equipment_effect, 0x14);
+        TItemAttacker::spawn_item_timer(arg0, (ItemTimerCallback)TItemEffEquip__sub_801088F8, 0xA);
+        TItemAttacker::spawn_item_timer(arg0, (ItemTimerCallback)retire_equipment_effect, 0x14);
     } else {
         queue_destruction__7TObjectFv((TObject *)arg0);
     }

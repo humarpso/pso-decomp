@@ -209,7 +209,7 @@ void TItemWeapon::on_equip() {
         if (((TItem *)arg0)->is_hidden() != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
             ((TItemWeapon *)arg0)->set_weapon_flags(8);
         } else {
-            TItemAttacker::spawn_item_timer((s32)arg0, (s32)((void *)&set_flag_8_if_check_passes__10TObjPlayerFv), 0x14);
+            TItemAttacker::spawn_item_timer(arg0, (ItemTimerCallback)set_flag_8_if_check_passes__10TObjPlayerFv, 0x14);
             TItemEffEquip::create((void *)tl_05, (void *)(get_entity_id(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x30, (void *)0x9D, (void *)0x9E);
             if (((TItemWeapon *)arg0)->test_weapon_flags(0x200) != 0U) {
                 TItemEffEquip::create((void *)tl_05, (void *)(get_entity_id(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x23, (void *)0x9D, (void *)0x9E);

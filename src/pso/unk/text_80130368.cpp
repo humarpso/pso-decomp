@@ -115,7 +115,7 @@ void TUnk_804A69DC::emit_marker_effects() {
         ((TItemWeapon *)arg0)->get_gun_point((arg0 + 0x208));
         if ((s32) this->m_1fc > 0x1999) {
             ((TItem *)arg0)->send_activate_effect(0);
-            TItemAttacker::spawn_item_timer((s32)arg0, (s32)TObjPlayer__sub_801307D0, 0x1E);
+            TItemAttacker::spawn_item_timer(arg0, (ItemTimerCallback)TObjPlayer__sub_801307D0, 0x1E);
             this->m_204 = 0;
             return;
         }
