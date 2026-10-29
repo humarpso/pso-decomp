@@ -2635,6 +2635,7 @@ pso/ui/TAdDialingGC_80328E90.cpp
 pso/ui/TAdDialingMessageWindow.cpp
 pso/ui/TAdDialingMessageWindow_8036A064.cpp
 pso/ui/TAdDrawLineCtrl.cpp
+pso/ui/TAdDrawLineTask.cpp
 pso/ui/TAdEnterBaseGC.cpp
 pso/ui/TAdEnterBaseGC_8032B38C.cpp
 pso/ui/TAdEnterPPPPassGC.cpp
