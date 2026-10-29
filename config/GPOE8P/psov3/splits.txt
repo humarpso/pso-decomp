@@ -2480,7 +2480,7 @@ pso/item/TItemEffFlame.cpp:
 	.text       start:0x80108D2C end:0x8010900C
 	.rodata     start:0x8043E1E0 end:0x8043E1F8
 	.data       start:0x8049F070 end:0x8049F088
-	.sdata      start:0x805D2BA8 end:0x805D2BAC
+	.sdata      start:0x805D2BA8 end:0x805D2BB0
 	.sdata2     start:0x805DAB20 end:0x805DAB28
 
 pso/item/TItemEffHeaven.cpp:
@@ -2514,7 +2514,7 @@ pso/item/TItemEffNeedle.cpp:
 	.text       start:0x801097F0 end:0x8010A050
 	.rodata     start:0x8043E228 end:0x8043E270
 	.data       start:0x8049F0D8 end:0x8049F12C
-	.sdata      start:0x805D2BC8 end:0x805D2BD4
+	.sdata      start:0x805D2BC8 end:0x805D2BD8
 	.sdata2     start:0x805DAB48 end:0x805DAB58
 
 pso/player/TObjPlayer_8010A050.cpp:
