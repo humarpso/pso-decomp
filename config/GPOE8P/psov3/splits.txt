@@ -4996,17 +4996,16 @@ pso/misc/TODummyKeyCave01.cpp:
 	.data       start:0x804B1A40 end:0x804B1A74
 	.sdata2     start:0x805DB5D0 end:0x805DB5F0
 
-pso/misc/TOExplosiveMachine03.cpp:
-	.text       start:0x80165F84 end:0x801660F4
-
-pso/misc/TOExplosiveMachine02.cpp:
-	.text       start:0x801660F4 end:0x80166264
-
-pso/misc/TOExplosiveMachine01.cpp:
-	.text       start:0x80166264 end:0x801663D4
-
 pso/misc/TOExplosiveMachine.cpp:
-	.text       start:0x801663D4 end:0x80166970
+	.text       start:0x80165F84 end:0x80166778
+	.rodata     start:0x80441268 end:0x80441434
+	.data       start:0x804B1A78 end:0x804B1B80
+	.sdata      start:0x805D2FB0 end:0x805D2FC4
+	.sbss       start:0x805D59A8 end:0x805D59AC
+	.sdata2     start:0x805DB5F0 end:0x805DB5FC
+
+pso/misc/TUnk_804B1B80.cpp:
+	.text       start:0x80166778 end:0x80166970
 
 pso/player/TObjPlayer_80166970.cpp:
 	.text       start:0x80166970 end:0x80166AF4
