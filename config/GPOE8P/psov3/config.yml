@@ -368,6 +368,8 @@ force_active:
   - TDPBShower__ct
   - TEffGuard__class_name
   - TEffHit__class_name
+  - TEffStarLight2D_class_name
+  - TEffStarLightChild_class_name
   - TEffect__class_name
   - TEndingAB__sub_8008D5A0
   - TEndingPic__sub_8008D5AC
@@ -1616,6 +1618,7 @@ force_active:
   - __ct__19TObjEZBoneRotPlayerFv
   - __ct__19TWindowMessageYesNoFP7TObjectPvPvPv
   - __ct__20TBoss3VoloptHiraisinFP7TObjectPv
+  - __ct__20TEffStarLight2D_BaseFP7TObjectPv
   - __ct__20TItemReverseTechCtrlFP7TObject
   - __ct__20TObjChallenge4PRetryFP7TObject
   - __ct__20TObjLiveMonitorSmallFv
@@ -2001,6 +2004,7 @@ force_active:
   - __dt__20TAdGameStartShadowGCFv
   - __dt__20TBoss3VoloptHiraisinFv
   - __dt__20TBoss5GryphonTornadoFv
+  - __dt__20TEffStarLight2D_BaseFv
   - __dt__20TItemReverseTechCtrlFv
   - __dt__20TOTrapChainSawDamageFv
   - __dt__20TObjBoss5PillarSmokeFv
@@ -2445,6 +2449,7 @@ force_active:
   - __vt__20TBoss3VoloptHiraisin
   - __vt__20TBoss5GryphonTornado
   - __vt__20TContainerAncient01R
+  - __vt__20TEffStarLight2D_Base
   - __vt__20TItemReverseTechCtrl
   - __vt__20TOTrapChainSawDamage
   - __vt__20TObjBoss5PillarSmoke
@@ -4100,6 +4105,7 @@ force_active:
   - draw_ray_quads__8TAdRayGCFlPUcPvl
   - draw_record_with_camera__19TAdTrialAgreementGCFlll
   - draw_screen__22TAdEnterSerialAccessGCFPvPv
+  - draw_segment__15TEffStarLight2DFP15ColorLineVertexP15ColorLineVertexP15ColorLineVertexP15ColorLineVertexl
   - draw_selected_bar__11TWindowMenuFPUc
   - draw_selected_entry__20TWindowSubSymbolChatFv
   - draw_selected_part_cursor__28TWindowSubSymbolChatPartsSetFi
@@ -11457,6 +11463,7 @@ force_active:
   - render__20TBoss3VoloptHiraisinFv
   - render__20TBoss5GryphonTornadoFv
   - render__20TContainerAncient01RFv
+  - render__20TEffStarLight2D_BaseFv
   - render__20TObjEneDarkGunCenterFv
   - render__20TObjLiveMonitorSmallFv
   - render__20TQuadSpriteSclColRotFv
@@ -11972,6 +11979,7 @@ force_active:
   - run_task__20TBoss3VoloptHiraisinFv
   - run_task__20TBoss5GryphonTornadoFv
   - run_task__20TContainerAncient01RFv
+  - run_task__20TEffStarLight2D_BaseFv
   - run_task__20TItemReverseTechCtrlFv
   - run_task__20TObjChallenge4PRetryFv
   - run_task__20TObjEneDarkGunCenterFv
@@ -12708,6 +12716,7 @@ force_active:
   - spawn_wave_ring_particles__15TBoss6SwordWaveFv
   - split_bit_index__15TBoss6SwordWaveFlUcPvPv
   - standing_state__14TObjEneBm5WolfFl
+  - star_light_2d_base_color
   - start_action_if_idle__11TBoss6Type1Fv
   - start_anim__15TAdRicoRingCtrlFf
   - start_attack__11TBoss6Type1Fv

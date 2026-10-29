@@ -1,4 +1,5 @@
 #include "pso/object/ObjectFactoryTables.h"
+#include "pso/effect/TEffStarLight2D_Base.h"
 #include "pso/object/TObjLaboDesignBase.h"
 #include "pso/object/TObjRoomId.h"
 #include "pso/misc/TLazerFenceSw.h"
@@ -110,7 +111,6 @@
 
 extern "C" {
 void* TEF_LensFlare__create(void* placement);
-void* TEffStarLight2D_Base__create(void* placement);
 void* create_particle_obj_90__13TParticleCtrlFl(void* placement);
 void* create_particle_obj_ac__13TParticleCtrlFl(void* placement);
 void* create__22TObjFogCollisionPoisonFPv(void* placement);
@@ -348,7 +348,7 @@ ObjectFactoryEntry object_factories_floor_01[63] = {
     { 0x0016, TObjItemLight__create, 250000.0f, 0 },
     { 0x0017, TObjRaderCol__create, 250000.0f, 0 },
     { 0x0018, TObjFogCollisionSwitch__create, 250000.0f, 0 },
-    { 0x001D, TEffStarLight2D_Base__create, 250000.0f, 0 },
+    { 0x001D, TEffStarLight2D_Base::create, 250000.0f, 0 },
     { 0x001E, create_particle_obj_ac__13TParticleCtrlFl, 100000000.0f, 0 },
     { 0x0080, TObjDoor__create, 250000.0f, 0 },
     { 0x0081, TObjDoorKey__create, 250000.0f, 0 },
